@@ -1,0 +1,20 @@
+#nullable enable
+
+namespace TwelveLabs
+{
+    public partial interface ISubpackageAssetsClient
+    {
+        /// <summary>
+        /// Retrieve an asset<br/>
+        /// This method retrieves details about the specified asset.
+        /// </summary>
+        /// <param name="assetId"></param>
+        /// <param name="xApiKey"></param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::TwelveLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::TwelveLabs.Asset> RetrieveAsync(
+            string assetId,
+            string xApiKey,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}
