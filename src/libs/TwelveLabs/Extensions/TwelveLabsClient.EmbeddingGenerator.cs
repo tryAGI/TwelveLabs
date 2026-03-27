@@ -41,10 +41,10 @@ public partial class TwelveLabsClient : IEmbeddingGenerator<string, Embedding<fl
             "API key not set. Call WithApiKey() before using MEAI embedding generation.");
 
         var texts = values as IList<string> ?? values.ToList();
-        var embeddings = new GeneratedEmbeddings<Embedding<float>>();
+        var modelId = options?.ModelId ?? "marengo3.0";
 
-        // Twelve Labs embed v2 accepts one text per request
-        foreach (var text in texts)
+        // Twelve Labs embed v2 accepts one text per request — parallelize for throughput
+        var tasks = texts.Select(async text =>
         {
             var request = new CreateEmbeddingsRequest
             {
@@ -58,7 +58,7 @@ public partial class TwelveLabsClient : IEmbeddingGenerator<string, Embedding<fl
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
 
-            foreach (var item in response.Data)
+            return response.Data.Select(item =>
             {
                 var floatArray = new float[item.Embedding.Count];
                 for (var i = 0; i < item.Embedding.Count; i++)
@@ -66,10 +66,17 @@ public partial class TwelveLabsClient : IEmbeddingGenerator<string, Embedding<fl
                     floatArray[i] = (float)item.Embedding[i];
                 }
 
-                embeddings.Add(new Embedding<float>(floatArray)
-                {
-                    ModelId = options?.ModelId ?? "marengo3.0",
-                });
+                return new Embedding<float>(floatArray) { ModelId = modelId };
+            });
+        }).ToList();
+
+        var results = await Task.WhenAll(tasks).ConfigureAwait(false);
+        var embeddings = new GeneratedEmbeddings<Embedding<float>>();
+        foreach (var batch in results)
+        {
+            foreach (var embedding in batch)
+            {
+                embeddings.Add(embedding);
             }
         }
 
