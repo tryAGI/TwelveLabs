@@ -266,13 +266,13 @@ namespace TwelveLabs
                     if (ReadResponseAsString)
                     {
                         __content_429 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_429 = global::System.Text.Json.JsonSerializer.Deserialize(__content_429, typeof(string), JsonSerializerContext) as string;
+                        __value_429 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_429, typeof(string), JsonSerializerContext);
                     }
                     else
                     {
                         __content_429 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_429 = global::System.Text.Json.JsonSerializer.Deserialize(__content_429, typeof(string), JsonSerializerContext) as string;
+                        __value_429 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_429, typeof(string), JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
