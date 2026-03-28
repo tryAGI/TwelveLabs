@@ -45,7 +45,7 @@ namespace TwelveLabs
             string xApiKey,
             string? name = default,
             string? description = default,
-            object? metadata = default,
+            global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesEntityIdPatchRequestBodyContentApplicationJsonSchemaMetadata? metadata = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

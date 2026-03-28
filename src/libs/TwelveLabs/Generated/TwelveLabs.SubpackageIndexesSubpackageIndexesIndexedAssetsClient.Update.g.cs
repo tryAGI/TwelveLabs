@@ -37,7 +37,7 @@ namespace TwelveLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> UpdateAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesIndexedAssetsUpdateResponse204> UpdateAsync(
             string indexId,
             string indexedAssetId,
             string xApiKey,
@@ -175,7 +175,9 @@ namespace TwelveLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return __content;
+                    return
+                        global::TwelveLabs.IndexesIndexedAssetsUpdateResponse204.FromJson(__content, JsonSerializerContext) ??
+                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -198,13 +200,15 @@ namespace TwelveLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    var __content = await __response.Content.ReadAsStringAsync(
+                    using var __content = await __response.Content.ReadAsStreamAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return __content;
+                    return
+                        await global::TwelveLabs.IndexesIndexedAssetsUpdateResponse204.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -268,11 +272,11 @@ namespace TwelveLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> UpdateAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesIndexedAssetsUpdateResponse204> UpdateAsync(
             string indexId,
             string indexedAssetId,
             string xApiKey,
-            object? userMetadata = default,
+            global::TwelveLabs.UserMetadata? userMetadata = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::TwelveLabs.UpdateRequest2

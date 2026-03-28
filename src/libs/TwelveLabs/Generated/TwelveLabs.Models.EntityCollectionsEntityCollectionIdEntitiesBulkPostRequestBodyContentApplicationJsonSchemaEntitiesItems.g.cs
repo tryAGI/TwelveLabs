@@ -25,7 +25,7 @@ namespace TwelveLabs
         /// Optional metadata for the entity, provided as key-value pairs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public object? Metadata { get; set; }
+        public global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesBulkPostRequestBodyContentApplicationJsonSchemaEntitiesItemsMetadata? Metadata { get; set; }
 
         /// <summary>
         /// An array of asset IDs to associate with the entity. At least one asset ID is required.
@@ -62,7 +62,7 @@ namespace TwelveLabs
             string name,
             global::System.Collections.Generic.IList<string> assetIds,
             string? description,
-            object? metadata)
+            global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesBulkPostRequestBodyContentApplicationJsonSchemaEntitiesItemsMetadata? metadata)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.AssetIds = assetIds ?? throw new global::System.ArgumentNullException(nameof(assetIds));

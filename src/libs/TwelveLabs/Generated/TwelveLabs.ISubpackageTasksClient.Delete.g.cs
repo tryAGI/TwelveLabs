@@ -15,7 +15,7 @@ namespace TwelveLabs
         /// <param name="xApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> DeleteAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.TasksDeleteResponse204> DeleteAsync(
             string taskId,
             string xApiKey,
             global::System.Threading.CancellationToken cancellationToken = default);

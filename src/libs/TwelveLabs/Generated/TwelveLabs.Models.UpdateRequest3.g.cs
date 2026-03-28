@@ -33,7 +33,7 @@ namespace TwelveLabs
         /// &lt;/Note&gt;
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
-        public object? UserMetadata { get; set; }
+        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -72,7 +72,7 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UpdateRequest3(
-            object? userMetadata)
+            global::TwelveLabs.UserMetadata? userMetadata)
         {
             this.UserMetadata = userMetadata;
         }
