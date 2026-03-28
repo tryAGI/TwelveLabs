@@ -25,7 +25,7 @@ var client = new TwelveLabsClient(apiKey); // TWELVELABS_API_KEY env var
 ## Key Files
 
 - `src/libs/TwelveLabs/openapi.json` — OpenAPI spec (downloaded from docs.twelvelabs.io)
-- `src/libs/TwelveLabs/generate.sh` — Downloads spec, fixes auth scheme, runs autosdk
+- `src/libs/TwelveLabs/generate.sh` — Downloads spec, runs autosdk with `--security-scheme Http:Header:Bearer`
 - `src/libs/TwelveLabs/Generated/` — **Never edit** — auto-generated code
 - `src/tests/IntegrationTests/Tests.cs` — Test helper with bearer auth
 - `src/tests/IntegrationTests/Examples/` — Example tests (also generate docs)
