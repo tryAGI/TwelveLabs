@@ -271,7 +271,7 @@ namespace TwelveLabs
             string name,
             global::System.Collections.Generic.IList<string> assetIds,
             string? description = default,
-            object? metadata = default,
+            global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesPostRequestBodyContentApplicationJsonSchemaMetadata? metadata = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::TwelveLabs.CreateRequest6

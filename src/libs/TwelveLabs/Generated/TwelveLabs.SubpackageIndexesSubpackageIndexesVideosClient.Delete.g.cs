@@ -35,7 +35,7 @@ namespace TwelveLabs
         /// <param name="xApiKey"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> DeleteAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesVideosDeleteResponse204> DeleteAsync(
             string indexId,
             string videoId,
             string xApiKey,
@@ -161,7 +161,9 @@ namespace TwelveLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    return __content;
+                    return
+                        global::TwelveLabs.IndexesVideosDeleteResponse204.FromJson(__content, JsonSerializerContext) ??
+                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
                 {
@@ -184,13 +186,15 @@ namespace TwelveLabs
                 {
                     __response.EnsureSuccessStatusCode();
 
-                    var __content = await __response.Content.ReadAsStringAsync(
+                    using var __content = await __response.Content.ReadAsStreamAsync(
 #if NET5_0_OR_GREATER
                         cancellationToken
 #endif
                     ).ConfigureAwait(false);
 
-                    return __content;
+                    return
+                        await global::TwelveLabs.IndexesVideosDeleteResponse204.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
                 {

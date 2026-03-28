@@ -15,7 +15,7 @@ namespace TwelveLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> UpdateAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesVideosUpdateResponse204> UpdateAsync(
             string indexId,
             string videoId,
             string xApiKey,
@@ -56,11 +56,11 @@ namespace TwelveLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<string> UpdateAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesVideosUpdateResponse204> UpdateAsync(
             string indexId,
             string videoId,
             string xApiKey,
-            object? userMetadata = default,
+            global::TwelveLabs.UserMetadata? userMetadata = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

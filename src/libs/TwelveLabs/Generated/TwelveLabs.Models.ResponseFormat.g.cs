@@ -61,7 +61,7 @@ namespace TwelveLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("json_schema")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required object JsonSchema { get; set; }
+        public required global::TwelveLabs.ResponseFormatJsonSchema JsonSchema { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -123,7 +123,7 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ResponseFormat(
-            object jsonSchema,
+            global::TwelveLabs.ResponseFormatJsonSchema jsonSchema,
             global::TwelveLabs.ResponseFormatType type)
         {
             this.JsonSchema = jsonSchema ?? throw new global::System.ArgumentNullException(nameof(jsonSchema));

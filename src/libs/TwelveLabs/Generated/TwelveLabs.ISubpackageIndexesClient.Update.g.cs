@@ -13,7 +13,7 @@ namespace TwelveLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> UpdateAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesUpdateResponse204> UpdateAsync(
             string indexId,
             string xApiKey,
 
@@ -30,7 +30,7 @@ namespace TwelveLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<string> UpdateAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesUpdateResponse204> UpdateAsync(
             string indexId,
             string xApiKey,
             string indexName,

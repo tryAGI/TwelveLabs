@@ -24,7 +24,7 @@ namespace TwelveLabs
         /// Updated metadata for the entity. If provided, this completely replaces the existing metadata. Use this to store custom key-value pairs related to the entity.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public object? Metadata { get; set; }
+        public global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesEntityIdPatchRequestBodyContentApplicationJsonSchemaMetadata? Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -50,7 +50,7 @@ namespace TwelveLabs
         public UpdateRequest5(
             string? name,
             string? description,
-            object? metadata)
+            global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesEntityIdPatchRequestBodyContentApplicationJsonSchemaMetadata? metadata)
         {
             this.Name = name;
             this.Description = description;

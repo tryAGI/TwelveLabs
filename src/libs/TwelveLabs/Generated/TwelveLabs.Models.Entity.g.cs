@@ -30,7 +30,7 @@ namespace TwelveLabs
         /// Custom metadata for the entity.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public object? Metadata { get; set; }
+        public global::TwelveLabs.EntityMetadata? Metadata { get; set; }
 
         /// <summary>
         /// An array of asset IDs associated with the entity.
@@ -103,7 +103,7 @@ namespace TwelveLabs
             string? id,
             string? name,
             string? description,
-            object? metadata,
+            global::TwelveLabs.EntityMetadata? metadata,
             global::System.Collections.Generic.IList<string>? assetIds,
             global::TwelveLabs.EntityStatus? status,
             global::System.DateTime? createdAt,
