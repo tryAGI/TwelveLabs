@@ -55,15 +55,15 @@ namespace TwelveLabs
         /// - `audio`: Audio files<br/>
         /// - `video`: Video content
         /// </param>
-        /// <param name="modelName">
-        /// The model you wish to use. Only `"marengo3.0"` is supported.<br/>
-        /// Default Value: marengo3.0
-        /// </param>
         /// <param name="audio">
         /// This field is required if the `input_type` parameter is `audio`.
         /// </param>
         /// <param name="video">
         /// This field is required if the `input_type` parameter is `video`.
+        /// </param>
+        /// <param name="modelName">
+        /// The model you wish to use. Only `"marengo3.0"` is supported.<br/>
+        /// Default Value: marengo3.0
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -69,13 +69,6 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddingAudioMetadata" /> class.
         /// </summary>
-        /// <param name="inputType"></param>
-        /// <param name="inputUrl">
-        /// The publicly accessible URL for the audio file
-        /// </param>
-        /// <param name="inputFilename">
-        /// The name of the audio file
-        /// </param>
         /// <param name="embeddingOptions">
         /// Audio embedding options used for generating the embedding
         /// </param>
@@ -84,6 +77,13 @@ namespace TwelveLabs
         /// </param>
         /// <param name="duration">
         /// Duration of the audio in seconds
+        /// </param>
+        /// <param name="inputType"></param>
+        /// <param name="inputUrl">
+        /// The publicly accessible URL for the audio file
+        /// </param>
+        /// <param name="inputFilename">
+        /// The name of the audio file
         /// </param>
         /// <param name="startOffsetSec">
         /// Start offset in seconds
@@ -104,12 +104,12 @@ namespace TwelveLabs
             double? startOffsetSec,
             double? endOffsetSec)
         {
-            this.EmbeddingOptions = embeddingOptions ?? throw new global::System.ArgumentNullException(nameof(embeddingOptions));
-            this.EmbeddingScopes = embeddingScopes ?? throw new global::System.ArgumentNullException(nameof(embeddingScopes));
-            this.Duration = duration;
             this.InputType = inputType;
             this.InputUrl = inputUrl;
             this.InputFilename = inputFilename;
+            this.EmbeddingOptions = embeddingOptions ?? throw new global::System.ArgumentNullException(nameof(embeddingOptions));
+            this.EmbeddingScopes = embeddingScopes ?? throw new global::System.ArgumentNullException(nameof(embeddingScopes));
+            this.Duration = duration;
             this.StartOffsetSec = startOffsetSec;
             this.EndOffsetSec = endOffsetSec;
         }

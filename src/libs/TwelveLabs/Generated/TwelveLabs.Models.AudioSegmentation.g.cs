@@ -32,11 +32,11 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AudioSegmentation" /> class.
         /// </summary>
-        /// <param name="strategy"></param>
         /// <param name="fixed">
         /// Configuration for fixed segmentation.<br/>
         /// This object is required when the `strategy` field is `fixed`.
         /// </param>
+        /// <param name="strategy"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -44,8 +44,8 @@ namespace TwelveLabs
             global::TwelveLabs.AudioSegmentationFixed @fixed,
             global::TwelveLabs.AudioSegmentationStrategy strategy)
         {
-            this.Fixed = @fixed ?? throw new global::System.ArgumentNullException(nameof(@fixed));
             this.Strategy = strategy;
+            this.Fixed = @fixed ?? throw new global::System.ArgumentNullException(nameof(@fixed));
         }
 
         /// <summary>

@@ -31,8 +31,8 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="VideoSegmentation1" /> class.
         /// </summary>
-        /// <param name="strategy"></param>
         /// <param name="fixed"></param>
+        /// <param name="strategy"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -40,8 +40,8 @@ namespace TwelveLabs
             global::TwelveLabs.VideoSegmentationOneOf1Fixed @fixed,
             global::TwelveLabs.VideoSegmentation1Strategy strategy)
         {
-            this.Fixed = @fixed ?? throw new global::System.ArgumentNullException(nameof(@fixed));
             this.Strategy = strategy;
+            this.Fixed = @fixed ?? throw new global::System.ArgumentNullException(nameof(@fixed));
         }
 
         /// <summary>

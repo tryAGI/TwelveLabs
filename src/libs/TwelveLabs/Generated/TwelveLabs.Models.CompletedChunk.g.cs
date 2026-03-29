@@ -51,11 +51,11 @@ namespace TwelveLabs
         /// <param name="proof">
         /// The ETag value you received after uploading the chunk. When you upload a chunk to a presigned URLs, the response includes an ETag. Use this value and submit it as proof of successful upload.
         /// </param>
-        /// <param name="proofType">
-        /// The verification method. Supported value: `etag`.
-        /// </param>
         /// <param name="chunkSize">
         /// The number of bytes uploaded for this chunk. For all chunks except the last, this value equals [`chunk_size`](/v1.3/api-reference/upload-content/multipart-uploads/create#response.body.chunk_size). For the last chunk, it may be smaller.
+        /// </param>
+        /// <param name="proofType">
+        /// The verification method. Supported value: `etag`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -68,8 +68,8 @@ namespace TwelveLabs
         {
             this.ChunkIndex = chunkIndex;
             this.Proof = proof ?? throw new global::System.ArgumentNullException(nameof(proof));
-            this.ChunkSize = chunkSize;
             this.ProofType = proofType;
+            this.ChunkSize = chunkSize;
         }
 
         /// <summary>

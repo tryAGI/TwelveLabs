@@ -72,9 +72,6 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ResponseFormat" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Set this parameter to "json_schema" to receive structured JSON responses.
-        /// </param>
         /// <param name="jsonSchema">
         /// Contains the JSON schema that defines the response structure. The schema must adhere to the [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12) specification.<br/>
         /// **Supported types**<br/>
@@ -119,6 +116,9 @@ namespace TwelveLabs
         /// - When `FinishReason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
         /// - When `FinishReason` is `length`, the platform truncates the response at the token limit. This may result in truncated, invalid JSON that fails to parse.
         /// </param>
+        /// <param name="type">
+        /// Set this parameter to "json_schema" to receive structured JSON responses.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -126,8 +126,8 @@ namespace TwelveLabs
             global::TwelveLabs.ResponseFormatJsonSchema jsonSchema,
             global::TwelveLabs.ResponseFormatType type)
         {
-            this.JsonSchema = jsonSchema ?? throw new global::System.ArgumentNullException(nameof(jsonSchema));
             this.Type = type;
+            this.JsonSchema = jsonSchema ?? throw new global::System.ArgumentNullException(nameof(jsonSchema));
         }
 
         /// <summary>

@@ -46,14 +46,14 @@ namespace TwelveLabs
         /// <param name="name">
         /// The name of the entity.
         /// </param>
+        /// <param name="assetIds">
+        /// An array of asset IDs to associate with the entity. At least one asset ID is required.
+        /// </param>
         /// <param name="description">
         /// Optional description of the entity.
         /// </param>
         /// <param name="metadata">
         /// Optional metadata for the entity, provided as key-value pairs.
-        /// </param>
-        /// <param name="assetIds">
-        /// An array of asset IDs to associate with the entity. At least one asset ID is required.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -65,9 +65,9 @@ namespace TwelveLabs
             global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesBulkPostRequestBodyContentApplicationJsonSchemaEntitiesItemsMetadata? metadata)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.AssetIds = assetIds ?? throw new global::System.ArgumentNullException(nameof(assetIds));
             this.Description = description;
             this.Metadata = metadata;
+            this.AssetIds = assetIds ?? throw new global::System.ArgumentNullException(nameof(assetIds));
         }
 
         /// <summary>
