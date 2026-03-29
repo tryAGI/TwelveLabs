@@ -87,10 +87,6 @@ namespace TwelveLabs
         /// - `text_image`: Creates embeddings for text and an image<br/>
         /// - `multi_input`: Creates a single embedding from up to 10 images. You can optionally include text to provide context. To reference specific images in your text, use placeholders in the following format: `&lt;@name&gt;`, where `name` matches the `name` field of a media source
         /// </param>
-        /// <param name="modelName">
-        /// The video understanding model to use. Only "marengo3.0" is supported.<br/>
-        /// Default Value: marengo3.0
-        /// </param>
         /// <param name="text">
         /// This field is required if the `input_type` parameter is `text`.
         /// </param>
@@ -108,6 +104,10 @@ namespace TwelveLabs
         /// </param>
         /// <param name="multiInput">
         /// This field is required if the `input_type` parameter is `multi_input`.
+        /// </param>
+        /// <param name="modelName">
+        /// The video understanding model to use. Only "marengo3.0" is supported.<br/>
+        /// Default Value: marengo3.0
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

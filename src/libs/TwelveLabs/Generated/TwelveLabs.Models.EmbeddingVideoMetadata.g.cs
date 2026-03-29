@@ -75,6 +75,15 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddingVideoMetadata" /> class.
         /// </summary>
+        /// <param name="embeddingScopes">
+        /// Video embedding scopes
+        /// </param>
+        /// <param name="embeddingOptions">
+        /// Video embedding options used for generating the embedding
+        /// </param>
+        /// <param name="duration">
+        /// Duration of the video in seconds
+        /// </param>
         /// <param name="inputType"></param>
         /// <param name="inputUrl">
         /// The publicly accessible URL for the video file
@@ -84,15 +93,6 @@ namespace TwelveLabs
         /// </param>
         /// <param name="clipLength">
         /// Length of each video clip in seconds. Only available for fixed segmentation.
-        /// </param>
-        /// <param name="embeddingScopes">
-        /// Video embedding scopes
-        /// </param>
-        /// <param name="embeddingOptions">
-        /// Video embedding options used for generating the embedding
-        /// </param>
-        /// <param name="duration">
-        /// Duration of the video in seconds
         /// </param>
         /// <param name="startOffsetSec">
         /// Start offset in seconds
@@ -114,13 +114,13 @@ namespace TwelveLabs
             double? startOffsetSec,
             double? endOffsetSec)
         {
-            this.EmbeddingScopes = embeddingScopes ?? throw new global::System.ArgumentNullException(nameof(embeddingScopes));
-            this.EmbeddingOptions = embeddingOptions ?? throw new global::System.ArgumentNullException(nameof(embeddingOptions));
-            this.Duration = duration;
             this.InputType = inputType;
             this.InputUrl = inputUrl;
             this.InputFilename = inputFilename;
             this.ClipLength = clipLength;
+            this.EmbeddingScopes = embeddingScopes ?? throw new global::System.ArgumentNullException(nameof(embeddingScopes));
+            this.EmbeddingOptions = embeddingOptions ?? throw new global::System.ArgumentNullException(nameof(embeddingOptions));
+            this.Duration = duration;
             this.StartOffsetSec = startOffsetSec;
             this.EndOffsetSec = endOffsetSec;
         }

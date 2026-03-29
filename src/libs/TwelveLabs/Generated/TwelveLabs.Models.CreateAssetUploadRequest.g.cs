@@ -44,14 +44,14 @@ namespace TwelveLabs
         /// <param name="filename">
         /// The original file name of the asset.
         /// </param>
-        /// <param name="type">
-        /// The type of asset you want to upload.
-        /// </param>
         /// <param name="totalSize">
         /// The total size of the file in bytes. The platform uses this value to:<br/>
         /// - Calculate the optimal chunk size.<br/>
         /// - Determine the total number of chunks required<br/>
         /// - Generate the initial set of presigned URLs
+        /// </param>
+        /// <param name="type">
+        /// The type of asset you want to upload.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -62,8 +62,8 @@ namespace TwelveLabs
             global::TwelveLabs.CreateAssetUploadRequestType type)
         {
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
-            this.TotalSize = totalSize;
             this.Type = type;
+            this.TotalSize = totalSize;
         }
 
         /// <summary>

@@ -198,6 +198,25 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateRequest7" /> class.
         /// </summary>
+        /// <param name="indexId">
+        /// The unique identifier of the index to search.
+        /// </param>
+        /// <param name="searchOptions">
+        /// Specifies the modalities the video understanding model uses to find relevant information.<br/>
+        /// Available options:<br/>
+        /// - `visual`: Searches visual content.<br/>
+        /// - `audio`: Searches non-speech audio (Marengo 3.0) or all audio (Marengo 2.7).<br/>
+        /// - `transcription`: Spoken words (Marengo 3.0 only)<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        /// - You can specify multiple search options in conjunction with the [`operator`](/v1.3/api-reference/any-to-video-search/make-search-request#request.body.operator.operator) parameter described below to broaden or narrow your search. For example, to search using both visual and non-speech audio content, include this parameter two times in the request as shown below:<br/>
+        ///   ```JSON<br/>
+        ///   --form search_options=visual \<br/>
+        ///   --form search_options=audio \<br/>
+        ///   --form search_options=transcription \<br/>
+        ///   ```<br/>
+        /// &lt;/Note&gt;<br/>
+        /// For detailed guidance and version-specific behavior, see the [Search options](/v1.3/docs/concepts/modalities#search-options) section.
+        /// </param>
         /// <param name="queryMediaType">
         /// The type of media you wish to use. This parameter is required for media queries. For example, to perform an image-based search, set this parameter to `image`. Use `query_text` together with this parameter when you want to perform a composed image+text search.
         /// </param>
@@ -221,25 +240,6 @@ namespace TwelveLabs
         /// The text query to search for. This parameter is required for text queries. Note that the platform supports full natural language-based search. You can use this parameter together with `query_media_type` and `query_media_url` or `query_media_file` to perform a composed image+text search.<br/>
         /// If you're using the Entity Search feature to search for specific persons in your video content, you must enclose the unique identifier of your entity between the `&lt;@` and `&gt;` markers. For example, to search for an entity with the ID `entity123`, use `&lt;@entity123&gt; is walking` as your query.<br/>
         /// The maximum query length varies by model. Marengo 3.0 supports up to 500 tokens per query, while Marengo 2.7 supports up to 77 tokens per query.
-        /// </param>
-        /// <param name="indexId">
-        /// The unique identifier of the index to search.
-        /// </param>
-        /// <param name="searchOptions">
-        /// Specifies the modalities the video understanding model uses to find relevant information.<br/>
-        /// Available options:<br/>
-        /// - `visual`: Searches visual content.<br/>
-        /// - `audio`: Searches non-speech audio (Marengo 3.0) or all audio (Marengo 2.7).<br/>
-        /// - `transcription`: Spoken words (Marengo 3.0 only)<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// - You can specify multiple search options in conjunction with the [`operator`](/v1.3/api-reference/any-to-video-search/make-search-request#request.body.operator.operator) parameter described below to broaden or narrow your search. For example, to search using both visual and non-speech audio content, include this parameter two times in the request as shown below:<br/>
-        ///   ```JSON<br/>
-        ///   --form search_options=visual \<br/>
-        ///   --form search_options=audio \<br/>
-        ///   --form search_options=transcription \<br/>
-        ///   ```<br/>
-        /// &lt;/Note&gt;<br/>
-        /// For detailed guidance and version-specific behavior, see the [Search options](/v1.3/docs/concepts/modalities#search-options) section.
         /// </param>
         /// <param name="transcriptionOptions">
         /// Specifies how the platform matches your text query with the words spoken in the video. This parameter applies only when using Marengo 3.0 with the `search_options` parameter containing the `transcription` value.<br/>
@@ -345,12 +345,12 @@ namespace TwelveLabs
             string? filter,
             bool? includeUserMetadata)
         {
-            this.IndexId = indexId ?? throw new global::System.ArgumentNullException(nameof(indexId));
-            this.SearchOptions = searchOptions ?? throw new global::System.ArgumentNullException(nameof(searchOptions));
             this.QueryMediaType = queryMediaType;
             this.QueryMediaUrl = queryMediaUrl;
             this.QueryMediaFile = queryMediaFile;
             this.QueryText = queryText;
+            this.IndexId = indexId ?? throw new global::System.ArgumentNullException(nameof(indexId));
+            this.SearchOptions = searchOptions ?? throw new global::System.ArgumentNullException(nameof(searchOptions));
             this.TranscriptionOptions = transcriptionOptions;
             this.AdjustConfidenceLevel = adjustConfidenceLevel;
             this.GroupBy = groupBy;

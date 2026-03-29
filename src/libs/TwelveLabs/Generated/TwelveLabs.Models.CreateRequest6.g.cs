@@ -58,6 +58,9 @@ namespace TwelveLabs
         /// <param name="name">
         /// The name of the entity. Make sure you use a succinct and descriptive name.
         /// </param>
+        /// <param name="assetIds">
+        /// An array of asset IDs to associate with the entity. You must provide at least one value.
+        /// </param>
         /// <param name="description">
         /// An optional description of the entity.
         /// </param>
@@ -76,9 +79,6 @@ namespace TwelveLabs
         ///   To store complex data types such as objects or arrays, convert them to string values before including them in the metadata.<br/>
         /// &lt;/Note&gt;
         /// </param>
-        /// <param name="assetIds">
-        /// An array of asset IDs to associate with the entity. You must provide at least one value.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -89,9 +89,9 @@ namespace TwelveLabs
             global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesPostRequestBodyContentApplicationJsonSchemaMetadata? metadata)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.AssetIds = assetIds ?? throw new global::System.ArgumentNullException(nameof(assetIds));
             this.Description = description;
             this.Metadata = metadata;
+            this.AssetIds = assetIds ?? throw new global::System.ArgumentNullException(nameof(assetIds));
         }
 
         /// <summary>

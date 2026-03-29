@@ -34,14 +34,14 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="VideoSegmentation0" /> class.
         /// </summary>
+        /// <param name="dynamic">
+        /// Configuration for dynamic segmentation. This object is required when `strategy` is `dynamic`.
+        /// </param>
         /// <param name="strategy">
         /// The segmentation strategy you wish to use.<br/>
         /// **Values**:<br/>
         /// - `fixed`: Creates segments of equal, predetermined length. Use this for consistent timing.<br/>
         /// - `dynamic`: Creates segments of variable length that align with scene boundaries. Use this for content-aware segmentation.
-        /// </param>
-        /// <param name="dynamic">
-        /// Configuration for dynamic segmentation. This object is required when `strategy` is `dynamic`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -50,8 +50,8 @@ namespace TwelveLabs
             global::TwelveLabs.VideoSegmentationOneOf0Dynamic dynamic,
             global::TwelveLabs.VideoSegmentation0Strategy strategy)
         {
-            this.Dynamic = dynamic ?? throw new global::System.ArgumentNullException(nameof(dynamic));
             this.Strategy = strategy;
+            this.Dynamic = dynamic ?? throw new global::System.ArgumentNullException(nameof(dynamic));
         }
 
         /// <summary>
