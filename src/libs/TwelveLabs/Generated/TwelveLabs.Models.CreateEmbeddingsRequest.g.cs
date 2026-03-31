@@ -24,7 +24,7 @@ namespace TwelveLabs
         public required global::TwelveLabs.CreateEmbeddingsRequestInputType InputType { get; set; }
 
         /// <summary>
-        /// The video understanding model to use. Only "marengo3.0" is supported.<br/>
+        /// The video understanding model to use. Value: "marengo3.0".<br/>
         /// Default Value: marengo3.0
         /// </summary>
         /// <default>global::TwelveLabs.CreateEmbeddingsRequestModelName.Marengo30</default>
@@ -106,7 +106,7 @@ namespace TwelveLabs
         /// This field is required if the `input_type` parameter is `multi_input`.
         /// </param>
         /// <param name="modelName">
-        /// The video understanding model to use. Only "marengo3.0" is supported.<br/>
+        /// The video understanding model to use. Value: "marengo3.0".<br/>
         /// Default Value: marengo3.0
         /// </param>
 #if NET7_0_OR_GREATER

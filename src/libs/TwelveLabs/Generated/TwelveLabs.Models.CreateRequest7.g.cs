@@ -17,7 +17,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// The publicly accessible URL of a media file to use as a query. This parameter is required for media queries if `query_media_file` is not provided.<br/>
-        /// You can provide up to 10 images by specifying this parameter multiple times (Marengo 3.0 only):<br/>
+        /// You can provide up to 10 images by specifying this parameter multiple times:<br/>
         /// ```<br/>
         /// --form query_media_url=https://example.com/image1.jpg \<br/>
         /// --form query_media_url=https://example.com/image2.jpg<br/>
@@ -29,7 +29,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// A local media file to use as a query. This parameter is required for media queries if `query_media_url` is not provided.<br/>
-        /// You can provide up to 10 images by specifying this parameter multiple times (Marengo 3.0 only):<br/>
+        /// You can provide up to 10 images by specifying this parameter multiple times:<br/>
         /// ```<br/>
         /// --form query_media_file=@/path/to/image1.jpg \<br/>
         /// --form query_media_file=@/path/to/image2.jpg<br/>
@@ -42,7 +42,7 @@ namespace TwelveLabs
         /// <summary>
         /// The text query to search for. This parameter is required for text queries. Note that the platform supports full natural language-based search. You can use this parameter together with `query_media_type` and `query_media_url` or `query_media_file` to perform a composed image+text search.<br/>
         /// If you're using the Entity Search feature to search for specific persons in your video content, you must enclose the unique identifier of your entity between the `&lt;@` and `&gt;` markers. For example, to search for an entity with the ID `entity123`, use `&lt;@entity123&gt; is walking` as your query.<br/>
-        /// The maximum query length varies by model. Marengo 3.0 supports up to 500 tokens per query, while Marengo 2.7 supports up to 77 tokens per query.
+        /// Marengo supports up to 500 tokens per query.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("query_text")]
         public string? QueryText { get; set; }
@@ -58,8 +58,8 @@ namespace TwelveLabs
         /// Specifies the modalities the video understanding model uses to find relevant information.<br/>
         /// Available options:<br/>
         /// - `visual`: Searches visual content.<br/>
-        /// - `audio`: Searches non-speech audio (Marengo 3.0) or all audio (Marengo 2.7).<br/>
-        /// - `transcription`: Spoken words (Marengo 3.0 only)<br/>
+        /// - `audio`: Searches non-speech audio.<br/>
+        /// - `transcription`: Spoken words<br/>
         /// &lt;Note title="Note"&gt;<br/>
         /// - You can specify multiple search options in conjunction with the [`operator`](/v1.3/api-reference/any-to-video-search/make-search-request#request.body.operator.operator) parameter described below to broaden or narrow your search. For example, to search using both visual and non-speech audio content, include this parameter two times in the request as shown below:<br/>
         ///   ```JSON<br/>
@@ -68,14 +68,14 @@ namespace TwelveLabs
         ///   --form search_options=transcription \<br/>
         ///   ```<br/>
         /// &lt;/Note&gt;<br/>
-        /// For detailed guidance and version-specific behavior, see the [Search options](/v1.3/docs/concepts/modalities#search-options) section.
+        /// For guidance, see the [Search options](/v1.3/docs/concepts/modalities#search-options) section.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("search_options")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems> SearchOptions { get; set; }
 
         /// <summary>
-        /// Specifies how the platform matches your text query with the words spoken in the video. This parameter applies only when using Marengo 3.0 with the `search_options` parameter containing the `transcription` value.<br/>
+        /// Specifies how the platform matches your text query with the words spoken in the video. This parameter applies only when the `search_options` parameter contains the `transcription` value.<br/>
         /// Available options:<br/>
         /// - `lexical`: Exact word matching<br/>
         /// - `semantic`: Meaning-based matching<br/>
@@ -84,18 +84,6 @@ namespace TwelveLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcription_options")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItems>? TranscriptionOptions { get; set; }
-
-        /// <summary>
-        /// &lt;Info&gt;<br/>
-        ///   This parameter is deprecated in Marengo 3.0 and newer versions. Use the [`rank`](/v1.3/api-reference/any-to-video-search/make-search-request#response.body.data.rank) field in the response instead, which indicates the relevance ranking assigned by the model.<br/>
-        /// &lt;/Info&gt;<br/>
-        /// This parameter specifies the strictness of the thresholds for assigning the high, medium, or low confidence levels to search results. If you use a lower value, the thresholds become more relaxed, and more search results will be classified as having high, medium, or low confidence levels. You can use this parameter to include a broader range of potentially relevant video clips, even if some results might be less precise.<br/>
-        /// **Min**: 0<br/>
-        /// **Max**: 1<br/>
-        /// **Default:** 0.5
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("adjust_confidence_level")]
-        public double? AdjustConfidenceLevel { get; set; }
 
         /// <summary>
         /// Use this parameter to group or ungroup items in a response. It can take one of the following values:<br/>
@@ -107,33 +95,6 @@ namespace TwelveLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("group_by")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaGroupByJsonConverter))]
         public global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaGroupBy? GroupBy { get; set; }
-
-        /// <summary>
-        /// &lt;Info&gt;<br/>
-        ///   This parameter is deprecated in Marengo 3.0 and newer versions. Use the [`rank`](/v1.3/api-reference/any-to-video-search/make-search-request#response.body.data.rank)  field in the response instead, which indicates the relevance ranking assigned by the model.<br/>
-        /// &lt;/Info&gt;<br/>
-        /// Use this parameter to filter on the level of confidence that the results match your query.<br/>
-        /// **Default**: `low`<br/>
-        /// Default Value: low
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("threshold")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.ThresholdSearchJsonConverter))]
-        public global::TwelveLabs.ThresholdSearch? Threshold { get; set; }
-
-        /// <summary>
-        /// &lt;Info&gt;<br/>
-        ///   This parameter is deprecated in Marengo 3.0 and newer versions. Use the [`rank`](/v1.3/api-reference/any-to-video-search/make-search-request#response.body.data.rank) field in the response instead, which indicates the relevance ranking assigned by the model.<br/>
-        /// &lt;/Info&gt;<br/>
-        /// Use this parameter to specify the sort order for the response.<br/>
-        /// When performing a search, the platform assigns a relevance ranking to each video clip that matches your search terms. By default, the search results are sorted by relevance ranking in ascending order, with 1 being the most relevant result.<br/>
-        /// If you set this parameter to `score` and `group_by` is set to `video`, the platform will determine the highest relevance ranking (lowest number) for each video and sort the videos in the response by this ranking. For each video, the matching video clips will be sorted by relevance ranking in ascending order.<br/>
-        /// If you set this parameter to `clip_count` and `group_by` is set to `video`, the platform will sort the videos in the response by the number of clips. For each video, the matching video clips will be sorted by relevance ranking in ascending order. You can use `clip_count` only when the matching video clips are grouped by video.<br/>
-        /// **Default:** `score`<br/>
-        /// Default Value: score
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("sort_option")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaSortOptionJsonConverter))]
-        public global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSortOption? SortOption { get; set; }
 
         /// <summary>
         /// Combines multiple search options using `or` or `and`. Use `and` to find segments matching all search options. Use `or` to find segments matching any search option. For detailed guidance on using this parameter, see the [Combine multiple modalities](/v1.3/docs/concepts/modalities#combine-multiple-modalities) section.<br/>
@@ -205,8 +166,8 @@ namespace TwelveLabs
         /// Specifies the modalities the video understanding model uses to find relevant information.<br/>
         /// Available options:<br/>
         /// - `visual`: Searches visual content.<br/>
-        /// - `audio`: Searches non-speech audio (Marengo 3.0) or all audio (Marengo 2.7).<br/>
-        /// - `transcription`: Spoken words (Marengo 3.0 only)<br/>
+        /// - `audio`: Searches non-speech audio.<br/>
+        /// - `transcription`: Spoken words<br/>
         /// &lt;Note title="Note"&gt;<br/>
         /// - You can specify multiple search options in conjunction with the [`operator`](/v1.3/api-reference/any-to-video-search/make-search-request#request.body.operator.operator) parameter described below to broaden or narrow your search. For example, to search using both visual and non-speech audio content, include this parameter two times in the request as shown below:<br/>
         ///   ```JSON<br/>
@@ -215,14 +176,14 @@ namespace TwelveLabs
         ///   --form search_options=transcription \<br/>
         ///   ```<br/>
         /// &lt;/Note&gt;<br/>
-        /// For detailed guidance and version-specific behavior, see the [Search options](/v1.3/docs/concepts/modalities#search-options) section.
+        /// For guidance, see the [Search options](/v1.3/docs/concepts/modalities#search-options) section.
         /// </param>
         /// <param name="queryMediaType">
         /// The type of media you wish to use. This parameter is required for media queries. For example, to perform an image-based search, set this parameter to `image`. Use `query_text` together with this parameter when you want to perform a composed image+text search.
         /// </param>
         /// <param name="queryMediaUrl">
         /// The publicly accessible URL of a media file to use as a query. This parameter is required for media queries if `query_media_file` is not provided.<br/>
-        /// You can provide up to 10 images by specifying this parameter multiple times (Marengo 3.0 only):<br/>
+        /// You can provide up to 10 images by specifying this parameter multiple times:<br/>
         /// ```<br/>
         /// --form query_media_url=https://example.com/image1.jpg \<br/>
         /// --form query_media_url=https://example.com/image2.jpg<br/>
@@ -230,7 +191,7 @@ namespace TwelveLabs
         /// </param>
         /// <param name="queryMediaFile">
         /// A local media file to use as a query. This parameter is required for media queries if `query_media_url` is not provided.<br/>
-        /// You can provide up to 10 images by specifying this parameter multiple times (Marengo 3.0 only):<br/>
+        /// You can provide up to 10 images by specifying this parameter multiple times:<br/>
         /// ```<br/>
         /// --form query_media_file=@/path/to/image1.jpg \<br/>
         /// --form query_media_file=@/path/to/image2.jpg<br/>
@@ -239,24 +200,15 @@ namespace TwelveLabs
         /// <param name="queryText">
         /// The text query to search for. This parameter is required for text queries. Note that the platform supports full natural language-based search. You can use this parameter together with `query_media_type` and `query_media_url` or `query_media_file` to perform a composed image+text search.<br/>
         /// If you're using the Entity Search feature to search for specific persons in your video content, you must enclose the unique identifier of your entity between the `&lt;@` and `&gt;` markers. For example, to search for an entity with the ID `entity123`, use `&lt;@entity123&gt; is walking` as your query.<br/>
-        /// The maximum query length varies by model. Marengo 3.0 supports up to 500 tokens per query, while Marengo 2.7 supports up to 77 tokens per query.
+        /// Marengo supports up to 500 tokens per query.
         /// </param>
         /// <param name="transcriptionOptions">
-        /// Specifies how the platform matches your text query with the words spoken in the video. This parameter applies only when using Marengo 3.0 with the `search_options` parameter containing the `transcription` value.<br/>
+        /// Specifies how the platform matches your text query with the words spoken in the video. This parameter applies only when the `search_options` parameter contains the `transcription` value.<br/>
         /// Available options:<br/>
         /// - `lexical`: Exact word matching<br/>
         /// - `semantic`: Meaning-based matching<br/>
         /// For details on when to use each option, see the [Transcription options](/v1.3/docs/concepts/modalities#transcription-options) section.<br/>
         /// **Default**: `["lexical", "semantic"]`.
-        /// </param>
-        /// <param name="adjustConfidenceLevel">
-        /// &lt;Info&gt;<br/>
-        ///   This parameter is deprecated in Marengo 3.0 and newer versions. Use the [`rank`](/v1.3/api-reference/any-to-video-search/make-search-request#response.body.data.rank) field in the response instead, which indicates the relevance ranking assigned by the model.<br/>
-        /// &lt;/Info&gt;<br/>
-        /// This parameter specifies the strictness of the thresholds for assigning the high, medium, or low confidence levels to search results. If you use a lower value, the thresholds become more relaxed, and more search results will be classified as having high, medium, or low confidence levels. You can use this parameter to include a broader range of potentially relevant video clips, even if some results might be less precise.<br/>
-        /// **Min**: 0<br/>
-        /// **Max**: 1<br/>
-        /// **Default:** 0.5
         /// </param>
         /// <param name="groupBy">
         /// Use this parameter to group or ungroup items in a response. It can take one of the following values:<br/>
@@ -264,25 +216,6 @@ namespace TwelveLabs
         /// - `clip`: The matching video clips in the response will not be grouped.<br/>
         /// **Default:** `clip`<br/>
         /// Default Value: clip
-        /// </param>
-        /// <param name="threshold">
-        /// &lt;Info&gt;<br/>
-        ///   This parameter is deprecated in Marengo 3.0 and newer versions. Use the [`rank`](/v1.3/api-reference/any-to-video-search/make-search-request#response.body.data.rank)  field in the response instead, which indicates the relevance ranking assigned by the model.<br/>
-        /// &lt;/Info&gt;<br/>
-        /// Use this parameter to filter on the level of confidence that the results match your query.<br/>
-        /// **Default**: `low`<br/>
-        /// Default Value: low
-        /// </param>
-        /// <param name="sortOption">
-        /// &lt;Info&gt;<br/>
-        ///   This parameter is deprecated in Marengo 3.0 and newer versions. Use the [`rank`](/v1.3/api-reference/any-to-video-search/make-search-request#response.body.data.rank) field in the response instead, which indicates the relevance ranking assigned by the model.<br/>
-        /// &lt;/Info&gt;<br/>
-        /// Use this parameter to specify the sort order for the response.<br/>
-        /// When performing a search, the platform assigns a relevance ranking to each video clip that matches your search terms. By default, the search results are sorted by relevance ranking in ascending order, with 1 being the most relevant result.<br/>
-        /// If you set this parameter to `score` and `group_by` is set to `video`, the platform will determine the highest relevance ranking (lowest number) for each video and sort the videos in the response by this ranking. For each video, the matching video clips will be sorted by relevance ranking in ascending order.<br/>
-        /// If you set this parameter to `clip_count` and `group_by` is set to `video`, the platform will sort the videos in the response by the number of clips. For each video, the matching video clips will be sorted by relevance ranking in ascending order. You can use `clip_count` only when the matching video clips are grouped by video.<br/>
-        /// **Default:** `score`<br/>
-        /// Default Value: score
         /// </param>
         /// <param name="operator">
         /// Combines multiple search options using `or` or `and`. Use `and` to find segments matching all search options. Use `or` to find segments matching any search option. For detailed guidance on using this parameter, see the [Combine multiple modalities](/v1.3/docs/concepts/modalities#combine-multiple-modalities) section.<br/>
@@ -336,10 +269,7 @@ namespace TwelveLabs
             global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFile? queryMediaFile,
             string? queryText,
             global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItems>? transcriptionOptions,
-            double? adjustConfidenceLevel,
             global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaGroupBy? groupBy,
-            global::TwelveLabs.ThresholdSearch? threshold,
-            global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSortOption? sortOption,
             global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaOperator? @operator,
             int? pageLimit,
             string? filter,
@@ -352,10 +282,7 @@ namespace TwelveLabs
             this.IndexId = indexId ?? throw new global::System.ArgumentNullException(nameof(indexId));
             this.SearchOptions = searchOptions ?? throw new global::System.ArgumentNullException(nameof(searchOptions));
             this.TranscriptionOptions = transcriptionOptions;
-            this.AdjustConfidenceLevel = adjustConfidenceLevel;
             this.GroupBy = groupBy;
-            this.Threshold = threshold;
-            this.SortOption = sortOption;
             this.Operator = @operator;
             this.PageLimit = pageLimit;
             this.Filter = filter;

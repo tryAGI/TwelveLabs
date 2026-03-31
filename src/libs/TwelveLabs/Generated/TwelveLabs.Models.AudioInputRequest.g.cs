@@ -43,7 +43,7 @@ namespace TwelveLabs
         /// **Values**:<br/>
         /// - `audio`: Generates embeddings based on audio content (sounds, music, effects)<br/>
         /// - `transcription`: Generates embeddings based on transcribed speech<br/>
-        /// You can specify multiple options to generate different types of embeddings for the same audio.
+        /// You can specify multiple values to generate different types of embeddings for the same audio.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding_option")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.AudioInputRequestEmbeddingOptionItems>? EmbeddingOption { get; set; }
@@ -100,7 +100,7 @@ namespace TwelveLabs
         /// **Values**:<br/>
         /// - `audio`: Generates embeddings based on audio content (sounds, music, effects)<br/>
         /// - `transcription`: Generates embeddings based on transcribed speech<br/>
-        /// You can specify multiple options to generate different types of embeddings for the same audio.
+        /// You can specify multiple values to generate different types of embeddings for the same audio.
         /// </param>
         /// <param name="embeddingScope">
         /// The scope for which you wish to generate embeddings.<br/>

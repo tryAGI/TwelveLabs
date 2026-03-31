@@ -7,9 +7,6 @@ namespace TwelveLabs
         /// <summary>
         /// Create sync embeddings<br/>
         /// This endpoint synchronously creates embeddings for multimodal content and returns the results immediately in the response.<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        ///   This method only supports Marengo version 3.0 or newer.<br/>
-        /// &lt;/Note&gt;<br/>
         /// **When to use this endpoint**:<br/>
         /// - Create embeddings for text, images, audio, or video content<br/>
         /// - Retrieve immediate results without waiting for background processing<br/>
@@ -47,9 +44,6 @@ namespace TwelveLabs
         /// <summary>
         /// Create sync embeddings<br/>
         /// This endpoint synchronously creates embeddings for multimodal content and returns the results immediately in the response.<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        ///   This method only supports Marengo version 3.0 or newer.<br/>
-        /// &lt;/Note&gt;<br/>
         /// **When to use this endpoint**:<br/>
         /// - Create embeddings for text, images, audio, or video content<br/>
         /// - Retrieve immediate results without waiting for background processing<br/>
@@ -87,7 +81,7 @@ namespace TwelveLabs
         /// - `multi_input`: Creates a single embedding from up to 10 images. You can optionally include text to provide context. To reference specific images in your text, use placeholders in the following format: `&lt;@name&gt;`, where `name` matches the `name` field of a media source
         /// </param>
         /// <param name="modelName">
-        /// The video understanding model to use. Only "marengo3.0" is supported.<br/>
+        /// The video understanding model to use. Value: "marengo3.0".<br/>
         /// Default Value: marengo3.0
         /// </param>
         /// <param name="text">

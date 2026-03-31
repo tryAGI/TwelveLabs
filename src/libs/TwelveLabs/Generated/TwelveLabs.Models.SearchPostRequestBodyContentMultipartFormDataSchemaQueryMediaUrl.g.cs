@@ -6,7 +6,7 @@ namespace TwelveLabs
 {
     /// <summary>
     /// The publicly accessible URL of a media file to use as a query. This parameter is required for media queries if `query_media_file` is not provided.<br/>
-    /// You can provide up to 10 images by specifying this parameter multiple times (Marengo 3.0 only):<br/>
+    /// You can provide up to 10 images by specifying this parameter multiple times:<br/>
     /// ```<br/>
     /// --form query_media_url=https://example.com/image1.jpg \<br/>
     /// --form query_media_url=https://example.com/image2.jpg<br/>
