@@ -9,15 +9,6 @@ namespace TwelveLabs
     public sealed partial class SearchItemClipsItems
     {
         /// <summary>
-        /// &lt;Info&gt;<br/>
-        ///   Marengo 3.0 and newer versions do not return this field. Use the `rank` field instead.<br/>
-        /// &lt;/Info&gt;<br/>
-        /// A quantitative value determined by the AI model representing the level of confidence that the results match your search terms.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("score")]
-        public double? Score { get; set; }
-
-        /// <summary>
         /// The start time of the matching video clip, expressed in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start")]
@@ -30,22 +21,6 @@ namespace TwelveLabs
         public double? End { get; set; }
 
         /// <summary>
-        /// &lt;Info&gt;<br/>
-        ///   Marengo 3.0 and newer versions do not return this field. Use the `rank` field instead.<br/>
-        /// &lt;/Info&gt;<br/>
-        /// A qualitative indicator based on the value of the `score` field. This field can take one of the following values:<br/>
-        /// - `high`<br/>
-        /// - `medium`<br/>
-        /// - `low`<br/>
-        /// - `extremely low`
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("confidence")]
-        public string? Confidence { get; set; }
-
-        /// <summary>
-        /// &lt;Info&gt;<br/>
-        ///   Only Marengo 3.0 and newer versions return this field. Earlier versions return `score` and `confidence` instead.<br/>
-        /// &lt;/Info&gt;<br/>
         /// The relevance ranking assigned by the model. Lower numbers indicate higher relevance, starting with 1 for the most relevant result.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rank")]
@@ -105,32 +80,13 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="SearchItemClipsItems" /> class.
         /// </summary>
-        /// <param name="score">
-        /// &lt;Info&gt;<br/>
-        ///   Marengo 3.0 and newer versions do not return this field. Use the `rank` field instead.<br/>
-        /// &lt;/Info&gt;<br/>
-        /// A quantitative value determined by the AI model representing the level of confidence that the results match your search terms.
-        /// </param>
         /// <param name="start">
         /// The start time of the matching video clip, expressed in seconds.
         /// </param>
         /// <param name="end">
         /// The end time of the matching video clip, expressed in seconds.
         /// </param>
-        /// <param name="confidence">
-        /// &lt;Info&gt;<br/>
-        ///   Marengo 3.0 and newer versions do not return this field. Use the `rank` field instead.<br/>
-        /// &lt;/Info&gt;<br/>
-        /// A qualitative indicator based on the value of the `score` field. This field can take one of the following values:<br/>
-        /// - `high`<br/>
-        /// - `medium`<br/>
-        /// - `low`<br/>
-        /// - `extremely low`
-        /// </param>
         /// <param name="rank">
-        /// &lt;Info&gt;<br/>
-        ///   Only Marengo 3.0 and newer versions return this field. Earlier versions return `score` and `confidence` instead.<br/>
-        /// &lt;/Info&gt;<br/>
         /// The relevance ranking assigned by the model. Lower numbers indicate higher relevance, starting with 1 for the most relevant result.
         /// </param>
         /// <param name="thumbnailUrl">
@@ -170,20 +126,16 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SearchItemClipsItems(
-            double? score,
             double? start,
             double? end,
-            string? confidence,
             int? rank,
             string? thumbnailUrl,
             string? transcription,
             string? videoId,
             global::TwelveLabs.UserMetadata? userMetadata)
         {
-            this.Score = score;
             this.Start = start;
             this.End = end;
-            this.Confidence = confidence;
             this.Rank = rank;
             this.ThumbnailUrl = thumbnailUrl;
             this.Transcription = transcription;

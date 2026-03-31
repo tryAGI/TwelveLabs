@@ -10,8 +10,7 @@ namespace TwelveLabs
     {
         /// <summary>
         /// The name of the model you want to use. The following models are available:<br/>
-        ///   - `marengo3.0`: Enhanced model with sports intelligence and extended content support.<br/>
-        ///   - `Marengo-retrieval-2.7`: **Deprecation notice**: Starting mid-March 2026, your videos will be automatically reindexed to Marengo 3.0. Marengo 2.7 will be deprecated once reindexing completes. See the [Migration guide](/v1.3/docs/get-started/migration-guide) for details.
+        ///   - `marengo3.0`: Enhanced model with sports intelligence and extended content support.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -90,8 +89,7 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="modelName">
         /// The name of the model you want to use. The following models are available:<br/>
-        ///   - `marengo3.0`: Enhanced model with sports intelligence and extended content support.<br/>
-        ///   - `Marengo-retrieval-2.7`: **Deprecation notice**: Starting mid-March 2026, your videos will be automatically reindexed to Marengo 3.0. Marengo 2.7 will be deprecated once reindexing completes. See the [Migration guide](/v1.3/docs/get-started/migration-guide) for details.
+        ///   - `marengo3.0`: Enhanced model with sports intelligence and extended content support.
         /// </param>
         /// <param name="videoFile">
         /// Specify this parameter to upload a video from your local file system.

@@ -20,7 +20,7 @@ namespace TwelveLabs
         public required global::TwelveLabs.CreateAsyncEmbeddingRequestInputType InputType { get; set; }
 
         /// <summary>
-        /// The model you wish to use. Only `"marengo3.0"` is supported.<br/>
+        /// The model you wish to use. Value: `"marengo3.0"`.<br/>
         /// Default Value: marengo3.0
         /// </summary>
         /// <default>global::TwelveLabs.CreateAsyncEmbeddingRequestModelName.Marengo30</default>
@@ -62,7 +62,7 @@ namespace TwelveLabs
         /// This field is required if the `input_type` parameter is `video`.
         /// </param>
         /// <param name="modelName">
-        /// The model you wish to use. Only `"marengo3.0"` is supported.<br/>
+        /// The model you wish to use. Value: `"marengo3.0"`.<br/>
         /// Default Value: marengo3.0
         /// </param>
 #if NET7_0_OR_GREATER

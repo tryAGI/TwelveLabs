@@ -7,9 +7,6 @@ namespace TwelveLabs
         /// <summary>
         /// Create an async embedding task<br/>
         /// This endpoint creates embeddings for audio and video content asynchronously.<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        ///   This method only supports Marengo version 3.0 or newer.<br/>
-        /// &lt;/Note&gt;<br/>
         /// **When to use this endpoint**:<br/>
         /// - Process audio or video files longer than 10 minutes<br/>
         /// - Process files up to 4 hours in duration<br/>
@@ -47,9 +44,6 @@ namespace TwelveLabs
         /// <summary>
         /// Create an async embedding task<br/>
         /// This endpoint creates embeddings for audio and video content asynchronously.<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        ///   This method only supports Marengo version 3.0 or newer.<br/>
-        /// &lt;/Note&gt;<br/>
         /// **When to use this endpoint**:<br/>
         /// - Process audio or video files longer than 10 minutes<br/>
         /// - Process files up to 4 hours in duration<br/>
@@ -83,7 +77,7 @@ namespace TwelveLabs
         /// - `video`: Video content
         /// </param>
         /// <param name="modelName">
-        /// The model you wish to use. Only `"marengo3.0"` is supported.<br/>
+        /// The model you wish to use. Value: `"marengo3.0"`.<br/>
         /// Default Value: marengo3.0
         /// </param>
         /// <param name="audio">

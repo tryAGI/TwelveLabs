@@ -4,13 +4,13 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The video understanding model to use. Only "marengo3.0" is supported.<br/>
+    /// The video understanding model to use. Value: "marengo3.0".<br/>
     /// Default Value: marengo3.0
     /// </summary>
     public enum CreateEmbeddingsRequestModelName
     {
         /// <summary>
-        /// 
+        /// "marengo3.0".
         /// </summary>
         Marengo30,
     }

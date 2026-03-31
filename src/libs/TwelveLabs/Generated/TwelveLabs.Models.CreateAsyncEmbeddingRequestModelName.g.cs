@@ -4,13 +4,13 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The model you wish to use. Only `"marengo3.0"` is supported.<br/>
+    /// The model you wish to use. Value: `"marengo3.0"`.<br/>
     /// Default Value: marengo3.0
     /// </summary>
     public enum CreateAsyncEmbeddingRequestModelName
     {
         /// <summary>
-        /// 
+        /// `"marengo3.0"`.
         /// </summary>
         Marengo30,
     }

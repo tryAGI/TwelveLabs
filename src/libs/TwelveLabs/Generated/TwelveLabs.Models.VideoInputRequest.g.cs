@@ -45,7 +45,7 @@ namespace TwelveLabs
         /// - `visual`: Generates embeddings based on visual content (scenes, objects, actions)<br/>
         /// - `audio`: Generates embeddings based on audio content (sounds, music, effects)<br/>
         /// - `transcription`: Generates embeddings based on transcribed speech<br/>
-        /// You can specify multiple options to generate different types of embeddings for the same video.<br/>
+        /// You can specify multiple values to generate different types of embeddings for the same video.<br/>
         /// **Default**: `["visual", "audio", "transcription"]`
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding_option")]
@@ -105,7 +105,7 @@ namespace TwelveLabs
         /// - `visual`: Generates embeddings based on visual content (scenes, objects, actions)<br/>
         /// - `audio`: Generates embeddings based on audio content (sounds, music, effects)<br/>
         /// - `transcription`: Generates embeddings based on transcribed speech<br/>
-        /// You can specify multiple options to generate different types of embeddings for the same video.<br/>
+        /// You can specify multiple values to generate different types of embeddings for the same video.<br/>
         /// **Default**: `["visual", "audio", "transcription"]`
         /// </param>
         /// <param name="embeddingScope">

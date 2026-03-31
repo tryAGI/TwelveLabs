@@ -101,14 +101,6 @@ namespace TwelveLabs
 
             typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaGroupByNullableJsonConverter),
 
-            typeof(global::TwelveLabs.JsonConverters.ThresholdSearchJsonConverter),
-
-            typeof(global::TwelveLabs.JsonConverters.ThresholdSearchNullableJsonConverter),
-
-            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaSortOptionJsonConverter),
-
-            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaSortOptionNullableJsonConverter),
-
             typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaOperatorJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaOperatorNullableJsonConverter),
@@ -439,8 +431,6 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems), TypeInfoPropertyName = "SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItems), TypeInfoPropertyName = "SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaGroupBy), TypeInfoPropertyName = "SearchPostRequestBodyContentMultipartFormDataSchemaGroupBy2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ThresholdSearch), TypeInfoPropertyName = "ThresholdSearch2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSortOption), TypeInfoPropertyName = "SearchPostRequestBodyContentMultipartFormDataSchemaSortOption2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaOperator), TypeInfoPropertyName = "SearchPostRequestBodyContentMultipartFormDataSchemaOperator2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchItemClipsItems))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchItem))]

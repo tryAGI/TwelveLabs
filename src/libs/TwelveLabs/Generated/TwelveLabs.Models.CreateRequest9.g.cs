@@ -10,8 +10,7 @@ namespace TwelveLabs
     {
         /// <summary>
         /// The name of the model you want to use. The following models are available:<br/>
-        ///   - `marengo3.0`: Enhanced model with sports intelligence and extended content support.<br/>
-        ///   - `Marengo-retrieval-2.7`: **Deprecation notice**: Starting mid-March 2026, your videos will be automatically reindexed to Marengo 3.0. Marengo 2.7 will be deprecated once reindexing completes. See the [Migration guide](/v1.3/docs/get-started/migration-guide) for details.
+        ///   - `marengo3.0`: Enhanced model with sports intelligence and extended content support.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -23,20 +22,6 @@ namespace TwelveLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         public string? Text { get; set; }
-
-        /// <summary>
-        /// Specifies how the platform handles text that exceeds token limits.<br/>
-        /// **Available options by model version**:<br/>
-        /// **Marengo 3.0**: This parameter is deprecated. The platform automatically truncates text exceeding 500 tokens from the end.<br/>
-        /// **Marengo 2.7**: Specifies truncation method for text exceeding 77 tokens:<br/>
-        /// - `start`: Removes tokens from the beginning<br/>
-        /// - `end`: Removes tokens from the end (default)<br/>
-        /// - `none`: Returns an error if the text is longer than the maximum token limit.<br/>
-        /// **Default**: `end`<br/>
-        /// Default Value: end
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("text_truncate")]
-        public string? TextTruncate { get; set; }
 
         /// <summary>
         /// The publicly accessible URL of the image for which you wish to create an embedding. This parameter is required for image embeddings if `image_file` is not provided.
@@ -93,23 +78,11 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="modelName">
         /// The name of the model you want to use. The following models are available:<br/>
-        ///   - `marengo3.0`: Enhanced model with sports intelligence and extended content support.<br/>
-        ///   - `Marengo-retrieval-2.7`: **Deprecation notice**: Starting mid-March 2026, your videos will be automatically reindexed to Marengo 3.0. Marengo 2.7 will be deprecated once reindexing completes. See the [Migration guide](/v1.3/docs/get-started/migration-guide) for details.
+        ///   - `marengo3.0`: Enhanced model with sports intelligence and extended content support.
         /// </param>
         /// <param name="text">
         /// The text for which you wish to create an embedding.<br/>
         /// **Example**: "Man with a dog crossing the street"
-        /// </param>
-        /// <param name="textTruncate">
-        /// Specifies how the platform handles text that exceeds token limits.<br/>
-        /// **Available options by model version**:<br/>
-        /// **Marengo 3.0**: This parameter is deprecated. The platform automatically truncates text exceeding 500 tokens from the end.<br/>
-        /// **Marengo 2.7**: Specifies truncation method for text exceeding 77 tokens:<br/>
-        /// - `start`: Removes tokens from the beginning<br/>
-        /// - `end`: Removes tokens from the end (default)<br/>
-        /// - `none`: Returns an error if the text is longer than the maximum token limit.<br/>
-        /// **Default**: `end`<br/>
-        /// Default Value: end
         /// </param>
         /// <param name="imageUrl">
         /// The publicly accessible URL of the image for which you wish to create an embedding. This parameter is required for image embeddings if `image_file` is not provided.
@@ -140,7 +113,6 @@ namespace TwelveLabs
         public CreateRequest9(
             string modelName,
             string? text,
-            string? textTruncate,
             string? imageUrl,
             byte[]? imageFile,
             string? imageFilename,
@@ -151,7 +123,6 @@ namespace TwelveLabs
         {
             this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
             this.Text = text;
-            this.TextTruncate = textTruncate;
             this.ImageUrl = imageUrl;
             this.ImageFile = imageFile;
             this.ImageFilename = imageFilename;
