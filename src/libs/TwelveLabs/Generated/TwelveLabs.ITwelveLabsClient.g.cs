@@ -42,6 +42,11 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasksClient SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasks { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public SubpackageAssetsClient SubpackageAssets { get; }
 
         /// <summary>
