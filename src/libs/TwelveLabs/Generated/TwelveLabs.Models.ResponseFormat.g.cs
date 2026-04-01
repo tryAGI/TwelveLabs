@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Use this parameter to specify the format of the response. When you omit this parameter, the platform returns unstructured text.
+    /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
     /// </summary>
     public sealed partial class ResponseFormat
     {

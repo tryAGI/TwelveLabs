@@ -2,62 +2,64 @@
 
 namespace TwelveLabs
 {
-    public partial interface ITwelveLabsClient
+    public partial interface ISubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasksClient
     {
         /// <summary>
-        /// Sync analysis<br/>
-        /// This method synchronously analyzes your videos and generates fully customizable text based on your prompts.<br/>
+        /// Create an async analysis task<br/>
+        /// This method asynchronously analyzes your videos and generates fully customizable text based on your prompts.<br/>
         /// &lt;Accordion title="Input requirements"&gt;<br/>
         /// - Minimum duration: 4 seconds<br/>
-        /// - Maximum duration: 1 hour<br/>
+        /// - Maximum duration: 2 hours<br/>
         /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
         /// - Resolution: 360x360 to 5184x2160 pixels<br/>
         /// - Aspect ratio: Between 1:1 and 1:2.4, or between 2.4:1 and 1:1.<br/>
         /// &lt;/Accordion&gt;<br/>
         /// **When to use this method**:<br/>
-        /// - Analyze videos up to 1 hour<br/>
-        /// - Retrieve immediate results without waiting for asynchronous processing<br/>
-        /// - Stream text fragments in real-time for immediate processing and feedback<br/>
+        /// - Analyze videos longer than 1 hour<br/>
+        /// - Process videos asynchronously without blocking your application<br/>
         /// **Do not use this method for**:<br/>
-        /// - Videos longer than 1 hour. Use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// - Videos for which you need immediate results or real-time streaming. Use the [`POST`](/v1.3/api-reference/analyze-videos/sync-analysis) method of the `/analyze` endpoint instead.<br/>
+        /// Analyzing videos asynchronously requires three steps:<br/>
+        /// 1. Create an analysis task using this method. The platform returns a task ID.<br/>
+        /// 2. Poll the status of the task using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint. Wait until the status is `ready`.<br/>
+        /// 3. Retrieve the results from the response when the status is `ready` using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint.<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.AnalyzeResponse200> AnalyzeAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.CreateAnalyzeTaskResponse> CreateAsync(
             string xApiKey,
 
-            global::TwelveLabs.AnalyzeRequest request,
+            global::TwelveLabs.CreateAsyncAnalyzeRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Sync analysis<br/>
-        /// This method synchronously analyzes your videos and generates fully customizable text based on your prompts.<br/>
+        /// Create an async analysis task<br/>
+        /// This method asynchronously analyzes your videos and generates fully customizable text based on your prompts.<br/>
         /// &lt;Accordion title="Input requirements"&gt;<br/>
         /// - Minimum duration: 4 seconds<br/>
-        /// - Maximum duration: 1 hour<br/>
+        /// - Maximum duration: 2 hours<br/>
         /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
         /// - Resolution: 360x360 to 5184x2160 pixels<br/>
         /// - Aspect ratio: Between 1:1 and 1:2.4, or between 2.4:1 and 1:1.<br/>
         /// &lt;/Accordion&gt;<br/>
         /// **When to use this method**:<br/>
-        /// - Analyze videos up to 1 hour<br/>
-        /// - Retrieve immediate results without waiting for asynchronous processing<br/>
-        /// - Stream text fragments in real-time for immediate processing and feedback<br/>
+        /// - Analyze videos longer than 1 hour<br/>
+        /// - Process videos asynchronously without blocking your application<br/>
         /// **Do not use this method for**:<br/>
-        /// - Videos longer than 1 hour. Use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// - Videos for which you need immediate results or real-time streaming. Use the [`POST`](/v1.3/api-reference/analyze-videos/sync-analysis) method of the `/analyze` endpoint instead.<br/>
+        /// Analyzing videos asynchronously requires three steps:<br/>
+        /// 1. Create an analysis task using this method. The platform returns a task ID.<br/>
+        /// 2. Poll the status of the task using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint. Wait until the status is `ready`.<br/>
+        /// 3. Retrieve the results from the response when the status is `ready` using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint.<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="xApiKey"></param>
-        /// <param name="videoId">
-        /// The unique identifier of the video to analyze.<br/>
-        /// &lt;Info&gt; This parameter will be deprecated and removed in a future version. Use the [`video`](/v1.3/api-reference/analyze-videos/sync-analysis#request.body.video) parameter instead.&lt;/Info&gt;
-        /// </param>
         /// <param name="video">
         /// An object specifying the source of the video content. Include exactly one source.
         /// </param>
@@ -76,29 +78,22 @@ namespace TwelveLabs
         /// Controls the randomness of the text output.<br/>
         /// **Default:** 0.2 **Min:** 0 **Max:** 1
         /// </param>
-        /// <param name="stream">
-        /// Set this parameter to `true` to enable streaming responses in the &lt;a href="https://github.com/ndjson/ndjson-spec" target="_blank"&gt;NDJSON&lt;/a&gt; format.<br/>
-        /// **Default:** `true`<br/>
-        /// Default Value: true
-        /// </param>
-        /// <param name="responseFormat">
-        /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
-        /// </param>
         /// <param name="maxTokens">
         /// The maximum number of tokens to generate.<br/>
         /// **Min**: 1 **Max:** 4096
         /// </param>
+        /// <param name="responseFormat">
+        /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.AnalyzeResponse200> AnalyzeAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.CreateAnalyzeTaskResponse> CreateAsync(
             string xApiKey,
+            global::TwelveLabs.VideoContext video,
             string prompt,
-            string? videoId = default,
-            global::TwelveLabs.VideoContext? video = default,
             double? temperature = default,
-            bool? stream = default,
-            global::TwelveLabs.ResponseFormat? responseFormat = default,
             int? maxTokens = default,
+            global::TwelveLabs.ResponseFormat? responseFormat = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -4,23 +4,17 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    /// Defines the asynchronous analysis request.
     /// </summary>
-    public sealed partial class AnalyzeRequest
+    public sealed partial class CreateAsyncAnalyzeRequest
     {
-        /// <summary>
-        /// The unique identifier of the video to analyze.<br/>
-        /// &lt;Info&gt; This parameter will be deprecated and removed in a future version. Use the [`video`](/v1.3/api-reference/analyze-videos/sync-analysis#request.body.video) parameter instead.&lt;/Info&gt;
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("video_id")]
-        public string? VideoId { get; set; }
-
         /// <summary>
         /// An object specifying the source of the video content. Include exactly one source.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.VideoContextJsonConverter))]
-        public global::TwelveLabs.VideoContext? Video { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::TwelveLabs.VideoContext Video { get; set; }
 
         /// <summary>
         /// A prompt that guides the model on the desired format or content.<br/>
@@ -45,12 +39,11 @@ namespace TwelveLabs
         public double? Temperature { get; set; }
 
         /// <summary>
-        /// Set this parameter to `true` to enable streaming responses in the &lt;a href="https://github.com/ndjson/ndjson-spec" target="_blank"&gt;NDJSON&lt;/a&gt; format.<br/>
-        /// **Default:** `true`<br/>
-        /// Default Value: true
+        /// The maximum number of tokens to generate.<br/>
+        /// **Min**: 1 **Max:** 4096
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("stream")]
-        public bool? Stream { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
+        public int? MaxTokens { get; set; }
 
         /// <summary>
         /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
@@ -59,21 +52,17 @@ namespace TwelveLabs
         public global::TwelveLabs.ResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
-        /// The maximum number of tokens to generate.<br/>
-        /// **Min**: 1 **Max:** 4096
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
-        public int? MaxTokens { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnalyzeRequest" /> class.
+        /// Initializes a new instance of the <see cref="CreateAsyncAnalyzeRequest" /> class.
         /// </summary>
+        /// <param name="video">
+        /// An object specifying the source of the video content. Include exactly one source.
+        /// </param>
         /// <param name="prompt">
         /// A prompt that guides the model on the desired format or content.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
@@ -85,54 +74,38 @@ namespace TwelveLabs
         /// - Based on this video, I want to generate five keywords for SEO (Search Engine Optimization).<br/>
         /// - I want to generate a description for my video with the following format: Title of the video, followed by a summary in 2-3 sentences, highlighting the main topic, key events, and concluding remarks.
         /// </param>
-        /// <param name="videoId">
-        /// The unique identifier of the video to analyze.<br/>
-        /// &lt;Info&gt; This parameter will be deprecated and removed in a future version. Use the [`video`](/v1.3/api-reference/analyze-videos/sync-analysis#request.body.video) parameter instead.&lt;/Info&gt;
-        /// </param>
-        /// <param name="video">
-        /// An object specifying the source of the video content. Include exactly one source.
-        /// </param>
         /// <param name="temperature">
         /// Controls the randomness of the text output.<br/>
         /// **Default:** 0.2 **Min:** 0 **Max:** 1
-        /// </param>
-        /// <param name="stream">
-        /// Set this parameter to `true` to enable streaming responses in the &lt;a href="https://github.com/ndjson/ndjson-spec" target="_blank"&gt;NDJSON&lt;/a&gt; format.<br/>
-        /// **Default:** `true`<br/>
-        /// Default Value: true
-        /// </param>
-        /// <param name="responseFormat">
-        /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
         /// </param>
         /// <param name="maxTokens">
         /// The maximum number of tokens to generate.<br/>
         /// **Min**: 1 **Max:** 4096
         /// </param>
+        /// <param name="responseFormat">
+        /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public AnalyzeRequest(
+        public CreateAsyncAnalyzeRequest(
+            global::TwelveLabs.VideoContext video,
             string prompt,
-            string? videoId,
-            global::TwelveLabs.VideoContext? video,
             double? temperature,
-            bool? stream,
-            global::TwelveLabs.ResponseFormat? responseFormat,
-            int? maxTokens)
+            int? maxTokens,
+            global::TwelveLabs.ResponseFormat? responseFormat)
         {
-            this.VideoId = videoId;
             this.Video = video;
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.Temperature = temperature;
-            this.Stream = stream;
-            this.ResponseFormat = responseFormat;
             this.MaxTokens = maxTokens;
+            this.ResponseFormat = responseFormat;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnalyzeRequest" /> class.
+        /// Initializes a new instance of the <see cref="CreateAsyncAnalyzeRequest" /> class.
         /// </summary>
-        public AnalyzeRequest()
+        public CreateAsyncAnalyzeRequest()
         {
         }
     }

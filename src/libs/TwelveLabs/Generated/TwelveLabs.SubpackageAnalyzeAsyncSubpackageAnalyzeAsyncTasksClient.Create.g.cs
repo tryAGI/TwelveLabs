@@ -3,67 +3,70 @@
 
 namespace TwelveLabs
 {
-    public partial class TwelveLabsClient
+    public partial class SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasksClient
     {
-        partial void PrepareAnalyzeArguments(
+        partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string xApiKey,
-            global::TwelveLabs.AnalyzeRequest request);
-        partial void PrepareAnalyzeRequest(
+            global::TwelveLabs.CreateAsyncAnalyzeRequest request);
+        partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string xApiKey,
-            global::TwelveLabs.AnalyzeRequest request);
-        partial void ProcessAnalyzeResponse(
+            global::TwelveLabs.CreateAsyncAnalyzeRequest request);
+        partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessAnalyzeResponseContent(
+        partial void ProcessCreateResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Sync analysis<br/>
-        /// This method synchronously analyzes your videos and generates fully customizable text based on your prompts.<br/>
+        /// Create an async analysis task<br/>
+        /// This method asynchronously analyzes your videos and generates fully customizable text based on your prompts.<br/>
         /// &lt;Accordion title="Input requirements"&gt;<br/>
         /// - Minimum duration: 4 seconds<br/>
-        /// - Maximum duration: 1 hour<br/>
+        /// - Maximum duration: 2 hours<br/>
         /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
         /// - Resolution: 360x360 to 5184x2160 pixels<br/>
         /// - Aspect ratio: Between 1:1 and 1:2.4, or between 2.4:1 and 1:1.<br/>
         /// &lt;/Accordion&gt;<br/>
         /// **When to use this method**:<br/>
-        /// - Analyze videos up to 1 hour<br/>
-        /// - Retrieve immediate results without waiting for asynchronous processing<br/>
-        /// - Stream text fragments in real-time for immediate processing and feedback<br/>
+        /// - Analyze videos longer than 1 hour<br/>
+        /// - Process videos asynchronously without blocking your application<br/>
         /// **Do not use this method for**:<br/>
-        /// - Videos longer than 1 hour. Use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// - Videos for which you need immediate results or real-time streaming. Use the [`POST`](/v1.3/api-reference/analyze-videos/sync-analysis) method of the `/analyze` endpoint instead.<br/>
+        /// Analyzing videos asynchronously requires three steps:<br/>
+        /// 1. Create an analysis task using this method. The platform returns a task ID.<br/>
+        /// 2. Poll the status of the task using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint. Wait until the status is `ready`.<br/>
+        /// 3. Retrieve the results from the response when the status is `ready` using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint.<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AnalyzeResponse200> AnalyzeAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.CreateAnalyzeTaskResponse> CreateAsync(
             string xApiKey,
 
-            global::TwelveLabs.AnalyzeRequest request,
+            global::TwelveLabs.CreateAsyncAnalyzeRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareAnalyzeArguments(
+            PrepareCreateArguments(
                 httpClient: HttpClient,
                 xApiKey: ref xApiKey,
                 request: request);
 
             var __pathBuilder = new global::TwelveLabs.PathBuilder(
-                path: "/analyze",
+                path: "/analyze/tasks",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -102,7 +105,7 @@ namespace TwelveLabs
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareAnalyzeRequest(
+            PrepareCreateRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 xApiKey: xApiKey,
@@ -116,27 +119,27 @@ namespace TwelveLabs
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessAnalyzeResponse(
+            ProcessCreateResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
-            // The request has failed.
+            // Validation failure or inaccessible video
             if ((int)__response.StatusCode == 400)
             {
                 string? __content_400 = null;
                 global::System.Exception? __exception_400 = null;
-                global::TwelveLabs.GenerateTextRepresentationRequestBadRequestError? __value_400 = null;
+                global::TwelveLabs.ErrorResponse? __value_400 = null;
                 try
                 {
                     if (ReadResponseAsString)
                     {
                         __content_400 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_400 = global::TwelveLabs.GenerateTextRepresentationRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                        __value_400 = global::TwelveLabs.ErrorResponse.FromJson(__content_400, JsonSerializerContext);
                     }
                     else
                     {
                         __content_400 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_400 = global::TwelveLabs.GenerateTextRepresentationRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                        __value_400 = global::TwelveLabs.ErrorResponse.FromJson(__content_400, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -144,7 +147,7 @@ namespace TwelveLabs
                     __exception_400 = __ex;
                 }
 
-                throw new global::TwelveLabs.ApiException<global::TwelveLabs.GenerateTextRepresentationRequestBadRequestError>(
+                throw new global::TwelveLabs.ApiException<global::TwelveLabs.ErrorResponse>(
                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                     innerException: __exception_400,
                     statusCode: __response.StatusCode)
@@ -157,38 +160,38 @@ namespace TwelveLabs
                         h => h.Value),
                 };
             }
-            // If the rate limit is reached, the platform returns an `HTTP 429 - Too many requests` error response. The response body is empty. 
-            if ((int)__response.StatusCode == 429)
+            // Internal server error
+            if ((int)__response.StatusCode == 500)
             {
-                string? __content_429 = null;
-                global::System.Exception? __exception_429 = null;
-                string? __value_429 = null;
+                string? __content_500 = null;
+                global::System.Exception? __exception_500 = null;
+                global::TwelveLabs.ErrorResponse? __value_500 = null;
                 try
                 {
                     if (ReadResponseAsString)
                     {
-                        __content_429 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_429 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_429, typeof(string), JsonSerializerContext);
+                        __content_500 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        __value_500 = global::TwelveLabs.ErrorResponse.FromJson(__content_500, JsonSerializerContext);
                     }
                     else
                     {
-                        __content_429 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        __content_500 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_429 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_429, typeof(string), JsonSerializerContext);
+                        __value_500 = global::TwelveLabs.ErrorResponse.FromJson(__content_500, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
                 {
-                    __exception_429 = __ex;
+                    __exception_500 = __ex;
                 }
 
-                throw new global::TwelveLabs.ApiException<string>(
-                    message: __content_429 ?? __response.ReasonPhrase ?? string.Empty,
-                    innerException: __exception_429,
+                throw new global::TwelveLabs.ApiException<global::TwelveLabs.ErrorResponse>(
+                    message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
+                    innerException: __exception_500,
                     statusCode: __response.StatusCode)
                 {
-                    ResponseBody = __content_429,
-                    ResponseObject = __value_429,
+                    ResponseBody = __content_500,
+                    ResponseObject = __value_500,
                     ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
                         __response.Headers,
                         h => h.Key,
@@ -208,7 +211,7 @@ namespace TwelveLabs
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessAnalyzeResponseContent(
+                ProcessCreateResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -218,7 +221,7 @@ namespace TwelveLabs
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::TwelveLabs.AnalyzeResponse200.FromJson(__content, JsonSerializerContext) ??
+                        global::TwelveLabs.CreateAnalyzeTaskResponse.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -249,7 +252,7 @@ namespace TwelveLabs
                     ).ConfigureAwait(false);
 
                     return
-                        await global::TwelveLabs.AnalyzeResponse200.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::TwelveLabs.CreateAnalyzeTaskResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
@@ -282,30 +285,29 @@ namespace TwelveLabs
             }
         }
         /// <summary>
-        /// Sync analysis<br/>
-        /// This method synchronously analyzes your videos and generates fully customizable text based on your prompts.<br/>
+        /// Create an async analysis task<br/>
+        /// This method asynchronously analyzes your videos and generates fully customizable text based on your prompts.<br/>
         /// &lt;Accordion title="Input requirements"&gt;<br/>
         /// - Minimum duration: 4 seconds<br/>
-        /// - Maximum duration: 1 hour<br/>
+        /// - Maximum duration: 2 hours<br/>
         /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
         /// - Resolution: 360x360 to 5184x2160 pixels<br/>
         /// - Aspect ratio: Between 1:1 and 1:2.4, or between 2.4:1 and 1:1.<br/>
         /// &lt;/Accordion&gt;<br/>
         /// **When to use this method**:<br/>
-        /// - Analyze videos up to 1 hour<br/>
-        /// - Retrieve immediate results without waiting for asynchronous processing<br/>
-        /// - Stream text fragments in real-time for immediate processing and feedback<br/>
+        /// - Analyze videos longer than 1 hour<br/>
+        /// - Process videos asynchronously without blocking your application<br/>
         /// **Do not use this method for**:<br/>
-        /// - Videos longer than 1 hour. Use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// - Videos for which you need immediate results or real-time streaming. Use the [`POST`](/v1.3/api-reference/analyze-videos/sync-analysis) method of the `/analyze` endpoint instead.<br/>
+        /// Analyzing videos asynchronously requires three steps:<br/>
+        /// 1. Create an analysis task using this method. The platform returns a task ID.<br/>
+        /// 2. Poll the status of the task using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint. Wait until the status is `ready`.<br/>
+        /// 3. Retrieve the results from the response when the status is `ready` using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint.<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="xApiKey"></param>
-        /// <param name="videoId">
-        /// The unique identifier of the video to analyze.<br/>
-        /// &lt;Info&gt; This parameter will be deprecated and removed in a future version. Use the [`video`](/v1.3/api-reference/analyze-videos/sync-analysis#request.body.video) parameter instead.&lt;/Info&gt;
-        /// </param>
         /// <param name="video">
         /// An object specifying the source of the video content. Include exactly one source.
         /// </param>
@@ -324,43 +326,34 @@ namespace TwelveLabs
         /// Controls the randomness of the text output.<br/>
         /// **Default:** 0.2 **Min:** 0 **Max:** 1
         /// </param>
-        /// <param name="stream">
-        /// Set this parameter to `true` to enable streaming responses in the &lt;a href="https://github.com/ndjson/ndjson-spec" target="_blank"&gt;NDJSON&lt;/a&gt; format.<br/>
-        /// **Default:** `true`<br/>
-        /// Default Value: true
-        /// </param>
-        /// <param name="responseFormat">
-        /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
-        /// </param>
         /// <param name="maxTokens">
         /// The maximum number of tokens to generate.<br/>
         /// **Min**: 1 **Max:** 4096
         /// </param>
+        /// <param name="responseFormat">
+        /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AnalyzeResponse200> AnalyzeAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.CreateAnalyzeTaskResponse> CreateAsync(
             string xApiKey,
+            global::TwelveLabs.VideoContext video,
             string prompt,
-            string? videoId = default,
-            global::TwelveLabs.VideoContext? video = default,
             double? temperature = default,
-            bool? stream = default,
-            global::TwelveLabs.ResponseFormat? responseFormat = default,
             int? maxTokens = default,
+            global::TwelveLabs.ResponseFormat? responseFormat = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.AnalyzeRequest
+            var __request = new global::TwelveLabs.CreateAsyncAnalyzeRequest
             {
-                VideoId = videoId,
                 Video = video,
                 Prompt = prompt,
                 Temperature = temperature,
-                Stream = stream,
-                ResponseFormat = responseFormat,
                 MaxTokens = maxTokens,
+                ResponseFormat = responseFormat,
             };
 
-            return await AnalyzeAsync(
+            return await CreateAsync(
                 xApiKey: xApiKey,
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

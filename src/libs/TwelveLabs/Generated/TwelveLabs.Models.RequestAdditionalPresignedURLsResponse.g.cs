@@ -39,7 +39,7 @@ namespace TwelveLabs
         public global::System.DateTime? GeneratedAt { get; set; }
 
         /// <summary>
-        /// A string representing the date and time, in RFC 3339 format (“YYYY-MM-DDTHH:mm:ssZ”), when the resource will expire.
+        /// A string representing the date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the resource will expire.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expires_at")]
         public global::System.DateTime? ExpiresAt { get; set; }
@@ -69,7 +69,7 @@ namespace TwelveLabs
         /// The date and time, in the RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when these URLs were created. URLs remain valid for 1 hour from this time.
         /// </param>
         /// <param name="expiresAt">
-        /// A string representing the date and time, in RFC 3339 format (“YYYY-MM-DDTHH:mm:ssZ”), when the resource will expire.
+        /// A string representing the date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the resource will expire.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
