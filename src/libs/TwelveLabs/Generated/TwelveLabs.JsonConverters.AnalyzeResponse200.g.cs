@@ -124,13 +124,13 @@ namespace TwelveLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamAnalyzeResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamAnalyzeResponse> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamAnalyzeResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamAnalyzeResponse, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamAnalyzeResponse!.Value, typeInfo);
             }
             else if (value.IsNonStreamAnalyzeResponse)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.NonStreamAnalyzeResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.NonStreamAnalyzeResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.NonStreamAnalyzeResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.NonStreamAnalyzeResponse, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.NonStreamAnalyzeResponse!, typeInfo);
             }
         }
     }

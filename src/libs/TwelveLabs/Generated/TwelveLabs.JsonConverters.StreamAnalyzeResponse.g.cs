@@ -160,19 +160,19 @@ namespace TwelveLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamStartResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamStartResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamStartResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamStartResponse, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamStartResponse!, typeInfo);
             }
             else if (value.IsStreamTextResponse)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamTextResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamTextResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamTextResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamTextResponse, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamTextResponse!, typeInfo);
             }
             else if (value.IsStreamEndResponse)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamEndResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamEndResponse?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamEndResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamEndResponse, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamEndResponse!, typeInfo);
             }
         }
     }
