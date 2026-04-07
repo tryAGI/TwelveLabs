@@ -11,7 +11,7 @@ namespace TwelveLabs
         /// **Upload methods**:<br/>
         /// - **Local file**: Set the `method` parameter to `direct` and use the `file` parameter to specify the file.<br/>
         /// - **Publicly accessible URL**: Set the `method` parameter to `url` and use the `url` parameter to specify the URL of your file.<br/>
-        /// **File size**: 200MB maximum for local file uploads, 4GB maximum for URL uploads.<br/>
+        /// **File size**: Up to 4 GB.<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>
@@ -37,7 +37,7 @@ namespace TwelveLabs
         /// **Upload methods**:<br/>
         /// - **Local file**: Set the `method` parameter to `direct` and use the `file` parameter to specify the file.<br/>
         /// - **Publicly accessible URL**: Set the `method` parameter to `url` and use the `url` parameter to specify the URL of your file.<br/>
-        /// **File size**: 200MB maximum for local file uploads, 4GB maximum for URL uploads.<br/>
+        /// **File size**: Up to 4 GB.<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>
@@ -52,12 +52,11 @@ namespace TwelveLabs
         /// Specifies the upload method for the asset. Use `direct` to upload a local file or `url` for a publicly accessible URL.
         /// </param>
         /// <param name="file">
-        /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
-        /// Direct uploads are limited to 200MB. For files larger than 200MB, use the [Multipart Upload API](/api-reference/upload-content/multipart-uploads).
+        /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.
         /// </param>
         /// <param name="url">
         /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
-        /// URL uploads have a maximum limit of 4GB.
+        /// URL uploads have a maximum limit of 4 GB.
         /// </param>
         /// <param name="filename">
         /// The optional filename of the asset. If not provided, the platform will determine the filename from the file or URL.

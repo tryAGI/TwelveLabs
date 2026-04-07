@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class CreateRequest4
     {
         /// <summary>
-        /// The unique identifier of the asset to index.
+        /// The unique identifier of the asset to index. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -32,7 +32,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="CreateRequest4" /> class.
         /// </summary>
         /// <param name="assetId">
-        /// The unique identifier of the asset to index.
+        /// The unique identifier of the asset to index. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status.
         /// </param>
         /// <param name="enableVideoStream">
         /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index-id}/indexed-assets/{indexed-asset-id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>

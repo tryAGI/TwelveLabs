@@ -22,7 +22,7 @@ namespace TwelveLabs
         public string? Url { get; set; }
 
         /// <summary>
-        /// The unique identifier of an asset from a [direct](/v1.3/api-reference/upload-content/direct-uploads) or [multipart](/v1.3/api-reference/upload-content/multipart-uploads) upload.
+        /// The unique identifier of an asset from a [direct](/v1.3/api-reference/upload-content/direct-uploads) or [multipart](/v1.3/api-reference/upload-content/multipart-uploads) upload. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
         public string? AssetId { get; set; }
@@ -44,7 +44,7 @@ namespace TwelveLabs
         /// Use direct links to raw media files. Video hosting platforms and cloud storage sharing links are not supported.
         /// </param>
         /// <param name="assetId">
-        /// The unique identifier of an asset from a [direct](/v1.3/api-reference/upload-content/direct-uploads) or [multipart](/v1.3/api-reference/upload-content/multipart-uploads) upload.
+        /// The unique identifier of an asset from a [direct](/v1.3/api-reference/upload-content/direct-uploads) or [multipart](/v1.3/api-reference/upload-content/multipart-uploads) upload. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
