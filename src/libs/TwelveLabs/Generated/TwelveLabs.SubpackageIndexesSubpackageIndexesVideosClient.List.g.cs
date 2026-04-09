@@ -32,11 +32,11 @@ namespace TwelveLabs
             ref string? sortBy,
             ref string? sortOption,
             ref string? filename,
-            ref double? duration,
-            ref double? fps,
-            ref double? width,
-            ref int? height,
-            ref double? size,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersDuration? duration,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersFps? fps,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersWidth? width,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersHeight? height,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersSize? size,
             ref string? createdAt,
             ref string? updatedAt,
             object? userMetadata,
@@ -50,11 +50,11 @@ namespace TwelveLabs
             string? sortBy,
             string? sortOption,
             string? filename,
-            double? duration,
-            double? fps,
-            double? width,
-            int? height,
-            double? size,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersDuration? duration,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersFps? fps,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersWidth? width,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersHeight? height,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersSize? size,
             string? createdAt,
             string? updatedAt,
             object? userMetadata,
@@ -106,11 +106,11 @@ namespace TwelveLabs
             string? sortBy = default,
             string? sortOption = default,
             string? filename = default,
-            double? duration = default,
-            double? fps = default,
-            double? width = default,
-            int? height = default,
-            double? size = default,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersDuration? duration = default,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersFps? fps = default,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersWidth? width = default,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersHeight? height = default,
+            global::TwelveLabs.IndexesIndexIdVideosGetParametersSize? size = default,
             string? createdAt = default,
             string? updatedAt = default,
             object? userMetadata = default,
@@ -126,11 +126,11 @@ namespace TwelveLabs
                 sortBy: ref sortBy,
                 sortOption: ref sortOption,
                 filename: ref filename,
-                duration: ref duration,
-                fps: ref fps,
-                width: ref width,
-                height: ref height,
-                size: ref size,
+                duration: duration,
+                fps: fps,
+                width: width,
+                height: height,
+                size: size,
                 createdAt: ref createdAt,
                 updatedAt: ref updatedAt,
                 userMetadata: userMetadata,
@@ -151,11 +151,6 @@ namespace TwelveLabs
                 .AddOptionalParameter("sort_by", sortBy)
                 .AddOptionalParameter("sort_option", sortOption)
                 .AddOptionalParameter("filename", filename)
-                .AddOptionalParameter("duration", duration?.ToString())
-                .AddOptionalParameter("fps", fps?.ToString())
-                .AddOptionalParameter("width", width?.ToString())
-                .AddOptionalParameter("height", height?.ToString())
-                .AddOptionalParameter("size", size?.ToString())
                 .AddOptionalParameter("created_at", createdAt)
                 .AddOptionalParameter("updated_at", updatedAt)
                 .AddOptionalParameter("user_metadata", userMetadata?.ToString()) 
