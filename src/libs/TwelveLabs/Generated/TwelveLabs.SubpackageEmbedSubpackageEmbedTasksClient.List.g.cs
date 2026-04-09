@@ -5,6 +5,25 @@ namespace TwelveLabs
 {
     public partial class SubpackageEmbedSubpackageEmbedTasksClient
     {
+
+
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_ListSecurityRequirement0 =
+            new global::TwelveLabs.EndPointSecurityRequirement
+            {
+                Authorizations = new global::TwelveLabs.EndPointAuthorizationRequirement[]
+                {                    new global::TwelveLabs.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_ListSecurityRequirements =
+            new global::TwelveLabs.EndPointSecurityRequirement[]
+            {                s_ListSecurityRequirement0,
+            };
         partial void PrepareListArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? startedAt,
@@ -74,6 +93,12 @@ namespace TwelveLabs
                 pageLimit: ref pageLimit,
                 xApiKey: ref xApiKey);
 
+
+            var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ListSecurityRequirements,
+                operationName: "ListAsync");
+
             var __pathBuilder = new global::TwelveLabs.PathBuilder(
                 path: "/embed/tasks",
                 baseUri: HttpClient.BaseAddress); 
@@ -83,7 +108,7 @@ namespace TwelveLabs
                 .AddOptionalParameter("status", status)
                 .AddOptionalParameter("page", page?.ToString())
                 .AddOptionalParameter("page_limit", pageLimit?.ToString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -93,7 +118,7 @@ namespace TwelveLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

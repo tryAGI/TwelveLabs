@@ -5,6 +5,25 @@ namespace TwelveLabs
 {
     public partial class SubpackageIndexesSubpackageIndexesIndexedAssetsClient
     {
+
+
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_DeleteSecurityRequirement0 =
+            new global::TwelveLabs.EndPointSecurityRequirement
+            {
+                Authorizations = new global::TwelveLabs.EndPointAuthorizationRequirement[]
+                {                    new global::TwelveLabs.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_DeleteSecurityRequirements =
+            new global::TwelveLabs.EndPointSecurityRequirement[]
+            {                s_DeleteSecurityRequirement0,
+            };
         partial void PrepareDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string indexId,
@@ -48,9 +67,15 @@ namespace TwelveLabs
                 indexedAssetId: ref indexedAssetId,
                 xApiKey: ref xApiKey);
 
+
+            var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_DeleteSecurityRequirements,
+                operationName: "DeleteAsync");
+
             var __pathBuilder = new global::TwelveLabs.PathBuilder(
                 path: $"/indexes/{indexId}/indexed-assets/{indexedAssetId}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -60,7 +85,7 @@ namespace TwelveLabs
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
