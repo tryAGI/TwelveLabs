@@ -33,11 +33,11 @@ namespace TwelveLabs
             ref string? sortOption,
             global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems>? status,
             ref string? filename,
-            ref double? duration,
-            ref double? fps,
-            ref double? width,
-            ref int? height,
-            ref double? size,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersDuration? duration,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersFps? fps,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersWidth? width,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersHeight? height,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersSize? size,
             ref string? createdAt,
             ref string? updatedAt,
             object? userMetadata,
@@ -52,11 +52,11 @@ namespace TwelveLabs
             string? sortOption,
             global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems>? status,
             string? filename,
-            double? duration,
-            double? fps,
-            double? width,
-            int? height,
-            double? size,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersDuration? duration,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersFps? fps,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersWidth? width,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersHeight? height,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersSize? size,
             string? createdAt,
             string? updatedAt,
             object? userMetadata,
@@ -109,11 +109,11 @@ namespace TwelveLabs
             string? sortOption = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems>? status = default,
             string? filename = default,
-            double? duration = default,
-            double? fps = default,
-            double? width = default,
-            int? height = default,
-            double? size = default,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersDuration? duration = default,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersFps? fps = default,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersWidth? width = default,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersHeight? height = default,
+            global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersSize? size = default,
             string? createdAt = default,
             string? updatedAt = default,
             object? userMetadata = default,
@@ -130,11 +130,11 @@ namespace TwelveLabs
                 sortOption: ref sortOption,
                 status: status,
                 filename: ref filename,
-                duration: ref duration,
-                fps: ref fps,
-                width: ref width,
-                height: ref height,
-                size: ref size,
+                duration: duration,
+                fps: fps,
+                width: width,
+                height: height,
+                size: size,
                 createdAt: ref createdAt,
                 updatedAt: ref updatedAt,
                 userMetadata: userMetadata,
@@ -156,11 +156,6 @@ namespace TwelveLabs
                 .AddOptionalParameter("sort_option", sortOption)
                 .AddOptionalParameter("status", status, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                 .AddOptionalParameter("filename", filename)
-                .AddOptionalParameter("duration", duration?.ToString())
-                .AddOptionalParameter("fps", fps?.ToString())
-                .AddOptionalParameter("width", width?.ToString())
-                .AddOptionalParameter("height", height?.ToString())
-                .AddOptionalParameter("size", size?.ToString())
                 .AddOptionalParameter("created_at", createdAt)
                 .AddOptionalParameter("updated_at", updatedAt)
                 .AddOptionalParameter("user_metadata", userMetadata?.ToString()) 
