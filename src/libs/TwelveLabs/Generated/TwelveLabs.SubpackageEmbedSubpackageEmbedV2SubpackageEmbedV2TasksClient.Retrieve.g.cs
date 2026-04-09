@@ -30,7 +30,10 @@ namespace TwelveLabs
         /// - `processing`: The platform is creating the embeddings.<br/>
         /// - `ready`: Processing is complete. Embeddings are available in the response.<br/>
         /// - `failed`: The task failed. Embeddings were not created.<br/>
-        /// Invoke this method repeatedly until the `status` field is `ready`. When `status` is `ready`, use the embeddings from the response.
+        /// Invoke this method repeatedly until the `status` field is `ready`. When `status` is `ready`, use the embeddings from the response.<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        /// Embeddings are stored for seven days.<br/>
+        /// &lt;/Note&gt;
         /// </summary>
         /// <param name="taskId"></param>
         /// <param name="xApiKey"></param>

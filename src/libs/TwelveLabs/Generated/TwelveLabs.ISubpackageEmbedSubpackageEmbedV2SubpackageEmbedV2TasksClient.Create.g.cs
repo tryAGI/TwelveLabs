@@ -28,8 +28,9 @@ namespace TwelveLabs
         ///   1. Create a task using this endpoint. The platform returns a task ID.<br/>
         ///   2. Poll for the status of the task using the [`GET`](/v1.3/api-reference/create-embeddings-v2/retrieve-embeddings) method of the `/embed-v2/tasks/{task_id}` endpoint. Wait until the status is `ready`.<br/>
         ///   3. Retrieve the embeddings from the response when the status is `ready` using the [`GET`](/v1.3/api-reference/create-embeddings-v2/retrieve-embeddings) method of the `/embed-v2/tasks/{task_id}` endpoint.<br/>
-        ///   &lt;Note title="Note"&gt;<br/>
-        ///   This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        ///   &lt;Note title="Notes"&gt;<br/>
+        ///   - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        ///   - Embeddings are stored for seven days.<br/>
         ///   &lt;/Note&gt;
         /// </summary>
         /// <param name="xApiKey"></param>
@@ -65,8 +66,9 @@ namespace TwelveLabs
         ///   1. Create a task using this endpoint. The platform returns a task ID.<br/>
         ///   2. Poll for the status of the task using the [`GET`](/v1.3/api-reference/create-embeddings-v2/retrieve-embeddings) method of the `/embed-v2/tasks/{task_id}` endpoint. Wait until the status is `ready`.<br/>
         ///   3. Retrieve the embeddings from the response when the status is `ready` using the [`GET`](/v1.3/api-reference/create-embeddings-v2/retrieve-embeddings) method of the `/embed-v2/tasks/{task_id}` endpoint.<br/>
-        ///   &lt;Note title="Note"&gt;<br/>
-        ///   This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        ///   &lt;Note title="Notes"&gt;<br/>
+        ///   - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        ///   - Embeddings are stored for seven days.<br/>
         ///   &lt;/Note&gt;
         /// </summary>
         /// <param name="xApiKey"></param>
