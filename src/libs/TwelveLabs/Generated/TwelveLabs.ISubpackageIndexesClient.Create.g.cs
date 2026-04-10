@@ -10,12 +10,14 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesCreateResponse201> CreateAsync(
             string xApiKey,
 
             global::TwelveLabs.CreateRequest request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create an index<br/>
@@ -37,6 +39,7 @@ namespace TwelveLabs
         /// - You cannot disable an add-on once the index has been created.<br/>
         /// &lt;/Note&gt;
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesCreateResponse201> CreateAsync(
@@ -44,6 +47,7 @@ namespace TwelveLabs
             string indexName,
             global::System.Collections.Generic.IList<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems> models,
             global::System.Collections.Generic.IList<string>? addons = default,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
