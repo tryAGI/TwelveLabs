@@ -11,12 +11,14 @@ namespace TwelveLabs
         /// <param name="taskId"></param>
         /// <param name="embeddingOption"></param>
         /// <param name="xApiKey"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.EmbedTasksRetrieveResponse200> RetrieveAsync(
             string taskId,
             string xApiKey,
             global::System.Collections.Generic.IList<global::TwelveLabs.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems>? embeddingOption = default,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

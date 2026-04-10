@@ -11,6 +11,7 @@ namespace TwelveLabs
         /// <param name="entityCollectionId"></param>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.BulkCreateEntityResponse> CreateBulkAsync(
@@ -18,6 +19,7 @@ namespace TwelveLabs
             string xApiKey,
 
             global::TwelveLabs.CreateBulkRequest request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create multiple entities in bulk<br/>
@@ -26,12 +28,14 @@ namespace TwelveLabs
         /// <param name="entityCollectionId"></param>
         /// <param name="xApiKey"></param>
         /// <param name="entities"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.BulkCreateEntityResponse> CreateBulkAsync(
             string entityCollectionId,
             string xApiKey,
             global::System.Collections.Generic.IList<global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesBulkPostRequestBodyContentApplicationJsonSchemaEntitiesItems> entities,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -16,6 +16,7 @@ namespace TwelveLabs
         /// <param name="uploadId"></param>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.RequestAdditionalPresignedURLsResponse> GetAdditionalPresignedUrlsAsync(
@@ -23,6 +24,7 @@ namespace TwelveLabs
             string xApiKey,
 
             global::TwelveLabs.RequestAdditionalPresignedURLsRequest request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Request presigned URLs for the remaining chunks<br/>
@@ -41,6 +43,7 @@ namespace TwelveLabs
         /// <param name="count">
         /// The number of presigned URLs to generate starting from the index. You can request a maximum of 50 URLs in a single API call.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.RequestAdditionalPresignedURLsResponse> GetAdditionalPresignedUrlsAsync(
@@ -48,6 +51,7 @@ namespace TwelveLabs
             string xApiKey,
             int start,
             int count,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

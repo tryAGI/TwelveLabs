@@ -34,12 +34,14 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.EmbeddingSuccessResponse> CreateAsync(
             string xApiKey,
 
             global::TwelveLabs.CreateEmbeddingsRequest request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create sync embeddings<br/>
@@ -102,6 +104,7 @@ namespace TwelveLabs
         /// <param name="multiInput">
         /// This field is required if the `input_type` parameter is `multi_input`.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.EmbeddingSuccessResponse> CreateAsync(
@@ -114,6 +117,7 @@ namespace TwelveLabs
             global::TwelveLabs.AudioInputRequest? audio = default,
             global::TwelveLabs.VideoInputRequest? video = default,
             global::TwelveLabs.MultiInputRequest? multiInput = default,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

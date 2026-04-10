@@ -25,6 +25,7 @@ namespace TwelveLabs
             Authorizations.Add(new global::TwelveLabs.EndPointAuthorization
             {
                 Type = "Http",
+                SchemeId = "HttpBearer",
                 Location = "Header",
                 Name = "Bearer",
                 Value = apiKey,
