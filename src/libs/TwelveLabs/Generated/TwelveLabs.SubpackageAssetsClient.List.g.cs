@@ -31,6 +31,7 @@ namespace TwelveLabs
             ref int? pageLimit,
             global::System.Collections.Generic.IList<string>? assetIds,
             global::System.Collections.Generic.IList<global::TwelveLabs.AssetsGetParametersAssetTypesSchemaItems>? assetTypes,
+            ref string? filename,
             ref string xApiKey);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -39,6 +40,7 @@ namespace TwelveLabs
             int? pageLimit,
             global::System.Collections.Generic.IList<string>? assetIds,
             global::System.Collections.Generic.IList<global::TwelveLabs.AssetsGetParametersAssetTypesSchemaItems>? assetTypes,
+            string? filename,
             string xApiKey);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -62,6 +64,7 @@ namespace TwelveLabs
         /// </param>
         /// <param name="assetIds"></param>
         /// <param name="assetTypes"></param>
+        /// <param name="filename"></param>
         /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -72,6 +75,7 @@ namespace TwelveLabs
             int? pageLimit = default,
             global::System.Collections.Generic.IList<string>? assetIds = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.AssetsGetParametersAssetTypesSchemaItems>? assetTypes = default,
+            string? filename = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -83,6 +87,7 @@ namespace TwelveLabs
                 pageLimit: ref pageLimit,
                 assetIds: assetIds,
                 assetTypes: assetTypes,
+                filename: ref filename,
                 xApiKey: ref xApiKey);
 
 
@@ -114,7 +119,8 @@ namespace TwelveLabs
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_limit", pageLimit?.ToString())
                                 .AddOptionalParameter("asset_ids", assetIds, delimiter: ",", explode: true)
-                                .AddOptionalParameter("asset_types", assetTypes, selector: static x => x.ToValueString(), delimiter: ",", explode: true) 
+                                .AddOptionalParameter("asset_types", assetTypes, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
+                                .AddOptionalParameter("filename", filename) 
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::TwelveLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -163,6 +169,7 @@ namespace TwelveLabs
                     pageLimit: pageLimit,
                     assetIds: assetIds,
                     assetTypes: assetTypes,
+                    filename: filename,
                     xApiKey: xApiKey);
 
                 return __httpRequest;

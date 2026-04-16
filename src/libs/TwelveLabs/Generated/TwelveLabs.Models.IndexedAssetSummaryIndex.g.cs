@@ -4,21 +4,21 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    /// The index to which the indexed asset belongs.
     /// </summary>
-    public sealed partial class IndexesIndexedAssetsCreateResponse202
+    public sealed partial class IndexedAssetSummaryIndex
     {
         /// <summary>
-        /// The unique identifier of the indexed asset. Use it to monitor the indexing progress.
+        /// The unique identifier of the index.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("_id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The unique identifier of the associated asset.
+        /// The name of the index.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
-        public string? AssetId { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -27,29 +27,29 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IndexesIndexedAssetsCreateResponse202" /> class.
+        /// Initializes a new instance of the <see cref="IndexedAssetSummaryIndex" /> class.
         /// </summary>
         /// <param name="id">
-        /// The unique identifier of the indexed asset. Use it to monitor the indexing progress.
+        /// The unique identifier of the index.
         /// </param>
-        /// <param name="assetId">
-        /// The unique identifier of the associated asset.
+        /// <param name="name">
+        /// The name of the index.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public IndexesIndexedAssetsCreateResponse202(
+        public IndexedAssetSummaryIndex(
             string? id,
-            string? assetId)
+            string? name)
         {
             this.Id = id;
-            this.AssetId = assetId;
+            this.Name = name;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IndexesIndexedAssetsCreateResponse202" /> class.
+        /// Initializes a new instance of the <see cref="IndexedAssetSummaryIndex" /> class.
         /// </summary>
-        public IndexesIndexedAssetsCreateResponse202()
+        public IndexedAssetSummaryIndex()
         {
         }
     }

@@ -33,6 +33,22 @@ namespace TwelveLabs
         public required long TotalSize { get; set; }
 
         /// <summary>
+        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_hls")]
+        public bool? EnableHls { get; set; }
+
+        /// <summary>
+        /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_thumbnail")]
+        public bool? EnableThumbnail { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -53,17 +69,31 @@ namespace TwelveLabs
         /// <param name="type">
         /// The type of asset you want to upload.
         /// </param>
+        /// <param name="enableHls">
+        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="enableThumbnail">
+        /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateAssetUploadRequest(
             string filename,
             long totalSize,
-            global::TwelveLabs.CreateAssetUploadRequestType type)
+            global::TwelveLabs.CreateAssetUploadRequestType type,
+            bool? enableHls,
+            bool? enableThumbnail)
         {
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.Type = type;
             this.TotalSize = totalSize;
+            this.EnableHls = enableHls;
+            this.EnableThumbnail = enableThumbnail;
         }
 
         /// <summary>

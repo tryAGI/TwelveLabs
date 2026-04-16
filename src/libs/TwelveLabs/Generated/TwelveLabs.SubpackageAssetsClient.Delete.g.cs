@@ -28,11 +28,13 @@ namespace TwelveLabs
         partial void PrepareDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string assetId,
+            ref bool? force,
             ref string xApiKey);
         partial void PrepareDeleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string assetId,
+            bool? force,
             string xApiKey);
         partial void ProcessDeleteResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -45,9 +47,16 @@ namespace TwelveLabs
 
         /// <summary>
         /// Delete an asset<br/>
-        /// This method deletes the specified asset. This action cannot be undone.
+        /// This method deletes the specified asset. This action cannot be undone.<br/>
+        /// By default, the platform checks whether any indexed assets reference the asset. If references exist, the platform rejects the request with a `409 Conflict` error. To skip this check and delete the asset anyway, set the `force` query parameter to `true`. The platform unlinks any entity associations.<br/>
+        /// Before deleting, you can inspect existing references:<br/>
+        /// - [`GET`](/v1.3/api-reference/index-content/list-indexed-assets-by-asset) `/assets/{asset_id}/indexed-assets` returns a list of the indexed assets that will block deletion unless the `force` query parameter is set to `true`.<br/>
+        /// - [`GET`](/v1.3/api-reference/entities/list-entities-by-asset) `/assets/{asset_id}/entities` returns a list of the entities whose associations the platform will unlink.
         /// </summary>
         /// <param name="assetId"></param>
+        /// <param name="force">
+        /// Default Value: false
+        /// </param>
         /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -55,6 +64,7 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsDeleteResponse204> DeleteAsync(
             string assetId,
             string xApiKey,
+            bool? force = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -63,6 +73,7 @@ namespace TwelveLabs
             PrepareDeleteArguments(
                 httpClient: HttpClient,
                 assetId: ref assetId,
+                force: ref force,
                 xApiKey: ref xApiKey);
 
 
@@ -89,7 +100,10 @@ namespace TwelveLabs
             {
                             var __pathBuilder = new global::TwelveLabs.PathBuilder(
                                 path: $"/assets/{assetId}",
-                                baseUri: HttpClient.BaseAddress);
+                                baseUri: HttpClient.BaseAddress); 
+                            __pathBuilder
+                                .AddOptionalParameter("force", force?.ToString().ToLowerInvariant()) 
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::TwelveLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -134,6 +148,7 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     assetId: assetId,
+                    force: force,
                     xApiKey: xApiKey);
 
                 return __httpRequest;
@@ -327,6 +342,44 @@ namespace TwelveLabs
                                 {
                                     ResponseBody = __content_400,
                                     ResponseObject = __value_400,
+                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value),
+                                };
+                            }
+                            // The platform cannot delete this asset because one or more indexed assets are referencing it. Set the `force` query parameter to `true` to override.
+                            if ((int)__response.StatusCode == 409)
+                            {
+                                string? __content_409 = null;
+                                global::System.Exception? __exception_409 = null;
+                                global::TwelveLabs.DeleteAssetRequestConflictError? __value_409 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_409 = global::TwelveLabs.DeleteAssetRequestConflictError.FromJson(__content_409, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_409 = global::TwelveLabs.DeleteAssetRequestConflictError.FromJson(__content_409, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_409 = __ex;
+                                }
+
+                                throw new global::TwelveLabs.ApiException<global::TwelveLabs.DeleteAssetRequestConflictError>(
+                                    message: __content_409 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_409,
+                                    statusCode: __response.StatusCode)
+                                {
+                                    ResponseBody = __content_409,
+                                    ResponseObject = __value_409,
                                     ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,

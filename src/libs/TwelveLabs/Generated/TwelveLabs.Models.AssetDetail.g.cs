@@ -4,9 +4,9 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// A reference file (image, audio, or video) that you upload to the platform for use in downstream workflows such as indexing, analyzing video content, and creating entities.
+    /// An asset with additional processing details such as HLS streaming and thumbnail information.
     /// </summary>
-    public sealed partial class Asset
+    public sealed partial class AssetDetail
     {
         /// <summary>
         /// The unique identifier of the asset.
@@ -67,13 +67,25 @@ namespace TwelveLabs
         public global::System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
+        /// HLS streaming details for the asset. Present only when HLS generation has been requested. Omitted otherwise.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("hls")]
+        public global::TwelveLabs.AssetHLS? Hls { get; set; }
+
+        /// <summary>
+        /// Thumbnail details for the asset. Present only when thumbnail generation has been requested. Omitted otherwise.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("thumbnail")]
+        public global::TwelveLabs.AssetThumbnail? Thumbnail { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Asset" /> class.
+        /// Initializes a new instance of the <see cref="AssetDetail" /> class.
         /// </summary>
         /// <param name="id">
         /// The unique identifier of the asset.
@@ -107,10 +119,16 @@ namespace TwelveLabs
         /// <param name="createdAt">
         /// The date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the asset was created.
         /// </param>
+        /// <param name="hls">
+        /// HLS streaming details for the asset. Present only when HLS generation has been requested. Omitted otherwise.
+        /// </param>
+        /// <param name="thumbnail">
+        /// Thumbnail details for the asset. Present only when thumbnail generation has been requested. Omitted otherwise.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public Asset(
+        public AssetDetail(
             string? id,
             global::TwelveLabs.AssetMethod? method,
             global::TwelveLabs.AssetStatus? status,
@@ -118,7 +136,9 @@ namespace TwelveLabs
             string? fileType,
             long? size,
             double? duration,
-            global::System.DateTime? createdAt)
+            global::System.DateTime? createdAt,
+            global::TwelveLabs.AssetHLS? hls,
+            global::TwelveLabs.AssetThumbnail? thumbnail)
         {
             this.Id = id;
             this.Method = method;
@@ -128,12 +148,14 @@ namespace TwelveLabs
             this.Size = size;
             this.Duration = duration;
             this.CreatedAt = createdAt;
+            this.Hls = hls;
+            this.Thumbnail = thumbnail;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Asset" /> class.
+        /// Initializes a new instance of the <see cref="AssetDetail" /> class.
         /// </summary>
-        public Asset()
+        public AssetDetail()
         {
         }
     }

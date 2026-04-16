@@ -15,6 +15,12 @@ namespace TwelveLabs
         public string? Id { get; set; }
 
         /// <summary>
+        /// The unique identifier of the associated asset.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
+        public string? AssetId { get; set; }
+
+        /// <summary>
         /// A string indicating the date and time, in the RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), that the indexing task was created.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
@@ -81,6 +87,9 @@ namespace TwelveLabs
         /// <param name="id">
         /// A string representing the unique identifier of your indexed asset.
         /// </param>
+        /// <param name="assetId">
+        /// The unique identifier of the associated asset.
+        /// </param>
         /// <param name="createdAt">
         /// A string indicating the date and time, in the RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), that the indexing task was created.
         /// </param>
@@ -113,6 +122,7 @@ namespace TwelveLabs
 #endif
         public IndexedAssetDetailed(
             string? id,
+            string? assetId,
             string? createdAt,
             string? updatedAt,
             string? indexedAt,
@@ -124,6 +134,7 @@ namespace TwelveLabs
             global::System.Collections.Generic.IList<global::TwelveLabs.TranscriptionDataItems>? transcription)
         {
             this.Id = id;
+            this.AssetId = assetId;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
             this.IndexedAt = indexedAt;

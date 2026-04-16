@@ -15,6 +15,12 @@ namespace TwelveLabs
         public string? Id { get; set; }
 
         /// <summary>
+        /// The unique identifier of the entity collection this entity belongs to.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("entity_collection_id")]
+        public string? EntityCollectionId { get; set; }
+
+        /// <summary>
         /// The name of the entity.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -72,6 +78,9 @@ namespace TwelveLabs
         /// <param name="id">
         /// The unique identifier of the entity.
         /// </param>
+        /// <param name="entityCollectionId">
+        /// The unique identifier of the entity collection this entity belongs to.
+        /// </param>
         /// <param name="name">
         /// The name of the entity.
         /// </param>
@@ -101,6 +110,7 @@ namespace TwelveLabs
 #endif
         public Entity(
             string? id,
+            string? entityCollectionId,
             string? name,
             string? description,
             global::TwelveLabs.EntityMetadata? metadata,
@@ -110,6 +120,7 @@ namespace TwelveLabs
             global::System.DateTime? updatedAt)
         {
             this.Id = id;
+            this.EntityCollectionId = entityCollectionId;
             this.Name = name;
             this.Description = description;
             this.Metadata = metadata;

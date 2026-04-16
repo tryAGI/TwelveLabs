@@ -7,7 +7,7 @@ namespace TwelveLabs
         /// <summary>
         /// Create a multipart upload session<br/>
         /// This method creates a multipart upload session.<br/>
-        /// **Supported content**: Video and audio<br/>
+        /// **Supported content**: Video<br/>
         /// **File size**: 4 GB maximum.<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
@@ -28,7 +28,7 @@ namespace TwelveLabs
         /// <summary>
         /// Create a multipart upload session<br/>
         /// This method creates a multipart upload session.<br/>
-        /// **Supported content**: Video and audio<br/>
+        /// **Supported content**: Video<br/>
         /// **File size**: 4 GB maximum.<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
@@ -48,6 +48,16 @@ namespace TwelveLabs
         /// - Determine the total number of chunks required<br/>
         /// - Generate the initial set of presigned URLs
         /// </param>
+        /// <param name="enableHls">
+        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="enableThumbnail">
+        /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -56,6 +66,8 @@ namespace TwelveLabs
             string filename,
             long totalSize,
             global::TwelveLabs.CreateAssetUploadRequestType type = default,
+            bool? enableHls = default,
+            bool? enableThumbnail = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

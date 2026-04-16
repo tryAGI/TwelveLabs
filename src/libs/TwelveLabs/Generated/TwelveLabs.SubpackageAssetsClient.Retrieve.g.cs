@@ -52,7 +52,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.Asset> RetrieveAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AssetDetail> RetrieveAsync(
             string assetId,
             string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -356,7 +356,7 @@ namespace TwelveLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::TwelveLabs.Asset.FromJson(__content, JsonSerializerContext) ??
+                                        global::TwelveLabs.AssetDetail.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -386,7 +386,7 @@ namespace TwelveLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::TwelveLabs.Asset.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::TwelveLabs.AssetDetail.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
