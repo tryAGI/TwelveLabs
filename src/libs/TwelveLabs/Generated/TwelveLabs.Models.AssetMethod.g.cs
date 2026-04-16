@@ -7,7 +7,8 @@ namespace TwelveLabs
     /// Indicates how you uploaded the asset.<br/>
     /// **Values**:<br/>
     /// - `direct`: Uploaded from your local file system<br/>
-    /// - `url`: Uploaded from a publicly accessible URL
+    /// - `url`: Uploaded from a publicly accessible URL<br/>
+    /// - `multipart`: Uploaded using the multipart upload flow
     /// </summary>
     public enum AssetMethod
     {
@@ -15,6 +16,10 @@ namespace TwelveLabs
         /// Uploaded from your local file system
         /// </summary>
         Direct,
+        /// <summary>
+        /// Uploaded using the multipart upload flow
+        /// </summary>
+        Multipart,
         /// <summary>
         /// Uploaded from a publicly accessible URL
         /// </summary>
@@ -34,6 +39,7 @@ namespace TwelveLabs
             return value switch
             {
                 AssetMethod.Direct => "direct",
+                AssetMethod.Multipart => "multipart",
                 AssetMethod.Url => "url",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -46,6 +52,7 @@ namespace TwelveLabs
             return value switch
             {
                 "direct" => AssetMethod.Direct,
+                "multipart" => AssetMethod.Multipart,
                 "url" => AssetMethod.Url,
                 _ => null,
             };

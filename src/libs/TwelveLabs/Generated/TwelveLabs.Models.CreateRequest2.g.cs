@@ -36,6 +36,22 @@ namespace TwelveLabs
         public string? Filename { get; set; }
 
         /// <summary>
+        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_hls")]
+        public bool? EnableHls { get; set; }
+
+        /// <summary>
+        /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_thumbnail")]
+        public bool? EnableThumbnail { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -57,6 +73,16 @@ namespace TwelveLabs
         /// <param name="filename">
         /// The optional filename of the asset. If not provided, the platform will determine the filename from the file or URL.
         /// </param>
+        /// <param name="enableHls">
+        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="enableThumbnail">
+        /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -64,12 +90,16 @@ namespace TwelveLabs
             global::TwelveLabs.AssetsPostRequestBodyContentMultipartFormDataSchemaMethod method,
             byte[]? file,
             string? url,
-            string? filename)
+            string? filename,
+            bool? enableHls,
+            bool? enableThumbnail)
         {
             this.Method = method;
             this.File = file;
             this.Url = url;
             this.Filename = filename;
+            this.EnableHls = enableHls;
+            this.EnableThumbnail = enableThumbnail;
         }
 
         /// <summary>

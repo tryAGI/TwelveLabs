@@ -6,13 +6,13 @@ namespace TwelveLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class AssetsListResponse200
+    public sealed partial class IndexesIndexedAssetsListByAssetResponse200
     {
         /// <summary>
-        /// An array containing the assets.
+        /// A list of indexed assets that reference the specified asset.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
-        public global::System.Collections.Generic.IList<global::TwelveLabs.AssetDetail>? Data { get; set; }
+        public global::System.Collections.Generic.IList<global::TwelveLabs.IndexedAssetSummary>? Data { get; set; }
 
         /// <summary>
         /// An object that provides information about pagination.
@@ -27,10 +27,10 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AssetsListResponse200" /> class.
+        /// Initializes a new instance of the <see cref="IndexesIndexedAssetsListByAssetResponse200" /> class.
         /// </summary>
         /// <param name="data">
-        /// An array containing the assets.
+        /// A list of indexed assets that reference the specified asset.
         /// </param>
         /// <param name="pageInfo">
         /// An object that provides information about pagination.
@@ -38,8 +38,8 @@ namespace TwelveLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public AssetsListResponse200(
-            global::System.Collections.Generic.IList<global::TwelveLabs.AssetDetail>? data,
+        public IndexesIndexedAssetsListByAssetResponse200(
+            global::System.Collections.Generic.IList<global::TwelveLabs.IndexedAssetSummary>? data,
             global::TwelveLabs.PageInfo? pageInfo)
         {
             this.Data = data;
@@ -47,9 +47,9 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AssetsListResponse200" /> class.
+        /// Initializes a new instance of the <see cref="IndexesIndexedAssetsListByAssetResponse200" /> class.
         /// </summary>
-        public AssetsListResponse200()
+        public IndexesIndexedAssetsListByAssetResponse200()
         {
         }
     }

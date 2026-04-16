@@ -3,11 +3,11 @@
 
 namespace TwelveLabs
 {
-    public partial class SubpackageAssetsClient
+    public partial class SubpackageIndexesSubpackageIndexesIndexedAssetsClient
     {
 
 
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_CreateSecurityRequirement0 =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_ListByAssetSecurityRequirement0 =
             new global::TwelveLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::TwelveLabs.EndPointAuthorizationRequirement[]
@@ -21,71 +21,69 @@ namespace TwelveLabs
                     },
                 },
             };
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_CreateSecurityRequirements =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_ListByAssetSecurityRequirements =
             new global::TwelveLabs.EndPointSecurityRequirement[]
-            {                s_CreateSecurityRequirement0,
+            {                s_ListByAssetSecurityRequirement0,
             };
-        partial void PrepareCreateArguments(
+        partial void PrepareListByAssetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string xApiKey,
-            global::TwelveLabs.CreateRequest2 request);
-        partial void PrepareCreateRequest(
+            ref string assetId,
+            ref int? page,
+            ref int? pageLimit,
+            ref string xApiKey);
+        partial void PrepareListByAssetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string xApiKey,
-            global::TwelveLabs.CreateRequest2 request);
-        partial void ProcessCreateResponse(
+            string assetId,
+            int? page,
+            int? pageLimit,
+            string xApiKey);
+        partial void ProcessListByAssetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateResponseContent(
+        partial void ProcessListByAssetResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create an asset<br/>
-        /// This method creates an asset by uploading a file to the platform. Assets are media files that you can use in downstream workflows, including indexing, analyzing video content, and creating entities.<br/>
-        /// **Supported content**: Video, audio, and images.<br/>
-        /// **Upload methods**:<br/>
-        /// - **Local file**: Set the `method` parameter to `direct` and use the `file` parameter to specify the file.<br/>
-        /// - **Publicly accessible URL**: Set the `method` parameter to `url` and use the `url` parameter to specify the URL of your file.<br/>
-        /// **File size**: Up to 4 GB.<br/>
-        /// **Additional requirements** depend on your workflow:<br/>
-        /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
-        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>
-        /// - **Entity search**: [Marengo image requirements](/v1.3/docs/concepts/models/marengo#image-file-requirements)<br/>
-        /// - **Create embeddings**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#input-requirements)<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
-        /// &lt;/Note&gt;
+        /// List indexed assets for an asset<br/>
+        /// This method returns a list of indexed assets that reference the specified asset. Each entry includes the indexed asset ID and the index it belongs to.
         /// </summary>
+        /// <param name="assetId"></param>
+        /// <param name="page">
+        /// Default Value: 1
+        /// </param>
+        /// <param name="pageLimit">
+        /// Default Value: 10
+        /// </param>
         /// <param name="xApiKey"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.Asset> CreateAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesIndexedAssetsListByAssetResponse200> ListByAssetAsync(
+            string assetId,
             string xApiKey,
-
-            global::TwelveLabs.CreateRequest2 request,
+            int? page = default,
+            int? pageLimit = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateArguments(
+            PrepareListByAssetArguments(
                 httpClient: HttpClient,
-                xApiKey: ref xApiKey,
-                request: request);
+                assetId: ref assetId,
+                page: ref page,
+                pageLimit: ref pageLimit,
+                xApiKey: ref xApiKey);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_CreateSecurityRequirements,
-                operationName: "CreateAsync");
+                securityRequirements: s_ListByAssetSecurityRequirements,
+                operationName: "ListByAssetAsync");
 
             using var __timeoutCancellationTokenSource = global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -104,15 +102,19 @@ namespace TwelveLabs
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
                             var __pathBuilder = new global::TwelveLabs.PathBuilder(
-                                path: "/assets",
-                                baseUri: HttpClient.BaseAddress);
+                                path: $"/assets/{assetId}/indexed-assets",
+                                baseUri: HttpClient.BaseAddress); 
+                            __pathBuilder
+                                .AddOptionalParameter("page", page?.ToString())
+                                .AddOptionalParameter("page_limit", pageLimit?.ToString()) 
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::TwelveLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -138,55 +140,6 @@ namespace TwelveLabs
 
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
 
-                            var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{xApiKey}"),
-                                name: "\"x-api-key\"");
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{request.Method.ToValueString()}"),
-                                name: "\"method\"");
-                            if (request.File != default)
-                            {
-
-                                var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
-                                __httpRequestContent.Add(
-                                    content: __contentFile,
-                                    name: "\"file\"",
-                                    fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
-                                if (__contentFile.Headers.ContentDisposition != null)
-                                {
-                                    __contentFile.Headers.ContentDisposition.FileNameStar = null;
-                                }
-                            } 
-                            if (request.Url != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Url}"),
-                                    name: "\"url\"");
-                            } 
-                            if (request.Filename != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Filename}"),
-                                    name: "\"filename\"");
-                            } 
-                            if (request.EnableHls != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.EnableHls}"),
-                                    name: "\"enable_hls\"");
-                            } 
-                            if (request.EnableThumbnail != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.EnableThumbnail}"),
-                                    name: "\"enable_thumbnail\"");
-                            }
-                            __httpRequest.Content = __httpRequestContent;
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -195,11 +148,13 @@ namespace TwelveLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreateRequest(
+                PrepareListByAssetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    xApiKey: xApiKey,
-                    request: request);
+                    assetId: assetId,
+                    page: page,
+                    pageLimit: pageLimit,
+                    xApiKey: xApiKey);
 
                 return __httpRequest;
             }
@@ -216,10 +171,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/assets\"",
-                                httpMethod: "POST",
+                                operationId: "ListByAsset",
+                                methodName: "ListByAssetAsync",
+                                pathTemplate: "$\"/assets/{assetId}/indexed-assets\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -243,10 +198,10 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/assets\"",
-                                httpMethod: "POST",
+                                operationId: "ListByAsset",
+                                methodName: "ListByAssetAsync",
+                                pathTemplate: "$\"/assets/{assetId}/indexed-assets\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -278,10 +233,10 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/assets\"",
-                                httpMethod: "POST",
+                                operationId: "ListByAsset",
+                                methodName: "ListByAssetAsync",
+                                pathTemplate: "$\"/assets/{assetId}/indexed-assets\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -317,7 +272,7 @@ namespace TwelveLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreateResponse(
+                ProcessListByAssetResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -325,10 +280,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/assets\"",
-                                httpMethod: "POST",
+                                operationId: "ListByAsset",
+                                methodName: "ListByAssetAsync",
+                                pathTemplate: "$\"/assets/{assetId}/indexed-assets\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -345,10 +300,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/assets\"",
-                                httpMethod: "POST",
+                                operationId: "ListByAsset",
+                                methodName: "ListByAssetAsync",
+                                pathTemplate: "$\"/assets/{assetId}/indexed-assets\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -365,19 +320,19 @@ namespace TwelveLabs
                             {
                                 string? __content_400 = null;
                                 global::System.Exception? __exception_400 = null;
-                                global::TwelveLabs.CreateAssetRequestBadRequestError? __value_400 = null;
+                                global::TwelveLabs.ListIndexedAssetsByAssetRequestBadRequestError? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = global::TwelveLabs.CreateAssetRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.ListIndexedAssetsByAssetRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = global::TwelveLabs.CreateAssetRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.ListIndexedAssetsByAssetRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -385,7 +340,7 @@ namespace TwelveLabs
                                     __exception_400 = __ex;
                                 }
 
-                                throw new global::TwelveLabs.ApiException<global::TwelveLabs.CreateAssetRequestBadRequestError>(
+                                throw new global::TwelveLabs.ApiException<global::TwelveLabs.ListIndexedAssetsByAssetRequestBadRequestError>(
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
                                     statusCode: __response.StatusCode)
@@ -411,7 +366,7 @@ namespace TwelveLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreateResponseContent(
+                                ProcessListByAssetResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -421,7 +376,7 @@ namespace TwelveLabs
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        global::TwelveLabs.Asset.FromJson(__content, JsonSerializerContext) ??
+                                        global::TwelveLabs.IndexesIndexedAssetsListByAssetResponse200.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -451,7 +406,7 @@ namespace TwelveLabs
                                     ).ConfigureAwait(false);
 
                                     return
-                                        await global::TwelveLabs.Asset.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::TwelveLabs.IndexesIndexedAssetsListByAssetResponse200.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
@@ -489,77 +444,6 @@ namespace TwelveLabs
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// Create an asset<br/>
-        /// This method creates an asset by uploading a file to the platform. Assets are media files that you can use in downstream workflows, including indexing, analyzing video content, and creating entities.<br/>
-        /// **Supported content**: Video, audio, and images.<br/>
-        /// **Upload methods**:<br/>
-        /// - **Local file**: Set the `method` parameter to `direct` and use the `file` parameter to specify the file.<br/>
-        /// - **Publicly accessible URL**: Set the `method` parameter to `url` and use the `url` parameter to specify the URL of your file.<br/>
-        /// **File size**: Up to 4 GB.<br/>
-        /// **Additional requirements** depend on your workflow:<br/>
-        /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
-        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>
-        /// - **Entity search**: [Marengo image requirements](/v1.3/docs/concepts/models/marengo#image-file-requirements)<br/>
-        /// - **Create embeddings**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#input-requirements)<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
-        /// &lt;/Note&gt;
-        /// </summary>
-        /// <param name="xApiKey"></param>
-        /// <param name="method">
-        /// Specifies the upload method for the asset. Use `direct` to upload a local file or `url` for a publicly accessible URL.
-        /// </param>
-        /// <param name="file">
-        /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.
-        /// </param>
-        /// <param name="url">
-        /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
-        /// URL uploads have a maximum limit of 4 GB.
-        /// </param>
-        /// <param name="filename">
-        /// The optional filename of the asset. If not provided, the platform will determine the filename from the file or URL.
-        /// </param>
-        /// <param name="enableHls">
-        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
-        /// **Default**: `false`.<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="enableThumbnail">
-        /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
-        /// **Default**: `false`.<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.Asset> CreateAsync(
-            string xApiKey,
-            global::TwelveLabs.AssetsPostRequestBodyContentMultipartFormDataSchemaMethod method,
-            byte[]? file = default,
-            string? url = default,
-            string? filename = default,
-            bool? enableHls = default,
-            bool? enableThumbnail = default,
-            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::TwelveLabs.CreateRequest2
-            {
-                Method = method,
-                File = file,
-                Url = url,
-                Filename = filename,
-                EnableHls = enableHls,
-                EnableThumbnail = enableThumbnail,
-            };
-
-            return await CreateAsync(
-                xApiKey: xApiKey,
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

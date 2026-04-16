@@ -4,21 +4,21 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    /// The identifier and index of an indexed asset that references the specified asset.
     /// </summary>
-    public sealed partial class IndexesIndexedAssetsCreateResponse202
+    public sealed partial class IndexedAssetSummary
     {
         /// <summary>
-        /// The unique identifier of the indexed asset. Use it to monitor the indexing progress.
+        /// The unique identifier of the indexed asset.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("_id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The unique identifier of the associated asset.
+        /// The index to which the indexed asset belongs.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
-        public string? AssetId { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("index")]
+        public global::TwelveLabs.IndexedAssetSummaryIndex? Index { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -27,29 +27,29 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IndexesIndexedAssetsCreateResponse202" /> class.
+        /// Initializes a new instance of the <see cref="IndexedAssetSummary" /> class.
         /// </summary>
         /// <param name="id">
-        /// The unique identifier of the indexed asset. Use it to monitor the indexing progress.
+        /// The unique identifier of the indexed asset.
         /// </param>
-        /// <param name="assetId">
-        /// The unique identifier of the associated asset.
+        /// <param name="index">
+        /// The index to which the indexed asset belongs.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public IndexesIndexedAssetsCreateResponse202(
+        public IndexedAssetSummary(
             string? id,
-            string? assetId)
+            global::TwelveLabs.IndexedAssetSummaryIndex? index)
         {
             this.Id = id;
-            this.AssetId = assetId;
+            this.Index = index;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IndexesIndexedAssetsCreateResponse202" /> class.
+        /// Initializes a new instance of the <see cref="IndexedAssetSummary" /> class.
         /// </summary>
-        public IndexesIndexedAssetsCreateResponse202()
+        public IndexedAssetSummary()
         {
         }
     }

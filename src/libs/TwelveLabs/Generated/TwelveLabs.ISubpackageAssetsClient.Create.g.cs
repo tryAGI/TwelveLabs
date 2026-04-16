@@ -63,6 +63,16 @@ namespace TwelveLabs
         /// <param name="filename">
         /// The optional filename of the asset. If not provided, the platform will determine the filename from the file or URL.
         /// </param>
+        /// <param name="enableHls">
+        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="enableThumbnail">
+        /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -72,6 +82,8 @@ namespace TwelveLabs
             byte[]? file = default,
             string? url = default,
             string? filename = default,
+            bool? enableHls = default,
+            bool? enableThumbnail = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
