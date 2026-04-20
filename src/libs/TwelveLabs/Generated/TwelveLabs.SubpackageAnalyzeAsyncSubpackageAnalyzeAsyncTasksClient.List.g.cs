@@ -30,6 +30,9 @@ namespace TwelveLabs
             ref int? page,
             ref int? pageLimit,
             ref global::TwelveLabs.AnalyzeTaskStatus? status,
+            ref string? videoUrl,
+            ref string? assetId,
+            ref global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode,
             ref string xApiKey);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -37,6 +40,9 @@ namespace TwelveLabs
             int? page,
             int? pageLimit,
             global::TwelveLabs.AnalyzeTaskStatus? status,
+            string? videoUrl,
+            string? assetId,
+            global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode,
             string xApiKey);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -60,6 +66,9 @@ namespace TwelveLabs
         /// <param name="status">
         /// The current status of the analysis task.
         /// </param>
+        /// <param name="videoUrl"></param>
+        /// <param name="assetId"></param>
+        /// <param name="analysisMode"></param>
         /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -69,6 +78,9 @@ namespace TwelveLabs
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.AnalyzeTaskStatus? status = default,
+            string? videoUrl = default,
+            string? assetId = default,
+            global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -79,6 +91,9 @@ namespace TwelveLabs
                 page: ref page,
                 pageLimit: ref pageLimit,
                 status: ref status,
+                videoUrl: ref videoUrl,
+                assetId: ref assetId,
+                analysisMode: ref analysisMode,
                 xApiKey: ref xApiKey);
 
 
@@ -109,7 +124,10 @@ namespace TwelveLabs
                             __pathBuilder
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_limit", pageLimit?.ToString())
-                                .AddOptionalParameter("status", status?.ToValueString()) 
+                                .AddOptionalParameter("status", status?.ToValueString())
+                                .AddOptionalParameter("video_url", videoUrl)
+                                .AddOptionalParameter("asset_id", assetId)
+                                .AddOptionalParameter("analysis_mode", analysisMode?.ToValueString()) 
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::TwelveLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -157,6 +175,9 @@ namespace TwelveLabs
                     page: page,
                     pageLimit: pageLimit,
                     status: status,
+                    videoUrl: videoUrl,
+                    assetId: assetId,
+                    analysisMode: analysisMode,
                     xApiKey: xApiKey);
 
                 return __httpRequest;

@@ -4,16 +4,21 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
+    /// Controls the response format. When you omit this parameter, you receive unstructured text.<br/>
+    /// - `json_schema`: Return structured JSON that conforms to your schema.<br/>
+    /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.
     /// </summary>
-    public sealed partial class ResponseFormat
+    public sealed partial class AsyncResponseFormat
     {
         /// <summary>
-        /// Set this parameter to "json_schema" to receive structured JSON responses.
+        /// The response format to use.<br/>
+        /// - `json_schema`: Return structured JSON that conforms to your schema.<br/>
+        /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.ResponseFormatTypeJsonConverter))]
-        public global::TwelveLabs.ResponseFormatType Type { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AsyncResponseFormatTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::TwelveLabs.AsyncResponseFormatType Type { get; set; }
 
         /// <summary>
         /// Contains the JSON schema that defines the response structure. The schema must adhere to the [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12) specification.<br/>
@@ -60,8 +65,13 @@ namespace TwelveLabs
         /// - When `FinishReason` is `length`, the platform truncates the response at the token limit. This may result in truncated, invalid JSON that fails to parse.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("json_schema")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::TwelveLabs.ResponseFormatJsonSchema JsonSchema { get; set; }
+        public global::TwelveLabs.AsyncResponseFormatJsonSchema? JsonSchema { get; set; }
+
+        /// <summary>
+        /// Define the types of segments to extract from your video. Minimum 1, maximum 10 definitions.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("segment_definitions")]
+        public global::System.Collections.Generic.IList<global::TwelveLabs.SegmentDefinition>? SegmentDefinitions { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -70,8 +80,13 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResponseFormat" /> class.
+        /// Initializes a new instance of the <see cref="AsyncResponseFormat" /> class.
         /// </summary>
+        /// <param name="type">
+        /// The response format to use.<br/>
+        /// - `json_schema`: Return structured JSON that conforms to your schema.<br/>
+        /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.
+        /// </param>
         /// <param name="jsonSchema">
         /// Contains the JSON schema that defines the response structure. The schema must adhere to the [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12) specification.<br/>
         /// **Supported types**<br/>
@@ -116,24 +131,26 @@ namespace TwelveLabs
         /// - When `FinishReason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
         /// - When `FinishReason` is `length`, the platform truncates the response at the token limit. This may result in truncated, invalid JSON that fails to parse.
         /// </param>
-        /// <param name="type">
-        /// Set this parameter to "json_schema" to receive structured JSON responses.
+        /// <param name="segmentDefinitions">
+        /// Define the types of segments to extract from your video. Minimum 1, maximum 10 definitions.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public ResponseFormat(
-            global::TwelveLabs.ResponseFormatJsonSchema jsonSchema,
-            global::TwelveLabs.ResponseFormatType type)
+        public AsyncResponseFormat(
+            global::TwelveLabs.AsyncResponseFormatType type,
+            global::TwelveLabs.AsyncResponseFormatJsonSchema? jsonSchema,
+            global::System.Collections.Generic.IList<global::TwelveLabs.SegmentDefinition>? segmentDefinitions)
         {
             this.Type = type;
-            this.JsonSchema = jsonSchema ?? throw new global::System.ArgumentNullException(nameof(jsonSchema));
+            this.JsonSchema = jsonSchema;
+            this.SegmentDefinitions = segmentDefinitions;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResponseFormat" /> class.
+        /// Initializes a new instance of the <see cref="AsyncResponseFormat" /> class.
         /// </summary>
-        public ResponseFormat()
+        public AsyncResponseFormat()
         {
         }
     }

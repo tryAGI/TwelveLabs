@@ -17,6 +17,9 @@ namespace TwelveLabs
         /// <param name="status">
         /// The current status of the analysis task.
         /// </param>
+        /// <param name="videoUrl"></param>
+        /// <param name="assetId"></param>
+        /// <param name="analysisMode"></param>
         /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -26,6 +29,9 @@ namespace TwelveLabs
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.AnalyzeTaskStatus? status = default,
+            string? videoUrl = default,
+            string? assetId = default,
+            global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
