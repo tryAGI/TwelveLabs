@@ -16,6 +16,20 @@ namespace TwelveLabs
         public required string TaskId { get; set; }
 
         /// <summary>
+        /// The video source you provided. Only present for tasks that use direct video input (`url`, `base64_string`, or `asset_id`).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("video_source")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseVideoSource, object>))]
+        public global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseVideoSource, object>? VideoSource { get; set; }
+
+        /// <summary>
+        /// The parameters you sent when creating this task. Only present for tasks created with `model_name` set to `pegasus1.5`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("request_params")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParams, object>))]
+        public global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseRequestParams, object>? RequestParams { get; set; }
+
+        /// <summary>
         /// The current status of the analysis task.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
@@ -72,6 +86,12 @@ namespace TwelveLabs
         /// <param name="createdAt">
         /// A string representing the date and time, in RFC 3339 format (“YYYY-MM-DDTHH:mm:ssZ”), when the analysis task was created.
         /// </param>
+        /// <param name="videoSource">
+        /// The video source you provided. Only present for tasks that use direct video input (`url`, `base64_string`, or `asset_id`).
+        /// </param>
+        /// <param name="requestParams">
+        /// The parameters you sent when creating this task. Only present for tasks created with `model_name` set to `pegasus1.5`.
+        /// </param>
         /// <param name="completedAt">
         /// A string representing the date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the analysis task was completed or failed. The platform returns this field only if `status` is `ready` or `failed`.
         /// </param>
@@ -91,12 +111,16 @@ namespace TwelveLabs
             string taskId,
             global::TwelveLabs.AnalyzeTaskStatus status,
             global::System.DateTime createdAt,
+            global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseVideoSource, object>? videoSource,
+            global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseRequestParams, object>? requestParams,
             global::System.DateTime? completedAt,
             global::TwelveLabs.AnalyzeTaskResult? result,
             global::TwelveLabs.AnalyzeTaskError? error,
             global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskWebhookInfo>? webhooks)
         {
             this.TaskId = taskId ?? throw new global::System.ArgumentNullException(nameof(taskId));
+            this.VideoSource = videoSource;
+            this.RequestParams = requestParams;
             this.Status = status;
             this.CreatedAt = createdAt;
             this.CompletedAt = completedAt;

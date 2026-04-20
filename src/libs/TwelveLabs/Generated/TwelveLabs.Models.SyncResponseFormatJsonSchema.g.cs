@@ -47,7 +47,7 @@ namespace TwelveLabs
     /// - When `FinishReason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
     /// - When `FinishReason` is `length`, the platform truncates the response at the token limit. This may result in truncated, invalid JSON that fails to parse.
     /// </summary>
-    public sealed partial class ResponseFormatJsonSchema
+    public sealed partial class SyncResponseFormatJsonSchema
     {
 
         /// <summary>

@@ -4,40 +4,40 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Set this parameter to "json_schema" to receive structured JSON responses.
+    /// 
     /// </summary>
-    public enum ResponseFormatType
+    public enum AnalyzeTasksGetParametersAnalysisMode
     {
         /// <summary>
         /// 
         /// </summary>
-        JsonSchema,
+        TimeBasedMetadata,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class ResponseFormatTypeExtensions
+    public static class AnalyzeTasksGetParametersAnalysisModeExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this ResponseFormatType value)
+        public static string ToValueString(this AnalyzeTasksGetParametersAnalysisMode value)
         {
             return value switch
             {
-                ResponseFormatType.JsonSchema => "json_schema",
+                AnalyzeTasksGetParametersAnalysisMode.TimeBasedMetadata => "time_based_metadata",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static ResponseFormatType? ToEnum(string value)
+        public static AnalyzeTasksGetParametersAnalysisMode? ToEnum(string value)
         {
             return value switch
             {
-                "json_schema" => ResponseFormatType.JsonSchema,
+                "time_based_metadata" => AnalyzeTasksGetParametersAnalysisMode.TimeBasedMetadata,
                 _ => null,
             };
         }

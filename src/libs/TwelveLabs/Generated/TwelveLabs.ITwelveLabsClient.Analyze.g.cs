@@ -20,6 +20,7 @@ namespace TwelveLabs
         /// - Stream text fragments in real-time for immediate processing and feedback<br/>
         /// **Do not use this method for**:<br/>
         /// - Videos longer than 1 hour. Use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
+        /// - Video segmentation. Use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint with `model_name` set to `pegasus1.5` instead.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
         /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
@@ -51,6 +52,7 @@ namespace TwelveLabs
         /// - Stream text fragments in real-time for immediate processing and feedback<br/>
         /// **Do not use this method for**:<br/>
         /// - Videos longer than 1 hour. Use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
+        /// - Video segmentation. Use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint with `model_name` set to `pegasus1.5` instead.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
         /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
@@ -100,7 +102,7 @@ namespace TwelveLabs
             global::TwelveLabs.VideoContext? video = default,
             double? temperature = default,
             bool? stream = default,
-            global::TwelveLabs.ResponseFormat? responseFormat = default,
+            global::TwelveLabs.SyncResponseFormat? responseFormat = default,
             int? maxTokens = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -1288,15 +1288,15 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.ResponseFormatType? Type315 { get; set; }
+        public global::TwelveLabs.SyncResponseFormatType? Type315 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.ResponseFormatJsonSchema? Type316 { get; set; }
+        public global::TwelveLabs.SyncResponseFormatJsonSchema? Type316 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.ResponseFormat? Type317 { get; set; }
+        public global::TwelveLabs.SyncResponseFormat? Type317 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -1356,171 +1356,307 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.CreateAsyncAnalyzeRequest? Type332 { get; set; }
+        public global::TwelveLabs.CreateAsyncAnalyzeRequestModelName? Type332 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.AnalyzeTaskStatus? Type333 { get; set; }
+        public global::TwelveLabs.CreateAsyncAnalyzeRequestAnalysisMode? Type333 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.CreateAnalyzeTaskResponse? Type334 { get; set; }
+        public global::TwelveLabs.AsyncResponseFormatType? Type334 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.AnalyzeTaskResultUsage? Type335 { get; set; }
+        public global::TwelveLabs.AsyncResponseFormatJsonSchema? Type335 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.AnalyzeTaskResult? Type336 { get; set; }
+        public global::TwelveLabs.SegmentFieldType? Type336 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.AnalyzeTaskError? Type337 { get; set; }
+        public global::TwelveLabs.SegmentFieldItemsType? Type337 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.AnalyzeTaskWebhookInfo? Type338 { get; set; }
+        public global::TwelveLabs.SegmentFieldItems? Type338 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.AnalyzeTaskResponse? Type339 { get; set; }
+        public global::TwelveLabs.SegmentField? Type339 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskWebhookInfo>? Type340 { get; set; }
+        public global::TwelveLabs.SmeMediaSourceMediaType? Type340 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.AnalyzeAsyncTasksListResponse200? Type341 { get; set; }
+        public global::TwelveLabs.SMEMediaSource? Type341 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponse>? Type342 { get; set; }
+        public global::TwelveLabs.SegmentDefinition? Type342 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.ListAsyncAnalysisTasksRequestBadRequestError? Type343 { get; set; }
+        public global::System.Collections.Generic.IList<global::TwelveLabs.SegmentField>? Type343 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.AnalyzeAsyncTasksDeleteResponse204? Type344 { get; set; }
+        public global::System.Collections.Generic.IList<global::TwelveLabs.SMEMediaSource>? Type344 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.CreateRequest? Type345 { get; set; }
+        public global::TwelveLabs.AsyncResponseFormat? Type345 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems>? Type346 { get; set; }
+        public global::System.Collections.Generic.IList<global::TwelveLabs.SegmentDefinition>? Type346 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.UpdateRequest? Type347 { get; set; }
+        public global::TwelveLabs.CreateAsyncAnalyzeRequest? Type347 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.CreateRequest2? Type348 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskStatus? Type348 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.CreateRequest3? Type349 { get; set; }
+        public global::TwelveLabs.CreateAnalyzeTaskResponse? Type349 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.CreateRequest4? Type350 { get; set; }
+        public global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? Type350 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.UpdateRequest2? Type351 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseVideoSourceType? Type351 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.UpdateRequest3? Type352 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata? Type352 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.CreateRequest5? Type353 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseVideoSource? Type353 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.UpdateRequest4? Type354 { get; set; }
+        public global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata, object>? Type354 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.CreateRequest6? Type355 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisMode? Type355 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.CreateBulkRequest? Type356 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType? Type356 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesBulkPostRequestBodyContentApplicationJsonSchemaEntitiesItems>? Type357 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItemsItems? Type357 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.UpdateRequest5? Type358 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems? Type358 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.CreateAssetsRequest? Type359 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems? Type359 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.DeleteAssetsRequest? Type360 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItems? Type360 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.CreateRequest7? Type361 { get; set; }
+        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems>? Type361 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems>? Type362 { get; set; }
+        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems>? Type362 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItems>? Type363 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormat? Type363 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.CreateRequest8? Type364 { get; set; }
+        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItems>? Type364 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::TwelveLabs.EmbedTasksPostRequestBodyContentMultipartFormDataSchemaVideoEmbeddingScopeItems>? Type365 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParams? Type365 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.CreateRequest9? Type366 { get; set; }
+        public global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormat, object>? Type366 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.AnalyzeRequest? Type367 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResultUsage? Type367 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::TwelveLabs.AssetsGetParametersAssetTypesSchemaItems>? Type368 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResult? Type368 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::TwelveLabs.TasksGetParametersStatusSchemaItems>? Type369 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskError? Type369 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems>? Type370 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskWebhookInfo? Type370 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItems>? Type371 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponse? Type371 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItems>? Type372 { get; set; }
+        public global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseVideoSource, object>? Type372 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::TwelveLabs.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems>? Type373 { get; set; }
+        public global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseRequestParams, object>? Type373 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskWebhookInfo>? Type374 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.AnalyzeAsyncTasksListResponse200? Type375 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponse>? Type376 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.ListAsyncAnalysisTasksRequestBadRequestError? Type377 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.AnalyzeAsyncTasksDeleteResponse204? Type378 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.CreateRequest? Type379 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems>? Type380 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.UpdateRequest? Type381 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.CreateRequest2? Type382 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.CreateRequest3? Type383 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.CreateRequest4? Type384 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.UpdateRequest2? Type385 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.UpdateRequest3? Type386 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.CreateRequest5? Type387 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.UpdateRequest4? Type388 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.CreateRequest6? Type389 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.CreateBulkRequest? Type390 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesBulkPostRequestBodyContentApplicationJsonSchemaEntitiesItems>? Type391 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.UpdateRequest5? Type392 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.CreateAssetsRequest? Type393 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.DeleteAssetsRequest? Type394 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.CreateRequest7? Type395 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems>? Type396 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItems>? Type397 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.CreateRequest8? Type398 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::TwelveLabs.EmbedTasksPostRequestBodyContentMultipartFormDataSchemaVideoEmbeddingScopeItems>? Type399 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.CreateRequest9? Type400 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.AnalyzeRequest? Type401 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::TwelveLabs.AssetsGetParametersAssetTypesSchemaItems>? Type402 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::TwelveLabs.TasksGetParametersStatusSchemaItems>? Type403 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems>? Type404 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItems>? Type405 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItems>? Type406 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::TwelveLabs.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems>? Type407 { get; set; }
 
         /// <summary>
         /// 
@@ -1665,54 +1801,78 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskWebhookInfo>? ListType35 { get; set; }
+        public global::System.Collections.Generic.List<global::TwelveLabs.SegmentField>? ListType35 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponse>? ListType36 { get; set; }
+        public global::System.Collections.Generic.List<global::TwelveLabs.SMEMediaSource>? ListType36 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems>? ListType37 { get; set; }
+        public global::System.Collections.Generic.List<global::TwelveLabs.SegmentDefinition>? ListType37 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesBulkPostRequestBodyContentApplicationJsonSchemaEntitiesItems>? ListType38 { get; set; }
+        public global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems>? ListType38 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems>? ListType39 { get; set; }
+        public global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems>? ListType39 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItems>? ListType40 { get; set; }
+        public global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItems>? ListType40 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::TwelveLabs.EmbedTasksPostRequestBodyContentMultipartFormDataSchemaVideoEmbeddingScopeItems>? ListType41 { get; set; }
+        public global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskWebhookInfo>? ListType41 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::TwelveLabs.AssetsGetParametersAssetTypesSchemaItems>? ListType42 { get; set; }
+        public global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponse>? ListType42 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::TwelveLabs.TasksGetParametersStatusSchemaItems>? ListType43 { get; set; }
+        public global::System.Collections.Generic.List<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems>? ListType43 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems>? ListType44 { get; set; }
+        public global::System.Collections.Generic.List<global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesBulkPostRequestBodyContentApplicationJsonSchemaEntitiesItems>? ListType44 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::TwelveLabs.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItems>? ListType45 { get; set; }
+        public global::System.Collections.Generic.List<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems>? ListType45 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::TwelveLabs.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItems>? ListType46 { get; set; }
+        public global::System.Collections.Generic.List<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItems>? ListType46 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::TwelveLabs.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems>? ListType47 { get; set; }
+        public global::System.Collections.Generic.List<global::TwelveLabs.EmbedTasksPostRequestBodyContentMultipartFormDataSchemaVideoEmbeddingScopeItems>? ListType47 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.List<global::TwelveLabs.AssetsGetParametersAssetTypesSchemaItems>? ListType48 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.List<global::TwelveLabs.TasksGetParametersStatusSchemaItems>? ListType49 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.List<global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems>? ListType50 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.List<global::TwelveLabs.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItems>? ListType51 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.List<global::TwelveLabs.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItems>? ListType52 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.List<global::TwelveLabs.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems>? ListType53 { get; set; }
     }
 }

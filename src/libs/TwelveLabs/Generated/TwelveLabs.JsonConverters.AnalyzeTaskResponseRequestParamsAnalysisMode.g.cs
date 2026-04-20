@@ -3,10 +3,10 @@
 namespace TwelveLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class ResponseFormatTypeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::TwelveLabs.ResponseFormatType?>
+    public sealed class AnalyzeTaskResponseRequestParamsAnalysisModeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisMode>
     {
         /// <inheritdoc />
-        public override global::TwelveLabs.ResponseFormatType? Read(
+        public override global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisMode Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace TwelveLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::TwelveLabs.ResponseFormatTypeExtensions.ToEnum(stringValue);
+                        return global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisModeExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace TwelveLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::TwelveLabs.ResponseFormatType)numValue;
+                    return (global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisMode)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::TwelveLabs.ResponseFormatType?);
+                    return default(global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisMode);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,19 +42,12 @@ namespace TwelveLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::TwelveLabs.ResponseFormatType? value,
+            global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisMode value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            if (value == null)
-            {
-                writer.WriteNullValue();
-            }
-            else
-            {
-                writer.WriteStringValue(global::TwelveLabs.ResponseFormatTypeExtensions.ToValueString(value.Value));
-            }
+            writer.WriteStringValue(global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisModeExtensions.ToValueString(value));
         }
     }
 }

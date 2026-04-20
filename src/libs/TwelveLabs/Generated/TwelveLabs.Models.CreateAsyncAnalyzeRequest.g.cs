@@ -9,6 +9,16 @@ namespace TwelveLabs
     public sealed partial class CreateAsyncAnalyzeRequest
     {
         /// <summary>
+        /// The video understanding model to use for analysis.<br/>
+        /// - `pegasus1.2` (default): Analyzes pre-indexed videos. Pass a `video_id` to reference your video.<br/>
+        /// - `pegasus1.5`: Analyzes videos directly from a URL, asset, or base64 string. Supports video segmentation with custom segment definitions.<br/>
+        /// Default Value: pegasus1.2
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestModelNameJsonConverter))]
+        public global::TwelveLabs.CreateAsyncAnalyzeRequestModelName? ModelName { get; set; }
+
+        /// <summary>
         /// An object specifying the source of the video content. Include exactly one source.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video")]
@@ -17,7 +27,7 @@ namespace TwelveLabs
         public required global::TwelveLabs.VideoContext Video { get; set; }
 
         /// <summary>
-        /// A prompt that guides the model on the desired format or content.<br/>
+        /// A natural-language text that provides instructions for analyzing the video. Required for general-mode analysis. Not supported when `analysis_mode` is `time_based_metadata`.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
         /// - Even though the model behind this endpoint is trained to a high degree of accuracy, the preciseness of the generated text may vary based on the nature and quality of the video and the clarity of the prompt.<br/>
         /// - Your prompts can be instructive or descriptive, or you can also phrase them as questions.<br/>
@@ -28,8 +38,14 @@ namespace TwelveLabs
         /// - I want to generate a description for my video with the following format: Title of the video, followed by a summary in 2-3 sentences, highlighting the main topic, key events, and concluding remarks.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Prompt { get; set; }
+        public string? Prompt { get; set; }
+
+        /// <summary>
+        /// Sets the analysis mode to `time_based_metadata`, which segments your video into time-based intervals and extracts custom metadata for each segment. Requires `model_name` set to `pegasus1.5` and `response_format.type` set to `segment_definitions`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("analysis_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestAnalysisModeJsonConverter))]
+        public global::TwelveLabs.CreateAsyncAnalyzeRequestAnalysisMode? AnalysisMode { get; set; }
 
         /// <summary>
         /// Controls the randomness of the text output.<br/>
@@ -39,17 +55,34 @@ namespace TwelveLabs
         public double? Temperature { get; set; }
 
         /// <summary>
-        /// The maximum number of tokens to generate.<br/>
-        /// **Min**: 1 **Max:** 4096
+        /// The maximum number of tokens to generate. The allowed range depends on the model:<br/>
+        /// - `pegasus1.2`: **Min:** 1, **Max:** 4,096<br/>
+        /// - `pegasus1.5`: **Min:** 2,048, **Max:** 32,768, **Default:** 32,768
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
         public int? MaxTokens { get; set; }
 
         /// <summary>
-        /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
+        /// Controls the response format. When you omit this parameter, you receive unstructured text.<br/>
+        /// - `json_schema`: Return structured JSON that conforms to your schema.<br/>
+        /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        public global::TwelveLabs.ResponseFormat? ResponseFormat { get; set; }
+        public global::TwelveLabs.AsyncResponseFormat? ResponseFormat { get; set; }
+
+        /// <summary>
+        /// Minimum duration for each extracted segment, in seconds. Set this to prevent the model from creating very short segments. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.<br/>
+        /// **Min:** 2
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("min_segment_duration")]
+        public double? MinSegmentDuration { get; set; }
+
+        /// <summary>
+        /// Maximum duration for each extracted segment, in seconds. Set this to break long continuous sections into shorter segments. Must be greater than or equal to `min_segment_duration`. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.<br/>
+        /// **Min:** 2
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_segment_duration")]
+        public double? MaxSegmentDuration { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -63,8 +96,14 @@ namespace TwelveLabs
         /// <param name="video">
         /// An object specifying the source of the video content. Include exactly one source.
         /// </param>
+        /// <param name="modelName">
+        /// The video understanding model to use for analysis.<br/>
+        /// - `pegasus1.2` (default): Analyzes pre-indexed videos. Pass a `video_id` to reference your video.<br/>
+        /// - `pegasus1.5`: Analyzes videos directly from a URL, asset, or base64 string. Supports video segmentation with custom segment definitions.<br/>
+        /// Default Value: pegasus1.2
+        /// </param>
         /// <param name="prompt">
-        /// A prompt that guides the model on the desired format or content.<br/>
+        /// A natural-language text that provides instructions for analyzing the video. Required for general-mode analysis. Not supported when `analysis_mode` is `time_based_metadata`.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
         /// - Even though the model behind this endpoint is trained to a high degree of accuracy, the preciseness of the generated text may vary based on the nature and quality of the video and the clarity of the prompt.<br/>
         /// - Your prompts can be instructive or descriptive, or you can also phrase them as questions.<br/>
@@ -74,32 +113,54 @@ namespace TwelveLabs
         /// - Based on this video, I want to generate five keywords for SEO (Search Engine Optimization).<br/>
         /// - I want to generate a description for my video with the following format: Title of the video, followed by a summary in 2-3 sentences, highlighting the main topic, key events, and concluding remarks.
         /// </param>
+        /// <param name="analysisMode">
+        /// Sets the analysis mode to `time_based_metadata`, which segments your video into time-based intervals and extracts custom metadata for each segment. Requires `model_name` set to `pegasus1.5` and `response_format.type` set to `segment_definitions`.
+        /// </param>
         /// <param name="temperature">
         /// Controls the randomness of the text output.<br/>
         /// **Default:** 0.2 **Min:** 0 **Max:** 1
         /// </param>
         /// <param name="maxTokens">
-        /// The maximum number of tokens to generate.<br/>
-        /// **Min**: 1 **Max:** 4096
+        /// The maximum number of tokens to generate. The allowed range depends on the model:<br/>
+        /// - `pegasus1.2`: **Min:** 1, **Max:** 4,096<br/>
+        /// - `pegasus1.5`: **Min:** 2,048, **Max:** 32,768, **Default:** 32,768
         /// </param>
         /// <param name="responseFormat">
-        /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
+        /// Controls the response format. When you omit this parameter, you receive unstructured text.<br/>
+        /// - `json_schema`: Return structured JSON that conforms to your schema.<br/>
+        /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.
+        /// </param>
+        /// <param name="minSegmentDuration">
+        /// Minimum duration for each extracted segment, in seconds. Set this to prevent the model from creating very short segments. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.<br/>
+        /// **Min:** 2
+        /// </param>
+        /// <param name="maxSegmentDuration">
+        /// Maximum duration for each extracted segment, in seconds. Set this to break long continuous sections into shorter segments. Must be greater than or equal to `min_segment_duration`. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.<br/>
+        /// **Min:** 2
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateAsyncAnalyzeRequest(
             global::TwelveLabs.VideoContext video,
-            string prompt,
+            global::TwelveLabs.CreateAsyncAnalyzeRequestModelName? modelName,
+            string? prompt,
+            global::TwelveLabs.CreateAsyncAnalyzeRequestAnalysisMode? analysisMode,
             double? temperature,
             int? maxTokens,
-            global::TwelveLabs.ResponseFormat? responseFormat)
+            global::TwelveLabs.AsyncResponseFormat? responseFormat,
+            double? minSegmentDuration,
+            double? maxSegmentDuration)
         {
+            this.ModelName = modelName;
             this.Video = video;
-            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
+            this.Prompt = prompt;
+            this.AnalysisMode = analysisMode;
             this.Temperature = temperature;
             this.MaxTokens = maxTokens;
             this.ResponseFormat = responseFormat;
+            this.MinSegmentDuration = minSegmentDuration;
+            this.MaxSegmentDuration = maxSegmentDuration;
         }
 
         /// <summary>

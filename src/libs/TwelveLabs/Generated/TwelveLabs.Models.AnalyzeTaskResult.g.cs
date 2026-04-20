@@ -16,7 +16,12 @@ namespace TwelveLabs
         public required string GenerationId { get; set; }
 
         /// <summary>
-        /// The generated text based on the prompt you provided.
+        /// The generated text for this analysis task. The format depends on the `analysis_mode` used when creating the task:<br/>
+        /// - **When `analysis_mode` is not set**: A plain-text string containing the generated text based on the prompt you provided.<br/>
+        /// - **When `analysis_mode` is `time_based_metadata`** (requires `model_name` set to `pegasus1.5`): A JSON-encoded string containing an object keyed by segment definition (the `id` field). Each key maps to an array of segment objects with the following fields:<br/>
+        ///   - `start_time` (number): The start time of the segment in seconds.<br/>
+        ///   - `end_time` (number): The end time of the segment in seconds.<br/>
+        ///   - `metadata` (object): The custom fields you defined in the request's `segment_definitions[].fields`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -52,7 +57,12 @@ namespace TwelveLabs
         /// The unique identifier for the generation session.
         /// </param>
         /// <param name="data">
-        /// The generated text based on the prompt you provided.
+        /// The generated text for this analysis task. The format depends on the `analysis_mode` used when creating the task:<br/>
+        /// - **When `analysis_mode` is not set**: A plain-text string containing the generated text based on the prompt you provided.<br/>
+        /// - **When `analysis_mode` is `time_based_metadata`** (requires `model_name` set to `pegasus1.5`): A JSON-encoded string containing an object keyed by segment definition (the `id` field). Each key maps to an array of segment objects with the following fields:<br/>
+        ///   - `start_time` (number): The start time of the segment in seconds.<br/>
+        ///   - `end_time` (number): The end time of the segment in seconds.<br/>
+        ///   - `metadata` (object): The custom fields you defined in the request's `segment_definitions[].fields`.
         /// </param>
         /// <param name="finishReason">
         /// The reason for the generation to finish.<br/>

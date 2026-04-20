@@ -56,7 +56,7 @@ namespace TwelveLabs
         /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        public global::TwelveLabs.ResponseFormat? ResponseFormat { get; set; }
+        public global::TwelveLabs.SyncResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
         /// The maximum number of tokens to generate.<br/>
@@ -117,7 +117,7 @@ namespace TwelveLabs
             global::TwelveLabs.VideoContext? video,
             double? temperature,
             bool? stream,
-            global::TwelveLabs.ResponseFormat? responseFormat,
+            global::TwelveLabs.SyncResponseFormat? responseFormat,
             int? maxTokens)
         {
             this.VideoId = videoId;
