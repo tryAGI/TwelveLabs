@@ -17,14 +17,15 @@ namespace TwelveLabs
         public required global::TwelveLabs.AssetsPostRequestBodyContentMultipartFormDataSchemaMethod Method { get; set; }
 
         /// <summary>
-        /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.
+        /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
+        /// Local video and audio files support up to 200 MB. Image files support up to 5 MB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         public byte[]? File { get; set; }
 
         /// <summary>
         /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
-        /// URL uploads have a maximum limit of 4 GB.
+        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 5 MB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         public string? Url { get; set; }
@@ -64,11 +65,12 @@ namespace TwelveLabs
         /// Specifies the upload method for the asset. Use `direct` to upload a local file or `url` for a publicly accessible URL.
         /// </param>
         /// <param name="file">
-        /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.
+        /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
+        /// Local video and audio files support up to 200 MB. Image files support up to 5 MB.
         /// </param>
         /// <param name="url">
         /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
-        /// URL uploads have a maximum limit of 4 GB.
+        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 5 MB.
         /// </param>
         /// <param name="filename">
         /// The optional filename of the asset. If not provided, the platform will determine the filename from the file or URL.

@@ -6,9 +6,9 @@ namespace TwelveLabs
     {
         /// <summary>
         /// Create a multipart upload session<br/>
-        /// This method creates a multipart upload session.<br/>
+        /// This method creates a multipart upload session for a local video file.<br/>
         /// **Supported content**: Video<br/>
-        /// **File size**: 4 GB maximum.<br/>
+        /// **Upload limits**: Local video files up to 4 GB.<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>
@@ -27,9 +27,9 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a multipart upload session<br/>
-        /// This method creates a multipart upload session.<br/>
+        /// This method creates a multipart upload session for a local video file.<br/>
         /// **Supported content**: Video<br/>
-        /// **File size**: 4 GB maximum.<br/>
+        /// **Upload limits**: Local video files up to 4 GB.<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>

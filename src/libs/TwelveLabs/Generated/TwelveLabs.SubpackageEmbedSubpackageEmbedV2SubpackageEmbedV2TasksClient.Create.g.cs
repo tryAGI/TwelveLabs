@@ -60,7 +60,7 @@ namespace TwelveLabs
         ///   **Audio**:<br/>
         ///   - Minimum duration: 4 seconds<br/>
         ///   - Maximum duration: 4 hours<br/>
-        ///   - Maximum file size: 2 GB<br/>
+        ///   - Maximum file size: 4 GB<br/>
         ///   - Formats: WAV (uncompressed), MP3 (lossy), FLAC (lossless)<br/>
         /// &lt;/Accordion&gt;<br/>
         ///   Creating embeddings asynchronously requires three steps:<br/>
@@ -514,7 +514,7 @@ namespace TwelveLabs
         ///   **Audio**:<br/>
         ///   - Minimum duration: 4 seconds<br/>
         ///   - Maximum duration: 4 hours<br/>
-        ///   - Maximum file size: 2 GB<br/>
+        ///   - Maximum file size: 4 GB<br/>
         ///   - Formats: WAV (uncompressed), MP3 (lossy), FLAC (lossless)<br/>
         /// &lt;/Accordion&gt;<br/>
         ///   Creating embeddings asynchronously requires three steps:<br/>
