@@ -141,34 +141,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageKnowledgeStoreItemsClient SubpackageKnowledgeStoreItems => new SubpackageKnowledgeStoreItemsClient(HttpClient, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SubpackageKnowledgeStoresClient SubpackageKnowledgeStores => new SubpackageKnowledgeStoresClient(HttpClient, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
         public SubpackageMultipartUploadClient SubpackageMultipartUpload => new SubpackageMultipartUploadClient(HttpClient, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SubpackageResponsesClient SubpackageResponses => new SubpackageResponsesClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,

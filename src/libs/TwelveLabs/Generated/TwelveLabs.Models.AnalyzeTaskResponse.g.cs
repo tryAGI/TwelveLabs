@@ -16,6 +16,12 @@ namespace TwelveLabs
         public required string TaskId { get; set; }
 
         /// <summary>
+        /// The identifier you provided in the `custom_id` field when you created the task, or `null` if you did not set one. This key is always present in the response.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_id")]
+        public string? CustomId { get; set; }
+
+        /// <summary>
         /// The video source you provided. Only present for tasks that use direct video input (`url`, `base64_string`, or `asset_id`).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_source")]
@@ -86,6 +92,9 @@ namespace TwelveLabs
         /// <param name="createdAt">
         /// A string representing the date and time, in RFC 3339 format (“YYYY-MM-DDTHH:mm:ssZ”), when the analysis task was created.
         /// </param>
+        /// <param name="customId">
+        /// The identifier you provided in the `custom_id` field when you created the task, or `null` if you did not set one. This key is always present in the response.
+        /// </param>
         /// <param name="videoSource">
         /// The video source you provided. Only present for tasks that use direct video input (`url`, `base64_string`, or `asset_id`).
         /// </param>
@@ -111,6 +120,7 @@ namespace TwelveLabs
             string taskId,
             global::TwelveLabs.AnalyzeTaskStatus status,
             global::System.DateTime createdAt,
+            string? customId,
             global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseVideoSource, object>? videoSource,
             global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseRequestParams, object>? requestParams,
             global::System.DateTime? completedAt,
@@ -119,6 +129,7 @@ namespace TwelveLabs
             global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskWebhookInfo>? webhooks)
         {
             this.TaskId = taskId ?? throw new global::System.ArgumentNullException(nameof(taskId));
+            this.CustomId = customId;
             this.VideoSource = videoSource;
             this.RequestParams = requestParams;
             this.Status = status;
