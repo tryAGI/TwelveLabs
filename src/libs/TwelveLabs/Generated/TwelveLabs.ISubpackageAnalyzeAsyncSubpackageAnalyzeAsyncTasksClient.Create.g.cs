@@ -72,6 +72,15 @@ namespace TwelveLabs
         /// - `pegasus1.5`: Analyzes videos directly from a URL, asset, or base64 string. Supports video segmentation with custom segment definitions.<br/>
         /// Default Value: pegasus1.2
         /// </param>
+        /// <param name="customId">
+        /// An optional identifier that you set when you create the task. Use this field to correlate tasks across responses, for example, to distinguish tasks by type or environment.<br/>
+        /// The platform stores this value unchanged and returns it in the following responses:<br/>
+        /// - The [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint<br/>
+        /// - The [`GET`](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks) method of the `/analyze/tasks` endpoint<br/>
+        /// - The `analyze.task.ready` and `analyze.task.failed` webhook payloads<br/>
+        /// **Format**: 1–64 characters. Alphanumeric, hyphens (`-`), and underscores (`_`) only. An empty string is rejected with a `400 Bad Request`.<br/>
+        /// This field does not enforce uniqueness. You can submit multiple tasks with the same `custom_id`. To prevent duplicate task creation, use an `Idempotency-Key` header instead.
+        /// </param>
         /// <param name="video">
         /// An object specifying the source of the video content. Include exactly one source.
         /// </param>
@@ -118,6 +127,7 @@ namespace TwelveLabs
             string xApiKey,
             global::TwelveLabs.VideoContext video,
             global::TwelveLabs.CreateAsyncAnalyzeRequestModelName? modelName = default,
+            string? customId = default,
             string? prompt = default,
             global::TwelveLabs.CreateAsyncAnalyzeRequestAnalysisMode? analysisMode = default,
             double? temperature = default,

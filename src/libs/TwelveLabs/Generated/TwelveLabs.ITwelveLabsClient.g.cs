@@ -102,22 +102,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageKnowledgeStoreItemsClient SubpackageKnowledgeStoreItems { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SubpackageKnowledgeStoresClient SubpackageKnowledgeStores { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public SubpackageMultipartUploadClient SubpackageMultipartUpload { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SubpackageResponsesClient SubpackageResponses { get; }
 
         /// <summary>
         /// 
