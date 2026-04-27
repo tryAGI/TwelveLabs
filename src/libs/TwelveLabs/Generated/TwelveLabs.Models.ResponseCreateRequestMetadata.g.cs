@@ -1,0 +1,18 @@
+
+#nullable enable
+
+namespace TwelveLabs
+{
+    /// <summary>
+    /// Key-value pairs to attach to the request. Up to 16 pairs allowed.
+    /// </summary>
+    public sealed partial class ResponseCreateRequestMetadata
+    {
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+    }
+}

@@ -19,18 +19,6 @@ namespace TwelveLabs
         public global::TwelveLabs.CreateAsyncAnalyzeRequestModelName? ModelName { get; set; }
 
         /// <summary>
-        /// An optional identifier that you set when you create the task. Use this field to correlate tasks across responses, for example, to distinguish tasks by type or environment.<br/>
-        /// The platform stores this value unchanged and returns it in the following responses:<br/>
-        /// - The [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint<br/>
-        /// - The [`GET`](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks) method of the `/analyze/tasks` endpoint<br/>
-        /// - The `analyze.task.ready` and `analyze.task.failed` webhook payloads<br/>
-        /// **Format**: 1–64 characters. Alphanumeric, hyphens (`-`), and underscores (`_`) only. An empty string is rejected with a `400 Bad Request`.<br/>
-        /// This field does not enforce uniqueness. You can submit multiple tasks with the same `custom_id`. To prevent duplicate task creation, use an `Idempotency-Key` header instead.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("custom_id")]
-        public string? CustomId { get; set; }
-
-        /// <summary>
         /// An object specifying the source of the video content. Include exactly one source.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video")]
@@ -114,15 +102,6 @@ namespace TwelveLabs
         /// - `pegasus1.5`: Analyzes videos directly from a URL, asset, or base64 string. Supports video segmentation with custom segment definitions.<br/>
         /// Default Value: pegasus1.2
         /// </param>
-        /// <param name="customId">
-        /// An optional identifier that you set when you create the task. Use this field to correlate tasks across responses, for example, to distinguish tasks by type or environment.<br/>
-        /// The platform stores this value unchanged and returns it in the following responses:<br/>
-        /// - The [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint<br/>
-        /// - The [`GET`](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks) method of the `/analyze/tasks` endpoint<br/>
-        /// - The `analyze.task.ready` and `analyze.task.failed` webhook payloads<br/>
-        /// **Format**: 1–64 characters. Alphanumeric, hyphens (`-`), and underscores (`_`) only. An empty string is rejected with a `400 Bad Request`.<br/>
-        /// This field does not enforce uniqueness. You can submit multiple tasks with the same `custom_id`. To prevent duplicate task creation, use an `Idempotency-Key` header instead.
-        /// </param>
         /// <param name="prompt">
         /// A natural-language text that provides instructions for analyzing the video. Required for general-mode analysis. Not supported when `analysis_mode` is `time_based_metadata`.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
@@ -165,7 +144,6 @@ namespace TwelveLabs
         public CreateAsyncAnalyzeRequest(
             global::TwelveLabs.VideoContext video,
             global::TwelveLabs.CreateAsyncAnalyzeRequestModelName? modelName,
-            string? customId,
             string? prompt,
             global::TwelveLabs.CreateAsyncAnalyzeRequestAnalysisMode? analysisMode,
             double? temperature,
@@ -175,7 +153,6 @@ namespace TwelveLabs
             double? maxSegmentDuration)
         {
             this.ModelName = modelName;
-            this.CustomId = customId;
             this.Video = video;
             this.Prompt = prompt;
             this.AnalysisMode = analysisMode;
