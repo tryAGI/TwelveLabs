@@ -42,6 +42,21 @@ namespace TwelveLabs
     /// - Define subschemas within `$defs`.<br/>
     /// - Use valid URIs that point to the internal subschema.<br/>
     /// For details, see the [JSON Schema documentation on $defs](https://json-schema.org/understanding-json-schema/structuring#defs).<br/>
+    /// **Reserved property names (`start_time` / `end_time`)**<br/>
+    /// When your response schema includes properties named `start_time` or `end_time`, the platform applies special type handling. These are unrelated to the top-level `start_time` / `end_time` request parameters or `time_ranges`. The model outputs these values as floating-point numbers representing seconds. The platform converts or rejects them based on the declared type in your schema.<br/>
+    /// *Allowed types:*<br/>
+    /// | Declared type | Platform behavior |<br/>
+    /// |---------------|-------------------|<br/>
+    /// | `number` | Passes the value through without conversion. |<br/>
+    /// | `integer` | Rounds the value to the nearest integer. |<br/>
+    /// | `string` (no `format`) | Converts the value to the `hh:mm:ss.fff` format. |<br/>
+    /// *Rejected types (returns `400` error):*<br/>
+    /// - `string` with any `format` keyword (`time`, `date-time`, `email`, `uri`, etc.)<br/>
+    /// - `boolean`<br/>
+    /// - `object`<br/>
+    /// - `array`<br/>
+    /// - `null`<br/>
+    /// All other property names in your schema remain unconstrained by these rules.<br/>
     /// **Response validation**<br/>
     /// Check the `FinishReason` field to verify your JSON response is complete:<br/>
     /// - When `FinishReason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>

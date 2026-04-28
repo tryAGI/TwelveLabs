@@ -29,7 +29,7 @@ namespace TwelveLabs
         public global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseVideoSource, object>? VideoSource { get; set; }
 
         /// <summary>
-        /// The parameters you sent when creating this task. Only present for tasks created with `model_name` set to `pegasus1.5`.
+        /// The request parameters for this task.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_params")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParams, object>))]
@@ -99,7 +99,7 @@ namespace TwelveLabs
         /// The video source you provided. Only present for tasks that use direct video input (`url`, `base64_string`, or `asset_id`).
         /// </param>
         /// <param name="requestParams">
-        /// The parameters you sent when creating this task. Only present for tasks created with `model_name` set to `pegasus1.5`.
+        /// The request parameters for this task.
         /// </param>
         /// <param name="completedAt">
         /// A string representing the date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the analysis task was completed or failed. The platform returns this field only if `status` is `ready` or `failed`.

@@ -16,7 +16,7 @@ namespace TwelveLabs
         public required int OutputTokens { get; set; }
 
         /// <summary>
-        /// The number of tokens in the input prompt.
+        /// The number of tokens in the input prompt. Omitted when `model_name` is `pegasus1.5`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_tokens")]
         public int? InputTokens { get; set; }
@@ -34,7 +34,7 @@ namespace TwelveLabs
         /// The number of tokens in the generated text.
         /// </param>
         /// <param name="inputTokens">
-        /// The number of tokens in the input prompt.
+        /// The number of tokens in the input prompt. Omitted when `model_name` is `pegasus1.5`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

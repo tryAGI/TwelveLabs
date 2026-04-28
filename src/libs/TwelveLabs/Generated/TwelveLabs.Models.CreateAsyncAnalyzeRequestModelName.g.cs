@@ -5,18 +5,19 @@ namespace TwelveLabs
 {
     /// <summary>
     /// The video understanding model to use for analysis.<br/>
-    /// - `pegasus1.2` (default): Analyzes pre-indexed videos. Pass a `video_id` to reference your video.<br/>
-    /// - `pegasus1.5`: Analyzes videos directly from a URL, asset, or base64 string. Supports video segmentation with custom segment definitions.<br/>
+    /// - `pegasus1.2`: Analyzes pre-indexed videos. Provide the `video_id` of your pre-indexed video.<br/>
+    /// - `pegasus1.5`: Analyzes videos directly from a URL, asset, or base64 string. Supports both general analysis and video segmentation with custom segment definitions.<br/>
+    /// **Default:** `pegasus1.2`<br/>
     /// Default Value: pegasus1.2
     /// </summary>
     public enum CreateAsyncAnalyzeRequestModelName
     {
         /// <summary>
-        /// Analyzes pre-indexed videos. Pass a `video_id` to reference your video.
+        /// Analyzes pre-indexed videos. Provide the `video_id` of your pre-indexed video.
         /// </summary>
         Pegasus12,
         /// <summary>
-        /// Analyzes videos directly from a URL, asset, or base64 string. Supports video segmentation with custom segment definitions.
+        /// Analyzes videos directly from a URL, asset, or base64 string. Supports both general analysis and video segmentation with custom segment definitions.
         /// </summary>
         Pegasus15,
     }

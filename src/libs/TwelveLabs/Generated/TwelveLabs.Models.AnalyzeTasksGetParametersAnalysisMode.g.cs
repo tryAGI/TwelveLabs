@@ -11,6 +11,10 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        General,
+        /// <summary>
+        /// 
+        /// </summary>
         TimeBasedMetadata,
     }
 
@@ -26,6 +30,7 @@ namespace TwelveLabs
         {
             return value switch
             {
+                AnalyzeTasksGetParametersAnalysisMode.General => "general",
                 AnalyzeTasksGetParametersAnalysisMode.TimeBasedMetadata => "time_based_metadata",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -37,6 +42,7 @@ namespace TwelveLabs
         {
             return value switch
             {
+                "general" => AnalyzeTasksGetParametersAnalysisMode.General,
                 "time_based_metadata" => AnalyzeTasksGetParametersAnalysisMode.TimeBasedMetadata,
                 _ => null,
             };
