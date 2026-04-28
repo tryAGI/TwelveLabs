@@ -32,6 +32,7 @@ namespace TwelveLabs
             ref global::TwelveLabs.AnalyzeTaskStatus? status,
             ref string? videoUrl,
             ref string? assetId,
+            ref string? videoId,
             ref global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode,
             ref string xApiKey);
         partial void PrepareListRequest(
@@ -42,6 +43,7 @@ namespace TwelveLabs
             global::TwelveLabs.AnalyzeTaskStatus? status,
             string? videoUrl,
             string? assetId,
+            string? videoId,
             global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode,
             string xApiKey);
         partial void ProcessListResponse(
@@ -68,6 +70,7 @@ namespace TwelveLabs
         /// </param>
         /// <param name="videoUrl"></param>
         /// <param name="assetId"></param>
+        /// <param name="videoId"></param>
         /// <param name="analysisMode"></param>
         /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -80,6 +83,7 @@ namespace TwelveLabs
             global::TwelveLabs.AnalyzeTaskStatus? status = default,
             string? videoUrl = default,
             string? assetId = default,
+            string? videoId = default,
             global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -93,6 +97,7 @@ namespace TwelveLabs
                 status: ref status,
                 videoUrl: ref videoUrl,
                 assetId: ref assetId,
+                videoId: ref videoId,
                 analysisMode: ref analysisMode,
                 xApiKey: ref xApiKey);
 
@@ -127,6 +132,7 @@ namespace TwelveLabs
                                 .AddOptionalParameter("status", status?.ToValueString())
                                 .AddOptionalParameter("video_url", videoUrl)
                                 .AddOptionalParameter("asset_id", assetId)
+                                .AddOptionalParameter("video_id", videoId)
                                 .AddOptionalParameter("analysis_mode", analysisMode?.ToValueString()) 
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -177,6 +183,7 @@ namespace TwelveLabs
                     status: status,
                     videoUrl: videoUrl,
                     assetId: assetId,
+                    videoId: videoId,
                     analysisMode: analysisMode,
                     xApiKey: xApiKey);
 

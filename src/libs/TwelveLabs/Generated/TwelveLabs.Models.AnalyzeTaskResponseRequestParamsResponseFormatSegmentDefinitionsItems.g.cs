@@ -35,6 +35,12 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems>? MediaSources { get; set; }
 
         /// <summary>
+        /// The time ranges for this segment definition. Present only when the task was created with `time_ranges`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("time_ranges")]
+        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTimeRange>? TimeRanges { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -47,6 +53,9 @@ namespace TwelveLabs
         /// <param name="description"></param>
         /// <param name="fields"></param>
         /// <param name="mediaSources"></param>
+        /// <param name="timeRanges">
+        /// The time ranges for this segment definition. Present only when the task was created with `time_ranges`.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -54,12 +63,14 @@ namespace TwelveLabs
             string id,
             string description,
             global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems>? fields,
-            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems>? mediaSources)
+            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems>? mediaSources,
+            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTimeRange>? timeRanges)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Fields = fields;
             this.MediaSources = mediaSources;
+            this.TimeRanges = timeRanges;
         }
 
         /// <summary>
