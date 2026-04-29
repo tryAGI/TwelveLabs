@@ -138,9 +138,9 @@ namespace TwelveLabs
                 PrepareDeleteRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    indexId: indexId,
-                    indexedAssetId: indexedAssetId,
-                    xApiKey: xApiKey);
+                    indexId: indexId!,
+                    indexedAssetId: indexedAssetId!,
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

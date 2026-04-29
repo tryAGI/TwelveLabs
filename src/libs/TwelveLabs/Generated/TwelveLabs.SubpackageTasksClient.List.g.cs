@@ -222,7 +222,7 @@ namespace TwelveLabs
                     height: height,
                     createdAt: createdAt,
                     updatedAt: updatedAt,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

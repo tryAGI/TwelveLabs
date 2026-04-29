@@ -140,8 +140,8 @@ namespace TwelveLabs
                 PrepareStatusRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    taskId: taskId,
-                    xApiKey: xApiKey);
+                    taskId: taskId!,
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

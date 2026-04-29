@@ -153,11 +153,11 @@ namespace TwelveLabs
                 PrepareRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    indexId: indexId,
-                    videoId: videoId,
+                    indexId: indexId!,
+                    videoId: videoId!,
                     embeddingOption: embeddingOption,
                     transcription: transcription,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

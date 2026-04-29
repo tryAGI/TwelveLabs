@@ -173,7 +173,7 @@ namespace TwelveLabs
                     status: status,
                     page: page,
                     pageLimit: pageLimit,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

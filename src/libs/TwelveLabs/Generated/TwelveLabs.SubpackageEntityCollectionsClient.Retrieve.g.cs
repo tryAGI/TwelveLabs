@@ -133,8 +133,8 @@ namespace TwelveLabs
                 PrepareRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    entityCollectionId: entityCollectionId,
-                    xApiKey: xApiKey);
+                    entityCollectionId: entityCollectionId!,
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

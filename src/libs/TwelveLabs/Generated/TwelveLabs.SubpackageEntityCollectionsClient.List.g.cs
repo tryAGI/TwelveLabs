@@ -173,7 +173,7 @@ namespace TwelveLabs
                     name: name,
                     sortBy: sortBy,
                     sortOption: sortOption,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

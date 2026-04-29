@@ -147,8 +147,8 @@ namespace TwelveLabs
                 PrepareCreateBulkRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    entityCollectionId: entityCollectionId,
-                    xApiKey: xApiKey,
+                    entityCollectionId: entityCollectionId!,
+                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;

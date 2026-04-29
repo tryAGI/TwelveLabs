@@ -133,8 +133,8 @@ namespace TwelveLabs
                 PrepareRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    assetId: assetId,
-                    xApiKey: xApiKey);
+                    assetId: assetId!,
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

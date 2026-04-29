@@ -185,7 +185,7 @@ namespace TwelveLabs
                     assetId: assetId,
                     videoId: videoId,
                     analysisMode: analysisMode,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }
