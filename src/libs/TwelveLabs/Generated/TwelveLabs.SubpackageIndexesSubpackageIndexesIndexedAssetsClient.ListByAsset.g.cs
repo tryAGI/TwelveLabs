@@ -151,10 +151,10 @@ namespace TwelveLabs
                 PrepareListByAssetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    assetId: assetId,
+                    assetId: assetId!,
                     page: page,
                     pageLimit: pageLimit,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

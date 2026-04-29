@@ -170,7 +170,7 @@ namespace TwelveLabs
                     assetIds: assetIds,
                     assetTypes: assetTypes,
                     filename: filename,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

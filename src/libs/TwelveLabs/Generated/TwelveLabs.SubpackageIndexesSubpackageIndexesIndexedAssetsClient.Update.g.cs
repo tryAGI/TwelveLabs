@@ -152,9 +152,9 @@ namespace TwelveLabs
                 PrepareUpdateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    indexId: indexId,
-                    indexedAssetId: indexedAssetId,
-                    xApiKey: xApiKey,
+                    indexId: indexId!,
+                    indexedAssetId: indexedAssetId!,
+                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;

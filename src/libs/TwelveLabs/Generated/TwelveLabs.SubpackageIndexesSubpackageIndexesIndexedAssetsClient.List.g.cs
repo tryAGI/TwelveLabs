@@ -222,7 +222,7 @@ namespace TwelveLabs
                 PrepareListRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    indexId: indexId,
+                    indexId: indexId!,
                     page: page,
                     pageLimit: pageLimit,
                     sortBy: sortBy,
@@ -237,7 +237,7 @@ namespace TwelveLabs
                     createdAt: createdAt,
                     updatedAt: updatedAt,
                     userMetadata: userMetadata,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

@@ -144,15 +144,43 @@ namespace TwelveLabs
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{xApiKey}"),
+                                content: new global::System.Net.Http.StringContent(xApiKey ?? string.Empty),
                                 name: "\"x-api-key\"");
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{request.IndexId}"),
+                                content: new global::System.Net.Http.StringContent(request.IndexId ?? string.Empty),
                                 name: "\"index_id\"");
                             if (request.VideoFile != default)
                             {
 
                                 var __contentVideoFile = new global::System.Net.Http.ByteArrayContent(request.VideoFile ?? global::System.Array.Empty<byte>());
+                                __contentVideoFile.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
+                                    request.VideoFilename is null
+                                        ? "application/octet-stream"
+                                        : (global::System.IO.Path.GetExtension(request.VideoFilename) ?? string.Empty).ToLowerInvariant() switch
+                                        {
+                                            ".aac" => "audio/aac",
+                                            ".flac" => "audio/flac",
+                                            ".gif" => "image/gif",
+                                            ".jpeg" => "image/jpeg",
+                                            ".jpg" => "image/jpeg",
+                                            ".json" => "application/json",
+                                            ".m4a" => "audio/mp4",
+                                            ".mp3" => "audio/mpeg",
+                                            ".mp4" => "video/mp4",
+                                            ".mpeg" => "audio/mpeg",
+                                            ".mpga" => "audio/mpeg",
+                                            ".oga" => "audio/ogg",
+                                            ".ogg" => "audio/ogg",
+                                            ".opus" => "audio/ogg",
+                                            ".pdf" => "application/pdf",
+                                            ".png" => "image/png",
+                                            ".txt" => "text/plain",
+                                            ".wav" => "audio/wav",
+                                            ".weba" => "audio/webm",
+                                            ".webm" => "video/webm",
+                                            ".webp" => "image/webp",
+                                            _ => "application/octet-stream",
+                                        });
                                 __httpRequestContent.Add(
                                     content: __contentVideoFile,
                                     name: "\"video_file\"",
@@ -166,21 +194,21 @@ namespace TwelveLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.VideoUrl}"),
+                                    content: new global::System.Net.Http.StringContent(request.VideoUrl ?? string.Empty),
                                     name: "\"video_url\"");
                             } 
                             if (request.EnableVideoStream != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.EnableVideoStream}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.EnableVideoStream, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"enable_video_stream\"");
                             } 
                             if (request.UserMetadata != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.UserMetadata}"),
+                                    content: new global::System.Net.Http.StringContent(request.UserMetadata ?? string.Empty),
                                     name: "\"user_metadata\"");
                             }
                             __httpRequest.Content = __httpRequestContent;
@@ -195,7 +223,7 @@ namespace TwelveLabs
                 PrepareCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    xApiKey: xApiKey,
+                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;

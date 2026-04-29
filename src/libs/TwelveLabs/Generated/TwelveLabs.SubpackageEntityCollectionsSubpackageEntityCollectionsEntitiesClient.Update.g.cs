@@ -152,9 +152,9 @@ namespace TwelveLabs
                 PrepareUpdateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    entityCollectionId: entityCollectionId,
-                    entityId: entityId,
-                    xApiKey: xApiKey,
+                    entityCollectionId: entityCollectionId!,
+                    entityId: entityId!,
+                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;

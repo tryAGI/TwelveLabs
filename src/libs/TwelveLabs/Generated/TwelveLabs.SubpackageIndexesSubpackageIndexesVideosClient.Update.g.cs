@@ -153,9 +153,9 @@ namespace TwelveLabs
                 PrepareUpdateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    indexId: indexId,
-                    videoId: videoId,
-                    xApiKey: xApiKey,
+                    indexId: indexId!,
+                    videoId: videoId!,
+                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;

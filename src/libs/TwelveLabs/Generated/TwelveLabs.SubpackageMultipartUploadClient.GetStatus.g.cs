@@ -158,10 +158,10 @@ namespace TwelveLabs
                 PrepareGetStatusRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    uploadId: uploadId,
+                    uploadId: uploadId!,
                     page: page,
                     pageLimit: pageLimit,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

@@ -144,38 +144,38 @@ namespace TwelveLabs
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{xApiKey}"),
+                                content: new global::System.Net.Http.StringContent(xApiKey ?? string.Empty),
                                 name: "\"x-api-key\"");
                             if (request.QueryMediaType != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.QueryMediaType?.ToValueString()}"),
+                                    content: new global::System.Net.Http.StringContent((request.QueryMediaType).HasValue ? (request.QueryMediaType).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"query_media_type\"");
                             } 
                             if (request.QueryMediaUrl != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.QueryMediaUrl?.ToString() ?? string.Empty),
+                                    content: new global::System.Net.Http.StringContent(request.QueryMediaUrl.ToString() ?? string.Empty),
                                     name: "\"query_media_url\"");
                             } 
                             if (request.QueryMediaFile != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.QueryMediaFile?.ToString() ?? string.Empty),
+                                    content: new global::System.Net.Http.StringContent(request.QueryMediaFile.ToString() ?? string.Empty),
                                     name: "\"query_media_file\"");
                             } 
                             if (request.QueryText != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.QueryText}"),
+                                    content: new global::System.Net.Http.StringContent(request.QueryText ?? string.Empty),
                                     name: "\"query_text\"");
                             }
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{request.IndexId}"),
+                                content: new global::System.Net.Http.StringContent(request.IndexId ?? string.Empty),
                                 name: "\"index_id\"");
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.SearchOptions, x => x.ToValueString()))}]"),
@@ -191,35 +191,35 @@ namespace TwelveLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.GroupBy?.ToValueString()}"),
+                                    content: new global::System.Net.Http.StringContent((request.GroupBy).HasValue ? (request.GroupBy).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"group_by\"");
                             } 
                             if (request.Operator != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Operator?.ToValueString()}"),
+                                    content: new global::System.Net.Http.StringContent((request.Operator).HasValue ? (request.Operator).GetValueOrDefault().ToValueString() : string.Empty),
                                     name: "\"operator\"");
                             } 
                             if (request.PageLimit != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.PageLimit}"),
+                                    content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.PageLimit, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"page_limit\"");
                             } 
                             if (request.Filter != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Filter}"),
+                                    content: new global::System.Net.Http.StringContent(request.Filter ?? string.Empty),
                                     name: "\"filter\"");
                             } 
                             if (request.IncludeUserMetadata != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.IncludeUserMetadata}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.IncludeUserMetadata, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"include_user_metadata\"");
                             }
                             __httpRequest.Content = __httpRequestContent;
@@ -234,7 +234,7 @@ namespace TwelveLabs
                 PrepareCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    xApiKey: xApiKey,
+                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;

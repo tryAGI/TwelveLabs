@@ -165,11 +165,11 @@ namespace TwelveLabs
                 PrepareRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    indexId: indexId,
-                    indexedAssetId: indexedAssetId,
+                    indexId: indexId!,
+                    indexedAssetId: indexedAssetId!,
                     embeddingOption: embeddingOption,
                     transcription: transcription,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

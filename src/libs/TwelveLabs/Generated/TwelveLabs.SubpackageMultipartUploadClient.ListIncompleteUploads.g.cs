@@ -148,7 +148,7 @@ namespace TwelveLabs
                     httpRequestMessage: __httpRequest,
                     page: page,
                     pageLimit: pageLimit,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

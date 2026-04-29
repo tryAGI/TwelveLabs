@@ -179,14 +179,14 @@ namespace TwelveLabs
                 PrepareListRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    entityCollectionId: entityCollectionId,
+                    entityCollectionId: entityCollectionId!,
                     page: page,
                     pageLimit: pageLimit,
                     name: name,
                     status: status,
                     sortBy: sortBy,
                     sortOption: sortOption,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

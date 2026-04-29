@@ -144,9 +144,9 @@ namespace TwelveLabs
                 PrepareRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    pageToken: pageToken,
+                    pageToken: pageToken!,
                     includeUserMetadata: includeUserMetadata,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

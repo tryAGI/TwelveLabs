@@ -201,7 +201,7 @@ namespace TwelveLabs
                     modelFamily: modelFamily,
                     createdAt: createdAt,
                     updatedAt: updatedAt,
-                    xApiKey: xApiKey);
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

@@ -148,8 +148,8 @@ namespace TwelveLabs
                 PrepareReportChunkBatchRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    uploadId: uploadId,
-                    xApiKey: xApiKey,
+                    uploadId: uploadId!,
+                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;

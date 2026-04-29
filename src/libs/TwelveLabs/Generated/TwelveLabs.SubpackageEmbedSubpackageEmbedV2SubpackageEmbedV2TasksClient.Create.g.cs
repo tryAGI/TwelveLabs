@@ -167,7 +167,7 @@ namespace TwelveLabs
                 PrepareCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    xApiKey: xApiKey,
+                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;

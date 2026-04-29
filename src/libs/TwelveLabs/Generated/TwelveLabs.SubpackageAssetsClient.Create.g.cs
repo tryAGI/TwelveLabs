@@ -143,15 +143,43 @@ namespace TwelveLabs
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{xApiKey}"),
+                                content: new global::System.Net.Http.StringContent(xApiKey ?? string.Empty),
                                 name: "\"x-api-key\"");
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent($"{request.Method.ToValueString()}"),
+                                content: new global::System.Net.Http.StringContent(request.Method.ToValueString()),
                                 name: "\"method\"");
                             if (request.File != default)
                             {
 
                                 var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
+                                __contentFile.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
+                                    request.Filename is null
+                                        ? "application/octet-stream"
+                                        : (global::System.IO.Path.GetExtension(request.Filename) ?? string.Empty).ToLowerInvariant() switch
+                                        {
+                                            ".aac" => "audio/aac",
+                                            ".flac" => "audio/flac",
+                                            ".gif" => "image/gif",
+                                            ".jpeg" => "image/jpeg",
+                                            ".jpg" => "image/jpeg",
+                                            ".json" => "application/json",
+                                            ".m4a" => "audio/mp4",
+                                            ".mp3" => "audio/mpeg",
+                                            ".mp4" => "video/mp4",
+                                            ".mpeg" => "audio/mpeg",
+                                            ".mpga" => "audio/mpeg",
+                                            ".oga" => "audio/ogg",
+                                            ".ogg" => "audio/ogg",
+                                            ".opus" => "audio/ogg",
+                                            ".pdf" => "application/pdf",
+                                            ".png" => "image/png",
+                                            ".txt" => "text/plain",
+                                            ".wav" => "audio/wav",
+                                            ".weba" => "audio/webm",
+                                            ".webm" => "video/webm",
+                                            ".webp" => "image/webp",
+                                            _ => "application/octet-stream",
+                                        });
                                 __httpRequestContent.Add(
                                     content: __contentFile,
                                     name: "\"file\"",
@@ -165,28 +193,28 @@ namespace TwelveLabs
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Url}"),
+                                    content: new global::System.Net.Http.StringContent(request.Url ?? string.Empty),
                                     name: "\"url\"");
                             } 
                             if (request.Filename != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.Filename}"),
+                                    content: new global::System.Net.Http.StringContent(request.Filename ?? string.Empty),
                                     name: "\"filename\"");
                             } 
                             if (request.EnableHls != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.EnableHls}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.EnableHls, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"enable_hls\"");
                             } 
                             if (request.EnableThumbnail != default)
                             {
 
                                 __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent($"{request.EnableThumbnail}"),
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.EnableThumbnail, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"enable_thumbnail\"");
                             }
                             __httpRequest.Content = __httpRequestContent;
@@ -201,7 +229,7 @@ namespace TwelveLabs
                 PrepareCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    xApiKey: xApiKey,
+                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
