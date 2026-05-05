@@ -42,7 +42,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasksClient SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasks => new SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasksClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasksClient SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasks => new SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -51,7 +51,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageAssetsClient SubpackageAssets => new SubpackageAssetsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageAssetsClient SubpackageAssets => new SubpackageAssetsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -60,7 +60,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageEmbedClient SubpackageEmbed => new SubpackageEmbedClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageEmbedClient SubpackageEmbed => new SubpackageEmbedClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -69,7 +69,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageEmbedSubpackageEmbedTasksClient SubpackageEmbedSubpackageEmbedTasks => new SubpackageEmbedSubpackageEmbedTasksClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageEmbedSubpackageEmbedTasksClient SubpackageEmbedSubpackageEmbedTasks => new SubpackageEmbedSubpackageEmbedTasksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -78,7 +78,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageEmbedSubpackageEmbedV2Client SubpackageEmbedSubpackageEmbedV2 => new SubpackageEmbedSubpackageEmbedV2Client(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageEmbedSubpackageEmbedV2Client SubpackageEmbedSubpackageEmbedV2 => new SubpackageEmbedSubpackageEmbedV2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -87,7 +87,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageEmbedSubpackageEmbedV2SubpackageEmbedV2TasksClient SubpackageEmbedSubpackageEmbedV2SubpackageEmbedV2Tasks => new SubpackageEmbedSubpackageEmbedV2SubpackageEmbedV2TasksClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageEmbedSubpackageEmbedV2SubpackageEmbedV2TasksClient SubpackageEmbedSubpackageEmbedV2SubpackageEmbedV2Tasks => new SubpackageEmbedSubpackageEmbedV2SubpackageEmbedV2TasksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -96,7 +96,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageEntityCollectionsClient SubpackageEntityCollections => new SubpackageEntityCollectionsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageEntityCollectionsClient SubpackageEntityCollections => new SubpackageEntityCollectionsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -105,7 +105,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageEntityCollectionsSubpackageEntityCollectionsEntitiesClient SubpackageEntityCollectionsSubpackageEntityCollectionsEntities => new SubpackageEntityCollectionsSubpackageEntityCollectionsEntitiesClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageEntityCollectionsSubpackageEntityCollectionsEntitiesClient SubpackageEntityCollectionsSubpackageEntityCollectionsEntities => new SubpackageEntityCollectionsSubpackageEntityCollectionsEntitiesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -114,7 +114,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageIndexesClient SubpackageIndexes => new SubpackageIndexesClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageIndexesClient SubpackageIndexes => new SubpackageIndexesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -123,7 +123,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageIndexesSubpackageIndexesIndexedAssetsClient SubpackageIndexesSubpackageIndexesIndexedAssets => new SubpackageIndexesSubpackageIndexesIndexedAssetsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageIndexesSubpackageIndexesIndexedAssetsClient SubpackageIndexesSubpackageIndexesIndexedAssets => new SubpackageIndexesSubpackageIndexesIndexedAssetsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -132,7 +132,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageIndexesSubpackageIndexesVideosClient SubpackageIndexesSubpackageIndexesVideos => new SubpackageIndexesSubpackageIndexesVideosClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageIndexesSubpackageIndexesVideosClient SubpackageIndexesSubpackageIndexesVideos => new SubpackageIndexesSubpackageIndexesVideosClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -141,7 +141,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageMultipartUploadClient SubpackageMultipartUpload => new SubpackageMultipartUploadClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageMultipartUploadClient SubpackageMultipartUpload => new SubpackageMultipartUploadClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -150,7 +150,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageSearchClient SubpackageSearch => new SubpackageSearchClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageSearchClient SubpackageSearch => new SubpackageSearchClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -159,7 +159,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageTasksClient SubpackageTasks => new SubpackageTasksClient(HttpClient, authorizations: Authorizations, options: Options)
+        public SubpackageTasksClient SubpackageTasks => new SubpackageTasksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -198,10 +198,10 @@ namespace TwelveLabs
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
         public TwelveLabsClient(
-            global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null,
-            global::System.Collections.Generic.List<global::TwelveLabs.EndPointAuthorization>? authorizations = null,
-            global::TwelveLabs.AutoSDKClientOptions? options = null,
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Uri? baseUri,
+            global::System.Collections.Generic.List<global::TwelveLabs.EndPointAuthorization>? authorizations,
+            global::TwelveLabs.AutoSDKClientOptions? options,
             bool disposeHttpClient = true)
         {
 

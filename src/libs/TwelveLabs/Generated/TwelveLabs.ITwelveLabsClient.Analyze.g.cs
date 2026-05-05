@@ -58,6 +58,38 @@ namespace TwelveLabs
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="xApiKey"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::TwelveLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AnalyzeResponse200>> AnalyzeAsResponseAsync(
+            string xApiKey,
+
+            global::TwelveLabs.AnalyzeRequest request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Sync analysis<br/>
+        /// This method synchronously analyzes your videos and generates fully customizable text based on your prompts.<br/>
+        /// &lt;Accordion title="Input requirements"&gt;<br/>
+        /// - Minimum duration: 4 seconds<br/>
+        /// - Maximum duration: 1 hour<br/>
+        /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
+        /// - Resolution: 360x360 to 5184x2160 pixels<br/>
+        /// - Aspect ratio: Between 1:1 and 1:2.4, or between 2.4:1 and 1:1.<br/>
+        /// &lt;/Accordion&gt;<br/>
+        /// **When to use this method**:<br/>
+        /// - Analyze videos up to 1 hour<br/>
+        /// - Retrieve immediate results without waiting for asynchronous processing<br/>
+        /// - Stream text fragments in real-time for immediate processing and feedback<br/>
+        /// **Do not use this method for**:<br/>
+        /// - Videos longer than 1 hour. Use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
+        /// - Video segmentation. Use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint with `model_name` set to `pegasus1.5` instead.<br/>
+        /// &lt;Note title="Notes"&gt;<br/>
+        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// &lt;/Note&gt;
+        /// </summary>
+        /// <param name="xApiKey"></param>
         /// <param name="videoId">
         /// The unique identifier of the video to analyze.<br/>
         /// &lt;Info&gt; This parameter will be deprecated and removed in a future version. Use the [`video`](/v1.3/api-reference/analyze-videos/sync-analysis#request.body.video) parameter instead.&lt;/Info&gt;

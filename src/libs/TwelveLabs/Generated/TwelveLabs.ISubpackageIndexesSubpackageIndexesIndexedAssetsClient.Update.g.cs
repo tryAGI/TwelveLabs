@@ -30,6 +30,25 @@ namespace TwelveLabs
         /// <param name="indexId"></param>
         /// <param name="indexedAssetId"></param>
         /// <param name="xApiKey"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::TwelveLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesIndexedAssetsUpdateResponse204>> UpdateAsResponseAsync(
+            string indexId,
+            string indexedAssetId,
+            string xApiKey,
+
+            global::TwelveLabs.UpdateRequest2 request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Partial update indexed asset information<br/>
+        /// This method updates one or more fields of the metadata of an indexed asset. Also, can delete a field by setting it to `null`.
+        /// </summary>
+        /// <param name="indexId"></param>
+        /// <param name="indexedAssetId"></param>
+        /// <param name="xApiKey"></param>
         /// <param name="userMetadata">
         /// Metadata that helps you categorize your videos. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float` or `boolean`.<br/>
         /// **Example**:<br/>
