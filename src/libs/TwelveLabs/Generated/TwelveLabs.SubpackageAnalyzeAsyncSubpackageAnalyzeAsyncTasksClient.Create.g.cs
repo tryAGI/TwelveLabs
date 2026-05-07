@@ -595,8 +595,8 @@ namespace TwelveLabs
         /// <param name="xApiKey"></param>
         /// <param name="modelName">
         /// The video understanding model to use for analysis.<br/>
-        /// - `pegasus1.2`: Analyzes pre-indexed videos. Provide the `video_id` of your pre-indexed video.<br/>
-        /// - `pegasus1.5`: Analyzes videos directly from a URL, asset, or base64 string. Supports both general analysis and video segmentation with custom segment definitions.<br/>
+        /// - `pegasus1.2`: General analysis (prompt-based text generation).<br/>
+        /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, extended token limits, and video segmentation.<br/>
         /// **Default:** `pegasus1.2`<br/>
         /// Default Value: pegasus1.2
         /// </param>
@@ -613,19 +613,18 @@ namespace TwelveLabs
         /// An object specifying the source of the video content. Include exactly one source.
         /// </param>
         /// <param name="prompt">
-        /// Natural-language instructions for analyzing the video. Required for general analysis (prompt-based text generation). Not supported when `analysis_mode` is `time_based_metadata`.<br/>
+        /// Natural-language instructions for analyzing the video. Required for general analysis (prompt-based text generation). Not supported when `analysis_mode` is `time_based_metadata`. To include reference images in your prompt, use the `prompt_v2` parameter instead (Pegasus 1.5 only). Mutually exclusive with the `prompt_v2` parameter.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
         /// - Even though the model behind this endpoint is trained to a high degree of accuracy, the preciseness of the generated text may vary based on the nature and quality of the video and the clarity of the prompt.<br/>
         /// - Your prompts can be instructive or descriptive, or you can also phrase them as questions.<br/>
         /// - The maximum length of a prompt is 2,000 tokens.<br/>
-        /// - Provide either `prompt` or `prompt_v2`, not both.<br/>
         /// &lt;/Note&gt;<br/>
         /// **Examples**:<br/>
         /// - Based on this video, I want to generate five keywords for SEO (Search Engine Optimization).<br/>
         /// - I want to generate a description for my video with the following format: Title of the video, followed by a summary in 2-3 sentences, highlighting the main topic, key events, and concluding remarks.
         /// </param>
         /// <param name="promptV2">
-        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Use this instead of the flat `prompt` string for general analysis (prompt-based text generation). Requires `model_name` set to `pegasus1.5`. Not supported when `analysis_mode` is `time_based_metadata`.
+        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Requires the `model_name` parameter set to `pegasus1.5`. Not supported when the `analysis_mode` parameter is `time_based_metadata`. Mutually exclusive with the `prompt` parameter.
         /// </param>
         /// <param name="analysisMode">
         /// The analysis approach for this task.<br/>

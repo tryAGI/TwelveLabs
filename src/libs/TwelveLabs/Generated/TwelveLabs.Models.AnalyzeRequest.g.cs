@@ -9,7 +9,18 @@ namespace TwelveLabs
     public sealed partial class AnalyzeRequest
     {
         /// <summary>
-        /// The unique identifier of the video to analyze.<br/>
+        /// The video understanding model to use for analysis.<br/>
+        /// - `pegasus1.2`: General analysis (prompt-based text generation).<br/>
+        /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, extended token limits, and video segmentation (async only). Does not support `analysis_mode=time_based_metadata` or `response_format.type=segment_definitions` — use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
+        /// **Default:** `pegasus1.2`<br/>
+        /// Default Value: pegasus1.2
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AnalyzePostRequestBodyContentApplicationJsonSchemaModelNameJsonConverter))]
+        public global::TwelveLabs.AnalyzePostRequestBodyContentApplicationJsonSchemaModelName? ModelName { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the video to analyze. Use this parameter when the `model_name` parameter is `pegasus1.2`. Not supported with `pegasus1.5`.<br/>
         /// &lt;Info&gt; This parameter will be deprecated and removed in a future version. Use the [`video`](/v1.3/api-reference/analyze-videos/sync-analysis#request.body.video) parameter instead.&lt;/Info&gt;
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_id")]
@@ -23,19 +34,16 @@ namespace TwelveLabs
         public global::TwelveLabs.VideoContext? Video { get; set; }
 
         /// <summary>
-        /// A prompt that guides the model on the desired format or content.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - Even though the model behind this endpoint is trained to a high degree of accuracy, the preciseness of the generated text may vary based on the nature and quality of the video and the clarity of the prompt.<br/>
-        /// - Your prompts can be instructive or descriptive, or you can also phrase them as questions.<br/>
-        /// - The maximum length of a prompt is 2,000 tokens.<br/>
-        /// &lt;/Note&gt;<br/>
-        /// **Examples**:<br/>
-        /// - Based on this video, I want to generate five keywords for SEO (Search Engine Optimization).<br/>
-        /// - I want to generate a description for my video with the following format: Title of the video, followed by a summary in 2-3 sentences, highlighting the main topic, key events, and concluding remarks.
+        /// A text prompt that guides the model on the desired format or content. Works with both Pegasus 1.2 and Pegasus 1.5. To include reference images in your prompt, use the `prompt_v2` parameter instead (Pegasus 1.5 only). Mutually exclusive with the `prompt_v2` parameter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Prompt { get; set; }
+        public string? Prompt { get; set; }
+
+        /// <summary>
+        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Requires the `model_name` parameter set to `pegasus1.5`. Mutually exclusive with the `prompt` parameter.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("prompt_v2")]
+        public global::TwelveLabs.AnalyzePromptV2? PromptV2 { get; set; }
 
         /// <summary>
         /// Controls the randomness of the text output.<br/>
@@ -53,17 +61,40 @@ namespace TwelveLabs
         public bool? Stream { get; set; }
 
         /// <summary>
-        /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
+        /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text. Only the `json_schema` type is supported for synchronous analysis.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
         public global::TwelveLabs.SyncResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
-        /// The maximum number of tokens to generate.<br/>
-        /// **Min**: 1 **Max:** 4096
+        /// The maximum number of tokens to generate. The allowed range depends on the model:<br/>
+        /// | Model | Min | Max | Default |<br/>
+        /// |-------|-----|-----|---------|<br/>
+        /// | Pegasus 1.2 | 1 | 4,096 | 4,096 |<br/>
+        /// | Pegasus 1.5 | 512 | 65,536 | 4,096 |
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
         public int? MaxTokens { get; set; }
+
+        /// <summary>
+        /// Start of the analysis window, in seconds. Use with `end_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
+        /// &lt;Note title="Notes"&gt;<br/>
+        /// - If omitted, defaults to `0`.<br/>
+        /// - Must be less than `end_time` and less than the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// &lt;/Note&gt;
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("start_time")]
+        public double? StartTime { get; set; }
+
+        /// <summary>
+        /// End of the analysis window, in seconds. Use with `start_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
+        /// &lt;Note title="Notes"&gt;<br/>
+        /// - If omitted, defaults to the video duration.<br/>
+        /// - Must be greater than `start_time` and less than or equal to the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// &lt;/Note&gt;
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("end_time")]
+        public double? EndTime { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -74,23 +105,25 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AnalyzeRequest" /> class.
         /// </summary>
-        /// <param name="prompt">
-        /// A prompt that guides the model on the desired format or content.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - Even though the model behind this endpoint is trained to a high degree of accuracy, the preciseness of the generated text may vary based on the nature and quality of the video and the clarity of the prompt.<br/>
-        /// - Your prompts can be instructive or descriptive, or you can also phrase them as questions.<br/>
-        /// - The maximum length of a prompt is 2,000 tokens.<br/>
-        /// &lt;/Note&gt;<br/>
-        /// **Examples**:<br/>
-        /// - Based on this video, I want to generate five keywords for SEO (Search Engine Optimization).<br/>
-        /// - I want to generate a description for my video with the following format: Title of the video, followed by a summary in 2-3 sentences, highlighting the main topic, key events, and concluding remarks.
+        /// <param name="modelName">
+        /// The video understanding model to use for analysis.<br/>
+        /// - `pegasus1.2`: General analysis (prompt-based text generation).<br/>
+        /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, extended token limits, and video segmentation (async only). Does not support `analysis_mode=time_based_metadata` or `response_format.type=segment_definitions` — use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
+        /// **Default:** `pegasus1.2`<br/>
+        /// Default Value: pegasus1.2
         /// </param>
         /// <param name="videoId">
-        /// The unique identifier of the video to analyze.<br/>
+        /// The unique identifier of the video to analyze. Use this parameter when the `model_name` parameter is `pegasus1.2`. Not supported with `pegasus1.5`.<br/>
         /// &lt;Info&gt; This parameter will be deprecated and removed in a future version. Use the [`video`](/v1.3/api-reference/analyze-videos/sync-analysis#request.body.video) parameter instead.&lt;/Info&gt;
         /// </param>
         /// <param name="video">
         /// An object specifying the source of the video content. Include exactly one source.
+        /// </param>
+        /// <param name="prompt">
+        /// A text prompt that guides the model on the desired format or content. Works with both Pegasus 1.2 and Pegasus 1.5. To include reference images in your prompt, use the `prompt_v2` parameter instead (Pegasus 1.5 only). Mutually exclusive with the `prompt_v2` parameter.
+        /// </param>
+        /// <param name="promptV2">
+        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Requires the `model_name` parameter set to `pegasus1.5`. Mutually exclusive with the `prompt` parameter.
         /// </param>
         /// <param name="temperature">
         /// Controls the randomness of the text output.<br/>
@@ -102,31 +135,56 @@ namespace TwelveLabs
         /// Default Value: true
         /// </param>
         /// <param name="responseFormat">
-        /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text.
+        /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text. Only the `json_schema` type is supported for synchronous analysis.
         /// </param>
         /// <param name="maxTokens">
-        /// The maximum number of tokens to generate.<br/>
-        /// **Min**: 1 **Max:** 4096
+        /// The maximum number of tokens to generate. The allowed range depends on the model:<br/>
+        /// | Model | Min | Max | Default |<br/>
+        /// |-------|-----|-----|---------|<br/>
+        /// | Pegasus 1.2 | 1 | 4,096 | 4,096 |<br/>
+        /// | Pegasus 1.5 | 512 | 65,536 | 4,096 |
+        /// </param>
+        /// <param name="startTime">
+        /// Start of the analysis window, in seconds. Use with `end_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
+        /// &lt;Note title="Notes"&gt;<br/>
+        /// - If omitted, defaults to `0`.<br/>
+        /// - Must be less than `end_time` and less than the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// &lt;/Note&gt;
+        /// </param>
+        /// <param name="endTime">
+        /// End of the analysis window, in seconds. Use with `start_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
+        /// &lt;Note title="Notes"&gt;<br/>
+        /// - If omitted, defaults to the video duration.<br/>
+        /// - Must be greater than `start_time` and less than or equal to the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// &lt;/Note&gt;
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AnalyzeRequest(
-            string prompt,
+            global::TwelveLabs.AnalyzePostRequestBodyContentApplicationJsonSchemaModelName? modelName,
             string? videoId,
             global::TwelveLabs.VideoContext? video,
+            string? prompt,
+            global::TwelveLabs.AnalyzePromptV2? promptV2,
             double? temperature,
             bool? stream,
             global::TwelveLabs.SyncResponseFormat? responseFormat,
-            int? maxTokens)
+            int? maxTokens,
+            double? startTime,
+            double? endTime)
         {
+            this.ModelName = modelName;
             this.VideoId = videoId;
             this.Video = video;
-            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
+            this.Prompt = prompt;
+            this.PromptV2 = promptV2;
             this.Temperature = temperature;
             this.Stream = stream;
             this.ResponseFormat = responseFormat;
             this.MaxTokens = maxTokens;
+            this.StartTime = startTime;
+            this.EndTime = endTime;
         }
 
         /// <summary>
