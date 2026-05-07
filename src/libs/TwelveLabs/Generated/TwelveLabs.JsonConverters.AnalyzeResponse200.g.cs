@@ -40,6 +40,7 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("finish_reason")) __score1++;
             if (__jsonProps.Contains("id")) __score1++;
             if (__jsonProps.Contains("usage")) __score1++;
+            if (__jsonProps.Contains("usage.input_tokens")) __score1++;
             if (__jsonProps.Contains("usage.output_tokens")) __score1++;
             var __bestScore = 0;
             var __bestIndex = -1;
