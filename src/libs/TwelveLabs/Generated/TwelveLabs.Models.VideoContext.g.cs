@@ -27,6 +27,19 @@ namespace TwelveLabs
         public bool IsVideoContext0 => VideoContext0 != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickVideoContext0(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.VideoContext0? value)
+        {
+            value = VideoContext0;
+            return IsVideoContext0;
+        }
+
+        /// <summary>
         /// Provide the video via a unique identifier of an asset.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -44,6 +57,19 @@ namespace TwelveLabs
         public bool IsVideoContext1 => VideoContext1 != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickVideoContext1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.VideoContext1? value)
+        {
+            value = VideoContext1;
+            return IsVideoContext1;
+        }
+
+        /// <summary>
         /// Provide the video via base64-encoded data.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -59,6 +85,19 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoContext2))]
 #endif
         public bool IsVideoContext2 => VideoContext2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickVideoContext2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.VideoContext2? value)
+        {
+            value = VideoContext2;
+            return IsVideoContext2;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -157,9 +196,9 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::TwelveLabs.VideoContext0?, TResult>? videoContext0 = null,
-            global::System.Func<global::TwelveLabs.VideoContext1?, TResult>? videoContext1 = null,
-            global::System.Func<global::TwelveLabs.VideoContext2?, TResult>? videoContext2 = null,
+            global::System.Func<global::TwelveLabs.VideoContext0, TResult>? videoContext0 = null,
+            global::System.Func<global::TwelveLabs.VideoContext1, TResult>? videoContext1 = null,
+            global::System.Func<global::TwelveLabs.VideoContext2, TResult>? videoContext2 = null,
             bool validate = true)
         {
             if (validate)
@@ -187,9 +226,39 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::TwelveLabs.VideoContext0?>? videoContext0 = null,
-            global::System.Action<global::TwelveLabs.VideoContext1?>? videoContext1 = null,
-            global::System.Action<global::TwelveLabs.VideoContext2?>? videoContext2 = null,
+            global::System.Action<global::TwelveLabs.VideoContext0>? videoContext0 = null,
+
+            global::System.Action<global::TwelveLabs.VideoContext1>? videoContext1 = null,
+
+            global::System.Action<global::TwelveLabs.VideoContext2>? videoContext2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsVideoContext0)
+            {
+                videoContext0?.Invoke(VideoContext0!);
+            }
+            else if (IsVideoContext1)
+            {
+                videoContext1?.Invoke(VideoContext1!);
+            }
+            else if (IsVideoContext2)
+            {
+                videoContext2?.Invoke(VideoContext2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::TwelveLabs.VideoContext0>? videoContext0 = null,
+            global::System.Action<global::TwelveLabs.VideoContext1>? videoContext1 = null,
+            global::System.Action<global::TwelveLabs.VideoContext2>? videoContext2 = null,
             bool validate = true)
         {
             if (validate)

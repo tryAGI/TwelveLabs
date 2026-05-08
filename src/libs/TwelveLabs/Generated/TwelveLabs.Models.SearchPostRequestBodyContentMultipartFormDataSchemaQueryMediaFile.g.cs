@@ -34,6 +34,19 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out byte[]? value)
+        {
+            value = SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant1;
+            return IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::System.Collections.Generic.IList<byte[]>? SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2 { get; init; }
 #else
@@ -47,6 +60,19 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2))]
 #endif
         public bool IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2 => SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::System.Collections.Generic.IList<byte[]>? value)
+        {
+            value = SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2;
+            return IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -105,8 +131,8 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<byte[]?, TResult>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant1 = null,
-            global::System.Func<global::System.Collections.Generic.IList<byte[]>?, TResult>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2 = null,
+            global::System.Func<byte[], TResult>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant1 = null,
+            global::System.Func<global::System.Collections.Generic.IList<byte[]>, TResult>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -130,8 +156,32 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<byte[]?>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant1 = null,
-            global::System.Action<global::System.Collections.Generic.IList<byte[]>?>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2 = null,
+            global::System.Action<byte[]>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant1 = null,
+
+            global::System.Action<global::System.Collections.Generic.IList<byte[]>>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant1)
+            {
+                searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant1?.Invoke(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant1!);
+            }
+            else if (IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2)
+            {
+                searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2?.Invoke(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<byte[]>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant1 = null,
+            global::System.Action<global::System.Collections.Generic.IList<byte[]>>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2 = null,
             bool validate = true)
         {
             if (validate)

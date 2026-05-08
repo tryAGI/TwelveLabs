@@ -664,6 +664,7 @@ namespace TwelveLabs
         /// - If omitted, defaults to `0`.<br/>
         /// - Must be less than `end_time` and less than the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
+        /// - Together with `end_time`, this parameter determines the billable video duration. If you omit both, billing uses the full video duration. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.<br/>
         /// &lt;/Note&gt;
         /// </param>
         /// <param name="endTime">
@@ -672,6 +673,7 @@ namespace TwelveLabs
         /// - If omitted, defaults to the video duration.<br/>
         /// - Must be greater than `start_time` and less than or equal to the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
+        /// - Together with `start_time`, this parameter determines the billable video duration. If you omit both, billing uses the full video duration. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.<br/>
         /// &lt;/Note&gt;
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

@@ -87,7 +87,7 @@ namespace TwelveLabs
         public global::TwelveLabs.AsyncResponseFormatJsonSchema? JsonSchema { get; set; }
 
         /// <summary>
-        /// Define the types of segments to extract from your video. Minimum 1, maximum 10 definitions.
+        /// Define the types of segments to extract from your video. Minimum 1, maximum 10 definitions. The number of segment definitions affects billing. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segment_definitions")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.SegmentDefinition>? SegmentDefinitions { get; set; }
@@ -170,7 +170,7 @@ namespace TwelveLabs
         /// - When `FinishReason` is `length`, the platform truncates the response at the token limit. This may result in truncated, invalid JSON that fails to parse.
         /// </param>
         /// <param name="segmentDefinitions">
-        /// Define the types of segments to extract from your video. Minimum 1, maximum 10 definitions.
+        /// Define the types of segments to extract from your video. Minimum 1, maximum 10 definitions. The number of segment definitions affects billing. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
