@@ -29,6 +29,19 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out string? value)
+        {
+            value = IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1;
+            return IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public double? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 { get; init; }
 #else
@@ -46,6 +59,19 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out double? value)
+        {
+            value = IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2;
+            return IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public bool? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 { get; init; }
 #else
@@ -59,6 +85,19 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3))]
 #endif
         public bool IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 => IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out bool? value)
+        {
+            value = IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3;
+            return IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -157,7 +196,7 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<string?, TResult>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 = null,
+            global::System.Func<string, TResult>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 = null,
             global::System.Func<double?, TResult>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 = null,
             global::System.Func<bool?, TResult>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 = null,
             bool validate = true)
@@ -187,7 +226,37 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<string?>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 = null,
+            global::System.Action<string>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 = null,
+
+            global::System.Action<double?>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 = null,
+
+            global::System.Action<bool?>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1)
+            {
+                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1?.Invoke(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1!);
+            }
+            else if (IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2)
+            {
+                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2?.Invoke(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2!);
+            }
+            else if (IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3)
+            {
+                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3?.Invoke(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<string>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 = null,
             global::System.Action<double?>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 = null,
             global::System.Action<bool?>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 = null,
             bool validate = true)

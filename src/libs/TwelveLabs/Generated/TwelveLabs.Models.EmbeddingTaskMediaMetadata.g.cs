@@ -27,6 +27,19 @@ namespace TwelveLabs
         public bool IsEmbeddingAudioMetadata => EmbeddingAudioMetadata != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickEmbeddingAudioMetadata(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.EmbeddingAudioMetadata? value)
+        {
+            value = EmbeddingAudioMetadata;
+            return IsEmbeddingAudioMetadata;
+        }
+
+        /// <summary>
         /// Metadata for video embeddings
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -42,6 +55,19 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EmbeddingVideoMetadata))]
 #endif
         public bool IsEmbeddingVideoMetadata => EmbeddingVideoMetadata != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickEmbeddingVideoMetadata(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.EmbeddingVideoMetadata? value)
+        {
+            value = EmbeddingVideoMetadata;
+            return IsEmbeddingVideoMetadata;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -118,8 +144,8 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::TwelveLabs.EmbeddingAudioMetadata?, TResult>? embeddingAudioMetadata = null,
-            global::System.Func<global::TwelveLabs.EmbeddingVideoMetadata?, TResult>? embeddingVideoMetadata = null,
+            global::System.Func<global::TwelveLabs.EmbeddingAudioMetadata, TResult>? embeddingAudioMetadata = null,
+            global::System.Func<global::TwelveLabs.EmbeddingVideoMetadata, TResult>? embeddingVideoMetadata = null,
             bool validate = true)
         {
             if (validate)
@@ -143,8 +169,32 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::TwelveLabs.EmbeddingAudioMetadata?>? embeddingAudioMetadata = null,
-            global::System.Action<global::TwelveLabs.EmbeddingVideoMetadata?>? embeddingVideoMetadata = null,
+            global::System.Action<global::TwelveLabs.EmbeddingAudioMetadata>? embeddingAudioMetadata = null,
+
+            global::System.Action<global::TwelveLabs.EmbeddingVideoMetadata>? embeddingVideoMetadata = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsEmbeddingAudioMetadata)
+            {
+                embeddingAudioMetadata?.Invoke(EmbeddingAudioMetadata!);
+            }
+            else if (IsEmbeddingVideoMetadata)
+            {
+                embeddingVideoMetadata?.Invoke(EmbeddingVideoMetadata!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::TwelveLabs.EmbeddingAudioMetadata>? embeddingAudioMetadata = null,
+            global::System.Action<global::TwelveLabs.EmbeddingVideoMetadata>? embeddingVideoMetadata = null,
             bool validate = true)
         {
             if (validate)

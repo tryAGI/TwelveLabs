@@ -27,6 +27,19 @@ namespace TwelveLabs
         public bool IsVideoSegmentation0 => VideoSegmentation0 != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickVideoSegmentation0(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.VideoSegmentation0? value)
+        {
+            value = VideoSegmentation0;
+            return IsVideoSegmentation0;
+        }
+
+        /// <summary>
         /// Configuration for fixed segmentation. This field is required when `strategy` is `fixed`.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -42,6 +55,19 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoSegmentation1))]
 #endif
         public bool IsVideoSegmentation1 => VideoSegmentation1 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickVideoSegmentation1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.VideoSegmentation1? value)
+        {
+            value = VideoSegmentation1;
+            return IsVideoSegmentation1;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -118,8 +144,8 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::TwelveLabs.VideoSegmentation0?, TResult>? videoSegmentation0 = null,
-            global::System.Func<global::TwelveLabs.VideoSegmentation1?, TResult>? videoSegmentation1 = null,
+            global::System.Func<global::TwelveLabs.VideoSegmentation0, TResult>? videoSegmentation0 = null,
+            global::System.Func<global::TwelveLabs.VideoSegmentation1, TResult>? videoSegmentation1 = null,
             bool validate = true)
         {
             if (validate)
@@ -143,8 +169,32 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::TwelveLabs.VideoSegmentation0?>? videoSegmentation0 = null,
-            global::System.Action<global::TwelveLabs.VideoSegmentation1?>? videoSegmentation1 = null,
+            global::System.Action<global::TwelveLabs.VideoSegmentation0>? videoSegmentation0 = null,
+
+            global::System.Action<global::TwelveLabs.VideoSegmentation1>? videoSegmentation1 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsVideoSegmentation0)
+            {
+                videoSegmentation0?.Invoke(VideoSegmentation0!);
+            }
+            else if (IsVideoSegmentation1)
+            {
+                videoSegmentation1?.Invoke(VideoSegmentation1!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::TwelveLabs.VideoSegmentation0>? videoSegmentation0 = null,
+            global::System.Action<global::TwelveLabs.VideoSegmentation1>? videoSegmentation1 = null,
             bool validate = true)
         {
             if (validate)
