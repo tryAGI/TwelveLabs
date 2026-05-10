@@ -40,6 +40,13 @@ namespace TwelveLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.VideoSegmentation0 PickVideoSegmentation0() => IsVideoSegmentation0
+            ? VideoSegmentation0!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VideoSegmentation0' but the value was {ToString()}.");
+
+        /// <summary>
         /// Configuration for fixed segmentation. This field is required when `strategy` is `fixed`.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -68,6 +75,13 @@ namespace TwelveLabs
             value = VideoSegmentation1;
             return IsVideoSegmentation1;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.VideoSegmentation1 PickVideoSegmentation1() => IsVideoSegmentation1
+            ? VideoSegmentation1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VideoSegmentation1' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -89,6 +103,11 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public static VideoSegmentation FromVideoSegmentation0(global::TwelveLabs.VideoSegmentation0? value) => new VideoSegmentation(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator VideoSegmentation(global::TwelveLabs.VideoSegmentation1 value) => new VideoSegmentation((global::TwelveLabs.VideoSegmentation1?)value);
 
         /// <summary>
@@ -103,6 +122,11 @@ namespace TwelveLabs
         {
             VideoSegmentation1 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static VideoSegmentation FromVideoSegmentation1(global::TwelveLabs.VideoSegmentation1? value) => new VideoSegmentation(value);
 
         /// <summary>
         /// 

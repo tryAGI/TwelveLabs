@@ -40,6 +40,13 @@ namespace TwelveLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.VideoContext0 PickVideoContext0() => IsVideoContext0
+            ? VideoContext0!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VideoContext0' but the value was {ToString()}.");
+
+        /// <summary>
         /// Provide the video via a unique identifier of an asset.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -70,6 +77,13 @@ namespace TwelveLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.VideoContext1 PickVideoContext1() => IsVideoContext1
+            ? VideoContext1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VideoContext1' but the value was {ToString()}.");
+
+        /// <summary>
         /// Provide the video via base64-encoded data.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -98,6 +112,13 @@ namespace TwelveLabs
             value = VideoContext2;
             return IsVideoContext2;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.VideoContext2 PickVideoContext2() => IsVideoContext2
+            ? VideoContext2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VideoContext2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -115,6 +136,11 @@ namespace TwelveLabs
         {
             VideoContext0 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static VideoContext FromVideoContext0(global::TwelveLabs.VideoContext0? value) => new VideoContext(value);
 
         /// <summary>
         /// 
@@ -137,6 +163,11 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public static VideoContext FromVideoContext1(global::TwelveLabs.VideoContext1? value) => new VideoContext(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator VideoContext(global::TwelveLabs.VideoContext2 value) => new VideoContext((global::TwelveLabs.VideoContext2?)value);
 
         /// <summary>
@@ -151,6 +182,11 @@ namespace TwelveLabs
         {
             VideoContext2 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static VideoContext FromVideoContext2(global::TwelveLabs.VideoContext2? value) => new VideoContext(value);
 
         /// <summary>
         /// 

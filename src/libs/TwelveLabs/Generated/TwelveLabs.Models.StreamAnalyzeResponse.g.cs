@@ -49,6 +49,13 @@ namespace TwelveLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.StreamStartResponse PickStreamStartResponse() => IsStreamStartResponse
+            ? StreamStartResponse!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'StreamStartResponse' but the value was {ToString()}.");
+
+        /// <summary>
         /// Contains a fragment of generated text. Note that text fragments may be split at arbitrary points, not necessarily at word or sentence boundaries.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -79,6 +86,13 @@ namespace TwelveLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.StreamTextResponse PickStreamTextResponse() => IsStreamTextResponse
+            ? StreamTextResponse!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'StreamTextResponse' but the value was {ToString()}.");
+
+        /// <summary>
         /// Indicates the end of the stream.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -107,6 +121,13 @@ namespace TwelveLabs
             value = StreamEndResponse;
             return IsStreamEndResponse;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.StreamEndResponse PickStreamEndResponse() => IsStreamEndResponse
+            ? StreamEndResponse!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'StreamEndResponse' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -124,6 +145,11 @@ namespace TwelveLabs
         {
             StreamStartResponse = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static StreamAnalyzeResponse FromStreamStartResponse(global::TwelveLabs.StreamStartResponse? value) => new StreamAnalyzeResponse(value);
 
         /// <summary>
         /// 
@@ -146,6 +172,11 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public static StreamAnalyzeResponse FromStreamTextResponse(global::TwelveLabs.StreamTextResponse? value) => new StreamAnalyzeResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator StreamAnalyzeResponse(global::TwelveLabs.StreamEndResponse value) => new StreamAnalyzeResponse((global::TwelveLabs.StreamEndResponse?)value);
 
         /// <summary>
@@ -160,6 +191,11 @@ namespace TwelveLabs
         {
             StreamEndResponse = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static StreamAnalyzeResponse FromStreamEndResponse(global::TwelveLabs.StreamEndResponse? value) => new StreamAnalyzeResponse(value);
 
         /// <summary>
         /// 
