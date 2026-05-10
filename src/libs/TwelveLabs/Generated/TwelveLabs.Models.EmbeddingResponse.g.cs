@@ -75,5 +75,6 @@ namespace TwelveLabs
         public EmbeddingResponse()
         {
         }
+
     }
 }

@@ -89,5 +89,6 @@ namespace TwelveLabs
         public SegmentField()
         {
         }
+
     }
 }

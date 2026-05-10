@@ -102,5 +102,6 @@ namespace TwelveLabs
         public CreateAssetUploadRequest()
         {
         }
+
     }
 }

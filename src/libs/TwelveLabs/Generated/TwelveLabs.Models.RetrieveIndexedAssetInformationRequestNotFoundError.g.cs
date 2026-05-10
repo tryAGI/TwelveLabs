@@ -52,5 +52,6 @@ namespace TwelveLabs
         public RetrieveIndexedAssetInformationRequestNotFoundError()
         {
         }
+
     }
 }

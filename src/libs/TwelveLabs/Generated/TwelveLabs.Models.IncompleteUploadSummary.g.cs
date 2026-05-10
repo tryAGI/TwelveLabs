@@ -121,5 +121,6 @@ namespace TwelveLabs
         public IncompleteUploadSummary()
         {
         }
+
     }
 }

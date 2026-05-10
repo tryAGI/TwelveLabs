@@ -76,5 +76,6 @@ namespace TwelveLabs
         public EntityCollectionsEntityCollectionIdEntitiesBulkPostRequestBodyContentApplicationJsonSchemaEntitiesItems()
         {
         }
+
     }
 }

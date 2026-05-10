@@ -96,5 +96,6 @@ namespace TwelveLabs
         public RequestAdditionalPresignedURLsResponse()
         {
         }
+
     }
 }

@@ -101,5 +101,6 @@ namespace TwelveLabs
         public SegmentDefinition()
         {
         }
+
     }
 }

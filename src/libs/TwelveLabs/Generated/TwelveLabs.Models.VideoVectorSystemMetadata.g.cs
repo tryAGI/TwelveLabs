@@ -84,5 +84,6 @@ namespace TwelveLabs
         public VideoVectorSystemMetadata()
         {
         }
+
     }
 }

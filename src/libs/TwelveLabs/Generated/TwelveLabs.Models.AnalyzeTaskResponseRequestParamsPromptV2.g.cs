@@ -54,5 +54,6 @@ namespace TwelveLabs
         public AnalyzeTaskResponseRequestParamsPromptV2()
         {
         }
+
     }
 }
