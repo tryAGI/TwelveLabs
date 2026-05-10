@@ -87,6 +87,7 @@ namespace TwelveLabs.JsonConverters
             {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.VideoSegmentation0), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.VideoSegmentation0> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.VideoSegmentation0).Name}");
                     videoSegmentation0 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -97,9 +98,13 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (videoSegmentation0 == null && videoSegmentation1 == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.VideoSegmentation1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.VideoSegmentation1> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.VideoSegmentation1).Name}");
                     videoSegmentation1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);

@@ -87,6 +87,7 @@ namespace TwelveLabs.JsonConverters
             {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamAnalyzeResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamAnalyzeResponse> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamAnalyzeResponse).Name}");
                     streamAnalyzeResponse = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -97,9 +98,13 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (streamAnalyzeResponse == null && nonStreamAnalyzeResponse == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.NonStreamAnalyzeResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.NonStreamAnalyzeResponse> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.NonStreamAnalyzeResponse).Name}");
                     nonStreamAnalyzeResponse = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);

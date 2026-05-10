@@ -109,6 +109,7 @@ namespace TwelveLabs.JsonConverters
             {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamStartResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamStartResponse> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamStartResponse).Name}");
                     streamStartResponse = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -119,9 +120,13 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (streamStartResponse == null && streamTextResponse == null && streamEndResponse == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamTextResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamTextResponse> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamTextResponse).Name}");
                     streamTextResponse = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -132,9 +137,13 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (streamStartResponse == null && streamTextResponse == null && streamEndResponse == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamEndResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamEndResponse> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamEndResponse).Name}");
                     streamEndResponse = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
