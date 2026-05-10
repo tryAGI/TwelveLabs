@@ -191,5 +191,6 @@ namespace TwelveLabs
         public AsyncResponseFormat()
         {
         }
+
     }
 }

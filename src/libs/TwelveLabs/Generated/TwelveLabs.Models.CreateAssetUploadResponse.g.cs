@@ -119,5 +119,6 @@ namespace TwelveLabs
         public CreateAssetUploadResponse()
         {
         }
+
     }
 }

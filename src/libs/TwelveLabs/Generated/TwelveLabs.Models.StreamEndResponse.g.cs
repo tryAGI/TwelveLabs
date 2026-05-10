@@ -69,5 +69,6 @@ namespace TwelveLabs
         public StreamEndResponse()
         {
         }
+
     }
 }

@@ -160,5 +160,6 @@ namespace TwelveLabs
         public SyncResponseFormat()
         {
         }
+
     }
 }

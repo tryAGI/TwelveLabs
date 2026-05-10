@@ -53,5 +53,6 @@ namespace TwelveLabs
         public StreamTextResponse()
         {
         }
+
     }
 }

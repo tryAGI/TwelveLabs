@@ -193,5 +193,6 @@ namespace TwelveLabs
         public AnalyzeRequest()
         {
         }
+
     }
 }

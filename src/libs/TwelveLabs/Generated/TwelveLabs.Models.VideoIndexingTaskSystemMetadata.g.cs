@@ -66,5 +66,6 @@ namespace TwelveLabs
         public VideoIndexingTaskSystemMetadata()
         {
         }
+
     }
 }

@@ -265,5 +265,6 @@ namespace TwelveLabs
         public CreateAsyncAnalyzeRequest()
         {
         }
+
     }
 }

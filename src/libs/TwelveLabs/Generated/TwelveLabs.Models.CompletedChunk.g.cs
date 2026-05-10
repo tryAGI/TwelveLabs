@@ -78,5 +78,6 @@ namespace TwelveLabs
         public CompletedChunk()
         {
         }
+
     }
 }

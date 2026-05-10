@@ -152,5 +152,6 @@ namespace TwelveLabs
         public IndexedAssetDetailed()
         {
         }
+
     }
 }

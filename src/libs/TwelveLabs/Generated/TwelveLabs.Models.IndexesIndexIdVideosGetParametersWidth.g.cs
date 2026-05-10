@@ -48,5 +48,6 @@ namespace TwelveLabs
         public IndexesIndexIdVideosGetParametersWidth()
         {
         }
+
     }
 }

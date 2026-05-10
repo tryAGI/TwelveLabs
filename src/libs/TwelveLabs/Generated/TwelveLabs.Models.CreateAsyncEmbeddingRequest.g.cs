@@ -86,5 +86,18 @@ namespace TwelveLabs
         public CreateAsyncEmbeddingRequest()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="CreateAsyncEmbeddingRequest"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static CreateAsyncEmbeddingRequest FromInputType(global::TwelveLabs.CreateAsyncEmbeddingRequestInputType inputType)
+        {
+            return new CreateAsyncEmbeddingRequest
+            {
+                InputType = inputType,
+            };
+        }
+
     }
 }

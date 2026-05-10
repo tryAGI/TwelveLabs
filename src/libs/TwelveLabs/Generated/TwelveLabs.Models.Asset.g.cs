@@ -136,5 +136,6 @@ namespace TwelveLabs
         public Asset()
         {
         }
+
     }
 }

@@ -55,5 +55,6 @@ namespace TwelveLabs
         public CreateAnalyzeTaskResponse()
         {
         }
+
     }
 }

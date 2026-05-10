@@ -85,5 +85,6 @@ namespace TwelveLabs
         public SearchResultsPageInfo()
         {
         }
+
     }
 }

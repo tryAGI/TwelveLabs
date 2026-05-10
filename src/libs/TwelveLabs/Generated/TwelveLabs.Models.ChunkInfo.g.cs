@@ -92,5 +92,6 @@ namespace TwelveLabs
         public ChunkInfo()
         {
         }
+
     }
 }

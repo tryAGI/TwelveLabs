@@ -79,5 +79,6 @@ namespace TwelveLabs
         public NonStreamAnalyzeResponse()
         {
         }
+
     }
 }
