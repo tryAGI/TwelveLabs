@@ -108,7 +108,10 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant1 == null && searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileVariant2 == null)
+            {
                 try
                 {
 

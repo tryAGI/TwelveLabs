@@ -138,7 +138,10 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 == null && indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 == null && indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 == null)
+            {
                 try
                 {
 
@@ -152,7 +155,10 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 == null && indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 == null && indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 == null)
+            {
                 try
                 {
 
