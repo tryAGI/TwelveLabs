@@ -42,6 +42,13 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public string PickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1() => IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1
+            ? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public double? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 { get; init; }
 #else
@@ -72,6 +79,13 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public double PickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2() => IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2
+            ? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public bool? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 { get; init; }
 #else
@@ -98,6 +112,13 @@ namespace TwelveLabs
             value = IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3;
             return IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool PickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3() => IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3
+            ? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -115,6 +136,11 @@ namespace TwelveLabs
         {
             IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static IndexesIndexIdVideosGetParametersUserMetadataSchema FromIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1(string? value) => new IndexesIndexIdVideosGetParametersUserMetadataSchema(value);
 
         /// <summary>
         /// 
@@ -137,6 +163,11 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public static IndexesIndexIdVideosGetParametersUserMetadataSchema FromIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2(double? value) => new IndexesIndexIdVideosGetParametersUserMetadataSchema(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator IndexesIndexIdVideosGetParametersUserMetadataSchema(bool value) => new IndexesIndexIdVideosGetParametersUserMetadataSchema((bool?)value);
 
         /// <summary>
@@ -151,6 +182,11 @@ namespace TwelveLabs
         {
             IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static IndexesIndexIdVideosGetParametersUserMetadataSchema FromIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3(bool? value) => new IndexesIndexIdVideosGetParametersUserMetadataSchema(value);
 
         /// <summary>
         /// 

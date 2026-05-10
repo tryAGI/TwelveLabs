@@ -49,6 +49,13 @@ namespace TwelveLabs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.StreamAnalyzeResponse PickStreamAnalyzeResponse() => IsStreamAnalyzeResponse
+            ? StreamAnalyzeResponse!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'StreamAnalyzeResponse' but the value was {ToString()}.");
+
+        /// <summary>
         /// When the value of the `stream` parameter is set to `false`, the response is as follows:
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -77,6 +84,13 @@ namespace TwelveLabs
             value = NonStreamAnalyzeResponse;
             return IsNonStreamAnalyzeResponse;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.NonStreamAnalyzeResponse PickNonStreamAnalyzeResponse() => IsNonStreamAnalyzeResponse
+            ? NonStreamAnalyzeResponse!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'NonStreamAnalyzeResponse' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -98,6 +112,11 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public static AnalyzeResponse200 FromStreamAnalyzeResponse(global::TwelveLabs.StreamAnalyzeResponse? value) => new AnalyzeResponse200(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator AnalyzeResponse200(global::TwelveLabs.NonStreamAnalyzeResponse value) => new AnalyzeResponse200((global::TwelveLabs.NonStreamAnalyzeResponse?)value);
 
         /// <summary>
@@ -112,6 +131,11 @@ namespace TwelveLabs
         {
             NonStreamAnalyzeResponse = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static AnalyzeResponse200 FromNonStreamAnalyzeResponse(global::TwelveLabs.NonStreamAnalyzeResponse? value) => new AnalyzeResponse200(value);
 
         /// <summary>
         /// 

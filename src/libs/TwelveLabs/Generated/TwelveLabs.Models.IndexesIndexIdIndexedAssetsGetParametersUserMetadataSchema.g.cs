@@ -42,6 +42,13 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public string PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1() => IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1
+            ? IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public double? IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2 { get; init; }
 #else
@@ -72,6 +79,13 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public double PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2() => IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2
+            ? IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public bool? IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 { get; init; }
 #else
@@ -98,6 +112,13 @@ namespace TwelveLabs
             value = IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3;
             return IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3() => IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3
+            ? IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -115,6 +136,11 @@ namespace TwelveLabs
         {
             IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema FromIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1(string? value) => new IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema(value);
 
         /// <summary>
         /// 
@@ -137,6 +163,11 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public static IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema FromIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2(double? value) => new IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema(bool value) => new IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema((bool?)value);
 
         /// <summary>
@@ -151,6 +182,11 @@ namespace TwelveLabs
         {
             IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema FromIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3(bool? value) => new IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema(value);
 
         /// <summary>
         /// 

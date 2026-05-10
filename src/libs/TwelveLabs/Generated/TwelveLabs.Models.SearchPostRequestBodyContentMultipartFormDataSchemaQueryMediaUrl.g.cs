@@ -47,6 +47,13 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public string PickSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1() => IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1
+            ? SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::System.Collections.Generic.IList<string>? SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2 { get; init; }
 #else
@@ -73,6 +80,13 @@ namespace TwelveLabs
             value = SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2;
             return IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<string> PickSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2() => IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2
+            ? SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -90,6 +104,11 @@ namespace TwelveLabs
         {
             SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl FromSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1(string? value) => new SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl(value);
 
         /// <summary>
         /// 
