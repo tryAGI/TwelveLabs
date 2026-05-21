@@ -15,6 +15,12 @@ namespace TwelveLabs
         public string? Id { get; set; }
 
         /// <summary>
+        /// The unique identifier of the associated asset.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
+        public string? AssetId { get; set; }
+
+        /// <summary>
         /// A string indicating the date and time, in the RFC RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), that the video indexing task was created.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
@@ -50,6 +56,9 @@ namespace TwelveLabs
         /// <param name="id">
         /// A string representing the unique identifier of a video. The platform creates a new `video_vector` object and assigns it a unique identifier when the video has successfully been indexed. Note that video IDs are different from task IDs.
         /// </param>
+        /// <param name="assetId">
+        /// The unique identifier of the associated asset.
+        /// </param>
         /// <param name="createdAt">
         /// A string indicating the date and time, in the RFC RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), that the video indexing task was created.
         /// </param>
@@ -67,12 +76,14 @@ namespace TwelveLabs
 #endif
         public VideoVector(
             string? id,
+            string? assetId,
             string? createdAt,
             string? updatedAt,
             string? indexedAt,
             global::TwelveLabs.VideoVectorSystemMetadata? systemMetadata)
         {
             this.Id = id;
+            this.AssetId = assetId;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
             this.IndexedAt = indexedAt;
