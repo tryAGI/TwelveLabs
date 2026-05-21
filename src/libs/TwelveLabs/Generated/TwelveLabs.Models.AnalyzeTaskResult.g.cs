@@ -93,5 +93,6 @@ namespace TwelveLabs
         public AnalyzeTaskResult()
         {
         }
+
     }
 }

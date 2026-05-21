@@ -76,6 +76,49 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await CreateAsResponseAsync(
+                xApiKey: xApiKey,
+
+                request: request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// Create a video indexing task<br/>
+        /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
+        /// &lt;Warning title="Legacy endpoint"&gt;<br/>
+        /// This endpoint bundles two operations (upload and indexing) together. In the next major API release, this endpoint will be removed in favor of a separated workflow:<br/>
+        /// 1. Upload your video using the [`POST /assets`](/v1.3/api-reference/upload-content/direct-uploads/create) endpoint<br/>
+        /// 2. Index the uploaded video using the [`POST /indexes/{index-id}/indexed-assets`](/v1.3/api-reference/index-content/create) endpoint<br/>
+        /// This separation provides better control, reusability of assets, and improved error handling. New implementations should use the new workflow.<br/>
+        /// &lt;/Warning&gt;<br/>
+        /// Upload options:<br/>
+        /// - **Local file**: Use the `video_file` parameter.<br/>
+        /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
+        /// Your video files must meet requirements based on your workflow:<br/>
+        /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements).<br/>
+        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#video-file-requirements).<br/>
+        /// - If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
+        /// - This method allows you to upload files up to 2 GB in size. To upload larger files, use the [Multipart Upload API](/v1.3/api-reference/upload-content/multipart-uploads)<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// &lt;/Note&gt;
+        /// </summary>
+        /// <param name="xApiKey"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::TwelveLabs.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksCreateResponse200>> CreateAsResponseAsync(
+            string xApiKey,
+
+            global::TwelveLabs.CreateRequest3 request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
@@ -103,10 +146,11 @@ namespace TwelveLabs
             var __maxAttempts = global::TwelveLabs.AutoSDKRequestOptionsSupport.GetMaxAttempts(
                 clientOptions: Options,
                 requestOptions: requestOptions,
-                supportsRetry: true);
+                supportsRetry: false);
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::TwelveLabs.PathBuilder(
                                 path: "/tasks",
                                 baseUri: HttpClient.BaseAddress);
@@ -142,13 +186,16 @@ namespace TwelveLabs
 
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
 
+
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(xApiKey ?? string.Empty),
                                 name: "\"x-api-key\"");
+
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.IndexId ?? string.Empty),
                                 name: "\"index_id\"");
+
                             if (request.VideoFile != default)
                             {
 
@@ -189,29 +236,35 @@ namespace TwelveLabs
                                 {
                                     __contentVideoFile.Headers.ContentDisposition.FileNameStar = null;
                                 }
-                            } 
+
+                            }
                             if (request.VideoUrl != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(request.VideoUrl ?? string.Empty),
                                     name: "\"video_url\"");
-                            } 
+
+                            }
                             if (request.EnableVideoStream != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.EnableVideoStream, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
                                     name: "\"enable_video_stream\"");
-                            } 
+
+                            }
                             if (request.UserMetadata != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(request.UserMetadata ?? string.Empty),
                                     name: "\"user_metadata\"");
+
                             }
+
                             __httpRequest.Content = __httpRequestContent;
+
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -254,6 +307,8 @@ namespace TwelveLabs
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -264,6 +319,11 @@ namespace TwelveLabs
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::TwelveLabs.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -281,6 +341,8 @@ namespace TwelveLabs
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -290,8 +352,7 @@ namespace TwelveLabs
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -300,6 +361,11 @@ namespace TwelveLabs
                         __attempt < __maxAttempts &&
                         global::TwelveLabs.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::TwelveLabs.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -316,14 +382,15 @@ namespace TwelveLabs
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -363,6 +430,8 @@ namespace TwelveLabs
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -383,6 +452,8 @@ namespace TwelveLabs
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                             // The request has failed.
@@ -445,9 +516,13 @@ namespace TwelveLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        global::TwelveLabs.TasksCreateResponse200.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::TwelveLabs.TasksCreateResponse200.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksCreateResponse200>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -475,9 +550,13 @@ namespace TwelveLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        await global::TwelveLabs.TasksCreateResponse200.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::TwelveLabs.TasksCreateResponse200.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksCreateResponse200>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

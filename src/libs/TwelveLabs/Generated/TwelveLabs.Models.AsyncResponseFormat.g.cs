@@ -33,17 +33,21 @@ namespace TwelveLabs
         /// **Supported constraints**<br/>
         /// | Type | Supported keywords | Notes |<br/>
         /// |------|-------------------|-------|<br/>
-        /// | `integer` | `maximum`, `exclusiveMaximum`, `minimum`, `exclusiveMinimum`. | - `maximum`: Sets the highest allowed value (inclusive).&lt;br/&gt;- `exclusiveMaximum`: Sets the highest allowed value (exclusive).&lt;br/&gt;-`minimum`: Sets the lowest allowed value (inclusive).&lt;br/&gt;- `exclusiveMinimum`: Sets the lowest allowed value (exclusive).&lt;br/&gt;These constraints are supported only for the `integer` type. |<br/>
+        /// | `integer` | `maximum`, `exclusiveMaximum`, `minimum`, `exclusiveMinimum`. | - `maximum`: Sets the highest allowed value (inclusive).&lt;br/&gt;- `exclusiveMaximum`: Sets the highest allowed value (exclusive).&lt;br/&gt;- `minimum`: Sets the lowest allowed value (inclusive).&lt;br/&gt;- `exclusiveMinimum`: Sets the lowest allowed value (exclusive).&lt;br/&gt;These constraints are supported only for the `integer` type. |<br/>
         /// | `string` | `pattern`, `format` | - `pattern`: A regular expression that the string must match.&lt;br/&gt;- `format`: Validates predefined formats. It accepts the following values: `uuid`, `date-time`, `date`, and `time`.&lt;br/&gt;See string limitations below. |<br/>
         /// | `object` | `properties`, `required` | - `properties`: Defines object properties and their schemas. - `required`: Specifies mandatory properties.&lt;br/&gt;See object limitations below. |<br/>
-        /// | `array` | `items`, `minItems` | `minItems` accepts only `0` or `1` |<br/>
+        /// | `array` | `items`, `minItems` | `minItems` accepts only `0` or `1`.&lt;br/&gt;See array limitations below. |<br/>
         /// **String limitations**<br/>
-        /// The platform validates strings using the `pattern` and `format` constraints only. When you include `minLength` or `maxLength` keywords in your schema, the platform returns an error: "String length constraints (minLength) are not supported."<br/>
+        /// When you use the `string` type:<br/>
+        /// - The platform validates strings using only `pattern` and `format`. Including `minLength` or `maxLength` causes a 422 error: "String length constraints (minLength) are not supported." Remove these keywords from your schema.<br/>
         /// **Object limitations**<br/>
         /// When you use the `object` type:<br/>
-        /// - The platform always ignores the `additionalProperties` setting.<br/>
-        /// - The sequence of the properties is fixed.<br/>
-        /// - The first property should be required. If the first property is optional, the platform moves the first required property to the first position.<br/>
+        /// - The platform does not support the `additionalProperties` keyword. Including it causes a 422 error. Remove it from your schema.<br/>
+        /// - The platform returns properties in declaration order.<br/>
+        /// - Make the first property required. If the first property is optional, the platform moves the first required property to the beginning.<br/>
+        /// **Array limitations**<br/>
+        /// When you use the `array` type:<br/>
+        /// - The platform does not support `uniqueItems` or `maxItems`. Including either keyword causes a 422 error. Remove them from your schema.<br/>
         /// **Constant and enumerated values**<br/>
         /// The `const` and `enum` keywords support the following types:<br/>
         /// - `boolean`<br/>
@@ -83,7 +87,7 @@ namespace TwelveLabs
         public global::TwelveLabs.AsyncResponseFormatJsonSchema? JsonSchema { get; set; }
 
         /// <summary>
-        /// Define the types of segments to extract from your video. Minimum 1, maximum 10 definitions.
+        /// Define the types of segments to extract from your video. Minimum 1, maximum 10 definitions. The number of segment definitions affects billing. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segment_definitions")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.SegmentDefinition>? SegmentDefinitions { get; set; }
@@ -115,17 +119,21 @@ namespace TwelveLabs
         /// **Supported constraints**<br/>
         /// | Type | Supported keywords | Notes |<br/>
         /// |------|-------------------|-------|<br/>
-        /// | `integer` | `maximum`, `exclusiveMaximum`, `minimum`, `exclusiveMinimum`. | - `maximum`: Sets the highest allowed value (inclusive).&lt;br/&gt;- `exclusiveMaximum`: Sets the highest allowed value (exclusive).&lt;br/&gt;-`minimum`: Sets the lowest allowed value (inclusive).&lt;br/&gt;- `exclusiveMinimum`: Sets the lowest allowed value (exclusive).&lt;br/&gt;These constraints are supported only for the `integer` type. |<br/>
+        /// | `integer` | `maximum`, `exclusiveMaximum`, `minimum`, `exclusiveMinimum`. | - `maximum`: Sets the highest allowed value (inclusive).&lt;br/&gt;- `exclusiveMaximum`: Sets the highest allowed value (exclusive).&lt;br/&gt;- `minimum`: Sets the lowest allowed value (inclusive).&lt;br/&gt;- `exclusiveMinimum`: Sets the lowest allowed value (exclusive).&lt;br/&gt;These constraints are supported only for the `integer` type. |<br/>
         /// | `string` | `pattern`, `format` | - `pattern`: A regular expression that the string must match.&lt;br/&gt;- `format`: Validates predefined formats. It accepts the following values: `uuid`, `date-time`, `date`, and `time`.&lt;br/&gt;See string limitations below. |<br/>
         /// | `object` | `properties`, `required` | - `properties`: Defines object properties and their schemas. - `required`: Specifies mandatory properties.&lt;br/&gt;See object limitations below. |<br/>
-        /// | `array` | `items`, `minItems` | `minItems` accepts only `0` or `1` |<br/>
+        /// | `array` | `items`, `minItems` | `minItems` accepts only `0` or `1`.&lt;br/&gt;See array limitations below. |<br/>
         /// **String limitations**<br/>
-        /// The platform validates strings using the `pattern` and `format` constraints only. When you include `minLength` or `maxLength` keywords in your schema, the platform returns an error: "String length constraints (minLength) are not supported."<br/>
+        /// When you use the `string` type:<br/>
+        /// - The platform validates strings using only `pattern` and `format`. Including `minLength` or `maxLength` causes a 422 error: "String length constraints (minLength) are not supported." Remove these keywords from your schema.<br/>
         /// **Object limitations**<br/>
         /// When you use the `object` type:<br/>
-        /// - The platform always ignores the `additionalProperties` setting.<br/>
-        /// - The sequence of the properties is fixed.<br/>
-        /// - The first property should be required. If the first property is optional, the platform moves the first required property to the first position.<br/>
+        /// - The platform does not support the `additionalProperties` keyword. Including it causes a 422 error. Remove it from your schema.<br/>
+        /// - The platform returns properties in declaration order.<br/>
+        /// - Make the first property required. If the first property is optional, the platform moves the first required property to the beginning.<br/>
+        /// **Array limitations**<br/>
+        /// When you use the `array` type:<br/>
+        /// - The platform does not support `uniqueItems` or `maxItems`. Including either keyword causes a 422 error. Remove them from your schema.<br/>
         /// **Constant and enumerated values**<br/>
         /// The `const` and `enum` keywords support the following types:<br/>
         /// - `boolean`<br/>
@@ -162,7 +170,7 @@ namespace TwelveLabs
         /// - When `FinishReason` is `length`, the platform truncates the response at the token limit. This may result in truncated, invalid JSON that fails to parse.
         /// </param>
         /// <param name="segmentDefinitions">
-        /// Define the types of segments to extract from your video. Minimum 1, maximum 10 definitions.
+        /// Define the types of segments to extract from your video. Minimum 1, maximum 10 definitions. The number of segment definitions affects billing. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -183,5 +191,6 @@ namespace TwelveLabs
         public AsyncResponseFormat()
         {
         }
+
     }
 }

@@ -74,6 +74,46 @@ namespace TwelveLabs
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="xApiKey"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::TwelveLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EmbeddingResponse>> CreateAsResponseAsync(
+            string xApiKey,
+
+            global::TwelveLabs.CreateRequest9 request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create embeddings for text, image, and audio<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        ///   This endpoint will be deprecated in a future version. Migrate to the [Embed API v2](/v1.3/api-reference/create-embeddings-v2) for continued support and access to new features.<br/>
+        /// &lt;/Note&gt;<br/>
+        /// This method creates embeddings for text, image, and audio content.<br/>
+        /// Ensure your media files meet the following requirements:<br/>
+        /// - [Audio files](/v1.3/docs/concepts/models/marengo#audio-requirements).<br/>
+        /// - [Image files](/v1.3/docs/concepts/models/marengo#image-requirements).<br/>
+        /// Parameters for embeddings:<br/>
+        /// - **Common parameters**:<br/>
+        ///   - `model_name`: The video understanding model you want to use. Example: "marengo3.0".<br/>
+        /// - **Text embeddings**:<br/>
+        ///   - `text`: Text for which to create an embedding.<br/>
+        /// - **Image embeddings**:<br/>
+        ///   Provide one of the following:<br/>
+        ///   - `image_url`: Publicly accessible URL of your image file.<br/>
+        ///   - `image_file`:  Local image file.<br/>
+        /// - **Audio embeddings**:<br/>
+        ///   Provide one of the following:<br/>
+        ///   - `audio_url`: Publicly accessible URL of your audio file.<br/>
+        ///   - `audio_file`: Local audio file.<br/>
+        /// &lt;Note title="Notes"&gt;<br/>
+        /// - The Marengo video understanding model generates embeddings for all modalities in the same latent space. This shared space enables any-to-any searches across different types of content.<br/>
+        /// - You can create multiple types of embeddings in a single API call.<br/>
+        /// - Audio embeddings combine generic sound and human speech in a single embedding. For videos with transcriptions, you can retrieve transcriptions and then [create text embeddings](/v1.3/api-reference/create-embeddings-v1/text-image-audio-embeddings/create-text-image-audio-embeddings) from these<br/>
+        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// &lt;/Note&gt;
+        /// </summary>
+        /// <param name="xApiKey"></param>
         /// <param name="modelName">
         /// The name of the model you want to use. The following models are available:<br/>
         ///   - `marengo3.0`: Enhanced model with sports intelligence and extended content support.

@@ -39,5 +39,6 @@ namespace TwelveLabs
         public AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItemsItems()
         {
         }
+
     }
 }

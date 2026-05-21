@@ -36,6 +36,26 @@ namespace TwelveLabs
         public bool IsStreamAnalyzeResponse => StreamAnalyzeResponse != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickStreamAnalyzeResponse(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.StreamAnalyzeResponse? value)
+        {
+            value = StreamAnalyzeResponse;
+            return IsStreamAnalyzeResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.StreamAnalyzeResponse PickStreamAnalyzeResponse() => IsStreamAnalyzeResponse
+            ? StreamAnalyzeResponse!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'StreamAnalyzeResponse' but the value was {ToString()}.");
+
+        /// <summary>
         /// When the value of the `stream` parameter is set to `false`, the response is as follows:
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -51,6 +71,26 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NonStreamAnalyzeResponse))]
 #endif
         public bool IsNonStreamAnalyzeResponse => NonStreamAnalyzeResponse != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickNonStreamAnalyzeResponse(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.NonStreamAnalyzeResponse? value)
+        {
+            value = NonStreamAnalyzeResponse;
+            return IsNonStreamAnalyzeResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.NonStreamAnalyzeResponse PickNonStreamAnalyzeResponse() => IsNonStreamAnalyzeResponse
+            ? NonStreamAnalyzeResponse!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'NonStreamAnalyzeResponse' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -72,6 +112,11 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public static AnalyzeResponse200 FromStreamAnalyzeResponse(global::TwelveLabs.StreamAnalyzeResponse? value) => new AnalyzeResponse200(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator AnalyzeResponse200(global::TwelveLabs.NonStreamAnalyzeResponse value) => new AnalyzeResponse200((global::TwelveLabs.NonStreamAnalyzeResponse?)value);
 
         /// <summary>
@@ -86,6 +131,11 @@ namespace TwelveLabs
         {
             NonStreamAnalyzeResponse = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static AnalyzeResponse200 FromNonStreamAnalyzeResponse(global::TwelveLabs.NonStreamAnalyzeResponse? value) => new AnalyzeResponse200(value);
 
         /// <summary>
         /// 
@@ -128,7 +178,7 @@ namespace TwelveLabs
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::TwelveLabs.StreamAnalyzeResponse?, TResult>? streamAnalyzeResponse = null,
-            global::System.Func<global::TwelveLabs.NonStreamAnalyzeResponse?, TResult>? nonStreamAnalyzeResponse = null,
+            global::System.Func<global::TwelveLabs.NonStreamAnalyzeResponse, TResult>? nonStreamAnalyzeResponse = null,
             bool validate = true)
         {
             if (validate)
@@ -153,7 +203,31 @@ namespace TwelveLabs
         /// </summary>
         public void Match(
             global::System.Action<global::TwelveLabs.StreamAnalyzeResponse?>? streamAnalyzeResponse = null,
-            global::System.Action<global::TwelveLabs.NonStreamAnalyzeResponse?>? nonStreamAnalyzeResponse = null,
+
+            global::System.Action<global::TwelveLabs.NonStreamAnalyzeResponse>? nonStreamAnalyzeResponse = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsStreamAnalyzeResponse)
+            {
+                streamAnalyzeResponse?.Invoke(StreamAnalyzeResponse!);
+            }
+            else if (IsNonStreamAnalyzeResponse)
+            {
+                nonStreamAnalyzeResponse?.Invoke(NonStreamAnalyzeResponse!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::TwelveLabs.StreamAnalyzeResponse?>? streamAnalyzeResponse = null,
+            global::System.Action<global::TwelveLabs.NonStreamAnalyzeResponse>? nonStreamAnalyzeResponse = null,
             bool validate = true)
         {
             if (validate)

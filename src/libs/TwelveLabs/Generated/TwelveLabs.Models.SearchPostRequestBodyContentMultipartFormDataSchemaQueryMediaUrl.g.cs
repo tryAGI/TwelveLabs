@@ -34,6 +34,26 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out string? value)
+        {
+            value = SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1;
+            return IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PickSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1() => IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1
+            ? SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public global::System.Collections.Generic.IList<string>? SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2 { get; init; }
 #else
@@ -47,6 +67,26 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2))]
 #endif
         public bool IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2 => SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::System.Collections.Generic.IList<string>? value)
+        {
+            value = SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2;
+            return IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<string> PickSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2() => IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2
+            ? SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -64,6 +104,11 @@ namespace TwelveLabs
         {
             SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl FromSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1(string? value) => new SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl(value);
 
         /// <summary>
         /// 
@@ -105,8 +150,8 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<string?, TResult>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 = null,
-            global::System.Func<global::System.Collections.Generic.IList<string>?, TResult>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2 = null,
+            global::System.Func<string, TResult>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 = null,
+            global::System.Func<global::System.Collections.Generic.IList<string>, TResult>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -130,8 +175,32 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<string?>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 = null,
-            global::System.Action<global::System.Collections.Generic.IList<string>?>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2 = null,
+            global::System.Action<string>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 = null,
+
+            global::System.Action<global::System.Collections.Generic.IList<string>>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1)
+            {
+                searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1?.Invoke(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1!);
+            }
+            else if (IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2)
+            {
+                searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2?.Invoke(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<string>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 = null,
+            global::System.Action<global::System.Collections.Generic.IList<string>>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2 = null,
             bool validate = true)
         {
             if (validate)

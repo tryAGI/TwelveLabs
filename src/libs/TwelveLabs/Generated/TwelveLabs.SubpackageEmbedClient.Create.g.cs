@@ -84,6 +84,57 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await CreateAsResponseAsync(
+                xApiKey: xApiKey,
+
+                request: request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// Create embeddings for text, image, and audio<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        ///   This endpoint will be deprecated in a future version. Migrate to the [Embed API v2](/v1.3/api-reference/create-embeddings-v2) for continued support and access to new features.<br/>
+        /// &lt;/Note&gt;<br/>
+        /// This method creates embeddings for text, image, and audio content.<br/>
+        /// Ensure your media files meet the following requirements:<br/>
+        /// - [Audio files](/v1.3/docs/concepts/models/marengo#audio-requirements).<br/>
+        /// - [Image files](/v1.3/docs/concepts/models/marengo#image-requirements).<br/>
+        /// Parameters for embeddings:<br/>
+        /// - **Common parameters**:<br/>
+        ///   - `model_name`: The video understanding model you want to use. Example: "marengo3.0".<br/>
+        /// - **Text embeddings**:<br/>
+        ///   - `text`: Text for which to create an embedding.<br/>
+        /// - **Image embeddings**:<br/>
+        ///   Provide one of the following:<br/>
+        ///   - `image_url`: Publicly accessible URL of your image file.<br/>
+        ///   - `image_file`:  Local image file.<br/>
+        /// - **Audio embeddings**:<br/>
+        ///   Provide one of the following:<br/>
+        ///   - `audio_url`: Publicly accessible URL of your audio file.<br/>
+        ///   - `audio_file`: Local audio file.<br/>
+        /// &lt;Note title="Notes"&gt;<br/>
+        /// - The Marengo video understanding model generates embeddings for all modalities in the same latent space. This shared space enables any-to-any searches across different types of content.<br/>
+        /// - You can create multiple types of embeddings in a single API call.<br/>
+        /// - Audio embeddings combine generic sound and human speech in a single embedding. For videos with transcriptions, you can retrieve transcriptions and then [create text embeddings](/v1.3/api-reference/create-embeddings-v1/text-image-audio-embeddings/create-text-image-audio-embeddings) from these<br/>
+        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// &lt;/Note&gt;
+        /// </summary>
+        /// <param name="xApiKey"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::TwelveLabs.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EmbeddingResponse>> CreateAsResponseAsync(
+            string xApiKey,
+
+            global::TwelveLabs.CreateRequest9 request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
@@ -111,10 +162,11 @@ namespace TwelveLabs
             var __maxAttempts = global::TwelveLabs.AutoSDKRequestOptionsSupport.GetMaxAttempts(
                 clientOptions: Options,
                 requestOptions: requestOptions,
-                supportsRetry: true);
+                supportsRetry: false);
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::TwelveLabs.PathBuilder(
                                 path: "/embed",
                                 baseUri: HttpClient.BaseAddress);
@@ -150,27 +202,32 @@ namespace TwelveLabs
 
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
 
+
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(xApiKey ?? string.Empty),
                                 name: "\"x-api-key\"");
+
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.ModelName ?? string.Empty),
                                 name: "\"model_name\"");
+
                             if (request.Text != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(request.Text ?? string.Empty),
                                     name: "\"text\"");
-                            } 
+
+                            }
                             if (request.ImageUrl != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(request.ImageUrl ?? string.Empty),
                                     name: "\"image_url\"");
-                            } 
+
+                            }
                             if (request.ImageFile != default)
                             {
 
@@ -211,14 +268,16 @@ namespace TwelveLabs
                                 {
                                     __contentImageFile.Headers.ContentDisposition.FileNameStar = null;
                                 }
-                            } 
+
+                            }
                             if (request.AudioUrl != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(request.AudioUrl ?? string.Empty),
                                     name: "\"audio_url\"");
-                            } 
+
+                            }
                             if (request.AudioFile != default)
                             {
 
@@ -259,15 +318,19 @@ namespace TwelveLabs
                                 {
                                     __contentAudioFile.Headers.ContentDisposition.FileNameStar = null;
                                 }
-                            } 
+
+                            }
                             if (request.AudioStartOffsetSec != default)
                             {
 
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.AudioStartOffsetSec, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                     name: "\"audio_start_offset_sec\"");
+
                             }
+
                             __httpRequest.Content = __httpRequestContent;
+
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -310,6 +373,8 @@ namespace TwelveLabs
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -320,6 +385,11 @@ namespace TwelveLabs
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::TwelveLabs.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -337,6 +407,8 @@ namespace TwelveLabs
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -346,8 +418,7 @@ namespace TwelveLabs
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -356,6 +427,11 @@ namespace TwelveLabs
                         __attempt < __maxAttempts &&
                         global::TwelveLabs.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::TwelveLabs.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -372,14 +448,15 @@ namespace TwelveLabs
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -419,6 +496,8 @@ namespace TwelveLabs
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -439,6 +518,8 @@ namespace TwelveLabs
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                             // The request has failed.
@@ -501,9 +582,13 @@ namespace TwelveLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        global::TwelveLabs.EmbeddingResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::TwelveLabs.EmbeddingResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EmbeddingResponse>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -531,9 +616,13 @@ namespace TwelveLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        await global::TwelveLabs.EmbeddingResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::TwelveLabs.EmbeddingResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EmbeddingResponse>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

@@ -27,6 +27,26 @@ namespace TwelveLabs
         public bool IsEmbeddingImageMetadata => EmbeddingImageMetadata != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickEmbeddingImageMetadata(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.EmbeddingImageMetadata? value)
+        {
+            value = EmbeddingImageMetadata;
+            return IsEmbeddingImageMetadata;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.EmbeddingImageMetadata PickEmbeddingImageMetadata() => IsEmbeddingImageMetadata
+            ? EmbeddingImageMetadata!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingImageMetadata' but the value was {ToString()}.");
+
+        /// <summary>
         /// Metadata for text-image embeddings
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -42,6 +62,26 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EmbeddingTextImageMetadata))]
 #endif
         public bool IsEmbeddingTextImageMetadata => EmbeddingTextImageMetadata != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickEmbeddingTextImageMetadata(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.EmbeddingTextImageMetadata? value)
+        {
+            value = EmbeddingTextImageMetadata;
+            return IsEmbeddingTextImageMetadata;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.EmbeddingTextImageMetadata PickEmbeddingTextImageMetadata() => IsEmbeddingTextImageMetadata
+            ? EmbeddingTextImageMetadata!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingTextImageMetadata' but the value was {ToString()}.");
 
         /// <summary>
         /// Metadata for audio embeddings
@@ -61,6 +101,26 @@ namespace TwelveLabs
         public bool IsEmbeddingAudioMetadata => EmbeddingAudioMetadata != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickEmbeddingAudioMetadata(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.EmbeddingAudioMetadata? value)
+        {
+            value = EmbeddingAudioMetadata;
+            return IsEmbeddingAudioMetadata;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.EmbeddingAudioMetadata PickEmbeddingAudioMetadata() => IsEmbeddingAudioMetadata
+            ? EmbeddingAudioMetadata!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingAudioMetadata' but the value was {ToString()}.");
+
+        /// <summary>
         /// Metadata for video embeddings
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -78,6 +138,26 @@ namespace TwelveLabs
         public bool IsEmbeddingVideoMetadata => EmbeddingVideoMetadata != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickEmbeddingVideoMetadata(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.EmbeddingVideoMetadata? value)
+        {
+            value = EmbeddingVideoMetadata;
+            return IsEmbeddingVideoMetadata;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.EmbeddingVideoMetadata PickEmbeddingVideoMetadata() => IsEmbeddingVideoMetadata
+            ? EmbeddingVideoMetadata!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingVideoMetadata' but the value was {ToString()}.");
+
+        /// <summary>
         /// Metadata for multi-input embeddings
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -93,6 +173,26 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EmbeddingMultiInputMetadata))]
 #endif
         public bool IsEmbeddingMultiInputMetadata => EmbeddingMultiInputMetadata != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickEmbeddingMultiInputMetadata(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.EmbeddingMultiInputMetadata? value)
+        {
+            value = EmbeddingMultiInputMetadata;
+            return IsEmbeddingMultiInputMetadata;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.EmbeddingMultiInputMetadata PickEmbeddingMultiInputMetadata() => IsEmbeddingMultiInputMetadata
+            ? EmbeddingMultiInputMetadata!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingMultiInputMetadata' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -110,6 +210,11 @@ namespace TwelveLabs
         {
             EmbeddingImageMetadata = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static EmbeddingMediaMetadata FromEmbeddingImageMetadata(global::TwelveLabs.EmbeddingImageMetadata? value) => new EmbeddingMediaMetadata(value);
 
         /// <summary>
         /// 
@@ -132,6 +237,11 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public static EmbeddingMediaMetadata FromEmbeddingTextImageMetadata(global::TwelveLabs.EmbeddingTextImageMetadata? value) => new EmbeddingMediaMetadata(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator EmbeddingMediaMetadata(global::TwelveLabs.EmbeddingAudioMetadata value) => new EmbeddingMediaMetadata((global::TwelveLabs.EmbeddingAudioMetadata?)value);
 
         /// <summary>
@@ -146,6 +256,11 @@ namespace TwelveLabs
         {
             EmbeddingAudioMetadata = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static EmbeddingMediaMetadata FromEmbeddingAudioMetadata(global::TwelveLabs.EmbeddingAudioMetadata? value) => new EmbeddingMediaMetadata(value);
 
         /// <summary>
         /// 
@@ -168,6 +283,11 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public static EmbeddingMediaMetadata FromEmbeddingVideoMetadata(global::TwelveLabs.EmbeddingVideoMetadata? value) => new EmbeddingMediaMetadata(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator EmbeddingMediaMetadata(global::TwelveLabs.EmbeddingMultiInputMetadata value) => new EmbeddingMediaMetadata((global::TwelveLabs.EmbeddingMultiInputMetadata?)value);
 
         /// <summary>
@@ -182,6 +302,11 @@ namespace TwelveLabs
         {
             EmbeddingMultiInputMetadata = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static EmbeddingMediaMetadata FromEmbeddingMultiInputMetadata(global::TwelveLabs.EmbeddingMultiInputMetadata? value) => new EmbeddingMediaMetadata(value);
 
         /// <summary>
         /// 
@@ -235,11 +360,11 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::TwelveLabs.EmbeddingImageMetadata?, TResult>? embeddingImageMetadata = null,
-            global::System.Func<global::TwelveLabs.EmbeddingTextImageMetadata?, TResult>? embeddingTextImageMetadata = null,
-            global::System.Func<global::TwelveLabs.EmbeddingAudioMetadata?, TResult>? embeddingAudioMetadata = null,
-            global::System.Func<global::TwelveLabs.EmbeddingVideoMetadata?, TResult>? embeddingVideoMetadata = null,
-            global::System.Func<global::TwelveLabs.EmbeddingMultiInputMetadata?, TResult>? embeddingMultiInputMetadata = null,
+            global::System.Func<global::TwelveLabs.EmbeddingImageMetadata, TResult>? embeddingImageMetadata = null,
+            global::System.Func<global::TwelveLabs.EmbeddingTextImageMetadata, TResult>? embeddingTextImageMetadata = null,
+            global::System.Func<global::TwelveLabs.EmbeddingAudioMetadata, TResult>? embeddingAudioMetadata = null,
+            global::System.Func<global::TwelveLabs.EmbeddingVideoMetadata, TResult>? embeddingVideoMetadata = null,
+            global::System.Func<global::TwelveLabs.EmbeddingMultiInputMetadata, TResult>? embeddingMultiInputMetadata = null,
             bool validate = true)
         {
             if (validate)
@@ -275,11 +400,53 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::TwelveLabs.EmbeddingImageMetadata?>? embeddingImageMetadata = null,
-            global::System.Action<global::TwelveLabs.EmbeddingTextImageMetadata?>? embeddingTextImageMetadata = null,
-            global::System.Action<global::TwelveLabs.EmbeddingAudioMetadata?>? embeddingAudioMetadata = null,
-            global::System.Action<global::TwelveLabs.EmbeddingVideoMetadata?>? embeddingVideoMetadata = null,
-            global::System.Action<global::TwelveLabs.EmbeddingMultiInputMetadata?>? embeddingMultiInputMetadata = null,
+            global::System.Action<global::TwelveLabs.EmbeddingImageMetadata>? embeddingImageMetadata = null,
+
+            global::System.Action<global::TwelveLabs.EmbeddingTextImageMetadata>? embeddingTextImageMetadata = null,
+
+            global::System.Action<global::TwelveLabs.EmbeddingAudioMetadata>? embeddingAudioMetadata = null,
+
+            global::System.Action<global::TwelveLabs.EmbeddingVideoMetadata>? embeddingVideoMetadata = null,
+
+            global::System.Action<global::TwelveLabs.EmbeddingMultiInputMetadata>? embeddingMultiInputMetadata = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsEmbeddingImageMetadata)
+            {
+                embeddingImageMetadata?.Invoke(EmbeddingImageMetadata!);
+            }
+            else if (IsEmbeddingTextImageMetadata)
+            {
+                embeddingTextImageMetadata?.Invoke(EmbeddingTextImageMetadata!);
+            }
+            else if (IsEmbeddingAudioMetadata)
+            {
+                embeddingAudioMetadata?.Invoke(EmbeddingAudioMetadata!);
+            }
+            else if (IsEmbeddingVideoMetadata)
+            {
+                embeddingVideoMetadata?.Invoke(EmbeddingVideoMetadata!);
+            }
+            else if (IsEmbeddingMultiInputMetadata)
+            {
+                embeddingMultiInputMetadata?.Invoke(EmbeddingMultiInputMetadata!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::TwelveLabs.EmbeddingImageMetadata>? embeddingImageMetadata = null,
+            global::System.Action<global::TwelveLabs.EmbeddingTextImageMetadata>? embeddingTextImageMetadata = null,
+            global::System.Action<global::TwelveLabs.EmbeddingAudioMetadata>? embeddingAudioMetadata = null,
+            global::System.Action<global::TwelveLabs.EmbeddingVideoMetadata>? embeddingVideoMetadata = null,
+            global::System.Action<global::TwelveLabs.EmbeddingMultiInputMetadata>? embeddingMultiInputMetadata = null,
             bool validate = true)
         {
             if (validate)

@@ -120,5 +120,6 @@ namespace TwelveLabs
         public EmbeddingAudioMetadata()
         {
         }
+
     }
 }

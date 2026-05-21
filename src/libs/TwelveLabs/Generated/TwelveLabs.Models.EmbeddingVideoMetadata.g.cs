@@ -131,5 +131,6 @@ namespace TwelveLabs
         public EmbeddingVideoMetadata()
         {
         }
+
     }
 }

@@ -40,5 +40,6 @@ namespace TwelveLabs
         public ErrorResponse()
         {
         }
+
     }
 }

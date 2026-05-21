@@ -50,5 +50,6 @@ namespace TwelveLabs
         public VideoSegmentation1()
         {
         }
+
     }
 }

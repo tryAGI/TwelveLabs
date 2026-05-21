@@ -58,6 +58,38 @@ namespace TwelveLabs
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="xApiKey"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::TwelveLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksCreateResponse200>> CreateAsResponseAsync(
+            string xApiKey,
+
+            global::TwelveLabs.CreateRequest3 request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create a video indexing task<br/>
+        /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
+        /// &lt;Warning title="Legacy endpoint"&gt;<br/>
+        /// This endpoint bundles two operations (upload and indexing) together. In the next major API release, this endpoint will be removed in favor of a separated workflow:<br/>
+        /// 1. Upload your video using the [`POST /assets`](/v1.3/api-reference/upload-content/direct-uploads/create) endpoint<br/>
+        /// 2. Index the uploaded video using the [`POST /indexes/{index-id}/indexed-assets`](/v1.3/api-reference/index-content/create) endpoint<br/>
+        /// This separation provides better control, reusability of assets, and improved error handling. New implementations should use the new workflow.<br/>
+        /// &lt;/Warning&gt;<br/>
+        /// Upload options:<br/>
+        /// - **Local file**: Use the `video_file` parameter.<br/>
+        /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
+        /// Your video files must meet requirements based on your workflow:<br/>
+        /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements).<br/>
+        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#video-file-requirements).<br/>
+        /// - If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
+        /// - This method allows you to upload files up to 2 GB in size. To upload larger files, use the [Multipart Upload API](/v1.3/api-reference/upload-content/multipart-uploads)<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// &lt;/Note&gt;
+        /// </summary>
+        /// <param name="xApiKey"></param>
         /// <param name="indexId">
         /// The unique identifier of the index to which the video is being uploaded.
         /// </param>

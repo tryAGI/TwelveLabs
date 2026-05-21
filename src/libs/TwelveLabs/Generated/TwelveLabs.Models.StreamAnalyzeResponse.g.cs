@@ -36,6 +36,26 @@ namespace TwelveLabs
         public bool IsStreamStartResponse => StreamStartResponse != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickStreamStartResponse(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.StreamStartResponse? value)
+        {
+            value = StreamStartResponse;
+            return IsStreamStartResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.StreamStartResponse PickStreamStartResponse() => IsStreamStartResponse
+            ? StreamStartResponse!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'StreamStartResponse' but the value was {ToString()}.");
+
+        /// <summary>
         /// Contains a fragment of generated text. Note that text fragments may be split at arbitrary points, not necessarily at word or sentence boundaries.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -53,6 +73,26 @@ namespace TwelveLabs
         public bool IsStreamTextResponse => StreamTextResponse != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickStreamTextResponse(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.StreamTextResponse? value)
+        {
+            value = StreamTextResponse;
+            return IsStreamTextResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.StreamTextResponse PickStreamTextResponse() => IsStreamTextResponse
+            ? StreamTextResponse!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'StreamTextResponse' but the value was {ToString()}.");
+
+        /// <summary>
         /// Indicates the end of the stream.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -68,6 +108,26 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(StreamEndResponse))]
 #endif
         public bool IsStreamEndResponse => StreamEndResponse != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickStreamEndResponse(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.StreamEndResponse? value)
+        {
+            value = StreamEndResponse;
+            return IsStreamEndResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::TwelveLabs.StreamEndResponse PickStreamEndResponse() => IsStreamEndResponse
+            ? StreamEndResponse!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'StreamEndResponse' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -85,6 +145,11 @@ namespace TwelveLabs
         {
             StreamStartResponse = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static StreamAnalyzeResponse FromStreamStartResponse(global::TwelveLabs.StreamStartResponse? value) => new StreamAnalyzeResponse(value);
 
         /// <summary>
         /// 
@@ -107,6 +172,11 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public static StreamAnalyzeResponse FromStreamTextResponse(global::TwelveLabs.StreamTextResponse? value) => new StreamAnalyzeResponse(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator StreamAnalyzeResponse(global::TwelveLabs.StreamEndResponse value) => new StreamAnalyzeResponse((global::TwelveLabs.StreamEndResponse?)value);
 
         /// <summary>
@@ -121,6 +191,11 @@ namespace TwelveLabs
         {
             StreamEndResponse = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static StreamAnalyzeResponse FromStreamEndResponse(global::TwelveLabs.StreamEndResponse? value) => new StreamAnalyzeResponse(value);
 
         /// <summary>
         /// 
@@ -166,9 +241,9 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::TwelveLabs.StreamStartResponse?, TResult>? streamStartResponse = null,
-            global::System.Func<global::TwelveLabs.StreamTextResponse?, TResult>? streamTextResponse = null,
-            global::System.Func<global::TwelveLabs.StreamEndResponse?, TResult>? streamEndResponse = null,
+            global::System.Func<global::TwelveLabs.StreamStartResponse, TResult>? streamStartResponse = null,
+            global::System.Func<global::TwelveLabs.StreamTextResponse, TResult>? streamTextResponse = null,
+            global::System.Func<global::TwelveLabs.StreamEndResponse, TResult>? streamEndResponse = null,
             bool validate = true)
         {
             if (validate)
@@ -196,9 +271,39 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::TwelveLabs.StreamStartResponse?>? streamStartResponse = null,
-            global::System.Action<global::TwelveLabs.StreamTextResponse?>? streamTextResponse = null,
-            global::System.Action<global::TwelveLabs.StreamEndResponse?>? streamEndResponse = null,
+            global::System.Action<global::TwelveLabs.StreamStartResponse>? streamStartResponse = null,
+
+            global::System.Action<global::TwelveLabs.StreamTextResponse>? streamTextResponse = null,
+
+            global::System.Action<global::TwelveLabs.StreamEndResponse>? streamEndResponse = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsStreamStartResponse)
+            {
+                streamStartResponse?.Invoke(StreamStartResponse!);
+            }
+            else if (IsStreamTextResponse)
+            {
+                streamTextResponse?.Invoke(StreamTextResponse!);
+            }
+            else if (IsStreamEndResponse)
+            {
+                streamEndResponse?.Invoke(StreamEndResponse!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::TwelveLabs.StreamStartResponse>? streamStartResponse = null,
+            global::System.Action<global::TwelveLabs.StreamTextResponse>? streamTextResponse = null,
+            global::System.Action<global::TwelveLabs.StreamEndResponse>? streamEndResponse = null,
             bool validate = true)
         {
             if (validate)

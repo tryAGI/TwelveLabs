@@ -98,5 +98,6 @@ namespace TwelveLabs
         public AnalyzeTaskResponseVideoSource()
         {
         }
+
     }
 }

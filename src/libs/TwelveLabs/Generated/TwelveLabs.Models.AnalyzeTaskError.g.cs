@@ -42,5 +42,6 @@ namespace TwelveLabs
         public AnalyzeTaskError()
         {
         }
+
     }
 }

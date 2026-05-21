@@ -98,6 +98,7 @@ namespace TwelveLabs.JsonConverters
             {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.VideoContext0), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.VideoContext0> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.VideoContext0).Name}");
                     videoContext0 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -108,9 +109,13 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (videoContext0 == null && videoContext1 == null && videoContext2 == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.VideoContext1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.VideoContext1> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.VideoContext1).Name}");
                     videoContext1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -121,9 +126,13 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (videoContext0 == null && videoContext1 == null && videoContext2 == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.VideoContext2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.VideoContext2> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.VideoContext2).Name}");
                     videoContext2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);

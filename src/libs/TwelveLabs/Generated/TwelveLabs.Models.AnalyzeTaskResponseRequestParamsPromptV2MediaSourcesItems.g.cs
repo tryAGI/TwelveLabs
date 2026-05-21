@@ -72,5 +72,6 @@ namespace TwelveLabs
         public AnalyzeTaskResponseRequestParamsPromptV2MediaSourcesItems()
         {
         }
+
     }
 }

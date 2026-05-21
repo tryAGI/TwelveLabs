@@ -29,6 +29,26 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out string? value)
+        {
+            value = IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1;
+            return IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1() => IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1
+            ? IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public double? IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2 { get; init; }
 #else
@@ -46,6 +66,26 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out double? value)
+        {
+            value = IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2;
+            return IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public double PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2() => IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2
+            ? IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public bool? IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 { get; init; }
 #else
@@ -59,6 +99,26 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3))]
 #endif
         public bool IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 => IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out bool? value)
+        {
+            value = IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3;
+            return IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3() => IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3
+            ? IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -76,6 +136,11 @@ namespace TwelveLabs
         {
             IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema FromIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1(string? value) => new IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema(value);
 
         /// <summary>
         /// 
@@ -98,6 +163,11 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public static IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema FromIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2(double? value) => new IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema(bool value) => new IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema((bool?)value);
 
         /// <summary>
@@ -112,6 +182,11 @@ namespace TwelveLabs
         {
             IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema FromIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3(bool? value) => new IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchema(value);
 
         /// <summary>
         /// 
@@ -157,7 +232,7 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<string?, TResult>? indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 = null,
+            global::System.Func<string, TResult>? indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 = null,
             global::System.Func<double?, TResult>? indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2 = null,
             global::System.Func<bool?, TResult>? indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 = null,
             bool validate = true)
@@ -187,7 +262,37 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<string?>? indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 = null,
+            global::System.Action<string>? indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 = null,
+
+            global::System.Action<double?>? indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2 = null,
+
+            global::System.Action<bool?>? indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1)
+            {
+                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1?.Invoke(IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1!);
+            }
+            else if (IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2)
+            {
+                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2?.Invoke(IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2!);
+            }
+            else if (IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3)
+            {
+                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3?.Invoke(IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<string>? indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 = null,
             global::System.Action<double?>? indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2 = null,
             global::System.Action<bool?>? indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 = null,
             bool validate = true)

@@ -108,5 +108,6 @@ namespace TwelveLabs
         public EmbeddingData()
         {
         }
+
     }
 }
