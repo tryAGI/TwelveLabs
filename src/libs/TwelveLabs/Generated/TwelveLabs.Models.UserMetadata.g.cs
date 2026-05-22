@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Metadata that helps you categorize your videos. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float` or `boolean`.<br/>
+    /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float` or `boolean`.<br/>
     /// **Example**:<br/>
     /// ```JSON<br/>
     /// "user_metadata": {<br/>
@@ -14,17 +14,8 @@ namespace TwelveLabs
     ///   "needsReview": true<br/>
     /// }<br/>
     /// ```<br/>
-    /// &lt;Note title="Notes"&gt;<br/>
-    /// -  If you want to store other types of data such as objects or arrays,  you must convert your data into string values.<br/>
-    /// - You cannot override the following system-generated metadata fields:<br/>
-    ///   - `duration`<br/>
-    ///   - `filename`<br/>
-    ///   - `fps`<br/>
-    ///   - `height`<br/>
-    ///   - `model_names`<br/>
-    ///   - `size`<br/>
-    ///   - `video_title`<br/>
-    ///   - `width`<br/>
+    /// &lt;Note title="Note"&gt;<br/>
+    /// If you want to store other types of data such as objects or arrays, you must convert your data into string values.<br/>
     /// &lt;/Note&gt;
     /// </summary>
     public sealed partial class UserMetadata

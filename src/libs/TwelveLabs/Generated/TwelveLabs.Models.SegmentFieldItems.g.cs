@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Required when `type` is `array`. Specifies the type of array elements.
+    /// Required when `type` is `array`. Specifies the type of array elements. Not supported when `type` is `timestamp`.
     /// </summary>
     public sealed partial class SegmentFieldItems
     {

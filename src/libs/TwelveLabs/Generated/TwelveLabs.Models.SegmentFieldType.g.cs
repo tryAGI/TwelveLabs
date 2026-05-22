@@ -4,7 +4,8 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The data type of the field.
+    /// The data type of the field.<br/>
+    /// When set to `timestamp`, the `format` property is required and controls the format of the returned value. Requires the `model_name` parameter set to `pegasus1.5`.
     /// </summary>
     public enum SegmentFieldType
     {
@@ -28,6 +29,10 @@ namespace TwelveLabs
         /// 
         /// </summary>
         String,
+        /// <summary>
+        /// 
+        /// </summary>
+        Timestamp,
     }
 
     /// <summary>
@@ -47,6 +52,7 @@ namespace TwelveLabs
                 SegmentFieldType.Integer => "integer",
                 SegmentFieldType.Number => "number",
                 SegmentFieldType.String => "string",
+                SegmentFieldType.Timestamp => "timestamp",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,6 +68,7 @@ namespace TwelveLabs
                 "integer" => SegmentFieldType.Integer,
                 "number" => SegmentFieldType.Number,
                 "string" => SegmentFieldType.String,
+                "timestamp" => SegmentFieldType.Timestamp,
                 _ => null,
             };
         }

@@ -52,7 +52,7 @@ namespace TwelveLabs
         public global::TwelveLabs.IndexedAssetSystemMetadata? SystemMetadata { get; set; }
 
         /// <summary>
-        /// User-generated metadata about the indexed asset.
+        /// User-defined metadata for this indexed asset.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
         public object? UserMetadata { get; set; }
@@ -106,7 +106,7 @@ namespace TwelveLabs
         /// System-generated metadata about the indexed asset.
         /// </param>
         /// <param name="userMetadata">
-        /// User-generated metadata about the indexed asset.
+        /// User-defined metadata for this indexed asset.
         /// </param>
         /// <param name="hls">
         /// The platform returns this object only for the videos that you uploaded with the `enable_video_stream` parameter set to `true`.

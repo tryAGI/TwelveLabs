@@ -49,6 +49,12 @@ namespace TwelveLabs
         public bool? EnableThumbnail { get; set; }
 
         /// <summary>
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
+        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -79,6 +85,9 @@ namespace TwelveLabs
         /// **Default**: `false`.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="userMetadata">
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -87,13 +96,15 @@ namespace TwelveLabs
             long totalSize,
             global::TwelveLabs.CreateAssetUploadRequestType type,
             bool? enableHls,
-            bool? enableThumbnail)
+            bool? enableThumbnail,
+            global::TwelveLabs.UserMetadata? userMetadata)
         {
             this.Filename = filename ?? throw new global::System.ArgumentNullException(nameof(filename));
             this.Type = type;
             this.TotalSize = totalSize;
             this.EnableHls = enableHls;
             this.EnableThumbnail = enableThumbnail;
+            this.UserMetadata = userMetadata;
         }
 
         /// <summary>

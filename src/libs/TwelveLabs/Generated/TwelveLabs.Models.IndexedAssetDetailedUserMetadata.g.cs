@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// User-generated metadata about the indexed asset.
+    /// User-defined metadata for this indexed asset.
     /// </summary>
     public sealed partial class IndexedAssetDetailedUserMetadata
     {

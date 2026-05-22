@@ -41,7 +41,7 @@ namespace TwelveLabs
         public bool? EnableVideoStream { get; set; }
 
         /// <summary>
-        /// Metadata that helps you categorize your videos. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float` or `boolean`.
+        /// Metadata that helps you categorize your videos. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`. Send this value as a JSON-encoded string.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
         public string? UserMetadata { get; set; }
@@ -72,7 +72,7 @@ namespace TwelveLabs
         /// Default Value: true
         /// </param>
         /// <param name="userMetadata">
-        /// Metadata that helps you categorize your videos. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float` or `boolean`.
+        /// Metadata that helps you categorize your videos. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`. Send this value as a JSON-encoded string.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
