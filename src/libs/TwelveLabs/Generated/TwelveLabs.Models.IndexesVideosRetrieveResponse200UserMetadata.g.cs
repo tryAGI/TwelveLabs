@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// User-generated metadata about the video.
+    /// User-defined metadata for this video.
     /// </summary>
     public sealed partial class IndexesVideosRetrieveResponse200UserMetadata
     {

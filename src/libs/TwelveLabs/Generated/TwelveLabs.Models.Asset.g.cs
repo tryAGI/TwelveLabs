@@ -67,6 +67,12 @@ namespace TwelveLabs
         public global::System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
+        /// User-defined metadata for this asset. This field is absent when no metadata has been set.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
+        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -107,6 +113,9 @@ namespace TwelveLabs
         /// <param name="createdAt">
         /// The date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the asset was created.
         /// </param>
+        /// <param name="userMetadata">
+        /// User-defined metadata for this asset. This field is absent when no metadata has been set.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -118,7 +127,8 @@ namespace TwelveLabs
             string? fileType,
             long? size,
             double? duration,
-            global::System.DateTime? createdAt)
+            global::System.DateTime? createdAt,
+            global::TwelveLabs.UserMetadata? userMetadata)
         {
             this.Id = id;
             this.Method = method;
@@ -128,6 +138,7 @@ namespace TwelveLabs
             this.Size = size;
             this.Duration = duration;
             this.CreatedAt = createdAt;
+            this.UserMetadata = userMetadata;
         }
 
         /// <summary>

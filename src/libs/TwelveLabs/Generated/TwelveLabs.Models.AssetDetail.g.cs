@@ -67,6 +67,12 @@ namespace TwelveLabs
         public global::System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
+        /// User-defined metadata for this asset. This field is absent when no metadata has been set.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
+        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
+
+        /// <summary>
         /// HLS streaming details for the asset. Present only when HLS generation has been requested. Omitted otherwise.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hls")]
@@ -119,6 +125,9 @@ namespace TwelveLabs
         /// <param name="createdAt">
         /// The date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the asset was created.
         /// </param>
+        /// <param name="userMetadata">
+        /// User-defined metadata for this asset. This field is absent when no metadata has been set.
+        /// </param>
         /// <param name="hls">
         /// HLS streaming details for the asset. Present only when HLS generation has been requested. Omitted otherwise.
         /// </param>
@@ -137,6 +146,7 @@ namespace TwelveLabs
             long? size,
             double? duration,
             global::System.DateTime? createdAt,
+            global::TwelveLabs.UserMetadata? userMetadata,
             global::TwelveLabs.AssetHLS? hls,
             global::TwelveLabs.AssetThumbnail? thumbnail)
         {
@@ -148,6 +158,7 @@ namespace TwelveLabs
             this.Size = size;
             this.Duration = duration;
             this.CreatedAt = createdAt;
+            this.UserMetadata = userMetadata;
             this.Hls = hls;
             this.Thumbnail = thumbnail;
         }

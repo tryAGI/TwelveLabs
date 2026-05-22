@@ -166,6 +166,15 @@ namespace TwelveLabs
         };
 
         /// <summary>
+        /// 
+        /// </summary>
+        public SubpackageUploadAssetsClient SubpackageUploadAssets => new SubpackageUploadAssetsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
         /// Creates a new instance of the TwelveLabsClient.
         /// If no httpClient is provided, a new one will be created.
         /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.

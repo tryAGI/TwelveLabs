@@ -53,6 +53,12 @@ namespace TwelveLabs
         public bool? EnableThumbnail { get; set; }
 
         /// <summary>
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`. Send this value as a JSON-encoded string.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
+        public string? UserMetadata { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -85,6 +91,9 @@ namespace TwelveLabs
         /// **Default**: `false`.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="userMetadata">
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`. Send this value as a JSON-encoded string.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -94,7 +103,8 @@ namespace TwelveLabs
             string? url,
             string? filename,
             bool? enableHls,
-            bool? enableThumbnail)
+            bool? enableThumbnail,
+            string? userMetadata)
         {
             this.Method = method;
             this.File = file;
@@ -102,6 +112,7 @@ namespace TwelveLabs
             this.Filename = filename;
             this.EnableHls = enableHls;
             this.EnableThumbnail = enableThumbnail;
+            this.UserMetadata = userMetadata;
         }
 
         /// <summary>
