@@ -407,18 +407,17 @@ namespace TwelveLabs
                                     __exception_400 = __ex;
                                 }
 
-                                throw new global::TwelveLabs.ApiException<global::TwelveLabs.GetUploadStatusRequestBadRequestError>(
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.GetUploadStatusRequestBadRequestError>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_400,
-                                    ResponseObject = __value_400,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_400,
+                                    responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // The request has failed.
                             if ((int)__response.StatusCode == 403)
@@ -445,18 +444,17 @@ namespace TwelveLabs
                                     __exception_403 = __ex;
                                 }
 
-                                throw new global::TwelveLabs.ApiException<global::TwelveLabs.GetUploadStatusRequestForbiddenError>(
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.GetUploadStatusRequestForbiddenError>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_403,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_403,
-                                    ResponseObject = __value_403,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_403,
+                                    responseObject: __value_403,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // Upload not found.
                             if ((int)__response.StatusCode == 404)
@@ -483,18 +481,17 @@ namespace TwelveLabs
                                     __exception_404 = __ex;
                                 }
 
-                                throw new global::TwelveLabs.ApiException<string>(
+
+                                throw global::TwelveLabs.ApiException<string>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_404,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_404,
-                                    ResponseObject = __value_404,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_404,
+                                    responseObject: __value_404,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
                             // The request has failed.
                             if ((int)__response.StatusCode == 500)
@@ -521,18 +518,17 @@ namespace TwelveLabs
                                     __exception_500 = __ex;
                                 }
 
-                                throw new global::TwelveLabs.ApiException<global::TwelveLabs.GetUploadStatusRequestInternalServerError>(
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.GetUploadStatusRequestInternalServerError>.Create(
+                                    statusCode: __response.StatusCode,
                                     message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_500,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_500,
-                                    ResponseObject = __value_500,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                    responseBody: __content_500,
+                                    responseObject: __value_500,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
-                                        h => h.Value),
-                                };
+                                        h => h.Value));
                             }
 
                             if (__effectiveReadResponseAsString)
@@ -566,17 +562,15 @@ namespace TwelveLabs
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    throw new global::TwelveLabs.ApiException(
+                                    throw global::TwelveLabs.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
                             else
@@ -613,17 +607,15 @@ namespace TwelveLabs
                                     {
                                     }
 
-                                    throw new global::TwelveLabs.ApiException(
+                                    throw global::TwelveLabs.ApiException.Create(
+                                        statusCode: __response.StatusCode,
                                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
-                                        statusCode: __response.StatusCode)
-                                    {
-                                        ResponseBody = __content,
-                                        ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                             __response.Headers,
                                             h => h.Key,
-                                            h => h.Value),
-                                    };
+                                            h => h.Value));
                                 }
                             }
 
