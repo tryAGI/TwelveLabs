@@ -63,7 +63,10 @@ namespace TwelveLabs
         public global::TwelveLabs.AnalyzeTaskResult? Result { get; set; }
 
         /// <summary>
-        /// Details about why the task failed. The platform returns this object only when `status` is `failed`.
+        /// A message attached to the task response. The platform sets this field in two cases:<br/>
+        /// - **Task failure** — `status` is `failed`. The `message` field describes the failure reason.<br/>
+        /// - **Truncation warning** — `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
+        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`. Both Pegasus 1.5 and Pegasus 1.2 return this field when `result.finish_reason` is `length`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public global::TwelveLabs.AnalyzeTaskError? Error { get; set; }
@@ -108,7 +111,10 @@ namespace TwelveLabs
         /// An object that contains the generated text and additional information. The platform returns this object only when `status` is `ready`.
         /// </param>
         /// <param name="error">
-        /// Details about why the task failed. The platform returns this object only when `status` is `failed`.
+        /// A message attached to the task response. The platform sets this field in two cases:<br/>
+        /// - **Task failure** — `status` is `failed`. The `message` field describes the failure reason.<br/>
+        /// - **Truncation warning** — `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
+        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`. Both Pegasus 1.5 and Pegasus 1.2 return this field when `result.finish_reason` is `length`.
         /// </param>
         /// <param name="webhooks">
         /// The delivery status of each webhook endpoint. The platform omits this field when no webhooks are configured. You can register webhooks through the Playground. See the [Webhooks](/v1.3/docs/advanced/webhooks) page for details.

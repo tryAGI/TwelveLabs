@@ -16,7 +16,7 @@ namespace TwelveLabs
         public required int OutputTokens { get; set; }
 
         /// <summary>
-        /// The number of tokens consumed by the input (prompt and video). Omitted for Pegasus 1.5.
+        /// The number of tokens the input consumed. Together with `output_tokens`, this value must fit within the [context window](/v1.3/docs/concepts/models/pegasus#context-window).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_tokens")]
         public int? InputTokens { get; set; }
@@ -34,7 +34,7 @@ namespace TwelveLabs
         /// The number of tokens in the generated text.
         /// </param>
         /// <param name="inputTokens">
-        /// The number of tokens consumed by the input (prompt and video). Omitted for Pegasus 1.5.
+        /// The number of tokens the input consumed. Together with `output_tokens`, this value must fit within the [context window](/v1.3/docs/concepts/models/pegasus#context-window).
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

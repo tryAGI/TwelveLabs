@@ -11,7 +11,7 @@ namespace TwelveLabs
         /// <summary>
         /// The video understanding model to use for analysis.<br/>
         /// - `pegasus1.2`: General analysis (prompt-based text generation).<br/>
-        /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, extended token limits, and video segmentation (async only). Does not support `analysis_mode=time_based_metadata` or `response_format.type=segment_definitions` — use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
+        /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, and video segmentation (async only). See the [Pegasus](/v1.3/docs/concepts/models/pegasus#context-window) page for token limits.<br/>
         /// **Default:** `pegasus1.2`<br/>
         /// Default Value: pegasus1.2
         /// </summary>
@@ -34,13 +34,15 @@ namespace TwelveLabs
         public global::TwelveLabs.VideoContext? Video { get; set; }
 
         /// <summary>
-        /// A text prompt that guides the model on the desired format or content. Works with both Pegasus 1.2 and Pegasus 1.5. To include reference images in your prompt, use the `prompt_v2` parameter instead (Pegasus 1.5 only). Mutually exclusive with the `prompt_v2` parameter.
+        /// A text prompt that guides the model on the desired format or content. Works with both Pegasus 1.2 and Pegasus 1.5. To include reference images in your prompt, use the `prompt_v2` parameter instead (Pegasus 1.5 only). Mutually exclusive with the `prompt_v2` parameter.<br/>
+        /// Your prompts can be instructive or descriptive, or you can phrase them as questions. Pegasus 1.2 limits prompts to 2,000 tokens. For Pegasus 1.5, this text counts toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         public string? Prompt { get; set; }
 
         /// <summary>
-        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Requires the `model_name` parameter set to `pegasus1.5`. Mutually exclusive with the `prompt` parameter.
+        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Requires the `model_name` parameter set to `pegasus1.5`. Mutually exclusive with the `prompt` parameter.<br/>
+        /// The prompt text and reference images count toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt_v2")]
         public global::TwelveLabs.AnalyzePromptV2? PromptV2 { get; set; }
@@ -67,11 +69,11 @@ namespace TwelveLabs
         public global::TwelveLabs.SyncResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
-        /// The maximum number of tokens to generate. The allowed range depends on the model:<br/>
+        /// The maximum response length, in tokens. The allowed range depends on the model:<br/>
         /// | Model | Min | Max | Default |<br/>
         /// |-------|-----|-----|---------|<br/>
         /// | Pegasus 1.2 | 1 | 4,096 | 4,096 |<br/>
-        /// | Pegasus 1.5 | 512 | 65,536 | 4,096 |
+        /// | Pegasus 1.5 | 512 | 98,304 | 4,096 |
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
         public int? MaxTokens { get; set; }
@@ -108,7 +110,7 @@ namespace TwelveLabs
         /// <param name="modelName">
         /// The video understanding model to use for analysis.<br/>
         /// - `pegasus1.2`: General analysis (prompt-based text generation).<br/>
-        /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, extended token limits, and video segmentation (async only). Does not support `analysis_mode=time_based_metadata` or `response_format.type=segment_definitions` — use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
+        /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, and video segmentation (async only). See the [Pegasus](/v1.3/docs/concepts/models/pegasus#context-window) page for token limits.<br/>
         /// **Default:** `pegasus1.2`<br/>
         /// Default Value: pegasus1.2
         /// </param>
@@ -120,10 +122,12 @@ namespace TwelveLabs
         /// An object specifying the source of the video content. Include exactly one source.
         /// </param>
         /// <param name="prompt">
-        /// A text prompt that guides the model on the desired format or content. Works with both Pegasus 1.2 and Pegasus 1.5. To include reference images in your prompt, use the `prompt_v2` parameter instead (Pegasus 1.5 only). Mutually exclusive with the `prompt_v2` parameter.
+        /// A text prompt that guides the model on the desired format or content. Works with both Pegasus 1.2 and Pegasus 1.5. To include reference images in your prompt, use the `prompt_v2` parameter instead (Pegasus 1.5 only). Mutually exclusive with the `prompt_v2` parameter.<br/>
+        /// Your prompts can be instructive or descriptive, or you can phrase them as questions. Pegasus 1.2 limits prompts to 2,000 tokens. For Pegasus 1.5, this text counts toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).
         /// </param>
         /// <param name="promptV2">
-        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Requires the `model_name` parameter set to `pegasus1.5`. Mutually exclusive with the `prompt` parameter.
+        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Requires the `model_name` parameter set to `pegasus1.5`. Mutually exclusive with the `prompt` parameter.<br/>
+        /// The prompt text and reference images count toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).
         /// </param>
         /// <param name="temperature">
         /// Controls the randomness of the text output.<br/>
@@ -138,11 +142,11 @@ namespace TwelveLabs
         /// Specifies the format of the response. When you omit this parameter, the platform returns unstructured text. Only the `json_schema` type is supported for synchronous analysis.
         /// </param>
         /// <param name="maxTokens">
-        /// The maximum number of tokens to generate. The allowed range depends on the model:<br/>
+        /// The maximum response length, in tokens. The allowed range depends on the model:<br/>
         /// | Model | Min | Max | Default |<br/>
         /// |-------|-----|-----|---------|<br/>
         /// | Pegasus 1.2 | 1 | 4,096 | 4,096 |<br/>
-        /// | Pegasus 1.5 | 512 | 65,536 | 4,096 |
+        /// | Pegasus 1.5 | 512 | 98,304 | 4,096 |
         /// </param>
         /// <param name="startTime">
         /// Start of the analysis window, in seconds. Use with `end_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>

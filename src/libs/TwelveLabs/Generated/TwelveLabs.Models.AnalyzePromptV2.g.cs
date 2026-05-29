@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class AnalyzePromptV2
     {
         /// <summary>
-        /// The text of the prompt. Use `&lt;@name&gt;` placeholders to reference images declared in `media_sources` (Example: `"Is there a &lt;@tiger-1&gt; in the video?"`). The maximum length is 2,000 tokens.
+        /// The text of the prompt. Use `&lt;@name&gt;` placeholders to reference images declared in `media_sources` (Example: `"Is there a &lt;@tiger-1&gt; in the video?"`). For Pegasus 1.5, this text counts toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_text")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,7 +31,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="AnalyzePromptV2" /> class.
         /// </summary>
         /// <param name="inputText">
-        /// The text of the prompt. Use `&lt;@name&gt;` placeholders to reference images declared in `media_sources` (Example: `"Is there a &lt;@tiger-1&gt; in the video?"`). The maximum length is 2,000 tokens.
+        /// The text of the prompt. Use `&lt;@name&gt;` placeholders to reference images declared in `media_sources` (Example: `"Is there a &lt;@tiger-1&gt; in the video?"`). For Pegasus 1.5, this text counts toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).
         /// </param>
         /// <param name="mediaSources">
         /// Reference images for the `&lt;@name&gt;` placeholders in the prompt. Maximum 4 sources.
