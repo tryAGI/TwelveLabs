@@ -4,18 +4,18 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The reason for the generation to finish.<br/>
-    /// - `stop`: The generation stopped because the model reached the end of the output text.<br/>
-    /// - `length`: The generation stopped because the model reached the maximum number of tokens. For JSON responses, this may result in truncated, invalid JSON that fails to parse.
+    /// The reason the generation stopped.<br/>
+    /// - `stop`: The generation reached the end of the output text.<br/>
+    /// - `length`: The response reached the maximum response length or the context window. For JSON responses, this may return truncated JSON that fails to parse.
     /// </summary>
     public enum FinishReason
     {
         /// <summary>
-        /// The generation stopped because the model reached the maximum number of tokens. For JSON responses, this may result in truncated, invalid JSON that fails to parse.
+        /// The response reached the maximum response length or the context window. For JSON responses, this may return truncated JSON that fails to parse.
         /// </summary>
         Length,
         /// <summary>
-        /// The generation stopped because the model reached the end of the output text.
+        /// The generation reached the end of the output text.
         /// </summary>
         Stop,
     }

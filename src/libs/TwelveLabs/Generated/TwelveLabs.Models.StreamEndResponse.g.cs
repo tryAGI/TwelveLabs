@@ -16,9 +16,9 @@ namespace TwelveLabs
         public global::TwelveLabs.StreamEndResponseEventType EventType { get; set; }
 
         /// <summary>
-        /// The reason for the generation to finish.<br/>
-        /// - `stop`: The generation stopped because the model reached the end of the output text.<br/>
-        /// - `length`: The generation stopped because the model reached the maximum number of tokens. For JSON responses, this may result in truncated, invalid JSON that fails to parse.
+        /// The reason the generation stopped.<br/>
+        /// - `stop`: The generation reached the end of the output text.<br/>
+        /// - `length`: The response reached the maximum response length or the context window. For JSON responses, this may return truncated JSON that fails to parse.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.FinishReasonJsonConverter))]
@@ -29,6 +29,12 @@ namespace TwelveLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         public global::TwelveLabs.StreamEndResponseMetadata? Metadata { get; set; }
+
+        /// <summary>
+        /// A warning. Present when `finish_reason` is `length` — the response reached the maximum response length or the [context window](/v1.3/docs/concepts/models/pegasus#context-window). The partial output is delivered through the preceding `text_generation` events. Pegasus 1.2 also returns this field when `finish_reason` is `length`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
+        public global::TwelveLabs.AnalyzeTaskError? Error { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -43,12 +49,15 @@ namespace TwelveLabs
         /// This field is always set to `stream_end` for this event.
         /// </param>
         /// <param name="finishReason">
-        /// The reason for the generation to finish.<br/>
-        /// - `stop`: The generation stopped because the model reached the end of the output text.<br/>
-        /// - `length`: The generation stopped because the model reached the maximum number of tokens. For JSON responses, this may result in truncated, invalid JSON that fails to parse.
+        /// The reason the generation stopped.<br/>
+        /// - `stop`: The generation reached the end of the output text.<br/>
+        /// - `length`: The response reached the maximum response length or the context window. For JSON responses, this may return truncated JSON that fails to parse.
         /// </param>
         /// <param name="metadata">
         /// An object containing metadata about the stream.
+        /// </param>
+        /// <param name="error">
+        /// A warning. Present when `finish_reason` is `length` — the response reached the maximum response length or the [context window](/v1.3/docs/concepts/models/pegasus#context-window). The partial output is delivered through the preceding `text_generation` events. Pegasus 1.2 also returns this field when `finish_reason` is `length`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -56,11 +65,13 @@ namespace TwelveLabs
         public StreamEndResponse(
             global::TwelveLabs.StreamEndResponseEventType eventType,
             global::TwelveLabs.FinishReason? finishReason,
-            global::TwelveLabs.StreamEndResponseMetadata? metadata)
+            global::TwelveLabs.StreamEndResponseMetadata? metadata,
+            global::TwelveLabs.AnalyzeTaskError? error)
         {
             this.EventType = eventType;
             this.FinishReason = finishReason;
             this.Metadata = metadata;
+            this.Error = error;
         }
 
         /// <summary>

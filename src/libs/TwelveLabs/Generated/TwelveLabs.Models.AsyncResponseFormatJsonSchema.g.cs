@@ -86,7 +86,7 @@ namespace TwelveLabs
     /// **Response validation**<br/>
     /// Check the `FinishReason` field to verify your JSON response is complete:<br/>
     /// - When `FinishReason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
-    /// - When `FinishReason` is `length`, the platform truncates the response at the token limit. This may result in truncated, invalid JSON that fails to parse.
+    /// - When `FinishReason` is `length`, the platform truncates the response at the maximum response length or the context window. This may result in truncated, invalid JSON that fails to parse.
     /// </summary>
     public sealed partial class AsyncResponseFormatJsonSchema
     {
