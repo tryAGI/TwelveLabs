@@ -114,10 +114,5 @@ namespace TwelveLabs
         /// </summary>
         public SubpackageTasksClient SubpackageTasks { get; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public SubpackageUploadAssetsClient SubpackageUploadAssets { get; }
-
     }
 }

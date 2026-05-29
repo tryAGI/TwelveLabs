@@ -6,7 +6,7 @@ namespace TwelveLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class UpdateAssetUserMetadataRequest
+    public sealed partial class UpdateUserMetadataRequest
     {
         /// <summary>
         /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float` or `boolean`.<br/>
@@ -34,7 +34,7 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateAssetUserMetadataRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpdateUserMetadataRequest" /> class.
         /// </summary>
         /// <param name="userMetadata">
         /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float` or `boolean`.<br/>
@@ -54,16 +54,16 @@ namespace TwelveLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public UpdateAssetUserMetadataRequest(
+        public UpdateUserMetadataRequest(
             global::TwelveLabs.UserMetadata userMetadata)
         {
             this.UserMetadata = userMetadata ?? throw new global::System.ArgumentNullException(nameof(userMetadata));
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateAssetUserMetadataRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpdateUserMetadataRequest" /> class.
         /// </summary>
-        public UpdateAssetUserMetadataRequest()
+        public UpdateUserMetadataRequest()
         {
         }
 

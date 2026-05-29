@@ -192,7 +192,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.UploadAssetsUpdateAssetUserMetadataResponse204? Type41 { get; set; }
+        public global::TwelveLabs.AssetsUpdateUserMetadataResponse204? Type41 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -204,7 +204,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.UploadAssetsDeleteAssetUserMetadataResponse204? Type44 { get; set; }
+        public global::TwelveLabs.AssetsDeleteUserMetadataResponse204? Type44 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -1636,7 +1636,7 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.UpdateAssetUserMetadataRequest? Type402 { get; set; }
+        public global::TwelveLabs.UpdateUserMetadataRequest? Type402 { get; set; }
         /// <summary>
         /// 
         /// </summary>

@@ -3,11 +3,11 @@
 
 namespace TwelveLabs
 {
-    public partial class SubpackageUploadAssetsClient
+    public partial class SubpackageAssetsClient
     {
 
 
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_UpdateAssetUserMetadataSecurityRequirement0 =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_UpdateUserMetadataSecurityRequirement0 =
             new global::TwelveLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::TwelveLabs.EndPointAuthorizationRequirement[]
@@ -21,26 +21,26 @@ namespace TwelveLabs
                     },
                 },
             };
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_UpdateAssetUserMetadataSecurityRequirements =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_UpdateUserMetadataSecurityRequirements =
             new global::TwelveLabs.EndPointSecurityRequirement[]
-            {                s_UpdateAssetUserMetadataSecurityRequirement0,
+            {                s_UpdateUserMetadataSecurityRequirement0,
             };
-        partial void PrepareUpdateAssetUserMetadataArguments(
+        partial void PrepareUpdateUserMetadataArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string assetId,
             ref string xApiKey,
-            global::TwelveLabs.UpdateAssetUserMetadataRequest request);
-        partial void PrepareUpdateAssetUserMetadataRequest(
+            global::TwelveLabs.UpdateUserMetadataRequest request);
+        partial void PrepareUpdateUserMetadataRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string assetId,
             string xApiKey,
-            global::TwelveLabs.UpdateAssetUserMetadataRequest request);
-        partial void ProcessUpdateAssetUserMetadataResponse(
+            global::TwelveLabs.UpdateUserMetadataRequest request);
+        partial void ProcessUpdateUserMetadataResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessUpdateAssetUserMetadataResponseContent(
+        partial void ProcessUpdateUserMetadataResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -60,15 +60,15 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.UploadAssetsUpdateAssetUserMetadataResponse204> UpdateAssetUserMetadataAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsUpdateUserMetadataResponse204> UpdateUserMetadataAsync(
             string assetId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateAssetUserMetadataRequest request,
+            global::TwelveLabs.UpdateUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await UpdateAssetUserMetadataAsResponseAsync(
+            var __response = await UpdateUserMetadataAsResponseAsync(
                 assetId: assetId,
                 xApiKey: xApiKey,
 
@@ -94,11 +94,11 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.UploadAssetsUpdateAssetUserMetadataResponse204>> UpdateAssetUserMetadataAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsUpdateUserMetadataResponse204>> UpdateUserMetadataAsResponseAsync(
             string assetId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateAssetUserMetadataRequest request,
+            global::TwelveLabs.UpdateUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -106,7 +106,7 @@ namespace TwelveLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareUpdateAssetUserMetadataArguments(
+            PrepareUpdateUserMetadataArguments(
                 httpClient: HttpClient,
                 assetId: ref assetId,
                 xApiKey: ref xApiKey,
@@ -115,8 +115,8 @@ namespace TwelveLabs
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_UpdateAssetUserMetadataSecurityRequirements,
-                operationName: "UpdateAssetUserMetadataAsync");
+                securityRequirements: s_UpdateUserMetadataSecurityRequirements,
+                operationName: "UpdateUserMetadataAsync");
 
             using var __timeoutCancellationTokenSource = global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -184,7 +184,7 @@ namespace TwelveLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareUpdateAssetUserMetadataRequest(
+                PrepareUpdateUserMetadataRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     assetId: assetId!,
@@ -206,8 +206,8 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateAssetUserMetadata",
-                                methodName: "UpdateAssetUserMetadataAsync",
+                                operationId: "UpdateUserMetadata",
+                                methodName: "UpdateUserMetadataAsync",
                                 pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
@@ -240,8 +240,8 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateAssetUserMetadata",
-                                methodName: "UpdateAssetUserMetadataAsync",
+                                operationId: "UpdateUserMetadata",
+                                methodName: "UpdateUserMetadataAsync",
                                 pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
@@ -281,8 +281,8 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateAssetUserMetadata",
-                                methodName: "UpdateAssetUserMetadataAsync",
+                                operationId: "UpdateUserMetadata",
+                                methodName: "UpdateUserMetadataAsync",
                                 pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
@@ -321,7 +321,7 @@ namespace TwelveLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessUpdateAssetUserMetadataResponse(
+                ProcessUpdateUserMetadataResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -329,8 +329,8 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateAssetUserMetadata",
-                                methodName: "UpdateAssetUserMetadataAsync",
+                                operationId: "UpdateUserMetadata",
+                                methodName: "UpdateUserMetadataAsync",
                                 pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
@@ -351,8 +351,8 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateAssetUserMetadata",
-                                methodName: "UpdateAssetUserMetadataAsync",
+                                operationId: "UpdateUserMetadata",
+                                methodName: "UpdateUserMetadataAsync",
                                 pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
@@ -455,7 +455,7 @@ namespace TwelveLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessUpdateAssetUserMetadataResponseContent(
+                                ProcessUpdateUserMetadataResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -464,9 +464,9 @@ namespace TwelveLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::TwelveLabs.UploadAssetsUpdateAssetUserMetadataResponse204.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::TwelveLabs.AssetsUpdateUserMetadataResponse204.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.UploadAssetsUpdateAssetUserMetadataResponse204>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsUpdateUserMetadataResponse204>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -496,9 +496,9 @@ namespace TwelveLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::TwelveLabs.UploadAssetsUpdateAssetUserMetadataResponse204.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::TwelveLabs.AssetsUpdateUserMetadataResponse204.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.UploadAssetsUpdateAssetUserMetadataResponse204>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsUpdateUserMetadataResponse204>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -567,19 +567,19 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.UploadAssetsUpdateAssetUserMetadataResponse204> UpdateAssetUserMetadataAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsUpdateUserMetadataResponse204> UpdateUserMetadataAsync(
             string assetId,
             string xApiKey,
             global::TwelveLabs.UserMetadata userMetadata,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.UpdateAssetUserMetadataRequest
+            var __request = new global::TwelveLabs.UpdateUserMetadataRequest
             {
                 UserMetadata = userMetadata,
             };
 
-            return await UpdateAssetUserMetadataAsync(
+            return await UpdateUserMetadataAsync(
                 assetId: assetId,
                 xApiKey: xApiKey,
                 request: __request,
