@@ -2,7 +2,7 @@
 
 namespace TwelveLabs
 {
-    public partial interface ISubpackageUploadAssetsClient
+    public partial interface ISubpackageAssetsClient
     {
         /// <summary>
         /// Update the user-defined metadata of an asset<br/>
@@ -19,11 +19,11 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.UploadAssetsUpdateAssetUserMetadataResponse204> UpdateAssetUserMetadataAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsUpdateUserMetadataResponse204> UpdateUserMetadataAsync(
             string assetId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateAssetUserMetadataRequest request,
+            global::TwelveLabs.UpdateUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -41,11 +41,11 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.UploadAssetsUpdateAssetUserMetadataResponse204>> UpdateAssetUserMetadataAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsUpdateUserMetadataResponse204>> UpdateUserMetadataAsResponseAsync(
             string assetId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateAssetUserMetadataRequest request,
+            global::TwelveLabs.UpdateUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -77,7 +77,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.UploadAssetsUpdateAssetUserMetadataResponse204> UpdateAssetUserMetadataAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsUpdateUserMetadataResponse204> UpdateUserMetadataAsync(
             string assetId,
             string xApiKey,
             global::TwelveLabs.UserMetadata userMetadata,

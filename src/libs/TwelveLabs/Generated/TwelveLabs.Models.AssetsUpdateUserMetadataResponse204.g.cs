@@ -6,7 +6,7 @@ namespace TwelveLabs
     /// <summary>
     /// Empty response body
     /// </summary>
-    public sealed partial class UploadAssetsUpdateAssetUserMetadataResponse204
+    public sealed partial class AssetsUpdateUserMetadataResponse204
     {
 
         /// <summary>
