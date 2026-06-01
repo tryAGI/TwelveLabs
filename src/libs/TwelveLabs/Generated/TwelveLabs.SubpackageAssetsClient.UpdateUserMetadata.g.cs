@@ -52,7 +52,7 @@ namespace TwelveLabs
         /// - A key set to `null` deletes that key.<br/>
         /// - A key set to an empty string (`""`) is ignored.<br/>
         /// - A key you omit from the request keeps its current value.<br/>
-        /// To replace all metadata, first delete it using [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-asset-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint, then use this method to set the new values.
+        /// To replace all metadata, first delete it using [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint, then use this method to set the new values.
         /// </summary>
         /// <param name="assetId"></param>
         /// <param name="xApiKey"></param>
@@ -86,7 +86,7 @@ namespace TwelveLabs
         /// - A key set to `null` deletes that key.<br/>
         /// - A key set to an empty string (`""`) is ignored.<br/>
         /// - A key you omit from the request keeps its current value.<br/>
-        /// To replace all metadata, first delete it using [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-asset-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint, then use this method to set the new values.
+        /// To replace all metadata, first delete it using [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint, then use this method to set the new values.
         /// </summary>
         /// <param name="assetId"></param>
         /// <param name="xApiKey"></param>
@@ -545,7 +545,7 @@ namespace TwelveLabs
         /// - A key set to `null` deletes that key.<br/>
         /// - A key set to an empty string (`""`) is ignored.<br/>
         /// - A key you omit from the request keeps its current value.<br/>
-        /// To replace all metadata, first delete it using [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-asset-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint, then use this method to set the new values.
+        /// To replace all metadata, first delete it using [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint, then use this method to set the new values.
         /// </summary>
         /// <param name="assetId"></param>
         /// <param name="xApiKey"></param>
