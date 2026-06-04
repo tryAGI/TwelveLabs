@@ -508,7 +508,7 @@ namespace TwelveLabs
         /// <param name="indexedAssetId"></param>
         /// <param name="xApiKey"></param>
         /// <param name="userMetadata">
-        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float` or `boolean`.<br/>
+        /// Metadata that helps you categorize your assets. The object contains user-defined keys and values, where keys are strings and values are one of `string`, `integer`, `float`, or `boolean`.<br/>
         /// **Example**:<br/>
         /// ```JSON<br/>
         /// "user_metadata": {<br/>
@@ -519,7 +519,7 @@ namespace TwelveLabs
         /// }<br/>
         /// ```<br/>
         /// &lt;Note title="Note"&gt;<br/>
-        /// If you want to store other types of data such as objects or arrays, you must convert your data into string values.<br/>
+        /// To store other types of data, such as objects or arrays, convert your data into string values before sending it.<br/>
         /// &lt;/Note&gt;
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

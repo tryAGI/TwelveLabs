@@ -4,9 +4,9 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Any type
+    /// Empty response body
     /// </summary>
-    public sealed partial class IndexesVideosRetrieveResponse200UserMetadata2
+    public sealed partial class AssetsReplaceUserMetadataResponse204
     {
 
         /// <summary>

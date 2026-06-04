@@ -5,13 +5,12 @@ namespace TwelveLabs
     public partial interface ISubpackageAssetsClient
     {
         /// <summary>
-        /// Update the user-defined metadata of an asset<br/>
-        /// This method updates the user-defined metadata of the specified asset. The platform merges your changes with the existing metadata:<br/>
+        /// Replace the user-defined metadata of an asset<br/>
+        /// This method replaces the entire user-defined metadata of the specified asset. Unlike the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method, which merges your changes with the existing metadata, this method overwrites the stored value in full:<br/>
         /// - A key with a value creates or replaces that key.<br/>
-        /// - A key set to `null` deletes that key.<br/>
-        /// - A key set to an empty string (`""`) is ignored.<br/>
-        /// - A key you omit from the request keeps its current value.<br/>
-        /// To replace all metadata in a single call, use the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-asset-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint instead.
+        /// - A key set to an empty string (`""`) or `null` is ignored.<br/>
+        /// - A key you omit from the request body is removed.<br/>
+        /// To clear all metadata, send an empty object (`{}`) in the `user_metadata` field. This produces the same result as the [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-user-metadata) method.
         /// </summary>
         /// <param name="assetId"></param>
         /// <param name="xApiKey"></param>
@@ -19,21 +18,20 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsUpdateUserMetadataResponse204> UpdateUserMetadataAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsReplaceUserMetadataResponse204> ReplaceUserMetadataAsync(
             string assetId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateUserMetadataRequest request,
+            global::TwelveLabs.ReplaceUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update the user-defined metadata of an asset<br/>
-        /// This method updates the user-defined metadata of the specified asset. The platform merges your changes with the existing metadata:<br/>
+        /// Replace the user-defined metadata of an asset<br/>
+        /// This method replaces the entire user-defined metadata of the specified asset. Unlike the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method, which merges your changes with the existing metadata, this method overwrites the stored value in full:<br/>
         /// - A key with a value creates or replaces that key.<br/>
-        /// - A key set to `null` deletes that key.<br/>
-        /// - A key set to an empty string (`""`) is ignored.<br/>
-        /// - A key you omit from the request keeps its current value.<br/>
-        /// To replace all metadata in a single call, use the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-asset-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint instead.
+        /// - A key set to an empty string (`""`) or `null` is ignored.<br/>
+        /// - A key you omit from the request body is removed.<br/>
+        /// To clear all metadata, send an empty object (`{}`) in the `user_metadata` field. This produces the same result as the [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-user-metadata) method.
         /// </summary>
         /// <param name="assetId"></param>
         /// <param name="xApiKey"></param>
@@ -41,21 +39,20 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsUpdateUserMetadataResponse204>> UpdateUserMetadataAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsReplaceUserMetadataResponse204>> ReplaceUserMetadataAsResponseAsync(
             string assetId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateUserMetadataRequest request,
+            global::TwelveLabs.ReplaceUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update the user-defined metadata of an asset<br/>
-        /// This method updates the user-defined metadata of the specified asset. The platform merges your changes with the existing metadata:<br/>
+        /// Replace the user-defined metadata of an asset<br/>
+        /// This method replaces the entire user-defined metadata of the specified asset. Unlike the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method, which merges your changes with the existing metadata, this method overwrites the stored value in full:<br/>
         /// - A key with a value creates or replaces that key.<br/>
-        /// - A key set to `null` deletes that key.<br/>
-        /// - A key set to an empty string (`""`) is ignored.<br/>
-        /// - A key you omit from the request keeps its current value.<br/>
-        /// To replace all metadata in a single call, use the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-asset-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint instead.
+        /// - A key set to an empty string (`""`) or `null` is ignored.<br/>
+        /// - A key you omit from the request body is removed.<br/>
+        /// To clear all metadata, send an empty object (`{}`) in the `user_metadata` field. This produces the same result as the [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-user-metadata) method.
         /// </summary>
         /// <param name="assetId"></param>
         /// <param name="xApiKey"></param>
@@ -77,7 +74,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsUpdateUserMetadataResponse204> UpdateUserMetadataAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsReplaceUserMetadataResponse204> ReplaceUserMetadataAsync(
             string assetId,
             string xApiKey,
             global::TwelveLabs.UserMetadata userMetadata,
