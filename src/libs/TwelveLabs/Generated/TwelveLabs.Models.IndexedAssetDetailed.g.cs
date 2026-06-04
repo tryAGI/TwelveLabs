@@ -55,7 +55,7 @@ namespace TwelveLabs
         /// User-defined metadata for this indexed asset.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
-        public object? UserMetadata { get; set; }
+        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
 
         /// <summary>
         /// The platform returns this object only for the videos that you uploaded with the `enable_video_stream` parameter set to `true`.
@@ -128,7 +128,7 @@ namespace TwelveLabs
             string? indexedAt,
             global::TwelveLabs.IndexedAssetStatus? status,
             global::TwelveLabs.IndexedAssetSystemMetadata? systemMetadata,
-            object? userMetadata,
+            global::TwelveLabs.UserMetadata? userMetadata,
             global::TwelveLabs.HLSObject? hls,
             global::TwelveLabs.IndexedAssetDetailedEmbedding? embedding,
             global::System.Collections.Generic.IList<global::TwelveLabs.TranscriptionDataItems>? transcription)

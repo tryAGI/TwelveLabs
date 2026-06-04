@@ -6,7 +6,7 @@ namespace TwelveLabs
     {
         /// <summary>
         /// Delete the user-defined metadata of an asset<br/>
-        /// This method deletes the user-defined metadata of the specified asset.<br/>
+        /// This method deletes the user-defined metadata of the specified asset. To achieve the same result, you can also send an empty object (`{}`) in the `user_metadata` field of the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-asset-user-metadata) method.<br/>
         /// This action cannot be undone.
         /// </summary>
         /// <param name="assetId"></param>
@@ -21,7 +21,7 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete the user-defined metadata of an asset<br/>
-        /// This method deletes the user-defined metadata of the specified asset.<br/>
+        /// This method deletes the user-defined metadata of the specified asset. To achieve the same result, you can also send an empty object (`{}`) in the `user_metadata` field of the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-asset-user-metadata) method.<br/>
         /// This action cannot be undone.
         /// </summary>
         /// <param name="assetId"></param>
