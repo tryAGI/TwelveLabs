@@ -51,7 +51,7 @@ namespace TwelveLabs
         public global::TwelveLabs.SegmentFieldFormat? Format { get; set; }
 
         /// <summary>
-        /// Allowed values for this field. Maximum 50 values. Not supported when `type` is `timestamp`.
+        /// Allowed values for this field. Maximum 100 values. Not supported when `type` is `timestamp`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enum")]
         public global::System.Collections.Generic.IList<string>? Enum { get; set; }
@@ -94,7 +94,7 @@ namespace TwelveLabs
         /// - `type` is not `timestamp` and `format` is set.
         /// </param>
         /// <param name="enum">
-        /// Allowed values for this field. Maximum 50 values. Not supported when `type` is `timestamp`.
+        /// Allowed values for this field. Maximum 100 values. Not supported when `type` is `timestamp`.
         /// </param>
         /// <param name="items">
         /// Required when `type` is `array`. Specifies the type of array elements. Not supported when `type` is `timestamp`.
