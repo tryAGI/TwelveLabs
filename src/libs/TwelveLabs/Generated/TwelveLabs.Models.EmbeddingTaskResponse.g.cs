@@ -53,6 +53,12 @@ namespace TwelveLabs
         public global::TwelveLabs.EmbeddingTaskMediaMetadata? Metadata { get; set; }
 
         /// <summary>
+        /// An object describing why the embedding task failed. Present only when `status` is `failed`. Omitted otherwise.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("error")]
+        public global::TwelveLabs.EmbeddingTaskResponseError? Error { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -83,6 +89,9 @@ namespace TwelveLabs
         /// <param name="metadata">
         /// Metadata for the media input.
         /// </param>
+        /// <param name="error">
+        /// An object describing why the embedding task failed. Present only when `status` is `failed`. Omitted otherwise.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -92,7 +101,8 @@ namespace TwelveLabs
             global::System.DateTime? createdAt,
             global::System.DateTime? updatedAt,
             global::System.Collections.Generic.IList<global::TwelveLabs.EmbeddingData>? data,
-            global::TwelveLabs.EmbeddingTaskMediaMetadata? metadata)
+            global::TwelveLabs.EmbeddingTaskMediaMetadata? metadata,
+            global::TwelveLabs.EmbeddingTaskResponseError? error)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Status = status;
@@ -100,6 +110,7 @@ namespace TwelveLabs
             this.UpdatedAt = updatedAt;
             this.Data = data;
             this.Metadata = metadata;
+            this.Error = error;
         }
 
         /// <summary>

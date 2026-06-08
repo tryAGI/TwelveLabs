@@ -23,7 +23,7 @@ namespace TwelveLabs
         public required string Description { get; set; }
 
         /// <summary>
-        /// Custom fields to extract for each segment instance. Maximum 20 fields.
+        /// Custom fields to extract for each segment instance.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fields")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.SegmentField>? Fields { get; set; }
@@ -63,7 +63,7 @@ namespace TwelveLabs
         /// Describe what this type of segment looks like in the video. The model uses this text to identify matching segments.
         /// </param>
         /// <param name="fields">
-        /// Custom fields to extract for each segment instance. Maximum 20 fields.
+        /// Custom fields to extract for each segment instance.
         /// </param>
         /// <param name="mediaSources">
         /// Reference images that help the model identify segments. Maximum 4 sources.
