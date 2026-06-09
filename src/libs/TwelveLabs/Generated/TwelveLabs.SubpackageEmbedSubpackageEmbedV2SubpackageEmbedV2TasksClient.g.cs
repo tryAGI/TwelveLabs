@@ -10,7 +10,7 @@ namespace TwelveLabs
     public sealed partial class SubpackageEmbedSubpackageEmbedV2SubpackageEmbedV2TasksClient : global::TwelveLabs.ISubpackageEmbedSubpackageEmbedV2SubpackageEmbedV2TasksClient, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        /// https://api.twelvelabs.io/v1.3
         /// </summary>
         public const string DefaultBaseUrl = "https://api.twelvelabs.io/v1.3";
 

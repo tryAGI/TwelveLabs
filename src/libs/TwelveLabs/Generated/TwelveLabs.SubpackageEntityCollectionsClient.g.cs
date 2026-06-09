@@ -10,7 +10,7 @@ namespace TwelveLabs
     public sealed partial class SubpackageEntityCollectionsClient : global::TwelveLabs.ISubpackageEntityCollectionsClient, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        /// https://api.twelvelabs.io/v1.3
         /// </summary>
         public const string DefaultBaseUrl = "https://api.twelvelabs.io/v1.3";
 
