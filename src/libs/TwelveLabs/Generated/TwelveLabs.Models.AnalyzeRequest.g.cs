@@ -72,7 +72,7 @@ namespace TwelveLabs
         /// The maximum response length, in tokens. The allowed range depends on the model:<br/>
         /// | Model | Min | Max | Default |<br/>
         /// |-------|-----|-----|---------|<br/>
-        /// | Pegasus 1.2 | 1 | 4,096 | 4,096 |<br/>
+        /// | Pegasus 1.2 | 2 | 4,096 | 4,096 |<br/>
         /// | Pegasus 1.5 | 512 | 98,304 | 4,096 |
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
@@ -147,7 +147,7 @@ namespace TwelveLabs
         /// The maximum response length, in tokens. The allowed range depends on the model:<br/>
         /// | Model | Min | Max | Default |<br/>
         /// |-------|-----|-----|---------|<br/>
-        /// | Pegasus 1.2 | 1 | 4,096 | 4,096 |<br/>
+        /// | Pegasus 1.2 | 2 | 4,096 | 4,096 |<br/>
         /// | Pegasus 1.5 | 512 | 98,304 | 4,096 |
         /// </param>
         /// <param name="startTime">
