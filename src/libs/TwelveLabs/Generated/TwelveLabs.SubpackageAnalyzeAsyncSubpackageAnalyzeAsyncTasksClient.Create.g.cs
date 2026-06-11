@@ -632,7 +632,7 @@ namespace TwelveLabs
         /// The maximum response length, in tokens. The allowed range depends on the model and analysis mode:<br/>
         /// | Model | Mode | Min | Max | Default |<br/>
         /// |-------|------|-----|-----|---------|<br/>
-        /// | Pegasus 1.2 | — | 1 | 4,096 | 4096 |<br/>
+        /// | Pegasus 1.2 | — | 2 | 4,096 | 4096 |<br/>
         /// | Pegasus 1.5 | `general` | 512 | 98,304 | 4,096 |<br/>
         /// | Pegasus 1.5 | `time_based_metadata` | 2,048 | 98,304 | 32,768 |
         /// </param>
