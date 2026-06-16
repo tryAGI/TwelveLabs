@@ -6,10 +6,10 @@ namespace TwelveLabs
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class UpdateAssetUserMetadataRequest
+    public sealed partial class UpdateUserMetadataRequest
     {
         /// <summary>
-        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float` or `boolean`.<br/>
+        /// Metadata that helps you categorize your assets. The object contains user-defined keys and values, where keys are strings and values are one of `string`, `integer`, `float`, or `boolean`.<br/>
         /// **Example**:<br/>
         /// ```JSON<br/>
         /// "user_metadata": {<br/>
@@ -20,7 +20,7 @@ namespace TwelveLabs
         /// }<br/>
         /// ```<br/>
         /// &lt;Note title="Note"&gt;<br/>
-        /// If you want to store other types of data such as objects or arrays, you must convert your data into string values.<br/>
+        /// To store other types of data, such as objects or arrays, convert your data into string values before sending it.<br/>
         /// &lt;/Note&gt;
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
@@ -34,10 +34,10 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateAssetUserMetadataRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpdateUserMetadataRequest" /> class.
         /// </summary>
         /// <param name="userMetadata">
-        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float` or `boolean`.<br/>
+        /// Metadata that helps you categorize your assets. The object contains user-defined keys and values, where keys are strings and values are one of `string`, `integer`, `float`, or `boolean`.<br/>
         /// **Example**:<br/>
         /// ```JSON<br/>
         /// "user_metadata": {<br/>
@@ -48,22 +48,22 @@ namespace TwelveLabs
         /// }<br/>
         /// ```<br/>
         /// &lt;Note title="Note"&gt;<br/>
-        /// If you want to store other types of data such as objects or arrays, you must convert your data into string values.<br/>
+        /// To store other types of data, such as objects or arrays, convert your data into string values before sending it.<br/>
         /// &lt;/Note&gt;
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public UpdateAssetUserMetadataRequest(
+        public UpdateUserMetadataRequest(
             global::TwelveLabs.UserMetadata userMetadata)
         {
             this.UserMetadata = userMetadata ?? throw new global::System.ArgumentNullException(nameof(userMetadata));
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateAssetUserMetadataRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpdateUserMetadataRequest" /> class.
         /// </summary>
-        public UpdateAssetUserMetadataRequest()
+        public UpdateUserMetadataRequest()
         {
         }
 

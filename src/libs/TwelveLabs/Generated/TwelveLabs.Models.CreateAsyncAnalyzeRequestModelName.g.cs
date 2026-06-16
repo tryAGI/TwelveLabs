@@ -6,7 +6,7 @@ namespace TwelveLabs
     /// <summary>
     /// The video understanding model to use for analysis.<br/>
     /// - `pegasus1.2`: General analysis (prompt-based text generation).<br/>
-    /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, extended token limits, and video segmentation.<br/>
+    /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, and video segmentation. See the [Pegasus](/v1.3/docs/concepts/models/pegasus#context-window) page for token limits.<br/>
     /// **Default:** `pegasus1.2`<br/>
     /// Default Value: pegasus1.2
     /// </summary>
@@ -17,7 +17,7 @@ namespace TwelveLabs
         /// </summary>
         Pegasus12,
         /// <summary>
-        /// General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, extended token limits, and video segmentation.
+        /// General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, and video segmentation. See the [Pegasus](/v1.3/docs/concepts/models/pegasus#context-window) page for token limits.
         /// </summary>
         Pegasus15,
     }

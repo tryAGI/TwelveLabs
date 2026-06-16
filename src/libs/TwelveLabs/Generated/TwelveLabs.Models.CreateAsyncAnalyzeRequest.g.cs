@@ -11,7 +11,7 @@ namespace TwelveLabs
         /// <summary>
         /// The video understanding model to use for analysis.<br/>
         /// - `pegasus1.2`: General analysis (prompt-based text generation).<br/>
-        /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, extended token limits, and video segmentation.<br/>
+        /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, and video segmentation. See the [Pegasus](/v1.3/docs/concepts/models/pegasus#context-window) page for token limits.<br/>
         /// **Default:** `pegasus1.2`<br/>
         /// Default Value: pegasus1.2
         /// </summary>
@@ -41,11 +41,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// Natural-language instructions for analyzing the video. Required for general analysis (prompt-based text generation). Not supported when `analysis_mode` is `time_based_metadata`. To include reference images in your prompt, use the `prompt_v2` parameter instead (Pegasus 1.5 only). Mutually exclusive with the `prompt_v2` parameter.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - Even though the model behind this endpoint is trained to a high degree of accuracy, the preciseness of the generated text may vary based on the nature and quality of the video and the clarity of the prompt.<br/>
-        /// - Your prompts can be instructive or descriptive, or you can also phrase them as questions.<br/>
-        /// - The maximum length of a prompt is 2,000 tokens.<br/>
-        /// &lt;/Note&gt;<br/>
+        /// Your prompts can be instructive or descriptive, or you can phrase them as questions. Pegasus 1.2 limits prompts to 2,000 tokens. For Pegasus 1.5, this text counts toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).<br/>
         /// **Examples**:<br/>
         /// - Based on this video, I want to generate five keywords for SEO (Search Engine Optimization).<br/>
         /// - I want to generate a description for my video with the following format: Title of the video, followed by a summary in 2-3 sentences, highlighting the main topic, key events, and concluding remarks.
@@ -54,7 +50,8 @@ namespace TwelveLabs
         public string? Prompt { get; set; }
 
         /// <summary>
-        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Requires the `model_name` parameter set to `pegasus1.5`. Not supported when the `analysis_mode` parameter is `time_based_metadata`. Mutually exclusive with the `prompt` parameter.
+        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Requires the `model_name` parameter set to `pegasus1.5`. Mutually exclusive with the `prompt` parameter.<br/>
+        /// The prompt text and reference images count toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt_v2")]
         public global::TwelveLabs.AnalyzePromptV2? PromptV2 { get; set; }
@@ -78,12 +75,12 @@ namespace TwelveLabs
         public double? Temperature { get; set; }
 
         /// <summary>
-        /// The maximum number of tokens to generate. The allowed range depends on the model and analysis mode:<br/>
+        /// The maximum response length, in tokens. The allowed range depends on the model and analysis mode:<br/>
         /// | Model | Mode | Min | Max | Default |<br/>
         /// |-------|------|-----|-----|---------|<br/>
-        /// | Pegasus 1.2 | — | 1 | 4,096 | 4096 |<br/>
-        /// | Pegasus 1.5 | `general` | 512 | 65,536 | 4,096 |<br/>
-        /// | Pegasus 1.5 | `time_based_metadata` | 2,048 | 65,536 | 32,768 |
+        /// | Pegasus 1.2 | — | 2 | 4,096 | 4096 |<br/>
+        /// | Pegasus 1.5 | `general` | 512 | 98,304 | 4,096 |<br/>
+        /// | Pegasus 1.5 | `time_based_metadata` | 2,048 | 98,304 | 32,768 |
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
         public int? MaxTokens { get; set; }
@@ -111,9 +108,10 @@ namespace TwelveLabs
         public double? MaxSegmentDuration { get; set; }
 
         /// <summary>
-        /// Start of the analysis window, in seconds. Use with `end_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
+        /// Start of the analysis window, as an absolute timestamp in seconds, based on the video's internal metadata. Use with `end_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
-        /// - If omitted, defaults to `0`.<br/>
+        /// - If omitted, defaults to the video's internal start time.<br/>
+        /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
         /// - Must be less than `end_time` and less than the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
         /// - Together with `end_time`, this parameter determines the billable video duration. If you omit both, billing uses the full video duration. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.<br/>
@@ -123,9 +121,10 @@ namespace TwelveLabs
         public double? StartTime { get; set; }
 
         /// <summary>
-        /// End of the analysis window, in seconds. Use with `start_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
+        /// End of the analysis window, as an absolute timestamp in seconds, based on the video's internal metadata. Use with `start_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
-        /// - If omitted, defaults to the video duration.<br/>
+        /// - If omitted, defaults to the video's internal start time plus its duration.<br/>
+        /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
         /// - Must be greater than `start_time` and less than or equal to the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
         /// - Together with `start_time`, this parameter determines the billable video duration. If you omit both, billing uses the full video duration. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.<br/>
@@ -149,7 +148,7 @@ namespace TwelveLabs
         /// <param name="modelName">
         /// The video understanding model to use for analysis.<br/>
         /// - `pegasus1.2`: General analysis (prompt-based text generation).<br/>
-        /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, extended token limits, and video segmentation.<br/>
+        /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, and video segmentation. See the [Pegasus](/v1.3/docs/concepts/models/pegasus#context-window) page for token limits.<br/>
         /// **Default:** `pegasus1.2`<br/>
         /// Default Value: pegasus1.2
         /// </param>
@@ -164,17 +163,14 @@ namespace TwelveLabs
         /// </param>
         /// <param name="prompt">
         /// Natural-language instructions for analyzing the video. Required for general analysis (prompt-based text generation). Not supported when `analysis_mode` is `time_based_metadata`. To include reference images in your prompt, use the `prompt_v2` parameter instead (Pegasus 1.5 only). Mutually exclusive with the `prompt_v2` parameter.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - Even though the model behind this endpoint is trained to a high degree of accuracy, the preciseness of the generated text may vary based on the nature and quality of the video and the clarity of the prompt.<br/>
-        /// - Your prompts can be instructive or descriptive, or you can also phrase them as questions.<br/>
-        /// - The maximum length of a prompt is 2,000 tokens.<br/>
-        /// &lt;/Note&gt;<br/>
+        /// Your prompts can be instructive or descriptive, or you can phrase them as questions. Pegasus 1.2 limits prompts to 2,000 tokens. For Pegasus 1.5, this text counts toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).<br/>
         /// **Examples**:<br/>
         /// - Based on this video, I want to generate five keywords for SEO (Search Engine Optimization).<br/>
         /// - I want to generate a description for my video with the following format: Title of the video, followed by a summary in 2-3 sentences, highlighting the main topic, key events, and concluding remarks.
         /// </param>
         /// <param name="promptV2">
-        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Requires the `model_name` parameter set to `pegasus1.5`. Not supported when the `analysis_mode` parameter is `time_based_metadata`. Mutually exclusive with the `prompt` parameter.
+        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Requires the `model_name` parameter set to `pegasus1.5`. Mutually exclusive with the `prompt` parameter.<br/>
+        /// The prompt text and reference images count toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).
         /// </param>
         /// <param name="analysisMode">
         /// The analysis approach for this task.<br/>
@@ -188,12 +184,12 @@ namespace TwelveLabs
         /// **Default:** 0.2 **Min:** 0 **Max:** 1
         /// </param>
         /// <param name="maxTokens">
-        /// The maximum number of tokens to generate. The allowed range depends on the model and analysis mode:<br/>
+        /// The maximum response length, in tokens. The allowed range depends on the model and analysis mode:<br/>
         /// | Model | Mode | Min | Max | Default |<br/>
         /// |-------|------|-----|-----|---------|<br/>
-        /// | Pegasus 1.2 | — | 1 | 4,096 | 4096 |<br/>
-        /// | Pegasus 1.5 | `general` | 512 | 65,536 | 4,096 |<br/>
-        /// | Pegasus 1.5 | `time_based_metadata` | 2,048 | 65,536 | 32,768 |
+        /// | Pegasus 1.2 | — | 2 | 4,096 | 4096 |<br/>
+        /// | Pegasus 1.5 | `general` | 512 | 98,304 | 4,096 |<br/>
+        /// | Pegasus 1.5 | `time_based_metadata` | 2,048 | 98,304 | 32,768 |
         /// </param>
         /// <param name="responseFormat">
         /// Controls the response format. When you omit this parameter, you receive unstructured text.<br/>
@@ -209,18 +205,20 @@ namespace TwelveLabs
         /// **Min:** 2
         /// </param>
         /// <param name="startTime">
-        /// Start of the analysis window, in seconds. Use with `end_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
+        /// Start of the analysis window, as an absolute timestamp in seconds, based on the video's internal metadata. Use with `end_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
-        /// - If omitted, defaults to `0`.<br/>
+        /// - If omitted, defaults to the video's internal start time.<br/>
+        /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
         /// - Must be less than `end_time` and less than the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
         /// - Together with `end_time`, this parameter determines the billable video duration. If you omit both, billing uses the full video duration. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.<br/>
         /// &lt;/Note&gt;
         /// </param>
         /// <param name="endTime">
-        /// End of the analysis window, in seconds. Use with `start_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
+        /// End of the analysis window, as an absolute timestamp in seconds, based on the video's internal metadata. Use with `start_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
-        /// - If omitted, defaults to the video duration.<br/>
+        /// - If omitted, defaults to the video's internal start time plus its duration.<br/>
+        /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
         /// - Must be greater than `start_time` and less than or equal to the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
         /// - Together with `start_time`, this parameter determines the billable video duration. If you omit both, billing uses the full video duration. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.<br/>

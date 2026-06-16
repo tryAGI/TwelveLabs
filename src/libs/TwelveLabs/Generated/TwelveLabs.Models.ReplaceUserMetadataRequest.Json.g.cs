@@ -2,7 +2,7 @@
 
 namespace TwelveLabs
 {
-    public sealed partial class UpdateAssetUserMetadataRequest
+    public sealed partial class ReplaceUserMetadataRequest
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -34,14 +34,14 @@ namespace TwelveLabs
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::TwelveLabs.UpdateAssetUserMetadataRequest? FromJson(
+        public static global::TwelveLabs.ReplaceUserMetadataRequest? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::TwelveLabs.UpdateAssetUserMetadataRequest),
-                jsonSerializerContext) as global::TwelveLabs.UpdateAssetUserMetadataRequest;
+                typeof(global::TwelveLabs.ReplaceUserMetadataRequest),
+                jsonSerializerContext) as global::TwelveLabs.ReplaceUserMetadataRequest;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::TwelveLabs.UpdateAssetUserMetadataRequest? FromJson(
+        public static global::TwelveLabs.ReplaceUserMetadataRequest? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::TwelveLabs.UpdateAssetUserMetadataRequest>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::TwelveLabs.ReplaceUserMetadataRequest>(
                 json,
                 jsonSerializerOptions);
         }
@@ -63,14 +63,14 @@ namespace TwelveLabs
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::TwelveLabs.UpdateAssetUserMetadataRequest?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::TwelveLabs.ReplaceUserMetadataRequest?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::TwelveLabs.UpdateAssetUserMetadataRequest),
-                jsonSerializerContext).ConfigureAwait(false)) as global::TwelveLabs.UpdateAssetUserMetadataRequest;
+                typeof(global::TwelveLabs.ReplaceUserMetadataRequest),
+                jsonSerializerContext).ConfigureAwait(false)) as global::TwelveLabs.ReplaceUserMetadataRequest;
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.UpdateAssetUserMetadataRequest?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.ReplaceUserMetadataRequest?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::TwelveLabs.UpdateAssetUserMetadataRequest?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::TwelveLabs.ReplaceUserMetadataRequest?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

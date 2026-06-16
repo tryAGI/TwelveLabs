@@ -10,7 +10,7 @@ namespace TwelveLabs
     public sealed partial class TwelveLabsClient : global::TwelveLabs.ITwelveLabsClient, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        /// https://api.twelvelabs.io/v1.3
         /// </summary>
         public const string DefaultBaseUrl = "https://api.twelvelabs.io/v1.3";
 
@@ -160,15 +160,6 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public SubpackageTasksClient SubpackageTasks => new SubpackageTasksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SubpackageUploadAssetsClient SubpackageUploadAssets => new SubpackageUploadAssetsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,

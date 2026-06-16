@@ -46,7 +46,7 @@ namespace TwelveLabs
         public double? Temperature { get; set; }
 
         /// <summary>
-        /// The maximum number of tokens for the response.
+        /// The maximum response length you set, in tokens.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
         public int? MaxTokens { get; set; }
@@ -104,7 +104,7 @@ namespace TwelveLabs
         /// The temperature value for this analysis.
         /// </param>
         /// <param name="maxTokens">
-        /// The maximum number of tokens for the response.
+        /// The maximum response length you set, in tokens.
         /// </param>
         /// <param name="minSegmentDuration">
         /// The minimum segment duration you set, in seconds. Present when `analysis_mode` is `time_based_metadata`.

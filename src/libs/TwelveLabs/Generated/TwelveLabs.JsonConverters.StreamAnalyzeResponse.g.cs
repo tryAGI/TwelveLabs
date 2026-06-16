@@ -42,6 +42,8 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("event_type")) __score1++;
             if (__jsonProps.Contains("text")) __score1++;
             var __score2 = 0;
+            if (__jsonProps.Contains("error")) __score2++;
+            if (__jsonProps.Contains("error.message")) __score2++;
             if (__jsonProps.Contains("event_type")) __score2++;
             if (__jsonProps.Contains("finish_reason")) __score2++;
             if (__jsonProps.Contains("metadata")) __score2++;

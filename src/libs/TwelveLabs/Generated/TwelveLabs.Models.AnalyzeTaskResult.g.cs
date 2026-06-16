@@ -28,9 +28,9 @@ namespace TwelveLabs
         public required string Data { get; set; }
 
         /// <summary>
-        /// The reason for the generation to finish.<br/>
-        /// - `stop`: The generation stopped because the model reached the end of the output text.<br/>
-        /// - `length`: The generation stopped because the model reached the maximum number of tokens. For JSON responses, this may result in truncated, invalid JSON that fails to parse.
+        /// The reason the generation stopped.<br/>
+        /// - `stop`: The generation reached the end of the output text.<br/>
+        /// - `length`: The response reached the maximum response length or the context window. For JSON responses, this may return truncated JSON that fails to parse.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.FinishReasonJsonConverter))]
@@ -65,9 +65,9 @@ namespace TwelveLabs
         ///   - `metadata` (object): The custom fields you defined in the request's `segment_definitions[].fields`.
         /// </param>
         /// <param name="finishReason">
-        /// The reason for the generation to finish.<br/>
-        /// - `stop`: The generation stopped because the model reached the end of the output text.<br/>
-        /// - `length`: The generation stopped because the model reached the maximum number of tokens. For JSON responses, this may result in truncated, invalid JSON that fails to parse.
+        /// The reason the generation stopped.<br/>
+        /// - `stop`: The generation reached the end of the output text.<br/>
+        /// - `length`: The response reached the maximum response length or the context window. For JSON responses, this may return truncated JSON that fails to parse.
         /// </param>
         /// <param name="usage">
         /// The number of tokens used in the generation.

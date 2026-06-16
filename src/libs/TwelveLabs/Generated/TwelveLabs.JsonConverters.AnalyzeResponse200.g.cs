@@ -37,6 +37,8 @@ namespace TwelveLabs.JsonConverters
             var __score0 = 0;
             var __score1 = 0;
             if (__jsonProps.Contains("data")) __score1++;
+            if (__jsonProps.Contains("error")) __score1++;
+            if (__jsonProps.Contains("error.message")) __score1++;
             if (__jsonProps.Contains("finish_reason")) __score1++;
             if (__jsonProps.Contains("id")) __score1++;
             if (__jsonProps.Contains("usage")) __score1++;

@@ -103,13 +103,13 @@ namespace TwelveLabs
         /// **Response validation**<br/>
         /// Check the `FinishReason` field to verify your JSON response is complete:<br/>
         /// - When `FinishReason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
-        /// - When `FinishReason` is `length`, the platform truncates the response at the token limit. This may result in truncated, invalid JSON that fails to parse.
+        /// - When `FinishReason` is `length`, the platform truncates the response at the maximum response length or the context window. This may result in truncated, invalid JSON that fails to parse.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("json_schema")]
         public global::TwelveLabs.AsyncResponseFormatJsonSchema? JsonSchema { get; set; }
 
         /// <summary>
-        /// Define the types of segments to extract from your video. Minimum 1, maximum 10 definitions. The number of segment definitions affects billing. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.
+        /// Define the types of segments to extract from your video. Minimum 1, maximum 20 definitions. The number of segment definitions affects billing. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segment_definitions")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.SegmentDefinition>? SegmentDefinitions { get; set; }
@@ -225,10 +225,10 @@ namespace TwelveLabs
         /// **Response validation**<br/>
         /// Check the `FinishReason` field to verify your JSON response is complete:<br/>
         /// - When `FinishReason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
-        /// - When `FinishReason` is `length`, the platform truncates the response at the token limit. This may result in truncated, invalid JSON that fails to parse.
+        /// - When `FinishReason` is `length`, the platform truncates the response at the maximum response length or the context window. This may result in truncated, invalid JSON that fails to parse.
         /// </param>
         /// <param name="segmentDefinitions">
-        /// Define the types of segments to extract from your video. Minimum 1, maximum 10 definitions. The number of segment definitions affects billing. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.
+        /// Define the types of segments to extract from your video. Minimum 1, maximum 20 definitions. The number of segment definitions affects billing. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.
         /// </param>
         /// <param name="segmentTimeFormat">
         /// Set the output format for the automatic `start_time` and `end_time` keys returned on each segment. Requires the `type` parameter set to `segment_definitions` and the `model_name` parameter set to `pegasus1.5`. Omitting this parameter is equivalent to setting it to `seconds` — both return JSON numbers in seconds.<br/>

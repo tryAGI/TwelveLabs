@@ -3,11 +3,11 @@
 
 namespace TwelveLabs
 {
-    public partial class SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasksClient
+    public partial class SubpackageAssetsClient
     {
 
 
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_CreateSecurityRequirement0 =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_UpdateUserMetadataSecurityRequirement0 =
             new global::TwelveLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::TwelveLabs.EndPointAuthorizationRequirement[]
@@ -21,66 +21,55 @@ namespace TwelveLabs
                     },
                 },
             };
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_CreateSecurityRequirements =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_UpdateUserMetadataSecurityRequirements =
             new global::TwelveLabs.EndPointSecurityRequirement[]
-            {                s_CreateSecurityRequirement0,
+            {                s_UpdateUserMetadataSecurityRequirement0,
             };
-        partial void PrepareCreateArguments(
+        partial void PrepareUpdateUserMetadataArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string assetId,
             ref string xApiKey,
-            global::TwelveLabs.CreateAsyncAnalyzeRequest request);
-        partial void PrepareCreateRequest(
+            global::TwelveLabs.UpdateUserMetadataRequest request);
+        partial void PrepareUpdateUserMetadataRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string assetId,
             string xApiKey,
-            global::TwelveLabs.CreateAsyncAnalyzeRequest request);
-        partial void ProcessCreateResponse(
+            global::TwelveLabs.UpdateUserMetadataRequest request);
+        partial void ProcessUpdateUserMetadataResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateResponseContent(
+        partial void ProcessUpdateUserMetadataResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create an async analysis task<br/>
-        /// This method asynchronously analyzes your videos. It supports two analysis modes: general analysis (prompt-based text generation) and video segmentation with custom segment definitions. Video segmentation requires Pegasus 1.5.<br/>
-        /// &lt;Accordion title="Input requirements"&gt;<br/>
-        /// - Minimum duration: 4 seconds<br/>
-        /// - Maximum duration: 2 hours<br/>
-        /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
-        /// - Resolution: 360x360 to 5184x2160 pixels<br/>
-        /// - Aspect ratio: Between 1:1 and 1:2.4, or between 2.4:1 and 1:1.<br/>
-        /// &lt;/Accordion&gt;<br/>
-        /// **When to use this method**:<br/>
-        /// - Generate custom text from your video using a prompt (general analysis)<br/>
-        /// - Extract timestamped metadata with custom segment definitions from your video (Pegasus 1.5 only)<br/>
-        /// - Analyze videos longer than 1 hour<br/>
-        /// - Process videos asynchronously without blocking your application<br/>
-        /// **Do not use this method for**:<br/>
-        /// - Videos for which you need immediate results or real-time streaming. Use the [`POST`](/v1.3/api-reference/analyze-videos/sync-analysis) method of the `/analyze` endpoint instead.<br/>
-        /// Analyzing videos asynchronously requires three steps:<br/>
-        /// 1. Create an analysis task using this method. The platform returns a task ID.<br/>
-        /// 2. Poll the status of the task using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint. Wait until the status is `ready`.<br/>
-        /// 3. Retrieve the results from the response when the status is `ready` using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint.<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
-        /// &lt;/Note&gt;
+        /// Update the user-defined metadata of an asset<br/>
+        /// This method updates the user-defined metadata of the specified asset. The platform merges your changes with the existing metadata:<br/>
+        /// - A key with a value creates or replaces that key.<br/>
+        /// - A key set to `null` deletes that key.<br/>
+        /// - A key set to an empty string (`""`) is ignored.<br/>
+        /// - A key you omit from the request keeps its current value.<br/>
+        /// To replace all metadata in a single call, use the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-asset-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint instead.
         /// </summary>
+        /// <param name="assetId"></param>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.CreateAnalyzeTaskResponse> CreateAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsUpdateUserMetadataResponse204> UpdateUserMetadataAsync(
+            string assetId,
             string xApiKey,
 
-            global::TwelveLabs.CreateAsyncAnalyzeRequest request,
+            global::TwelveLabs.UpdateUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await CreateAsResponseAsync(
+            var __response = await UpdateUserMetadataAsResponseAsync(
+                assetId: assetId,
                 xApiKey: xApiKey,
 
                 request: request,
@@ -91,39 +80,25 @@ namespace TwelveLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create an async analysis task<br/>
-        /// This method asynchronously analyzes your videos. It supports two analysis modes: general analysis (prompt-based text generation) and video segmentation with custom segment definitions. Video segmentation requires Pegasus 1.5.<br/>
-        /// &lt;Accordion title="Input requirements"&gt;<br/>
-        /// - Minimum duration: 4 seconds<br/>
-        /// - Maximum duration: 2 hours<br/>
-        /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
-        /// - Resolution: 360x360 to 5184x2160 pixels<br/>
-        /// - Aspect ratio: Between 1:1 and 1:2.4, or between 2.4:1 and 1:1.<br/>
-        /// &lt;/Accordion&gt;<br/>
-        /// **When to use this method**:<br/>
-        /// - Generate custom text from your video using a prompt (general analysis)<br/>
-        /// - Extract timestamped metadata with custom segment definitions from your video (Pegasus 1.5 only)<br/>
-        /// - Analyze videos longer than 1 hour<br/>
-        /// - Process videos asynchronously without blocking your application<br/>
-        /// **Do not use this method for**:<br/>
-        /// - Videos for which you need immediate results or real-time streaming. Use the [`POST`](/v1.3/api-reference/analyze-videos/sync-analysis) method of the `/analyze` endpoint instead.<br/>
-        /// Analyzing videos asynchronously requires three steps:<br/>
-        /// 1. Create an analysis task using this method. The platform returns a task ID.<br/>
-        /// 2. Poll the status of the task using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint. Wait until the status is `ready`.<br/>
-        /// 3. Retrieve the results from the response when the status is `ready` using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint.<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
-        /// &lt;/Note&gt;
+        /// Update the user-defined metadata of an asset<br/>
+        /// This method updates the user-defined metadata of the specified asset. The platform merges your changes with the existing metadata:<br/>
+        /// - A key with a value creates or replaces that key.<br/>
+        /// - A key set to `null` deletes that key.<br/>
+        /// - A key set to an empty string (`""`) is ignored.<br/>
+        /// - A key you omit from the request keeps its current value.<br/>
+        /// To replace all metadata in a single call, use the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-asset-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint instead.
         /// </summary>
+        /// <param name="assetId"></param>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.CreateAnalyzeTaskResponse>> CreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsUpdateUserMetadataResponse204>> UpdateUserMetadataAsResponseAsync(
+            string assetId,
             string xApiKey,
 
-            global::TwelveLabs.CreateAsyncAnalyzeRequest request,
+            global::TwelveLabs.UpdateUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -131,16 +106,17 @@ namespace TwelveLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateArguments(
+            PrepareUpdateUserMetadataArguments(
                 httpClient: HttpClient,
+                assetId: ref assetId,
                 xApiKey: ref xApiKey,
                 request: request);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_CreateSecurityRequirements,
-                operationName: "CreateAsync");
+                securityRequirements: s_UpdateUserMetadataSecurityRequirements,
+                operationName: "UpdateUserMetadataAsync");
 
             using var __timeoutCancellationTokenSource = global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -160,7 +136,7 @@ namespace TwelveLabs
             {
 
                             var __pathBuilder = new global::TwelveLabs.PathBuilder(
-                                path: "/analyze/tasks",
+                                path: $"/assets/{assetId}/user-metadata",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::TwelveLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -168,7 +144,7 @@ namespace TwelveLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: new global::System.Net.Http.HttpMethod("PATCH"),
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -208,9 +184,10 @@ namespace TwelveLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreateRequest(
+                PrepareUpdateUserMetadataRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    assetId: assetId!,
                     xApiKey: xApiKey!,
                     request: request);
 
@@ -229,10 +206,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/analyze/tasks\"",
-                                httpMethod: "POST",
+                                operationId: "UpdateUserMetadata",
+                                methodName: "UpdateUserMetadataAsync",
+                                pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -263,10 +240,10 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/analyze/tasks\"",
-                                httpMethod: "POST",
+                                operationId: "UpdateUserMetadata",
+                                methodName: "UpdateUserMetadataAsync",
+                                pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -304,10 +281,10 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/analyze/tasks\"",
-                                httpMethod: "POST",
+                                operationId: "UpdateUserMetadata",
+                                methodName: "UpdateUserMetadataAsync",
+                                pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -344,7 +321,7 @@ namespace TwelveLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreateResponse(
+                ProcessUpdateUserMetadataResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -352,10 +329,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/analyze/tasks\"",
-                                httpMethod: "POST",
+                                operationId: "UpdateUserMetadata",
+                                methodName: "UpdateUserMetadataAsync",
+                                pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -374,10 +351,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/analyze/tasks\"",
-                                httpMethod: "POST",
+                                operationId: "UpdateUserMetadata",
+                                methodName: "UpdateUserMetadataAsync",
+                                pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -391,24 +368,24 @@ namespace TwelveLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Validation failure or inaccessible video
+                            // The request has failed.
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
                                 global::System.Exception? __exception_400 = null;
-                                global::TwelveLabs.ErrorResponse? __value_400 = null;
+                                global::TwelveLabs.UpdateAssetUserMetadataRequestBadRequestError? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = global::TwelveLabs.ErrorResponse.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.UpdateAssetUserMetadataRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = global::TwelveLabs.ErrorResponse.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.UpdateAssetUserMetadataRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -417,7 +394,7 @@ namespace TwelveLabs
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ErrorResponse>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.UpdateAssetUserMetadataRequestBadRequestError>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
@@ -428,38 +405,38 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Internal server error
-                            if ((int)__response.StatusCode == 500)
+                            // The specified resource does not exist.
+                            if ((int)__response.StatusCode == 404)
                             {
-                                string? __content_500 = null;
-                                global::System.Exception? __exception_500 = null;
-                                global::TwelveLabs.ErrorResponse? __value_500 = null;
+                                string? __content_404 = null;
+                                global::System.Exception? __exception_404 = null;
+                                global::TwelveLabs.UpdateAssetUserMetadataRequestNotFoundError? __value_404 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
-                                        __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_500 = global::TwelveLabs.ErrorResponse.FromJson(__content_500, JsonSerializerContext);
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_404 = global::TwelveLabs.UpdateAssetUserMetadataRequestNotFoundError.FromJson(__content_404, JsonSerializerContext);
                                     }
                                     else
                                     {
-                                        __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_500 = global::TwelveLabs.ErrorResponse.FromJson(__content_500, JsonSerializerContext);
+                                        __value_404 = global::TwelveLabs.UpdateAssetUserMetadataRequestNotFoundError.FromJson(__content_404, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    __exception_500 = __ex;
+                                    __exception_404 = __ex;
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ErrorResponse>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.UpdateAssetUserMetadataRequestNotFoundError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_500,
-                                    responseBody: __content_500,
-                                    responseObject: __value_500,
+                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_404,
+                                    responseBody: __content_404,
+                                    responseObject: __value_404,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
@@ -478,7 +455,7 @@ namespace TwelveLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreateResponseContent(
+                                ProcessUpdateUserMetadataResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -487,9 +464,9 @@ namespace TwelveLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::TwelveLabs.CreateAnalyzeTaskResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::TwelveLabs.AssetsUpdateUserMetadataResponse204.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.CreateAnalyzeTaskResponse>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsUpdateUserMetadataResponse204>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -519,9 +496,9 @@ namespace TwelveLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::TwelveLabs.CreateAnalyzeTaskResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::TwelveLabs.AssetsUpdateUserMetadataResponse204.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.CreateAnalyzeTaskResponse>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsUpdateUserMetadataResponse204>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -562,152 +539,48 @@ namespace TwelveLabs
             }
         }
         /// <summary>
-        /// Create an async analysis task<br/>
-        /// This method asynchronously analyzes your videos. It supports two analysis modes: general analysis (prompt-based text generation) and video segmentation with custom segment definitions. Video segmentation requires Pegasus 1.5.<br/>
-        /// &lt;Accordion title="Input requirements"&gt;<br/>
-        /// - Minimum duration: 4 seconds<br/>
-        /// - Maximum duration: 2 hours<br/>
-        /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
-        /// - Resolution: 360x360 to 5184x2160 pixels<br/>
-        /// - Aspect ratio: Between 1:1 and 1:2.4, or between 2.4:1 and 1:1.<br/>
-        /// &lt;/Accordion&gt;<br/>
-        /// **When to use this method**:<br/>
-        /// - Generate custom text from your video using a prompt (general analysis)<br/>
-        /// - Extract timestamped metadata with custom segment definitions from your video (Pegasus 1.5 only)<br/>
-        /// - Analyze videos longer than 1 hour<br/>
-        /// - Process videos asynchronously without blocking your application<br/>
-        /// **Do not use this method for**:<br/>
-        /// - Videos for which you need immediate results or real-time streaming. Use the [`POST`](/v1.3/api-reference/analyze-videos/sync-analysis) method of the `/analyze` endpoint instead.<br/>
-        /// Analyzing videos asynchronously requires three steps:<br/>
-        /// 1. Create an analysis task using this method. The platform returns a task ID.<br/>
-        /// 2. Poll the status of the task using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint. Wait until the status is `ready`.<br/>
-        /// 3. Retrieve the results from the response when the status is `ready` using the [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint.<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
-        /// &lt;/Note&gt;
+        /// Update the user-defined metadata of an asset<br/>
+        /// This method updates the user-defined metadata of the specified asset. The platform merges your changes with the existing metadata:<br/>
+        /// - A key with a value creates or replaces that key.<br/>
+        /// - A key set to `null` deletes that key.<br/>
+        /// - A key set to an empty string (`""`) is ignored.<br/>
+        /// - A key you omit from the request keeps its current value.<br/>
+        /// To replace all metadata in a single call, use the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-asset-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint instead.
         /// </summary>
+        /// <param name="assetId"></param>
         /// <param name="xApiKey"></param>
-        /// <param name="modelName">
-        /// The video understanding model to use for analysis.<br/>
-        /// - `pegasus1.2`: General analysis (prompt-based text generation).<br/>
-        /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, and video segmentation. See the [Pegasus](/v1.3/docs/concepts/models/pegasus#context-window) page for token limits.<br/>
-        /// **Default:** `pegasus1.2`<br/>
-        /// Default Value: pegasus1.2
-        /// </param>
-        /// <param name="customId">
-        /// An optional identifier that you set when you create the task. Use this field to correlate tasks across responses, for example, to distinguish tasks by type or environment.<br/>
-        /// The platform stores this value unchanged and returns it in the following responses:<br/>
-        /// - The [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint<br/>
-        /// - The [`GET`](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks) method of the `/analyze/tasks` endpoint<br/>
-        /// - The `analyze.task.ready` and `analyze.task.failed` webhook payloads<br/>
-        /// **Format**: 1–64 characters. Alphanumeric, hyphens (`-`), and underscores (`_`) only. An empty string is rejected with a `400 Bad Request`.<br/>
-        /// This field does not enforce uniqueness. You can submit multiple tasks with the same `custom_id`. To prevent duplicate task creation, use an `Idempotency-Key` header instead.
-        /// </param>
-        /// <param name="video">
-        /// An object specifying the source of the video content. Include exactly one source.
-        /// </param>
-        /// <param name="prompt">
-        /// Natural-language instructions for analyzing the video. Required for general analysis (prompt-based text generation). Not supported when `analysis_mode` is `time_based_metadata`. To include reference images in your prompt, use the `prompt_v2` parameter instead (Pegasus 1.5 only). Mutually exclusive with the `prompt_v2` parameter.<br/>
-        /// Your prompts can be instructive or descriptive, or you can phrase them as questions. Pegasus 1.2 limits prompts to 2,000 tokens. For Pegasus 1.5, this text counts toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).<br/>
-        /// **Examples**:<br/>
-        /// - Based on this video, I want to generate five keywords for SEO (Search Engine Optimization).<br/>
-        /// - I want to generate a description for my video with the following format: Title of the video, followed by a summary in 2-3 sentences, highlighting the main topic, key events, and concluding remarks.
-        /// </param>
-        /// <param name="promptV2">
-        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Requires the `model_name` parameter set to `pegasus1.5`. Mutually exclusive with the `prompt` parameter.<br/>
-        /// The prompt text and reference images count toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).
-        /// </param>
-        /// <param name="analysisMode">
-        /// The analysis approach for this task.<br/>
-        /// - `general`: Analyze the video and generate a response based on your prompt. Supports both free-form text and structured output via `response_format`.<br/>
-        /// - `time_based_metadata`: Segment the video into time-based intervals and extract custom metadata for each segment. Requires `model_name` set to `pegasus1.5` and `response_format.type` set to `segment_definitions`.<br/>
-        /// **Default:** `general`<br/>
-        /// Default Value: general
-        /// </param>
-        /// <param name="temperature">
-        /// Controls the randomness of the text output.<br/>
-        /// **Default:** 0.2 **Min:** 0 **Max:** 1
-        /// </param>
-        /// <param name="maxTokens">
-        /// The maximum response length, in tokens. The allowed range depends on the model and analysis mode:<br/>
-        /// | Model | Mode | Min | Max | Default |<br/>
-        /// |-------|------|-----|-----|---------|<br/>
-        /// | Pegasus 1.2 | — | 2 | 4,096 | 4096 |<br/>
-        /// | Pegasus 1.5 | `general` | 512 | 98,304 | 4,096 |<br/>
-        /// | Pegasus 1.5 | `time_based_metadata` | 2,048 | 98,304 | 32,768 |
-        /// </param>
-        /// <param name="responseFormat">
-        /// Controls the response format. When you omit this parameter, you receive unstructured text.<br/>
-        /// - `json_schema`: Return structured JSON that conforms to your schema.<br/>
-        /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.
-        /// </param>
-        /// <param name="minSegmentDuration">
-        /// Minimum duration for each extracted segment, in seconds. Set this value to enforce a minimum segment length. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`. Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
-        /// **Min:** 2
-        /// </param>
-        /// <param name="maxSegmentDuration">
-        /// Maximum duration for each extracted segment, in seconds. Set this value to split long continuous sections into shorter segments. Must be greater than or equal to `min_segment_duration`. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`. Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
-        /// **Min:** 2
-        /// </param>
-        /// <param name="startTime">
-        /// Start of the analysis window, as an absolute timestamp in seconds, based on the video's internal metadata. Use with `end_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - If omitted, defaults to the video's internal start time.<br/>
-        /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
-        /// - Must be less than `end_time` and less than the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
-        /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
-        /// - Together with `end_time`, this parameter determines the billable video duration. If you omit both, billing uses the full video duration. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.<br/>
-        /// &lt;/Note&gt;
-        /// </param>
-        /// <param name="endTime">
-        /// End of the analysis window, as an absolute timestamp in seconds, based on the video's internal metadata. Use with `start_time` to analyze only a portion of the video. Requires `model_name` set to `pegasus1.5`.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - If omitted, defaults to the video's internal start time plus its duration.<br/>
-        /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
-        /// - Must be greater than `start_time` and less than or equal to the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
-        /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
-        /// - Together with `start_time`, this parameter determines the billable video duration. If you omit both, billing uses the full video duration. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.<br/>
+        /// <param name="userMetadata">
+        /// Metadata that helps you categorize your assets. The object contains user-defined keys and values, where keys are strings and values are one of `string`, `integer`, `float`, or `boolean`.<br/>
+        /// **Example**:<br/>
+        /// ```JSON<br/>
+        /// "user_metadata": {<br/>
+        ///   "category": "recentlyAdded",<br/>
+        ///   "batchNumber": 5,<br/>
+        ///   "rating": 9.3,<br/>
+        ///   "needsReview": true<br/>
+        /// }<br/>
+        /// ```<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        /// To store other types of data, such as objects or arrays, convert your data into string values before sending it.<br/>
         /// &lt;/Note&gt;
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.CreateAnalyzeTaskResponse> CreateAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsUpdateUserMetadataResponse204> UpdateUserMetadataAsync(
+            string assetId,
             string xApiKey,
-            global::TwelveLabs.VideoContext video,
-            global::TwelveLabs.CreateAsyncAnalyzeRequestModelName? modelName = default,
-            string? customId = default,
-            string? prompt = default,
-            global::TwelveLabs.AnalyzePromptV2? promptV2 = default,
-            global::TwelveLabs.CreateAsyncAnalyzeRequestAnalysisMode? analysisMode = default,
-            double? temperature = default,
-            int? maxTokens = default,
-            global::TwelveLabs.AsyncResponseFormat? responseFormat = default,
-            double? minSegmentDuration = default,
-            double? maxSegmentDuration = default,
-            double? startTime = default,
-            double? endTime = default,
+            global::TwelveLabs.UserMetadata userMetadata,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.CreateAsyncAnalyzeRequest
+            var __request = new global::TwelveLabs.UpdateUserMetadataRequest
             {
-                ModelName = modelName,
-                CustomId = customId,
-                Video = video,
-                Prompt = prompt,
-                PromptV2 = promptV2,
-                AnalysisMode = analysisMode,
-                Temperature = temperature,
-                MaxTokens = maxTokens,
-                ResponseFormat = responseFormat,
-                MinSegmentDuration = minSegmentDuration,
-                MaxSegmentDuration = maxSegmentDuration,
-                StartTime = startTime,
-                EndTime = endTime,
+                UserMetadata = userMetadata,
             };
 
-            return await CreateAsync(
+            return await UpdateUserMetadataAsync(
+                assetId: assetId,
                 xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
