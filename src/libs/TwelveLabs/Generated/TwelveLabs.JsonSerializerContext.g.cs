@@ -309,6 +309,34 @@ namespace TwelveLabs
 
             typeof(global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsResponseFormatTypeNullableJsonConverter),
 
+            typeof(global::TwelveLabs.JsonConverters.CreateAnalyzeBatchRequestModelNameJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAnalyzeBatchRequestModelNameNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAnalyzeBatchRequestAnalysisModeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAnalyzeBatchRequestAnalysisModeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.BatchVideoContextTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.BatchVideoContextTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.BatchStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.BatchStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeBatchesGetParametersAnalysisModeSchemaItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeBatchesGetParametersAnalysisModeSchemaItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeBatchSummaryAnalysisModeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeBatchSummaryAnalysisModeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.BatchItemStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.BatchItemStatusNullableJsonConverter),
+
             typeof(global::TwelveLabs.JsonConverters.IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.IndexesIndexIdVideosGetParametersUserMetadataSchemaJsonConverter),
@@ -750,6 +778,28 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ListAsyncAnalysisTasksRequestBadRequestError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeAsyncTasksDeleteResponse204))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAnalyzeBatchRequestModelName), TypeInfoPropertyName = "CreateAnalyzeBatchRequestModelName2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAnalyzeBatchRequestAnalysisMode), TypeInfoPropertyName = "CreateAnalyzeBatchRequestAnalysisMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.BatchPrompt))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.BatchDefaults))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.BatchVideoContextType), TypeInfoPropertyName = "BatchVideoContextType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.BatchVideoContext))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.BatchItemRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAnalyzeBatchRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.BatchItemRequest>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.BatchStatus), TypeInfoPropertyName = "BatchStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreatedBatchItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAnalyzeBatchResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.CreatedBatchItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeBatchesGetParametersAnalysisModeSchemaItems), TypeInfoPropertyName = "AnalyzeBatchesGetParametersAnalysisModeSchemaItems2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeBatchSummaryAnalysisMode), TypeInfoPropertyName = "AnalyzeBatchSummaryAnalysisMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeBatchStatusResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeAsyncBatchesListResponse200))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeBatchStatusResponse>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.BatchItemStatus), TypeInfoPropertyName = "BatchItemStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.BatchItemError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.BatchResultItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeAsyncBatchesDeleteResponse204))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.UpdateRequest))]
@@ -781,6 +831,8 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.BatchStatus>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeBatchesGetParametersAnalysisModeSchemaItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.IndexModelsItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.Index>))]
@@ -823,9 +875,385 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2MediaSourcesItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems>))]
+    internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
+    {
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
+        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
+        Converters = new global::System.Type[]
+        {
+            typeof(global::TwelveLabs.JsonConverters.AssetsPostRequestBodyContentMultipartFormDataSchemaMethodJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetsPostRequestBodyContentMultipartFormDataSchemaMethodNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetMethodJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetMethodNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetHlsStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetHlsStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetThumbnailStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetThumbnailStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetsGetParametersAssetTypesSchemaItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetsGetParametersAssetTypesSchemaItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAssetUploadRequestTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAssetUploadRequestTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.MultipartUploadStatusTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.MultipartUploadStatusTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ChunkInfoStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ChunkInfoStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CompletedChunkProofTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CompletedChunkProofTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.TasksGetParametersStatusSchemaItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.TasksGetParametersStatusSchemaItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.HlsObjectStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.HlsObjectStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.IndexedAssetStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.IndexedAssetStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EntityCollectionsGetParametersSortByJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EntityCollectionsGetParametersSortByNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EntityCollectionsEntityCollectionIdEntitiesGetParametersStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EntityCollectionsEntityCollectionIdEntitiesGetParametersStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EntityCollectionsEntityCollectionIdEntitiesGetParametersSortByJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EntityCollectionsEntityCollectionIdEntitiesGetParametersSortByNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EntityStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EntityStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaGroupByJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaGroupByNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaOperatorJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaOperatorNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateEmbeddingsRequestInputTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateEmbeddingsRequestInputTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateEmbeddingsRequestModelNameJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateEmbeddingsRequestModelNameNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AudioSegmentationStrategyJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AudioSegmentationStrategyNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingOptionItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingOptionItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingScopeItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingScopeItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingTypeItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingTypeItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentation0StrategyJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentation0StrategyNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentation1StrategyJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentation1StrategyNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingOptionItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingOptionItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingScopeItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingScopeItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingTypeItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingTypeItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.MultiInputMediaSourceMediaTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.MultiInputMediaSourceMediaTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingDataEmbeddingOptionJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingDataEmbeddingOptionNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingDataEmbeddingScopeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingDataEmbeddingScopeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingImageMetadataInputTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingImageMetadataInputTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingTextImageMetadataInputTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingTextImageMetadataInputTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingAudioMetadataInputTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingAudioMetadataInputTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingAudioMetadataEmbeddingScopesItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingAudioMetadataEmbeddingScopesItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingVideoMetadataInputTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingVideoMetadataInputTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingVideoMetadataEmbeddingScopesItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingVideoMetadataEmbeddingScopesItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingMultiInputMetadataInputTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingMultiInputMetadataInputTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAsyncEmbeddingRequestInputTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAsyncEmbeddingRequestInputTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAsyncEmbeddingRequestModelNameJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAsyncEmbeddingRequestModelNameNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbedV2TasksPostResponsesContentApplicationJsonSchemaStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbedV2TasksPostResponsesContentApplicationJsonSchemaStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingTaskResponseStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingTaskResponseStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbedTasksPostRequestBodyContentMultipartFormDataSchemaVideoEmbeddingScopeItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbedTasksPostRequestBodyContentMultipartFormDataSchemaVideoEmbeddingScopeItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzePostRequestBodyContentApplicationJsonSchemaModelNameJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzePostRequestBodyContentApplicationJsonSchemaModelNameNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoContextOneOf0TypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoContextOneOf0TypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoContextOneOf1TypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoContextOneOf1TypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoContextOneOf2TypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoContextOneOf2TypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SmeMediaSourceMediaTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SmeMediaSourceMediaTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SyncResponseFormatTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SyncResponseFormatTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.StreamStartResponseEventTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.StreamStartResponseEventTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.StreamTextResponseEventTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.StreamTextResponseEventTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.StreamEndResponseEventTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.StreamEndResponseEventTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.FinishReasonJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.FinishReasonNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestModelNameJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestModelNameNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestAnalysisModeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestAnalysisModeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AsyncResponseFormatTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AsyncResponseFormatTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SegmentFieldTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SegmentFieldTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SegmentFieldFormatJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SegmentFieldFormatNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SegmentFieldItemsTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SegmentFieldItemsTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AsyncResponseFormatSegmentTimeFormatJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AsyncResponseFormatSegmentTimeFormatNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeTaskStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeTaskStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeTasksGetParametersAnalysisModeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeTasksGetParametersAnalysisModeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeTaskResponseVideoSourceTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeTaskResponseVideoSourceTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsAnalysisModeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsAnalysisModeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsResponseFormatTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsResponseFormatTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAnalyzeBatchRequestModelNameJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAnalyzeBatchRequestModelNameNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAnalyzeBatchRequestAnalysisModeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.CreateAnalyzeBatchRequestAnalysisModeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.BatchVideoContextTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.BatchVideoContextTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.BatchStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.BatchStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeBatchesGetParametersAnalysisModeSchemaItemsJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeBatchesGetParametersAnalysisModeSchemaItemsNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeBatchSummaryAnalysisModeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeBatchSummaryAnalysisModeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.BatchItemStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.BatchItemStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.IndexesIndexIdVideosGetParametersUserMetadataSchemaJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingMediaMetadataJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.EmbeddingTaskMediaMetadataJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoContextJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.StreamAnalyzeResponseJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AnalyzeResponse200JsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.EmbeddingDataEmbeddingOption?, object>),
+
+            typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.EmbeddingDataEmbeddingScope?, object>),
+
+            typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata, object>),
+
+            typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatJsonSchema, object>),
+
+            typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2, object>),
+
+            typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormat, object>),
+
+            typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseVideoSource, object>),
+
+            typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParams, object>),
+
+            typeof(global::TwelveLabs.JsonConverters.UnixTimestampJsonConverter),
+        })]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskWebhookInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponse>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.BatchItemRequest>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.CreatedBatchItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeBatchStatusResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesBulkPostRequestBodyContentApplicationJsonSchemaEntitiesItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems>))]
@@ -837,7 +1265,233 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.BatchStatus>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeBatchesGetParametersAnalysisModeSchemaItems>))]
+    internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
+    {
+    }
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
+        private static readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver Resolver = global::System.Text.Json.Serialization.Metadata.JsonTypeInfoResolver.Combine(
+            SourceGenerationContextChunk0.Default,
+
+            SourceGenerationContextChunk1.Default
+            );
+
+        private static readonly global::System.Text.Json.JsonSerializerOptions DefaultOptions = CreateDefaultOptions();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static SourceGenerationContext Default { get; } = new(DefaultOptions);
+
+        private SourceGenerationContext(global::System.Text.Json.JsonSerializerOptions options)
+            : base(options)
+        {
+        }
+
+        /// <inheritdoc />
+        protected override global::System.Text.Json.JsonSerializerOptions? GeneratedSerializerOptions => DefaultOptions;
+
+        /// <inheritdoc />
+        public override global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? GetTypeInfo(global::System.Type type)
+        {
+            return Resolver.GetTypeInfo(type, Options);
+        }
+
+        private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
+        {
+            var options = new global::System.Text.Json.JsonSerializerOptions
+            {
+                DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
+                TypeInfoResolver = Resolver,
+            };
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetsPostRequestBodyContentMultipartFormDataSchemaMethodJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetsPostRequestBodyContentMultipartFormDataSchemaMethodNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetMethodJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetMethodNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetHlsStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetHlsStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetThumbnailStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetThumbnailStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetsGetParametersAssetTypesSchemaItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetsGetParametersAssetTypesSchemaItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAssetUploadRequestTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAssetUploadRequestTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.MultipartUploadStatusTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.MultipartUploadStatusTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ChunkInfoStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ChunkInfoStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CompletedChunkProofTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CompletedChunkProofTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.TasksGetParametersStatusSchemaItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.TasksGetParametersStatusSchemaItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.HlsObjectStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.HlsObjectStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.IndexedAssetStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.IndexedAssetStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EntityCollectionsGetParametersSortByJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EntityCollectionsGetParametersSortByNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EntityCollectionsEntityCollectionIdEntitiesGetParametersStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EntityCollectionsEntityCollectionIdEntitiesGetParametersStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EntityCollectionsEntityCollectionIdEntitiesGetParametersSortByJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EntityCollectionsEntityCollectionIdEntitiesGetParametersSortByNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EntityStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EntityStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaGroupByJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaGroupByNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaOperatorJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaOperatorNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateEmbeddingsRequestInputTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateEmbeddingsRequestInputTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateEmbeddingsRequestModelNameJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateEmbeddingsRequestModelNameNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AudioSegmentationStrategyJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AudioSegmentationStrategyNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingOptionItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingOptionItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingScopeItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingScopeItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingTypeItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingTypeItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoSegmentation0StrategyJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoSegmentation0StrategyNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoSegmentation1StrategyJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoSegmentation1StrategyNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingOptionItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingOptionItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingScopeItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingScopeItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingTypeItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingTypeItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.MultiInputMediaSourceMediaTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.MultiInputMediaSourceMediaTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingDataEmbeddingOptionJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingDataEmbeddingOptionNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingDataEmbeddingScopeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingDataEmbeddingScopeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingImageMetadataInputTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingImageMetadataInputTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingTextImageMetadataInputTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingTextImageMetadataInputTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingAudioMetadataInputTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingAudioMetadataInputTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingAudioMetadataEmbeddingScopesItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingAudioMetadataEmbeddingScopesItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingVideoMetadataInputTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingVideoMetadataInputTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingVideoMetadataEmbeddingScopesItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingVideoMetadataEmbeddingScopesItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingMultiInputMetadataInputTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingMultiInputMetadataInputTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAsyncEmbeddingRequestInputTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAsyncEmbeddingRequestInputTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAsyncEmbeddingRequestModelNameJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAsyncEmbeddingRequestModelNameNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbedV2TasksPostResponsesContentApplicationJsonSchemaStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbedV2TasksPostResponsesContentApplicationJsonSchemaStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingTaskResponseStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingTaskResponseStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbedTasksPostRequestBodyContentMultipartFormDataSchemaVideoEmbeddingScopeItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbedTasksPostRequestBodyContentMultipartFormDataSchemaVideoEmbeddingScopeItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzePostRequestBodyContentApplicationJsonSchemaModelNameJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzePostRequestBodyContentApplicationJsonSchemaModelNameNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoContextOneOf0TypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoContextOneOf0TypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoContextOneOf1TypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoContextOneOf1TypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoContextOneOf2TypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoContextOneOf2TypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SmeMediaSourceMediaTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SmeMediaSourceMediaTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SyncResponseFormatTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SyncResponseFormatTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.StreamStartResponseEventTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.StreamStartResponseEventTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.StreamTextResponseEventTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.StreamTextResponseEventTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.StreamEndResponseEventTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.StreamEndResponseEventTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.FinishReasonJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.FinishReasonNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestModelNameJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestModelNameNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestAnalysisModeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestAnalysisModeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AsyncResponseFormatTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AsyncResponseFormatTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SegmentFieldTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SegmentFieldTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SegmentFieldFormatJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SegmentFieldFormatNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SegmentFieldItemsTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SegmentFieldItemsTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AsyncResponseFormatSegmentTimeFormatJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AsyncResponseFormatSegmentTimeFormatNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeTaskStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeTaskStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeTasksGetParametersAnalysisModeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeTasksGetParametersAnalysisModeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseVideoSourceTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseVideoSourceTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsAnalysisModeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsAnalysisModeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsResponseFormatTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsResponseFormatTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAnalyzeBatchRequestModelNameJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAnalyzeBatchRequestModelNameNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAnalyzeBatchRequestAnalysisModeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAnalyzeBatchRequestAnalysisModeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.BatchVideoContextTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.BatchVideoContextTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.BatchStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.BatchStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeBatchesGetParametersAnalysisModeSchemaItemsJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeBatchesGetParametersAnalysisModeSchemaItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeBatchSummaryAnalysisModeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeBatchSummaryAnalysisModeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.BatchItemStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.BatchItemStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.IndexesIndexIdVideosGetParametersUserMetadataSchemaJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoSegmentationJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingMediaMetadataJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingTaskMediaMetadataJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoContextJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.StreamAnalyzeResponseJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeResponse200JsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.EmbeddingDataEmbeddingOption?, object>());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.EmbeddingDataEmbeddingScope?, object>());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata, object>());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatJsonSchema, object>());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2, object>());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormat, object>());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseVideoSource, object>());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParams, object>());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.UnixTimestampJsonConverter());
+
+            return options;
+        }
     }
 }

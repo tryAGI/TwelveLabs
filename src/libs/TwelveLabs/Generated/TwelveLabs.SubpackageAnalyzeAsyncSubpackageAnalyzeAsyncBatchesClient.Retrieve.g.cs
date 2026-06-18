@@ -3,11 +3,11 @@
 
 namespace TwelveLabs
 {
-    public partial class SubpackageTasksClient
+    public partial class SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncBatchesClient
     {
 
 
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_CreateSecurityRequirement0 =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_RetrieveSecurityRequirement0 =
             new global::TwelveLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::TwelveLabs.EndPointAuthorizationRequirement[]
@@ -21,66 +21,48 @@ namespace TwelveLabs
                     },
                 },
             };
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_CreateSecurityRequirements =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_RetrieveSecurityRequirements =
             new global::TwelveLabs.EndPointSecurityRequirement[]
-            {                s_CreateSecurityRequirement0,
+            {                s_RetrieveSecurityRequirement0,
             };
-        partial void PrepareCreateArguments(
+        partial void PrepareRetrieveArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string xApiKey,
-            global::TwelveLabs.CreateRequest3 request);
-        partial void PrepareCreateRequest(
+            ref string batchId,
+            ref string xApiKey);
+        partial void PrepareRetrieveRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string xApiKey,
-            global::TwelveLabs.CreateRequest3 request);
-        partial void ProcessCreateResponse(
+            string batchId,
+            string xApiKey);
+        partial void ProcessRetrieveResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateResponseContent(
+        partial void ProcessRetrieveResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create a video indexing task<br/>
-        /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
-        /// &lt;Warning title="Legacy endpoint"&gt;<br/>
-        /// This endpoint bundles two operations (upload and indexing) together. In the next major API release, this endpoint will be removed in favor of a separated workflow:<br/>
-        /// 1. Upload your video using the [`POST /assets`](/v1.3/api-reference/upload-content/direct-uploads/create) endpoint<br/>
-        /// 2. Index the uploaded video using the [`POST /indexes/{index-id}/indexed-assets`](/v1.3/api-reference/index-content/create) endpoint<br/>
-        /// This separation provides better control, reusability of assets, and improved error handling. New implementations should use the new workflow.<br/>
-        /// &lt;/Warning&gt;<br/>
-        /// Upload options:<br/>
-        /// - **Local file**: Use the `video_file` parameter.<br/>
-        /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
-        /// Your video files must meet requirements based on your workflow:<br/>
-        /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements).<br/>
-        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#video-file-requirements).<br/>
-        /// - If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
-        /// - This method allows you to upload files up to 2 GB in size. To upload larger files, use the [Multipart Upload API](/v1.3/api-reference/upload-content/multipart-uploads)<br/>
-        /// Indexes have limits on video hours and video count. For details, see the [Video hours and video count limits](/v1.3/docs/concepts/indexes#video-hours-and-video-count-limits) section.<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
-        /// &lt;/Note&gt;
+        /// Retrieve batch status<br/>
+        /// Use this method to monitor a batch. The response includes the current batch status and counts for queued, processing, ready, failed, and canceled items.<br/>
+        /// Poll this method until the batch reaches the `completed`, `canceled`, or `expired` status. To retrieve the results, call the [`GET`](/v1.3/api-reference/analyze-videos/batch-analysis/retrieve-batch-results) method of the `/analyze/batches/{batch_id}/results` endpoint.<br/>
+        /// Do not treat the `completed` status as a success signal. It means processing has finished for every item, not that every analysis succeeded. To see how many items succeeded, failed, or were canceled, check the `ready_items`, `failed_items`, and `canceled_items` fields. A batch never has the `failed` status.
         /// </summary>
+        /// <param name="batchId"></param>
         /// <param name="xApiKey"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.TasksCreateResponse200> CreateAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AnalyzeBatchStatusResponse> RetrieveAsync(
+            string batchId,
             string xApiKey,
-
-            global::TwelveLabs.CreateRequest3 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await CreateAsResponseAsync(
+            var __response = await RetrieveAsResponseAsync(
+                batchId: batchId,
                 xApiKey: xApiKey,
-
-                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -88,53 +70,34 @@ namespace TwelveLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create a video indexing task<br/>
-        /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
-        /// &lt;Warning title="Legacy endpoint"&gt;<br/>
-        /// This endpoint bundles two operations (upload and indexing) together. In the next major API release, this endpoint will be removed in favor of a separated workflow:<br/>
-        /// 1. Upload your video using the [`POST /assets`](/v1.3/api-reference/upload-content/direct-uploads/create) endpoint<br/>
-        /// 2. Index the uploaded video using the [`POST /indexes/{index-id}/indexed-assets`](/v1.3/api-reference/index-content/create) endpoint<br/>
-        /// This separation provides better control, reusability of assets, and improved error handling. New implementations should use the new workflow.<br/>
-        /// &lt;/Warning&gt;<br/>
-        /// Upload options:<br/>
-        /// - **Local file**: Use the `video_file` parameter.<br/>
-        /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
-        /// Your video files must meet requirements based on your workflow:<br/>
-        /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements).<br/>
-        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#video-file-requirements).<br/>
-        /// - If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
-        /// - This method allows you to upload files up to 2 GB in size. To upload larger files, use the [Multipart Upload API](/v1.3/api-reference/upload-content/multipart-uploads)<br/>
-        /// Indexes have limits on video hours and video count. For details, see the [Video hours and video count limits](/v1.3/docs/concepts/indexes#video-hours-and-video-count-limits) section.<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
-        /// &lt;/Note&gt;
+        /// Retrieve batch status<br/>
+        /// Use this method to monitor a batch. The response includes the current batch status and counts for queued, processing, ready, failed, and canceled items.<br/>
+        /// Poll this method until the batch reaches the `completed`, `canceled`, or `expired` status. To retrieve the results, call the [`GET`](/v1.3/api-reference/analyze-videos/batch-analysis/retrieve-batch-results) method of the `/analyze/batches/{batch_id}/results` endpoint.<br/>
+        /// Do not treat the `completed` status as a success signal. It means processing has finished for every item, not that every analysis succeeded. To see how many items succeeded, failed, or were canceled, check the `ready_items`, `failed_items`, and `canceled_items` fields. A batch never has the `failed` status.
         /// </summary>
+        /// <param name="batchId"></param>
         /// <param name="xApiKey"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksCreateResponse200>> CreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AnalyzeBatchStatusResponse>> RetrieveAsResponseAsync(
+            string batchId,
             string xApiKey,
-
-            global::TwelveLabs.CreateRequest3 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateArguments(
+            PrepareRetrieveArguments(
                 httpClient: HttpClient,
-                xApiKey: ref xApiKey,
-                request: request);
+                batchId: ref batchId,
+                xApiKey: ref xApiKey);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_CreateSecurityRequirements,
-                operationName: "CreateAsync");
+                securityRequirements: s_RetrieveSecurityRequirements,
+                operationName: "RetrieveAsync");
 
             using var __timeoutCancellationTokenSource = global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -148,13 +111,13 @@ namespace TwelveLabs
             var __maxAttempts = global::TwelveLabs.AutoSDKRequestOptionsSupport.GetMaxAttempts(
                 clientOptions: Options,
                 requestOptions: requestOptions,
-                supportsRetry: false);
+                supportsRetry: true);
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
 
                             var __pathBuilder = new global::TwelveLabs.PathBuilder(
-                                path: "/tasks",
+                                path: $"/analyze/batches/{batchId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::TwelveLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -162,7 +125,7 @@ namespace TwelveLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -188,85 +151,6 @@ namespace TwelveLabs
 
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
 
-
-                            var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(xApiKey ?? string.Empty),
-                                name: "\"x-api-key\"");
-
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(request.IndexId ?? string.Empty),
-                                name: "\"index_id\"");
-
-                            if (request.VideoFile != default)
-                            {
-
-                                var __contentVideoFile = new global::System.Net.Http.ByteArrayContent(request.VideoFile ?? global::System.Array.Empty<byte>());
-                                __contentVideoFile.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
-                                    request.VideoFilename is null
-                                        ? "application/octet-stream"
-                                        : (global::System.IO.Path.GetExtension(request.VideoFilename) ?? string.Empty).ToLowerInvariant() switch
-                                        {
-                                            ".aac" => "audio/aac",
-                                            ".flac" => "audio/flac",
-                                            ".gif" => "image/gif",
-                                            ".jpeg" => "image/jpeg",
-                                            ".jpg" => "image/jpeg",
-                                            ".json" => "application/json",
-                                            ".m4a" => "audio/mp4",
-                                            ".mp3" => "audio/mpeg",
-                                            ".mp4" => "video/mp4",
-                                            ".mpeg" => "audio/mpeg",
-                                            ".mpga" => "audio/mpeg",
-                                            ".oga" => "audio/ogg",
-                                            ".ogg" => "audio/ogg",
-                                            ".opus" => "audio/ogg",
-                                            ".pdf" => "application/pdf",
-                                            ".png" => "image/png",
-                                            ".txt" => "text/plain",
-                                            ".wav" => "audio/wav",
-                                            ".weba" => "audio/webm",
-                                            ".webm" => "video/webm",
-                                            ".webp" => "image/webp",
-                                            _ => "application/octet-stream",
-                                        });
-                                __httpRequestContent.Add(
-                                    content: __contentVideoFile,
-                                    name: "\"video_file\"",
-                                    fileName: request.VideoFilename != null ? $"\"{request.VideoFilename}\"" : string.Empty);
-                                if (__contentVideoFile.Headers.ContentDisposition != null)
-                                {
-                                    __contentVideoFile.Headers.ContentDisposition.FileNameStar = null;
-                                }
-
-                            }
-                            if (request.VideoUrl != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.VideoUrl ?? string.Empty),
-                                    name: "\"video_url\"");
-
-                            }
-                            if (request.EnableVideoStream != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.EnableVideoStream, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
-                                    name: "\"enable_video_stream\"");
-
-                            }
-                            if (request.UserMetadata != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.UserMetadata ?? string.Empty),
-                                    name: "\"user_metadata\"");
-
-                            }
-
-                            __httpRequest.Content = __httpRequestContent;
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -275,11 +159,11 @@ namespace TwelveLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreateRequest(
+                PrepareRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    xApiKey: xApiKey!,
-                    request: request);
+                    batchId: batchId!,
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }
@@ -296,10 +180,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/tasks\"",
-                                httpMethod: "POST",
+                                operationId: "Retrieve",
+                                methodName: "RetrieveAsync",
+                                pathTemplate: "$\"/analyze/batches/{batchId}\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -330,10 +214,10 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/tasks\"",
-                                httpMethod: "POST",
+                                operationId: "Retrieve",
+                                methodName: "RetrieveAsync",
+                                pathTemplate: "$\"/analyze/batches/{batchId}\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -371,10 +255,10 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/tasks\"",
-                                httpMethod: "POST",
+                                operationId: "Retrieve",
+                                methodName: "RetrieveAsync",
+                                pathTemplate: "$\"/analyze/batches/{batchId}\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -411,7 +295,7 @@ namespace TwelveLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreateResponse(
+                ProcessRetrieveResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -419,10 +303,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/tasks\"",
-                                httpMethod: "POST",
+                                operationId: "Retrieve",
+                                methodName: "RetrieveAsync",
+                                pathTemplate: "$\"/analyze/batches/{batchId}\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -441,10 +325,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/tasks\"",
-                                httpMethod: "POST",
+                                operationId: "Retrieve",
+                                methodName: "RetrieveAsync",
+                                pathTemplate: "$\"/analyze/batches/{batchId}\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -458,38 +342,38 @@ namespace TwelveLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // The request has failed.
-                            if ((int)__response.StatusCode == 400)
+                            // Batch not found.
+                            if ((int)__response.StatusCode == 404)
                             {
-                                string? __content_400 = null;
-                                global::System.Exception? __exception_400 = null;
-                                global::TwelveLabs.CreateVideoIndexingTaskRequestBadRequestError? __value_400 = null;
+                                string? __content_404 = null;
+                                global::System.Exception? __exception_404 = null;
+                                global::TwelveLabs.ErrorResponse? __value_404 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = global::TwelveLabs.CreateVideoIndexingTaskRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_404 = global::TwelveLabs.ErrorResponse.FromJson(__content_404, JsonSerializerContext);
                                     }
                                     else
                                     {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = global::TwelveLabs.CreateVideoIndexingTaskRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_404 = global::TwelveLabs.ErrorResponse.FromJson(__content_404, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
                                 {
-                                    __exception_400 = __ex;
+                                    __exception_404 = __ex;
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.CreateVideoIndexingTaskRequestBadRequestError>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ErrorResponse>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_400,
-                                    responseBody: __content_400,
-                                    responseObject: __value_400,
+                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_404,
+                                    responseBody: __content_404,
+                                    responseObject: __value_404,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
@@ -508,7 +392,7 @@ namespace TwelveLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreateResponseContent(
+                                ProcessRetrieveResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -517,9 +401,9 @@ namespace TwelveLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::TwelveLabs.TasksCreateResponse200.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::TwelveLabs.AnalyzeBatchStatusResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksCreateResponse200>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AnalyzeBatchStatusResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -549,9 +433,9 @@ namespace TwelveLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::TwelveLabs.TasksCreateResponse200.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::TwelveLabs.AnalyzeBatchStatusResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksCreateResponse200>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AnalyzeBatchStatusResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -590,78 +474,6 @@ namespace TwelveLabs
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// Create a video indexing task<br/>
-        /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
-        /// &lt;Warning title="Legacy endpoint"&gt;<br/>
-        /// This endpoint bundles two operations (upload and indexing) together. In the next major API release, this endpoint will be removed in favor of a separated workflow:<br/>
-        /// 1. Upload your video using the [`POST /assets`](/v1.3/api-reference/upload-content/direct-uploads/create) endpoint<br/>
-        /// 2. Index the uploaded video using the [`POST /indexes/{index-id}/indexed-assets`](/v1.3/api-reference/index-content/create) endpoint<br/>
-        /// This separation provides better control, reusability of assets, and improved error handling. New implementations should use the new workflow.<br/>
-        /// &lt;/Warning&gt;<br/>
-        /// Upload options:<br/>
-        /// - **Local file**: Use the `video_file` parameter.<br/>
-        /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
-        /// Your video files must meet requirements based on your workflow:<br/>
-        /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements).<br/>
-        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#video-file-requirements).<br/>
-        /// - If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
-        /// - This method allows you to upload files up to 2 GB in size. To upload larger files, use the [Multipart Upload API](/v1.3/api-reference/upload-content/multipart-uploads)<br/>
-        /// Indexes have limits on video hours and video count. For details, see the [Video hours and video count limits](/v1.3/docs/concepts/indexes#video-hours-and-video-count-limits) section.<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
-        /// &lt;/Note&gt;
-        /// </summary>
-        /// <param name="xApiKey"></param>
-        /// <param name="indexId">
-        /// The unique identifier of the index to which the video is being uploaded.
-        /// </param>
-        /// <param name="videoFile">
-        /// Specify this parameter to upload a video from your local file system.
-        /// </param>
-        /// <param name="videoFilename">
-        /// Specify this parameter to upload a video from your local file system.
-        /// </param>
-        /// <param name="videoUrl">
-        /// Specify this parameter to upload a video from a publicly accessible URL.
-        /// </param>
-        /// <param name="enableVideoStream">
-        /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index-id}/videos/{video-id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>
-        /// Default Value: true
-        /// </param>
-        /// <param name="userMetadata">
-        /// Metadata that helps you categorize your videos. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`. Send this value as a JSON-encoded string.
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.TasksCreateResponse200> CreateAsync(
-            string xApiKey,
-            string indexId,
-            byte[]? videoFile = default,
-            string? videoFilename = default,
-            string? videoUrl = default,
-            bool? enableVideoStream = default,
-            string? userMetadata = default,
-            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::TwelveLabs.CreateRequest3
-            {
-                IndexId = indexId,
-                VideoFile = videoFile,
-                VideoFilename = videoFilename,
-                VideoUrl = videoUrl,
-                EnableVideoStream = enableVideoStream,
-                UserMetadata = userMetadata,
-            };
-
-            return await CreateAsync(
-                xApiKey: xApiKey,
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
