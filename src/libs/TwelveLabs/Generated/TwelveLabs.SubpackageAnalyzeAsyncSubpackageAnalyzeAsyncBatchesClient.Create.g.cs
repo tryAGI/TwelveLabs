@@ -3,7 +3,7 @@
 
 namespace TwelveLabs
 {
-    public partial class SubpackageTasksClient
+    public partial class SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncBatchesClient
     {
 
 
@@ -28,12 +28,12 @@ namespace TwelveLabs
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string xApiKey,
-            global::TwelveLabs.CreateRequest3 request);
+            global::TwelveLabs.CreateAnalyzeBatchRequest request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string xApiKey,
-            global::TwelveLabs.CreateRequest3 request);
+            global::TwelveLabs.CreateAnalyzeBatchRequest request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,36 +44,34 @@ namespace TwelveLabs
             ref string content);
 
         /// <summary>
-        /// Create a video indexing task<br/>
-        /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
-        /// &lt;Warning title="Legacy endpoint"&gt;<br/>
-        /// This endpoint bundles two operations (upload and indexing) together. In the next major API release, this endpoint will be removed in favor of a separated workflow:<br/>
-        /// 1. Upload your video using the [`POST /assets`](/v1.3/api-reference/upload-content/direct-uploads/create) endpoint<br/>
-        /// 2. Index the uploaded video using the [`POST /indexes/{index-id}/indexed-assets`](/v1.3/api-reference/index-content/create) endpoint<br/>
-        /// This separation provides better control, reusability of assets, and improved error handling. New implementations should use the new workflow.<br/>
-        /// &lt;/Warning&gt;<br/>
-        /// Upload options:<br/>
-        /// - **Local file**: Use the `video_file` parameter.<br/>
-        /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
-        /// Your video files must meet requirements based on your workflow:<br/>
-        /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements).<br/>
-        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#video-file-requirements).<br/>
-        /// - If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
-        /// - This method allows you to upload files up to 2 GB in size. To upload larger files, use the [Multipart Upload API](/v1.3/api-reference/upload-content/multipart-uploads)<br/>
-        /// Indexes have limits on video hours and video count. For details, see the [Video hours and video count limits](/v1.3/docs/concepts/indexes#video-hours-and-video-count-limits) section.<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
-        /// &lt;/Note&gt;
+        /// Create a batch<br/>
+        /// Use this method to submit many video analysis requests in a single call. Each request creates an analysis task. The response contains one batch identifier and one task identifier per request. Use the batch identifier to check progress and retrieve results.<br/>
+        /// &lt;Note title="Model requirement"&gt;<br/>
+        /// You must use Pegasus 1.5 for batch analysis. Set the `model_name` parameter to `pegasus1.5`.<br/>
+        /// &lt;/Note&gt;<br/>
+        /// **When to use this method**:<br/>
+        /// - Run the same model and analysis settings across many videos.<br/>
+        /// - Track a single batch instead of many individual analysis tasks.<br/>
+        /// **Do not use this method for**:<br/>
+        /// - Single videos that require immediate results. Use the [`POST`](/v1.3/api-reference/analyze-videos/sync-analysis) method of the `/analyze` endpoint instead.<br/>
+        /// - Background processing of a single video. Use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
+        /// **Retention and retry**:<br/>
+        /// - Batches expire 24 hours after creation. You can retrieve results for 30 days after creation.<br/>
+        /// - If processing does not finish for some items in time, resubmit them in a new batch.<br/>
+        /// **Limits**:<br/>
+        /// - Up to 1,000 requests per batch.<br/>
+        /// - Up to 2,000 total content hours per batch.<br/>
+        /// - Up to 5 active batches per account.
         /// </summary>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.TasksCreateResponse200> CreateAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.CreateAnalyzeBatchResponse> CreateAsync(
             string xApiKey,
 
-            global::TwelveLabs.CreateRequest3 request,
+            global::TwelveLabs.CreateAnalyzeBatchRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -88,36 +86,34 @@ namespace TwelveLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create a video indexing task<br/>
-        /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
-        /// &lt;Warning title="Legacy endpoint"&gt;<br/>
-        /// This endpoint bundles two operations (upload and indexing) together. In the next major API release, this endpoint will be removed in favor of a separated workflow:<br/>
-        /// 1. Upload your video using the [`POST /assets`](/v1.3/api-reference/upload-content/direct-uploads/create) endpoint<br/>
-        /// 2. Index the uploaded video using the [`POST /indexes/{index-id}/indexed-assets`](/v1.3/api-reference/index-content/create) endpoint<br/>
-        /// This separation provides better control, reusability of assets, and improved error handling. New implementations should use the new workflow.<br/>
-        /// &lt;/Warning&gt;<br/>
-        /// Upload options:<br/>
-        /// - **Local file**: Use the `video_file` parameter.<br/>
-        /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
-        /// Your video files must meet requirements based on your workflow:<br/>
-        /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements).<br/>
-        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#video-file-requirements).<br/>
-        /// - If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
-        /// - This method allows you to upload files up to 2 GB in size. To upload larger files, use the [Multipart Upload API](/v1.3/api-reference/upload-content/multipart-uploads)<br/>
-        /// Indexes have limits on video hours and video count. For details, see the [Video hours and video count limits](/v1.3/docs/concepts/indexes#video-hours-and-video-count-limits) section.<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
-        /// &lt;/Note&gt;
+        /// Create a batch<br/>
+        /// Use this method to submit many video analysis requests in a single call. Each request creates an analysis task. The response contains one batch identifier and one task identifier per request. Use the batch identifier to check progress and retrieve results.<br/>
+        /// &lt;Note title="Model requirement"&gt;<br/>
+        /// You must use Pegasus 1.5 for batch analysis. Set the `model_name` parameter to `pegasus1.5`.<br/>
+        /// &lt;/Note&gt;<br/>
+        /// **When to use this method**:<br/>
+        /// - Run the same model and analysis settings across many videos.<br/>
+        /// - Track a single batch instead of many individual analysis tasks.<br/>
+        /// **Do not use this method for**:<br/>
+        /// - Single videos that require immediate results. Use the [`POST`](/v1.3/api-reference/analyze-videos/sync-analysis) method of the `/analyze` endpoint instead.<br/>
+        /// - Background processing of a single video. Use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
+        /// **Retention and retry**:<br/>
+        /// - Batches expire 24 hours after creation. You can retrieve results for 30 days after creation.<br/>
+        /// - If processing does not finish for some items in time, resubmit them in a new batch.<br/>
+        /// **Limits**:<br/>
+        /// - Up to 1,000 requests per batch.<br/>
+        /// - Up to 2,000 total content hours per batch.<br/>
+        /// - Up to 5 active batches per account.
         /// </summary>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksCreateResponse200>> CreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.CreateAnalyzeBatchResponse>> CreateAsResponseAsync(
             string xApiKey,
 
-            global::TwelveLabs.CreateRequest3 request,
+            global::TwelveLabs.CreateAnalyzeBatchRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -148,13 +144,13 @@ namespace TwelveLabs
             var __maxAttempts = global::TwelveLabs.AutoSDKRequestOptionsSupport.GetMaxAttempts(
                 clientOptions: Options,
                 requestOptions: requestOptions,
-                supportsRetry: false);
+                supportsRetry: true);
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
 
                             var __pathBuilder = new global::TwelveLabs.PathBuilder(
-                                path: "/tasks",
+                                path: "/analyze/batches",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::TwelveLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -188,85 +184,12 @@ namespace TwelveLabs
 
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
 
-
-                            var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(xApiKey ?? string.Empty),
-                                name: "\"x-api-key\"");
-
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(request.IndexId ?? string.Empty),
-                                name: "\"index_id\"");
-
-                            if (request.VideoFile != default)
-                            {
-
-                                var __contentVideoFile = new global::System.Net.Http.ByteArrayContent(request.VideoFile ?? global::System.Array.Empty<byte>());
-                                __contentVideoFile.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
-                                    request.VideoFilename is null
-                                        ? "application/octet-stream"
-                                        : (global::System.IO.Path.GetExtension(request.VideoFilename) ?? string.Empty).ToLowerInvariant() switch
-                                        {
-                                            ".aac" => "audio/aac",
-                                            ".flac" => "audio/flac",
-                                            ".gif" => "image/gif",
-                                            ".jpeg" => "image/jpeg",
-                                            ".jpg" => "image/jpeg",
-                                            ".json" => "application/json",
-                                            ".m4a" => "audio/mp4",
-                                            ".mp3" => "audio/mpeg",
-                                            ".mp4" => "video/mp4",
-                                            ".mpeg" => "audio/mpeg",
-                                            ".mpga" => "audio/mpeg",
-                                            ".oga" => "audio/ogg",
-                                            ".ogg" => "audio/ogg",
-                                            ".opus" => "audio/ogg",
-                                            ".pdf" => "application/pdf",
-                                            ".png" => "image/png",
-                                            ".txt" => "text/plain",
-                                            ".wav" => "audio/wav",
-                                            ".weba" => "audio/webm",
-                                            ".webm" => "video/webm",
-                                            ".webp" => "image/webp",
-                                            _ => "application/octet-stream",
-                                        });
-                                __httpRequestContent.Add(
-                                    content: __contentVideoFile,
-                                    name: "\"video_file\"",
-                                    fileName: request.VideoFilename != null ? $"\"{request.VideoFilename}\"" : string.Empty);
-                                if (__contentVideoFile.Headers.ContentDisposition != null)
-                                {
-                                    __contentVideoFile.Headers.ContentDisposition.FileNameStar = null;
-                                }
-
-                            }
-                            if (request.VideoUrl != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.VideoUrl ?? string.Empty),
-                                    name: "\"video_url\"");
-
-                            }
-                            if (request.EnableVideoStream != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.EnableVideoStream, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
-                                    name: "\"enable_video_stream\"");
-
-                            }
-                            if (request.UserMetadata != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(request.UserMetadata ?? string.Empty),
-                                    name: "\"user_metadata\"");
-
-                            }
-
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
                             __httpRequest.Content = __httpRequestContent;
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -298,7 +221,7 @@ namespace TwelveLabs
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "\"/tasks\"",
+                                pathTemplate: "\"/analyze/batches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -332,7 +255,7 @@ namespace TwelveLabs
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "\"/tasks\"",
+                                pathTemplate: "\"/analyze/batches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -373,7 +296,7 @@ namespace TwelveLabs
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "\"/tasks\"",
+                                pathTemplate: "\"/analyze/batches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -421,7 +344,7 @@ namespace TwelveLabs
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "\"/tasks\"",
+                                pathTemplate: "\"/analyze/batches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -443,7 +366,7 @@ namespace TwelveLabs
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create",
                                 methodName: "CreateAsync",
-                                pathTemplate: "\"/tasks\"",
+                                pathTemplate: "\"/analyze/batches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -458,24 +381,24 @@ namespace TwelveLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // The request has failed.
+                            // Validation failure. The batch was not created. Possible causes include: - Malformed request bodies, or duplicate values in the `custom_id` field within the batch. - Missing required fields for the chosen analysis mode. - A missing video reference: the `requests.video` field is not provided, or its `type` is not `asset_id`. - A malformed value in the `requests.video.asset_id` field. 
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
                                 global::System.Exception? __exception_400 = null;
-                                global::TwelveLabs.CreateVideoIndexingTaskRequestBadRequestError? __value_400 = null;
+                                global::TwelveLabs.ErrorResponse? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = global::TwelveLabs.CreateVideoIndexingTaskRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.ErrorResponse.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = global::TwelveLabs.CreateVideoIndexingTaskRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.ErrorResponse.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -484,12 +407,197 @@ namespace TwelveLabs
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.CreateVideoIndexingTaskRequestBadRequestError>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ErrorResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
                                     responseBody: __content_400,
                                     responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // A referenced asset does not exist, or you cannot access it. The batch was not created. Verify the `requests.video.asset_id` value and that the asset belongs to your account. 
+                            if ((int)__response.StatusCode == 404)
+                            {
+                                string? __content_404 = null;
+                                global::System.Exception? __exception_404 = null;
+                                global::TwelveLabs.ErrorResponse? __value_404 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_404 = global::TwelveLabs.ErrorResponse.FromJson(__content_404, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_404 = global::TwelveLabs.ErrorResponse.FromJson(__content_404, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_404 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_404,
+                                    responseBody: __content_404,
+                                    responseObject: __value_404,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // A referenced asset exists but is not yet in the `ready` state. The batch was not created. Wait for the asset to reach the `ready` state, then resubmit the batch. 
+                            if ((int)__response.StatusCode == 409)
+                            {
+                                string? __content_409 = null;
+                                global::System.Exception? __exception_409 = null;
+                                global::TwelveLabs.ErrorResponse? __value_409 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_409 = global::TwelveLabs.ErrorResponse.FromJson(__content_409, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_409 = global::TwelveLabs.ErrorResponse.FromJson(__content_409, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_409 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_409 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_409,
+                                    responseBody: __content_409,
+                                    responseObject: __value_409,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // You already have 5 active batches, or you exceeded the request rate limit.
+                            if ((int)__response.StatusCode == 429)
+                            {
+                                string? __content_429 = null;
+                                global::System.Exception? __exception_429 = null;
+                                global::TwelveLabs.ErrorResponse? __value_429 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_429 = global::TwelveLabs.ErrorResponse.FromJson(__content_429, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_429 = global::TwelveLabs.ErrorResponse.FromJson(__content_429, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_429 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_429 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_429,
+                                    responseBody: __content_429,
+                                    responseObject: __value_429,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // A cross-resource validation check against a downstream service (for example, asset metadata) failed temporarily. The batch was not created. Retry the request. 
+                            if ((int)__response.StatusCode == 503)
+                            {
+                                string? __content_503 = null;
+                                global::System.Exception? __exception_503 = null;
+                                global::TwelveLabs.ErrorResponse? __value_503 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_503 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_503 = global::TwelveLabs.ErrorResponse.FromJson(__content_503, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_503 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_503 = global::TwelveLabs.ErrorResponse.FromJson(__content_503, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_503 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_503 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_503,
+                                    responseBody: __content_503,
+                                    responseObject: __value_503,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // The server did not finish creating the batch before its processing deadline. The batch was not created. Split the requests across smaller batches and retry. 
+                            if ((int)__response.StatusCode == 504)
+                            {
+                                string? __content_504 = null;
+                                global::System.Exception? __exception_504 = null;
+                                global::TwelveLabs.ErrorResponse? __value_504 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_504 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_504 = global::TwelveLabs.ErrorResponse.FromJson(__content_504, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_504 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_504 = global::TwelveLabs.ErrorResponse.FromJson(__content_504, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_504 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_504 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_504,
+                                    responseBody: __content_504,
+                                    responseObject: __value_504,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
@@ -517,9 +625,9 @@ namespace TwelveLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::TwelveLabs.TasksCreateResponse200.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::TwelveLabs.CreateAnalyzeBatchResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksCreateResponse200>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.CreateAnalyzeBatchResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -549,9 +657,9 @@ namespace TwelveLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::TwelveLabs.TasksCreateResponse200.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::TwelveLabs.CreateAnalyzeBatchResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksCreateResponse200>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.CreateAnalyzeBatchResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -592,69 +700,59 @@ namespace TwelveLabs
             }
         }
         /// <summary>
-        /// Create a video indexing task<br/>
-        /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
-        /// &lt;Warning title="Legacy endpoint"&gt;<br/>
-        /// This endpoint bundles two operations (upload and indexing) together. In the next major API release, this endpoint will be removed in favor of a separated workflow:<br/>
-        /// 1. Upload your video using the [`POST /assets`](/v1.3/api-reference/upload-content/direct-uploads/create) endpoint<br/>
-        /// 2. Index the uploaded video using the [`POST /indexes/{index-id}/indexed-assets`](/v1.3/api-reference/index-content/create) endpoint<br/>
-        /// This separation provides better control, reusability of assets, and improved error handling. New implementations should use the new workflow.<br/>
-        /// &lt;/Warning&gt;<br/>
-        /// Upload options:<br/>
-        /// - **Local file**: Use the `video_file` parameter.<br/>
-        /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
-        /// Your video files must meet requirements based on your workflow:<br/>
-        /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements).<br/>
-        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#video-file-requirements).<br/>
-        /// - If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
-        /// - This method allows you to upload files up to 2 GB in size. To upload larger files, use the [Multipart Upload API](/v1.3/api-reference/upload-content/multipart-uploads)<br/>
-        /// Indexes have limits on video hours and video count. For details, see the [Video hours and video count limits](/v1.3/docs/concepts/indexes#video-hours-and-video-count-limits) section.<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
-        /// &lt;/Note&gt;
+        /// Create a batch<br/>
+        /// Use this method to submit many video analysis requests in a single call. Each request creates an analysis task. The response contains one batch identifier and one task identifier per request. Use the batch identifier to check progress and retrieve results.<br/>
+        /// &lt;Note title="Model requirement"&gt;<br/>
+        /// You must use Pegasus 1.5 for batch analysis. Set the `model_name` parameter to `pegasus1.5`.<br/>
+        /// &lt;/Note&gt;<br/>
+        /// **When to use this method**:<br/>
+        /// - Run the same model and analysis settings across many videos.<br/>
+        /// - Track a single batch instead of many individual analysis tasks.<br/>
+        /// **Do not use this method for**:<br/>
+        /// - Single videos that require immediate results. Use the [`POST`](/v1.3/api-reference/analyze-videos/sync-analysis) method of the `/analyze` endpoint instead.<br/>
+        /// - Background processing of a single video. Use the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint instead.<br/>
+        /// **Retention and retry**:<br/>
+        /// - Batches expire 24 hours after creation. You can retrieve results for 30 days after creation.<br/>
+        /// - If processing does not finish for some items in time, resubmit them in a new batch.<br/>
+        /// **Limits**:<br/>
+        /// - Up to 1,000 requests per batch.<br/>
+        /// - Up to 2,000 total content hours per batch.<br/>
+        /// - Up to 5 active batches per account.
         /// </summary>
         /// <param name="xApiKey"></param>
-        /// <param name="indexId">
-        /// The unique identifier of the index to which the video is being uploaded.
+        /// <param name="modelName">
+        /// The video understanding model to use for every item in this batch. Batch analysis requires Pegasus 1.5.
         /// </param>
-        /// <param name="videoFile">
-        /// Specify this parameter to upload a video from your local file system.
+        /// <param name="analysisMode">
+        /// The analysis approach for every item in this batch.<br/>
+        /// - `general`: Generate text from each video based on the prompt (the item's `prompt` field if set, otherwise `defaults.prompt`). Supports structured JSON output by using `json_schema` in the `response_format.type` field.<br/>
+        /// - `time_based_metadata`: Extract timestamped metadata by using `segment_definitions` in the `response_format.type` field.<br/>
+        /// Batches with mixed modes are not supported.
         /// </param>
-        /// <param name="videoFilename">
-        /// Specify this parameter to upload a video from your local file system.
+        /// <param name="defaults">
+        /// Default values applied to every item that does not override them. Every field is optional. Items in the `requests` array override these values. To override the `prompt` or `response_format` field, provide the full object on the item. You cannot change only some of its nested fields.
         /// </param>
-        /// <param name="videoUrl">
-        /// Specify this parameter to upload a video from a publicly accessible URL.
-        /// </param>
-        /// <param name="enableVideoStream">
-        /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index-id}/videos/{video-id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>
-        /// Default Value: true
-        /// </param>
-        /// <param name="userMetadata">
-        /// Metadata that helps you categorize your videos. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`. Send this value as a JSON-encoded string.
+        /// <param name="requests">
+        /// The analysis requests in the batch. Provide 1 to 1,000 requests, with a combined video duration of up to 2,000 hours.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.TasksCreateResponse200> CreateAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.CreateAnalyzeBatchResponse> CreateAsync(
             string xApiKey,
-            string indexId,
-            byte[]? videoFile = default,
-            string? videoFilename = default,
-            string? videoUrl = default,
-            bool? enableVideoStream = default,
-            string? userMetadata = default,
+            global::TwelveLabs.CreateAnalyzeBatchRequestAnalysisMode analysisMode,
+            global::System.Collections.Generic.IList<global::TwelveLabs.BatchItemRequest> requests,
+            global::TwelveLabs.CreateAnalyzeBatchRequestModelName modelName = default,
+            global::TwelveLabs.BatchDefaults? defaults = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.CreateRequest3
+            var __request = new global::TwelveLabs.CreateAnalyzeBatchRequest
             {
-                IndexId = indexId,
-                VideoFile = videoFile,
-                VideoFilename = videoFilename,
-                VideoUrl = videoUrl,
-                EnableVideoStream = enableVideoStream,
-                UserMetadata = userMetadata,
+                ModelName = modelName,
+                AnalysisMode = analysisMode,
+                Defaults = defaults,
+                Requests = requests,
             };
 
             return await CreateAsync(

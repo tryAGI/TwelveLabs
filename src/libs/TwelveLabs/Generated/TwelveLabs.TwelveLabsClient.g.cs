@@ -42,6 +42,15 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncBatchesClient SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncBatches => new SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncBatchesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasksClient SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasks => new SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
