@@ -20,7 +20,7 @@ namespace TwelveLabs
         /// **Values**:<br/>
         /// - `processing`: The platform is creating the embeddings<br/>
         /// - `ready`: Processing is complete. Embeddings are available in the `data` field<br/>
-        /// - `failed`: The task failed. The `data` field is `null`
+        /// - `failed`: The task failed. The `data` field is `null`, and the [`error.message`](/v1.3/api-reference/create-embeddings-v2/retrieve-embeddings#response.body.error.message) field contains the reason
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.EmbeddingTaskResponseStatusJsonConverter))]
@@ -75,7 +75,7 @@ namespace TwelveLabs
         /// **Values**:<br/>
         /// - `processing`: The platform is creating the embeddings<br/>
         /// - `ready`: Processing is complete. Embeddings are available in the `data` field<br/>
-        /// - `failed`: The task failed. The `data` field is `null`
+        /// - `failed`: The task failed. The `data` field is `null`, and the [`error.message`](/v1.3/api-reference/create-embeddings-v2/retrieve-embeddings#response.body.error.message) field contains the reason
         /// </param>
         /// <param name="createdAt">
         /// A string representing the date and time, in RFC 3339 format (“YYYY-MM-DDTHH:mm:ssZ”), when the resource was created.
