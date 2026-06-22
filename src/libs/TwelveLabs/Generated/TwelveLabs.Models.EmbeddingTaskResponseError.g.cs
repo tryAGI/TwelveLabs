@@ -11,8 +11,8 @@ namespace TwelveLabs
         /// <summary>
         /// A human-readable message that describes why the task failed. Possible values:<br/>
         /// - "The embedding service is temporarily unstable. Please try again later."<br/>
-        /// - "We could not process your media for embedding. Please verify the input file and try again."<br/>
-        /// - "The embedding task failed. Please try again later."
+        /// - "The embedding task failed. Please try again later."<br/>
+        /// - "We could not process your media for embedding. Please verify the input file and try again." For the steps to fix the file, see the [How do I fix a file that could not be processed for embedding?](/v1.3/docs/resources/frequently-asked-questions#how-do-i-fix-a-file-that-could-not-be-processed-for-embedding) section on the **Frequently asked questions** page.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -30,8 +30,8 @@ namespace TwelveLabs
         /// <param name="message">
         /// A human-readable message that describes why the task failed. Possible values:<br/>
         /// - "The embedding service is temporarily unstable. Please try again later."<br/>
-        /// - "We could not process your media for embedding. Please verify the input file and try again."<br/>
-        /// - "The embedding task failed. Please try again later."
+        /// - "The embedding task failed. Please try again later."<br/>
+        /// - "We could not process your media for embedding. Please verify the input file and try again." For the steps to fix the file, see the [How do I fix a file that could not be processed for embedding?](/v1.3/docs/resources/frequently-asked-questions#how-do-i-fix-a-file-that-could-not-be-processed-for-embedding) section on the **Frequently asked questions** page.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

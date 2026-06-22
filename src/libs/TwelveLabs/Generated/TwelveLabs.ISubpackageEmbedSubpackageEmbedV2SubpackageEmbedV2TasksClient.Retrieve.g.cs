@@ -7,11 +7,7 @@ namespace TwelveLabs
         /// <summary>
         /// Retrieve task status and results<br/>
         /// This method retrieves the status and the results of an async embedding task.<br/>
-        /// **Task statuses**:<br/>
-        /// - `processing`: The platform is creating the embeddings.<br/>
-        /// - `ready`: Processing is complete. Embeddings are available in the response.<br/>
-        /// - `failed`: The task failed. Embeddings were not created.<br/>
-        /// Invoke this method repeatedly until the `status` field is `ready`. When `status` is `ready`, use the embeddings from the response.<br/>
+        /// Invoke this method repeatedly until the `status` field is `ready` or `failed`. When the status is `ready`, use the embeddings from the response. When the status is `failed`, the `error.message` field contains the reason.<br/>
         /// &lt;Note title="Note"&gt;<br/>
         /// Embeddings are stored for seven days.<br/>
         /// &lt;/Note&gt;
@@ -29,11 +25,7 @@ namespace TwelveLabs
         /// <summary>
         /// Retrieve task status and results<br/>
         /// This method retrieves the status and the results of an async embedding task.<br/>
-        /// **Task statuses**:<br/>
-        /// - `processing`: The platform is creating the embeddings.<br/>
-        /// - `ready`: Processing is complete. Embeddings are available in the response.<br/>
-        /// - `failed`: The task failed. Embeddings were not created.<br/>
-        /// Invoke this method repeatedly until the `status` field is `ready`. When `status` is `ready`, use the embeddings from the response.<br/>
+        /// Invoke this method repeatedly until the `status` field is `ready` or `failed`. When the status is `ready`, use the embeddings from the response. When the status is `failed`, the `error.message` field contains the reason.<br/>
         /// &lt;Note title="Note"&gt;<br/>
         /// Embeddings are stored for seven days.<br/>
         /// &lt;/Note&gt;
