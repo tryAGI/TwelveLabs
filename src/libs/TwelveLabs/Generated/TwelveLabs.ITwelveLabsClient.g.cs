@@ -47,77 +47,77 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncBatchesClient SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncBatches { get; }
+        public AnalyzeAsyncBatchesClient AnalyzeAsyncBatches { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasksClient SubpackageAnalyzeAsyncSubpackageAnalyzeAsyncTasks { get; }
+        public AnalyzeAsyncTasksClient AnalyzeAsyncTasks { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageAssetsClient SubpackageAssets { get; }
+        public AssetsClient Assets { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageEmbedClient SubpackageEmbed { get; }
+        public EmbedClient Embed { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageEmbedSubpackageEmbedTasksClient SubpackageEmbedSubpackageEmbedTasks { get; }
+        public EmbedTasksClient EmbedTasks { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageEmbedSubpackageEmbedV2Client SubpackageEmbedSubpackageEmbedV2 { get; }
+        public EmbedV2Client EmbedV2 { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageEmbedSubpackageEmbedV2SubpackageEmbedV2TasksClient SubpackageEmbedSubpackageEmbedV2SubpackageEmbedV2Tasks { get; }
+        public EmbedV2TasksClient EmbedV2Tasks { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageEntityCollectionsClient SubpackageEntityCollections { get; }
+        public EntityCollectionsClient EntityCollections { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageEntityCollectionsSubpackageEntityCollectionsEntitiesClient SubpackageEntityCollectionsSubpackageEntityCollectionsEntities { get; }
+        public EntityCollectionsEntitiesClient EntityCollectionsEntities { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageIndexesClient SubpackageIndexes { get; }
+        public IndexesClient Indexes { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageIndexesSubpackageIndexesIndexedAssetsClient SubpackageIndexesSubpackageIndexesIndexedAssets { get; }
+        public IndexesIndexedAssetsClient IndexesIndexedAssets { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageIndexesSubpackageIndexesVideosClient SubpackageIndexesSubpackageIndexesVideos { get; }
+        public IndexesVideosClient IndexesVideos { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageMultipartUploadClient SubpackageMultipartUpload { get; }
+        public MultipartUploadClient MultipartUpload { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageSearchClient SubpackageSearch { get; }
+        public SearchClient Search { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public SubpackageTasksClient SubpackageTasks { get; }
+        public TasksClient Tasks { get; }
 
     }
 }

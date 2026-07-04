@@ -1,0 +1,96 @@
+#nullable enable
+
+namespace TwelveLabs
+{
+    public partial interface IIndexesIndexedAssetsClient
+    {
+        /// <summary>
+        /// Create an indexed asset<br/>
+        /// This method indexes an uploaded asset to make it searchable and analyzable. Indexing processes your content and extracts information that enables the platform to search and analyze your videos.<br/>
+        /// This operation is asynchronous. The platform returns an indexed asset ID immediately and processes your content in the background. Monitor the indexing status to know when your content is ready to use.<br/>
+        /// Your asset must meet the requirements based on your workflow:<br/>
+        /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
+        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements).<br/>
+        /// If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
+        /// Indexes have limits on video hours and video count. For details, see the [Video hours and video count limits](/v1.3/docs/concepts/indexes#video-hours-and-video-count-limits) section.<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// &lt;/Note&gt;
+        /// </summary>
+        /// <param name="indexId"></param>
+        /// <param name="xApiKey"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::TwelveLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesIndexedAssetsCreateResponse202> CreateAsync(
+            string indexId,
+            string xApiKey,
+
+            global::TwelveLabs.CreateRequest4 request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create an indexed asset<br/>
+        /// This method indexes an uploaded asset to make it searchable and analyzable. Indexing processes your content and extracts information that enables the platform to search and analyze your videos.<br/>
+        /// This operation is asynchronous. The platform returns an indexed asset ID immediately and processes your content in the background. Monitor the indexing status to know when your content is ready to use.<br/>
+        /// Your asset must meet the requirements based on your workflow:<br/>
+        /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
+        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements).<br/>
+        /// If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
+        /// Indexes have limits on video hours and video count. For details, see the [Video hours and video count limits](/v1.3/docs/concepts/indexes#video-hours-and-video-count-limits) section.<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// &lt;/Note&gt;
+        /// </summary>
+        /// <param name="indexId"></param>
+        /// <param name="xApiKey"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::TwelveLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesIndexedAssetsCreateResponse202>> CreateAsResponseAsync(
+            string indexId,
+            string xApiKey,
+
+            global::TwelveLabs.CreateRequest4 request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create an indexed asset<br/>
+        /// This method indexes an uploaded asset to make it searchable and analyzable. Indexing processes your content and extracts information that enables the platform to search and analyze your videos.<br/>
+        /// This operation is asynchronous. The platform returns an indexed asset ID immediately and processes your content in the background. Monitor the indexing status to know when your content is ready to use.<br/>
+        /// Your asset must meet the requirements based on your workflow:<br/>
+        /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
+        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements).<br/>
+        /// If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
+        /// Indexes have limits on video hours and video count. For details, see the [Video hours and video count limits](/v1.3/docs/concepts/indexes#video-hours-and-video-count-limits) section.<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// &lt;/Note&gt;
+        /// </summary>
+        /// <param name="indexId"></param>
+        /// <param name="xApiKey"></param>
+        /// <param name="assetId">
+        /// The unique identifier of the asset to index. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status.
+        /// </param>
+        /// <param name="enableVideoStream">
+        /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index-id}/indexed-assets/{indexed-asset-id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="userMetadata">
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`.
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesIndexedAssetsCreateResponse202> CreateAsync(
+            string indexId,
+            string xApiKey,
+            string assetId,
+            bool? enableVideoStream = default,
+            global::TwelveLabs.UserMetadata? userMetadata = default,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}

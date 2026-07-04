@@ -7,7 +7,7 @@ namespace TwelveLabs
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
-    public sealed partial class TwelveLabsClient : global::TwelveLabs.ITwelveLabsClient, global::System.IDisposable
+    public sealed partial class AssetsClient : global::TwelveLabs.IAssetsClient, global::System.IDisposable
     {
         /// <summary>
         /// https://api.twelvelabs.io/v1.3
@@ -40,142 +40,7 @@ namespace TwelveLabs
 
 
         /// <summary>
-        /// 
-        /// </summary>
-        public AnalyzeAsyncBatchesClient AnalyzeAsyncBatches => new AnalyzeAsyncBatchesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public AnalyzeAsyncTasksClient AnalyzeAsyncTasks => new AnalyzeAsyncTasksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public AssetsClient Assets => new AssetsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public EmbedClient Embed => new EmbedClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public EmbedTasksClient EmbedTasks => new EmbedTasksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public EmbedV2Client EmbedV2 => new EmbedV2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public EmbedV2TasksClient EmbedV2Tasks => new EmbedV2TasksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public EntityCollectionsClient EntityCollections => new EntityCollectionsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public EntityCollectionsEntitiesClient EntityCollectionsEntities => new EntityCollectionsEntitiesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public IndexesClient Indexes => new IndexesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public IndexesIndexedAssetsClient IndexesIndexedAssets => new IndexesIndexedAssetsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public IndexesVideosClient IndexesVideos => new IndexesVideosClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public MultipartUploadClient MultipartUpload => new MultipartUploadClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public SearchClient Search => new SearchClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public TasksClient Tasks => new TasksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// Creates a new instance of the TwelveLabsClient.
+        /// Creates a new instance of the AssetsClient.
         /// If no httpClient is provided, a new one will be created.
         /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
         /// </summary>
@@ -183,7 +48,7 @@ namespace TwelveLabs
         /// <param name="baseUri">The base URL for the API. If not provided, the default baseUri from OpenAPI spec will be used.</param>
         /// <param name="authorizations">The authorizations to use for the requests.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
-        public TwelveLabsClient(
+        public AssetsClient(
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,
             global::System.Collections.Generic.List<global::TwelveLabs.EndPointAuthorization>? authorizations = null,
@@ -197,14 +62,14 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// Creates a new instance of the TwelveLabsClient with explicit options but no base URL override.
+        /// Creates a new instance of the AssetsClient with explicit options but no base URL override.
         /// Skips passing <c>baseUri</c> so the default base URL from the OpenAPI spec applies.
         /// </summary>
         /// <param name="httpClient">The HttpClient instance. If not provided, a new one will be created.</param>
         /// <param name="authorizations">The authorizations to use for the requests.</param>
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
-        public TwelveLabsClient(
+        public AssetsClient(
             global::System.Net.Http.HttpClient? httpClient,
             global::System.Collections.Generic.List<global::TwelveLabs.EndPointAuthorization>? authorizations,
             global::TwelveLabs.AutoSDKClientOptions? options,
@@ -218,7 +83,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// Creates a new instance of the TwelveLabsClient.
+        /// Creates a new instance of the AssetsClient.
         /// If no httpClient is provided, a new one will be created.
         /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
         /// </summary>
@@ -227,7 +92,7 @@ namespace TwelveLabs
         /// <param name="authorizations">The authorizations to use for the requests.</param>
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
-        public TwelveLabsClient(
+        public AssetsClient(
             global::System.Net.Http.HttpClient? httpClient,
             global::System.Uri? baseUri,
             global::System.Collections.Generic.List<global::TwelveLabs.EndPointAuthorization>? authorizations,
