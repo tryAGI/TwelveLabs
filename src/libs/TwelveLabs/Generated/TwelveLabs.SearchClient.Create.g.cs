@@ -1,0 +1,811 @@
+
+#nullable enable
+
+namespace TwelveLabs
+{
+    public partial class SearchClient
+    {
+
+
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_CreateSecurityRequirement0 =
+            new global::TwelveLabs.EndPointSecurityRequirement
+            {
+                Authorizations = new global::TwelveLabs.EndPointAuthorizationRequirement[]
+                {                    new global::TwelveLabs.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        SchemeId = "HttpBearer",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_CreateSecurityRequirements =
+            new global::TwelveLabs.EndPointSecurityRequirement[]
+            {                s_CreateSecurityRequirement0,
+            };
+        partial void PrepareCreateArguments(
+            global::System.Net.Http.HttpClient httpClient,
+            ref string xApiKey,
+            global::TwelveLabs.CreateRequest7 request);
+        partial void PrepareCreateRequest(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string xApiKey,
+            global::TwelveLabs.CreateRequest7 request);
+        partial void ProcessCreateResponse(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+        partial void ProcessCreateResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
+        /// <summary>
+        /// Make any-to-video search requests<br/>
+        /// Use this endpoint to search for relevant matches in an index using text, media, or a combination of both as your query.<br/>
+        /// **Text queries**:<br/>
+        /// - Use the `query_text` parameter to specify your query.<br/>
+        /// **Media queries**:<br/>
+        /// - Set the `query_media_type` parameter to the corresponding media type (example: `image`).<br/>
+        /// - Provide up to 10 images by specifying the following parameters multiple times:<br/>
+        ///   - `query_media_url`: Publicly accessible URL of your media file.<br/>
+        ///   - `query_media_file`: Local media file.<br/>
+        /// **Composed text and media queries**:<br/>
+        /// - Use the `query_text` parameter for your text query.<br/>
+        /// - Set `query_media_type` to `image`.<br/>
+        /// - Provide up to 10 images by specifying the `query_media_url` and `query_media_file` parameters multiple times.<br/>
+        /// **Entity search** (beta):<br/>
+        /// - To find a specific person in your videos, enclose the unique identifier of the entity you want to find in the `query_text` parameter.<br/>
+        /// &lt;Note title="Notes"&gt;<br/>
+        /// - When using images in your search queries (either as media queries or in composed searches), ensure your image files meet the [requirements](/v1.3/docs/concepts/models/marengo#image-file-requirements).<br/>
+        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// &lt;/Note&gt;
+        /// </summary>
+        /// <param name="xApiKey"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::TwelveLabs.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.SearchResults> CreateAsync(
+            string xApiKey,
+
+            global::TwelveLabs.CreateRequest7 request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __response = await CreateAsResponseAsync(
+                xApiKey: xApiKey,
+
+                request: request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// Make any-to-video search requests<br/>
+        /// Use this endpoint to search for relevant matches in an index using text, media, or a combination of both as your query.<br/>
+        /// **Text queries**:<br/>
+        /// - Use the `query_text` parameter to specify your query.<br/>
+        /// **Media queries**:<br/>
+        /// - Set the `query_media_type` parameter to the corresponding media type (example: `image`).<br/>
+        /// - Provide up to 10 images by specifying the following parameters multiple times:<br/>
+        ///   - `query_media_url`: Publicly accessible URL of your media file.<br/>
+        ///   - `query_media_file`: Local media file.<br/>
+        /// **Composed text and media queries**:<br/>
+        /// - Use the `query_text` parameter for your text query.<br/>
+        /// - Set `query_media_type` to `image`.<br/>
+        /// - Provide up to 10 images by specifying the `query_media_url` and `query_media_file` parameters multiple times.<br/>
+        /// **Entity search** (beta):<br/>
+        /// - To find a specific person in your videos, enclose the unique identifier of the entity you want to find in the `query_text` parameter.<br/>
+        /// &lt;Note title="Notes"&gt;<br/>
+        /// - When using images in your search queries (either as media queries or in composed searches), ensure your image files meet the [requirements](/v1.3/docs/concepts/models/marengo#image-file-requirements).<br/>
+        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// &lt;/Note&gt;
+        /// </summary>
+        /// <param name="xApiKey"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::TwelveLabs.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.SearchResults>> CreateAsResponseAsync(
+            string xApiKey,
+
+            global::TwelveLabs.CreateRequest7 request,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
+            PrepareArguments(
+                client: HttpClient);
+            PrepareCreateArguments(
+                httpClient: HttpClient,
+                xApiKey: ref xApiKey,
+                request: request);
+
+
+            var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_CreateSecurityRequirements,
+                operationName: "CreateAsync");
+
+            using var __timeoutCancellationTokenSource = global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken);
+            var __effectiveCancellationToken = __timeoutCancellationTokenSource?.Token ?? cancellationToken;
+            var __effectiveReadResponseAsString = global::TwelveLabs.AutoSDKRequestOptionsSupport.GetReadResponseAsString(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                fallbackValue: ReadResponseAsString);
+            var __maxAttempts = global::TwelveLabs.AutoSDKRequestOptionsSupport.GetMaxAttempts(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                supportsRetry: false);
+
+            global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
+            {
+
+                            var __pathBuilder = new global::TwelveLabs.PathBuilder(
+                                path: "/search",
+                                baseUri: HttpClient.BaseAddress);
+                            var __path = __pathBuilder.ToString();
+                __path = global::TwelveLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
+                    path: __path,
+                    clientParameters: Options.QueryParameters,
+                    requestParameters: requestOptions?.QueryParameters);
+                var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
+                    method: global::System.Net.Http.HttpMethod.Post,
+                    requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+#if NET6_0_OR_GREATER
+                __httpRequest.Version = global::System.Net.HttpVersion.Version11;
+                __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
+#endif
+
+            foreach (var __authorization in __authorizations)
+            {
+                if (__authorization.Type == "Http" ||
+                    __authorization.Type == "OAuth2" ||
+                    __authorization.Type == "OpenIdConnect")
+                {
+                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
+                        scheme: __authorization.Name,
+                        parameter: __authorization.Value);
+                }
+                else if (__authorization.Type == "ApiKey" &&
+                         __authorization.Location == "Header")
+                {
+                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
+                } 
+            }
+
+                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
+
+
+                            var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
+                            __httpRequestContent.Add(
+                                content: new global::System.Net.Http.StringContent(xApiKey ?? string.Empty),
+                                name: "\"x-api-key\"");
+
+                            if (request.QueryMediaType != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((request.QueryMediaType).HasValue ? (request.QueryMediaType).GetValueOrDefault().ToValueString() : string.Empty),
+                                    name: "\"query_media_type\"");
+
+                            }
+                            if (request.QueryMediaUrl != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(request.QueryMediaUrl.ToString() ?? string.Empty),
+                                    name: "\"query_media_url\"");
+
+                            }
+                            if (request.QueryMediaFile != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(request.QueryMediaFile.ToString() ?? string.Empty),
+                                    name: "\"query_media_file\"");
+
+                            }
+                            if (request.QueryText != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(request.QueryText ?? string.Empty),
+                                    name: "\"query_text\"");
+
+                            }
+                            __httpRequestContent.Add(
+                                content: new global::System.Net.Http.StringContent(request.IndexId ?? string.Empty),
+                                name: "\"index_id\"");
+
+                            __httpRequestContent.Add(
+                                content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.SearchOptions, x => x.ToValueString()))}]"),
+                                name: "\"search_options\"");
+
+                            if (request.TranscriptionOptions != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent($"[{string.Join(",", global::System.Linq.Enumerable.Select(request.TranscriptionOptions, x => x.ToValueString()))}]"),
+                                    name: "\"transcription_options\"");
+
+                            }
+                            if (request.GroupBy != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((request.GroupBy).HasValue ? (request.GroupBy).GetValueOrDefault().ToValueString() : string.Empty),
+                                    name: "\"group_by\"");
+
+                            }
+                            if (request.Operator != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((request.Operator).HasValue ? (request.Operator).GetValueOrDefault().ToValueString() : string.Empty),
+                                    name: "\"operator\"");
+
+                            }
+                            if (request.PageLimit != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(request.PageLimit, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
+                                    name: "\"page_limit\"");
+
+                            }
+                            if (request.Filter != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(request.Filter ?? string.Empty),
+                                    name: "\"filter\"");
+
+                            }
+                            if (request.IncludeUserMetadata != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.IncludeUserMetadata, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"include_user_metadata\"");
+
+                            }
+
+                            __httpRequest.Content = __httpRequestContent;
+
+                global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
+                    request: __httpRequest,
+                    clientHeaders: Options.Headers,
+                    requestHeaders: requestOptions?.Headers);
+
+                PrepareRequest(
+                    client: HttpClient,
+                    request: __httpRequest);
+                PrepareCreateRequest(
+                    httpClient: HttpClient,
+                    httpRequestMessage: __httpRequest,
+                    xApiKey: xApiKey!,
+                    request: request);
+
+                return __httpRequest;
+            }
+
+            global::System.Net.Http.HttpRequestMessage? __httpRequest = null;
+            global::System.Net.Http.HttpResponseMessage? __response = null;
+            var __attemptNumber = 0;
+            try
+            {
+                for (var __attempt = 1; __attempt <= __maxAttempts; __attempt++)
+                {
+                    __attemptNumber = __attempt;
+                    __httpRequest = __CreateHttpRequest();
+                    await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
+                            clientOptions: Options,
+                            context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "Create",
+                                methodName: "CreateAsync",
+                                pathTemplate: "\"/search\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: null,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                    try
+                    {
+                        __response = await HttpClient.SendAsync(
+                request: __httpRequest,
+                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseContentRead,
+                cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                    }
+                    catch (global::System.Net.Http.HttpRequestException __exception)
+                    {
+                        var __retryDelay = global::TwelveLabs.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
+                        var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
+                        await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "Create",
+                                methodName: "CreateAsync",
+                                pathTemplate: "\"/search\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: null,
+                                exception: __exception,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                        if (!__willRetry)
+                        {
+                            throw;
+                        }
+
+                        __httpRequest.Dispose();
+                        __httpRequest = null;
+                        await global::TwelveLabs.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
+                            retryDelay: __retryDelay,
+                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                        continue;
+                    }
+
+                    if (__response != null &&
+                        __attempt < __maxAttempts &&
+                        global::TwelveLabs.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
+                    {
+                        var __retryDelay = global::TwelveLabs.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
+                        await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "Create",
+                                methodName: "CreateAsync",
+                                pathTemplate: "\"/search\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                        __response.Dispose();
+                        __response = null;
+                        __httpRequest.Dispose();
+                        __httpRequest = null;
+                        await global::TwelveLabs.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
+                            retryDelay: __retryDelay,
+                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                        continue;
+                    }
+
+                    break;
+                }
+
+                if (__response == null)
+                {
+                    throw new global::System.InvalidOperationException("No response received.");
+                }
+
+                using (__response)
+                {
+
+                ProcessResponse(
+                    client: HttpClient,
+                    response: __response);
+                ProcessCreateResponse(
+                    httpClient: HttpClient,
+                    httpResponseMessage: __response);
+                if (__response.IsSuccessStatusCode)
+                {
+                    await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
+                            clientOptions: Options,
+                            context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "Create",
+                                methodName: "CreateAsync",
+                                pathTemplate: "\"/search\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attemptNumber,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                }
+                else
+                {
+                    await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "Create",
+                                methodName: "CreateAsync",
+                                pathTemplate: "\"/search\"",
+                                httpMethod: "POST",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attemptNumber,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                }
+                            // The request has failed.
+                            if ((int)__response.StatusCode == 400)
+                            {
+                                string? __content_400 = null;
+                                global::System.Exception? __exception_400 = null;
+                                global::TwelveLabs.AnyToVideoSearchRequestBadRequestError? __value_400 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_400 = global::TwelveLabs.AnyToVideoSearchRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_400 = global::TwelveLabs.AnyToVideoSearchRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_400 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.AnyToVideoSearchRequestBadRequestError>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_400,
+                                    responseBody: __content_400,
+                                    responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // If the rate limit is reached, the platform returns an `HTTP 429 - Too many requests` error response. The response body is empty. 
+                            if ((int)__response.StatusCode == 429)
+                            {
+                                string? __content_429 = null;
+                                global::System.Exception? __exception_429 = null;
+                                string? __value_429 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_429 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_429, typeof(string), JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_429 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_429, typeof(string), JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_429 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<string>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_429 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_429,
+                                    responseBody: __content_429,
+                                    responseObject: __value_429,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+
+                            if (__effectiveReadResponseAsString)
+                            {
+                                var __content = await __response.Content.ReadAsStringAsync(
+                #if NET5_0_OR_GREATER
+                                    __effectiveCancellationToken
+                #endif
+                                ).ConfigureAwait(false);
+
+                                ProcessResponseContent(
+                                    client: HttpClient,
+                                    response: __response,
+                                    content: ref __content);
+                                ProcessCreateResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
+
+                                try
+                                {
+                                    __response.EnsureSuccessStatusCode();
+
+                                    var __value = global::TwelveLabs.SearchResults.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.SearchResults>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    throw global::TwelveLabs.ApiException.Create(
+                                        statusCode: __response.StatusCode,
+                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        innerException: __ex,
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                            __response.Headers,
+                                            h => h.Key,
+                                            h => h.Value));
+                                }
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    __response.EnsureSuccessStatusCode();
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::TwelveLabs.SearchResults.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.SearchResults>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    string? __content = null;
+                                    try
+                                    {
+                                        __content = await __response.Content.ReadAsStringAsync(
+                #if NET5_0_OR_GREATER
+                                            __effectiveCancellationToken
+                #endif
+                                        ).ConfigureAwait(false);
+                                    }
+                                    catch (global::System.Exception)
+                                    {
+                                    }
+
+                                    throw global::TwelveLabs.ApiException.Create(
+                                        statusCode: __response.StatusCode,
+                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        innerException: __ex,
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                            __response.Headers,
+                                            h => h.Key,
+                                            h => h.Value));
+                                }
+                            }
+
+                }
+            }
+            finally
+            {
+                __httpRequest?.Dispose();
+            }
+        }
+        /// <summary>
+        /// Make any-to-video search requests<br/>
+        /// Use this endpoint to search for relevant matches in an index using text, media, or a combination of both as your query.<br/>
+        /// **Text queries**:<br/>
+        /// - Use the `query_text` parameter to specify your query.<br/>
+        /// **Media queries**:<br/>
+        /// - Set the `query_media_type` parameter to the corresponding media type (example: `image`).<br/>
+        /// - Provide up to 10 images by specifying the following parameters multiple times:<br/>
+        ///   - `query_media_url`: Publicly accessible URL of your media file.<br/>
+        ///   - `query_media_file`: Local media file.<br/>
+        /// **Composed text and media queries**:<br/>
+        /// - Use the `query_text` parameter for your text query.<br/>
+        /// - Set `query_media_type` to `image`.<br/>
+        /// - Provide up to 10 images by specifying the `query_media_url` and `query_media_file` parameters multiple times.<br/>
+        /// **Entity search** (beta):<br/>
+        /// - To find a specific person in your videos, enclose the unique identifier of the entity you want to find in the `query_text` parameter.<br/>
+        /// &lt;Note title="Notes"&gt;<br/>
+        /// - When using images in your search queries (either as media queries or in composed searches), ensure your image files meet the [requirements](/v1.3/docs/concepts/models/marengo#image-file-requirements).<br/>
+        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// &lt;/Note&gt;
+        /// </summary>
+        /// <param name="xApiKey"></param>
+        /// <param name="queryMediaType">
+        /// The type of media you wish to use. This parameter is required for media queries. For example, to perform an image-based search, set this parameter to `image`. Use `query_text` together with this parameter when you want to perform a composed image+text search.
+        /// </param>
+        /// <param name="queryMediaUrl">
+        /// The publicly accessible URL of a media file to use as a query. This parameter is required for media queries if `query_media_file` is not provided.<br/>
+        /// You can provide up to 10 images by specifying this parameter multiple times:<br/>
+        /// ```<br/>
+        /// --form query_media_url=https://example.com/image1.jpg \<br/>
+        /// --form query_media_url=https://example.com/image2.jpg<br/>
+        /// ```
+        /// </param>
+        /// <param name="queryMediaFile">
+        /// A local media file to use as a query. This parameter is required for media queries if `query_media_url` is not provided.<br/>
+        /// You can provide up to 10 images by specifying this parameter multiple times:<br/>
+        /// ```<br/>
+        /// --form query_media_file=@/path/to/image1.jpg \<br/>
+        /// --form query_media_file=@/path/to/image2.jpg<br/>
+        /// ```
+        /// </param>
+        /// <param name="queryText">
+        /// The text query to search for. This parameter is required for text queries. Note that the platform supports full natural language-based search. You can use this parameter together with `query_media_type` and `query_media_url` or `query_media_file` to perform a composed image+text search.<br/>
+        /// If you're using the Entity Search feature to search for specific persons in your video content, you must enclose the unique identifier of your entity between the `&lt;@` and `&gt;` markers. For example, to search for an entity with the ID `entity123`, use `&lt;@entity123&gt; is walking` as your query.<br/>
+        /// Marengo supports up to 500 tokens per query.
+        /// </param>
+        /// <param name="indexId">
+        /// The unique identifier of the index to search.
+        /// </param>
+        /// <param name="searchOptions">
+        /// Specifies the modalities the video understanding model uses to find relevant information.<br/>
+        /// Available options:<br/>
+        /// - `visual`: Searches visual content.<br/>
+        /// - `audio`: Searches non-speech audio.<br/>
+        /// - `transcription`: Spoken words<br/>
+        /// &lt;Note title="Note"&gt;<br/>
+        /// - You can specify multiple search options in conjunction with the [`operator`](/v1.3/api-reference/any-to-video-search/make-search-request#request.body.operator.operator) parameter described below to broaden or narrow your search. For example, to search using both visual and non-speech audio content, include this parameter two times in the request as shown below:<br/>
+        ///   ```JSON<br/>
+        ///   --form search_options=visual \<br/>
+        ///   --form search_options=audio \<br/>
+        ///   --form search_options=transcription \<br/>
+        ///   ```<br/>
+        /// &lt;/Note&gt;<br/>
+        /// For guidance, see the [Search options](/v1.3/docs/concepts/modalities#search-options) section.
+        /// </param>
+        /// <param name="transcriptionOptions">
+        /// Specifies how the platform matches your text query with the words spoken in the video. This parameter applies only when the `search_options` parameter contains the `transcription` value.<br/>
+        /// Available options:<br/>
+        /// - `lexical`: Exact word matching<br/>
+        /// - `semantic`: Meaning-based matching<br/>
+        /// For details on when to use each option, see the [Transcription options](/v1.3/docs/concepts/modalities#transcription-options) section.<br/>
+        /// **Default**: `["lexical", "semantic"]`.
+        /// </param>
+        /// <param name="groupBy">
+        /// Use this parameter to group or ungroup items in a response. It can take one of the following values:<br/>
+        /// - `video`:  The platform will group the matching video clips in the response by video.<br/>
+        /// - `clip`: The matching video clips in the response will not be grouped.<br/>
+        /// **Default:** `clip`<br/>
+        /// Default Value: clip
+        /// </param>
+        /// <param name="operator">
+        /// Combines multiple search options using `or` or `and`. Use `and` to find segments matching all search options. Use `or` to find segments matching any search option. For detailed guidance on using this parameter, see the [Combine multiple modalities](/v1.3/docs/concepts/modalities#combine-multiple-modalities) section.<br/>
+        /// **Default**: `or`.<br/>
+        /// Default Value: or
+        /// </param>
+        /// <param name="pageLimit">
+        /// The number of items to return on each page. When grouping by video, this parameter represents the number of videos per page. Otherwise, it represents the maximum number of video clips per page.<br/>
+        /// **Max**: `50`.<br/>
+        /// Default Value: 10
+        /// </param>
+        /// <param name="filter">
+        /// Specifies a stringified JSON object to filter your search results. Supports both system-generated metadata (example: video ID, duration) and user-defined metadata.<br/>
+        /// **Syntax for filtering**<br/>
+        /// The following table describes the supported data types, operators, and filter syntax:<br/>
+        /// | Data type | Operator | Description | Syntax |<br/>
+        /// |:----------|:---------|:------------|:-------|<br/>
+        /// | String | `=` | Matches results equal to the specified value. | `{"field": "value"}`<br/>
+        /// | Array of strings | `=` | Matches results with any value in the specified array. Supported only for `id`. | `{"id": ["value1", "value2"]}` |<br/>
+        /// | Numeric (integer, float) | `=`, `lte`, `gte` | Matches results equal to or within a range of the specified value. | `{"field": number}` or `{"field": { "gte": number, "lte": number }}` |<br/>
+        /// | Boolean | `=` | Matches results equal to the specified boolean value. | `{"field": true}` or `{"field": false}`. |<br/>
+        /// &lt;br/&gt;<br/>
+        /// **System-generated metadata**<br/>
+        /// The table below describes the system-generated metadata available for filtering your  search results:<br/>
+        /// | Field name | Description | Type | Example |<br/>
+        /// |:-----------|:------------|:-----|:--------|<br/>
+        /// | `id` | Filters by specific video IDs. | Array of strings | `{"id": ["67cec9caf45d9b64a58340fc", "67cec9baf45d9b64a58340fa"]}`. |<br/>
+        /// | `duration` | Filters based on the duration of the video containing the segment that matches your query. | Number or object with `gte` and `lte` | `{"duration": 600}` or `{"duration": { "gte": 600, "lte": 800 }}` |<br/>
+        /// | `width` | Filters by video width (in pixels). | Number or object with `gte` and `lte` | `{"width": 1920}` or `{"width": { "gte": 1280, "lte": 1920}}` |<br/>
+        /// | `height` | Filters by video height (in pixels). | Number or object with `gte` and `lte`. | `{"height": 1080}` or `{"height": { "gte": 720, "lte": 1080 }}`. |<br/>
+        /// | `size` | Filters by video size (in bytes) | Number or object with `gte` and `lte`. | `{"size": 1048576}` or `{"size": { "gte": 1048576, "lte": 5242880}}` |<br/>
+        /// | `filename` | Filters by the exact file name. | String | `{"filename": "Animal Encounters part 1"}` |<br/>
+        /// &lt;br/&gt;<br/>
+        /// **User-defined metadata**<br/>
+        /// To filter by user-defined metadata:<br/>
+        /// 1. Add metadata to your video by calling the [`PUT`](/v1.3/api-reference/videos/update) method of the `/indexes/:index-id/videos/:video-id` endpoint<br/>
+        /// 2. Reference the custom field in your filter object. For example, to filter videos where a custom field named `needsReview` of type boolean is `true`, use `{"needs_review": true}`.<br/>
+        /// For more details and examples, see the [Filter search results](/v1.3/docs/guides/search/filtering) page.
+        /// </param>
+        /// <param name="includeUserMetadata">
+        /// Specifies whether to include user-defined metadata in the search results.
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.SearchResults> CreateAsync(
+            string xApiKey,
+            string indexId,
+            global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems> searchOptions,
+            global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaType? queryMediaType = default,
+            global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl? queryMediaUrl = default,
+            global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFile? queryMediaFile = default,
+            string? queryText = default,
+            global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItems>? transcriptionOptions = default,
+            global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaGroupBy? groupBy = default,
+            global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaOperator? @operator = default,
+            int? pageLimit = default,
+            string? filter = default,
+            bool? includeUserMetadata = default,
+            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::TwelveLabs.CreateRequest7
+            {
+                QueryMediaType = queryMediaType,
+                QueryMediaUrl = queryMediaUrl,
+                QueryMediaFile = queryMediaFile,
+                QueryText = queryText,
+                IndexId = indexId,
+                SearchOptions = searchOptions,
+                TranscriptionOptions = transcriptionOptions,
+                GroupBy = groupBy,
+                Operator = @operator,
+                PageLimit = pageLimit,
+                Filter = filter,
+                IncludeUserMetadata = includeUserMetadata,
+            };
+
+            return await CreateAsync(
+                xApiKey: xApiKey,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
+        }
+    }
+}
