@@ -6,9 +6,9 @@ namespace TwelveLabs
     /// <summary>
     /// The status of your upload session. This field can take one of the following values:<br/>
     /// - `active`: The upload session is currently in progress. Continue uploading and reporting the completion of each chunk.<br/>
-    /// - `completed`: The upload session is finished, and your asset is now ready for use.<br/>
-    /// - `failed`: The upload session has failed. You must restart with a new session.<br/>
-    /// - `expired`: The upload session has expired after 24 hours, and you must create a new session.
+    /// - `completed`: The platform received the file. The asset is created in the `processing` status and is not yet ready to use. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status of the asset is `ready` before you use it.<br/>
+    /// - `failed`: The upload session failed. You must restart with a new session.<br/>
+    /// - `expired`: The upload session expired after 24 hours. You must create a new session.
     /// </summary>
     public enum MultipartUploadStatusType
     {
@@ -17,15 +17,15 @@ namespace TwelveLabs
         /// </summary>
         Active,
         /// <summary>
-        /// The upload session is finished, and your asset is now ready for use.
+        /// The platform received the file. The asset is created in the `processing` status and is not yet ready to use. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status of the asset is `ready` before you use it.
         /// </summary>
         Completed,
         /// <summary>
-        /// The upload session has expired after 24 hours, and you must create a new session.
+        /// The upload session expired after 24 hours. You must create a new session.
         /// </summary>
         Expired,
         /// <summary>
-        /// The upload session has failed. You must restart with a new session.
+        /// The upload session failed. You must restart with a new session.
         /// </summary>
         Failed,
     }

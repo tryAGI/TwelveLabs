@@ -18,14 +18,14 @@ namespace TwelveLabs
 
         /// <summary>
         /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
-        /// Local video and audio files support up to 200 MB. Image files support up to 5 MB.
+        /// Local video and audio files support up to 200 MB. Image files support up to 32 MB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         public byte[]? File { get; set; }
 
         /// <summary>
         /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
-        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 5 MB.
+        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         public string? Url { get; set; }
@@ -72,11 +72,11 @@ namespace TwelveLabs
         /// </param>
         /// <param name="file">
         /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
-        /// Local video and audio files support up to 200 MB. Image files support up to 5 MB.
+        /// Local video and audio files support up to 200 MB. Image files support up to 32 MB.
         /// </param>
         /// <param name="url">
         /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
-        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 5 MB.
+        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB.
         /// </param>
         /// <param name="filename">
         /// The optional filename of the asset. If not provided, the platform will determine the filename from the file or URL.

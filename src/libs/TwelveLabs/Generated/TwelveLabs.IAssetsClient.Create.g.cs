@@ -7,6 +7,7 @@ namespace TwelveLabs
         /// <summary>
         /// Create an asset<br/>
         /// This method creates an asset by uploading a file to the platform. Assets are media files that you can use in downstream workflows, including indexing, analyzing video content, and creating entities.<br/>
+        /// The platform processes uploads asynchronously. This method returns immediately with the asset in the `processing` status, which then transitions to `ready` on success or to `failed` when the file is invalid or corrupt, typically within a few seconds to a few minutes. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status of the asset is `ready` before you use it. This applies to every upload, including small files.<br/>
         /// **Supported content**: Video, audio, and images.<br/>
         /// **Upload methods**:<br/>
         /// - **Local file**: Set the `method` parameter to `direct` and use the `file` parameter to specify the file.<br/>
@@ -14,7 +15,8 @@ namespace TwelveLabs
         /// **Upload limits**:<br/>
         /// - **Video and audio, local files**: Up to 200 MB<br/>
         /// - **Video and audio, public URLs**: Up to 4 GB<br/>
-        /// - **Images**: Up to 5 MB<br/>
+        /// - **Images**: Up to 32 MB<br/>
+        /// Asset creation does not enforce a maximum duration. Each model applies its own file size and duration limits when you index or analyze the asset. For details, see the requirements below.<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>
@@ -38,6 +40,7 @@ namespace TwelveLabs
         /// <summary>
         /// Create an asset<br/>
         /// This method creates an asset by uploading a file to the platform. Assets are media files that you can use in downstream workflows, including indexing, analyzing video content, and creating entities.<br/>
+        /// The platform processes uploads asynchronously. This method returns immediately with the asset in the `processing` status, which then transitions to `ready` on success or to `failed` when the file is invalid or corrupt, typically within a few seconds to a few minutes. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status of the asset is `ready` before you use it. This applies to every upload, including small files.<br/>
         /// **Supported content**: Video, audio, and images.<br/>
         /// **Upload methods**:<br/>
         /// - **Local file**: Set the `method` parameter to `direct` and use the `file` parameter to specify the file.<br/>
@@ -45,7 +48,8 @@ namespace TwelveLabs
         /// **Upload limits**:<br/>
         /// - **Video and audio, local files**: Up to 200 MB<br/>
         /// - **Video and audio, public URLs**: Up to 4 GB<br/>
-        /// - **Images**: Up to 5 MB<br/>
+        /// - **Images**: Up to 32 MB<br/>
+        /// Asset creation does not enforce a maximum duration. Each model applies its own file size and duration limits when you index or analyze the asset. For details, see the requirements below.<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>
@@ -69,6 +73,7 @@ namespace TwelveLabs
         /// <summary>
         /// Create an asset<br/>
         /// This method creates an asset by uploading a file to the platform. Assets are media files that you can use in downstream workflows, including indexing, analyzing video content, and creating entities.<br/>
+        /// The platform processes uploads asynchronously. This method returns immediately with the asset in the `processing` status, which then transitions to `ready` on success or to `failed` when the file is invalid or corrupt, typically within a few seconds to a few minutes. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status of the asset is `ready` before you use it. This applies to every upload, including small files.<br/>
         /// **Supported content**: Video, audio, and images.<br/>
         /// **Upload methods**:<br/>
         /// - **Local file**: Set the `method` parameter to `direct` and use the `file` parameter to specify the file.<br/>
@@ -76,7 +81,8 @@ namespace TwelveLabs
         /// **Upload limits**:<br/>
         /// - **Video and audio, local files**: Up to 200 MB<br/>
         /// - **Video and audio, public URLs**: Up to 4 GB<br/>
-        /// - **Images**: Up to 5 MB<br/>
+        /// - **Images**: Up to 32 MB<br/>
+        /// Asset creation does not enforce a maximum duration. Each model applies its own file size and duration limits when you index or analyze the asset. For details, see the requirements below.<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>
@@ -92,11 +98,11 @@ namespace TwelveLabs
         /// </param>
         /// <param name="file">
         /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
-        /// Local video and audio files support up to 200 MB. Image files support up to 5 MB.
+        /// Local video and audio files support up to 200 MB. Image files support up to 32 MB.
         /// </param>
         /// <param name="url">
         /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
-        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 5 MB.
+        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB.
         /// </param>
         /// <param name="filename">
         /// The optional filename of the asset. If not provided, the platform will determine the filename from the file or URL.
