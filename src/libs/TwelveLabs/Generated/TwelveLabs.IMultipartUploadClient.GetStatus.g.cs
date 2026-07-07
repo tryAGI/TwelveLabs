@@ -13,7 +13,7 @@ namespace TwelveLabs
         /// - Monitor the upload progress by comparing `uploaded_size` with `total_size`<br/>
         /// - Determine if the session has expired<br/>
         /// - Retrieve the status information for each chunk<br/>
-        /// You must call this method after reporting chunk completion to confirm the upload has transitioned to the `completed` status before using the asset.
+        /// After you report chunk completion, call this method to confirm the upload session reached the `completed` status. This status means the platform received the file, not that the asset is ready to use. The platform then validates the asset asynchronously. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status of the asset is `ready` before you use it.
         /// </summary>
         /// <param name="uploadId"></param>
         /// <param name="page">
@@ -42,7 +42,7 @@ namespace TwelveLabs
         /// - Monitor the upload progress by comparing `uploaded_size` with `total_size`<br/>
         /// - Determine if the session has expired<br/>
         /// - Retrieve the status information for each chunk<br/>
-        /// You must call this method after reporting chunk completion to confirm the upload has transitioned to the `completed` status before using the asset.
+        /// After you report chunk completion, call this method to confirm the upload session reached the `completed` status. This status means the platform received the file, not that the asset is ready to use. The platform then validates the asset asynchronously. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status of the asset is `ready` before you use it.
         /// </summary>
         /// <param name="uploadId"></param>
         /// <param name="page">

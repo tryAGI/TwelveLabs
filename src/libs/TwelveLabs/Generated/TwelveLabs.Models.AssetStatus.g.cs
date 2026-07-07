@@ -4,24 +4,25 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Indicates the current status of the asset.<br/>
+    /// Indicates the current processing status of the asset.<br/>
+    /// A newly uploaded asset starts in the `processing` status and transitions asynchronously to `ready` on success or to `failed` on error, typically within a few seconds to a few minutes. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status is `ready` before you use the asset in downstream workflows.<br/>
     /// **Values**:<br/>
-    /// - `failed`: The platform failed to process the upload<br/>
-    /// - `processing`: The platform is processing the uploaded file<br/>
-    /// - `ready`: The asset is ready to use
+    /// - `processing`: The asset is not yet usable. This can mean the upload is still in progress (for example, the platform is still fetching the file from a URL, or a multipart upload has not completed), or the upload has finished and the platform is validating the file. The `technical_metadata` field is omitted from the response.<br/>
+    /// - `ready`: The platform validated the asset successfully, and the asset is ready to use.<br/>
+    /// - `failed`: The platform could not process the file. The `error` field describes the reason, and the `technical_metadata` field may be partially populated.
     /// </summary>
     public enum AssetStatus
     {
         /// <summary>
-        /// The platform failed to process the upload
+        /// The platform could not process the file. The `error` field describes the reason, and the `technical_metadata` field may be partially populated.
         /// </summary>
         Failed,
         /// <summary>
-        /// The platform is processing the uploaded file
+        /// The asset is not yet usable. This can mean the upload is still in progress (for example, the platform is still fetching the file from a URL, or a multipart upload has not completed), or the upload has finished and the platform is validating the file. The `technical_metadata` field is omitted from the response.
         /// </summary>
         Processing,
         /// <summary>
-        /// The asset is ready to use
+        /// The platform validated the asset successfully, and the asset is ready to use.
         /// </summary>
         Ready,
     }
