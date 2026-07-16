@@ -16,12 +16,12 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesVideosUpdateResponse204> UpdateAsync(
+        global::System.Threading.Tasks.Task UpdateAsync(
             string indexId,
             string videoId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest3 request,
+            global::TwelveLabs.UpdateRequest7 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -36,12 +36,12 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesVideosUpdateResponse204>> UpdateAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> UpdateAsResponseAsync(
             string indexId,
             string videoId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest3 request,
+            global::TwelveLabs.UpdateRequest7 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -70,7 +70,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesVideosUpdateResponse204> UpdateAsync(
+        global::System.Threading.Tasks.Task UpdateAsync(
             string indexId,
             string videoId,
             string xApiKey,

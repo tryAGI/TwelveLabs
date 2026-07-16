@@ -1,0 +1,58 @@
+
+#nullable enable
+
+namespace TwelveLabs
+{
+    /// <summary>
+    /// Indicates the beginning of the stream.
+    /// </summary>
+    public sealed partial class StreamAnalyzeResponseVariant1
+    {
+        /// <summary>
+        /// This field is always set to `stream_start` for this event.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("event_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.StreamStartResponseEventTypeJsonConverter))]
+        public global::TwelveLabs.StreamStartResponseEventType EventType { get; set; }
+
+        /// <summary>
+        /// An object containing metadata about the stream.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        public global::TwelveLabs.StreamStartResponseMetadata? Metadata { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StreamAnalyzeResponseVariant1" /> class.
+        /// </summary>
+        /// <param name="eventType">
+        /// This field is always set to `stream_start` for this event.
+        /// </param>
+        /// <param name="metadata">
+        /// An object containing metadata about the stream.
+        /// </param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public StreamAnalyzeResponseVariant1(
+            global::TwelveLabs.StreamStartResponseEventType eventType,
+            global::TwelveLabs.StreamStartResponseMetadata? metadata)
+        {
+            this.EventType = eventType;
+            this.Metadata = metadata;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StreamAnalyzeResponseVariant1" /> class.
+        /// </summary>
+        public StreamAnalyzeResponseVariant1()
+        {
+        }
+
+    }
+}

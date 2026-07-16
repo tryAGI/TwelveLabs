@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    /// A video indexing task that describes the status of the task and the metadata about the video.
     /// </summary>
     public sealed partial class TasksRetrieveResponse200
     {
@@ -48,7 +48,7 @@ namespace TwelveLabs
         /// System-generated metadata about the video.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_metadata")]
-        public global::TwelveLabs.VideoIndexingTaskSystemMetadata? SystemMetadata { get; set; }
+        public global::TwelveLabs.TasksTaskIdGetResponsesContentApplicationJsonSchemaSystemMetadata? SystemMetadata { get; set; }
 
         /// <summary>
         /// The platform returns this object only for the videos that you uploaded with the `enable_video_stream` parameter set to `true`.
@@ -99,7 +99,7 @@ namespace TwelveLabs
             string? updatedAt,
             string? status,
             string? indexId,
-            global::TwelveLabs.VideoIndexingTaskSystemMetadata? systemMetadata,
+            global::TwelveLabs.TasksTaskIdGetResponsesContentApplicationJsonSchemaSystemMetadata? systemMetadata,
             global::TwelveLabs.HLSObject? hls)
         {
             this.Id = id;

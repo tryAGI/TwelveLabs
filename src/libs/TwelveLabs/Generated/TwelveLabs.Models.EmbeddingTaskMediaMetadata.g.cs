@@ -13,147 +13,147 @@ namespace TwelveLabs
         /// Metadata for audio embeddings
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::TwelveLabs.EmbeddingAudioMetadata? EmbeddingAudioMetadata { get; init; }
+        public global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1? EmbeddingTaskMediaMetadataVariant1 { get; init; }
 #else
-        public global::TwelveLabs.EmbeddingAudioMetadata? EmbeddingAudioMetadata { get; }
+        public global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1? EmbeddingTaskMediaMetadataVariant1 { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EmbeddingAudioMetadata))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EmbeddingTaskMediaMetadataVariant1))]
 #endif
-        public bool IsEmbeddingAudioMetadata => EmbeddingAudioMetadata != null;
+        public bool IsEmbeddingTaskMediaMetadataVariant1 => EmbeddingTaskMediaMetadataVariant1 != null;
 
         /// <summary>
         /// 
         /// </summary>
-        public bool TryPickEmbeddingAudioMetadata(
+        public bool TryPickEmbeddingTaskMediaMetadataVariant1(
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::TwelveLabs.EmbeddingAudioMetadata? value)
+            out global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1? value)
         {
-            value = EmbeddingAudioMetadata;
-            return IsEmbeddingAudioMetadata;
+            value = EmbeddingTaskMediaMetadataVariant1;
+            return IsEmbeddingTaskMediaMetadataVariant1;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.EmbeddingAudioMetadata PickEmbeddingAudioMetadata() => IsEmbeddingAudioMetadata
-            ? EmbeddingAudioMetadata!
-            : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingAudioMetadata' but the value was {ToString()}.");
+        public global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1 PickEmbeddingTaskMediaMetadataVariant1() => IsEmbeddingTaskMediaMetadataVariant1
+            ? EmbeddingTaskMediaMetadataVariant1!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingTaskMediaMetadataVariant1' but the value was {ToString()}.");
 
         /// <summary>
         /// Metadata for video embeddings
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::TwelveLabs.EmbeddingVideoMetadata? EmbeddingVideoMetadata { get; init; }
+        public global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2? EmbeddingTaskMediaMetadataVariant2 { get; init; }
 #else
-        public global::TwelveLabs.EmbeddingVideoMetadata? EmbeddingVideoMetadata { get; }
+        public global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2? EmbeddingTaskMediaMetadataVariant2 { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EmbeddingVideoMetadata))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EmbeddingTaskMediaMetadataVariant2))]
 #endif
-        public bool IsEmbeddingVideoMetadata => EmbeddingVideoMetadata != null;
+        public bool IsEmbeddingTaskMediaMetadataVariant2 => EmbeddingTaskMediaMetadataVariant2 != null;
 
         /// <summary>
         /// 
         /// </summary>
-        public bool TryPickEmbeddingVideoMetadata(
+        public bool TryPickEmbeddingTaskMediaMetadataVariant2(
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::TwelveLabs.EmbeddingVideoMetadata? value)
+            out global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2? value)
         {
-            value = EmbeddingVideoMetadata;
-            return IsEmbeddingVideoMetadata;
+            value = EmbeddingTaskMediaMetadataVariant2;
+            return IsEmbeddingTaskMediaMetadataVariant2;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public global::TwelveLabs.EmbeddingVideoMetadata PickEmbeddingVideoMetadata() => IsEmbeddingVideoMetadata
-            ? EmbeddingVideoMetadata!
-            : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingVideoMetadata' but the value was {ToString()}.");
+        public global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2 PickEmbeddingTaskMediaMetadataVariant2() => IsEmbeddingTaskMediaMetadataVariant2
+            ? EmbeddingTaskMediaMetadataVariant2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingTaskMediaMetadataVariant2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator EmbeddingTaskMediaMetadata(global::TwelveLabs.EmbeddingAudioMetadata value) => new EmbeddingTaskMediaMetadata((global::TwelveLabs.EmbeddingAudioMetadata?)value);
+        public static implicit operator EmbeddingTaskMediaMetadata(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1 value) => new EmbeddingTaskMediaMetadata((global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::TwelveLabs.EmbeddingAudioMetadata?(EmbeddingTaskMediaMetadata @this) => @this.EmbeddingAudioMetadata;
+        public static implicit operator global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1?(EmbeddingTaskMediaMetadata @this) => @this.EmbeddingTaskMediaMetadataVariant1;
 
         /// <summary>
         /// 
         /// </summary>
-        public EmbeddingTaskMediaMetadata(global::TwelveLabs.EmbeddingAudioMetadata? value)
+        public EmbeddingTaskMediaMetadata(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1? value)
         {
-            EmbeddingAudioMetadata = value;
+            EmbeddingTaskMediaMetadataVariant1 = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public static EmbeddingTaskMediaMetadata FromEmbeddingAudioMetadata(global::TwelveLabs.EmbeddingAudioMetadata? value) => new EmbeddingTaskMediaMetadata(value);
+        public static EmbeddingTaskMediaMetadata FromEmbeddingTaskMediaMetadataVariant1(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1? value) => new EmbeddingTaskMediaMetadata(value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator EmbeddingTaskMediaMetadata(global::TwelveLabs.EmbeddingVideoMetadata value) => new EmbeddingTaskMediaMetadata((global::TwelveLabs.EmbeddingVideoMetadata?)value);
+        public static implicit operator EmbeddingTaskMediaMetadata(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2 value) => new EmbeddingTaskMediaMetadata((global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::TwelveLabs.EmbeddingVideoMetadata?(EmbeddingTaskMediaMetadata @this) => @this.EmbeddingVideoMetadata;
+        public static implicit operator global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2?(EmbeddingTaskMediaMetadata @this) => @this.EmbeddingTaskMediaMetadataVariant2;
 
         /// <summary>
         /// 
         /// </summary>
-        public EmbeddingTaskMediaMetadata(global::TwelveLabs.EmbeddingVideoMetadata? value)
+        public EmbeddingTaskMediaMetadata(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2? value)
         {
-            EmbeddingVideoMetadata = value;
+            EmbeddingTaskMediaMetadataVariant2 = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public static EmbeddingTaskMediaMetadata FromEmbeddingVideoMetadata(global::TwelveLabs.EmbeddingVideoMetadata? value) => new EmbeddingTaskMediaMetadata(value);
+        public static EmbeddingTaskMediaMetadata FromEmbeddingTaskMediaMetadataVariant2(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2? value) => new EmbeddingTaskMediaMetadata(value);
 
         /// <summary>
         /// 
         /// </summary>
         public EmbeddingTaskMediaMetadata(
-            global::TwelveLabs.EmbeddingAudioMetadata? embeddingAudioMetadata,
-            global::TwelveLabs.EmbeddingVideoMetadata? embeddingVideoMetadata
+            global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1? embeddingTaskMediaMetadataVariant1,
+            global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2? embeddingTaskMediaMetadataVariant2
             )
         {
-            EmbeddingAudioMetadata = embeddingAudioMetadata;
-            EmbeddingVideoMetadata = embeddingVideoMetadata;
+            EmbeddingTaskMediaMetadataVariant1 = embeddingTaskMediaMetadataVariant1;
+            EmbeddingTaskMediaMetadataVariant2 = embeddingTaskMediaMetadataVariant2;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            EmbeddingVideoMetadata as object ??
-            EmbeddingAudioMetadata as object 
+            EmbeddingTaskMediaMetadataVariant2 as object ??
+            EmbeddingTaskMediaMetadataVariant1 as object 
             ;
 
         /// <summary>
         /// 
         /// </summary>
         public override string? ToString() =>
-            EmbeddingAudioMetadata?.ToString() ??
-            EmbeddingVideoMetadata?.ToString() 
+            EmbeddingTaskMediaMetadataVariant1?.ToString() ??
+            EmbeddingTaskMediaMetadataVariant2?.ToString() 
             ;
 
         /// <summary>
@@ -161,15 +161,15 @@ namespace TwelveLabs
         /// </summary>
         public bool Validate()
         {
-            return IsEmbeddingAudioMetadata && !IsEmbeddingVideoMetadata || !IsEmbeddingAudioMetadata && IsEmbeddingVideoMetadata;
+            return IsEmbeddingTaskMediaMetadataVariant1 && !IsEmbeddingTaskMediaMetadataVariant2 || !IsEmbeddingTaskMediaMetadataVariant1 && IsEmbeddingTaskMediaMetadataVariant2;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::TwelveLabs.EmbeddingAudioMetadata, TResult>? embeddingAudioMetadata = null,
-            global::System.Func<global::TwelveLabs.EmbeddingVideoMetadata, TResult>? embeddingVideoMetadata = null,
+            global::System.Func<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1, TResult>? embeddingTaskMediaMetadataVariant1 = null,
+            global::System.Func<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2, TResult>? embeddingTaskMediaMetadataVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -177,13 +177,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsEmbeddingAudioMetadata && embeddingAudioMetadata != null)
+            if (IsEmbeddingTaskMediaMetadataVariant1 && embeddingTaskMediaMetadataVariant1 != null)
             {
-                return embeddingAudioMetadata(EmbeddingAudioMetadata!);
+                return embeddingTaskMediaMetadataVariant1(EmbeddingTaskMediaMetadataVariant1!);
             }
-            else if (IsEmbeddingVideoMetadata && embeddingVideoMetadata != null)
+            else if (IsEmbeddingTaskMediaMetadataVariant2 && embeddingTaskMediaMetadataVariant2 != null)
             {
-                return embeddingVideoMetadata(EmbeddingVideoMetadata!);
+                return embeddingTaskMediaMetadataVariant2(EmbeddingTaskMediaMetadataVariant2!);
             }
 
             return default(TResult);
@@ -193,9 +193,9 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::TwelveLabs.EmbeddingAudioMetadata>? embeddingAudioMetadata = null,
+            global::System.Action<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1>? embeddingTaskMediaMetadataVariant1 = null,
 
-            global::System.Action<global::TwelveLabs.EmbeddingVideoMetadata>? embeddingVideoMetadata = null,
+            global::System.Action<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2>? embeddingTaskMediaMetadataVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -203,13 +203,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsEmbeddingAudioMetadata)
+            if (IsEmbeddingTaskMediaMetadataVariant1)
             {
-                embeddingAudioMetadata?.Invoke(EmbeddingAudioMetadata!);
+                embeddingTaskMediaMetadataVariant1?.Invoke(EmbeddingTaskMediaMetadataVariant1!);
             }
-            else if (IsEmbeddingVideoMetadata)
+            else if (IsEmbeddingTaskMediaMetadataVariant2)
             {
-                embeddingVideoMetadata?.Invoke(EmbeddingVideoMetadata!);
+                embeddingTaskMediaMetadataVariant2?.Invoke(EmbeddingTaskMediaMetadataVariant2!);
             }
         }
 
@@ -217,8 +217,8 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public void Switch(
-            global::System.Action<global::TwelveLabs.EmbeddingAudioMetadata>? embeddingAudioMetadata = null,
-            global::System.Action<global::TwelveLabs.EmbeddingVideoMetadata>? embeddingVideoMetadata = null,
+            global::System.Action<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1>? embeddingTaskMediaMetadataVariant1 = null,
+            global::System.Action<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2>? embeddingTaskMediaMetadataVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -226,13 +226,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsEmbeddingAudioMetadata)
+            if (IsEmbeddingTaskMediaMetadataVariant1)
             {
-                embeddingAudioMetadata?.Invoke(EmbeddingAudioMetadata!);
+                embeddingTaskMediaMetadataVariant1?.Invoke(EmbeddingTaskMediaMetadataVariant1!);
             }
-            else if (IsEmbeddingVideoMetadata)
+            else if (IsEmbeddingTaskMediaMetadataVariant2)
             {
-                embeddingVideoMetadata?.Invoke(EmbeddingVideoMetadata!);
+                embeddingTaskMediaMetadataVariant2?.Invoke(EmbeddingTaskMediaMetadataVariant2!);
             }
         }
 
@@ -243,10 +243,10 @@ namespace TwelveLabs
         {
             var fields = new object?[]
             {
-                EmbeddingAudioMetadata,
-                typeof(global::TwelveLabs.EmbeddingAudioMetadata),
-                EmbeddingVideoMetadata,
-                typeof(global::TwelveLabs.EmbeddingVideoMetadata),
+                EmbeddingTaskMediaMetadataVariant1,
+                typeof(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1),
+                EmbeddingTaskMediaMetadataVariant2,
+                typeof(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -263,8 +263,8 @@ namespace TwelveLabs
         public bool Equals(EmbeddingTaskMediaMetadata other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.EmbeddingAudioMetadata?>.Default.Equals(EmbeddingAudioMetadata, other.EmbeddingAudioMetadata) &&
-                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.EmbeddingVideoMetadata?>.Default.Equals(EmbeddingVideoMetadata, other.EmbeddingVideoMetadata) 
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1?>.Default.Equals(EmbeddingTaskMediaMetadataVariant1, other.EmbeddingTaskMediaMetadataVariant1) &&
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2?>.Default.Equals(EmbeddingTaskMediaMetadataVariant2, other.EmbeddingTaskMediaMetadataVariant2) 
                 ;
         }
 

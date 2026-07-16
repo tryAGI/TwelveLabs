@@ -28,12 +28,12 @@ namespace TwelveLabs
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string xApiKey,
-            global::TwelveLabs.CreateRequest2 request);
+            global::TwelveLabs.CreateRequest request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string xApiKey,
-            global::TwelveLabs.CreateRequest2 request);
+            global::TwelveLabs.CreateRequest request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -73,7 +73,7 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.Asset> CreateAsync(
             string xApiKey,
 
-            global::TwelveLabs.CreateRequest2 request,
+            global::TwelveLabs.CreateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -117,7 +117,7 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.Asset>> CreateAsResponseAsync(
             string xApiKey,
 
-            global::TwelveLabs.CreateRequest2 request,
+            global::TwelveLabs.CreateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -672,7 +672,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.CreateRequest2
+            var __request = new global::TwelveLabs.CreateRequest
             {
                 Method = method,
                 File = file,

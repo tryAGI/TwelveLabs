@@ -29,13 +29,13 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string entityCollectionId,
             ref string xApiKey,
-            global::TwelveLabs.UpdateRequest4 request);
+            global::TwelveLabs.UpdateRequest request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string entityCollectionId,
             string xApiKey,
-            global::TwelveLabs.UpdateRequest4 request);
+            global::TwelveLabs.UpdateRequest request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -59,7 +59,7 @@ namespace TwelveLabs
             string entityCollectionId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest4 request,
+            global::TwelveLabs.UpdateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -88,7 +88,7 @@ namespace TwelveLabs
             string entityCollectionId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest4 request,
+            global::TwelveLabs.UpdateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -514,7 +514,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.UpdateRequest4
+            var __request = new global::TwelveLabs.UpdateRequest
             {
                 Name = name,
                 Description = description,

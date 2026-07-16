@@ -22,8 +22,8 @@ namespace TwelveLabs
         /// - `multipart`: Uploaded using the multipart upload flow
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("method")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AssetMethodJsonConverter))]
-        public global::TwelveLabs.AssetMethod? Method { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AssetDetailMethodJsonConverter))]
+        public global::TwelveLabs.AssetDetailMethod? Method { get; set; }
 
         /// <summary>
         /// Indicates the current processing status of the asset.<br/>
@@ -34,8 +34,8 @@ namespace TwelveLabs
         /// - `failed`: The platform could not process the file. The `error` field describes the reason, and the `technical_metadata` field may be partially populated.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AssetStatusJsonConverter))]
-        public global::TwelveLabs.AssetStatus? Status { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AssetDetailStatusJsonConverter))]
+        public global::TwelveLabs.AssetDetailStatus? Status { get; set; }
 
         /// <summary>
         /// The name of the file used to create the asset.
@@ -161,8 +161,8 @@ namespace TwelveLabs
 #endif
         public AssetDetail(
             string? id,
-            global::TwelveLabs.AssetMethod? method,
-            global::TwelveLabs.AssetStatus? status,
+            global::TwelveLabs.AssetDetailMethod? method,
+            global::TwelveLabs.AssetDetailStatus? status,
             string? filename,
             string? fileType,
             global::System.DateTime? createdAt,

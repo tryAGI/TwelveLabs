@@ -20,7 +20,7 @@ namespace TwelveLabs
             string entityId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest5 request,
+            global::TwelveLabs.UpdateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -39,7 +39,7 @@ namespace TwelveLabs
             string entityId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest5 request,
+            global::TwelveLabs.UpdateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

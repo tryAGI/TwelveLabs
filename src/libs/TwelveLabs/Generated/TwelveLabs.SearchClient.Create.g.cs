@@ -28,12 +28,12 @@ namespace TwelveLabs
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string xApiKey,
-            global::TwelveLabs.CreateRequest7 request);
+            global::TwelveLabs.CreateRequest10 request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string xApiKey,
-            global::TwelveLabs.CreateRequest7 request);
+            global::TwelveLabs.CreateRequest10 request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -72,7 +72,7 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.SearchResults> CreateAsync(
             string xApiKey,
 
-            global::TwelveLabs.CreateRequest7 request,
+            global::TwelveLabs.CreateRequest10 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -115,7 +115,7 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.SearchResults>> CreateAsResponseAsync(
             string xApiKey,
 
-            global::TwelveLabs.CreateRequest7 request,
+            global::TwelveLabs.CreateRequest10 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -785,7 +785,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.CreateRequest7
+            var __request = new global::TwelveLabs.CreateRequest10
             {
                 QueryMediaType = queryMediaType,
                 QueryMediaUrl = queryMediaUrl,

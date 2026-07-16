@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    /// A video embedding task that describes the status of the task and the metadata about the video.
     /// </summary>
     public sealed partial class EmbedTasksRetrieveResponse200
     {
@@ -39,7 +39,7 @@ namespace TwelveLabs
         public global::System.DateTime? UpdatedAt { get; set; }
 
         /// <summary>
-        /// 
+        /// An object containing the metadata associated with the embedding.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_embedding")]
         public global::TwelveLabs.EmbedTasksTaskIdGetResponsesContentApplicationJsonSchemaVideoEmbedding? VideoEmbedding { get; set; }
@@ -68,7 +68,9 @@ namespace TwelveLabs
         /// <param name="updatedAt">
         /// A string representing the date and time, in RFC 3339 format (“YYYY-MM-DDTHH:mm:ssZ”), when the resource was last updated.
         /// </param>
-        /// <param name="videoEmbedding"></param>
+        /// <param name="videoEmbedding">
+        /// An object containing the metadata associated with the embedding.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -9,63 +9,24 @@ namespace TwelveLabs
     public sealed partial class CreateRequest9
     {
         /// <summary>
-        /// The name of the model you want to use. The following models are available:<br/>
-        ///   - `marengo3.0`: Enhanced model with sports intelligence and extended content support.
+        /// The unique identifier of the asset to index. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelName { get; set; }
+        public required string AssetId { get; set; }
 
         /// <summary>
-        /// The text for which you wish to create an embedding.<br/>
-        /// **Example**: "Man with a dog crossing the street"
+        /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index-id}/indexed-assets/{indexed-asset-id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>
+        /// Default Value: false
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("text")]
-        public string? Text { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_video_stream")]
+        public bool? EnableVideoStream { get; set; }
 
         /// <summary>
-        /// The publicly accessible URL of the image for which you wish to create an embedding. This parameter is required for image embeddings if `image_file` is not provided.
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("image_url")]
-        public string? ImageUrl { get; set; }
-
-        /// <summary>
-        /// The image file for which you wish to create an embedding as a local file. This parameter is required for image embeddings if `image_url` is not provided.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("image_file")]
-        public byte[]? ImageFile { get; set; }
-
-        /// <summary>
-        /// The image file for which you wish to create an embedding as a local file. This parameter is required for image embeddings if `image_url` is not provided.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("image_filename")]
-        public string? ImageFilename { get; set; }
-
-        /// <summary>
-        /// The publicly accessible URL of the audio file for which you wish to creae an embedding. This parameter is required for audio embeddings if `audio_file` is not provided.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("audio_url")]
-        public string? AudioUrl { get; set; }
-
-        /// <summary>
-        /// The audio file for which you wish to create an embedding as a local file. This parameter is required for audio embeddings if `audio_url` is not provided.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("audio_file")]
-        public byte[]? AudioFile { get; set; }
-
-        /// <summary>
-        /// The audio file for which you wish to create an embedding as a local file. This parameter is required for audio embeddings if `audio_url` is not provided.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("audio_filename")]
-        public string? AudioFilename { get; set; }
-
-        /// <summary>
-        /// Specifies the start time, in seconds, from which the platform generates the audio embeddings. This parameter allows you to skip the initial portion of the audio during processing.<br/>
-        /// **Default**: `0`.<br/>
-        /// Default Value: 0
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("audio_start_offset_sec")]
-        public double? AudioStartOffsetSec { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
+        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -76,60 +37,27 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateRequest9" /> class.
         /// </summary>
-        /// <param name="modelName">
-        /// The name of the model you want to use. The following models are available:<br/>
-        ///   - `marengo3.0`: Enhanced model with sports intelligence and extended content support.
+        /// <param name="assetId">
+        /// The unique identifier of the asset to index. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status.
         /// </param>
-        /// <param name="text">
-        /// The text for which you wish to create an embedding.<br/>
-        /// **Example**: "Man with a dog crossing the street"
+        /// <param name="enableVideoStream">
+        /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index-id}/indexed-assets/{indexed-asset-id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>
+        /// Default Value: false
         /// </param>
-        /// <param name="imageUrl">
-        /// The publicly accessible URL of the image for which you wish to create an embedding. This parameter is required for image embeddings if `image_file` is not provided.
-        /// </param>
-        /// <param name="imageFile">
-        /// The image file for which you wish to create an embedding as a local file. This parameter is required for image embeddings if `image_url` is not provided.
-        /// </param>
-        /// <param name="imageFilename">
-        /// The image file for which you wish to create an embedding as a local file. This parameter is required for image embeddings if `image_url` is not provided.
-        /// </param>
-        /// <param name="audioUrl">
-        /// The publicly accessible URL of the audio file for which you wish to creae an embedding. This parameter is required for audio embeddings if `audio_file` is not provided.
-        /// </param>
-        /// <param name="audioFile">
-        /// The audio file for which you wish to create an embedding as a local file. This parameter is required for audio embeddings if `audio_url` is not provided.
-        /// </param>
-        /// <param name="audioFilename">
-        /// The audio file for which you wish to create an embedding as a local file. This parameter is required for audio embeddings if `audio_url` is not provided.
-        /// </param>
-        /// <param name="audioStartOffsetSec">
-        /// Specifies the start time, in seconds, from which the platform generates the audio embeddings. This parameter allows you to skip the initial portion of the audio during processing.<br/>
-        /// **Default**: `0`.<br/>
-        /// Default Value: 0
+        /// <param name="userMetadata">
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateRequest9(
-            string modelName,
-            string? text,
-            string? imageUrl,
-            byte[]? imageFile,
-            string? imageFilename,
-            string? audioUrl,
-            byte[]? audioFile,
-            string? audioFilename,
-            double? audioStartOffsetSec)
+            string assetId,
+            bool? enableVideoStream,
+            global::TwelveLabs.UserMetadata? userMetadata)
         {
-            this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
-            this.Text = text;
-            this.ImageUrl = imageUrl;
-            this.ImageFile = imageFile;
-            this.ImageFilename = imageFilename;
-            this.AudioUrl = audioUrl;
-            this.AudioFile = audioFile;
-            this.AudioFilename = audioFilename;
-            this.AudioStartOffsetSec = audioStartOffsetSec;
+            this.AssetId = assetId ?? throw new global::System.ArgumentNullException(nameof(assetId));
+            this.EnableVideoStream = enableVideoStream;
+            this.UserMetadata = userMetadata;
         }
 
         /// <summary>

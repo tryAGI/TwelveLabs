@@ -38,11 +38,6 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDeleteResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
-
         /// <summary>
         /// Delete a video indexing task<br/>
         /// This action cannot be undone.<br/>
@@ -55,20 +50,18 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.TasksDeleteResponse204> DeleteAsync(
+        public async global::System.Threading.Tasks.Task DeleteAsync(
             string taskId,
             string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await DeleteAsResponseAsync(
+            await DeleteAsResponseAsync(
                 taskId: taskId,
                 xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
-
-            return __response.Body;
         }
         /// <summary>
         /// Delete a video indexing task<br/>
@@ -82,7 +75,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksDeleteResponse204>> DeleteAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> DeleteAsResponseAsync(
             string taskId,
             string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -394,22 +387,15 @@ namespace TwelveLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessDeleteResponseContent(
-                                    httpClient: HttpClient,
-                                    httpResponseMessage: __response,
-                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::TwelveLabs.TasksDeleteResponse204.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksDeleteResponse204>(
+                return new global::TwelveLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -429,19 +415,10 @@ namespace TwelveLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
-                #if NET5_0_OR_GREATER
-                                        __effectiveCancellationToken
-                #endif
-                                    ).ConfigureAwait(false);
-
-                                    var __value = await global::TwelveLabs.TasksDeleteResponse204.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksDeleteResponse204>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

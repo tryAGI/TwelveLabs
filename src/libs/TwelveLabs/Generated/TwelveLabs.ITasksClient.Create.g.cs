@@ -34,7 +34,7 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.TasksCreateResponse200> CreateAsync(
             string xApiKey,
 
-            global::TwelveLabs.CreateRequest3 request,
+            global::TwelveLabs.CreateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -67,7 +67,7 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksCreateResponse200>> CreateAsResponseAsync(
             string xApiKey,
 
-            global::TwelveLabs.CreateRequest3 request,
+            global::TwelveLabs.CreateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

@@ -107,7 +107,27 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public KnowledgeStoreItemCollectionsClient KnowledgeStoreItemCollections { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public KnowledgeStoreItemsClient KnowledgeStoreItems { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public KnowledgeStoresClient KnowledgeStores { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public MultipartUploadClient MultipartUpload { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ResponsesClient Responses { get; }
 
         /// <summary>
         /// 

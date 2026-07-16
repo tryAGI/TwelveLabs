@@ -30,14 +30,14 @@ namespace TwelveLabs
             ref string entityCollectionId,
             ref string entityId,
             ref string xApiKey,
-            global::TwelveLabs.UpdateRequest5 request);
+            global::TwelveLabs.UpdateRequest2 request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string entityCollectionId,
             string entityId,
             string xApiKey,
-            global::TwelveLabs.UpdateRequest5 request);
+            global::TwelveLabs.UpdateRequest2 request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -63,7 +63,7 @@ namespace TwelveLabs
             string entityId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest5 request,
+            global::TwelveLabs.UpdateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -95,7 +95,7 @@ namespace TwelveLabs
             string entityId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest5 request,
+            global::TwelveLabs.UpdateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -529,7 +529,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.UpdateRequest5
+            var __request = new global::TwelveLabs.UpdateRequest2
             {
                 Name = name,
                 Description = description,

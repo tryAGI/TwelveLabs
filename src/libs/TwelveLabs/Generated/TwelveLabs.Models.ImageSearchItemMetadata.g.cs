@@ -1,0 +1,57 @@
+
+#nullable enable
+
+namespace TwelveLabs
+{
+    /// <summary>
+    /// Metadata attached to an image knowledge store item in search results.
+    /// </summary>
+    public sealed partial class ImageSearchItemMetadata
+    {
+        /// <summary>
+        /// System-generated media metadata for the source image.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("system")]
+        public global::TwelveLabs.ImageSearchSystemMetadata? System { get; set; }
+
+        /// <summary>
+        /// Caller-supplied key-value pairs attached to the item.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user")]
+        public global::TwelveLabs.UserMetadata? User { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageSearchItemMetadata" /> class.
+        /// </summary>
+        /// <param name="system">
+        /// System-generated media metadata for the source image.
+        /// </param>
+        /// <param name="user">
+        /// Caller-supplied key-value pairs attached to the item.
+        /// </param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public ImageSearchItemMetadata(
+            global::TwelveLabs.ImageSearchSystemMetadata? system,
+            global::TwelveLabs.UserMetadata? user)
+        {
+            this.System = system;
+            this.User = user;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ImageSearchItemMetadata" /> class.
+        /// </summary>
+        public ImageSearchItemMetadata()
+        {
+        }
+
+    }
+}
