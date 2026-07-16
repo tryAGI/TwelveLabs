@@ -9,22 +9,11 @@ namespace TwelveLabs
     public sealed partial class UpdateRequest5
     {
         /// <summary>
-        /// The new name for the entity.
+        /// The name of the index.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
-        public string? Name { get; set; }
-
-        /// <summary>
-        /// An updated description for the entity.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
-        public string? Description { get; set; }
-
-        /// <summary>
-        /// Updated metadata for the entity. If provided, this completely replaces the existing metadata. Use this to store custom key-value pairs related to the entity.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesEntityIdPatchRequestBodyContentApplicationJsonSchemaMetadata? Metadata { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("index_name")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string IndexName { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -35,26 +24,16 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateRequest5" /> class.
         /// </summary>
-        /// <param name="name">
-        /// The new name for the entity.
-        /// </param>
-        /// <param name="description">
-        /// An updated description for the entity.
-        /// </param>
-        /// <param name="metadata">
-        /// Updated metadata for the entity. If provided, this completely replaces the existing metadata. Use this to store custom key-value pairs related to the entity.
+        /// <param name="indexName">
+        /// The name of the index.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UpdateRequest5(
-            string? name,
-            string? description,
-            global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesEntityIdPatchRequestBodyContentApplicationJsonSchemaMetadata? metadata)
+            string indexName)
         {
-            this.Name = name;
-            this.Description = description;
-            this.Metadata = metadata;
+            this.IndexName = indexName ?? throw new global::System.ArgumentNullException(nameof(indexName));
         }
 
         /// <summary>

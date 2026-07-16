@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    /// An object containing the metadata associated with the embedding.
     /// </summary>
     public sealed partial class EmbedTasksTaskIdGetResponsesContentApplicationJsonSchemaVideoEmbedding
     {

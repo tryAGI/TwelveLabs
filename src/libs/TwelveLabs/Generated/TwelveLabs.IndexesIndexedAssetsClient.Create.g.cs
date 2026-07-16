@@ -29,13 +29,13 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string indexId,
             ref string xApiKey,
-            global::TwelveLabs.CreateRequest4 request);
+            global::TwelveLabs.CreateRequest9 request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string indexId,
             string xApiKey,
-            global::TwelveLabs.CreateRequest4 request);
+            global::TwelveLabs.CreateRequest9 request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -68,7 +68,7 @@ namespace TwelveLabs
             string indexId,
             string xApiKey,
 
-            global::TwelveLabs.CreateRequest4 request,
+            global::TwelveLabs.CreateRequest9 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -106,7 +106,7 @@ namespace TwelveLabs
             string indexId,
             string xApiKey,
 
-            global::TwelveLabs.CreateRequest4 request,
+            global::TwelveLabs.CreateRequest9 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -620,7 +620,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.CreateRequest4
+            var __request = new global::TwelveLabs.CreateRequest9
             {
                 AssetId = assetId,
                 EnableVideoStream = enableVideoStream,

@@ -9,51 +9,39 @@ namespace TwelveLabs
     public sealed partial class CreateRequest2
     {
         /// <summary>
-        /// Specifies the upload method for the asset. Use `direct` to upload a local file or `url` for a publicly accessible URL.
+        /// The unique identifier of the index to which the video is being uploaded.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("method")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AssetsPostRequestBodyContentMultipartFormDataSchemaMethodJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonPropertyName("index_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::TwelveLabs.AssetsPostRequestBodyContentMultipartFormDataSchemaMethod Method { get; set; }
+        public required string IndexId { get; set; }
 
         /// <summary>
-        /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
-        /// Local video and audio files support up to 200 MB. Image files support up to 32 MB.
+        /// Specify this parameter to upload a video from your local file system.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("file")]
-        public byte[]? File { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("video_file")]
+        public byte[]? VideoFile { get; set; }
 
         /// <summary>
-        /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
-        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB.
+        /// Specify this parameter to upload a video from your local file system.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("url")]
-        public string? Url { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("video_filename")]
+        public string? VideoFilename { get; set; }
 
         /// <summary>
-        /// The optional filename of the asset. If not provided, the platform will determine the filename from the file or URL.
+        /// Specify this parameter to upload a video from a publicly accessible URL.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
-        public string? Filename { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("video_url")]
+        public string? VideoUrl { get; set; }
 
         /// <summary>
-        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
-        /// **Default**: `false`.<br/>
-        /// Default Value: false
+        /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index-id}/videos/{video-id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>
+        /// Default Value: true
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("enable_hls")]
-        public bool? EnableHls { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_video_stream")]
+        public bool? EnableVideoStream { get; set; }
 
         /// <summary>
-        /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
-        /// **Default**: `false`.<br/>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("enable_thumbnail")]
-        public bool? EnableThumbnail { get; set; }
-
-        /// <summary>
-        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`. Send this value as a JSON-encoded string.
+        /// Metadata that helps you categorize your videos. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`. Send this value as a JSON-encoded string.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
         public string? UserMetadata { get; set; }
@@ -67,51 +55,41 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateRequest2" /> class.
         /// </summary>
-        /// <param name="method">
-        /// Specifies the upload method for the asset. Use `direct` to upload a local file or `url` for a publicly accessible URL.
+        /// <param name="indexId">
+        /// The unique identifier of the index to which the video is being uploaded.
         /// </param>
-        /// <param name="file">
-        /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
-        /// Local video and audio files support up to 200 MB. Image files support up to 32 MB.
+        /// <param name="videoFile">
+        /// Specify this parameter to upload a video from your local file system.
         /// </param>
-        /// <param name="url">
-        /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
-        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB.
+        /// <param name="videoFilename">
+        /// Specify this parameter to upload a video from your local file system.
         /// </param>
-        /// <param name="filename">
-        /// The optional filename of the asset. If not provided, the platform will determine the filename from the file or URL.
+        /// <param name="videoUrl">
+        /// Specify this parameter to upload a video from a publicly accessible URL.
         /// </param>
-        /// <param name="enableHls">
-        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
-        /// **Default**: `false`.<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="enableThumbnail">
-        /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
-        /// **Default**: `false`.<br/>
-        /// Default Value: false
+        /// <param name="enableVideoStream">
+        /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index-id}/videos/{video-id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="userMetadata">
-        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`. Send this value as a JSON-encoded string.
+        /// Metadata that helps you categorize your videos. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`. Send this value as a JSON-encoded string.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateRequest2(
-            global::TwelveLabs.AssetsPostRequestBodyContentMultipartFormDataSchemaMethod method,
-            byte[]? file,
-            string? url,
-            string? filename,
-            bool? enableHls,
-            bool? enableThumbnail,
+            string indexId,
+            byte[]? videoFile,
+            string? videoFilename,
+            string? videoUrl,
+            bool? enableVideoStream,
             string? userMetadata)
         {
-            this.Method = method;
-            this.File = file;
-            this.Url = url;
-            this.Filename = filename;
-            this.EnableHls = enableHls;
-            this.EnableThumbnail = enableThumbnail;
+            this.IndexId = indexId ?? throw new global::System.ArgumentNullException(nameof(indexId));
+            this.VideoFile = videoFile;
+            this.VideoFilename = videoFilename;
+            this.VideoUrl = videoUrl;
+            this.EnableVideoStream = enableVideoStream;
             this.UserMetadata = userMetadata;
         }
 

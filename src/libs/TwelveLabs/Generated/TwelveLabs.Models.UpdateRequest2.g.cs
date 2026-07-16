@@ -9,22 +9,22 @@ namespace TwelveLabs
     public sealed partial class UpdateRequest2
     {
         /// <summary>
-        /// Metadata that helps you categorize your assets. The object contains user-defined keys and values, where keys are strings and values are one of `string`, `integer`, `float`, or `boolean`.<br/>
-        /// **Example**:<br/>
-        /// ```JSON<br/>
-        /// "user_metadata": {<br/>
-        ///   "category": "recentlyAdded",<br/>
-        ///   "batchNumber": 5,<br/>
-        ///   "rating": 9.3,<br/>
-        ///   "needsReview": true<br/>
-        /// }<br/>
-        /// ```<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// To store other types of data, such as objects or arrays, convert your data into string values before sending it.<br/>
-        /// &lt;/Note&gt;
+        /// The new name for the entity.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
-        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string? Name { get; set; }
+
+        /// <summary>
+        /// An updated description for the entity.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string? Description { get; set; }
+
+        /// <summary>
+        /// Updated metadata for the entity. If provided, this completely replaces the existing metadata. Use this to store custom key-value pairs related to the entity.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        public global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesEntityIdPatchRequestBodyContentApplicationJsonSchemaMetadata? Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -35,28 +35,26 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateRequest2" /> class.
         /// </summary>
-        /// <param name="userMetadata">
-        /// Metadata that helps you categorize your assets. The object contains user-defined keys and values, where keys are strings and values are one of `string`, `integer`, `float`, or `boolean`.<br/>
-        /// **Example**:<br/>
-        /// ```JSON<br/>
-        /// "user_metadata": {<br/>
-        ///   "category": "recentlyAdded",<br/>
-        ///   "batchNumber": 5,<br/>
-        ///   "rating": 9.3,<br/>
-        ///   "needsReview": true<br/>
-        /// }<br/>
-        /// ```<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// To store other types of data, such as objects or arrays, convert your data into string values before sending it.<br/>
-        /// &lt;/Note&gt;
+        /// <param name="name">
+        /// The new name for the entity.
+        /// </param>
+        /// <param name="description">
+        /// An updated description for the entity.
+        /// </param>
+        /// <param name="metadata">
+        /// Updated metadata for the entity. If provided, this completely replaces the existing metadata. Use this to store custom key-value pairs related to the entity.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UpdateRequest2(
-            global::TwelveLabs.UserMetadata? userMetadata)
+            string? name,
+            string? description,
+            global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesEntityIdPatchRequestBodyContentApplicationJsonSchemaMetadata? metadata)
         {
-            this.UserMetadata = userMetadata;
+            this.Name = name;
+            this.Description = description;
+            this.Metadata = metadata;
         }
 
         /// <summary>

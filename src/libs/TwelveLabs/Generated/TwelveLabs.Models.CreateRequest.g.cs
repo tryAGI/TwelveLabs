@@ -9,30 +9,54 @@ namespace TwelveLabs
     public sealed partial class CreateRequest
     {
         /// <summary>
-        /// The name of the index. Make sure you use a succinct and descriptive name.
+        /// Specifies the upload method for the asset. Use `direct` to upload a local file or `url` for a publicly accessible URL.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("index_name")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("method")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AssetsPostRequestBodyContentMultipartFormDataSchemaMethodJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string IndexName { get; set; }
+        public required global::TwelveLabs.AssetsPostRequestBodyContentMultipartFormDataSchemaMethod Method { get; set; }
 
         /// <summary>
-        /// An array that specifies the [video understanding models](/v1.3/docs/concepts/models) and the [model options](/v1.3/docs/concepts/modalities#model-options) to be enabled for this index. Models determine what tasks you can perform with your videos. Model options determine which modalities the platform analyzes.
+        /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
+        /// Local video and audio files support up to 200 MB. Image files support up to 32 MB.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("models")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems> Models { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("file")]
+        public byte[]? File { get; set; }
 
         /// <summary>
-        /// An array specifying which add-ons should be enabled. Each entry in the array is an addon, and the following values are supported:<br/>
-        /// - `thumbnail`: Enables thumbnail generation.<br/>
-        /// If you don't provide this parameter, no add-ons will be enabled.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - You can only enable addons when using the Marengo video understanding model.<br/>
-        /// - You cannot disable an add-on once the index has been created.<br/>
-        /// &lt;/Note&gt;
+        /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
+        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("addons")]
-        public global::System.Collections.Generic.IList<string>? Addons { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("url")]
+        public string? Url { get; set; }
+
+        /// <summary>
+        /// The optional filename of the asset. If not provided, the platform will determine the filename from the file or URL.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
+        public string? Filename { get; set; }
+
+        /// <summary>
+        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_hls")]
+        public bool? EnableHls { get; set; }
+
+        /// <summary>
+        /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_thumbnail")]
+        public bool? EnableThumbnail { get; set; }
+
+        /// <summary>
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`. Send this value as a JSON-encoded string.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
+        public string? UserMetadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -43,32 +67,52 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateRequest" /> class.
         /// </summary>
-        /// <param name="indexName">
-        /// The name of the index. Make sure you use a succinct and descriptive name.
+        /// <param name="method">
+        /// Specifies the upload method for the asset. Use `direct` to upload a local file or `url` for a publicly accessible URL.
         /// </param>
-        /// <param name="models">
-        /// An array that specifies the [video understanding models](/v1.3/docs/concepts/models) and the [model options](/v1.3/docs/concepts/modalities#model-options) to be enabled for this index. Models determine what tasks you can perform with your videos. Model options determine which modalities the platform analyzes.
+        /// <param name="file">
+        /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
+        /// Local video and audio files support up to 200 MB. Image files support up to 32 MB.
         /// </param>
-        /// <param name="addons">
-        /// An array specifying which add-ons should be enabled. Each entry in the array is an addon, and the following values are supported:<br/>
-        /// - `thumbnail`: Enables thumbnail generation.<br/>
-        /// If you don't provide this parameter, no add-ons will be enabled.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - You can only enable addons when using the Marengo video understanding model.<br/>
-        /// - You cannot disable an add-on once the index has been created.<br/>
-        /// &lt;/Note&gt;
+        /// <param name="url">
+        /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
+        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB.
+        /// </param>
+        /// <param name="filename">
+        /// The optional filename of the asset. If not provided, the platform will determine the filename from the file or URL.
+        /// </param>
+        /// <param name="enableHls">
+        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="enableThumbnail">
+        /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
+        /// **Default**: `false`.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="userMetadata">
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`. Send this value as a JSON-encoded string.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateRequest(
-            string indexName,
-            global::System.Collections.Generic.IList<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems> models,
-            global::System.Collections.Generic.IList<string>? addons)
+            global::TwelveLabs.AssetsPostRequestBodyContentMultipartFormDataSchemaMethod method,
+            byte[]? file,
+            string? url,
+            string? filename,
+            bool? enableHls,
+            bool? enableThumbnail,
+            string? userMetadata)
         {
-            this.IndexName = indexName ?? throw new global::System.ArgumentNullException(nameof(indexName));
-            this.Models = models ?? throw new global::System.ArgumentNullException(nameof(models));
-            this.Addons = addons;
+            this.Method = method;
+            this.File = file;
+            this.Url = url;
+            this.Filename = filename;
+            this.EnableHls = enableHls;
+            this.EnableThumbnail = enableThumbnail;
+            this.UserMetadata = userMetadata;
         }
 
         /// <summary>

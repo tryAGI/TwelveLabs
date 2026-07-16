@@ -19,9 +19,9 @@ namespace TwelveLabs
         /// The analysis mode applied to every item in this batch.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("analysis_mode")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AnalyzeBatchSummaryAnalysisModeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AnalyzeBatchStatusResponseAnalysisModeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::TwelveLabs.AnalyzeBatchSummaryAnalysisMode AnalysisMode { get; set; }
+        public required global::TwelveLabs.AnalyzeBatchStatusResponseAnalysisMode AnalysisMode { get; set; }
 
         /// <summary>
         /// The model used for every item in this batch.
@@ -180,7 +180,7 @@ namespace TwelveLabs
 #endif
         public AnalyzeBatchStatusResponse(
             string batchId,
-            global::TwelveLabs.AnalyzeBatchSummaryAnalysisMode analysisMode,
+            global::TwelveLabs.AnalyzeBatchStatusResponseAnalysisMode analysisMode,
             string modelName,
             global::TwelveLabs.BatchStatus status,
             int totalItems,

@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    /// An indexed asset object that contains information about the indexed asset, including its indexing status.
     /// </summary>
     public sealed partial class IndexedAssetDetailed
     {
@@ -42,14 +42,14 @@ namespace TwelveLabs
         /// The status of the indexing task.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.IndexedAssetStatusJsonConverter))]
-        public global::TwelveLabs.IndexedAssetStatus? Status { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.IndexedAssetDetailedStatusJsonConverter))]
+        public global::TwelveLabs.IndexedAssetDetailedStatus? Status { get; set; }
 
         /// <summary>
         /// System-generated metadata about the indexed asset.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_metadata")]
-        public global::TwelveLabs.IndexedAssetSystemMetadata? SystemMetadata { get; set; }
+        public global::TwelveLabs.IndexedAssetDetailedSystemMetadata? SystemMetadata { get; set; }
 
         /// <summary>
         /// User-defined metadata for this indexed asset.
@@ -126,8 +126,8 @@ namespace TwelveLabs
             string? createdAt,
             string? updatedAt,
             string? indexedAt,
-            global::TwelveLabs.IndexedAssetStatus? status,
-            global::TwelveLabs.IndexedAssetSystemMetadata? systemMetadata,
+            global::TwelveLabs.IndexedAssetDetailedStatus? status,
+            global::TwelveLabs.IndexedAssetDetailedSystemMetadata? systemMetadata,
             global::TwelveLabs.UserMetadata? userMetadata,
             global::TwelveLabs.HLSObject? hls,
             global::TwelveLabs.IndexedAssetDetailedEmbedding? embedding,

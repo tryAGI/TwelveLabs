@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    /// An object that contains your search results.
     /// </summary>
     public sealed partial class SearchRetrieveResponse200
     {

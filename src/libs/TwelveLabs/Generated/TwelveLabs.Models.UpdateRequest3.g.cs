@@ -9,22 +9,22 @@ namespace TwelveLabs
     public sealed partial class UpdateRequest3
     {
         /// <summary>
-        /// Metadata that helps you categorize your assets. The object contains user-defined keys and values, where keys are strings and values are one of `string`, `integer`, `float`, or `boolean`.<br/>
-        /// **Example**:<br/>
-        /// ```JSON<br/>
-        /// "user_metadata": {<br/>
-        ///   "category": "recentlyAdded",<br/>
-        ///   "batchNumber": 5,<br/>
-        ///   "rating": 9.3,<br/>
-        ///   "needsReview": true<br/>
-        /// }<br/>
-        /// ```<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// To store other types of data, such as objects or arrays, convert your data into string values before sending it.<br/>
-        /// &lt;/Note&gt;
+        /// The name of the knowledge store.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
-        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string? Name { get; set; }
+
+        /// <summary>
+        /// An optional description of the knowledge store.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string? Description { get; set; }
+
+        /// <summary>
+        /// Custom metadata for the knowledge store. Both keys and values must be strings. The provided object replaces the existing metadata in full, so include every key you want to keep. To clear all metadata, set this field to an empty object (`{}`). A null value is stored as an empty string.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        public global::System.Collections.Generic.Dictionary<string, string>? Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -35,28 +35,26 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateRequest3" /> class.
         /// </summary>
-        /// <param name="userMetadata">
-        /// Metadata that helps you categorize your assets. The object contains user-defined keys and values, where keys are strings and values are one of `string`, `integer`, `float`, or `boolean`.<br/>
-        /// **Example**:<br/>
-        /// ```JSON<br/>
-        /// "user_metadata": {<br/>
-        ///   "category": "recentlyAdded",<br/>
-        ///   "batchNumber": 5,<br/>
-        ///   "rating": 9.3,<br/>
-        ///   "needsReview": true<br/>
-        /// }<br/>
-        /// ```<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// To store other types of data, such as objects or arrays, convert your data into string values before sending it.<br/>
-        /// &lt;/Note&gt;
+        /// <param name="name">
+        /// The name of the knowledge store.
+        /// </param>
+        /// <param name="description">
+        /// An optional description of the knowledge store.
+        /// </param>
+        /// <param name="metadata">
+        /// Custom metadata for the knowledge store. Both keys and values must be strings. The provided object replaces the existing metadata in full, so include every key you want to keep. To clear all metadata, set this field to an empty object (`{}`). A null value is stored as an empty string.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UpdateRequest3(
-            global::TwelveLabs.UserMetadata? userMetadata)
+            string? name,
+            string? description,
+            global::System.Collections.Generic.Dictionary<string, string>? metadata)
         {
-            this.UserMetadata = userMetadata;
+            this.Name = name;
+            this.Description = description;
+            this.Metadata = metadata;
         }
 
         /// <summary>

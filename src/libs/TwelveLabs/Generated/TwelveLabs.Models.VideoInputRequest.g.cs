@@ -36,7 +36,6 @@ namespace TwelveLabs
         /// Specifies how the platform divides the video into segments.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segmentation")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.VideoSegmentationJsonConverter))]
         public global::TwelveLabs.VideoSegmentation? Segmentation { get; set; }
 
         /// <summary>

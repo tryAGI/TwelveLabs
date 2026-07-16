@@ -30,22 +30,17 @@ namespace TwelveLabs
             ref string indexId,
             ref string videoId,
             ref string xApiKey,
-            global::TwelveLabs.UpdateRequest3 request);
+            global::TwelveLabs.UpdateRequest7 request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string indexId,
             string videoId,
             string xApiKey,
-            global::TwelveLabs.UpdateRequest3 request);
+            global::TwelveLabs.UpdateRequest7 request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
-
-        partial void ProcessUpdateResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
 
         /// <summary>
         /// Partial update video information<br/>
@@ -59,16 +54,16 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesVideosUpdateResponse204> UpdateAsync(
+        public async global::System.Threading.Tasks.Task UpdateAsync(
             string indexId,
             string videoId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest3 request,
+            global::TwelveLabs.UpdateRequest7 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await UpdateAsResponseAsync(
+            await UpdateAsResponseAsync(
                 indexId: indexId,
                 videoId: videoId,
                 xApiKey: xApiKey,
@@ -77,8 +72,6 @@ namespace TwelveLabs
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
-
-            return __response.Body;
         }
         /// <summary>
         /// Partial update video information<br/>
@@ -92,12 +85,12 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesVideosUpdateResponse204>> UpdateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> UpdateAsResponseAsync(
             string indexId,
             string videoId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest3 request,
+            global::TwelveLabs.UpdateRequest7 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -419,22 +412,15 @@ namespace TwelveLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessUpdateResponseContent(
-                                    httpClient: HttpClient,
-                                    httpResponseMessage: __response,
-                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::TwelveLabs.IndexesVideosUpdateResponse204.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesVideosUpdateResponse204>(
+                return new global::TwelveLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -454,19 +440,10 @@ namespace TwelveLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
-                #if NET5_0_OR_GREATER
-                                        __effectiveCancellationToken
-                #endif
-                                    ).ConfigureAwait(false);
-
-                                    var __value = await global::TwelveLabs.IndexesVideosUpdateResponse204.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesVideosUpdateResponse204>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -528,7 +505,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesVideosUpdateResponse204> UpdateAsync(
+        public async global::System.Threading.Tasks.Task UpdateAsync(
             string indexId,
             string videoId,
             string xApiKey,
@@ -536,12 +513,12 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.UpdateRequest3
+            var __request = new global::TwelveLabs.UpdateRequest7
             {
                 UserMetadata = userMetadata,
             };
 
-            return await UpdateAsync(
+            await UpdateAsync(
                 indexId: indexId,
                 videoId: videoId,
                 xApiKey: xApiKey,

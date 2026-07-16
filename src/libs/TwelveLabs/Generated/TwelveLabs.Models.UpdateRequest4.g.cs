@@ -9,16 +9,22 @@ namespace TwelveLabs
     public sealed partial class UpdateRequest4
     {
         /// <summary>
-        /// The updated name of the entity collection.
+        /// The name of the item collection. Must be unique within the knowledge store.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// The updated description of the entity collection.
+        /// An optional description of the item collection.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
+
+        /// <summary>
+        /// Custom metadata for the item collection. Both keys and values must be strings. To remove all metadata, set this field to an empty object (`{}`).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        public global::System.Collections.Generic.Dictionary<string, string>? Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -30,20 +36,25 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="UpdateRequest4" /> class.
         /// </summary>
         /// <param name="name">
-        /// The updated name of the entity collection.
+        /// The name of the item collection. Must be unique within the knowledge store.
         /// </param>
         /// <param name="description">
-        /// The updated description of the entity collection.
+        /// An optional description of the item collection.
+        /// </param>
+        /// <param name="metadata">
+        /// Custom metadata for the item collection. Both keys and values must be strings. To remove all metadata, set this field to an empty object (`{}`).
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UpdateRequest4(
             string? name,
-            string? description)
+            string? description,
+            global::System.Collections.Generic.Dictionary<string, string>? metadata)
         {
             this.Name = name;
             this.Description = description;
+            this.Metadata = metadata;
         }
 
         /// <summary>

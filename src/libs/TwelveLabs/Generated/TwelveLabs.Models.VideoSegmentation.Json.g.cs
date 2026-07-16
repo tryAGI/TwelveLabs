@@ -2,7 +2,7 @@
 
 namespace TwelveLabs
 {
-    public readonly partial struct VideoSegmentation
+    public sealed partial class VideoSegmentation
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -54,7 +54,7 @@ namespace TwelveLabs
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
                 typeof(global::TwelveLabs.VideoSegmentation),
-                jsonSerializerContext) as global::TwelveLabs.VideoSegmentation?;
+                jsonSerializerContext) as global::TwelveLabs.VideoSegmentation;
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace TwelveLabs
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
                 typeof(global::TwelveLabs.VideoSegmentation),
-                jsonSerializerContext).ConfigureAwait(false)) as global::TwelveLabs.VideoSegmentation?;
+                jsonSerializerContext).ConfigureAwait(false)) as global::TwelveLabs.VideoSegmentation;
         }
 
         /// <summary>

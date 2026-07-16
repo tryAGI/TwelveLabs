@@ -18,7 +18,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsReplaceUserMetadataResponse204> ReplaceUserMetadataAsync(
+        global::System.Threading.Tasks.Task ReplaceUserMetadataAsync(
             string assetId,
             string xApiKey,
 
@@ -39,7 +39,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsReplaceUserMetadataResponse204>> ReplaceUserMetadataAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> ReplaceUserMetadataAsResponseAsync(
             string assetId,
             string xApiKey,
 
@@ -74,7 +74,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsReplaceUserMetadataResponse204> ReplaceUserMetadataAsync(
+        global::System.Threading.Tasks.Task ReplaceUserMetadataAsync(
             string assetId,
             string xApiKey,
             global::TwelveLabs.UserMetadata userMetadata,

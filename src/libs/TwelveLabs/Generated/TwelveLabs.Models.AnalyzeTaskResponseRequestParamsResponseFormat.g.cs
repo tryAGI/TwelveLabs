@@ -18,7 +18,7 @@ namespace TwelveLabs
         /// <summary>
         /// The JSON schema for this task. Present only when `type` is `json_schema`.<br/>
         /// - [List](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks): Omitted.<br/>
-        /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task): Returns the full schema.
+        /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results): Returns the full schema.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("json_schema")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatJsonSchema, object>))]
@@ -27,7 +27,7 @@ namespace TwelveLabs
         /// <summary>
         /// The segment definitions for this task. Present only when `type` is `segment_definitions`.<br/>
         /// - [List](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks): Returns only the first element.<br/>
-        /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task): Returns the full array.
+        /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results): Returns the full array.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segment_definitions")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItems>? SegmentDefinitions { get; set; }
@@ -45,12 +45,12 @@ namespace TwelveLabs
         /// <param name="jsonSchema">
         /// The JSON schema for this task. Present only when `type` is `json_schema`.<br/>
         /// - [List](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks): Omitted.<br/>
-        /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task): Returns the full schema.
+        /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results): Returns the full schema.
         /// </param>
         /// <param name="segmentDefinitions">
         /// The segment definitions for this task. Present only when `type` is `segment_definitions`.<br/>
         /// - [List](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks): Returns only the first element.<br/>
-        /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task): Returns the full array.
+        /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results): Returns the full array.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

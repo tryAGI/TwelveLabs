@@ -40,11 +40,6 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessReplaceUserMetadataResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
-
         /// <summary>
         /// Replace the user-defined metadata of an asset<br/>
         /// This method replaces the entire user-defined metadata of the specified asset. Unlike the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method, which merges your changes with the existing metadata, this method overwrites the stored value in full:<br/>
@@ -59,7 +54,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsReplaceUserMetadataResponse204> ReplaceUserMetadataAsync(
+        public async global::System.Threading.Tasks.Task ReplaceUserMetadataAsync(
             string assetId,
             string xApiKey,
 
@@ -67,7 +62,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await ReplaceUserMetadataAsResponseAsync(
+            await ReplaceUserMetadataAsResponseAsync(
                 assetId: assetId,
                 xApiKey: xApiKey,
 
@@ -75,8 +70,6 @@ namespace TwelveLabs
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
-
-            return __response.Body;
         }
         /// <summary>
         /// Replace the user-defined metadata of an asset<br/>
@@ -92,7 +85,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsReplaceUserMetadataResponse204>> ReplaceUserMetadataAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> ReplaceUserMetadataAsResponseAsync(
             string assetId,
             string xApiKey,
 
@@ -453,22 +446,15 @@ namespace TwelveLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessReplaceUserMetadataResponseContent(
-                                    httpClient: HttpClient,
-                                    httpResponseMessage: __response,
-                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::TwelveLabs.AssetsReplaceUserMetadataResponse204.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsReplaceUserMetadataResponse204>(
+                return new global::TwelveLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -488,19 +474,10 @@ namespace TwelveLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
-                #if NET5_0_OR_GREATER
-                                        __effectiveCancellationToken
-                #endif
-                                    ).ConfigureAwait(false);
-
-                                    var __value = await global::TwelveLabs.AssetsReplaceUserMetadataResponse204.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsReplaceUserMetadataResponse204>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -564,7 +541,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsReplaceUserMetadataResponse204> ReplaceUserMetadataAsync(
+        public async global::System.Threading.Tasks.Task ReplaceUserMetadataAsync(
             string assetId,
             string xApiKey,
             global::TwelveLabs.UserMetadata userMetadata,
@@ -576,7 +553,7 @@ namespace TwelveLabs
                 UserMetadata = userMetadata,
             };
 
-            return await ReplaceUserMetadataAsync(
+            await ReplaceUserMetadataAsync(
                 assetId: assetId,
                 xApiKey: xApiKey,
                 request: __request,

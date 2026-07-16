@@ -15,155 +15,41 @@ namespace TwelveLabs.JsonConverters
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
-            using var __jsonDocument = global::System.Text.Json.JsonDocument.ParseValue(ref reader);
-            var __rawJson = __jsonDocument.RootElement.GetRawText();
-            var __jsonProps = new global::System.Collections.Generic.HashSet<string>();
-            if (__jsonDocument.RootElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
-            {
-                foreach (var __jsonProp in __jsonDocument.RootElement.EnumerateObject())
-                {
-                    __jsonProps.Add(__jsonProp.Name);
-                    if (__jsonProp.Value.ValueKind == global::System.Text.Json.JsonValueKind.Object)
-                    {
-                        foreach (var __nestedJsonProp in __jsonProp.Value.EnumerateObject())
-                        {
-                            __jsonProps.Add(__jsonProp.Name + "." + __nestedJsonProp.Name);
-                        }
-                    }
 
-                }
+            var readerCopy = reader;
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamAnalyzeResponseDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamAnalyzeResponseDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::TwelveLabs.StreamAnalyzeResponseDiscriminator)}");
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+
+            global::TwelveLabs.StreamAnalyzeResponseVariant1? streamStart = default;
+            if (discriminator?.EventType == global::TwelveLabs.StreamAnalyzeResponseDiscriminatorEventType.StreamStart)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamAnalyzeResponseVariant1> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::TwelveLabs.StreamAnalyzeResponseVariant1)}");
+                streamStart = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-
-            var __score0 = 0;
-            if (__jsonProps.Contains("event_type")) __score0++;
-            if (__jsonProps.Contains("metadata")) __score0++;
-            if (__jsonProps.Contains("metadata.generation_id")) __score0++;
-            var __score1 = 0;
-            if (__jsonProps.Contains("event_type")) __score1++;
-            if (__jsonProps.Contains("text")) __score1++;
-            var __score2 = 0;
-            if (__jsonProps.Contains("error")) __score2++;
-            if (__jsonProps.Contains("error.message")) __score2++;
-            if (__jsonProps.Contains("event_type")) __score2++;
-            if (__jsonProps.Contains("finish_reason")) __score2++;
-            if (__jsonProps.Contains("metadata")) __score2++;
-            if (__jsonProps.Contains("metadata.generation_id")) __score2++;
-            if (__jsonProps.Contains("metadata.usage")) __score2++;
-            var __bestScore = 0;
-            var __bestIndex = -1;
-            if (__score0 > __bestScore) { __bestScore = __score0; __bestIndex = 0; }
-            if (__score1 > __bestScore) { __bestScore = __score1; __bestIndex = 1; }
-            if (__score2 > __bestScore) { __bestScore = __score2; __bestIndex = 2; }
-
-            global::TwelveLabs.StreamStartResponse? streamStartResponse = default;
-            global::TwelveLabs.StreamTextResponse? streamTextResponse = default;
-            global::TwelveLabs.StreamEndResponse? streamEndResponse = default;
-            if (__bestIndex >= 0)
+            global::TwelveLabs.StreamAnalyzeResponseVariant2? textGeneration = default;
+            if (discriminator?.EventType == global::TwelveLabs.StreamAnalyzeResponseDiscriminatorEventType.TextGeneration)
             {
-                if (__bestIndex == 0)
-                {
-                    try
-                    {
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamStartResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamStartResponse> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamStartResponse).Name}");
-                        streamStartResponse = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
-                    }
-                    catch (global::System.Text.Json.JsonException)
-                    {
-                    }
-                    catch (global::System.InvalidOperationException)
-                    {
-                    }
-                }
-                else if (__bestIndex == 1)
-                {
-                    try
-                    {
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamTextResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamTextResponse> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamTextResponse).Name}");
-                        streamTextResponse = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
-                    }
-                    catch (global::System.Text.Json.JsonException)
-                    {
-                    }
-                    catch (global::System.InvalidOperationException)
-                    {
-                    }
-                }
-                else if (__bestIndex == 2)
-                {
-                    try
-                    {
-                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamEndResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamEndResponse> ??
-                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamEndResponse).Name}");
-                        streamEndResponse = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
-                    }
-                    catch (global::System.Text.Json.JsonException)
-                    {
-                    }
-                    catch (global::System.InvalidOperationException)
-                    {
-                    }
-                }
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamAnalyzeResponseVariant2> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::TwelveLabs.StreamAnalyzeResponseVariant2)}");
+                textGeneration = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-
-            if (streamStartResponse == null && streamTextResponse == null && streamEndResponse == null)
+            global::TwelveLabs.StreamAnalyzeResponseVariant3? streamEnd = default;
+            if (discriminator?.EventType == global::TwelveLabs.StreamAnalyzeResponseDiscriminatorEventType.StreamEnd)
             {
-                try
-                {
-
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamStartResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamStartResponse> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamStartResponse).Name}");
-                    streamStartResponse = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
-                }
-                catch (global::System.Text.Json.JsonException)
-                {
-                }
-                catch (global::System.InvalidOperationException)
-                {
-                }
-            }
-
-            if (streamStartResponse == null && streamTextResponse == null && streamEndResponse == null)
-            {
-                try
-                {
-
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamTextResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamTextResponse> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamTextResponse).Name}");
-                    streamTextResponse = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
-                }
-                catch (global::System.Text.Json.JsonException)
-                {
-                }
-                catch (global::System.InvalidOperationException)
-                {
-                }
-            }
-
-            if (streamStartResponse == null && streamTextResponse == null && streamEndResponse == null)
-            {
-                try
-                {
-
-                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamEndResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamEndResponse> ??
-                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamEndResponse).Name}");
-                    streamEndResponse = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
-                }
-                catch (global::System.Text.Json.JsonException)
-                {
-                }
-                catch (global::System.InvalidOperationException)
-                {
-                }
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant3), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamAnalyzeResponseVariant3> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::TwelveLabs.StreamAnalyzeResponseVariant3)}");
+                streamEnd = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::TwelveLabs.StreamAnalyzeResponse(
-                streamStartResponse,
+                discriminator?.EventType,
+                streamStart,
 
-                streamTextResponse,
+                textGeneration,
 
-                streamEndResponse
+                streamEnd
                 );
 
             return __value;
@@ -178,23 +64,23 @@ namespace TwelveLabs.JsonConverters
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
-            if (value.IsStreamStartResponse)
+            if (value.IsStreamStart)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamStartResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamStartResponse?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamStartResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamStartResponse!, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamAnalyzeResponseVariant1?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamAnalyzeResponseVariant1).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamStart!, typeInfo);
             }
-            else if (value.IsStreamTextResponse)
+            else if (value.IsTextGeneration)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamTextResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamTextResponse?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamTextResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamTextResponse!, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamAnalyzeResponseVariant2?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamAnalyzeResponseVariant2).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TextGeneration!, typeInfo);
             }
-            else if (value.IsStreamEndResponse)
+            else if (value.IsStreamEnd)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamEndResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamEndResponse?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamEndResponse).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamEndResponse!, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant3), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamAnalyzeResponseVariant3?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamAnalyzeResponseVariant3).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamEnd!, typeInfo);
             }
         }
     }
