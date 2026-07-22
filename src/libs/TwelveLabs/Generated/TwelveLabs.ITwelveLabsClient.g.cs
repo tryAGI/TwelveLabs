@@ -62,6 +62,11 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public DataConnectorsClient DataConnectors { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public EmbedClient Embed { get; }
 
         /// <summary>
@@ -88,6 +93,11 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public EntityCollectionsEntitiesClient EntityCollectionsEntities { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ImportsClient Imports { get; }
 
         /// <summary>
         /// 

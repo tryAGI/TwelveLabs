@@ -25,6 +25,14 @@ namespace TwelveLabs
 
             typeof(global::TwelveLabs.JsonConverters.AssetStatusNullableJsonConverter),
 
+            typeof(global::TwelveLabs.JsonConverters.AssetSourceTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetSourceTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetSourceDetailsProviderJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetSourceDetailsProviderNullableJsonConverter),
+
             typeof(global::TwelveLabs.JsonConverters.AssetDetailMethodJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.AssetDetailMethodNullableJsonConverter),
@@ -68,6 +76,30 @@ namespace TwelveLabs
             typeof(global::TwelveLabs.JsonConverters.HlsObjectStatusJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.HlsObjectStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProviderJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProviderNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ConnectionProviderJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ConnectionProviderNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ConnectionStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ConnectionStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ImportItemStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ImportItemStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ImportProviderJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ImportProviderNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ImportDetailProviderJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ImportDetailProviderNullableJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.EntityCollectionsGetParametersSortByJsonConverter),
 
@@ -567,8 +599,12 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetStatus), TypeInfoPropertyName = "AssetStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.UserMetadata))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.Asset))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetSourceType), TypeInfoPropertyName = "AssetSourceType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetSourceDetailsProvider), TypeInfoPropertyName = "AssetSourceDetailsProvider2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetSourceDetails))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetSource))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.Asset))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAssetRequestBadRequestError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetDetailMethod), TypeInfoPropertyName = "AssetDetailMethod2")]
@@ -652,6 +688,43 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TasksRetrieveResponse200))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.RetrieveVideoIndexingTaskRequestBadRequestError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DeleteVideoIndexingTaskRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProvider), TypeInfoPropertyName = "ConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProvider2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DataConnectorsAuthorizeConnectionResponse200))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AuthorizeConnectionRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ConnectionProvider), TypeInfoPropertyName = "ConnectionProvider2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ConnectionStatus), TypeInfoPropertyName = "ConnectionStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ConnectionAccount))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.Connection))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DataConnectorsListConnectionsResponse200))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.Connection>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ListConnectionsRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.RetrieveConnectionRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.RetrieveConnectionRequestNotFoundError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DeleteConnectionRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DeleteConnectionRequestNotFoundError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DataConnectorsCreateConnectionPickerTokenResponse200))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateConnectionPickerTokenRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateConnectionPickerTokenRequestNotFoundError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateConnectionPickerTokenRequestConflictError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ConnectionsConnectionIdImportsPostRequestBodyContentApplicationJsonSchemaItemsItems))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportItemStatus), TypeInfoPropertyName = "ImportItemStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportItemError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportResult))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.ImportItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportFilesRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportFilesRequestNotFoundError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportFilesRequestConflictError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportProvider), TypeInfoPropertyName = "ImportProvider2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.Import))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportsListImportsResponse200))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.Import>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ListImportsRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ListImportsRequestNotFoundError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportDetailProvider), TypeInfoPropertyName = "ImportDetailProvider2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportDetail))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.RetrieveImportRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.RetrieveImportRequestNotFoundError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EntityCollectionsGetParametersSortBy), TypeInfoPropertyName = "EntityCollectionsGetParametersSortBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EntityCollection))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EntityCollectionsListResponse200))]
@@ -1018,47 +1091,6 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzePromptV2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.SMEMediaSource>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SyncResponseFormatType), TypeInfoPropertyName = "SyncResponseFormatType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SyncResponseFormatJsonSchema))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SyncResponseFormat))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamStartResponseEventType), TypeInfoPropertyName = "StreamStartResponseEventType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamStartResponseMetadata))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamTextResponseEventType), TypeInfoPropertyName = "StreamTextResponseEventType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamEndResponseEventType), TypeInfoPropertyName = "StreamEndResponseEventType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.FinishReason), TypeInfoPropertyName = "FinishReason2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TokenUsage))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamEndResponseMetadata))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamAnalyzeResponse), TypeInfoPropertyName = "StreamAnalyzeResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant1))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant3))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamAnalyzeResponseDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamAnalyzeResponseDiscriminatorEventType), TypeInfoPropertyName = "StreamAnalyzeResponseDiscriminatorEventType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.NonStreamAnalyzeResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeResponse200), TypeInfoPropertyName = "AnalyzeResponse2002")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.GenerateTextRepresentationRequestBadRequestError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.GenerateTextRepresentationRequestNotFoundError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestModelName), TypeInfoPropertyName = "CreateAsyncAnalyzeRequestModelName2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestAnalysisMode), TypeInfoPropertyName = "CreateAsyncAnalyzeRequestAnalysisMode2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncResponseFormatType), TypeInfoPropertyName = "AsyncResponseFormatType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncResponseFormatJsonSchema))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldType), TypeInfoPropertyName = "SegmentFieldType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldFormat), TypeInfoPropertyName = "SegmentFieldFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldItemsType), TypeInfoPropertyName = "SegmentFieldItemsType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldItems))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentField))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTimeRange))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentDefinition))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.SegmentField>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTimeRange>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncResponseFormatSegmentTimeFormat), TypeInfoPropertyName = "AsyncResponseFormatSegmentTimeFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncResponseFormat))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.SegmentDefinition>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskStatus), TypeInfoPropertyName = "AnalyzeTaskStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAnalyzeTaskResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode), TypeInfoPropertyName = "AnalyzeTasksGetParametersAnalysisMode2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseVideoSourceType), TypeInfoPropertyName = "AnalyzeTaskResponseVideoSourceType2")]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1081,6 +1113,14 @@ namespace TwelveLabs
             typeof(global::TwelveLabs.JsonConverters.AssetStatusJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.AssetStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetSourceTypeJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetSourceTypeNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetSourceDetailsProviderJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.AssetSourceDetailsProviderNullableJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.AssetDetailMethodJsonConverter),
 
@@ -1125,6 +1165,30 @@ namespace TwelveLabs
             typeof(global::TwelveLabs.JsonConverters.HlsObjectStatusJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.HlsObjectStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProviderJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProviderNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ConnectionProviderJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ConnectionProviderNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ConnectionStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ConnectionStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ImportItemStatusJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ImportItemStatusNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ImportProviderJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ImportProviderNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ImportDetailProviderJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.ImportDetailProviderNullableJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.EntityCollectionsGetParametersSortByJsonConverter),
 
@@ -1616,6 +1680,47 @@ namespace TwelveLabs
 
             typeof(global::TwelveLabs.JsonConverters.UnixTimestampJsonConverter),
         })]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SyncResponseFormatJsonSchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SyncResponseFormat))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamStartResponseEventType), TypeInfoPropertyName = "StreamStartResponseEventType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamStartResponseMetadata))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamTextResponseEventType), TypeInfoPropertyName = "StreamTextResponseEventType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamEndResponseEventType), TypeInfoPropertyName = "StreamEndResponseEventType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.FinishReason), TypeInfoPropertyName = "FinishReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TokenUsage))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamEndResponseMetadata))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamAnalyzeResponse), TypeInfoPropertyName = "StreamAnalyzeResponse2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant1))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant3))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamAnalyzeResponseDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.StreamAnalyzeResponseDiscriminatorEventType), TypeInfoPropertyName = "StreamAnalyzeResponseDiscriminatorEventType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.NonStreamAnalyzeResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeResponse200), TypeInfoPropertyName = "AnalyzeResponse2002")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.GenerateTextRepresentationRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.GenerateTextRepresentationRequestNotFoundError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestModelName), TypeInfoPropertyName = "CreateAsyncAnalyzeRequestModelName2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestAnalysisMode), TypeInfoPropertyName = "CreateAsyncAnalyzeRequestAnalysisMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncResponseFormatType), TypeInfoPropertyName = "AsyncResponseFormatType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncResponseFormatJsonSchema))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldType), TypeInfoPropertyName = "SegmentFieldType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldFormat), TypeInfoPropertyName = "SegmentFieldFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldItemsType), TypeInfoPropertyName = "SegmentFieldItemsType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldItems))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentField))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTimeRange))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentDefinition))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.SegmentField>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTimeRange>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncResponseFormatSegmentTimeFormat), TypeInfoPropertyName = "AsyncResponseFormatSegmentTimeFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncResponseFormat))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.SegmentDefinition>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskStatus), TypeInfoPropertyName = "AnalyzeTaskStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAnalyzeTaskResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode), TypeInfoPropertyName = "AnalyzeTasksGetParametersAnalysisMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseVideoSourceType), TypeInfoPropertyName = "AnalyzeTaskResponseVideoSourceType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseVideoSource))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata, object>), TypeInfoPropertyName = "OneOfAnalyzeTaskResponseVideoSourceSystemMetadataObject2")]
@@ -1672,6 +1777,9 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.UpdateUserMetadataRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ReplaceUserMetadataRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateRequest2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AuthorizeConnectionRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportFilesRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.ConnectionsConnectionIdImportsPostRequestBodyContentApplicationJsonSchemaItemsItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateRequest3))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.UpdateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateRequest4))]
@@ -1716,6 +1824,8 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetsPostRequestBodyContentMultipartFormDataSchemaMethod?), TypeInfoPropertyName = "NullableAssetsPostRequestBodyContentMultipartFormDataSchemaMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetMethod?), TypeInfoPropertyName = "NullableAssetMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetStatus?), TypeInfoPropertyName = "NullableAssetStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetSourceType?), TypeInfoPropertyName = "NullableAssetSourceType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetSourceDetailsProvider?), TypeInfoPropertyName = "NullableAssetSourceDetailsProvider2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetDetailMethod?), TypeInfoPropertyName = "NullableAssetDetailMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetDetailStatus?), TypeInfoPropertyName = "NullableAssetDetailStatus2")]
@@ -1732,6 +1842,12 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CompletedChunkProofType?), TypeInfoPropertyName = "NullableCompletedChunkProofType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TasksGetParametersStatusSchemaItems?), TypeInfoPropertyName = "NullableTasksGetParametersStatusSchemaItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.HlsObjectStatus?), TypeInfoPropertyName = "NullableHlsObjectStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProvider?), TypeInfoPropertyName = "NullableConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProvider2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ConnectionProvider?), TypeInfoPropertyName = "NullableConnectionProvider2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ConnectionStatus?), TypeInfoPropertyName = "NullableConnectionStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportItemStatus?), TypeInfoPropertyName = "NullableImportItemStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportProvider?), TypeInfoPropertyName = "NullableImportProvider2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImportDetailProvider?), TypeInfoPropertyName = "NullableImportDetailProvider2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EntityCollectionsGetParametersSortBy?), TypeInfoPropertyName = "NullableEntityCollectionsGetParametersSortBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesGetParametersStatus?), TypeInfoPropertyName = "NullableEntityCollectionsEntityCollectionIdEntitiesGetParametersStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesGetParametersSortBy?), TypeInfoPropertyName = "NullableEntityCollectionsEntityCollectionIdEntitiesGetParametersSortBy2")]
@@ -1874,6 +1990,9 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.CompletedChunk>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.VideoIndexingTask>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.Connection>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.ImportItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.Import>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.EntityCollection>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.Entity>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.BulkCreateEntityResponseEntitiesItems>))]
@@ -1924,6 +2043,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.BatchItemRequest>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.CreatedBatchItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeBatchStatusResponse>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.ConnectionsConnectionIdImportsPostRequestBodyContentApplicationJsonSchemaItemsItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesBulkPostRequestBodyContentApplicationJsonSchemaEntitiesItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.ResponseInputItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.ResponsesPostRequestBodyContentApplicationJsonSchemaIncludeItems>))]
@@ -1989,6 +2109,10 @@ namespace TwelveLabs
             options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetMethodNullableJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetStatusJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetSourceTypeJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetSourceTypeNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetSourceDetailsProviderJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetSourceDetailsProviderNullableJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetDetailMethodJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetDetailMethodNullableJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.AssetDetailStatusJsonConverter());
@@ -2011,6 +2135,18 @@ namespace TwelveLabs
             options.Converters.Add(new global::TwelveLabs.JsonConverters.TasksGetParametersStatusSchemaItemsNullableJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.HlsObjectStatusJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.HlsObjectStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProviderJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProviderNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ConnectionProviderJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ConnectionProviderNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ConnectionStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ConnectionStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ImportItemStatusJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ImportItemStatusNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ImportProviderJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ImportProviderNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ImportDetailProviderJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.ImportDetailProviderNullableJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.EntityCollectionsGetParametersSortByJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.EntityCollectionsGetParametersSortByNullableJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.EntityCollectionsEntityCollectionIdEntitiesGetParametersStatusJsonConverter());

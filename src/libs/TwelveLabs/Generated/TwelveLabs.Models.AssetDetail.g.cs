@@ -62,6 +62,12 @@ namespace TwelveLabs
         public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
 
         /// <summary>
+        /// Describes where the asset came from. Present only for assets imported through a connector; absent for assets uploaded directly to the `/assets` endpoint.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source")]
+        public global::TwelveLabs.AssetSource? Source { get; set; }
+
+        /// <summary>
         /// HLS streaming details for the asset. Present only when HLS generation has been requested. Omitted otherwise.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hls")]
@@ -137,6 +143,9 @@ namespace TwelveLabs
         /// <param name="userMetadata">
         /// User-defined metadata for this asset. This field is absent when no metadata has been set.
         /// </param>
+        /// <param name="source">
+        /// Describes where the asset came from. Present only for assets imported through a connector; absent for assets uploaded directly to the `/assets` endpoint.
+        /// </param>
         /// <param name="hls">
         /// HLS streaming details for the asset. Present only when HLS generation has been requested. Omitted otherwise.
         /// </param>
@@ -167,6 +176,7 @@ namespace TwelveLabs
             string? fileType,
             global::System.DateTime? createdAt,
             global::TwelveLabs.UserMetadata? userMetadata,
+            global::TwelveLabs.AssetSource? source,
             global::TwelveLabs.AssetHLS? hls,
             global::TwelveLabs.AssetThumbnail? thumbnail,
             global::TwelveLabs.TechnicalMetadata? technicalMetadata,
@@ -181,6 +191,7 @@ namespace TwelveLabs
             this.FileType = fileType;
             this.CreatedAt = createdAt;
             this.UserMetadata = userMetadata;
+            this.Source = source;
             this.Hls = hls;
             this.Thumbnail = thumbnail;
             this.TechnicalMetadata = technicalMetadata;
