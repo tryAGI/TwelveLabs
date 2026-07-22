@@ -69,6 +69,15 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        public DataConnectorsClient DataConnectors => new DataConnectorsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public EmbedClient Embed => new EmbedClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
@@ -115,6 +124,15 @@ namespace TwelveLabs
         /// 
         /// </summary>
         public EntityCollectionsEntitiesClient EntityCollectionsEntities => new EntityCollectionsEntitiesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ImportsClient Imports => new ImportsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,

@@ -62,6 +62,12 @@ namespace TwelveLabs
         public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
 
         /// <summary>
+        /// Describes where the asset came from. Present only for assets imported through a connector; absent for assets uploaded directly to the `/assets` endpoint.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source")]
+        public global::TwelveLabs.AssetSource? Source { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -100,6 +106,9 @@ namespace TwelveLabs
         /// <param name="userMetadata">
         /// User-defined metadata for this asset. This field is absent when no metadata has been set.
         /// </param>
+        /// <param name="source">
+        /// Describes where the asset came from. Present only for assets imported through a connector; absent for assets uploaded directly to the `/assets` endpoint.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -110,7 +119,8 @@ namespace TwelveLabs
             string? filename,
             string? fileType,
             global::System.DateTime? createdAt,
-            global::TwelveLabs.UserMetadata? userMetadata)
+            global::TwelveLabs.UserMetadata? userMetadata,
+            global::TwelveLabs.AssetSource? source)
         {
             this.Id = id;
             this.Method = method;
@@ -119,6 +129,7 @@ namespace TwelveLabs
             this.FileType = fileType;
             this.CreatedAt = createdAt;
             this.UserMetadata = userMetadata;
+            this.Source = source;
         }
 
         /// <summary>
