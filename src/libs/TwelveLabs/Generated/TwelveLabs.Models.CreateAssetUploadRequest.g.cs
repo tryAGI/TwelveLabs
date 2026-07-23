@@ -20,13 +20,17 @@ namespace TwelveLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.CreateAssetUploadRequestTypeJsonConverter))]
-        public global::TwelveLabs.CreateAssetUploadRequestType Type { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::TwelveLabs.CreateAssetUploadRequestType Type { get; set; }
 
         /// <summary>
         /// The total size of the file in bytes. The platform uses this value to:<br/>
         /// - Calculate the optimal chunk size.<br/>
         /// - Determine the total number of chunks required<br/>
-        /// - Generate the initial set of presigned URLs
+        /// - Generate the initial set of presigned URLs<br/>
+        /// **Upload limits**:<br/>
+        /// - **Video and audio**: Up to 10 GB<br/>
+        /// - **Images**: Up to 32 MB
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_size")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -66,14 +70,17 @@ namespace TwelveLabs
         /// <param name="filename">
         /// The original file name of the asset.
         /// </param>
+        /// <param name="type">
+        /// The type of asset you want to upload.
+        /// </param>
         /// <param name="totalSize">
         /// The total size of the file in bytes. The platform uses this value to:<br/>
         /// - Calculate the optimal chunk size.<br/>
         /// - Determine the total number of chunks required<br/>
-        /// - Generate the initial set of presigned URLs
-        /// </param>
-        /// <param name="type">
-        /// The type of asset you want to upload.
+        /// - Generate the initial set of presigned URLs<br/>
+        /// **Upload limits**:<br/>
+        /// - **Video and audio**: Up to 10 GB<br/>
+        /// - **Images**: Up to 32 MB
         /// </param>
         /// <param name="enableHls">
         /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
@@ -93,8 +100,8 @@ namespace TwelveLabs
 #endif
         public CreateAssetUploadRequest(
             string filename,
-            long totalSize,
             global::TwelveLabs.CreateAssetUploadRequestType type,
+            long totalSize,
             bool? enableHls,
             bool? enableThumbnail,
             global::TwelveLabs.UserMetadata? userMetadata)

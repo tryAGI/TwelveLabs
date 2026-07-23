@@ -40,6 +40,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// Delete a video indexing task<br/>
+        /// &lt;Info&gt;This method will be removed in a future version.&lt;/Info&gt;<br/>
         /// This action cannot be undone.<br/>
         /// Note the following about deleting a video indexing task:<br/>
         /// - You can only delete video indexing tasks for which the status is `ready` or `failed`.<br/>
@@ -65,6 +66,7 @@ namespace TwelveLabs
         }
         /// <summary>
         /// Delete a video indexing task<br/>
+        /// &lt;Info&gt;This method will be removed in a future version.&lt;/Info&gt;<br/>
         /// This action cannot be undone.<br/>
         /// Note the following about deleting a video indexing task:<br/>
         /// - You can only delete video indexing tasks for which the status is `ready` or `failed`.<br/>

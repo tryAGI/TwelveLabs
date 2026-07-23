@@ -6,6 +6,7 @@ namespace TwelveLabs
     {
         /// <summary>
         /// List video indexing tasks<br/>
+        /// &lt;Info&gt;This method will be removed in a future version.&lt;/Info&gt;<br/>
         /// This method returns a list of the video indexing tasks in your account. The platform returns your video indexing tasks sorted by creation date, with the newest at the top of the list.
         /// </summary>
         /// <param name="page">
@@ -50,6 +51,7 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List video indexing tasks<br/>
+        /// &lt;Info&gt;This method will be removed in a future version.&lt;/Info&gt;<br/>
         /// This method returns a list of the video indexing tasks in your account. The platform returns your video indexing tasks sorted by creation date, with the newest at the top of the list.
         /// </summary>
         /// <param name="page">

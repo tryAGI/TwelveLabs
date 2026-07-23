@@ -6,12 +6,15 @@ namespace TwelveLabs
     {
         /// <summary>
         /// Create a multipart upload session<br/>
-        /// This method creates a multipart upload session for a local video file.<br/>
-        /// **Supported content**: Video<br/>
-        /// **Upload limits**: Local video files up to 10 GB.<br/>
+        /// This method creates a multipart upload session for a local file.<br/>
+        /// **Supported content**: Video, audio, and images.<br/>
+        /// **Upload limits**:<br/>
+        /// - **Video and audio**: Up to 10 GB<br/>
+        /// - **Images**: Up to 32 MB<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>
+        /// - **Entity search**: [Marengo image requirements](/v1.3/docs/concepts/models/marengo#image-file-requirements)<br/>
         /// - **Create embeddings**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#input-requirements)
         /// </summary>
         /// <param name="xApiKey"></param>
@@ -27,12 +30,15 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a multipart upload session<br/>
-        /// This method creates a multipart upload session for a local video file.<br/>
-        /// **Supported content**: Video<br/>
-        /// **Upload limits**: Local video files up to 10 GB.<br/>
+        /// This method creates a multipart upload session for a local file.<br/>
+        /// **Supported content**: Video, audio, and images.<br/>
+        /// **Upload limits**:<br/>
+        /// - **Video and audio**: Up to 10 GB<br/>
+        /// - **Images**: Up to 32 MB<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>
+        /// - **Entity search**: [Marengo image requirements](/v1.3/docs/concepts/models/marengo#image-file-requirements)<br/>
         /// - **Create embeddings**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#input-requirements)
         /// </summary>
         /// <param name="xApiKey"></param>
@@ -48,12 +54,15 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a multipart upload session<br/>
-        /// This method creates a multipart upload session for a local video file.<br/>
-        /// **Supported content**: Video<br/>
-        /// **Upload limits**: Local video files up to 10 GB.<br/>
+        /// This method creates a multipart upload session for a local file.<br/>
+        /// **Supported content**: Video, audio, and images.<br/>
+        /// **Upload limits**:<br/>
+        /// - **Video and audio**: Up to 10 GB<br/>
+        /// - **Images**: Up to 32 MB<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>
+        /// - **Entity search**: [Marengo image requirements](/v1.3/docs/concepts/models/marengo#image-file-requirements)<br/>
         /// - **Create embeddings**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#input-requirements)
         /// </summary>
         /// <param name="xApiKey"></param>
@@ -67,7 +76,10 @@ namespace TwelveLabs
         /// The total size of the file in bytes. The platform uses this value to:<br/>
         /// - Calculate the optimal chunk size.<br/>
         /// - Determine the total number of chunks required<br/>
-        /// - Generate the initial set of presigned URLs
+        /// - Generate the initial set of presigned URLs<br/>
+        /// **Upload limits**:<br/>
+        /// - **Video and audio**: Up to 10 GB<br/>
+        /// - **Images**: Up to 32 MB
         /// </param>
         /// <param name="enableHls">
         /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
@@ -88,8 +100,8 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.CreateAssetUploadResponse> CreateAsync(
             string xApiKey,
             string filename,
+            global::TwelveLabs.CreateAssetUploadRequestType type,
             long totalSize,
-            global::TwelveLabs.CreateAssetUploadRequestType type = default,
             bool? enableHls = default,
             bool? enableThumbnail = default,
             global::TwelveLabs.UserMetadata? userMetadata = default,

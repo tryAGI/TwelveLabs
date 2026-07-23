@@ -11,6 +11,14 @@ namespace TwelveLabs
         /// <summary>
         /// 
         /// </summary>
+        Audio,
+        /// <summary>
+        /// 
+        /// </summary>
+        Image,
+        /// <summary>
+        /// 
+        /// </summary>
         Video,
     }
 
@@ -26,6 +34,8 @@ namespace TwelveLabs
         {
             return value switch
             {
+                CreateAssetUploadRequestType.Audio => "audio",
+                CreateAssetUploadRequestType.Image => "image",
                 CreateAssetUploadRequestType.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -37,6 +47,8 @@ namespace TwelveLabs
         {
             return value switch
             {
+                "audio" => CreateAssetUploadRequestType.Audio,
+                "image" => CreateAssetUploadRequestType.Image,
                 "video" => CreateAssetUploadRequestType.Video,
                 _ => null,
             };

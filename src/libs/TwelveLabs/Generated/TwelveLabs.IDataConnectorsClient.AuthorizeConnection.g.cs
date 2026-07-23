@@ -58,7 +58,7 @@ namespace TwelveLabs
         /// The data connector provider to authorize.
         /// </param>
         /// <param name="redirectUri">
-        /// The URL where the user is redirected after granting or denying access. If your account has an allow-list of redirect URLs configured, this URL must be on it.
+        /// The URL where the user is redirected after granting or denying access. If your account has an allow-list of redirect URIs configured, this URL must be one you registered with the [Register a redirect URI](/v1.3/api-reference/data-connectors/register-a-redirect-uri) method.
         /// </param>
         /// <param name="customId">
         /// A label you supplied, stored on the connection and returned with it. Use a value that does not identify a person so you can match the connection to your own records.

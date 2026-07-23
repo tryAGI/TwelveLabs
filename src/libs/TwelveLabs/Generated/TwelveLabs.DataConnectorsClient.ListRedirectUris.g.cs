@@ -3,11 +3,11 @@
 
 namespace TwelveLabs
 {
-    public partial class TasksClient
+    public partial class DataConnectorsClient
     {
 
 
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_ListSecurityRequirement0 =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_ListRedirectUrisSecurityRequirement0 =
             new global::TwelveLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::TwelveLabs.EndPointAuthorizationRequirement[]
@@ -21,54 +21,33 @@ namespace TwelveLabs
                     },
                 },
             };
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_ListSecurityRequirements =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_ListRedirectUrisSecurityRequirements =
             new global::TwelveLabs.EndPointSecurityRequirement[]
-            {                s_ListSecurityRequirement0,
+            {                s_ListRedirectUrisSecurityRequirement0,
             };
-        partial void PrepareListArguments(
+        partial void PrepareListRedirectUrisArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? page,
             ref int? pageLimit,
-            ref string? sortBy,
-            ref string? sortOption,
-            ref string? indexId,
-            global::System.Collections.Generic.IList<global::TwelveLabs.TasksGetParametersStatusSchemaItems>? status,
-            ref string? filename,
-            ref double? duration,
-            ref int? width,
-            ref int? height,
-            ref string? createdAt,
-            ref string? updatedAt,
             ref string xApiKey);
-        partial void PrepareListRequest(
+        partial void PrepareListRedirectUrisRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? page,
             int? pageLimit,
-            string? sortBy,
-            string? sortOption,
-            string? indexId,
-            global::System.Collections.Generic.IList<global::TwelveLabs.TasksGetParametersStatusSchemaItems>? status,
-            string? filename,
-            double? duration,
-            int? width,
-            int? height,
-            string? createdAt,
-            string? updatedAt,
             string xApiKey);
-        partial void ProcessListResponse(
+        partial void ProcessListRedirectUrisResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessListResponseContent(
+        partial void ProcessListRedirectUrisResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// List video indexing tasks<br/>
-        /// &lt;Info&gt;This method will be removed in a future version.&lt;/Info&gt;<br/>
-        /// This method returns a list of the video indexing tasks in your account. The platform returns your video indexing tasks sorted by creation date, with the newest at the top of the list.
+        /// List redirect URIs<br/>
+        /// This method returns the redirect URIs registered on your account, sorted by creation date with the newest at the top. Registered URIs extend the allow-list of redirect targets accepted by the authorize-connection method.
         /// </summary>
         /// <param name="page">
         /// Default Value: 1
@@ -76,55 +55,21 @@ namespace TwelveLabs
         /// <param name="pageLimit">
         /// Default Value: 10
         /// </param>
-        /// <param name="sortBy">
-        /// Default Value: created_at
-        /// </param>
-        /// <param name="sortOption">
-        /// Default Value: desc
-        /// </param>
-        /// <param name="indexId"></param>
-        /// <param name="status"></param>
-        /// <param name="filename"></param>
-        /// <param name="duration"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <param name="createdAt"></param>
-        /// <param name="updatedAt"></param>
         /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.TasksListResponse200> ListAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.DataConnectorsListRedirectUrisResponse200> ListRedirectUrisAsync(
             string xApiKey,
             int? page = default,
             int? pageLimit = default,
-            string? sortBy = default,
-            string? sortOption = default,
-            string? indexId = default,
-            global::System.Collections.Generic.IList<global::TwelveLabs.TasksGetParametersStatusSchemaItems>? status = default,
-            string? filename = default,
-            double? duration = default,
-            int? width = default,
-            int? height = default,
-            string? createdAt = default,
-            string? updatedAt = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await ListAsResponseAsync(
+            var __response = await ListRedirectUrisAsResponseAsync(
                 xApiKey: xApiKey,
                 page: page,
                 pageLimit: pageLimit,
-                sortBy: sortBy,
-                sortOption: sortOption,
-                indexId: indexId,
-                status: status,
-                filename: filename,
-                duration: duration,
-                width: width,
-                height: height,
-                createdAt: createdAt,
-                updatedAt: updatedAt,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -132,9 +77,8 @@ namespace TwelveLabs
             return __response.Body;
         }
         /// <summary>
-        /// List video indexing tasks<br/>
-        /// &lt;Info&gt;This method will be removed in a future version.&lt;/Info&gt;<br/>
-        /// This method returns a list of the video indexing tasks in your account. The platform returns your video indexing tasks sorted by creation date, with the newest at the top of the list.
+        /// List redirect URIs<br/>
+        /// This method returns the redirect URIs registered on your account, sorted by creation date with the newest at the top. Registered URIs extend the allow-list of redirect targets accepted by the authorize-connection method.
         /// </summary>
         /// <param name="page">
         /// Default Value: 1
@@ -142,64 +86,30 @@ namespace TwelveLabs
         /// <param name="pageLimit">
         /// Default Value: 10
         /// </param>
-        /// <param name="sortBy">
-        /// Default Value: created_at
-        /// </param>
-        /// <param name="sortOption">
-        /// Default Value: desc
-        /// </param>
-        /// <param name="indexId"></param>
-        /// <param name="status"></param>
-        /// <param name="filename"></param>
-        /// <param name="duration"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <param name="createdAt"></param>
-        /// <param name="updatedAt"></param>
         /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksListResponse200>> ListAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.DataConnectorsListRedirectUrisResponse200>> ListRedirectUrisAsResponseAsync(
             string xApiKey,
             int? page = default,
             int? pageLimit = default,
-            string? sortBy = default,
-            string? sortOption = default,
-            string? indexId = default,
-            global::System.Collections.Generic.IList<global::TwelveLabs.TasksGetParametersStatusSchemaItems>? status = default,
-            string? filename = default,
-            double? duration = default,
-            int? width = default,
-            int? height = default,
-            string? createdAt = default,
-            string? updatedAt = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareListArguments(
+            PrepareListRedirectUrisArguments(
                 httpClient: HttpClient,
                 page: ref page,
                 pageLimit: ref pageLimit,
-                sortBy: ref sortBy,
-                sortOption: ref sortOption,
-                indexId: ref indexId,
-                status: status,
-                filename: ref filename,
-                duration: ref duration,
-                width: ref width,
-                height: ref height,
-                createdAt: ref createdAt,
-                updatedAt: ref updatedAt,
                 xApiKey: ref xApiKey);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ListSecurityRequirements,
-                operationName: "ListAsync");
+                securityRequirements: s_ListRedirectUrisSecurityRequirements,
+                operationName: "ListRedirectUrisAsync");
 
             using var __timeoutCancellationTokenSource = global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -219,21 +129,11 @@ namespace TwelveLabs
             {
 
                             var __pathBuilder = new global::TwelveLabs.PathBuilder(
-                                path: "/tasks",
+                                path: "/connections/redirect-uris",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_limit", pageLimit?.ToString())
-                                .AddOptionalParameter("sort_by", sortBy)
-                                .AddOptionalParameter("sort_option", sortOption)
-                                .AddOptionalParameter("index_id", indexId)
-                                .AddOptionalParameter("status", status, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
-                                .AddOptionalParameter("filename", filename)
-                                .AddOptionalParameter("duration", duration?.ToString())
-                                .AddOptionalParameter("width", width?.ToString())
-                                .AddOptionalParameter("height", height?.ToString())
-                                .AddOptionalParameter("created_at", createdAt)
-                                .AddOptionalParameter("updated_at", updatedAt)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::TwelveLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -275,21 +175,11 @@ namespace TwelveLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareListRequest(
+                PrepareListRedirectUrisRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     page: page,
                     pageLimit: pageLimit,
-                    sortBy: sortBy,
-                    sortOption: sortOption,
-                    indexId: indexId,
-                    status: status,
-                    filename: filename,
-                    duration: duration,
-                    width: width,
-                    height: height,
-                    createdAt: createdAt,
-                    updatedAt: updatedAt,
                     xApiKey: xApiKey!);
 
                 return __httpRequest;
@@ -307,9 +197,9 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List",
-                                methodName: "ListAsync",
-                                pathTemplate: "\"/tasks\"",
+                                operationId: "ListRedirectUris",
+                                methodName: "ListRedirectUrisAsync",
+                                pathTemplate: "\"/connections/redirect-uris\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,9 +231,9 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List",
-                                methodName: "ListAsync",
-                                pathTemplate: "\"/tasks\"",
+                                operationId: "ListRedirectUris",
+                                methodName: "ListRedirectUrisAsync",
+                                pathTemplate: "\"/connections/redirect-uris\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -382,9 +272,9 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List",
-                                methodName: "ListAsync",
-                                pathTemplate: "\"/tasks\"",
+                                operationId: "ListRedirectUris",
+                                methodName: "ListRedirectUrisAsync",
+                                pathTemplate: "\"/connections/redirect-uris\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -422,7 +312,7 @@ namespace TwelveLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessListResponse(
+                ProcessListRedirectUrisResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -430,9 +320,9 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List",
-                                methodName: "ListAsync",
-                                pathTemplate: "\"/tasks\"",
+                                operationId: "ListRedirectUris",
+                                methodName: "ListRedirectUrisAsync",
+                                pathTemplate: "\"/connections/redirect-uris\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -452,9 +342,9 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "List",
-                                methodName: "ListAsync",
-                                pathTemplate: "\"/tasks\"",
+                                operationId: "ListRedirectUris",
+                                methodName: "ListRedirectUrisAsync",
+                                pathTemplate: "\"/connections/redirect-uris\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -474,19 +364,19 @@ namespace TwelveLabs
                             {
                                 string? __content_400 = null;
                                 global::System.Exception? __exception_400 = null;
-                                global::TwelveLabs.ListVideoIndexingTasksRequestBadRequestError? __value_400 = null;
+                                global::TwelveLabs.ListRedirectUrisRequestBadRequestError? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = global::TwelveLabs.ListVideoIndexingTasksRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.ListRedirectUrisRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = global::TwelveLabs.ListVideoIndexingTasksRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.ListRedirectUrisRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -495,7 +385,7 @@ namespace TwelveLabs
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ListVideoIndexingTasksRequestBadRequestError>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ListRedirectUrisRequestBadRequestError>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
@@ -519,7 +409,7 @@ namespace TwelveLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessListResponseContent(
+                                ProcessListRedirectUrisResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -528,9 +418,9 @@ namespace TwelveLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::TwelveLabs.TasksListResponse200.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::TwelveLabs.DataConnectorsListRedirectUrisResponse200.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksListResponse200>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.DataConnectorsListRedirectUrisResponse200>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -560,9 +450,9 @@ namespace TwelveLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::TwelveLabs.TasksListResponse200.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::TwelveLabs.DataConnectorsListRedirectUrisResponse200.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksListResponse200>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.DataConnectorsListRedirectUrisResponse200>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
