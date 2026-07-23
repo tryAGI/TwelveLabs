@@ -7,9 +7,9 @@ namespace TwelveLabs
         /// <summary>
         /// Authorize a connection<br/>
         /// This method starts the OAuth authorization flow for a data connector. The platform returns an authorization URL. Redirect the user to this URL so they can grant access to their account.<br/>
-        /// After the user grants or denies access, the platform redirects them to the redirect URL you provided, with the outcome appended to that URL as query parameters. Read these parameters from the redirect that your application receives:<br/>
+        /// After the user grants or denies access, the platform redirects them to the redirect URI you provided, with the outcome appended to that URI as query parameters. Read these parameters from the redirect that your application receives:<br/>
         /// - `connection_id`: The identifier of the new connection, returned on success. Store this value and pass it as the `connection_id` path parameter in later requests.<br/>
-        /// - `status`: Set to `ok` on success.<br/>
+        /// - `status`: The `ok` value, returned on success.<br/>
         /// - `custom_id`: The label you supplied, returned on success when you provided one.<br/>
         /// - `error`: An error code, returned instead of the other parameters when the user denies access or the flow fails.
         /// </summary>
@@ -27,9 +27,9 @@ namespace TwelveLabs
         /// <summary>
         /// Authorize a connection<br/>
         /// This method starts the OAuth authorization flow for a data connector. The platform returns an authorization URL. Redirect the user to this URL so they can grant access to their account.<br/>
-        /// After the user grants or denies access, the platform redirects them to the redirect URL you provided, with the outcome appended to that URL as query parameters. Read these parameters from the redirect that your application receives:<br/>
+        /// After the user grants or denies access, the platform redirects them to the redirect URI you provided, with the outcome appended to that URI as query parameters. Read these parameters from the redirect that your application receives:<br/>
         /// - `connection_id`: The identifier of the new connection, returned on success. Store this value and pass it as the `connection_id` path parameter in later requests.<br/>
-        /// - `status`: Set to `ok` on success.<br/>
+        /// - `status`: The `ok` value, returned on success.<br/>
         /// - `custom_id`: The label you supplied, returned on success when you provided one.<br/>
         /// - `error`: An error code, returned instead of the other parameters when the user denies access or the flow fails.
         /// </summary>
@@ -47,9 +47,9 @@ namespace TwelveLabs
         /// <summary>
         /// Authorize a connection<br/>
         /// This method starts the OAuth authorization flow for a data connector. The platform returns an authorization URL. Redirect the user to this URL so they can grant access to their account.<br/>
-        /// After the user grants or denies access, the platform redirects them to the redirect URL you provided, with the outcome appended to that URL as query parameters. Read these parameters from the redirect that your application receives:<br/>
+        /// After the user grants or denies access, the platform redirects them to the redirect URI you provided, with the outcome appended to that URI as query parameters. Read these parameters from the redirect that your application receives:<br/>
         /// - `connection_id`: The identifier of the new connection, returned on success. Store this value and pass it as the `connection_id` path parameter in later requests.<br/>
-        /// - `status`: Set to `ok` on success.<br/>
+        /// - `status`: The `ok` value, returned on success.<br/>
         /// - `custom_id`: The label you supplied, returned on success when you provided one.<br/>
         /// - `error`: An error code, returned instead of the other parameters when the user denies access or the flow fails.
         /// </summary>
@@ -58,7 +58,7 @@ namespace TwelveLabs
         /// The data connector provider to authorize.
         /// </param>
         /// <param name="redirectUri">
-        /// The URL where the user is redirected after granting or denying access. If your account has an allow-list of redirect URIs configured, this URL must be one you registered with the [Register a redirect URI](/v1.3/api-reference/data-connectors/register-a-redirect-uri) method.
+        /// The URI where the user is redirected after granting or denying access. By default, any redirect URI is accepted. If you've authorized specific redirect URIs with the [Register a redirect URI](/v1.3/api-reference/data-connectors/register-a-redirect-uri) method, this URI must be one of them.
         /// </param>
         /// <param name="customId">
         /// A label you supplied, stored on the connection and returned with it. Use a value that does not identify a person so you can match the connection to your own records.

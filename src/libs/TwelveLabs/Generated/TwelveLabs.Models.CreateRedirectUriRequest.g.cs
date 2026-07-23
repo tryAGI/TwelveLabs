@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class CreateRedirectUriRequest
     {
         /// <summary>
-        /// The redirect URI to register. Must use HTTPS, resolve to a public host, and contain no wildcards. The value is stored exactly as provided and matched byte-for-byte during authorization.
+        /// The redirect URI to register. Must use HTTPS, resolve to a public host, and contain no wildcards. Register it exactly as your application sends it, because the authorization flow requires an exact match.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("redirect_uri")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="CreateRedirectUriRequest" /> class.
         /// </summary>
         /// <param name="redirectUri">
-        /// The redirect URI to register. Must use HTTPS, resolve to a public host, and contain no wildcards. The value is stored exactly as provided and matched byte-for-byte during authorization.
+        /// The redirect URI to register. Must use HTTPS, resolve to a public host, and contain no wildcards. Register it exactly as your application sends it, because the authorization flow requires an exact match.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

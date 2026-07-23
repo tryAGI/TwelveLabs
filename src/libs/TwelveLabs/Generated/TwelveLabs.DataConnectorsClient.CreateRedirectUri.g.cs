@@ -45,7 +45,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// Register a redirect URI<br/>
-        /// This method registers a redirect URI on your account's allow-list. Once registered, the URI can be used as the `redirect_uri` when starting the authorization flow with the authorize-connection method. The URI must use HTTPS and resolve to a public host.
+        /// This method registers a redirect URI so the [Authorize a connection](/v1.3/api-reference/data-connectors/authorize-a-connection) method accepts it.
         /// </summary>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
@@ -71,7 +71,7 @@ namespace TwelveLabs
         }
         /// <summary>
         /// Register a redirect URI<br/>
-        /// This method registers a redirect URI on your account's allow-list. Once registered, the URI can be used as the `redirect_uri` when starting the authorization flow with the authorize-connection method. The URI must use HTTPS and resolve to a public host.
+        /// This method registers a redirect URI so the [Authorize a connection](/v1.3/api-reference/data-connectors/authorize-a-connection) method accepts it.
         /// </summary>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
@@ -386,7 +386,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // The redirect URI is already registered on your account.
+                            // The redirect URI is already registered.
                             if ((int)__response.StatusCode == 409)
                             {
                                 string? __content_409 = null;
@@ -423,7 +423,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // The redirect URI could not be registered. Either it failed validation — it must use HTTPS, resolve to a public host, contain no wildcards, and stay within the length limit (`redirect_uri_invalid`) — or your account has reached the maximum number of registered redirect URIs (`redirect_uri_limit_exceeded`). 
+                            // The redirect URI could not be registered. Either it failed validation (`redirect_uri_invalid`) because it must use HTTPS, resolve to a public host, and contain no wildcards, or you have reached the maximum number of registered redirect URIs (`redirect_uri_limit_exceeded`). 
                             if ((int)__response.StatusCode == 422)
                             {
                                 string? __content_422 = null;
@@ -558,11 +558,11 @@ namespace TwelveLabs
         }
         /// <summary>
         /// Register a redirect URI<br/>
-        /// This method registers a redirect URI on your account's allow-list. Once registered, the URI can be used as the `redirect_uri` when starting the authorization flow with the authorize-connection method. The URI must use HTTPS and resolve to a public host.
+        /// This method registers a redirect URI so the [Authorize a connection](/v1.3/api-reference/data-connectors/authorize-a-connection) method accepts it.
         /// </summary>
         /// <param name="xApiKey"></param>
         /// <param name="redirectUri">
-        /// The redirect URI to register. Must use HTTPS, resolve to a public host, and contain no wildcards. The value is stored exactly as provided and matched byte-for-byte during authorization.
+        /// The redirect URI to register. Must use HTTPS, resolve to a public host, and contain no wildcards. Register it exactly as your application sends it, because the authorization flow requires an exact match.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
