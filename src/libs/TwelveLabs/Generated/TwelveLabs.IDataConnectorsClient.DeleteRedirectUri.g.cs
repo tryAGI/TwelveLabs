@@ -2,35 +2,33 @@
 
 namespace TwelveLabs
 {
-    public partial interface ITasksClient
+    public partial interface IDataConnectorsClient
     {
         /// <summary>
-        /// Retrieve a video indexing task<br/>
-        /// &lt;Info&gt;This method will be removed in a future version.&lt;/Info&gt;<br/>
-        /// This method retrieves a video indexing task.
+        /// Delete a redirect URI<br/>
+        /// This method removes a redirect URI from your account's allow-list. After deletion, the URI can no longer be used as the `redirect_uri` in the authorize-connection method.
         /// </summary>
-        /// <param name="taskId"></param>
+        /// <param name="redirectUriId"></param>
         /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.TasksRetrieveResponse200> RetrieveAsync(
-            string taskId,
+        global::System.Threading.Tasks.Task DeleteRedirectUriAsync(
+            string redirectUriId,
             string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Retrieve a video indexing task<br/>
-        /// &lt;Info&gt;This method will be removed in a future version.&lt;/Info&gt;<br/>
-        /// This method retrieves a video indexing task.
+        /// Delete a redirect URI<br/>
+        /// This method removes a redirect URI from your account's allow-list. After deletion, the URI can no longer be used as the `redirect_uri` in the authorize-connection method.
         /// </summary>
-        /// <param name="taskId"></param>
+        /// <param name="redirectUriId"></param>
         /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksRetrieveResponse200>> RetrieveAsResponseAsync(
-            string taskId,
+        global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> DeleteRedirectUriAsResponseAsync(
+            string redirectUriId,
             string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

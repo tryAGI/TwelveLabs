@@ -45,6 +45,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// Retrieve a video indexing task<br/>
+        /// &lt;Info&gt;This method will be removed in a future version.&lt;/Info&gt;<br/>
         /// This method retrieves a video indexing task.
         /// </summary>
         /// <param name="taskId"></param>
@@ -69,6 +70,7 @@ namespace TwelveLabs
         }
         /// <summary>
         /// Retrieve a video indexing task<br/>
+        /// &lt;Info&gt;This method will be removed in a future version.&lt;/Info&gt;<br/>
         /// This method retrieves a video indexing task.
         /// </summary>
         /// <param name="taskId"></param>

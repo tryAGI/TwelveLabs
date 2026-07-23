@@ -55,7 +55,7 @@ namespace TwelveLabs
         /// - **Video and audio, local files**: Up to 200 MB<br/>
         /// - **Video and audio, public URLs**: Up to 4 GB<br/>
         /// - **Images**: Up to 32 MB<br/>
-        /// Asset creation does not enforce a maximum duration. Each model applies its own file size and duration limits when you index or analyze the asset. For details, see the requirements below.<br/>
+        /// Asset creation does not enforce a maximum duration. Each model applies its own file size and duration limits. For details, see the requirements below.<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>
@@ -99,7 +99,7 @@ namespace TwelveLabs
         /// - **Video and audio, local files**: Up to 200 MB<br/>
         /// - **Video and audio, public URLs**: Up to 4 GB<br/>
         /// - **Images**: Up to 32 MB<br/>
-        /// Asset creation does not enforce a maximum duration. Each model applies its own file size and duration limits when you index or analyze the asset. For details, see the requirements below.<br/>
+        /// Asset creation does not enforce a maximum duration. Each model applies its own file size and duration limits. For details, see the requirements below.<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>
@@ -619,7 +619,7 @@ namespace TwelveLabs
         /// - **Video and audio, local files**: Up to 200 MB<br/>
         /// - **Video and audio, public URLs**: Up to 4 GB<br/>
         /// - **Images**: Up to 32 MB<br/>
-        /// Asset creation does not enforce a maximum duration. Each model applies its own file size and duration limits when you index or analyze the asset. For details, see the requirements below.<br/>
+        /// Asset creation does not enforce a maximum duration. Each model applies its own file size and duration limits. For details, see the requirements below.<br/>
         /// **Additional requirements** depend on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements)<br/>

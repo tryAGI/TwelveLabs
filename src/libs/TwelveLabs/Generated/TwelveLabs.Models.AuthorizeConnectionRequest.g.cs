@@ -16,7 +16,7 @@ namespace TwelveLabs
         public global::TwelveLabs.ConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProvider Provider { get; set; }
 
         /// <summary>
-        /// The URL where the user is redirected after granting or denying access. If your account has an allow-list of redirect URLs configured, this URL must be on it.
+        /// The URL where the user is redirected after granting or denying access. If your account has an allow-list of redirect URIs configured, this URL must be one you registered with the [Register a redirect URI](/v1.3/api-reference/data-connectors/register-a-redirect-uri) method.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("redirect_uri")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -38,7 +38,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="AuthorizeConnectionRequest" /> class.
         /// </summary>
         /// <param name="redirectUri">
-        /// The URL where the user is redirected after granting or denying access. If your account has an allow-list of redirect URLs configured, this URL must be on it.
+        /// The URL where the user is redirected after granting or denying access. If your account has an allow-list of redirect URIs configured, this URL must be one you registered with the [Register a redirect URI](/v1.3/api-reference/data-connectors/register-a-redirect-uri) method.
         /// </param>
         /// <param name="provider">
         /// The data connector provider to authorize.

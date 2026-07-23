@@ -6,13 +6,8 @@ namespace TwelveLabs
     {
         /// <summary>
         /// Create a video indexing task<br/>
+        /// &lt;Info&gt;This method will be removed in a future version. New implementations should use [direct](/v1.3/api-reference/upload-content/direct-uploads) or [multipart](/v1.3/api-reference/upload-content/multipart-uploads) uploads followed by [separate indexing](/v1.3/api-reference/index-content/create).&lt;/Info&gt;<br/>
         /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
-        /// &lt;Warning title="Legacy endpoint"&gt;<br/>
-        /// This endpoint bundles two operations (upload and indexing) together. In the next major API release, this endpoint will be removed in favor of a separated workflow:<br/>
-        /// 1. Upload your video using the [`POST /assets`](/v1.3/api-reference/upload-content/direct-uploads/create) endpoint<br/>
-        /// 2. Index the uploaded video using the [`POST /indexes/{index-id}/indexed-assets`](/v1.3/api-reference/index-content/create) endpoint<br/>
-        /// This separation provides better control, reusability of assets, and improved error handling. New implementations should use the new workflow.<br/>
-        /// &lt;/Warning&gt;<br/>
         /// Upload options:<br/>
         /// - **Local file**: Use the `video_file` parameter.<br/>
         /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
@@ -39,13 +34,8 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a video indexing task<br/>
+        /// &lt;Info&gt;This method will be removed in a future version. New implementations should use [direct](/v1.3/api-reference/upload-content/direct-uploads) or [multipart](/v1.3/api-reference/upload-content/multipart-uploads) uploads followed by [separate indexing](/v1.3/api-reference/index-content/create).&lt;/Info&gt;<br/>
         /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
-        /// &lt;Warning title="Legacy endpoint"&gt;<br/>
-        /// This endpoint bundles two operations (upload and indexing) together. In the next major API release, this endpoint will be removed in favor of a separated workflow:<br/>
-        /// 1. Upload your video using the [`POST /assets`](/v1.3/api-reference/upload-content/direct-uploads/create) endpoint<br/>
-        /// 2. Index the uploaded video using the [`POST /indexes/{index-id}/indexed-assets`](/v1.3/api-reference/index-content/create) endpoint<br/>
-        /// This separation provides better control, reusability of assets, and improved error handling. New implementations should use the new workflow.<br/>
-        /// &lt;/Warning&gt;<br/>
         /// Upload options:<br/>
         /// - **Local file**: Use the `video_file` parameter.<br/>
         /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
@@ -72,13 +62,8 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a video indexing task<br/>
+        /// &lt;Info&gt;This method will be removed in a future version. New implementations should use [direct](/v1.3/api-reference/upload-content/direct-uploads) or [multipart](/v1.3/api-reference/upload-content/multipart-uploads) uploads followed by [separate indexing](/v1.3/api-reference/index-content/create).&lt;/Info&gt;<br/>
         /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
-        /// &lt;Warning title="Legacy endpoint"&gt;<br/>
-        /// This endpoint bundles two operations (upload and indexing) together. In the next major API release, this endpoint will be removed in favor of a separated workflow:<br/>
-        /// 1. Upload your video using the [`POST /assets`](/v1.3/api-reference/upload-content/direct-uploads/create) endpoint<br/>
-        /// 2. Index the uploaded video using the [`POST /indexes/{index-id}/indexed-assets`](/v1.3/api-reference/index-content/create) endpoint<br/>
-        /// This separation provides better control, reusability of assets, and improved error handling. New implementations should use the new workflow.<br/>
-        /// &lt;/Warning&gt;<br/>
         /// Upload options:<br/>
         /// - **Local file**: Use the `video_file` parameter.<br/>
         /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
