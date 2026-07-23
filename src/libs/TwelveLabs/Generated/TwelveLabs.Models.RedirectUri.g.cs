@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// A redirect URI registered on your account's allow-list. During the authorization flow, the `redirect_uri` you provide must match either a URI configured for your account or one registered through the create-redirect-uri method.
+    /// An authorized redirect URI. During the authorization flow, the redirect URI you provide must match either a URI configured for you or one you registered through the [Register a redirect URI](/v1.3/api-reference/data-connectors/register-a-redirect-uri) method.
     /// </summary>
     public sealed partial class RedirectUri
     {

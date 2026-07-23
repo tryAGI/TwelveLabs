@@ -6,7 +6,7 @@ namespace TwelveLabs
     {
         /// <summary>
         /// List redirect URIs<br/>
-        /// This method returns the redirect URIs registered on your account, sorted by creation date with the newest at the top. Registered URIs extend the allow-list of redirect targets accepted by the authorize-connection method.
+        /// This method returns your authorized redirect URIs, sorted by creation date with the newest at the top. Each one is a redirect URI the [Authorize a connection](/v1.3/api-reference/data-connectors/authorize-a-connection) method accepts.
         /// </summary>
         /// <param name="page">
         /// Default Value: 1
@@ -26,7 +26,7 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List redirect URIs<br/>
-        /// This method returns the redirect URIs registered on your account, sorted by creation date with the newest at the top. Registered URIs extend the allow-list of redirect targets accepted by the authorize-connection method.
+        /// This method returns your authorized redirect URIs, sorted by creation date with the newest at the top. Each one is a redirect URI the [Authorize a connection](/v1.3/api-reference/data-connectors/authorize-a-connection) method accepts.
         /// </summary>
         /// <param name="page">
         /// Default Value: 1

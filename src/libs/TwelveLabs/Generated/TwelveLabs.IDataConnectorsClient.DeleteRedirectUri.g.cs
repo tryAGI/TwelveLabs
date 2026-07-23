@@ -6,7 +6,7 @@ namespace TwelveLabs
     {
         /// <summary>
         /// Delete a redirect URI<br/>
-        /// This method removes a redirect URI from your account's allow-list. After deletion, the URI can no longer be used as the `redirect_uri` in the authorize-connection method.
+        /// This method removes a redirect URI from your authorized redirect URIs. After deletion, the [Authorize a connection](/v1.3/api-reference/data-connectors/authorize-a-connection) method no longer accepts it. This action cannot be undone.
         /// </summary>
         /// <param name="redirectUriId"></param>
         /// <param name="xApiKey"></param>
@@ -20,7 +20,7 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a redirect URI<br/>
-        /// This method removes a redirect URI from your account's allow-list. After deletion, the URI can no longer be used as the `redirect_uri` in the authorize-connection method.
+        /// This method removes a redirect URI from your authorized redirect URIs. After deletion, the [Authorize a connection](/v1.3/api-reference/data-connectors/authorize-a-connection) method no longer accepts it. This action cannot be undone.
         /// </summary>
         /// <param name="redirectUriId"></param>
         /// <param name="xApiKey"></param>
