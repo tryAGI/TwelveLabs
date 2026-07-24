@@ -19,7 +19,7 @@ namespace TwelveLabs
         ///   **Images**:<br/>
         ///   - Formats: JPEG, PNG<br/>
         ///   - Minimum size: 128x128 pixels<br/>
-        ///   - Maximum file size: 5 MB<br/>
+        ///   - Maximum file size: 32 MB<br/>
         ///   **Audio and video**:<br/>
         ///   - Maximum duration: 10 minutes<br/>
         ///   - Maximum file size for base64 encoded strings: 36 MB<br/>
@@ -58,7 +58,7 @@ namespace TwelveLabs
         ///   **Images**:<br/>
         ///   - Formats: JPEG, PNG<br/>
         ///   - Minimum size: 128x128 pixels<br/>
-        ///   - Maximum file size: 5 MB<br/>
+        ///   - Maximum file size: 32 MB<br/>
         ///   **Audio and video**:<br/>
         ///   - Maximum duration: 10 minutes<br/>
         ///   - Maximum file size for base64 encoded strings: 36 MB<br/>
@@ -97,7 +97,7 @@ namespace TwelveLabs
         ///   **Images**:<br/>
         ///   - Formats: JPEG, PNG<br/>
         ///   - Minimum size: 128x128 pixels<br/>
-        ///   - Maximum file size: 5 MB<br/>
+        ///   - Maximum file size: 32 MB<br/>
         ///   **Audio and video**:<br/>
         ///   - Maximum duration: 10 minutes<br/>
         ///   - Maximum file size for base64 encoded strings: 36 MB<br/>
