@@ -21,12 +21,6 @@ namespace TwelveLabs
         public string? Message { get; set; }
 
         /// <summary>
-        /// The URL of the relevant documentation page.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("docs_url")]
-        public string? DocsUrl { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -41,20 +35,15 @@ namespace TwelveLabs
         /// <param name="message">
         /// A human-readable string describing the error, intended to be suitable for display in a user interface.
         /// </param>
-        /// <param name="docsUrl">
-        /// The URL of the relevant documentation page.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public RequestAdditionalPresignedUrlsRequestForbiddenError(
             string? code,
-            string? message,
-            string? docsUrl)
+            string? message)
         {
             this.Code = code;
             this.Message = message;
-            this.DocsUrl = docsUrl;
         }
 
         /// <summary>
