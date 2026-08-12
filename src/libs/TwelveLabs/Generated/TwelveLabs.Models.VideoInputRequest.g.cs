@@ -33,9 +33,12 @@ namespace TwelveLabs
         public double? EndSec { get; set; }
 
         /// <summary>
-        /// Specifies how the platform divides the video into segments.
+        /// Specifies how the platform divides the video into segments. The `strategy` field selects one variant:<br/>
+        /// - `strategy: fixed` - Creates segments of equal, predetermined length. Use this for consistent timing.<br/>
+        /// - `strategy: dynamic` - Creates segments of variable length that align with scene boundaries. Use this for content-aware segmentation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segmentation")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.VideoSegmentationJsonConverter))]
         public global::TwelveLabs.VideoSegmentation? Segmentation { get; set; }
 
         /// <summary>
@@ -96,7 +99,9 @@ namespace TwelveLabs
         /// **Default**: End of the video file
         /// </param>
         /// <param name="segmentation">
-        /// Specifies how the platform divides the video into segments.
+        /// Specifies how the platform divides the video into segments. The `strategy` field selects one variant:<br/>
+        /// - `strategy: fixed` - Creates segments of equal, predetermined length. Use this for consistent timing.<br/>
+        /// - `strategy: dynamic` - Creates segments of variable length that align with scene boundaries. Use this for content-aware segmentation.
         /// </param>
         /// <param name="embeddingOption">
         /// The types of embeddings to generate for the video.<br/>
