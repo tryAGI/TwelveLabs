@@ -337,6 +337,18 @@ namespace TwelveLabs
 
             typeof(global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingTypeItemsNullableJsonConverter),
 
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationVariant1StrategyJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationVariant1StrategyNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationVariant2StrategyJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationVariant2StrategyNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationDiscriminatorStrategyJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationDiscriminatorStrategyNullableJsonConverter),
+
             typeof(global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingOptionItemsJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingOptionItemsNullableJsonConverter),
@@ -562,6 +574,8 @@ namespace TwelveLabs
             typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.EmbeddingMediaMetadataJsonConverter),
 
@@ -1001,7 +1015,15 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AudioInputRequestEmbeddingOptionItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AudioInputRequestEmbeddingScopeItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AudioInputRequestEmbeddingTypeItems>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentation))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentationDiscriminatorMappingDynamicDynamic))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentationDiscriminatorMappingFixedFixed))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentation), TypeInfoPropertyName = "VideoSegmentation2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentationVariant1))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentationVariant1Strategy), TypeInfoPropertyName = "VideoSegmentationVariant1Strategy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentationVariant2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentationVariant2Strategy), TypeInfoPropertyName = "VideoSegmentationVariant2Strategy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentationDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentationDiscriminatorStrategy), TypeInfoPropertyName = "VideoSegmentationDiscriminatorStrategy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoInputRequestEmbeddingOptionItems), TypeInfoPropertyName = "VideoInputRequestEmbeddingOptionItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoInputRequestEmbeddingScopeItems), TypeInfoPropertyName = "VideoInputRequestEmbeddingScopeItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoInputRequestEmbeddingTypeItems), TypeInfoPropertyName = "VideoInputRequestEmbeddingTypeItems2")]
@@ -1083,14 +1105,6 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AudioSegment))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AudioEmbeddingResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AudioSegment>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateTextImageAudioEmbeddingRequestBadRequestError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzePostRequestBodyContentApplicationJsonSchemaModelName), TypeInfoPropertyName = "AnalyzePostRequestBodyContentApplicationJsonSchemaModelName2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContext), TypeInfoPropertyName = "VideoContext2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextVariant1))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextVariant1Type), TypeInfoPropertyName = "VideoContextVariant1Type2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextVariant2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextVariant2Type), TypeInfoPropertyName = "VideoContextVariant2Type2")]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1426,6 +1440,18 @@ namespace TwelveLabs
 
             typeof(global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingTypeItemsNullableJsonConverter),
 
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationVariant1StrategyJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationVariant1StrategyNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationVariant2StrategyJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationVariant2StrategyNullableJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationDiscriminatorStrategyJsonConverter),
+
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationDiscriminatorStrategyNullableJsonConverter),
+
             typeof(global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingOptionItemsJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingOptionItemsNullableJsonConverter),
@@ -1652,6 +1678,8 @@ namespace TwelveLabs
 
             typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileJsonConverter),
 
+            typeof(global::TwelveLabs.JsonConverters.VideoSegmentationJsonConverter),
+
             typeof(global::TwelveLabs.JsonConverters.EmbeddingMediaMetadataJsonConverter),
 
             typeof(global::TwelveLabs.JsonConverters.EmbeddingTaskMediaMetadataJsonConverter),
@@ -1680,6 +1708,14 @@ namespace TwelveLabs
 
             typeof(global::TwelveLabs.JsonConverters.UnixTimestampJsonConverter),
         })]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateTextImageAudioEmbeddingRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzePostRequestBodyContentApplicationJsonSchemaModelName), TypeInfoPropertyName = "AnalyzePostRequestBodyContentApplicationJsonSchemaModelName2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContext), TypeInfoPropertyName = "VideoContext2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextVariant1))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextVariant1Type), TypeInfoPropertyName = "VideoContextVariant1Type2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextVariant2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextVariant2Type), TypeInfoPropertyName = "VideoContextVariant2Type2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextVariant3))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextVariant3Type), TypeInfoPropertyName = "VideoContextVariant3Type2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextDiscriminator))]
@@ -1926,6 +1962,10 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AudioInputRequestEmbeddingOptionItems?), TypeInfoPropertyName = "NullableAudioInputRequestEmbeddingOptionItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AudioInputRequestEmbeddingScopeItems?), TypeInfoPropertyName = "NullableAudioInputRequestEmbeddingScopeItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AudioInputRequestEmbeddingTypeItems?), TypeInfoPropertyName = "NullableAudioInputRequestEmbeddingTypeItems2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentation?), TypeInfoPropertyName = "NullableVideoSegmentation2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentationVariant1Strategy?), TypeInfoPropertyName = "NullableVideoSegmentationVariant1Strategy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentationVariant2Strategy?), TypeInfoPropertyName = "NullableVideoSegmentationVariant2Strategy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSegmentationDiscriminatorStrategy?), TypeInfoPropertyName = "NullableVideoSegmentationDiscriminatorStrategy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoInputRequestEmbeddingOptionItems?), TypeInfoPropertyName = "NullableVideoInputRequestEmbeddingOptionItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoInputRequestEmbeddingScopeItems?), TypeInfoPropertyName = "NullableVideoInputRequestEmbeddingScopeItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoInputRequestEmbeddingTypeItems?), TypeInfoPropertyName = "NullableVideoInputRequestEmbeddingTypeItems2")]
@@ -2276,6 +2316,12 @@ namespace TwelveLabs
             options.Converters.Add(new global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingScopeItemsNullableJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingTypeItemsJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.AudioInputRequestEmbeddingTypeItemsNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoSegmentationVariant1StrategyJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoSegmentationVariant1StrategyNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoSegmentationVariant2StrategyJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoSegmentationVariant2StrategyNullableJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoSegmentationDiscriminatorStrategyJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoSegmentationDiscriminatorStrategyNullableJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingOptionItemsJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingOptionItemsNullableJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoInputRequestEmbeddingScopeItemsJsonConverter());
@@ -2389,6 +2435,7 @@ namespace TwelveLabs
             options.Converters.Add(new global::TwelveLabs.JsonConverters.IndexesIndexIdVideosGetParametersUserMetadataSchemaJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoSegmentationJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingMediaMetadataJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.EmbeddingTaskMediaMetadataJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoContextJsonConverter());
