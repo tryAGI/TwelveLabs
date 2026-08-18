@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class ImportItemError
     {
         /// <summary>
-        /// A string representing the code associated with the error. See the [Error codes](/v1.3/api-reference/error-codes) page for details. Possible values include `source_unavailable`, `source_not_authorized`, `unsupported_media_type`, `video_filesize_too_large`, `audio_filesize_too_large`, and `media_filesize_too_large`.
+        /// A string representing the code associated with the error. For the possible values, see the [Error codes](/v1.3/api-reference/error-codes#the-connections-endpoints) page.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("code")]
         public string? Code { get; set; }
@@ -30,7 +30,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="ImportItemError" /> class.
         /// </summary>
         /// <param name="code">
-        /// A string representing the code associated with the error. See the [Error codes](/v1.3/api-reference/error-codes) page for details. Possible values include `source_unavailable`, `source_not_authorized`, `unsupported_media_type`, `video_filesize_too_large`, `audio_filesize_too_large`, and `media_filesize_too_large`.
+        /// A string representing the code associated with the error. For the possible values, see the [Error codes](/v1.3/api-reference/error-codes#the-connections-endpoints) page.
         /// </param>
         /// <param name="message">
         /// A human-readable string describing the error, intended to be suitable for display in a user interface.

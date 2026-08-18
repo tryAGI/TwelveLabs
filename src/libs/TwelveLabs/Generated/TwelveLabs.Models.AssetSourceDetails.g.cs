@@ -16,7 +16,7 @@ namespace TwelveLabs
         public global::TwelveLabs.AssetSourceDetailsProvider? Provider { get; set; }
 
         /// <summary>
-        /// The identifier of the file at the provider. For Google Drive, this is the Drive file identifier.
+        /// The identifier of the file at the provider. For Google Drive, this is the identifier Google Drive assigns to the file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_id")]
         public string? SourceId { get; set; }
@@ -46,7 +46,7 @@ namespace TwelveLabs
         /// The data connector provider.
         /// </param>
         /// <param name="sourceId">
-        /// The identifier of the file at the provider. For Google Drive, this is the Drive file identifier.
+        /// The identifier of the file at the provider. For Google Drive, this is the identifier Google Drive assigns to the file.
         /// </param>
         /// <param name="originalFilename">
         /// The name of the file at the provider when it was imported.

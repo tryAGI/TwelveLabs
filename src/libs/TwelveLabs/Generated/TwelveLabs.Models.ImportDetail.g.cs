@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// An import, including the current status of the asset for each file. Each time you retrieve the import, the platform recomputes these statuses from the current status of each asset. The import itself does not change after it is created.
+    /// An import, including the `action` value and the current status of the asset for each file. Each time you retrieve the import, the `status` field of each item reflects the current status of its asset. The import itself does not change after it is created.
     /// </summary>
     public sealed partial class ImportDetail
     {
@@ -28,13 +28,13 @@ namespace TwelveLabs
         public global::TwelveLabs.ImportDetailProvider? Provider { get; set; }
 
         /// <summary>
-        /// The label you supplied when creating the connection, copied when the import was created. Present only when a value is set for the `custom_id` field.
+        /// The label you supplied when you [authorized the connection](/v1.3/api-reference/data-connectors/authorize-a-connection), copied when the import was created. Present only when you supplied one.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_id")]
         public string? CustomId { get; set; }
 
         /// <summary>
-        /// The number of files requested in this import. If an imported asset is later deleted, it is omitted from the `items` array in the Retrieve an import response, so the `items` array can contain fewer entries than `item_count`.
+        /// The number of files requested in this import. If an imported asset is later deleted, it is omitted from the `items` array returned by the [Retrieve an import](/v1.3/api-reference/data-connectors/imports/retrieve-an-import) endpoint, so the `items` array can contain fewer entries than `item_count`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("item_count")]
         public int? ItemCount { get; set; }
@@ -46,7 +46,7 @@ namespace TwelveLabs
         public global::System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
-        /// One entry per imported file, with the current status of its asset.
+        /// One entry per requested file, in request order, with its `action` value and the current status of its asset.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("items")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.ImportItem>? Items { get; set; }
@@ -70,16 +70,16 @@ namespace TwelveLabs
         /// The data connector provider.
         /// </param>
         /// <param name="customId">
-        /// The label you supplied when creating the connection, copied when the import was created. Present only when a value is set for the `custom_id` field.
+        /// The label you supplied when you [authorized the connection](/v1.3/api-reference/data-connectors/authorize-a-connection), copied when the import was created. Present only when you supplied one.
         /// </param>
         /// <param name="itemCount">
-        /// The number of files requested in this import. If an imported asset is later deleted, it is omitted from the `items` array in the Retrieve an import response, so the `items` array can contain fewer entries than `item_count`.
+        /// The number of files requested in this import. If an imported asset is later deleted, it is omitted from the `items` array returned by the [Retrieve an import](/v1.3/api-reference/data-connectors/imports/retrieve-an-import) endpoint, so the `items` array can contain fewer entries than `item_count`.
         /// </param>
         /// <param name="createdAt">
         /// The date and time, in the RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the import was created.
         /// </param>
         /// <param name="items">
-        /// One entry per imported file, with the current status of its asset.
+        /// One entry per requested file, in request order, with its `action` value and the current status of its asset.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
