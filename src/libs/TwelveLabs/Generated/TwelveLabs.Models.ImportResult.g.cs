@@ -15,13 +15,13 @@ namespace TwelveLabs
         public string? Id { get; set; }
 
         /// <summary>
-        /// Whether any item was rejected before an asset was created. When `true`, inspect the `error` object of each item to identify the rejected ones.
+        /// Whether at least one item was rejected before an asset was created. When `true`, inspect the `error` object of each item to identify the rejected ones. An item the platform skipped as a duplicate is not a failure.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_failures")]
         public bool? HasFailures { get; set; }
 
         /// <summary>
-        /// One entry per requested file, in request order.
+        /// One entry per requested file, in request order, with its `action` value and the current status of its asset.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("items")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.ImportItem>? Items { get; set; }
@@ -39,10 +39,10 @@ namespace TwelveLabs
         /// The unique identifier of the import created for this request.
         /// </param>
         /// <param name="hasFailures">
-        /// Whether any item was rejected before an asset was created. When `true`, inspect the `error` object of each item to identify the rejected ones.
+        /// Whether at least one item was rejected before an asset was created. When `true`, inspect the `error` object of each item to identify the rejected ones. An item the platform skipped as a duplicate is not a failure.
         /// </param>
         /// <param name="items">
-        /// One entry per requested file, in request order.
+        /// One entry per requested file, in request order, with its `action` value and the current status of its asset.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

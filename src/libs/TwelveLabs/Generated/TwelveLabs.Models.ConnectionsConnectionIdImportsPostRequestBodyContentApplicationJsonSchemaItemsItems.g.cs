@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class ConnectionsConnectionIdImportsPostRequestBodyContentApplicationJsonSchemaItemsItems
     {
         /// <summary>
-        /// The identifier of the file at the provider. For Google Drive, this is the Drive file identifier.
+        /// The identifier of the file at the provider. For Google Drive, this is the identifier Google Drive assigns to the file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="ConnectionsConnectionIdImportsPostRequestBodyContentApplicationJsonSchemaItemsItems" /> class.
         /// </summary>
         /// <param name="sourceId">
-        /// The identifier of the file at the provider. For Google Drive, this is the Drive file identifier.
+        /// The identifier of the file at the provider. For Google Drive, this is the identifier Google Drive assigns to the file.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

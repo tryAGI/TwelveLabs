@@ -47,7 +47,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// Retrieve an import<br/>
-        /// This method retrieves a single import, including the current status of each asset in the import.
+        /// This method retrieves a single import. For each file, the response includes the `action` field, which indicates the outcome of the import operation, and the `status` field, which reflects the current status of the asset each time you retrieve the import.
         /// </summary>
         /// <param name="connectionId"></param>
         /// <param name="importId"></param>
@@ -74,7 +74,7 @@ namespace TwelveLabs
         }
         /// <summary>
         /// Retrieve an import<br/>
-        /// This method retrieves a single import, including the current status of each asset in the import.
+        /// This method retrieves a single import. For each file, the response includes the `action` field, which indicates the outcome of the import operation, and the `status` field, which reflects the current status of the asset each time you retrieve the import.
         /// </summary>
         /// <param name="connectionId"></param>
         /// <param name="importId"></param>
