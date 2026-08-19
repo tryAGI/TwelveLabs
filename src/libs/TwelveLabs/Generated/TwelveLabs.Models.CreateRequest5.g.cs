@@ -9,26 +9,21 @@ namespace TwelveLabs
     public sealed partial class CreateRequest5
     {
         /// <summary>
-        /// The name of the knowledge store.
+        /// The type of item to create.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("asset_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.KnowledgeStoreItemAssetTypeJsonConverter))]
+        public global::TwelveLabs.KnowledgeStoreItemAssetType? AssetType { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the asset to add to the knowledge store.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public required string AssetId { get; set; }
 
         /// <summary>
-        /// Configuration that controls how content added to the knowledge store is processed.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("ingestion_config")]
-        public global::TwelveLabs.IngestionConfig? IngestionConfig { get; set; }
-
-        /// <summary>
-        /// An optional description of the knowledge store.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
-        public string? Description { get; set; }
-
-        /// <summary>
-        /// Custom metadata for the knowledge store. Both keys and values must be strings.
+        /// Custom metadata for the item. Both keys and values must be strings.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         public global::System.Collections.Generic.Dictionary<string, string>? Metadata { get; set; }
@@ -42,30 +37,25 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateRequest5" /> class.
         /// </summary>
-        /// <param name="name">
-        /// The name of the knowledge store.
+        /// <param name="assetId">
+        /// The unique identifier of the asset to add to the knowledge store.
         /// </param>
-        /// <param name="ingestionConfig">
-        /// Configuration that controls how content added to the knowledge store is processed.
-        /// </param>
-        /// <param name="description">
-        /// An optional description of the knowledge store.
+        /// <param name="assetType">
+        /// The type of item to create.
         /// </param>
         /// <param name="metadata">
-        /// Custom metadata for the knowledge store. Both keys and values must be strings.
+        /// Custom metadata for the item. Both keys and values must be strings.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateRequest5(
-            string name,
-            global::TwelveLabs.IngestionConfig? ingestionConfig,
-            string? description,
+            string assetId,
+            global::TwelveLabs.KnowledgeStoreItemAssetType? assetType,
             global::System.Collections.Generic.Dictionary<string, string>? metadata)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.IngestionConfig = ingestionConfig;
-            this.Description = description;
+            this.AssetType = assetType;
+            this.AssetId = assetId ?? throw new global::System.ArgumentNullException(nameof(assetId));
             this.Metadata = metadata;
         }
 

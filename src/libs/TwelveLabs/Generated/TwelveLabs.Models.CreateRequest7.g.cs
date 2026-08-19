@@ -9,23 +9,30 @@ namespace TwelveLabs
     public sealed partial class CreateRequest7
     {
         /// <summary>
-        /// The name of the item collection. Must be unique within the knowledge store.
+        /// The name of the index. Make sure you use a succinct and descriptive name.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("index_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public required string IndexName { get; set; }
 
         /// <summary>
-        /// An optional description of the item collection.
+        /// An array that specifies the [video understanding models](/v1.3/docs/concepts/models) and the [model options](/v1.3/docs/concepts/modalities#model-options) to be enabled for this index. Models determine what tasks you can perform with your videos. Model options determine which modalities the platform analyzes.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
-        public string? Description { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("models")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems> Models { get; set; }
 
         /// <summary>
-        /// Custom metadata for the item collection. Both keys and values must be strings.
+        /// An array specifying which add-ons should be enabled. Each entry in the array is an addon, and the following values are supported:<br/>
+        /// - `thumbnail`: Enables thumbnail generation.<br/>
+        /// If you don't provide this parameter, no add-ons will be enabled.<br/>
+        /// &lt;Note title="Notes"&gt;<br/>
+        /// - You can only enable addons when using the Marengo video understanding model.<br/>
+        /// - You cannot disable an add-on once the index has been created.<br/>
+        /// &lt;/Note&gt;
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public global::System.Collections.Generic.Dictionary<string, string>? Metadata { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("addons")]
+        public global::System.Collections.Generic.IList<string>? Addons { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -36,26 +43,32 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateRequest7" /> class.
         /// </summary>
-        /// <param name="name">
-        /// The name of the item collection. Must be unique within the knowledge store.
+        /// <param name="indexName">
+        /// The name of the index. Make sure you use a succinct and descriptive name.
         /// </param>
-        /// <param name="description">
-        /// An optional description of the item collection.
+        /// <param name="models">
+        /// An array that specifies the [video understanding models](/v1.3/docs/concepts/models) and the [model options](/v1.3/docs/concepts/modalities#model-options) to be enabled for this index. Models determine what tasks you can perform with your videos. Model options determine which modalities the platform analyzes.
         /// </param>
-        /// <param name="metadata">
-        /// Custom metadata for the item collection. Both keys and values must be strings.
+        /// <param name="addons">
+        /// An array specifying which add-ons should be enabled. Each entry in the array is an addon, and the following values are supported:<br/>
+        /// - `thumbnail`: Enables thumbnail generation.<br/>
+        /// If you don't provide this parameter, no add-ons will be enabled.<br/>
+        /// &lt;Note title="Notes"&gt;<br/>
+        /// - You can only enable addons when using the Marengo video understanding model.<br/>
+        /// - You cannot disable an add-on once the index has been created.<br/>
+        /// &lt;/Note&gt;
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateRequest7(
-            string name,
-            string? description,
-            global::System.Collections.Generic.Dictionary<string, string>? metadata)
+            string indexName,
+            global::System.Collections.Generic.IList<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems> models,
+            global::System.Collections.Generic.IList<string>? addons)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.Description = description;
-            this.Metadata = metadata;
+            this.IndexName = indexName ?? throw new global::System.ArgumentNullException(nameof(indexName));
+            this.Models = models ?? throw new global::System.ArgumentNullException(nameof(models));
+            this.Addons = addons;
         }
 
         /// <summary>

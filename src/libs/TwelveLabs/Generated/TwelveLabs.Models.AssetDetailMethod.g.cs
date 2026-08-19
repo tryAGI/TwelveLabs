@@ -4,14 +4,19 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Indicates how you uploaded the asset.<br/>
+    /// Indicates how the asset was uploaded or imported.<br/>
     /// **Values**:<br/>
     /// - `direct`: Uploaded from your local file system<br/>
     /// - `url`: Uploaded from a publicly accessible URL<br/>
-    /// - `multipart`: Uploaded using the multipart upload flow
+    /// - `multipart`: Uploaded using the multipart upload flow<br/>
+    /// - `connector`: Imported through a data connector
     /// </summary>
     public enum AssetDetailMethod
     {
+        /// <summary>
+        /// Imported through a data connector
+        /// </summary>
+        Connector,
         /// <summary>
         /// Uploaded from your local file system
         /// </summary>
@@ -38,6 +43,7 @@ namespace TwelveLabs
         {
             return value switch
             {
+                AssetDetailMethod.Connector => "connector",
                 AssetDetailMethod.Direct => "direct",
                 AssetDetailMethod.Multipart => "multipart",
                 AssetDetailMethod.Url => "url",
@@ -51,6 +57,7 @@ namespace TwelveLabs
         {
             return value switch
             {
+                "connector" => AssetDetailMethod.Connector,
                 "direct" => AssetDetailMethod.Direct,
                 "multipart" => AssetDetailMethod.Multipart,
                 "url" => AssetDetailMethod.Url,

@@ -9,21 +9,20 @@ namespace TwelveLabs
     public sealed partial class CreateRequest6
     {
         /// <summary>
-        /// The type of item to create.
+        /// The name of the item collection. Must be unique within the knowledge store.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("asset_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.KnowledgeStoreItemAssetTypeJsonConverter))]
-        public global::TwelveLabs.KnowledgeStoreItemAssetType? AssetType { get; set; }
-
-        /// <summary>
-        /// The unique identifier of the asset to add to the knowledge store.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AssetId { get; set; }
+        public required string Name { get; set; }
 
         /// <summary>
-        /// Custom metadata for the item. Both keys and values must be strings.
+        /// An optional description of the item collection.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
+        public string? Description { get; set; }
+
+        /// <summary>
+        /// Custom metadata for the item collection. Both keys and values must be strings.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         public global::System.Collections.Generic.Dictionary<string, string>? Metadata { get; set; }
@@ -37,25 +36,25 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateRequest6" /> class.
         /// </summary>
-        /// <param name="assetId">
-        /// The unique identifier of the asset to add to the knowledge store.
+        /// <param name="name">
+        /// The name of the item collection. Must be unique within the knowledge store.
         /// </param>
-        /// <param name="assetType">
-        /// The type of item to create.
+        /// <param name="description">
+        /// An optional description of the item collection.
         /// </param>
         /// <param name="metadata">
-        /// Custom metadata for the item. Both keys and values must be strings.
+        /// Custom metadata for the item collection. Both keys and values must be strings.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateRequest6(
-            string assetId,
-            global::TwelveLabs.KnowledgeStoreItemAssetType? assetType,
+            string name,
+            string? description,
             global::System.Collections.Generic.Dictionary<string, string>? metadata)
         {
-            this.AssetType = assetType;
-            this.AssetId = assetId ?? throw new global::System.ArgumentNullException(nameof(assetId));
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.Description = description;
             this.Metadata = metadata;
         }
 

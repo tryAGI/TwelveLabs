@@ -9,42 +9,29 @@ namespace TwelveLabs
     public sealed partial class CreateRequest4
     {
         /// <summary>
-        /// The name of the entity. Make sure you use a succinct and descriptive name.
+        /// The name of the knowledge store.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// An optional description of the entity.
+        /// Configuration that controls how content added to the knowledge store is processed.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ingestion_config")]
+        public global::TwelveLabs.IngestionConfig? IngestionConfig { get; set; }
+
+        /// <summary>
+        /// An optional description of the knowledge store.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
 
         /// <summary>
-        /// Optional metadata for the entity, provided as key-value pairs to store additional context or attributes. Use metadata to categorize or describe the entity for easier management and search. Keys must be of type `string`, and values can be of type `string`, `integer`, `float`, or `boolean`.<br/>
-        /// **Example**:<br/>
-        /// ```json<br/>
-        /// {<br/>
-        ///   "sport": "soccer",<br/>
-        ///   "teamId": 42,<br/>
-        ///   "performanceScore": 8.7,<br/>
-        ///   "isActive": true<br/>
-        /// }<br/>
-        /// ```<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        ///   To store complex data types such as objects or arrays, convert them to string values before including them in the metadata.<br/>
-        /// &lt;/Note&gt;
+        /// Custom metadata for the knowledge store. Both keys and values must be strings.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesPostRequestBodyContentApplicationJsonSchemaMetadata? Metadata { get; set; }
-
-        /// <summary>
-        /// An array of asset IDs to associate with the entity. You must provide at least one value.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("asset_ids")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> AssetIds { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, string>? Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -56,42 +43,30 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="CreateRequest4" /> class.
         /// </summary>
         /// <param name="name">
-        /// The name of the entity. Make sure you use a succinct and descriptive name.
+        /// The name of the knowledge store.
         /// </param>
-        /// <param name="assetIds">
-        /// An array of asset IDs to associate with the entity. You must provide at least one value.
+        /// <param name="ingestionConfig">
+        /// Configuration that controls how content added to the knowledge store is processed.
         /// </param>
         /// <param name="description">
-        /// An optional description of the entity.
+        /// An optional description of the knowledge store.
         /// </param>
         /// <param name="metadata">
-        /// Optional metadata for the entity, provided as key-value pairs to store additional context or attributes. Use metadata to categorize or describe the entity for easier management and search. Keys must be of type `string`, and values can be of type `string`, `integer`, `float`, or `boolean`.<br/>
-        /// **Example**:<br/>
-        /// ```json<br/>
-        /// {<br/>
-        ///   "sport": "soccer",<br/>
-        ///   "teamId": 42,<br/>
-        ///   "performanceScore": 8.7,<br/>
-        ///   "isActive": true<br/>
-        /// }<br/>
-        /// ```<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        ///   To store complex data types such as objects or arrays, convert them to string values before including them in the metadata.<br/>
-        /// &lt;/Note&gt;
+        /// Custom metadata for the knowledge store. Both keys and values must be strings.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateRequest4(
             string name,
-            global::System.Collections.Generic.IList<string> assetIds,
+            global::TwelveLabs.IngestionConfig? ingestionConfig,
             string? description,
-            global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesPostRequestBodyContentApplicationJsonSchemaMetadata? metadata)
+            global::System.Collections.Generic.Dictionary<string, string>? metadata)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.IngestionConfig = ingestionConfig;
             this.Description = description;
             this.Metadata = metadata;
-            this.AssetIds = assetIds ?? throw new global::System.ArgumentNullException(nameof(assetIds));
         }
 
         /// <summary>
