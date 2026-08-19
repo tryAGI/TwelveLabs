@@ -35,7 +35,7 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IList<global::TwelveLabs.SMEMediaSource>? MediaSources { get; set; }
 
         /// <summary>
-        /// Time windows that limit segment extraction to specific parts of the video. Only supported for Pegasus 1.5 with `analysis_mode` set to `time_based_metadata`.<br/>
+        /// Time windows that limit segment extraction to specific parts of the video. Only supported when `analysis_mode` is set to `time_based_metadata`.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
         /// - Each range must satisfy `end_time &gt; start_time` with a minimum duration of `2` seconds. Both values must fall within the video duration.<br/>
         /// - Ranges within a single definition must not overlap. Touching boundaries are allowed (Example: `[0, 5]` and `[5, 10]`).<br/>
@@ -69,7 +69,7 @@ namespace TwelveLabs
         /// Reference images that help the model identify segments. Maximum 4 sources.
         /// </param>
         /// <param name="timeRanges">
-        /// Time windows that limit segment extraction to specific parts of the video. Only supported for Pegasus 1.5 with `analysis_mode` set to `time_based_metadata`.<br/>
+        /// Time windows that limit segment extraction to specific parts of the video. Only supported when `analysis_mode` is set to `time_based_metadata`.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
         /// - Each range must satisfy `end_time &gt; start_time` with a minimum duration of `2` seconds. Both values must fall within the video duration.<br/>
         /// - Ranges within a single definition must not overlap. Touching boundaries are allowed (Example: `[0, 5]` and `[5, 10]`).<br/>

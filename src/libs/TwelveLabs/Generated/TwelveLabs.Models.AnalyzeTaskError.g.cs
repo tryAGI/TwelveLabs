@@ -14,10 +14,10 @@ namespace TwelveLabs
     {
         /// <summary>
         /// A human-readable message. One of:<br/>
-        /// - **Failure** (async, `status: failed`): describes the failure reason, e.g., `"Video duration exceeds maximum allowed duration"`.<br/>
+        /// - **Failure** (async, `status: failed`): describes the failure reason. Example: `"Video duration exceeds maximum allowed duration"`.<br/>
         /// - **Truncation: maximum response length reached** (`finish_reason: length`, `output_tokens &gt;= max_tokens`): `"output truncated: the generation reached the configured max_tokens. The partial output is returned; raise max_tokens (up to 98304) if you need a longer response."`.<br/>
         /// - **Truncation: context window reached** (`finish_reason: length`, model stopped before reaching `max_tokens`): `"output truncated: combined input and output tokens reached the model's context limit. The partial output is returned; consider reducing input size (shorter prompt, smaller video clip, fewer media bindings) or lowering max_tokens."`.<br/>
-        /// The exact text is not part of the contract — SDKs should not parse it.
+        /// The exact text is not part of the contract. Do not parse it.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -34,10 +34,10 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="message">
         /// A human-readable message. One of:<br/>
-        /// - **Failure** (async, `status: failed`): describes the failure reason, e.g., `"Video duration exceeds maximum allowed duration"`.<br/>
+        /// - **Failure** (async, `status: failed`): describes the failure reason. Example: `"Video duration exceeds maximum allowed duration"`.<br/>
         /// - **Truncation: maximum response length reached** (`finish_reason: length`, `output_tokens &gt;= max_tokens`): `"output truncated: the generation reached the configured max_tokens. The partial output is returned; raise max_tokens (up to 98304) if you need a longer response."`.<br/>
         /// - **Truncation: context window reached** (`finish_reason: length`, model stopped before reaching `max_tokens`): `"output truncated: combined input and output tokens reached the model's context limit. The partial output is returned; consider reducing input size (shorter prompt, smaller video clip, fewer media bindings) or lowering max_tokens."`.<br/>
-        /// The exact text is not part of the contract — SDKs should not parse it.
+        /// The exact text is not part of the contract. Do not parse it.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

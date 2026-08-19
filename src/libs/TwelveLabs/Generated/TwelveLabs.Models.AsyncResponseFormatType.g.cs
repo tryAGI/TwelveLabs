@@ -6,7 +6,7 @@ namespace TwelveLabs
     /// <summary>
     /// The response format to use.<br/>
     /// - `json_schema`: Return structured JSON that conforms to your schema.<br/>
-    /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.
+    /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `analysis_mode` set to `time_based_metadata`.
     /// </summary>
     public enum AsyncResponseFormatType
     {
@@ -15,7 +15,7 @@ namespace TwelveLabs
         /// </summary>
         JsonSchema,
         /// <summary>
-        /// Extract timestamped metadata with custom fields from your video. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.
+        /// Extract timestamped metadata with custom fields from your video. Requires `analysis_mode` set to `time_based_metadata`.
         /// </summary>
         SegmentDefinitions,
     }

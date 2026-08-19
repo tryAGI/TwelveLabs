@@ -9,21 +9,18 @@ namespace TwelveLabs
     public sealed partial class IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems
     {
         /// <summary>
-        /// The name of the model. The following models are available:<br/>
-        ///   - **Embedding**: These models are proficient at performing tasks such as search and classification, enabling enhanced video understanding.<br/>
-        ///     - `marengo3.0`: Enhanced model with sports intelligence and extended content support.<br/>
-        ///   - **Generative**: These models generate text based on your videos.<br/>
-        ///     - `pegasus1.2`: A model that analyzes multiple modalities to generate contextually relevant text based on the content of your videos.<br/>
+        /// The video understanding model to enable for this index.<br/>
+        /// - `marengo3.0`: Enhanced model with sports intelligence and extended content support.<br/>
         /// &lt;Note title="Note"&gt;<br/>
         /// You cannot change the model configuration once the index has been created.<br/>
         /// &lt;/Note&gt;
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ModelName { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItemsModelNameJsonConverter))]
+        public global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItemsModelName ModelName { get; set; }
 
         /// <summary>
-        /// An array that specifies which modalities the platform analyzes. For the Marengo and Pegasus models, you can specify one or both of the following model options: `visual` and `audio`. For more details, see the [Model options](/v1.3/docs/concepts/modalities#model-options) section.
+        /// An array that specifies which modalities the platform analyzes. For the Marengo model, you can specify one or both of the following model options: `visual` and `audio`. For more details, see the [Model options](/v1.3/docs/concepts/modalities#model-options) section.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_options")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -38,27 +35,24 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems" /> class.
         /// </summary>
+        /// <param name="modelOptions">
+        /// An array that specifies which modalities the platform analyzes. For the Marengo model, you can specify one or both of the following model options: `visual` and `audio`. For more details, see the [Model options](/v1.3/docs/concepts/modalities#model-options) section.
+        /// </param>
         /// <param name="modelName">
-        /// The name of the model. The following models are available:<br/>
-        ///   - **Embedding**: These models are proficient at performing tasks such as search and classification, enabling enhanced video understanding.<br/>
-        ///     - `marengo3.0`: Enhanced model with sports intelligence and extended content support.<br/>
-        ///   - **Generative**: These models generate text based on your videos.<br/>
-        ///     - `pegasus1.2`: A model that analyzes multiple modalities to generate contextually relevant text based on the content of your videos.<br/>
+        /// The video understanding model to enable for this index.<br/>
+        /// - `marengo3.0`: Enhanced model with sports intelligence and extended content support.<br/>
         /// &lt;Note title="Note"&gt;<br/>
         /// You cannot change the model configuration once the index has been created.<br/>
         /// &lt;/Note&gt;
-        /// </param>
-        /// <param name="modelOptions">
-        /// An array that specifies which modalities the platform analyzes. For the Marengo and Pegasus models, you can specify one or both of the following model options: `visual` and `audio`. For more details, see the [Model options](/v1.3/docs/concepts/modalities#model-options) section.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems(
-            string modelName,
-            global::System.Collections.Generic.IList<string> modelOptions)
+            global::System.Collections.Generic.IList<string> modelOptions,
+            global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItemsModelName modelName)
         {
-            this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
+            this.ModelName = modelName;
             this.ModelOptions = modelOptions ?? throw new global::System.ArgumentNullException(nameof(modelOptions));
         }
 

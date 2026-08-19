@@ -22,7 +22,7 @@ namespace TwelveLabs
         public string? CustomId { get; set; }
 
         /// <summary>
-        /// The video source you provided. Only present for tasks that use direct video input (`url`, `base64_string`, or `asset_id`).
+        /// The video source you provided.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_source")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseVideoSource, object>))]
@@ -64,9 +64,9 @@ namespace TwelveLabs
 
         /// <summary>
         /// A message attached to the task response. The platform sets this field in two cases:<br/>
-        /// - **Task failure** — `status` is `failed`. The `message` field describes the failure reason.<br/>
-        /// - **Truncation warning** — `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
-        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`. Both Pegasus 1.5 and Pegasus 1.2 return this field when `result.finish_reason` is `length`.
+        /// - **Task failure**: `status` is `failed`. The `message` field describes the failure reason.<br/>
+        /// - **Truncation warning**: `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
+        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`. Set when `result.finish_reason` is `length`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public global::TwelveLabs.AnalyzeTaskError? Error { get; set; }
@@ -99,7 +99,7 @@ namespace TwelveLabs
         /// The identifier you provided in the `custom_id` field when you created the task, or `null` if you did not set one. This key is always present in the response.
         /// </param>
         /// <param name="videoSource">
-        /// The video source you provided. Only present for tasks that use direct video input (`url`, `base64_string`, or `asset_id`).
+        /// The video source you provided.
         /// </param>
         /// <param name="requestParams">
         /// The request parameters for this task.
@@ -112,9 +112,9 @@ namespace TwelveLabs
         /// </param>
         /// <param name="error">
         /// A message attached to the task response. The platform sets this field in two cases:<br/>
-        /// - **Task failure** — `status` is `failed`. The `message` field describes the failure reason.<br/>
-        /// - **Truncation warning** — `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
-        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`. Both Pegasus 1.5 and Pegasus 1.2 return this field when `result.finish_reason` is `length`.
+        /// - **Task failure**: `status` is `failed`. The `message` field describes the failure reason.<br/>
+        /// - **Truncation warning**: `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
+        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`. Set when `result.finish_reason` is `length`.
         /// </param>
         /// <param name="webhooks">
         /// The delivery status of each webhook endpoint. The platform omits this field when no webhooks are configured. You can register webhooks through the Playground. See the [Webhooks](/v1.3/docs/advanced/webhooks) page for details.

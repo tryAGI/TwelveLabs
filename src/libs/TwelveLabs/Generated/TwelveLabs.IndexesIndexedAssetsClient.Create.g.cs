@@ -49,6 +49,9 @@ namespace TwelveLabs
         /// Create an indexed asset<br/>
         /// This method indexes an uploaded asset to make it searchable and analyzable. Indexing processes your content and extracts information that enables the platform to search and analyze your videos.<br/>
         /// This operation is asynchronous. The platform returns an indexed asset ID immediately and processes your content in the background. Monitor the indexing status to know when your content is ready to use.<br/>
+        /// &lt;Note title="Adding videos to existing indexes"&gt;<br/>
+        /// You can no longer add videos to an index that has only Pegasus 1.2 enabled. When you add videos to an index that has both Marengo and Pegasus 1.2 enabled, the platform indexes them with Marengo only.<br/>
+        /// &lt;/Note&gt;<br/>
         /// Your asset must meet the requirements based on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements).<br/>
@@ -87,6 +90,9 @@ namespace TwelveLabs
         /// Create an indexed asset<br/>
         /// This method indexes an uploaded asset to make it searchable and analyzable. Indexing processes your content and extracts information that enables the platform to search and analyze your videos.<br/>
         /// This operation is asynchronous. The platform returns an indexed asset ID immediately and processes your content in the background. Monitor the indexing status to know when your content is ready to use.<br/>
+        /// &lt;Note title="Adding videos to existing indexes"&gt;<br/>
+        /// You can no longer add videos to an index that has only Pegasus 1.2 enabled. When you add videos to an index that has both Marengo and Pegasus 1.2 enabled, the platform indexes them with Marengo only.<br/>
+        /// &lt;/Note&gt;<br/>
         /// Your asset must meet the requirements based on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements).<br/>
@@ -587,6 +593,9 @@ namespace TwelveLabs
         /// Create an indexed asset<br/>
         /// This method indexes an uploaded asset to make it searchable and analyzable. Indexing processes your content and extracts information that enables the platform to search and analyze your videos.<br/>
         /// This operation is asynchronous. The platform returns an indexed asset ID immediately and processes your content in the background. Monitor the indexing status to know when your content is ready to use.<br/>
+        /// &lt;Note title="Adding videos to existing indexes"&gt;<br/>
+        /// You can no longer add videos to an index that has only Pegasus 1.2 enabled. When you add videos to an index that has both Marengo and Pegasus 1.2 enabled, the platform indexes them with Marengo only.<br/>
+        /// &lt;/Note&gt;<br/>
         /// Your asset must meet the requirements based on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo#video-file-requirements)<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements).<br/>

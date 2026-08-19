@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class CreateAnalyzeBatchRequest
     {
         /// <summary>
-        /// The video understanding model to use for every item in this batch. Batch analysis requires Pegasus 1.5.
+        /// The video understanding model to use for every item in this batch.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.CreateAnalyzeBatchRequestModelNameJsonConverter))]
@@ -17,7 +17,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// The analysis approach for every item in this batch.<br/>
-        /// - `general`: Generate text from each video based on the prompt (the item's `prompt` field if set, otherwise `defaults.prompt`). Supports structured JSON output by using `json_schema` in the `response_format.type` field.<br/>
+        /// - `general`: Generate text from each video based on the prompt (the `prompt` field of the item if set, otherwise `defaults.prompt`). Supports structured JSON output by using `json_schema` in the `response_format.type` field.<br/>
         /// - `time_based_metadata`: Extract timestamped metadata by using `segment_definitions` in the `response_format.type` field.<br/>
         /// Batches with mixed modes are not supported.
         /// </summary>
@@ -50,7 +50,7 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="analysisMode">
         /// The analysis approach for every item in this batch.<br/>
-        /// - `general`: Generate text from each video based on the prompt (the item's `prompt` field if set, otherwise `defaults.prompt`). Supports structured JSON output by using `json_schema` in the `response_format.type` field.<br/>
+        /// - `general`: Generate text from each video based on the prompt (the `prompt` field of the item if set, otherwise `defaults.prompt`). Supports structured JSON output by using `json_schema` in the `response_format.type` field.<br/>
         /// - `time_based_metadata`: Extract timestamped metadata by using `segment_definitions` in the `response_format.type` field.<br/>
         /// Batches with mixed modes are not supported.
         /// </param>
@@ -58,7 +58,7 @@ namespace TwelveLabs
         /// The analysis requests in the batch. Provide 1 to 1,000 requests, with a combined video duration of up to 2,000 hours.
         /// </param>
         /// <param name="modelName">
-        /// The video understanding model to use for every item in this batch. Batch analysis requires Pegasus 1.5.
+        /// The video understanding model to use for every item in this batch.
         /// </param>
         /// <param name="defaults">
         /// Default values applied to every item that does not override them. Every field is optional. Items in the `requests` array override these values. To override the `prompt` or `response_format` field, provide the full object on the item. You cannot change only some of its nested fields.

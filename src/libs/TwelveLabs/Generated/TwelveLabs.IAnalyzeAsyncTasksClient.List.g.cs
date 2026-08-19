@@ -19,7 +19,6 @@ namespace TwelveLabs
         /// </param>
         /// <param name="videoUrl"></param>
         /// <param name="assetId"></param>
-        /// <param name="videoId"></param>
         /// <param name="analysisMode"></param>
         /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -32,7 +31,6 @@ namespace TwelveLabs
             global::TwelveLabs.AnalyzeTaskStatus? status = default,
             string? videoUrl = default,
             string? assetId = default,
-            string? videoId = default,
             global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -51,7 +49,6 @@ namespace TwelveLabs
         /// </param>
         /// <param name="videoUrl"></param>
         /// <param name="assetId"></param>
-        /// <param name="videoId"></param>
         /// <param name="analysisMode"></param>
         /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -64,7 +61,6 @@ namespace TwelveLabs
             global::TwelveLabs.AnalyzeTaskStatus? status = default,
             string? videoUrl = default,
             string? assetId = default,
-            string? videoId = default,
             global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

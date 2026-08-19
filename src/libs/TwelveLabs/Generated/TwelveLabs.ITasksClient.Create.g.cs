@@ -8,6 +8,9 @@ namespace TwelveLabs
         /// Create a video indexing task<br/>
         /// &lt;Info&gt;This method will be removed in a future version. New implementations should use [direct](/v1.3/api-reference/upload-content/direct-uploads) or [multipart](/v1.3/api-reference/upload-content/multipart-uploads) uploads followed by [separate indexing](/v1.3/api-reference/index-content/create).&lt;/Info&gt;<br/>
         /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
+        /// &lt;Note title="Adding videos to existing indexes"&gt;<br/>
+        /// You can no longer add videos to an index that has only Pegasus 1.2 enabled. When you add videos to an index that has both Marengo and Pegasus 1.2 enabled, the platform indexes them with Marengo only.<br/>
+        /// &lt;/Note&gt;<br/>
         /// Upload options:<br/>
         /// - **Local file**: Use the `video_file` parameter.<br/>
         /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
@@ -36,6 +39,9 @@ namespace TwelveLabs
         /// Create a video indexing task<br/>
         /// &lt;Info&gt;This method will be removed in a future version. New implementations should use [direct](/v1.3/api-reference/upload-content/direct-uploads) or [multipart](/v1.3/api-reference/upload-content/multipart-uploads) uploads followed by [separate indexing](/v1.3/api-reference/index-content/create).&lt;/Info&gt;<br/>
         /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
+        /// &lt;Note title="Adding videos to existing indexes"&gt;<br/>
+        /// You can no longer add videos to an index that has only Pegasus 1.2 enabled. When you add videos to an index that has both Marengo and Pegasus 1.2 enabled, the platform indexes them with Marengo only.<br/>
+        /// &lt;/Note&gt;<br/>
         /// Upload options:<br/>
         /// - **Local file**: Use the `video_file` parameter.<br/>
         /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
@@ -64,6 +70,9 @@ namespace TwelveLabs
         /// Create a video indexing task<br/>
         /// &lt;Info&gt;This method will be removed in a future version. New implementations should use [direct](/v1.3/api-reference/upload-content/direct-uploads) or [multipart](/v1.3/api-reference/upload-content/multipart-uploads) uploads followed by [separate indexing](/v1.3/api-reference/index-content/create).&lt;/Info&gt;<br/>
         /// This method creates a video indexing task that uploads and indexes a video in a single operation.<br/>
+        /// &lt;Note title="Adding videos to existing indexes"&gt;<br/>
+        /// You can no longer add videos to an index that has only Pegasus 1.2 enabled. When you add videos to an index that has both Marengo and Pegasus 1.2 enabled, the platform indexes them with Marengo only.<br/>
+        /// &lt;/Note&gt;<br/>
         /// Upload options:<br/>
         /// - **Local file**: Use the `video_file` parameter.<br/>
         /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
