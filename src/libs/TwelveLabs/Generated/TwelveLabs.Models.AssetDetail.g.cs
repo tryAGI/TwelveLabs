@@ -15,11 +15,12 @@ namespace TwelveLabs
         public string? Id { get; set; }
 
         /// <summary>
-        /// Indicates how you uploaded the asset.<br/>
+        /// Indicates how the asset was uploaded or imported.<br/>
         /// **Values**:<br/>
         /// - `direct`: Uploaded from your local file system<br/>
         /// - `url`: Uploaded from a publicly accessible URL<br/>
-        /// - `multipart`: Uploaded using the multipart upload flow
+        /// - `multipart`: Uploaded using the multipart upload flow<br/>
+        /// - `connector`: Imported through a data connector
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("method")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AssetDetailMethodJsonConverter))]
@@ -117,11 +118,12 @@ namespace TwelveLabs
         /// The unique identifier of the asset.
         /// </param>
         /// <param name="method">
-        /// Indicates how you uploaded the asset.<br/>
+        /// Indicates how the asset was uploaded or imported.<br/>
         /// **Values**:<br/>
         /// - `direct`: Uploaded from your local file system<br/>
         /// - `url`: Uploaded from a publicly accessible URL<br/>
-        /// - `multipart`: Uploaded using the multipart upload flow
+        /// - `multipart`: Uploaded using the multipart upload flow<br/>
+        /// - `connector`: Imported through a data connector
         /// </param>
         /// <param name="status">
         /// Indicates the current processing status of the asset.<br/>

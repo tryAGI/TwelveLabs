@@ -9,30 +9,24 @@ namespace TwelveLabs
     public sealed partial class CreateRequest8
     {
         /// <summary>
-        /// The name of the index. Make sure you use a succinct and descriptive name.
+        /// The unique identifier of the asset to index. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("index_name")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string IndexName { get; set; }
+        public required string AssetId { get; set; }
 
         /// <summary>
-        /// An array that specifies the [video understanding models](/v1.3/docs/concepts/models) and the [model options](/v1.3/docs/concepts/modalities#model-options) to be enabled for this index. Models determine what tasks you can perform with your videos. Model options determine which modalities the platform analyzes.
+        /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index-id}/indexed-assets/{indexed-asset-id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>
+        /// Default Value: false
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("models")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems> Models { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_video_stream")]
+        public bool? EnableVideoStream { get; set; }
 
         /// <summary>
-        /// An array specifying which add-ons should be enabled. Each entry in the array is an addon, and the following values are supported:<br/>
-        /// - `thumbnail`: Enables thumbnail generation.<br/>
-        /// If you don't provide this parameter, no add-ons will be enabled.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - You can only enable addons when using the Marengo video understanding model.<br/>
-        /// - You cannot disable an add-on once the index has been created.<br/>
-        /// &lt;/Note&gt;
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("addons")]
-        public global::System.Collections.Generic.IList<string>? Addons { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
+        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -43,32 +37,27 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateRequest8" /> class.
         /// </summary>
-        /// <param name="indexName">
-        /// The name of the index. Make sure you use a succinct and descriptive name.
+        /// <param name="assetId">
+        /// The unique identifier of the asset to index. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status.
         /// </param>
-        /// <param name="models">
-        /// An array that specifies the [video understanding models](/v1.3/docs/concepts/models) and the [model options](/v1.3/docs/concepts/modalities#model-options) to be enabled for this index. Models determine what tasks you can perform with your videos. Model options determine which modalities the platform analyzes.
+        /// <param name="enableVideoStream">
+        /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index-id}/indexed-assets/{indexed-asset-id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>
+        /// Default Value: false
         /// </param>
-        /// <param name="addons">
-        /// An array specifying which add-ons should be enabled. Each entry in the array is an addon, and the following values are supported:<br/>
-        /// - `thumbnail`: Enables thumbnail generation.<br/>
-        /// If you don't provide this parameter, no add-ons will be enabled.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - You can only enable addons when using the Marengo video understanding model.<br/>
-        /// - You cannot disable an add-on once the index has been created.<br/>
-        /// &lt;/Note&gt;
+        /// <param name="userMetadata">
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys must be of type `string`, and values can be of the following types: `string`, `integer`, `float`, or `boolean`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateRequest8(
-            string indexName,
-            global::System.Collections.Generic.IList<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems> models,
-            global::System.Collections.Generic.IList<string>? addons)
+            string assetId,
+            bool? enableVideoStream,
+            global::TwelveLabs.UserMetadata? userMetadata)
         {
-            this.IndexName = indexName ?? throw new global::System.ArgumentNullException(nameof(indexName));
-            this.Models = models ?? throw new global::System.ArgumentNullException(nameof(models));
-            this.Addons = addons;
+            this.AssetId = assetId ?? throw new global::System.ArgumentNullException(nameof(assetId));
+            this.EnableVideoStream = enableVideoStream;
+            this.UserMetadata = userMetadata;
         }
 
         /// <summary>

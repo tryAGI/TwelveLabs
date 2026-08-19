@@ -3,11 +3,11 @@
 
 namespace TwelveLabs
 {
-    public partial class IndexesClient
+    public partial class AssetsClient
     {
 
 
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_CreateSecurityRequirement0 =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_RetrieveTranscriptionSecurityRequirement0 =
             new global::TwelveLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::TwelveLabs.EndPointAuthorizationRequirement[]
@@ -21,48 +21,53 @@ namespace TwelveLabs
                     },
                 },
             };
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_CreateSecurityRequirements =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_RetrieveTranscriptionSecurityRequirements =
             new global::TwelveLabs.EndPointSecurityRequirement[]
-            {                s_CreateSecurityRequirement0,
+            {                s_RetrieveTranscriptionSecurityRequirement0,
             };
-        partial void PrepareCreateArguments(
+        partial void PrepareRetrieveTranscriptionArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string xApiKey,
-            global::TwelveLabs.CreateRequest7 request);
-        partial void PrepareCreateRequest(
+            ref string assetId,
+            global::System.Collections.Generic.IList<global::TwelveLabs.AssetsAssetIdTranscriptionGetParametersIncludeSchemaItems>? include,
+            ref string xApiKey);
+        partial void PrepareRetrieveTranscriptionRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string xApiKey,
-            global::TwelveLabs.CreateRequest7 request);
-        partial void ProcessCreateResponse(
+            string assetId,
+            global::System.Collections.Generic.IList<global::TwelveLabs.AssetsAssetIdTranscriptionGetParametersIncludeSchemaItems>? include,
+            string xApiKey);
+        partial void ProcessRetrieveTranscriptionResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateResponseContent(
+        partial void ProcessRetrieveTranscriptionResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create an index<br/>
-        /// This method creates an index.
+        /// Retrieve the transcription of an asset<br/>
+        /// This method retrieves the transcription of a video or audio asset. An asset that has a transcription returns `200` with the current transcription status. The endpoint returns `404` when the asset cannot be found or has no transcription.<br/>
+        /// The platform generates transcriptions asynchronously. Poll this endpoint to monitor the transcription status.<br/>
+        /// When the status is `ready`, the response contains the segmentations you requested that the transcription supports. A transcription does not always support every segmentation, so read the segmentations the response returns rather than assuming every requested one is present.
         /// </summary>
+        /// <param name="assetId"></param>
+        /// <param name="include"></param>
         /// <param name="xApiKey"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesCreateResponse201> CreateAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AssetTranscriptionResponse> RetrieveTranscriptionAsync(
+            string assetId,
             string xApiKey,
-
-            global::TwelveLabs.CreateRequest7 request,
+            global::System.Collections.Generic.IList<global::TwelveLabs.AssetsAssetIdTranscriptionGetParametersIncludeSchemaItems>? include = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await CreateAsResponseAsync(
+            var __response = await RetrieveTranscriptionAsResponseAsync(
+                assetId: assetId,
                 xApiKey: xApiKey,
-
-                request: request,
+                include: include,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -70,35 +75,37 @@ namespace TwelveLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create an index<br/>
-        /// This method creates an index.
+        /// Retrieve the transcription of an asset<br/>
+        /// This method retrieves the transcription of a video or audio asset. An asset that has a transcription returns `200` with the current transcription status. The endpoint returns `404` when the asset cannot be found or has no transcription.<br/>
+        /// The platform generates transcriptions asynchronously. Poll this endpoint to monitor the transcription status.<br/>
+        /// When the status is `ready`, the response contains the segmentations you requested that the transcription supports. A transcription does not always support every segmentation, so read the segmentations the response returns rather than assuming every requested one is present.
         /// </summary>
+        /// <param name="assetId"></param>
+        /// <param name="include"></param>
         /// <param name="xApiKey"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesCreateResponse201>> CreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetTranscriptionResponse>> RetrieveTranscriptionAsResponseAsync(
+            string assetId,
             string xApiKey,
-
-            global::TwelveLabs.CreateRequest7 request,
+            global::System.Collections.Generic.IList<global::TwelveLabs.AssetsAssetIdTranscriptionGetParametersIncludeSchemaItems>? include = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateArguments(
+            PrepareRetrieveTranscriptionArguments(
                 httpClient: HttpClient,
-                xApiKey: ref xApiKey,
-                request: request);
+                assetId: ref assetId,
+                include: include,
+                xApiKey: ref xApiKey);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_CreateSecurityRequirements,
-                operationName: "CreateAsync");
+                securityRequirements: s_RetrieveTranscriptionSecurityRequirements,
+                operationName: "RetrieveTranscriptionAsync");
 
             using var __timeoutCancellationTokenSource = global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -118,15 +125,18 @@ namespace TwelveLabs
             {
 
                             var __pathBuilder = new global::TwelveLabs.PathBuilder(
-                                path: "/indexes",
+                                path: $"/assets/{assetId}/transcription",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("include", include, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::TwelveLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -152,12 +162,6 @@ namespace TwelveLabs
 
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
 
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -166,11 +170,12 @@ namespace TwelveLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreateRequest(
+                PrepareRetrieveTranscriptionRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    xApiKey: xApiKey!,
-                    request: request);
+                    assetId: assetId!,
+                    include: include,
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }
@@ -187,10 +192,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/indexes\"",
-                                httpMethod: "POST",
+                                operationId: "RetrieveTranscription",
+                                methodName: "RetrieveTranscriptionAsync",
+                                pathTemplate: "$\"/assets/{assetId}/transcription\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -221,10 +226,10 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/indexes\"",
-                                httpMethod: "POST",
+                                operationId: "RetrieveTranscription",
+                                methodName: "RetrieveTranscriptionAsync",
+                                pathTemplate: "$\"/assets/{assetId}/transcription\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -262,10 +267,10 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/indexes\"",
-                                httpMethod: "POST",
+                                operationId: "RetrieveTranscription",
+                                methodName: "RetrieveTranscriptionAsync",
+                                pathTemplate: "$\"/assets/{assetId}/transcription\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -302,7 +307,7 @@ namespace TwelveLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreateResponse(
+                ProcessRetrieveTranscriptionResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -310,10 +315,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/indexes\"",
-                                httpMethod: "POST",
+                                operationId: "RetrieveTranscription",
+                                methodName: "RetrieveTranscriptionAsync",
+                                pathTemplate: "$\"/assets/{assetId}/transcription\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -332,10 +337,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Create",
-                                methodName: "CreateAsync",
-                                pathTemplate: "\"/indexes\"",
-                                httpMethod: "POST",
+                                operationId: "RetrieveTranscription",
+                                methodName: "RetrieveTranscriptionAsync",
+                                pathTemplate: "$\"/assets/{assetId}/transcription\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -354,19 +359,19 @@ namespace TwelveLabs
                             {
                                 string? __content_400 = null;
                                 global::System.Exception? __exception_400 = null;
-                                global::TwelveLabs.CreateIndexRequestBadRequestError? __value_400 = null;
+                                global::TwelveLabs.RetrieveAssetTranscriptionRequestBadRequestError? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = global::TwelveLabs.CreateIndexRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.RetrieveAssetTranscriptionRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = global::TwelveLabs.CreateIndexRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.RetrieveAssetTranscriptionRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -375,12 +380,49 @@ namespace TwelveLabs
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.CreateIndexRequestBadRequestError>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.RetrieveAssetTranscriptionRequestBadRequestError>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
                                     responseBody: __content_400,
                                     responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // The asset has no transcription, or it does not exist.
+                            if ((int)__response.StatusCode == 404)
+                            {
+                                string? __content_404 = null;
+                                global::System.Exception? __exception_404 = null;
+                                global::TwelveLabs.RetrieveAssetTranscriptionRequestNotFoundError? __value_404 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_404 = global::TwelveLabs.RetrieveAssetTranscriptionRequestNotFoundError.FromJson(__content_404, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_404 = global::TwelveLabs.RetrieveAssetTranscriptionRequestNotFoundError.FromJson(__content_404, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_404 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.RetrieveAssetTranscriptionRequestNotFoundError>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_404,
+                                    responseBody: __content_404,
+                                    responseObject: __value_404,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
@@ -399,7 +441,7 @@ namespace TwelveLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreateResponseContent(
+                                ProcessRetrieveTranscriptionResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -408,9 +450,9 @@ namespace TwelveLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::TwelveLabs.IndexesCreateResponse201.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::TwelveLabs.AssetTranscriptionResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesCreateResponse201>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetTranscriptionResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -440,9 +482,9 @@ namespace TwelveLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::TwelveLabs.IndexesCreateResponse201.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::TwelveLabs.AssetTranscriptionResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesCreateResponse201>(
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetTranscriptionResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -481,50 +523,6 @@ namespace TwelveLabs
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// Create an index<br/>
-        /// This method creates an index.
-        /// </summary>
-        /// <param name="xApiKey"></param>
-        /// <param name="indexName">
-        /// The name of the index. Make sure you use a succinct and descriptive name.
-        /// </param>
-        /// <param name="models">
-        /// An array that specifies the [video understanding models](/v1.3/docs/concepts/models) and the [model options](/v1.3/docs/concepts/modalities#model-options) to be enabled for this index. Models determine what tasks you can perform with your videos. Model options determine which modalities the platform analyzes.
-        /// </param>
-        /// <param name="addons">
-        /// An array specifying which add-ons should be enabled. Each entry in the array is an addon, and the following values are supported:<br/>
-        /// - `thumbnail`: Enables thumbnail generation.<br/>
-        /// If you don't provide this parameter, no add-ons will be enabled.<br/>
-        /// &lt;Note title="Notes"&gt;<br/>
-        /// - You can only enable addons when using the Marengo video understanding model.<br/>
-        /// - You cannot disable an add-on once the index has been created.<br/>
-        /// &lt;/Note&gt;
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesCreateResponse201> CreateAsync(
-            string xApiKey,
-            string indexName,
-            global::System.Collections.Generic.IList<global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems> models,
-            global::System.Collections.Generic.IList<string>? addons = default,
-            global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::TwelveLabs.CreateRequest7
-            {
-                IndexName = indexName,
-                Models = models,
-                Addons = addons,
-            };
-
-            return await CreateAsync(
-                xApiKey: xApiKey,
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
