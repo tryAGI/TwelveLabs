@@ -46,11 +46,8 @@ namespace TwelveLabs
         /// <summary>
         /// Create a batch<br/>
         /// Use this method to submit many video analysis requests in a single call. Each request creates an analysis task. The response contains one batch identifier and one task identifier per request. Use the batch identifier to check progress and retrieve results.<br/>
-        /// &lt;Note title="Model requirement"&gt;<br/>
-        /// You must use Pegasus 1.5 for batch analysis. Set the `model_name` parameter to `pegasus1.5`.<br/>
-        /// &lt;/Note&gt;<br/>
         /// **When to use this method**:<br/>
-        /// - Run the same model and analysis settings across many videos.<br/>
+        /// - Run the same analysis settings across many videos.<br/>
         /// - Track a single batch instead of many individual analysis tasks.<br/>
         /// **Do not use this method for**:<br/>
         /// - Single videos that require immediate results. Use the [`POST`](/v1.3/api-reference/analyze-videos/sync-analysis) method of the `/analyze` endpoint instead.<br/>
@@ -88,11 +85,8 @@ namespace TwelveLabs
         /// <summary>
         /// Create a batch<br/>
         /// Use this method to submit many video analysis requests in a single call. Each request creates an analysis task. The response contains one batch identifier and one task identifier per request. Use the batch identifier to check progress and retrieve results.<br/>
-        /// &lt;Note title="Model requirement"&gt;<br/>
-        /// You must use Pegasus 1.5 for batch analysis. Set the `model_name` parameter to `pegasus1.5`.<br/>
-        /// &lt;/Note&gt;<br/>
         /// **When to use this method**:<br/>
-        /// - Run the same model and analysis settings across many videos.<br/>
+        /// - Run the same analysis settings across many videos.<br/>
         /// - Track a single batch instead of many individual analysis tasks.<br/>
         /// **Do not use this method for**:<br/>
         /// - Single videos that require immediate results. Use the [`POST`](/v1.3/api-reference/analyze-videos/sync-analysis) method of the `/analyze` endpoint instead.<br/>
@@ -702,11 +696,8 @@ namespace TwelveLabs
         /// <summary>
         /// Create a batch<br/>
         /// Use this method to submit many video analysis requests in a single call. Each request creates an analysis task. The response contains one batch identifier and one task identifier per request. Use the batch identifier to check progress and retrieve results.<br/>
-        /// &lt;Note title="Model requirement"&gt;<br/>
-        /// You must use Pegasus 1.5 for batch analysis. Set the `model_name` parameter to `pegasus1.5`.<br/>
-        /// &lt;/Note&gt;<br/>
         /// **When to use this method**:<br/>
-        /// - Run the same model and analysis settings across many videos.<br/>
+        /// - Run the same analysis settings across many videos.<br/>
         /// - Track a single batch instead of many individual analysis tasks.<br/>
         /// **Do not use this method for**:<br/>
         /// - Single videos that require immediate results. Use the [`POST`](/v1.3/api-reference/analyze-videos/sync-analysis) method of the `/analyze` endpoint instead.<br/>
@@ -721,11 +712,11 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="xApiKey"></param>
         /// <param name="modelName">
-        /// The video understanding model to use for every item in this batch. Batch analysis requires Pegasus 1.5.
+        /// The video understanding model to use for every item in this batch.
         /// </param>
         /// <param name="analysisMode">
         /// The analysis approach for every item in this batch.<br/>
-        /// - `general`: Generate text from each video based on the prompt (the item's `prompt` field if set, otherwise `defaults.prompt`). Supports structured JSON output by using `json_schema` in the `response_format.type` field.<br/>
+        /// - `general`: Generate text from each video based on the prompt (the `prompt` field of the item if set, otherwise `defaults.prompt`). Supports structured JSON output by using `json_schema` in the `response_format.type` field.<br/>
         /// - `time_based_metadata`: Extract timestamped metadata by using `segment_definitions` in the `response_format.type` field.<br/>
         /// Batches with mixed modes are not supported.
         /// </param>

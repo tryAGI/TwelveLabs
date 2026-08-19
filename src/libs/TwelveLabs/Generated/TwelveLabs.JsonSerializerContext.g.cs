@@ -320,6 +320,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEventVariant11))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEventDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEventDiscriminatorType), TypeInfoPropertyName = "ResponseStreamEventDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItemsModelName), TypeInfoPropertyName = "IndexesPostRequestBodyContentApplicationJsonSchemaModelsItemsModelName2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItems))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.IndexesCreateResponse201))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateIndexRequestBadRequestError))]
@@ -513,7 +514,6 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.BaseEmbeddingMetadata))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImageEmbeddingResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AudioSegment))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AudioEmbeddingResult))]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -526,6 +526,7 @@ namespace TwelveLabs
         Converters = new global::System.Type[]
         {
         })]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AudioEmbeddingResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AudioSegment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateTextImageAudioEmbeddingRequestBadRequestError))]
@@ -762,6 +763,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamFuncCallArgsDoneEventType?), TypeInfoPropertyName = "NullableResponseStreamFuncCallArgsDoneEventType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEvent?), TypeInfoPropertyName = "NullableResponseStreamEvent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEventDiscriminatorType?), TypeInfoPropertyName = "NullableResponseStreamEventDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItemsModelName?), TypeInfoPropertyName = "NullableIndexesPostRequestBodyContentApplicationJsonSchemaModelsItemsModelName2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItems?), TypeInfoPropertyName = "NullableIndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.IndexedAssetDetailedStatus?), TypeInfoPropertyName = "NullableIndexedAssetDetailedStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems?), TypeInfoPropertyName = "NullableIndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems2")]
@@ -1269,6 +1271,10 @@ namespace TwelveLabs
                     || typeToConvert == typeof(global::TwelveLabs.ResponseStreamEventDiscriminatorType)
 
                     || typeToConvert == typeof(global::TwelveLabs.ResponseStreamEventDiscriminatorType?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItemsModelName)
+
+                    || typeToConvert == typeof(global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItemsModelName?)
 
                     || typeToConvert == typeof(global::TwelveLabs.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItems)
 
@@ -2217,6 +2223,16 @@ namespace TwelveLabs
                 if (typeToConvert == typeof(global::TwelveLabs.ResponseStreamEventDiscriminatorType?))
                 {
                     return new global::TwelveLabs.JsonConverters.ResponseStreamEventDiscriminatorTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItemsModelName))
+                {
+                    return new global::TwelveLabs.JsonConverters.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItemsModelNameJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItemsModelName?))
+                {
+                    return new global::TwelveLabs.JsonConverters.IndexesPostRequestBodyContentApplicationJsonSchemaModelsItemsModelNameNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::TwelveLabs.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItems))

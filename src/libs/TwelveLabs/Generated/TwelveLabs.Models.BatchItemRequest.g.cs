@@ -35,7 +35,7 @@ namespace TwelveLabs
         /// <summary>
         /// Controls the response format. When you omit this parameter, you receive unstructured text.<br/>
         /// - `json_schema`: Return structured JSON that conforms to your schema.<br/>
-        /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.
+        /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `analysis_mode` set to `time_based_metadata`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
         public global::TwelveLabs.AsyncResponseFormat? ResponseFormat { get; set; }
@@ -103,7 +103,7 @@ namespace TwelveLabs
         /// <param name="responseFormat">
         /// Controls the response format. When you omit this parameter, you receive unstructured text.<br/>
         /// - `json_schema`: Return structured JSON that conforms to your schema.<br/>
-        /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.
+        /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `analysis_mode` set to `time_based_metadata`.
         /// </param>
         /// <param name="temperature">
         /// Controls the randomness of the text output.<br/>

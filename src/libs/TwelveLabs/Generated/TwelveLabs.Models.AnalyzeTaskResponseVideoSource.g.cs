@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The video source you provided. Only present for tasks that use direct video input (`url`, `base64_string`, or `asset_id`).
+    /// The video source you provided.
     /// </summary>
     public sealed partial class AnalyzeTaskResponseVideoSource
     {
@@ -26,18 +26,6 @@ namespace TwelveLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
         public string? AssetId { get; set; }
-
-        /// <summary>
-        /// The video ID. Present when `type` is `video_id`. Deprecated — use `asset_id` instead.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("video_id")]
-        public string? VideoId { get; set; }
-
-        /// <summary>
-        /// The index ID associated with the video. Present when `type` is `video_id`. Deprecated — will be removed when Pegasus 1.2 is sunset.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("index_id")]
-        public string? IndexId { get; set; }
 
         /// <summary>
         /// System-extracted video metadata. Present on a best-effort basis once the video has been processed.
@@ -64,12 +52,6 @@ namespace TwelveLabs
         /// <param name="assetId">
         /// The asset ID. Present when `type` is `asset_id`.
         /// </param>
-        /// <param name="videoId">
-        /// The video ID. Present when `type` is `video_id`. Deprecated — use `asset_id` instead.
-        /// </param>
-        /// <param name="indexId">
-        /// The index ID associated with the video. Present when `type` is `video_id`. Deprecated — will be removed when Pegasus 1.2 is sunset.
-        /// </param>
         /// <param name="systemMetadata">
         /// System-extracted video metadata. Present on a best-effort basis once the video has been processed.
         /// </param>
@@ -80,15 +62,11 @@ namespace TwelveLabs
             global::TwelveLabs.AnalyzeTaskResponseVideoSourceType? type,
             string? url,
             string? assetId,
-            string? videoId,
-            string? indexId,
             global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata, object>? systemMetadata)
         {
             this.Type = type;
             this.Url = url;
             this.AssetId = assetId;
-            this.VideoId = videoId;
-            this.IndexId = indexId;
             this.SystemMetadata = systemMetadata;
         }
 

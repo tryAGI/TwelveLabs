@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The video understanding model to use for every item in this batch. Batch analysis requires Pegasus 1.5.
+    /// The video understanding model to use for every item in this batch.
     /// </summary>
     public enum CreateAnalyzeBatchRequestModelName
     {

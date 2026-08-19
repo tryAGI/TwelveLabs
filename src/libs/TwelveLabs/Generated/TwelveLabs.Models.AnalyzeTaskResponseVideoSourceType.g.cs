@@ -20,10 +20,6 @@ namespace TwelveLabs
         /// 
         /// </summary>
         Url,
-        /// <summary>
-        /// 
-        /// </summary>
-        VideoId,
     }
 
     /// <summary>
@@ -41,7 +37,6 @@ namespace TwelveLabs
                 AnalyzeTaskResponseVideoSourceType.AssetId => "asset_id",
                 AnalyzeTaskResponseVideoSourceType.Base64String => "base64_string",
                 AnalyzeTaskResponseVideoSourceType.Url => "url",
-                AnalyzeTaskResponseVideoSourceType.VideoId => "video_id",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -55,7 +50,6 @@ namespace TwelveLabs
                 "asset_id" => AnalyzeTaskResponseVideoSourceType.AssetId,
                 "base64_string" => AnalyzeTaskResponseVideoSourceType.Base64String,
                 "url" => AnalyzeTaskResponseVideoSourceType.Url,
-                "video_id" => AnalyzeTaskResponseVideoSourceType.VideoId,
                 _ => null,
             };
         }

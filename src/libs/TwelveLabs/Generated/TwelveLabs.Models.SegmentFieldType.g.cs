@@ -5,7 +5,7 @@ namespace TwelveLabs
 {
     /// <summary>
     /// The data type of the field.<br/>
-    /// When set to `timestamp`, the `format` property is required and controls the format of the returned value. Requires the `model_name` parameter set to `pegasus1.5`.
+    /// When set to `timestamp`, the `format` property is required and controls the format of the returned value.
     /// </summary>
     public enum SegmentFieldType
     {

@@ -6,14 +6,14 @@ namespace TwelveLabs
     /// <summary>
     /// Controls the response format. When you omit this parameter, you receive unstructured text.<br/>
     /// - `json_schema`: Return structured JSON that conforms to your schema.<br/>
-    /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.
+    /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `analysis_mode` set to `time_based_metadata`.
     /// </summary>
     public sealed partial class AsyncResponseFormat
     {
         /// <summary>
         /// The response format to use.<br/>
         /// - `json_schema`: Return structured JSON that conforms to your schema.<br/>
-        /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.
+        /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `analysis_mode` set to `time_based_metadata`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AsyncResponseFormatTypeJsonConverter))]
@@ -30,13 +30,13 @@ namespace TwelveLabs
         /// - `number`<br/>
         /// - `object`<br/>
         /// - `string`<br/>
-        /// - `timestamp` (Pegasus 1.5 only)<br/>
+        /// - `timestamp`<br/>
         /// **Supported constraints**<br/>
         /// | Type | Supported keywords | Notes |<br/>
         /// |------|-------------------|-------|<br/>
         /// | `integer` | `maximum`, `exclusiveMaximum`, `minimum`, `exclusiveMinimum`. | - `maximum`: Sets the highest allowed value (inclusive).&lt;br/&gt;- `exclusiveMaximum`: Sets the highest allowed value (exclusive).&lt;br/&gt;- `minimum`: Sets the lowest allowed value (inclusive).&lt;br/&gt;- `exclusiveMinimum`: Sets the lowest allowed value (exclusive).&lt;br/&gt;These constraints are supported only for the `integer` type. |<br/>
         /// | `string` | `pattern`, `format` | - `pattern`: A regular expression that the string must match.&lt;br/&gt;- `format`: Validates predefined formats. It accepts the following values: `uuid`, `date-time`, `date`, and `time`.&lt;br/&gt;See string limitations below. |<br/>
-        /// | `object` | `properties`, `required` | - `properties`: Defines object properties and their schemas. - `required`: Specifies mandatory properties.&lt;br/&gt;See object limitations below. |<br/>
+        /// | `object` | `properties`, `required` | - `properties`: Defines object properties and their schemas.&lt;br/&gt;- `required`: Specifies mandatory properties.&lt;br/&gt;See object limitations below. |<br/>
         /// | `array` | `items`, `minItems` | `minItems` accepts only `0` or `1`.&lt;br/&gt;See array limitations below. |<br/>
         /// | `timestamp` | `format` | `format` (required): Sets the output format. Accepted values: `seconds`, `hh:mm:ss`, `hh:mm:ss.fff`.&lt;br/&gt;See the **Timestamp type** section below. |<br/>
         /// **String limitations**<br/>
@@ -65,7 +65,7 @@ namespace TwelveLabs
         /// - Define subschemas within `$defs`.<br/>
         /// - Use valid URIs that point to the internal subschema.<br/>
         /// For details, see the [JSON Schema documentation on $defs](https://json-schema.org/understanding-json-schema/structuring#defs).<br/>
-        /// **Timestamp type (Pegasus 1.5 only)**<br/>
+        /// **Timestamp type**<br/>
         /// Declare a property as `{"type": "timestamp", "format": "&lt;format&gt;"}` to control the format of the returned value.<br/>
         /// The `format` field accepts the following values:<br/>
         /// | `format` | Example output | Notes |<br/>
@@ -85,7 +85,7 @@ namespace TwelveLabs
         /// response_format.json_schema.properties.&lt;name&gt;.format: format is required for timestamp type; allowed values: seconds, hh:mm:ss, hh:mm:ss.fff<br/>
         /// ```<br/>
         /// **Reserved property names (`start_time` / `end_time`)**<br/>
-        /// For Pegasus 1.5, properties named `start_time` or `end_time` in your response schema receive special type handling at any nesting depth (including inside array `items`). These are unrelated to the top-level `start_time` / `end_time` request parameters or `time_ranges`. The platform returns the value in a format determined by the declared type:<br/>
+        /// The `start_time` and `end_time` properties in your response schema receive special type handling at any nesting depth (including inside array `items`). These are unrelated to the top-level `start_time` / `end_time` request parameters or `time_ranges`. The platform returns the value in a format determined by the declared type:<br/>
         /// *Allowed declarations:*<br/>
         /// | Declared type | Platform behavior |<br/>
         /// |---------------|-------------------|<br/>
@@ -115,7 +115,7 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IList<global::TwelveLabs.SegmentDefinition>? SegmentDefinitions { get; set; }
 
         /// <summary>
-        /// Set the output format for the automatic `start_time` and `end_time` keys returned on each segment. Requires the `type` parameter set to `segment_definitions` and the `model_name` parameter set to `pegasus1.5`. Omitting this parameter is equivalent to setting it to `seconds` — both return JSON numbers in seconds.<br/>
+        /// Set the output format for the automatic `start_time` and `end_time` keys returned on each segment. Requires the `type` parameter set to `segment_definitions`. Omitting this parameter is equivalent to setting it to `seconds`. Both return JSON numbers in seconds.<br/>
         /// | `segment_time_format` | Auto boundary output |<br/>
         /// |-----------------------|----------------------|<br/>
         /// | `seconds` (default) | JSON number in seconds (Example: `12.5`) |<br/>
@@ -140,7 +140,7 @@ namespace TwelveLabs
         /// <param name="type">
         /// The response format to use.<br/>
         /// - `json_schema`: Return structured JSON that conforms to your schema.<br/>
-        /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `model_name` set to `pegasus1.5` and `analysis_mode` set to `time_based_metadata`.
+        /// - `segment_definitions`: Extract timestamped metadata with custom fields from your video. Requires `analysis_mode` set to `time_based_metadata`.
         /// </param>
         /// <param name="jsonSchema">
         /// Contains the JSON schema that defines the response structure. The schema must adhere to the [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12) specification.<br/>
@@ -152,13 +152,13 @@ namespace TwelveLabs
         /// - `number`<br/>
         /// - `object`<br/>
         /// - `string`<br/>
-        /// - `timestamp` (Pegasus 1.5 only)<br/>
+        /// - `timestamp`<br/>
         /// **Supported constraints**<br/>
         /// | Type | Supported keywords | Notes |<br/>
         /// |------|-------------------|-------|<br/>
         /// | `integer` | `maximum`, `exclusiveMaximum`, `minimum`, `exclusiveMinimum`. | - `maximum`: Sets the highest allowed value (inclusive).&lt;br/&gt;- `exclusiveMaximum`: Sets the highest allowed value (exclusive).&lt;br/&gt;- `minimum`: Sets the lowest allowed value (inclusive).&lt;br/&gt;- `exclusiveMinimum`: Sets the lowest allowed value (exclusive).&lt;br/&gt;These constraints are supported only for the `integer` type. |<br/>
         /// | `string` | `pattern`, `format` | - `pattern`: A regular expression that the string must match.&lt;br/&gt;- `format`: Validates predefined formats. It accepts the following values: `uuid`, `date-time`, `date`, and `time`.&lt;br/&gt;See string limitations below. |<br/>
-        /// | `object` | `properties`, `required` | - `properties`: Defines object properties and their schemas. - `required`: Specifies mandatory properties.&lt;br/&gt;See object limitations below. |<br/>
+        /// | `object` | `properties`, `required` | - `properties`: Defines object properties and their schemas.&lt;br/&gt;- `required`: Specifies mandatory properties.&lt;br/&gt;See object limitations below. |<br/>
         /// | `array` | `items`, `minItems` | `minItems` accepts only `0` or `1`.&lt;br/&gt;See array limitations below. |<br/>
         /// | `timestamp` | `format` | `format` (required): Sets the output format. Accepted values: `seconds`, `hh:mm:ss`, `hh:mm:ss.fff`.&lt;br/&gt;See the **Timestamp type** section below. |<br/>
         /// **String limitations**<br/>
@@ -187,7 +187,7 @@ namespace TwelveLabs
         /// - Define subschemas within `$defs`.<br/>
         /// - Use valid URIs that point to the internal subschema.<br/>
         /// For details, see the [JSON Schema documentation on $defs](https://json-schema.org/understanding-json-schema/structuring#defs).<br/>
-        /// **Timestamp type (Pegasus 1.5 only)**<br/>
+        /// **Timestamp type**<br/>
         /// Declare a property as `{"type": "timestamp", "format": "&lt;format&gt;"}` to control the format of the returned value.<br/>
         /// The `format` field accepts the following values:<br/>
         /// | `format` | Example output | Notes |<br/>
@@ -207,7 +207,7 @@ namespace TwelveLabs
         /// response_format.json_schema.properties.&lt;name&gt;.format: format is required for timestamp type; allowed values: seconds, hh:mm:ss, hh:mm:ss.fff<br/>
         /// ```<br/>
         /// **Reserved property names (`start_time` / `end_time`)**<br/>
-        /// For Pegasus 1.5, properties named `start_time` or `end_time` in your response schema receive special type handling at any nesting depth (including inside array `items`). These are unrelated to the top-level `start_time` / `end_time` request parameters or `time_ranges`. The platform returns the value in a format determined by the declared type:<br/>
+        /// The `start_time` and `end_time` properties in your response schema receive special type handling at any nesting depth (including inside array `items`). These are unrelated to the top-level `start_time` / `end_time` request parameters or `time_ranges`. The platform returns the value in a format determined by the declared type:<br/>
         /// *Allowed declarations:*<br/>
         /// | Declared type | Platform behavior |<br/>
         /// |---------------|-------------------|<br/>
@@ -231,7 +231,7 @@ namespace TwelveLabs
         /// Define the types of segments to extract from your video. Minimum 1, maximum 20 definitions. The number of segment definitions affects billing. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.
         /// </param>
         /// <param name="segmentTimeFormat">
-        /// Set the output format for the automatic `start_time` and `end_time` keys returned on each segment. Requires the `type` parameter set to `segment_definitions` and the `model_name` parameter set to `pegasus1.5`. Omitting this parameter is equivalent to setting it to `seconds` — both return JSON numbers in seconds.<br/>
+        /// Set the output format for the automatic `start_time` and `end_time` keys returned on each segment. Requires the `type` parameter set to `segment_definitions`. Omitting this parameter is equivalent to setting it to `seconds`. Both return JSON numbers in seconds.<br/>
         /// | `segment_time_format` | Auto boundary output |<br/>
         /// |-----------------------|----------------------|<br/>
         /// | `seconds` (default) | JSON number in seconds (Example: `12.5`) |<br/>

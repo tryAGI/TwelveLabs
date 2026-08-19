@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Set the output format for the automatic `start_time` and `end_time` keys returned on each segment. Requires the `type` parameter set to `segment_definitions` and the `model_name` parameter set to `pegasus1.5`. Omitting this parameter is equivalent to setting it to `seconds` — both return JSON numbers in seconds.<br/>
+    /// Set the output format for the automatic `start_time` and `end_time` keys returned on each segment. Requires the `type` parameter set to `segment_definitions`. Omitting this parameter is equivalent to setting it to `seconds`. Both return JSON numbers in seconds.<br/>
     /// | `segment_time_format` | Auto boundary output |<br/>
     /// |-----------------------|----------------------|<br/>
     /// | `seconds` (default) | JSON number in seconds (Example: `12.5`) |<br/>

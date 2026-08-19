@@ -5,17 +5,12 @@ namespace TwelveLabs
 {
     /// <summary>
     /// The video understanding model to use for analysis.<br/>
-    /// - `pegasus1.2`: General analysis (prompt-based text generation).<br/>
     /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, and video segmentation (async only). See the [Pegasus](/v1.3/docs/concepts/models/pegasus#context-window) page for token limits.<br/>
-    /// **Default:** `pegasus1.2`<br/>
-    /// Default Value: pegasus1.2
+    /// **Default:** `pegasus1.5`<br/>
+    /// Default Value: pegasus1.5
     /// </summary>
     public enum AnalyzePostRequestBodyContentApplicationJsonSchemaModelName
     {
-        /// <summary>
-        /// General analysis (prompt-based text generation).
-        /// </summary>
-        Pegasus12,
         /// <summary>
         /// General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, and video segmentation (async only). See the [Pegasus](/v1.3/docs/concepts/models/pegasus#context-window) page for token limits.
         /// </summary>
@@ -34,7 +29,6 @@ namespace TwelveLabs
         {
             return value switch
             {
-                AnalyzePostRequestBodyContentApplicationJsonSchemaModelName.Pegasus12 => "pegasus1.2",
                 AnalyzePostRequestBodyContentApplicationJsonSchemaModelName.Pegasus15 => "pegasus1.5",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -46,7 +40,6 @@ namespace TwelveLabs
         {
             return value switch
             {
-                "pegasus1.2" => AnalyzePostRequestBodyContentApplicationJsonSchemaModelName.Pegasus12,
                 "pegasus1.5" => AnalyzePostRequestBodyContentApplicationJsonSchemaModelName.Pegasus15,
                 _ => null,
             };

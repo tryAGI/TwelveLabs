@@ -31,7 +31,7 @@ namespace TwelveLabs
         public global::TwelveLabs.StreamEndResponseMetadata? Metadata { get; set; }
 
         /// <summary>
-        /// A warning. Present when `finish_reason` is `length` — the response reached the maximum response length or the [context window](/v1.3/docs/concepts/models/pegasus#context-window). The partial output is delivered through the preceding `text_generation` events. Pegasus 1.2 also returns this field when `finish_reason` is `length`.
+        /// A warning. Present when `finish_reason` is `length`, which means the response reached the maximum response length or the [context window](/v1.3/docs/concepts/models/pegasus#context-window). The partial output is delivered through the preceding `text_generation` events.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public global::TwelveLabs.AnalyzeTaskError? Error { get; set; }
@@ -57,7 +57,7 @@ namespace TwelveLabs
         /// An object containing metadata about the stream.
         /// </param>
         /// <param name="error">
-        /// A warning. Present when `finish_reason` is `length` — the response reached the maximum response length or the [context window](/v1.3/docs/concepts/models/pegasus#context-window). The partial output is delivered through the preceding `text_generation` events. Pegasus 1.2 also returns this field when `finish_reason` is `length`.
+        /// A warning. Present when `finish_reason` is `length`, which means the response reached the maximum response length or the [context window](/v1.3/docs/concepts/models/pegasus#context-window). The partial output is delivered through the preceding `text_generation` events.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

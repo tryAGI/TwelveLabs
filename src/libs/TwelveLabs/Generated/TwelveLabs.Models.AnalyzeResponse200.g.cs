@@ -11,10 +11,10 @@ namespace TwelveLabs
     {
         /// <summary>
         /// When the value of the `stream` parameter is set to `true`, the platform provides a streaming response in the NDJSON format.<br/>
-        /// The stream contains three types of events:<br/>
-        /// 1. Stream start<br/>
-        /// 2. Text generation<br/>
-        /// 3. Stream end<br/>
+        /// The stream contains the following types of events:<br/>
+        /// - Stream start<br/>
+        /// - Text generation<br/>
+        /// - Stream end<br/>
         /// To integrate the response into your application, follow the guidelines below:<br/>
         /// - Parse each line of the response as a separate JSON object.<br/>
         /// - Check the `event_type` field to determine how to handle the event.<br/>
