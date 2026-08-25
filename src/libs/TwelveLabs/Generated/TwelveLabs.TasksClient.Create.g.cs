@@ -187,10 +187,6 @@ namespace TwelveLabs
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(xApiKey ?? string.Empty),
-                                name: "\"x-api-key\"");
-
-                            __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.IndexId ?? string.Empty),
                                 name: "\"index_id\"");
 
