@@ -53,7 +53,7 @@ public partial class TwelveLabsClient : IEmbeddingGenerator<string, Embedding<fl
                 Text = new TextInputRequest { InputText = text },
             };
 
-            var response = await SubpackageEmbedSubpackageEmbedV2.CreateAsync(
+            var response = await EmbedV2.CreateAsync(
                 xApiKey: apiKey,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

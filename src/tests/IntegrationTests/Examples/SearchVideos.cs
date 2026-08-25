@@ -17,13 +17,13 @@ public partial class Tests
         using var client = GetAuthenticatedClient();
 
         //// Retrieve the first index to use for searching.
-        var indexes = await client.SubpackageIndexes.ListAsync(
+        var indexes = await client.Indexes.ListAsync(
             xApiKey: apiKey);
         var indexId = indexes.Data?.FirstOrDefault()?.Id
             ?? throw new AssertInconclusiveException("No indexes found. Create an index and upload videos first.");
 
         //// Search for video segments matching a text query using visual search.
-        var results = await client.SubpackageSearch.CreateAsync(
+        var results = await client.Search.CreateAsync(
             xApiKey: apiKey,
             indexId: indexId,
             queryText: "a person walking",

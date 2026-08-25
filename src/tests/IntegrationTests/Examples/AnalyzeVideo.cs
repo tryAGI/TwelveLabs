@@ -17,12 +17,12 @@ public partial class Tests
         using var client = GetAuthenticatedClient();
 
         //// Retrieve an indexed video to analyze.
-        var indexes = await client.SubpackageIndexes.ListAsync(
+        var indexes = await client.Indexes.ListAsync(
             xApiKey: apiKey);
         var indexId = indexes.Data?.FirstOrDefault()?.Id
             ?? throw new AssertInconclusiveException("No indexes found. Create an index and upload videos first.");
 
-        var assets = await client.SubpackageIndexesSubpackageIndexesIndexedAssets.ListAsync(
+        var assets = await client.IndexesIndexedAssets.ListAsync(
             indexId: indexId,
             xApiKey: apiKey);
         var videoId = assets.Data?.FirstOrDefault()?.Id
@@ -31,7 +31,7 @@ public partial class Tests
         //// Generate a summary of the video using open-ended analysis with streaming disabled.
         var response = await client.AnalyzeAsync(
             xApiKey: apiKey,
-            videoId: videoId,
+            video: new VideoContext(new VideoContextVariant2(videoId, VideoContextVariant2Type.AssetId)),
             prompt: "Provide a brief summary of this video, including the main topic and key points.",
             stream: false);
 
