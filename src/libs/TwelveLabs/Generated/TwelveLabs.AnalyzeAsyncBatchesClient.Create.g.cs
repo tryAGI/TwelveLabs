@@ -173,7 +173,7 @@ namespace TwelveLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
@@ -375,7 +375,7 @@ namespace TwelveLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Validation failure. The batch was not created. Possible causes include: - Malformed request bodies, or duplicate values in the `custom_id` field within the batch. - Missing required fields for the chosen analysis mode. - A missing video reference: the `requests.video` field is not provided, or its `type` is not `asset_id`. - A malformed value in the `requests.video.asset_id` field. 
+                            // Validation failure. The batch was not created. Possible causes include: - Malformed request bodies, or duplicate values in the `custom_id` field within the batch. - Missing required fields for the chosen analysis mode. - A missing video reference: the `requests.video` field is not provided, or its `type` is not `asset_id`. - A malformed value in the `requests.video.asset_id` field.
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
@@ -412,7 +412,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // A referenced asset does not exist, or you cannot access it. The batch was not created. Verify the `requests.video.asset_id` value and that the asset belongs to your account. 
+                            // A referenced asset does not exist, or you cannot access it. The batch was not created. Verify the `requests.video.asset_id` value and that the asset belongs to your account.
                             if ((int)__response.StatusCode == 404)
                             {
                                 string? __content_404 = null;
@@ -449,7 +449,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // A referenced asset exists but is not yet in the `ready` state. The batch was not created. Wait for the asset to reach the `ready` state, then resubmit the batch. 
+                            // A referenced asset exists but is not yet in the `ready` state. The batch was not created. Wait for the asset to reach the `ready` state, then resubmit the batch.
                             if ((int)__response.StatusCode == 409)
                             {
                                 string? __content_409 = null;
@@ -523,7 +523,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // A cross-resource validation check against a downstream service (for example, asset metadata) failed temporarily. The batch was not created. Retry the request. 
+                            // A cross-resource validation check against a downstream service (for example, asset metadata) failed temporarily. The batch was not created. Retry the request.
                             if ((int)__response.StatusCode == 503)
                             {
                                 string? __content_503 = null;
@@ -560,7 +560,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // The server did not finish creating the batch before its processing deadline. The batch was not created. Split the requests across smaller batches and retry. 
+                            // The server did not finish creating the batch before its processing deadline. The batch was not created. Split the requests across smaller batches and retry.
                             if ((int)__response.StatusCode == 504)
                             {
                                 string? __content_504 = null;

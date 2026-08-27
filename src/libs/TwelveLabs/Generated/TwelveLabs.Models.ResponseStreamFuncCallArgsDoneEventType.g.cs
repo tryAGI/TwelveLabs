@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum ResponseStreamFuncCallArgsDoneEventType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseFunctionCallArgumentsDone,
     }

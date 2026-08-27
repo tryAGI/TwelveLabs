@@ -4,24 +4,24 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Audio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Transcription,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Visual,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VisualText,
     }

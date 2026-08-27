@@ -20,7 +20,7 @@ namespace TwelveLabs.JsonConverters
                     {
                         return global::TwelveLabs.AudioSegmentationStrategyExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

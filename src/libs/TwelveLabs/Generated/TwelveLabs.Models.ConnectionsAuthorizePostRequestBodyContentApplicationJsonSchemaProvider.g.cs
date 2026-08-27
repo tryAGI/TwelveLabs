@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum ConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProvider
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GoogleDrive,
     }

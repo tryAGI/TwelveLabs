@@ -9,11 +9,11 @@ namespace TwelveLabs
     public enum AnalyzeTaskResponseRequestParamsAnalysisMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         General,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TimeBasedMetadata,
     }

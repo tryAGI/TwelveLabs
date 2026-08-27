@@ -4,16 +4,16 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum AudioInputRequestEmbeddingTypeItems
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FusedEmbedding,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SeparateEmbedding,
     }

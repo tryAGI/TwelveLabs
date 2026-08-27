@@ -4,19 +4,19 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AnalyzeTaskResponseRequestParamsPromptV2MediaSourcesItems
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_type")]
         [global::System.Text.Json.Serialization.JsonRequired]

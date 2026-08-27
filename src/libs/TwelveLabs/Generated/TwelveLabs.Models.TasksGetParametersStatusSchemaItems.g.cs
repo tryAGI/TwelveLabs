@@ -4,36 +4,36 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum TasksGetParametersStatusSchemaItems
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Indexing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pending,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Queued,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ready,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Uploading,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Validating,
     }

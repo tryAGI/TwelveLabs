@@ -4,16 +4,16 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum AnalyzeTaskResponseRequestParamsResponseFormatType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsonSchema,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SegmentDefinitions,
     }

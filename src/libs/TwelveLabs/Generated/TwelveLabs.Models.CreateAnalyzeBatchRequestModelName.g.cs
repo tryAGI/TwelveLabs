@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum CreateAnalyzeBatchRequestModelName
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pegasus15,
     }

@@ -5,12 +5,12 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct IndexesIndexIdVideosGetParametersUserMetadataSchema : global::System.IEquatable<IndexesIndexIdVideosGetParametersUserMetadataSchema>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public string? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 { get; init; }
@@ -19,7 +19,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1))]
@@ -27,7 +27,7 @@ namespace TwelveLabs
         public bool IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 => IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string PickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1() => IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1
             ? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1!
             : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public double? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 { get; init; }
@@ -56,7 +56,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2))]
@@ -64,7 +64,7 @@ namespace TwelveLabs
         public bool IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 => IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2(
 #if NET6_0_OR_GREATER
@@ -77,14 +77,14 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public double PickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2() => IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2
             ? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2!.Value
             : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public bool? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 { get; init; }
@@ -93,7 +93,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3))]
@@ -101,7 +101,7 @@ namespace TwelveLabs
         public bool IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 => IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3(
 #if NET6_0_OR_GREATER
@@ -114,23 +114,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool PickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3() => IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3
             ? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3!.Value
             : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator IndexesIndexIdVideosGetParametersUserMetadataSchema(string value) => new IndexesIndexIdVideosGetParametersUserMetadataSchema((string?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator string?(IndexesIndexIdVideosGetParametersUserMetadataSchema @this) => @this.IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IndexesIndexIdVideosGetParametersUserMetadataSchema(string? value)
         {
@@ -138,22 +138,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static IndexesIndexIdVideosGetParametersUserMetadataSchema FromIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1(string? value) => new IndexesIndexIdVideosGetParametersUserMetadataSchema(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator IndexesIndexIdVideosGetParametersUserMetadataSchema(double value) => new IndexesIndexIdVideosGetParametersUserMetadataSchema((double?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator double?(IndexesIndexIdVideosGetParametersUserMetadataSchema @this) => @this.IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IndexesIndexIdVideosGetParametersUserMetadataSchema(double? value)
         {
@@ -161,22 +161,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static IndexesIndexIdVideosGetParametersUserMetadataSchema FromIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2(double? value) => new IndexesIndexIdVideosGetParametersUserMetadataSchema(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator IndexesIndexIdVideosGetParametersUserMetadataSchema(bool value) => new IndexesIndexIdVideosGetParametersUserMetadataSchema((bool?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator bool?(IndexesIndexIdVideosGetParametersUserMetadataSchema @this) => @this.IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IndexesIndexIdVideosGetParametersUserMetadataSchema(bool? value)
         {
@@ -184,12 +184,12 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static IndexesIndexIdVideosGetParametersUserMetadataSchema FromIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3(bool? value) => new IndexesIndexIdVideosGetParametersUserMetadataSchema(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IndexesIndexIdVideosGetParametersUserMetadataSchema(
             string? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1,
@@ -203,25 +203,25 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 as object ??
             IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 as object ??
-            IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 as object 
+            IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1?.ToString() ??
             IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2?.ToString() ??
-            IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3?.ToString().ToLowerInvariant() 
+            IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3?.ToString().ToLowerInvariant()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -229,7 +229,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<string, TResult>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 = null,
@@ -259,7 +259,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<string>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 = null,
@@ -289,7 +289,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<string>? indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 = null,
@@ -317,7 +317,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -340,19 +340,19 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(IndexesIndexIdVideosGetParametersUserMetadataSchema other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1, other.IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1) &&
                 global::System.Collections.Generic.EqualityComparer<double?>.Default.Equals(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2, other.IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2) &&
-                global::System.Collections.Generic.EqualityComparer<bool?>.Default.Equals(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3, other.IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3) 
+                global::System.Collections.Generic.EqualityComparer<bool?>.Default.Equals(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3, other.IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(IndexesIndexIdVideosGetParametersUserMetadataSchema obj1, IndexesIndexIdVideosGetParametersUserMetadataSchema obj2)
         {
@@ -360,7 +360,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(IndexesIndexIdVideosGetParametersUserMetadataSchema obj1, IndexesIndexIdVideosGetParametersUserMetadataSchema obj2)
         {
@@ -368,7 +368,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

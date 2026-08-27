@@ -20,7 +20,7 @@ namespace TwelveLabs.JsonConverters
                     {
                         return global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisModeExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

@@ -4,16 +4,16 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VideoInputRequestEmbeddingScopeItems
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Asset,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Clip,
     }

@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum EnrichmentConfigJsonSchemaType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsonSchema,
     }

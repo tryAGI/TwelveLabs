@@ -147,7 +147,7 @@ namespace TwelveLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
@@ -423,7 +423,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // The redirect URI could not be registered. Either it failed validation (`redirect_uri_invalid`) because it must use HTTPS, resolve to a public host, and contain no wildcards, or you have reached the maximum number of registered redirect URIs (`redirect_uri_limit_exceeded`). 
+                            // The redirect URI could not be registered. Either it failed validation (`redirect_uri_invalid`) because it must use HTTPS, resolve to a public host, and contain no wildcards, or you have reached the maximum number of registered redirect URIs (`redirect_uri_limit_exceeded`).
                             if ((int)__response.StatusCode == 422)
                             {
                                 string? __content_422 = null;

@@ -5,7 +5,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct AnalyzeResponse200 : global::System.IEquatable<AnalyzeResponse200>
     {
@@ -28,7 +28,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(StreamAnalyzeResponse))]
@@ -36,7 +36,7 @@ namespace TwelveLabs
         public bool IsStreamAnalyzeResponse => StreamAnalyzeResponse != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickStreamAnalyzeResponse(
 #if NET6_0_OR_GREATER
@@ -49,7 +49,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.StreamAnalyzeResponse PickStreamAnalyzeResponse() => IsStreamAnalyzeResponse
             ? StreamAnalyzeResponse!.Value
@@ -65,7 +65,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(NonStreamAnalyzeResponse))]
@@ -73,7 +73,7 @@ namespace TwelveLabs
         public bool IsNonStreamAnalyzeResponse => NonStreamAnalyzeResponse != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickNonStreamAnalyzeResponse(
 #if NET6_0_OR_GREATER
@@ -86,23 +86,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.NonStreamAnalyzeResponse PickNonStreamAnalyzeResponse() => IsNonStreamAnalyzeResponse
             ? NonStreamAnalyzeResponse!
             : throw new global::System.InvalidOperationException($"Expected union variant 'NonStreamAnalyzeResponse' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AnalyzeResponse200(global::TwelveLabs.StreamAnalyzeResponse value) => new AnalyzeResponse200((global::TwelveLabs.StreamAnalyzeResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.StreamAnalyzeResponse?(AnalyzeResponse200 @this) => @this.StreamAnalyzeResponse;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AnalyzeResponse200(global::TwelveLabs.StreamAnalyzeResponse? value)
         {
@@ -110,22 +110,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AnalyzeResponse200 FromStreamAnalyzeResponse(global::TwelveLabs.StreamAnalyzeResponse? value) => new AnalyzeResponse200(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AnalyzeResponse200(global::TwelveLabs.NonStreamAnalyzeResponse value) => new AnalyzeResponse200((global::TwelveLabs.NonStreamAnalyzeResponse?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.NonStreamAnalyzeResponse?(AnalyzeResponse200 @this) => @this.NonStreamAnalyzeResponse;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AnalyzeResponse200(global::TwelveLabs.NonStreamAnalyzeResponse? value)
         {
@@ -133,12 +133,12 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AnalyzeResponse200 FromNonStreamAnalyzeResponse(global::TwelveLabs.NonStreamAnalyzeResponse? value) => new AnalyzeResponse200(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AnalyzeResponse200(
             global::TwelveLabs.StreamAnalyzeResponse? streamAnalyzeResponse,
@@ -150,23 +150,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             NonStreamAnalyzeResponse as object ??
-            StreamAnalyzeResponse as object 
+            StreamAnalyzeResponse as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             StreamAnalyzeResponse?.ToString() ??
-            NonStreamAnalyzeResponse?.ToString() 
+            NonStreamAnalyzeResponse?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -174,7 +174,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::TwelveLabs.StreamAnalyzeResponse?, TResult>? streamAnalyzeResponse = null,
@@ -199,7 +199,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::TwelveLabs.StreamAnalyzeResponse?>? streamAnalyzeResponse = null,
@@ -223,7 +223,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::TwelveLabs.StreamAnalyzeResponse?>? streamAnalyzeResponse = null,
@@ -246,7 +246,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -267,18 +267,18 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(AnalyzeResponse200 other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.StreamAnalyzeResponse?>.Default.Equals(StreamAnalyzeResponse, other.StreamAnalyzeResponse) &&
-                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.NonStreamAnalyzeResponse?>.Default.Equals(NonStreamAnalyzeResponse, other.NonStreamAnalyzeResponse) 
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.NonStreamAnalyzeResponse?>.Default.Equals(NonStreamAnalyzeResponse, other.NonStreamAnalyzeResponse)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(AnalyzeResponse200 obj1, AnalyzeResponse200 obj2)
         {
@@ -286,7 +286,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(AnalyzeResponse200 obj1, AnalyzeResponse200 obj2)
         {
@@ -294,7 +294,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

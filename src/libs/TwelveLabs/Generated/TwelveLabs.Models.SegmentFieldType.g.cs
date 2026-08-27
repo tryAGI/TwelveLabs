@@ -10,27 +10,27 @@ namespace TwelveLabs
     public enum SegmentFieldType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Array,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Boolean,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Integer,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Number,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         String,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Timestamp,
     }

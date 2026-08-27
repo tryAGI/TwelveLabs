@@ -4,20 +4,20 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum AssetsAssetIdTranscriptionGetParametersIncludeSchemaItems
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sentences,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Utterances,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Words,
     }

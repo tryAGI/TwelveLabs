@@ -11,7 +11,7 @@ namespace TwelveLabs
     public readonly partial struct KnowledgeStoreItemSystemMetadata : global::System.IEquatable<KnowledgeStoreItemSystemMetadata>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.KnowledgeStoreItemSystemMetadataDiscriminatorAssetType? AssetType { get; }
 
@@ -25,7 +25,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Video))]
@@ -33,7 +33,7 @@ namespace TwelveLabs
         public bool IsVideo => Video != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVideo(
 #if NET6_0_OR_GREATER
@@ -46,7 +46,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant1 PickVideo() => IsVideo
             ? Video!
@@ -62,7 +62,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Image))]
@@ -70,7 +70,7 @@ namespace TwelveLabs
         public bool IsImage => Image != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickImage(
 #if NET6_0_OR_GREATER
@@ -83,23 +83,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant2 PickImage() => IsImage
             ? Image!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Image' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator KnowledgeStoreItemSystemMetadata(global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant1 value) => new KnowledgeStoreItemSystemMetadata((global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant1?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant1?(KnowledgeStoreItemSystemMetadata @this) => @this.Video;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public KnowledgeStoreItemSystemMetadata(global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant1? value)
         {
@@ -107,22 +107,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static KnowledgeStoreItemSystemMetadata FromVideo(global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant1? value) => new KnowledgeStoreItemSystemMetadata(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator KnowledgeStoreItemSystemMetadata(global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant2 value) => new KnowledgeStoreItemSystemMetadata((global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant2?(KnowledgeStoreItemSystemMetadata @this) => @this.Image;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public KnowledgeStoreItemSystemMetadata(global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant2? value)
         {
@@ -130,12 +130,12 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static KnowledgeStoreItemSystemMetadata FromImage(global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant2? value) => new KnowledgeStoreItemSystemMetadata(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public KnowledgeStoreItemSystemMetadata(
             global::TwelveLabs.KnowledgeStoreItemSystemMetadataDiscriminatorAssetType? assetType,
@@ -150,23 +150,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Image as object ??
-            Video as object 
+            Video as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Video?.ToString() ??
-            Image?.ToString() 
+            Image?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -174,7 +174,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant1, TResult>? video = null,
@@ -199,7 +199,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant1>? video = null,
@@ -223,7 +223,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant1>? video = null,
@@ -246,7 +246,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -267,18 +267,18 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(KnowledgeStoreItemSystemMetadata other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant1?>.Default.Equals(Video, other.Video) &&
-                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant2?>.Default.Equals(Image, other.Image) 
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant2?>.Default.Equals(Image, other.Image)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(KnowledgeStoreItemSystemMetadata obj1, KnowledgeStoreItemSystemMetadata obj2)
         {
@@ -286,7 +286,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(KnowledgeStoreItemSystemMetadata obj1, KnowledgeStoreItemSystemMetadata obj2)
         {
@@ -294,7 +294,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

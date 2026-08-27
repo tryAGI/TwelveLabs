@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum AssetSourceType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Connector,
     }

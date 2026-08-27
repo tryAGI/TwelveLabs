@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum AssetSourceDetailsProvider
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GoogleDrive,
     }

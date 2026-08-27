@@ -34,7 +34,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseStreamEventVariant1))]
@@ -42,7 +42,7 @@ namespace TwelveLabs
         public bool IsResponseStreamEventVariant1 => ResponseStreamEventVariant1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResponseStreamEventVariant1(
 #if NET6_0_OR_GREATER
@@ -55,7 +55,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.ResponseStreamEventVariant1 PickResponseStreamEventVariant1() => IsResponseStreamEventVariant1
             ? ResponseStreamEventVariant1!
@@ -72,7 +72,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseStreamEventVariant2))]
@@ -80,7 +80,7 @@ namespace TwelveLabs
         public bool IsResponseStreamEventVariant2 => ResponseStreamEventVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResponseStreamEventVariant2(
 #if NET6_0_OR_GREATER
@@ -93,7 +93,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.ResponseStreamEventVariant2 PickResponseStreamEventVariant2() => IsResponseStreamEventVariant2
             ? ResponseStreamEventVariant2!
@@ -110,7 +110,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseStreamEventVariant3))]
@@ -118,7 +118,7 @@ namespace TwelveLabs
         public bool IsResponseStreamEventVariant3 => ResponseStreamEventVariant3 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResponseStreamEventVariant3(
 #if NET6_0_OR_GREATER
@@ -131,7 +131,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.ResponseStreamEventVariant3 PickResponseStreamEventVariant3() => IsResponseStreamEventVariant3
             ? ResponseStreamEventVariant3!
@@ -148,7 +148,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseStreamEventVariant4))]
@@ -156,7 +156,7 @@ namespace TwelveLabs
         public bool IsResponseStreamEventVariant4 => ResponseStreamEventVariant4 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResponseStreamEventVariant4(
 #if NET6_0_OR_GREATER
@@ -169,7 +169,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.ResponseStreamEventVariant4 PickResponseStreamEventVariant4() => IsResponseStreamEventVariant4
             ? ResponseStreamEventVariant4!
@@ -185,7 +185,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseOutputItemAdded))]
@@ -193,7 +193,7 @@ namespace TwelveLabs
         public bool IsResponseOutputItemAdded => ResponseOutputItemAdded != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResponseOutputItemAdded(
 #if NET6_0_OR_GREATER
@@ -206,7 +206,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.ResponseStreamEventVariant5 PickResponseOutputItemAdded() => IsResponseOutputItemAdded
             ? ResponseOutputItemAdded!
@@ -222,7 +222,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseContentPartAdded))]
@@ -230,7 +230,7 @@ namespace TwelveLabs
         public bool IsResponseContentPartAdded => ResponseContentPartAdded != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResponseContentPartAdded(
 #if NET6_0_OR_GREATER
@@ -243,7 +243,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.ResponseStreamEventVariant6 PickResponseContentPartAdded() => IsResponseContentPartAdded
             ? ResponseContentPartAdded!
@@ -259,7 +259,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseOutputTextDelta))]
@@ -267,7 +267,7 @@ namespace TwelveLabs
         public bool IsResponseOutputTextDelta => ResponseOutputTextDelta != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResponseOutputTextDelta(
 #if NET6_0_OR_GREATER
@@ -280,7 +280,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.ResponseStreamEventVariant7 PickResponseOutputTextDelta() => IsResponseOutputTextDelta
             ? ResponseOutputTextDelta!
@@ -296,7 +296,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseOutputTextDone))]
@@ -304,7 +304,7 @@ namespace TwelveLabs
         public bool IsResponseOutputTextDone => ResponseOutputTextDone != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResponseOutputTextDone(
 #if NET6_0_OR_GREATER
@@ -317,7 +317,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.ResponseStreamEventVariant8 PickResponseOutputTextDone() => IsResponseOutputTextDone
             ? ResponseOutputTextDone!
@@ -333,7 +333,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseContentPartDone))]
@@ -341,7 +341,7 @@ namespace TwelveLabs
         public bool IsResponseContentPartDone => ResponseContentPartDone != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResponseContentPartDone(
 #if NET6_0_OR_GREATER
@@ -354,7 +354,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.ResponseStreamEventVariant9 PickResponseContentPartDone() => IsResponseContentPartDone
             ? ResponseContentPartDone!
@@ -370,7 +370,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseOutputItemDone))]
@@ -378,7 +378,7 @@ namespace TwelveLabs
         public bool IsResponseOutputItemDone => ResponseOutputItemDone != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResponseOutputItemDone(
 #if NET6_0_OR_GREATER
@@ -391,7 +391,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.ResponseStreamEventVariant10 PickResponseOutputItemDone() => IsResponseOutputItemDone
             ? ResponseOutputItemDone!
@@ -407,7 +407,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseFunctionCallArgumentsDone))]
@@ -415,7 +415,7 @@ namespace TwelveLabs
         public bool IsResponseFunctionCallArgumentsDone => ResponseFunctionCallArgumentsDone != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickResponseFunctionCallArgumentsDone(
 #if NET6_0_OR_GREATER
@@ -428,23 +428,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.ResponseStreamEventVariant11 PickResponseFunctionCallArgumentsDone() => IsResponseFunctionCallArgumentsDone
             ? ResponseFunctionCallArgumentsDone!
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseFunctionCallArgumentsDone' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant1 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant1?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.ResponseStreamEventVariant1?(ResponseStreamEvent @this) => @this.ResponseStreamEventVariant1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant1? value)
         {
@@ -452,22 +452,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseStreamEvent FromResponseStreamEventVariant1(global::TwelveLabs.ResponseStreamEventVariant1? value) => new ResponseStreamEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant2 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.ResponseStreamEventVariant2?(ResponseStreamEvent @this) => @this.ResponseStreamEventVariant2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant2? value)
         {
@@ -475,22 +475,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseStreamEvent FromResponseStreamEventVariant2(global::TwelveLabs.ResponseStreamEventVariant2? value) => new ResponseStreamEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant3 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant3?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.ResponseStreamEventVariant3?(ResponseStreamEvent @this) => @this.ResponseStreamEventVariant3;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant3? value)
         {
@@ -498,22 +498,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseStreamEvent FromResponseStreamEventVariant3(global::TwelveLabs.ResponseStreamEventVariant3? value) => new ResponseStreamEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant4 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant4?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.ResponseStreamEventVariant4?(ResponseStreamEvent @this) => @this.ResponseStreamEventVariant4;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant4? value)
         {
@@ -521,22 +521,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseStreamEvent FromResponseStreamEventVariant4(global::TwelveLabs.ResponseStreamEventVariant4? value) => new ResponseStreamEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant5 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant5?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.ResponseStreamEventVariant5?(ResponseStreamEvent @this) => @this.ResponseOutputItemAdded;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant5? value)
         {
@@ -544,22 +544,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseStreamEvent FromResponseOutputItemAdded(global::TwelveLabs.ResponseStreamEventVariant5? value) => new ResponseStreamEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant6 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant6?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.ResponseStreamEventVariant6?(ResponseStreamEvent @this) => @this.ResponseContentPartAdded;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant6? value)
         {
@@ -567,22 +567,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseStreamEvent FromResponseContentPartAdded(global::TwelveLabs.ResponseStreamEventVariant6? value) => new ResponseStreamEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant7 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant7?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.ResponseStreamEventVariant7?(ResponseStreamEvent @this) => @this.ResponseOutputTextDelta;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant7? value)
         {
@@ -590,22 +590,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseStreamEvent FromResponseOutputTextDelta(global::TwelveLabs.ResponseStreamEventVariant7? value) => new ResponseStreamEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant8 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant8?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.ResponseStreamEventVariant8?(ResponseStreamEvent @this) => @this.ResponseOutputTextDone;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant8? value)
         {
@@ -613,22 +613,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseStreamEvent FromResponseOutputTextDone(global::TwelveLabs.ResponseStreamEventVariant8? value) => new ResponseStreamEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant9 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant9?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.ResponseStreamEventVariant9?(ResponseStreamEvent @this) => @this.ResponseContentPartDone;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant9? value)
         {
@@ -636,22 +636,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseStreamEvent FromResponseContentPartDone(global::TwelveLabs.ResponseStreamEventVariant9? value) => new ResponseStreamEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant10 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant10?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.ResponseStreamEventVariant10?(ResponseStreamEvent @this) => @this.ResponseOutputItemDone;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant10? value)
         {
@@ -659,22 +659,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseStreamEvent FromResponseOutputItemDone(global::TwelveLabs.ResponseStreamEventVariant10? value) => new ResponseStreamEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant11 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant11?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.ResponseStreamEventVariant11?(ResponseStreamEvent @this) => @this.ResponseFunctionCallArgumentsDone;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant11? value)
         {
@@ -682,12 +682,12 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static ResponseStreamEvent FromResponseFunctionCallArgumentsDone(global::TwelveLabs.ResponseStreamEventVariant11? value) => new ResponseStreamEvent(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponseStreamEvent(
             global::TwelveLabs.ResponseStreamEventVariant1? responseStreamEventVariant1,
@@ -717,7 +717,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             ResponseFunctionCallArgumentsDone as object ??
@@ -730,11 +730,11 @@ namespace TwelveLabs
             ResponseStreamEventVariant4 as object ??
             ResponseStreamEventVariant3 as object ??
             ResponseStreamEventVariant2 as object ??
-            ResponseStreamEventVariant1 as object 
+            ResponseStreamEventVariant1 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             ResponseStreamEventVariant1?.ToString() ??
@@ -747,11 +747,11 @@ namespace TwelveLabs
             ResponseOutputTextDone?.ToString() ??
             ResponseContentPartDone?.ToString() ??
             ResponseOutputItemDone?.ToString() ??
-            ResponseFunctionCallArgumentsDone?.ToString() 
+            ResponseFunctionCallArgumentsDone?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -759,7 +759,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::TwelveLabs.ResponseStreamEventVariant1, TResult>? responseStreamEventVariant1 = null,
@@ -829,7 +829,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::TwelveLabs.ResponseStreamEventVariant1>? responseStreamEventVariant1 = null,
@@ -907,7 +907,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::TwelveLabs.ResponseStreamEventVariant1>? responseStreamEventVariant1 = null,
@@ -975,7 +975,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -1014,7 +1014,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(ResponseStreamEvent other)
         {
@@ -1029,12 +1029,12 @@ namespace TwelveLabs
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.ResponseStreamEventVariant8?>.Default.Equals(ResponseOutputTextDone, other.ResponseOutputTextDone) &&
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.ResponseStreamEventVariant9?>.Default.Equals(ResponseContentPartDone, other.ResponseContentPartDone) &&
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.ResponseStreamEventVariant10?>.Default.Equals(ResponseOutputItemDone, other.ResponseOutputItemDone) &&
-                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.ResponseStreamEventVariant11?>.Default.Equals(ResponseFunctionCallArgumentsDone, other.ResponseFunctionCallArgumentsDone) 
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.ResponseStreamEventVariant11?>.Default.Equals(ResponseFunctionCallArgumentsDone, other.ResponseFunctionCallArgumentsDone)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(ResponseStreamEvent obj1, ResponseStreamEvent obj2)
         {
@@ -1042,7 +1042,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(ResponseStreamEvent obj1, ResponseStreamEvent obj2)
         {
@@ -1050,7 +1050,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

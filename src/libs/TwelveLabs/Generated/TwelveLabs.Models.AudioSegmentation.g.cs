@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class AudioSegmentation
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("strategy")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AudioSegmentationStrategyJsonConverter))]

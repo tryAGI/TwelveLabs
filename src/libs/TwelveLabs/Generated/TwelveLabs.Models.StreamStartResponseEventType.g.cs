@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum StreamStartResponseEventType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StreamStart,
     }

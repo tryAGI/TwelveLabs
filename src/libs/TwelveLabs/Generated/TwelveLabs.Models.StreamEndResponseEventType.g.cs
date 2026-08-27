@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum StreamEndResponseEventType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StreamEnd,
     }

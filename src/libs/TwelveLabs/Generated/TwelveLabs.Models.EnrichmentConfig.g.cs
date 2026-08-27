@@ -12,7 +12,7 @@ namespace TwelveLabs
     public readonly partial struct EnrichmentConfig : global::System.IEquatable<EnrichmentConfig>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.EnrichmentConfigDiscriminatorType? Type { get; }
 
@@ -26,7 +26,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(JsonSchema))]
@@ -34,7 +34,7 @@ namespace TwelveLabs
         public bool IsJsonSchema => JsonSchema != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickJsonSchema(
 #if NET6_0_OR_GREATER
@@ -47,7 +47,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.EnrichmentConfigVariant1 PickJsonSchema() => IsJsonSchema
             ? JsonSchema!
@@ -63,7 +63,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Description))]
@@ -71,7 +71,7 @@ namespace TwelveLabs
         public bool IsDescription => Description != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDescription(
 #if NET6_0_OR_GREATER
@@ -84,23 +84,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.EnrichmentConfigVariant2 PickDescription() => IsDescription
             ? Description!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Description' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator EnrichmentConfig(global::TwelveLabs.EnrichmentConfigVariant1 value) => new EnrichmentConfig((global::TwelveLabs.EnrichmentConfigVariant1?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.EnrichmentConfigVariant1?(EnrichmentConfig @this) => @this.JsonSchema;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EnrichmentConfig(global::TwelveLabs.EnrichmentConfigVariant1? value)
         {
@@ -108,22 +108,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static EnrichmentConfig FromJsonSchema(global::TwelveLabs.EnrichmentConfigVariant1? value) => new EnrichmentConfig(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator EnrichmentConfig(global::TwelveLabs.EnrichmentConfigVariant2 value) => new EnrichmentConfig((global::TwelveLabs.EnrichmentConfigVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.EnrichmentConfigVariant2?(EnrichmentConfig @this) => @this.Description;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EnrichmentConfig(global::TwelveLabs.EnrichmentConfigVariant2? value)
         {
@@ -131,12 +131,12 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static EnrichmentConfig FromDescription(global::TwelveLabs.EnrichmentConfigVariant2? value) => new EnrichmentConfig(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EnrichmentConfig(
             global::TwelveLabs.EnrichmentConfigDiscriminatorType? type,
@@ -151,23 +151,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Description as object ??
-            JsonSchema as object 
+            JsonSchema as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             JsonSchema?.ToString() ??
-            Description?.ToString() 
+            Description?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -175,7 +175,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::TwelveLabs.EnrichmentConfigVariant1, TResult>? jsonSchema = null,
@@ -200,7 +200,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::TwelveLabs.EnrichmentConfigVariant1>? jsonSchema = null,
@@ -224,7 +224,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::TwelveLabs.EnrichmentConfigVariant1>? jsonSchema = null,
@@ -247,7 +247,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -268,18 +268,18 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(EnrichmentConfig other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.EnrichmentConfigVariant1?>.Default.Equals(JsonSchema, other.JsonSchema) &&
-                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.EnrichmentConfigVariant2?>.Default.Equals(Description, other.Description) 
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.EnrichmentConfigVariant2?>.Default.Equals(Description, other.Description)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(EnrichmentConfig obj1, EnrichmentConfig obj2)
         {
@@ -287,7 +287,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(EnrichmentConfig obj1, EnrichmentConfig obj2)
         {
@@ -295,7 +295,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum SmeMediaSourceMediaType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Image,
     }

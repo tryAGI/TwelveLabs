@@ -4,16 +4,16 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VideoInputRequestEmbeddingTypeItems
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FusedEmbedding,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SeparateEmbedding,
     }

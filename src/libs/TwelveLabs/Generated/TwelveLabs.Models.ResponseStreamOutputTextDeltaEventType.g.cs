@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum ResponseStreamOutputTextDeltaEventType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseOutputTextDelta,
     }

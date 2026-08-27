@@ -4,20 +4,20 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VideoContextDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AssetId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Base64String,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Url,
     }

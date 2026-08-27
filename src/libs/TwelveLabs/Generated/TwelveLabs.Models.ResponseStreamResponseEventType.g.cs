@@ -9,19 +9,19 @@ namespace TwelveLabs
     public enum ResponseStreamResponseEventType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseCompleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseInProgress,
     }

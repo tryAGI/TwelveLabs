@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum ResponseInputItemRole
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         User,
     }

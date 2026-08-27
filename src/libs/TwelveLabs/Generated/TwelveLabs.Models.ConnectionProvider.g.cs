@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum ConnectionProvider
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GoogleDrive,
     }

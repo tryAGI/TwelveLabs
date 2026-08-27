@@ -4,12 +4,12 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum EmbeddingVideoMetadataInputType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Video,
     }

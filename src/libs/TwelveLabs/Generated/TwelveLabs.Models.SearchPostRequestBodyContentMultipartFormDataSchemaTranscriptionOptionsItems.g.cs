@@ -4,16 +4,16 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItems
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Lexical,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Semantic,
     }

@@ -9,11 +9,11 @@ namespace TwelveLabs
     public enum KnowledgeStoreItemAssetType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Image,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Video,
     }

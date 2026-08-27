@@ -9,15 +9,15 @@ namespace TwelveLabs
     public enum EntityCollectionsEntityCollectionIdEntitiesGetParametersSortBy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreatedAt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Name,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdatedAt,
     }

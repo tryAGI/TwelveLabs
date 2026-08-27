@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum SyncResponseFormatType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsonSchema,
     }

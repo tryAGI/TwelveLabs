@@ -4,12 +4,12 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ResponsesPostRequestBodyContentApplicationJsonSchemaIncludeItems
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         IntermediateOutputs,
     }

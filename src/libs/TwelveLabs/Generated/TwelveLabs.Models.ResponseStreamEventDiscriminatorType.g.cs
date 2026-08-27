@@ -4,36 +4,36 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ResponseStreamEventDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseContentPartAdded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseContentPartDone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseFunctionCallArgumentsDone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseOutputItemAdded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseOutputItemDone,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseOutputTextDelta,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseOutputTextDone,
     }

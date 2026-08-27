@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum EnrichmentConfigDescriptionType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Description,
     }
