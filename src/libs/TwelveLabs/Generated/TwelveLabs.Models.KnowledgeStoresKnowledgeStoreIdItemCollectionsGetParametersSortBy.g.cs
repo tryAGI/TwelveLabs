@@ -9,15 +9,15 @@ namespace TwelveLabs
     public enum KnowledgeStoresKnowledgeStoreIdItemCollectionsGetParametersSortBy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreatedAt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Name,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdatedAt,
     }

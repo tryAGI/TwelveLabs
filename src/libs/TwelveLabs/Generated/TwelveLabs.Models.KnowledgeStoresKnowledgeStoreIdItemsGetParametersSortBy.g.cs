@@ -9,11 +9,11 @@ namespace TwelveLabs
     public enum KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreatedAt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdatedAt,
     }

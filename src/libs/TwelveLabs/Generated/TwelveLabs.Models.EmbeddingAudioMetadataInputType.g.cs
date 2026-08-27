@@ -4,12 +4,12 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum EmbeddingAudioMetadataInputType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Audio,
     }

@@ -4,12 +4,12 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum TextResponseFormatTextType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
     }

@@ -26,7 +26,7 @@ namespace TwelveLabs
         /// </summary>
         Hh_mm_ssFff,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Seconds,
     }

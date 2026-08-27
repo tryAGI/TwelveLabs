@@ -9,15 +9,15 @@ namespace TwelveLabs
     public enum ResponseOutputItemType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FunctionCall,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FunctionCallOutput,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Message,
     }

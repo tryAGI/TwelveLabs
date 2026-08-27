@@ -39,113 +39,113 @@ namespace TwelveLabs
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AnalyzeAsyncBatchesClient AnalyzeAsyncBatches { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AnalyzeAsyncTasksClient AnalyzeAsyncTasks { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AssetsClient Assets { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DataConnectorsClient DataConnectors { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EmbedClient Embed { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EmbedTasksClient EmbedTasks { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EmbedV2Client EmbedV2 { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EmbedV2TasksClient EmbedV2Tasks { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EntityCollectionsClient EntityCollections { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EntityCollectionsEntitiesClient EntityCollectionsEntities { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImportsClient Imports { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IndexesClient Indexes { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IndexesIndexedAssetsClient IndexesIndexedAssets { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IndexesVideosClient IndexesVideos { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public KnowledgeStoreItemCollectionsClient KnowledgeStoreItemCollections { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public KnowledgeStoreItemsClient KnowledgeStoreItems { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public KnowledgeStoresClient KnowledgeStores { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MultipartUploadClient MultipartUpload { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ResponsesClient Responses { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SearchClient Search { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TasksClient Tasks { get; }
 

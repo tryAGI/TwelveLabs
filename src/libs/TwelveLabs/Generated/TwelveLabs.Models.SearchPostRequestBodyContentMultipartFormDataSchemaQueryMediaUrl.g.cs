@@ -15,7 +15,7 @@ namespace TwelveLabs
     public readonly partial struct SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl : global::System.IEquatable<SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public string? SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 { get; init; }
@@ -24,7 +24,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1))]
@@ -32,7 +32,7 @@ namespace TwelveLabs
         public bool IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 => SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string PickSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1() => IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1
             ? SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1!
             : throw new global::System.InvalidOperationException($"Expected union variant 'SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::System.Collections.Generic.IList<string>? SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2 { get; init; }
@@ -61,7 +61,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2))]
@@ -69,7 +69,7 @@ namespace TwelveLabs
         public bool IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2 => SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Collections.Generic.IList<string> PickSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2() => IsSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2
             ? SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl(string value) => new SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl((string?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator string?(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl @this) => @this.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl(string? value)
         {
@@ -106,12 +106,12 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl FromSearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1(string? value) => new SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl(
             string? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1,
@@ -123,23 +123,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2 as object ??
-            SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 as object 
+            SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1?.ToString() ??
-            SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2?.ToString() 
+            SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -147,7 +147,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<string, TResult>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 = null,
@@ -172,7 +172,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<string>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 = null,
@@ -196,7 +196,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<string>? searchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1 = null,
@@ -219,7 +219,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -240,18 +240,18 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1, other.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant1) &&
-                global::System.Collections.Generic.EqualityComparer<global::System.Collections.Generic.IList<string>?>.Default.Equals(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2, other.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2) 
+                global::System.Collections.Generic.EqualityComparer<global::System.Collections.Generic.IList<string>?>.Default.Equals(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2, other.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlVariant2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl obj1, SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl obj2)
         {
@@ -259,7 +259,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl obj1, SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl obj2)
         {
@@ -267,7 +267,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

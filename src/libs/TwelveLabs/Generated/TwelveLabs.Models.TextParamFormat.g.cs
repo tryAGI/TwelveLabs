@@ -11,7 +11,7 @@ namespace TwelveLabs
     public readonly partial struct TextParamFormat : global::System.IEquatable<TextParamFormat>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.TextParamFormatDiscriminatorType? Type { get; }
 
@@ -25,7 +25,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Text))]
@@ -33,7 +33,7 @@ namespace TwelveLabs
         public bool IsText => Text != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickText(
 #if NET6_0_OR_GREATER
@@ -46,7 +46,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.TextParamFormatVariant1 PickText() => IsText
             ? Text!
@@ -62,7 +62,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(JsonSchema))]
@@ -70,7 +70,7 @@ namespace TwelveLabs
         public bool IsJsonSchema => JsonSchema != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickJsonSchema(
 #if NET6_0_OR_GREATER
@@ -83,23 +83,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.TextParamFormatVariant2 PickJsonSchema() => IsJsonSchema
             ? JsonSchema!
             : throw new global::System.InvalidOperationException($"Expected union variant 'JsonSchema' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TextParamFormat(global::TwelveLabs.TextParamFormatVariant1 value) => new TextParamFormat((global::TwelveLabs.TextParamFormatVariant1?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.TextParamFormatVariant1?(TextParamFormat @this) => @this.Text;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextParamFormat(global::TwelveLabs.TextParamFormatVariant1? value)
         {
@@ -107,22 +107,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TextParamFormat FromText(global::TwelveLabs.TextParamFormatVariant1? value) => new TextParamFormat(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator TextParamFormat(global::TwelveLabs.TextParamFormatVariant2 value) => new TextParamFormat((global::TwelveLabs.TextParamFormatVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.TextParamFormatVariant2?(TextParamFormat @this) => @this.JsonSchema;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextParamFormat(global::TwelveLabs.TextParamFormatVariant2? value)
         {
@@ -130,12 +130,12 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static TextParamFormat FromJsonSchema(global::TwelveLabs.TextParamFormatVariant2? value) => new TextParamFormat(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TextParamFormat(
             global::TwelveLabs.TextParamFormatDiscriminatorType? type,
@@ -150,23 +150,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             JsonSchema as object ??
-            Text as object 
+            Text as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Text?.ToString() ??
-            JsonSchema?.ToString() 
+            JsonSchema?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -174,7 +174,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::TwelveLabs.TextParamFormatVariant1, TResult>? text = null,
@@ -199,7 +199,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::TwelveLabs.TextParamFormatVariant1>? text = null,
@@ -223,7 +223,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::TwelveLabs.TextParamFormatVariant1>? text = null,
@@ -246,7 +246,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -267,18 +267,18 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(TextParamFormat other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.TextParamFormatVariant1?>.Default.Equals(Text, other.Text) &&
-                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.TextParamFormatVariant2?>.Default.Equals(JsonSchema, other.JsonSchema) 
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.TextParamFormatVariant2?>.Default.Equals(JsonSchema, other.JsonSchema)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(TextParamFormat obj1, TextParamFormat obj2)
         {
@@ -286,7 +286,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(TextParamFormat obj1, TextParamFormat obj2)
         {
@@ -294,7 +294,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

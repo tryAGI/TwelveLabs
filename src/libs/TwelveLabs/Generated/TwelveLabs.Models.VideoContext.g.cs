@@ -10,7 +10,7 @@ namespace TwelveLabs
     public readonly partial struct VideoContext : global::System.IEquatable<VideoContext>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.VideoContextDiscriminatorType? Type { get; }
 
@@ -24,7 +24,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Url))]
@@ -32,7 +32,7 @@ namespace TwelveLabs
         public bool IsUrl => Url != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUrl(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.VideoContextVariant1 PickUrl() => IsUrl
             ? Url!
@@ -61,7 +61,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AssetId))]
@@ -69,7 +69,7 @@ namespace TwelveLabs
         public bool IsAssetId => AssetId != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickAssetId(
 #if NET6_0_OR_GREATER
@@ -82,7 +82,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.VideoContextVariant2 PickAssetId() => IsAssetId
             ? AssetId!
@@ -98,7 +98,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Base64String))]
@@ -106,7 +106,7 @@ namespace TwelveLabs
         public bool IsBase64String => Base64String != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickBase64String(
 #if NET6_0_OR_GREATER
@@ -119,23 +119,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.VideoContextVariant3 PickBase64String() => IsBase64String
             ? Base64String!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Base64String' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoContext(global::TwelveLabs.VideoContextVariant1 value) => new VideoContext((global::TwelveLabs.VideoContextVariant1?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.VideoContextVariant1?(VideoContext @this) => @this.Url;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoContext(global::TwelveLabs.VideoContextVariant1? value)
         {
@@ -143,22 +143,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoContext FromUrl(global::TwelveLabs.VideoContextVariant1? value) => new VideoContext(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoContext(global::TwelveLabs.VideoContextVariant2 value) => new VideoContext((global::TwelveLabs.VideoContextVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.VideoContextVariant2?(VideoContext @this) => @this.AssetId;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoContext(global::TwelveLabs.VideoContextVariant2? value)
         {
@@ -166,22 +166,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoContext FromAssetId(global::TwelveLabs.VideoContextVariant2? value) => new VideoContext(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoContext(global::TwelveLabs.VideoContextVariant3 value) => new VideoContext((global::TwelveLabs.VideoContextVariant3?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.VideoContextVariant3?(VideoContext @this) => @this.Base64String;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoContext(global::TwelveLabs.VideoContextVariant3? value)
         {
@@ -189,12 +189,12 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoContext FromBase64String(global::TwelveLabs.VideoContextVariant3? value) => new VideoContext(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoContext(
             global::TwelveLabs.VideoContextDiscriminatorType? type,
@@ -211,25 +211,25 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Base64String as object ??
             AssetId as object ??
-            Url as object 
+            Url as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Url?.ToString() ??
             AssetId?.ToString() ??
-            Base64String?.ToString() 
+            Base64String?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -237,7 +237,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::TwelveLabs.VideoContextVariant1, TResult>? url = null,
@@ -267,7 +267,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::TwelveLabs.VideoContextVariant1>? url = null,
@@ -297,7 +297,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::TwelveLabs.VideoContextVariant1>? url = null,
@@ -325,7 +325,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -348,19 +348,19 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(VideoContext other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.VideoContextVariant1?>.Default.Equals(Url, other.Url) &&
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.VideoContextVariant2?>.Default.Equals(AssetId, other.AssetId) &&
-                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.VideoContextVariant3?>.Default.Equals(Base64String, other.Base64String) 
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.VideoContextVariant3?>.Default.Equals(Base64String, other.Base64String)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(VideoContext obj1, VideoContext obj2)
         {
@@ -368,7 +368,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(VideoContext obj1, VideoContext obj2)
         {
@@ -376,7 +376,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

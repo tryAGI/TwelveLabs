@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum ImageMetadataAssetType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Image,
     }

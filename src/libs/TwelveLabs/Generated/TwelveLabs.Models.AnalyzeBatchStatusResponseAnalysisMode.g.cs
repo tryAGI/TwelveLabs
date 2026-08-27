@@ -9,11 +9,11 @@ namespace TwelveLabs
     public enum AnalyzeBatchStatusResponseAnalysisMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         General,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TimeBasedMetadata,
     }

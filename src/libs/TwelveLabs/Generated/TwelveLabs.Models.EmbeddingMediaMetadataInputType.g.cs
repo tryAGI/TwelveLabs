@@ -4,28 +4,28 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum EmbeddingMediaMetadataInputType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Audio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Image,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MultiInput,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextImage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Video,
     }

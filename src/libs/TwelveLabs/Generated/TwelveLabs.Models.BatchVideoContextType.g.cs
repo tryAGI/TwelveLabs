@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum BatchVideoContextType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AssetId,
     }

@@ -9,15 +9,15 @@ namespace TwelveLabs
     public enum AnalyzeTaskResponseVideoSourceType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AssetId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Base64String,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Url,
     }

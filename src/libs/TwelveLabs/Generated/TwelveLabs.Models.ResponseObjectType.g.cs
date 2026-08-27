@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum ResponseObjectType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Response,
     }

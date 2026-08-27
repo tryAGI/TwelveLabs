@@ -4,20 +4,20 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VideoInputRequestEmbeddingOptionItems
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Audio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Transcription,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Visual,
     }

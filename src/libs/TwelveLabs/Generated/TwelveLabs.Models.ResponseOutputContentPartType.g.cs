@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum ResponseOutputContentPartType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OutputText,
     }

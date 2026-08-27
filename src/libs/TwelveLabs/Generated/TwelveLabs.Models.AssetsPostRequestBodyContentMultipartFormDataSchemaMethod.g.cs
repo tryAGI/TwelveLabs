@@ -9,11 +9,11 @@ namespace TwelveLabs
     public enum AssetsPostRequestBodyContentMultipartFormDataSchemaMethod
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Direct,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Url,
     }

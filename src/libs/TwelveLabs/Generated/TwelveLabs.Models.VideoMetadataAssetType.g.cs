@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum VideoMetadataAssetType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Video,
     }

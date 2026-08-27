@@ -19,7 +19,7 @@ namespace TwelveLabs
     public readonly partial struct StreamAnalyzeResponse : global::System.IEquatable<StreamAnalyzeResponse>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.StreamAnalyzeResponseDiscriminatorEventType? EventType { get; }
 
@@ -33,7 +33,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(StreamStart))]
@@ -41,7 +41,7 @@ namespace TwelveLabs
         public bool IsStreamStart => StreamStart != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickStreamStart(
 #if NET6_0_OR_GREATER
@@ -54,7 +54,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.StreamAnalyzeResponseVariant1 PickStreamStart() => IsStreamStart
             ? StreamStart!
@@ -70,7 +70,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(TextGeneration))]
@@ -78,7 +78,7 @@ namespace TwelveLabs
         public bool IsTextGeneration => TextGeneration != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickTextGeneration(
 #if NET6_0_OR_GREATER
@@ -91,7 +91,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.StreamAnalyzeResponseVariant2 PickTextGeneration() => IsTextGeneration
             ? TextGeneration!
@@ -107,7 +107,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(StreamEnd))]
@@ -115,7 +115,7 @@ namespace TwelveLabs
         public bool IsStreamEnd => StreamEnd != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickStreamEnd(
 #if NET6_0_OR_GREATER
@@ -128,23 +128,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.StreamAnalyzeResponseVariant3 PickStreamEnd() => IsStreamEnd
             ? StreamEnd!
             : throw new global::System.InvalidOperationException($"Expected union variant 'StreamEnd' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator StreamAnalyzeResponse(global::TwelveLabs.StreamAnalyzeResponseVariant1 value) => new StreamAnalyzeResponse((global::TwelveLabs.StreamAnalyzeResponseVariant1?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.StreamAnalyzeResponseVariant1?(StreamAnalyzeResponse @this) => @this.StreamStart;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StreamAnalyzeResponse(global::TwelveLabs.StreamAnalyzeResponseVariant1? value)
         {
@@ -152,22 +152,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static StreamAnalyzeResponse FromStreamStart(global::TwelveLabs.StreamAnalyzeResponseVariant1? value) => new StreamAnalyzeResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator StreamAnalyzeResponse(global::TwelveLabs.StreamAnalyzeResponseVariant2 value) => new StreamAnalyzeResponse((global::TwelveLabs.StreamAnalyzeResponseVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.StreamAnalyzeResponseVariant2?(StreamAnalyzeResponse @this) => @this.TextGeneration;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StreamAnalyzeResponse(global::TwelveLabs.StreamAnalyzeResponseVariant2? value)
         {
@@ -175,22 +175,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static StreamAnalyzeResponse FromTextGeneration(global::TwelveLabs.StreamAnalyzeResponseVariant2? value) => new StreamAnalyzeResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator StreamAnalyzeResponse(global::TwelveLabs.StreamAnalyzeResponseVariant3 value) => new StreamAnalyzeResponse((global::TwelveLabs.StreamAnalyzeResponseVariant3?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.StreamAnalyzeResponseVariant3?(StreamAnalyzeResponse @this) => @this.StreamEnd;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StreamAnalyzeResponse(global::TwelveLabs.StreamAnalyzeResponseVariant3? value)
         {
@@ -198,12 +198,12 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static StreamAnalyzeResponse FromStreamEnd(global::TwelveLabs.StreamAnalyzeResponseVariant3? value) => new StreamAnalyzeResponse(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StreamAnalyzeResponse(
             global::TwelveLabs.StreamAnalyzeResponseDiscriminatorEventType? eventType,
@@ -220,25 +220,25 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             StreamEnd as object ??
             TextGeneration as object ??
-            StreamStart as object 
+            StreamStart as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             StreamStart?.ToString() ??
             TextGeneration?.ToString() ??
-            StreamEnd?.ToString() 
+            StreamEnd?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -246,7 +246,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::TwelveLabs.StreamAnalyzeResponseVariant1, TResult>? streamStart = null,
@@ -276,7 +276,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::TwelveLabs.StreamAnalyzeResponseVariant1>? streamStart = null,
@@ -306,7 +306,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::TwelveLabs.StreamAnalyzeResponseVariant1>? streamStart = null,
@@ -334,7 +334,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -357,19 +357,19 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(StreamAnalyzeResponse other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.StreamAnalyzeResponseVariant1?>.Default.Equals(StreamStart, other.StreamStart) &&
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.StreamAnalyzeResponseVariant2?>.Default.Equals(TextGeneration, other.TextGeneration) &&
-                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.StreamAnalyzeResponseVariant3?>.Default.Equals(StreamEnd, other.StreamEnd) 
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.StreamAnalyzeResponseVariant3?>.Default.Equals(StreamEnd, other.StreamEnd)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(StreamAnalyzeResponse obj1, StreamAnalyzeResponse obj2)
         {
@@ -377,7 +377,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(StreamAnalyzeResponse obj1, StreamAnalyzeResponse obj2)
         {
@@ -385,7 +385,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

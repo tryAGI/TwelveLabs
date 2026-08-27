@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum ResponseInputItemType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Message,
     }

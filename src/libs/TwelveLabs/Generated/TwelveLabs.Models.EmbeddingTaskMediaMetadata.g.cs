@@ -19,7 +19,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EmbeddingTaskMediaMetadataVariant1))]
@@ -27,7 +27,7 @@ namespace TwelveLabs
         public bool IsEmbeddingTaskMediaMetadataVariant1 => EmbeddingTaskMediaMetadataVariant1 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEmbeddingTaskMediaMetadataVariant1(
 #if NET6_0_OR_GREATER
@@ -40,7 +40,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1 PickEmbeddingTaskMediaMetadataVariant1() => IsEmbeddingTaskMediaMetadataVariant1
             ? EmbeddingTaskMediaMetadataVariant1!
@@ -56,7 +56,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(EmbeddingTaskMediaMetadataVariant2))]
@@ -64,7 +64,7 @@ namespace TwelveLabs
         public bool IsEmbeddingTaskMediaMetadataVariant2 => EmbeddingTaskMediaMetadataVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEmbeddingTaskMediaMetadataVariant2(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2 PickEmbeddingTaskMediaMetadataVariant2() => IsEmbeddingTaskMediaMetadataVariant2
             ? EmbeddingTaskMediaMetadataVariant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingTaskMediaMetadataVariant2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator EmbeddingTaskMediaMetadata(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1 value) => new EmbeddingTaskMediaMetadata((global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1?(EmbeddingTaskMediaMetadata @this) => @this.EmbeddingTaskMediaMetadataVariant1;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EmbeddingTaskMediaMetadata(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1? value)
         {
@@ -101,22 +101,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static EmbeddingTaskMediaMetadata FromEmbeddingTaskMediaMetadataVariant1(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1? value) => new EmbeddingTaskMediaMetadata(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator EmbeddingTaskMediaMetadata(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2 value) => new EmbeddingTaskMediaMetadata((global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2?(EmbeddingTaskMediaMetadata @this) => @this.EmbeddingTaskMediaMetadataVariant2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EmbeddingTaskMediaMetadata(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2? value)
         {
@@ -124,12 +124,12 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static EmbeddingTaskMediaMetadata FromEmbeddingTaskMediaMetadataVariant2(global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2? value) => new EmbeddingTaskMediaMetadata(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EmbeddingTaskMediaMetadata(
             global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1? embeddingTaskMediaMetadataVariant1,
@@ -141,23 +141,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             EmbeddingTaskMediaMetadataVariant2 as object ??
-            EmbeddingTaskMediaMetadataVariant1 as object 
+            EmbeddingTaskMediaMetadataVariant1 as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             EmbeddingTaskMediaMetadataVariant1?.ToString() ??
-            EmbeddingTaskMediaMetadataVariant2?.ToString() 
+            EmbeddingTaskMediaMetadataVariant2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1, TResult>? embeddingTaskMediaMetadataVariant1 = null,
@@ -190,7 +190,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1>? embeddingTaskMediaMetadataVariant1 = null,
@@ -214,7 +214,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1>? embeddingTaskMediaMetadataVariant1 = null,
@@ -237,7 +237,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(EmbeddingTaskMediaMetadata other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant1?>.Default.Equals(EmbeddingTaskMediaMetadataVariant1, other.EmbeddingTaskMediaMetadataVariant1) &&
-                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2?>.Default.Equals(EmbeddingTaskMediaMetadataVariant2, other.EmbeddingTaskMediaMetadataVariant2) 
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.EmbeddingTaskMediaMetadataVariant2?>.Default.Equals(EmbeddingTaskMediaMetadataVariant2, other.EmbeddingTaskMediaMetadataVariant2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(EmbeddingTaskMediaMetadata obj1, EmbeddingTaskMediaMetadata obj2)
         {
@@ -277,7 +277,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(EmbeddingTaskMediaMetadata obj1, EmbeddingTaskMediaMetadata obj2)
         {
@@ -285,7 +285,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

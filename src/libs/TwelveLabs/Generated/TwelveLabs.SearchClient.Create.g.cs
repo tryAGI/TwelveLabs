@@ -181,7 +181,7 @@ namespace TwelveLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
@@ -607,7 +607,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // If the rate limit is reached, the platform returns an `HTTP 429 - Too many requests` error response. The response body is empty. 
+                            // If the rate limit is reached, the platform returns an `HTTP 429 - Too many requests` error response. The response body is empty.
                             if ((int)__response.StatusCode == 429)
                             {
                                 string? __content_429 = null;

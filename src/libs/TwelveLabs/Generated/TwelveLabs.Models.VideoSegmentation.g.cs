@@ -12,7 +12,7 @@ namespace TwelveLabs
     public readonly partial struct VideoSegmentation : global::System.IEquatable<VideoSegmentation>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.VideoSegmentationDiscriminatorStrategy? Strategy { get; }
 
@@ -26,7 +26,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Dynamic))]
@@ -34,7 +34,7 @@ namespace TwelveLabs
         public bool IsDynamic => Dynamic != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDynamic(
 #if NET6_0_OR_GREATER
@@ -47,7 +47,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.VideoSegmentationVariant1 PickDynamic() => IsDynamic
             ? Dynamic!
@@ -63,7 +63,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Fixed))]
@@ -71,7 +71,7 @@ namespace TwelveLabs
         public bool IsFixed => Fixed != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickFixed(
 #if NET6_0_OR_GREATER
@@ -84,23 +84,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.VideoSegmentationVariant2 PickFixed() => IsFixed
             ? Fixed!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Fixed' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoSegmentation(global::TwelveLabs.VideoSegmentationVariant1 value) => new VideoSegmentation((global::TwelveLabs.VideoSegmentationVariant1?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.VideoSegmentationVariant1?(VideoSegmentation @this) => @this.Dynamic;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoSegmentation(global::TwelveLabs.VideoSegmentationVariant1? value)
         {
@@ -108,22 +108,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoSegmentation FromDynamic(global::TwelveLabs.VideoSegmentationVariant1? value) => new VideoSegmentation(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoSegmentation(global::TwelveLabs.VideoSegmentationVariant2 value) => new VideoSegmentation((global::TwelveLabs.VideoSegmentationVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.VideoSegmentationVariant2?(VideoSegmentation @this) => @this.Fixed;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoSegmentation(global::TwelveLabs.VideoSegmentationVariant2? value)
         {
@@ -131,12 +131,12 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoSegmentation FromFixed(global::TwelveLabs.VideoSegmentationVariant2? value) => new VideoSegmentation(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoSegmentation(
             global::TwelveLabs.VideoSegmentationDiscriminatorStrategy? strategy,
@@ -151,23 +151,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Fixed as object ??
-            Dynamic as object 
+            Dynamic as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Dynamic?.ToString() ??
-            Fixed?.ToString() 
+            Fixed?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -175,7 +175,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::TwelveLabs.VideoSegmentationVariant1, TResult>? dynamic = null,
@@ -200,7 +200,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::TwelveLabs.VideoSegmentationVariant1>? dynamic = null,
@@ -224,7 +224,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::TwelveLabs.VideoSegmentationVariant1>? dynamic = null,
@@ -247,7 +247,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -268,18 +268,18 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(VideoSegmentation other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.VideoSegmentationVariant1?>.Default.Equals(Dynamic, other.Dynamic) &&
-                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.VideoSegmentationVariant2?>.Default.Equals(Fixed, other.Fixed) 
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.VideoSegmentationVariant2?>.Default.Equals(Fixed, other.Fixed)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(VideoSegmentation obj1, VideoSegmentation obj2)
         {
@@ -287,7 +287,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(VideoSegmentation obj1, VideoSegmentation obj2)
         {
@@ -295,7 +295,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

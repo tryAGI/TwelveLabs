@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Image,
     }

@@ -4,20 +4,20 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Audio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Transcription,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Visual,
     }

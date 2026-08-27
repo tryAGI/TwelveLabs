@@ -4,20 +4,20 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum StreamAnalyzeResponseDiscriminatorEventType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StreamEnd,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         StreamStart,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextGeneration,
     }

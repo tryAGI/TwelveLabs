@@ -4,12 +4,12 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum EmbeddingMultiInputMetadataInputType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MultiInput,
     }

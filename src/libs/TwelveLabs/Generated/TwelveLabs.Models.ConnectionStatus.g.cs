@@ -9,15 +9,15 @@ namespace TwelveLabs
     public enum ConnectionStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Active,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Expired,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Revoked,
     }

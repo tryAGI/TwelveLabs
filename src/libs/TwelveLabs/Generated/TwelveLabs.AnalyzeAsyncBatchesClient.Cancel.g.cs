@@ -150,7 +150,7 @@ namespace TwelveLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
@@ -383,7 +383,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // The batch already reached a terminal state and cannot be canceled. The error code indicates which terminal state: `batch_completed` (status `completed`), `batch_canceled` (status `canceled`), or `batch_expired` (status `expired`). 
+                            // The batch already reached a terminal state and cannot be canceled. The error code indicates which terminal state: `batch_completed` (status `completed`), `batch_canceled` (status `canceled`), or `batch_expired` (status `expired`).
                             if ((int)__response.StatusCode == 409)
                             {
                                 string? __content_409 = null;

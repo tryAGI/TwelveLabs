@@ -165,7 +165,7 @@ namespace TwelveLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
@@ -442,7 +442,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // The page token has expired. Page tokens are valid for a limited time; make a new search request to obtain a fresh first page and a new token. 
+                            // The page token has expired. Page tokens are valid for a limited time; make a new search request to obtain a fresh first page and a new token.
                             if ((int)__response.StatusCode == 410)
                             {
                                 string? __content_410 = null;
@@ -479,7 +479,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // If the rate limit is reached, the platform returns an `HTTP 429 - Too many requests` error response. The response body is empty. 
+                            // If the rate limit is reached, the platform returns an `HTTP 429 - Too many requests` error response. The response body is empty.
                             if ((int)__response.StatusCode == 429)
                             {
                                 string? __content_429 = null;

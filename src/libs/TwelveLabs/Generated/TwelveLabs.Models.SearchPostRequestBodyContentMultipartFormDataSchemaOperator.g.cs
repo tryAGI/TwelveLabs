@@ -11,7 +11,7 @@ namespace TwelveLabs
     public enum SearchPostRequestBodyContentMultipartFormDataSchemaOperator
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         And,
         /// <summary>

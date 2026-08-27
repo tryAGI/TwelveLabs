@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CreateAssetUploadResponse
     {
@@ -34,7 +34,7 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IList<global::TwelveLabs.PresignedURLChunk>? UploadUrls { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("upload_headers")]
         public global::System.Collections.Generic.Dictionary<string, string>? UploadHeaders { get; set; }

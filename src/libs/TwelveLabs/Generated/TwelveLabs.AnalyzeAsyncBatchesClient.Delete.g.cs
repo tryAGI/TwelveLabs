@@ -141,7 +141,7 @@ namespace TwelveLabs
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
 
                 __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
@@ -374,7 +374,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // The batch is still in a non-terminal state (`pending`, `processing`, or `canceling`) and cannot be deleted (error code `batch_not_terminal`). Cancel the batch and wait for it to reach a terminal state (`canceled`, `completed`, or `expired`) before deleting. 
+                            // The batch is still in a non-terminal state (`pending`, `processing`, or `canceling`) and cannot be deleted (error code `batch_not_terminal`). Cancel the batch and wait for it to reach a terminal state (`canceled`, `completed`, or `expired`) before deleting.
                             if ((int)__response.StatusCode == 409)
                             {
                                 string? __content_409 = null;

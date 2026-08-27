@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DeleteConnectionRequestBadRequestError
     {

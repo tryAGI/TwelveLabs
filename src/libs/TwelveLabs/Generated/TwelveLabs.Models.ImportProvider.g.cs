@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum ImportProvider
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GoogleDrive,
     }

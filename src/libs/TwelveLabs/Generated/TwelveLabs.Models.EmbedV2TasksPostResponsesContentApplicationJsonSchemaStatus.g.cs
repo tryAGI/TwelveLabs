@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum EmbedV2TasksPostResponsesContentApplicationJsonSchemaStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Processing,
     }

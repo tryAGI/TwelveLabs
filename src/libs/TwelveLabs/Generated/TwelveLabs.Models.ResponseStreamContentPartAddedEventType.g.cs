@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum ResponseStreamContentPartAddedEventType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseContentPartAdded,
     }

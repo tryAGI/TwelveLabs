@@ -4,16 +4,16 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum EmbedTasksPostRequestBodyContentMultipartFormDataSchemaVideoEmbeddingScopeItems
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Clip,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Video,
     }

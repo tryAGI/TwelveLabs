@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum ResponseOutputItemRole
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Assistant,
     }

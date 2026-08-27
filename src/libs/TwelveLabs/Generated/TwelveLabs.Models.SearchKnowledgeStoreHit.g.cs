@@ -10,7 +10,7 @@ namespace TwelveLabs
     public readonly partial struct SearchKnowledgeStoreHit : global::System.IEquatable<SearchKnowledgeStoreHit>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.SearchKnowledgeStoreHitDiscriminatorAssetType? AssetType { get; }
 
@@ -24,7 +24,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Video))]
@@ -32,7 +32,7 @@ namespace TwelveLabs
         public bool IsVideo => Video != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVideo(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.SearchKnowledgeStoreHitVariant1 PickVideo() => IsVideo
             ? Video!
@@ -61,7 +61,7 @@ namespace TwelveLabs
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Image))]
@@ -69,7 +69,7 @@ namespace TwelveLabs
         public bool IsImage => Image != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickImage(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::TwelveLabs.SearchKnowledgeStoreHitVariant2 PickImage() => IsImage
             ? Image!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Image' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator SearchKnowledgeStoreHit(global::TwelveLabs.SearchKnowledgeStoreHitVariant1 value) => new SearchKnowledgeStoreHit((global::TwelveLabs.SearchKnowledgeStoreHitVariant1?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.SearchKnowledgeStoreHitVariant1?(SearchKnowledgeStoreHit @this) => @this.Video;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SearchKnowledgeStoreHit(global::TwelveLabs.SearchKnowledgeStoreHitVariant1? value)
         {
@@ -106,22 +106,22 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static SearchKnowledgeStoreHit FromVideo(global::TwelveLabs.SearchKnowledgeStoreHitVariant1? value) => new SearchKnowledgeStoreHit(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator SearchKnowledgeStoreHit(global::TwelveLabs.SearchKnowledgeStoreHitVariant2 value) => new SearchKnowledgeStoreHit((global::TwelveLabs.SearchKnowledgeStoreHitVariant2?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::TwelveLabs.SearchKnowledgeStoreHitVariant2?(SearchKnowledgeStoreHit @this) => @this.Image;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SearchKnowledgeStoreHit(global::TwelveLabs.SearchKnowledgeStoreHitVariant2? value)
         {
@@ -129,12 +129,12 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static SearchKnowledgeStoreHit FromImage(global::TwelveLabs.SearchKnowledgeStoreHitVariant2? value) => new SearchKnowledgeStoreHit(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SearchKnowledgeStoreHit(
             global::TwelveLabs.SearchKnowledgeStoreHitDiscriminatorAssetType? assetType,
@@ -149,23 +149,23 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Image as object ??
-            Video as object 
+            Video as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Video?.ToString() ??
-            Image?.ToString() 
+            Image?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::TwelveLabs.SearchKnowledgeStoreHitVariant1, TResult>? video = null,
@@ -198,7 +198,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::TwelveLabs.SearchKnowledgeStoreHitVariant1>? video = null,
@@ -222,7 +222,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::TwelveLabs.SearchKnowledgeStoreHitVariant1>? video = null,
@@ -245,7 +245,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(SearchKnowledgeStoreHit other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.SearchKnowledgeStoreHitVariant1?>.Default.Equals(Video, other.Video) &&
-                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.SearchKnowledgeStoreHitVariant2?>.Default.Equals(Image, other.Image) 
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.SearchKnowledgeStoreHitVariant2?>.Default.Equals(Image, other.Image)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(SearchKnowledgeStoreHit obj1, SearchKnowledgeStoreHit obj2)
         {
@@ -285,7 +285,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(SearchKnowledgeStoreHit obj1, SearchKnowledgeStoreHit obj2)
         {
@@ -293,7 +293,7 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

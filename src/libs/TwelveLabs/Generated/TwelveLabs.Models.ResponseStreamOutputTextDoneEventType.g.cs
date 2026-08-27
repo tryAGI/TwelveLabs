@@ -9,7 +9,7 @@ namespace TwelveLabs
     public enum ResponseStreamOutputTextDoneEventType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResponseOutputTextDone,
     }
