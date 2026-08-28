@@ -41,7 +41,9 @@ namespace TwelveLabs
         public int? ContentIndex { get; set; }
 
         /// <summary>
-        /// A content part within a message output item.
+        /// The content part when it starts. No text has been generated yet, so the<br/>
+        /// `annotations` array is empty. This does not mean the content has no<br/>
+        /// citations. You receive them on the `response.content_part.done` event.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("part")]
         public global::TwelveLabs.ResponseOutputContentPart? Part { get; set; }
@@ -71,7 +73,9 @@ namespace TwelveLabs
         /// The index of the content part within the item.
         /// </param>
         /// <param name="part">
-        /// A content part within a message output item.
+        /// The content part when it starts. No text has been generated yet, so the<br/>
+        /// `annotations` array is empty. This does not mean the content has no<br/>
+        /// citations. You receive them on the `response.content_part.done` event.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

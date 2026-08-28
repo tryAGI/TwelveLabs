@@ -41,7 +41,9 @@ namespace TwelveLabs
         public int? ContentIndex { get; set; }
 
         /// <summary>
-        /// A content part within a message output item.
+        /// The completed content part. The `annotations` array is populated.<br/>
+        /// Citations do not stream in with the text. You receive all of them on this<br/>
+        /// event, when the content part is complete.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("part")]
         public global::TwelveLabs.ResponseOutputContentPart? Part { get; set; }
@@ -71,7 +73,9 @@ namespace TwelveLabs
         /// The index of the content part.
         /// </param>
         /// <param name="part">
-        /// A content part within a message output item.
+        /// The completed content part. The `annotations` array is populated.<br/>
+        /// Citations do not stream in with the text. You receive all of them on this<br/>
+        /// event, when the content part is complete.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
