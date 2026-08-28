@@ -50,7 +50,9 @@ namespace TwelveLabs
         /// {<br/>
         ///   "id": "resp_019f4f2a-b69e-7812-b20f-6ea6d644ceff",<br/>
         ///   "type": "response",<br/>
+        ///   "object": "response",<br/>
         ///   "status": "completed",<br/>
+        ///   "incomplete_details": null,<br/>
         ///   "session_id": "sess_019f4f2a-b69b-7a01-9018-cc51681121ea",<br/>
         ///   "knowledge_store_id": "ks_019ebcf4-7e08-7201-b69c-69e0c1e6ae56",<br/>
         ///   "output": [<br/>
@@ -59,10 +61,24 @@ namespace TwelveLabs
         ///       "id": "msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0",<br/>
         ///       "status": "completed",<br/>
         ///       "role": "assistant",<br/>
+        ///       "phase": "final_answer",<br/>
         ///       "content": [<br/>
         ///         {<br/>
         ///           "type": "output_text",<br/>
-        ///           "text": "The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [00:00-00:09]."<br/>
+        ///           "text": "The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [1].",<br/>
+        ///           "annotations": [<br/>
+        ///             {<br/>
+        ///               "type": "video_citation",<br/>
+        ///               "start_index": 211,<br/>
+        ///               "end_index": 213,<br/>
+        ///               "item_id": "ksi_069e9870-3c4d-7abc-9012-3456789abcde",<br/>
+        ///               "start_sec": 0.0,<br/>
+        ///               "end_sec": 9.0,<br/>
+        ///               "title": "Super Bowl LVIII sideline",<br/>
+        ///               "thumbnail_url": "https://example.com/thumbnail.jpg",<br/>
+        ///               "hls_url": "https://example.com/stream.m3u8"<br/>
+        ///             }<br/>
+        ///           ]<br/>
         ///         }<br/>
         ///       ]<br/>
         ///     }<br/>
@@ -78,17 +94,21 @@ namespace TwelveLabs
         /// &lt;Accordion title="Example streamed response (SSE)"&gt;<br/>
         /// ```<br/>
         /// event: response.created<br/>
-        /// data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_019f4f2a-b69e-7812-b20f-6ea6d644ceff","type":"response","status":"in_progress","output":[],"session_id":"sess_019f4f2a-b69b-7a01-9018-cc51681121ea","knowledge_store_id":"ks_019ebcf4-7e08-7201-b69c-69e0c1e6ae56","created_at":"2026-07-11T03:13:47Z"}}<br/>
+        /// data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_019f4f2a-b69e-7812-b20f-6ea6d644ceff","type":"response","object":"response","status":"in_progress","incomplete_details":null,"output":[],"session_id":"sess_019f4f2a-b69b-7a01-9018-cc51681121ea","knowledge_store_id":"ks_019ebcf4-7e08-7201-b69c-69e0c1e6ae56","created_at":"2026-07-11T03:13:47Z"}}<br/>
         /// event: response.output_item.added<br/>
-        /// data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"type":"message","id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","status":"in_progress","role":"assistant","content":[{"type":"output_text","text":""}]}}<br/>
+        /// data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"type":"message","id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","status":"in_progress","role":"assistant","phase":"final_answer","content":[{"type":"output_text","text":"","annotations":[]}]}}<br/>
+        /// event: response.content_part.added<br/>
+        /// data: {"type":"response.content_part.added","sequence_number":3,"item_id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","output_index":0,"content_index":0,"part":{"type":"output_text","text":"","annotations":[]}}<br/>
         /// event: response.output_text.delta<br/>
         /// data: {"type":"response.output_text.delta","sequence_number":4,"item_id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","output_index":0,"content_index":0,"delta":"The video captures a heated sideline moment"}<br/>
         /// event: response.output_text.delta<br/>
         /// data: {"type":"response.output_text.delta","sequence_number":5,"item_id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","output_index":0,"content_index":0,"delta":" during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid."}<br/>
         /// event: response.output_text.done<br/>
-        /// data: {"type":"response.output_text.done","sequence_number":124,"item_id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","output_index":0,"content_index":0,"text":"The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [00:00-00:09]."}<br/>
+        /// data: {"type":"response.output_text.done","sequence_number":124,"item_id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","output_index":0,"content_index":0,"text":"The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [1]."}<br/>
+        /// event: response.content_part.done<br/>
+        /// data: {"type":"response.content_part.done","sequence_number":125,"item_id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","output_index":0,"content_index":0,"part":{"type":"output_text","text":"The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [1].","annotations":[{"type":"video_citation","start_index":211,"end_index":213,"item_id":"ksi_069e9870-3c4d-7abc-9012-3456789abcde","start_sec":0.0,"end_sec":9.0,"title":"Super Bowl LVIII sideline","thumbnail_url":"https://example.com/thumbnail.jpg","hls_url":"https://example.com/stream.m3u8"}]}}<br/>
         /// event: response.completed<br/>
-        /// data: {"type":"response.completed","sequence_number":127,"response":{"id":"resp_019f4f2a-b69e-7812-b20f-6ea6d644ceff","type":"response","status":"completed","output":[{"type":"message","id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","status":"completed","role":"assistant","content":[{"type":"output_text","text":"The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [00:00-00:09]."}]}],"usage":{"input_tokens":12625,"output_tokens":289},"session_id":"sess_019f4f2a-b69b-7a01-9018-cc51681121ea","knowledge_store_id":"ks_019ebcf4-7e08-7201-b69c-69e0c1e6ae56","created_at":"2026-07-11T03:13:57Z"}}<br/>
+        /// data: {"type":"response.completed","sequence_number":127,"response":{"id":"resp_019f4f2a-b69e-7812-b20f-6ea6d644ceff","type":"response","object":"response","status":"completed","incomplete_details":null,"output":[{"type":"message","id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","status":"completed","role":"assistant","phase":"final_answer","content":[{"type":"output_text","text":"The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [1].","annotations":[{"type":"video_citation","start_index":211,"end_index":213,"item_id":"ksi_069e9870-3c4d-7abc-9012-3456789abcde","start_sec":0.0,"end_sec":9.0,"title":"Super Bowl LVIII sideline","thumbnail_url":"https://example.com/thumbnail.jpg","hls_url":"https://example.com/stream.m3u8"}]}]}],"usage":{"input_tokens":12625,"output_tokens":289},"session_id":"sess_019f4f2a-b69b-7a01-9018-cc51681121ea","knowledge_store_id":"ks_019ebcf4-7e08-7201-b69c-69e0c1e6ae56","created_at":"2026-07-11T03:13:57Z"}}<br/>
         /// data: [DONE]<br/>
         /// ```<br/>
         /// &lt;/Accordion&gt;
@@ -448,7 +468,9 @@ namespace TwelveLabs
         /// {<br/>
         ///   "id": "resp_019f4f2a-b69e-7812-b20f-6ea6d644ceff",<br/>
         ///   "type": "response",<br/>
+        ///   "object": "response",<br/>
         ///   "status": "completed",<br/>
+        ///   "incomplete_details": null,<br/>
         ///   "session_id": "sess_019f4f2a-b69b-7a01-9018-cc51681121ea",<br/>
         ///   "knowledge_store_id": "ks_019ebcf4-7e08-7201-b69c-69e0c1e6ae56",<br/>
         ///   "output": [<br/>
@@ -457,10 +479,24 @@ namespace TwelveLabs
         ///       "id": "msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0",<br/>
         ///       "status": "completed",<br/>
         ///       "role": "assistant",<br/>
+        ///       "phase": "final_answer",<br/>
         ///       "content": [<br/>
         ///         {<br/>
         ///           "type": "output_text",<br/>
-        ///           "text": "The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [00:00-00:09]."<br/>
+        ///           "text": "The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [1].",<br/>
+        ///           "annotations": [<br/>
+        ///             {<br/>
+        ///               "type": "video_citation",<br/>
+        ///               "start_index": 211,<br/>
+        ///               "end_index": 213,<br/>
+        ///               "item_id": "ksi_069e9870-3c4d-7abc-9012-3456789abcde",<br/>
+        ///               "start_sec": 0.0,<br/>
+        ///               "end_sec": 9.0,<br/>
+        ///               "title": "Super Bowl LVIII sideline",<br/>
+        ///               "thumbnail_url": "https://example.com/thumbnail.jpg",<br/>
+        ///               "hls_url": "https://example.com/stream.m3u8"<br/>
+        ///             }<br/>
+        ///           ]<br/>
         ///         }<br/>
         ///       ]<br/>
         ///     }<br/>
@@ -476,17 +512,21 @@ namespace TwelveLabs
         /// &lt;Accordion title="Example streamed response (SSE)"&gt;<br/>
         /// ```<br/>
         /// event: response.created<br/>
-        /// data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_019f4f2a-b69e-7812-b20f-6ea6d644ceff","type":"response","status":"in_progress","output":[],"session_id":"sess_019f4f2a-b69b-7a01-9018-cc51681121ea","knowledge_store_id":"ks_019ebcf4-7e08-7201-b69c-69e0c1e6ae56","created_at":"2026-07-11T03:13:47Z"}}<br/>
+        /// data: {"type":"response.created","sequence_number":0,"response":{"id":"resp_019f4f2a-b69e-7812-b20f-6ea6d644ceff","type":"response","object":"response","status":"in_progress","incomplete_details":null,"output":[],"session_id":"sess_019f4f2a-b69b-7a01-9018-cc51681121ea","knowledge_store_id":"ks_019ebcf4-7e08-7201-b69c-69e0c1e6ae56","created_at":"2026-07-11T03:13:47Z"}}<br/>
         /// event: response.output_item.added<br/>
-        /// data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"type":"message","id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","status":"in_progress","role":"assistant","content":[{"type":"output_text","text":""}]}}<br/>
+        /// data: {"type":"response.output_item.added","sequence_number":2,"output_index":0,"item":{"type":"message","id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","status":"in_progress","role":"assistant","phase":"final_answer","content":[{"type":"output_text","text":"","annotations":[]}]}}<br/>
+        /// event: response.content_part.added<br/>
+        /// data: {"type":"response.content_part.added","sequence_number":3,"item_id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","output_index":0,"content_index":0,"part":{"type":"output_text","text":"","annotations":[]}}<br/>
         /// event: response.output_text.delta<br/>
         /// data: {"type":"response.output_text.delta","sequence_number":4,"item_id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","output_index":0,"content_index":0,"delta":"The video captures a heated sideline moment"}<br/>
         /// event: response.output_text.delta<br/>
         /// data: {"type":"response.output_text.delta","sequence_number":5,"item_id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","output_index":0,"content_index":0,"delta":" during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid."}<br/>
         /// event: response.output_text.done<br/>
-        /// data: {"type":"response.output_text.done","sequence_number":124,"item_id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","output_index":0,"content_index":0,"text":"The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [00:00-00:09]."}<br/>
+        /// data: {"type":"response.output_text.done","sequence_number":124,"item_id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","output_index":0,"content_index":0,"text":"The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [1]."}<br/>
+        /// event: response.content_part.done<br/>
+        /// data: {"type":"response.content_part.done","sequence_number":125,"item_id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","output_index":0,"content_index":0,"part":{"type":"output_text","text":"The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [1].","annotations":[{"type":"video_citation","start_index":211,"end_index":213,"item_id":"ksi_069e9870-3c4d-7abc-9012-3456789abcde","start_sec":0.0,"end_sec":9.0,"title":"Super Bowl LVIII sideline","thumbnail_url":"https://example.com/thumbnail.jpg","hls_url":"https://example.com/stream.m3u8"}]}}<br/>
         /// event: response.completed<br/>
-        /// data: {"type":"response.completed","sequence_number":127,"response":{"id":"resp_019f4f2a-b69e-7812-b20f-6ea6d644ceff","type":"response","status":"completed","output":[{"type":"message","id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","status":"completed","role":"assistant","content":[{"type":"output_text","text":"The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [00:00-00:09]."}]}],"usage":{"input_tokens":12625,"output_tokens":289},"session_id":"sess_019f4f2a-b69b-7a01-9018-cc51681121ea","knowledge_store_id":"ks_019ebcf4-7e08-7201-b69c-69e0c1e6ae56","created_at":"2026-07-11T03:13:57Z"}}<br/>
+        /// data: {"type":"response.completed","sequence_number":127,"response":{"id":"resp_019f4f2a-b69e-7812-b20f-6ea6d644ceff","type":"response","object":"response","status":"completed","incomplete_details":null,"output":[{"type":"message","id":"msg_sess_019f4f2a-b69b-7a01-9018-cc51681121ea_0","status":"completed","role":"assistant","phase":"final_answer","content":[{"type":"output_text","text":"The video captures a heated sideline moment during Super Bowl LVIII: after a fumble, Travis Kelce approaches head coach Andy Reid, visibly frustrated, and briefly bumps him before being restrained by a teammate [1].","annotations":[{"type":"video_citation","start_index":211,"end_index":213,"item_id":"ksi_069e9870-3c4d-7abc-9012-3456789abcde","start_sec":0.0,"end_sec":9.0,"title":"Super Bowl LVIII sideline","thumbnail_url":"https://example.com/thumbnail.jpg","hls_url":"https://example.com/stream.m3u8"}]}]}],"usage":{"input_tokens":12625,"output_tokens":289},"session_id":"sess_019f4f2a-b69b-7a01-9018-cc51681121ea","knowledge_store_id":"ks_019ebcf4-7e08-7201-b69c-69e0c1e6ae56","created_at":"2026-07-11T03:13:57Z"}}<br/>
         /// data: [DONE]<br/>
         /// ```<br/>
         /// &lt;/Accordion&gt;

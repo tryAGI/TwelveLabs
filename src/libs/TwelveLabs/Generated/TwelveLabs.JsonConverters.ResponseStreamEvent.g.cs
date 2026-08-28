@@ -38,7 +38,9 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("response")) __score0++;
             if (__jsonProps.Contains("response.created_at")) __score0++;
             if (__jsonProps.Contains("response.id")) __score0++;
+            if (__jsonProps.Contains("response.incomplete_details")) __score0++;
             if (__jsonProps.Contains("response.knowledge_store_id")) __score0++;
+            if (__jsonProps.Contains("response.object")) __score0++;
             if (__jsonProps.Contains("response.output")) __score0++;
             if (__jsonProps.Contains("response.session_id")) __score0++;
             if (__jsonProps.Contains("response.status")) __score0++;
@@ -50,7 +52,9 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("response")) __score1++;
             if (__jsonProps.Contains("response.created_at")) __score1++;
             if (__jsonProps.Contains("response.id")) __score1++;
+            if (__jsonProps.Contains("response.incomplete_details")) __score1++;
             if (__jsonProps.Contains("response.knowledge_store_id")) __score1++;
+            if (__jsonProps.Contains("response.object")) __score1++;
             if (__jsonProps.Contains("response.output")) __score1++;
             if (__jsonProps.Contains("response.session_id")) __score1++;
             if (__jsonProps.Contains("response.status")) __score1++;
@@ -62,7 +66,9 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("response")) __score2++;
             if (__jsonProps.Contains("response.created_at")) __score2++;
             if (__jsonProps.Contains("response.id")) __score2++;
+            if (__jsonProps.Contains("response.incomplete_details")) __score2++;
             if (__jsonProps.Contains("response.knowledge_store_id")) __score2++;
+            if (__jsonProps.Contains("response.object")) __score2++;
             if (__jsonProps.Contains("response.output")) __score2++;
             if (__jsonProps.Contains("response.session_id")) __score2++;
             if (__jsonProps.Contains("response.status")) __score2++;
@@ -74,7 +80,9 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("response")) __score3++;
             if (__jsonProps.Contains("response.created_at")) __score3++;
             if (__jsonProps.Contains("response.id")) __score3++;
+            if (__jsonProps.Contains("response.incomplete_details")) __score3++;
             if (__jsonProps.Contains("response.knowledge_store_id")) __score3++;
+            if (__jsonProps.Contains("response.object")) __score3++;
             if (__jsonProps.Contains("response.output")) __score3++;
             if (__jsonProps.Contains("response.session_id")) __score3++;
             if (__jsonProps.Contains("response.status")) __score3++;
@@ -90,6 +98,7 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("item.id")) __score4++;
             if (__jsonProps.Contains("item.name")) __score4++;
             if (__jsonProps.Contains("item.output")) __score4++;
+            if (__jsonProps.Contains("item.phase")) __score4++;
             if (__jsonProps.Contains("item.role")) __score4++;
             if (__jsonProps.Contains("item.status")) __score4++;
             if (__jsonProps.Contains("item.type")) __score4++;
@@ -101,6 +110,7 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("item_id")) __score5++;
             if (__jsonProps.Contains("output_index")) __score5++;
             if (__jsonProps.Contains("part")) __score5++;
+            if (__jsonProps.Contains("part.annotations")) __score5++;
             if (__jsonProps.Contains("part.text")) __score5++;
             if (__jsonProps.Contains("part.type")) __score5++;
             if (__jsonProps.Contains("sequence_number")) __score5++;
@@ -124,6 +134,7 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("item_id")) __score8++;
             if (__jsonProps.Contains("output_index")) __score8++;
             if (__jsonProps.Contains("part")) __score8++;
+            if (__jsonProps.Contains("part.annotations")) __score8++;
             if (__jsonProps.Contains("part.text")) __score8++;
             if (__jsonProps.Contains("part.type")) __score8++;
             if (__jsonProps.Contains("sequence_number")) __score8++;
@@ -136,6 +147,7 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("item.id")) __score9++;
             if (__jsonProps.Contains("item.name")) __score9++;
             if (__jsonProps.Contains("item.output")) __score9++;
+            if (__jsonProps.Contains("item.phase")) __score9++;
             if (__jsonProps.Contains("item.role")) __score9++;
             if (__jsonProps.Contains("item.status")) __score9++;
             if (__jsonProps.Contains("item.type")) __score9++;
