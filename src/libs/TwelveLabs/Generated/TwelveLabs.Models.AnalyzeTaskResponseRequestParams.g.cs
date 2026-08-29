@@ -29,15 +29,13 @@ namespace TwelveLabs
         /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results): Returns the full text.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt_v2")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2, object>))]
-        public global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2, object>? PromptV2 { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2? PromptV2 { get; set; }
 
         /// <summary>
         /// The response format for this task. Present only when the request included a response format.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormat, object>))]
-        public global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormat, object>? ResponseFormat { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
         /// The temperature value for this analysis.
@@ -124,8 +122,8 @@ namespace TwelveLabs
         public AnalyzeTaskResponseRequestParams(
             global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisMode? analysisMode,
             string? prompt,
-            global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2, object>? promptV2,
-            global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormat, object>? responseFormat,
+            global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2? promptV2,
+            global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormat? responseFormat,
             double? temperature,
             int? maxTokens,
             double? minSegmentDuration,

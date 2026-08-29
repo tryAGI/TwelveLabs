@@ -25,15 +25,13 @@ namespace TwelveLabs
         /// The video source you provided.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_source")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseVideoSource, object>))]
-        public global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseVideoSource, object>? VideoSource { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseVideoSource? VideoSource { get; set; }
 
         /// <summary>
         /// The request parameters for this task.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_params")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParams, object>))]
-        public global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseRequestParams, object>? RequestParams { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParams? RequestParams { get; set; }
 
         /// <summary>
         /// The current status of the analysis task.
@@ -127,8 +125,8 @@ namespace TwelveLabs
             global::TwelveLabs.AnalyzeTaskStatus status,
             global::System.DateTime createdAt,
             string? customId,
-            global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseVideoSource, object>? videoSource,
-            global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseRequestParams, object>? requestParams,
+            global::TwelveLabs.AnalyzeTaskResponseVideoSource? videoSource,
+            global::TwelveLabs.AnalyzeTaskResponseRequestParams? requestParams,
             global::System.DateTime? completedAt,
             global::TwelveLabs.AnalyzeTaskResult? result,
             global::TwelveLabs.AnalyzeTaskError? error,

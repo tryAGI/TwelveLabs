@@ -25,8 +25,7 @@ namespace TwelveLabs
         ///  - `null`: For text and image embeddings
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding_option")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.EmbeddingDataEmbeddingOption?, object>))]
-        public global::TwelveLabs.OneOf<global::TwelveLabs.EmbeddingDataEmbeddingOption?, object>? EmbeddingOption { get; set; }
+        public global::TwelveLabs.EmbeddingDataEmbeddingOption? EmbeddingOption { get; set; }
 
         /// <summary>
         /// The scope for which the embedding was generated.<br/>
@@ -36,8 +35,7 @@ namespace TwelveLabs
         /// - `null`: For text and image embeddings
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding_scope")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.EmbeddingDataEmbeddingScope?, object>))]
-        public global::TwelveLabs.OneOf<global::TwelveLabs.EmbeddingDataEmbeddingScope?, object>? EmbeddingScope { get; set; }
+        public global::TwelveLabs.EmbeddingDataEmbeddingScope? EmbeddingScope { get; set; }
 
         /// <summary>
         /// The start time in seconds for this segment. This field is `null` for text and image embeddings.
@@ -90,8 +88,8 @@ namespace TwelveLabs
 #endif
         public EmbeddingData(
             global::System.Collections.Generic.IList<double> embedding,
-            global::TwelveLabs.OneOf<global::TwelveLabs.EmbeddingDataEmbeddingOption?, object>? embeddingOption,
-            global::TwelveLabs.OneOf<global::TwelveLabs.EmbeddingDataEmbeddingScope?, object>? embeddingScope,
+            global::TwelveLabs.EmbeddingDataEmbeddingOption? embeddingOption,
+            global::TwelveLabs.EmbeddingDataEmbeddingScope? embeddingScope,
             double? startSec,
             double? endSec)
         {
