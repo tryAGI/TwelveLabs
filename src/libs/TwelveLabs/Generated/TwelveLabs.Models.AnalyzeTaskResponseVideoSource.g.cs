@@ -31,8 +31,7 @@ namespace TwelveLabs
         /// System-extracted video metadata. Present on a best-effort basis once the video has been processed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_metadata")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata, object>))]
-        public global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata, object>? SystemMetadata { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata? SystemMetadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -62,7 +61,7 @@ namespace TwelveLabs
             global::TwelveLabs.AnalyzeTaskResponseVideoSourceType? type,
             string? url,
             string? assetId,
-            global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata, object>? systemMetadata)
+            global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata? systemMetadata)
         {
             this.Type = type;
             this.Url = url;

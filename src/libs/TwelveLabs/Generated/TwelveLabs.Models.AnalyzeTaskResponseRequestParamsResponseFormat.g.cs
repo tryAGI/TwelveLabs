@@ -21,8 +21,7 @@ namespace TwelveLabs
         /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results): Returns the full schema.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("json_schema")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatJsonSchema, object>))]
-        public global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatJsonSchema, object>? JsonSchema { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatJsonSchema? JsonSchema { get; set; }
 
         /// <summary>
         /// The segment definitions for this task. Present only when `type` is `segment_definitions`.<br/>
@@ -57,7 +56,7 @@ namespace TwelveLabs
 #endif
         public AnalyzeTaskResponseRequestParamsResponseFormat(
             global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType? type,
-            global::TwelveLabs.OneOf<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatJsonSchema, object>? jsonSchema,
+            global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatJsonSchema? jsonSchema,
             global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItems>? segmentDefinitions)
         {
             this.Type = type;

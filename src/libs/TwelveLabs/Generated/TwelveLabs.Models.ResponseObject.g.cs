@@ -68,8 +68,7 @@ namespace TwelveLabs
         /// does not know" rather than as an error.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("incomplete_details")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.OneOfJsonConverter<global::TwelveLabs.ResponseIncompleteDetails, object>))]
-        public global::TwelveLabs.OneOf<global::TwelveLabs.ResponseIncompleteDetails, object>? IncompleteDetails { get; set; }
+        public global::TwelveLabs.ResponseIncompleteDetails? IncompleteDetails { get; set; }
 
         /// <summary>
         /// The response output items. By default, only the final message is included.<br/>
@@ -157,7 +156,7 @@ namespace TwelveLabs
             global::TwelveLabs.ResponseObjectType? type,
             global::TwelveLabs.ResponseObjectObject? @object,
             global::TwelveLabs.ResponseStatus? status,
-            global::TwelveLabs.OneOf<global::TwelveLabs.ResponseIncompleteDetails, object>? incompleteDetails,
+            global::TwelveLabs.ResponseIncompleteDetails? incompleteDetails,
             global::System.Collections.Generic.IList<global::TwelveLabs.ResponseOutputItem>? output,
             global::TwelveLabs.ResponseUsage? usage,
             global::System.DateTime? createdAt)
