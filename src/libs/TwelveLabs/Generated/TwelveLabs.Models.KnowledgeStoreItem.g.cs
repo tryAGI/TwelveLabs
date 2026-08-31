@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// A knowledge store item is an asset added to a knowledge store for processing. You can use it in downstream workflows once its `status` is `ready`.
+    /// A knowledge store item is an asset added to a knowledge store for processing. You can use it in different workflows once its `status` is `ready`.
     /// </summary>
     public sealed partial class KnowledgeStoreItem
     {

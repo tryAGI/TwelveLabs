@@ -4,31 +4,31 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Technical metadata read from the media file of the asset, covering the container, the individual video and audio streams, image properties, and derived attributes.<br/>
-    /// The platform populates this object asynchronously after the upload completes. It is omitted from the response while the status of the asset is `processing`, and it may be partially populated when the status is `failed`. A field is absent when it does not apply to the media type of the asset, or when the source file did not carry the corresponding information.
+    /// Technical metadata read from the source file of the asset, covering the container, video and audio streams, image properties, document properties, and derived attributes.<br/>
+    /// The platform populates this object asynchronously after the upload completes. It is omitted from the response while the status of the asset is `processing`, and it may be partially populated when the status is `failed`. A field is absent when it does not apply to the type of the asset or when the source file did not contain the corresponding information.
     /// </summary>
     public sealed partial class TechnicalMetadata
     {
         /// <summary>
-        /// The size of the source media file in bytes.
+        /// The size of the source file in bytes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_size_bytes")]
         public long? FileSizeBytes { get; set; }
 
         /// <summary>
-        /// The MIME type detected for the source media file.
+        /// The MIME type detected for the source file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_mime_type")]
         public string? FileMimeType { get; set; }
 
         /// <summary>
-        /// The container format of the source media file. When a container maps to several format names, the platform reports them as a comma-separated list.
+        /// The container format of the source file. When a container maps to several format names, the platform reports them as a comma-separated list.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_container_format")]
         public string? FileContainerFormat { get; set; }
 
         /// <summary>
-        /// The creation time recorded in the media container, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when present.
+        /// The creation time recorded in the source file container, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when present.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("container_creation_time")]
         public global::System.DateTime? ContainerCreationTime { get; set; }
@@ -220,6 +220,96 @@ namespace TwelveLabs
         public double? GeospatialAltitudeMeters { get; set; }
 
         /// <summary>
+        /// The number of pages in the PDF file.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_page_count")]
+        public int? DocumentPageCount { get; set; }
+
+        /// <summary>
+        /// The PDF version specified in the file.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_pdf_version")]
+        public string? DocumentPdfVersion { get; set; }
+
+        /// <summary>
+        /// The width of the first page, in points.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_page_width_pt")]
+        public double? DocumentPageWidthPt { get; set; }
+
+        /// <summary>
+        /// The height of the first page, in points.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_page_height_pt")]
+        public double? DocumentPageHeightPt { get; set; }
+
+        /// <summary>
+        /// Whether the PDF file is tagged for accessibility. An explicit `false` is meaningful.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_is_tagged")]
+        public bool? DocumentIsTagged { get; set; }
+
+        /// <summary>
+        /// Whether the PDF file is encrypted. An explicit `false` is meaningful.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_is_encrypted")]
+        public bool? DocumentIsEncrypted { get; set; }
+
+        /// <summary>
+        /// The language specified in the PDF file, when present.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_language")]
+        public string? DocumentLanguage { get; set; }
+
+        /// <summary>
+        /// The title from the PDF metadata, when present.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_title")]
+        public string? DocumentTitle { get; set; }
+
+        /// <summary>
+        /// The author from the PDF metadata, when present.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_author")]
+        public string? DocumentAuthor { get; set; }
+
+        /// <summary>
+        /// The subject from the PDF metadata, when present.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_subject")]
+        public string? DocumentSubject { get; set; }
+
+        /// <summary>
+        /// The keywords from the PDF metadata, when present.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_keywords")]
+        public string? DocumentKeywords { get; set; }
+
+        /// <summary>
+        /// The application that created the PDF file, when present.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_creator_tool")]
+        public string? DocumentCreatorTool { get; set; }
+
+        /// <summary>
+        /// The application that produced the PDF file, when present.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_producer")]
+        public string? DocumentProducer { get; set; }
+
+        /// <summary>
+        /// The normalized creation date from the PDF file, in RFC 3339 format, when present.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_creation_date")]
+        public global::System.DateTime? DocumentCreationDate { get; set; }
+
+        /// <summary>
+        /// The normalized modification date from the PDF file, in RFC 3339 format, when present.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_modification_date")]
+        public global::System.DateTime? DocumentModificationDate { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -229,16 +319,16 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="TechnicalMetadata" /> class.
         /// </summary>
         /// <param name="fileSizeBytes">
-        /// The size of the source media file in bytes.
+        /// The size of the source file in bytes.
         /// </param>
         /// <param name="fileMimeType">
-        /// The MIME type detected for the source media file.
+        /// The MIME type detected for the source file.
         /// </param>
         /// <param name="fileContainerFormat">
-        /// The container format of the source media file. When a container maps to several format names, the platform reports them as a comma-separated list.
+        /// The container format of the source file. When a container maps to several format names, the platform reports them as a comma-separated list.
         /// </param>
         /// <param name="containerCreationTime">
-        /// The creation time recorded in the media container, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when present.
+        /// The creation time recorded in the source file container, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when present.
         /// </param>
         /// <param name="videoStreams">
         /// The video streams contained in the media file.
@@ -333,6 +423,51 @@ namespace TwelveLabs
         /// <param name="geospatialAltitudeMeters">
         /// The GPS altitude embedded in the source media, in meters. Present only when the source media carries location metadata.
         /// </param>
+        /// <param name="documentPageCount">
+        /// The number of pages in the PDF file.
+        /// </param>
+        /// <param name="documentPdfVersion">
+        /// The PDF version specified in the file.
+        /// </param>
+        /// <param name="documentPageWidthPt">
+        /// The width of the first page, in points.
+        /// </param>
+        /// <param name="documentPageHeightPt">
+        /// The height of the first page, in points.
+        /// </param>
+        /// <param name="documentIsTagged">
+        /// Whether the PDF file is tagged for accessibility. An explicit `false` is meaningful.
+        /// </param>
+        /// <param name="documentIsEncrypted">
+        /// Whether the PDF file is encrypted. An explicit `false` is meaningful.
+        /// </param>
+        /// <param name="documentLanguage">
+        /// The language specified in the PDF file, when present.
+        /// </param>
+        /// <param name="documentTitle">
+        /// The title from the PDF metadata, when present.
+        /// </param>
+        /// <param name="documentAuthor">
+        /// The author from the PDF metadata, when present.
+        /// </param>
+        /// <param name="documentSubject">
+        /// The subject from the PDF metadata, when present.
+        /// </param>
+        /// <param name="documentKeywords">
+        /// The keywords from the PDF metadata, when present.
+        /// </param>
+        /// <param name="documentCreatorTool">
+        /// The application that created the PDF file, when present.
+        /// </param>
+        /// <param name="documentProducer">
+        /// The application that produced the PDF file, when present.
+        /// </param>
+        /// <param name="documentCreationDate">
+        /// The normalized creation date from the PDF file, in RFC 3339 format, when present.
+        /// </param>
+        /// <param name="documentModificationDate">
+        /// The normalized modification date from the PDF file, in RFC 3339 format, when present.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -371,7 +506,22 @@ namespace TwelveLabs
             double? storageAspectRatio,
             double? geospatialLatitude,
             double? geospatialLongitude,
-            double? geospatialAltitudeMeters)
+            double? geospatialAltitudeMeters,
+            int? documentPageCount,
+            string? documentPdfVersion,
+            double? documentPageWidthPt,
+            double? documentPageHeightPt,
+            bool? documentIsTagged,
+            bool? documentIsEncrypted,
+            string? documentLanguage,
+            string? documentTitle,
+            string? documentAuthor,
+            string? documentSubject,
+            string? documentKeywords,
+            string? documentCreatorTool,
+            string? documentProducer,
+            global::System.DateTime? documentCreationDate,
+            global::System.DateTime? documentModificationDate)
         {
             this.FileSizeBytes = fileSizeBytes;
             this.FileMimeType = fileMimeType;
@@ -408,6 +558,21 @@ namespace TwelveLabs
             this.GeospatialLatitude = geospatialLatitude;
             this.GeospatialLongitude = geospatialLongitude;
             this.GeospatialAltitudeMeters = geospatialAltitudeMeters;
+            this.DocumentPageCount = documentPageCount;
+            this.DocumentPdfVersion = documentPdfVersion;
+            this.DocumentPageWidthPt = documentPageWidthPt;
+            this.DocumentPageHeightPt = documentPageHeightPt;
+            this.DocumentIsTagged = documentIsTagged;
+            this.DocumentIsEncrypted = documentIsEncrypted;
+            this.DocumentLanguage = documentLanguage;
+            this.DocumentTitle = documentTitle;
+            this.DocumentAuthor = documentAuthor;
+            this.DocumentSubject = documentSubject;
+            this.DocumentKeywords = documentKeywords;
+            this.DocumentCreatorTool = documentCreatorTool;
+            this.DocumentProducer = documentProducer;
+            this.DocumentCreationDate = documentCreationDate;
+            this.DocumentModificationDate = documentModificationDate;
         }
 
         /// <summary>

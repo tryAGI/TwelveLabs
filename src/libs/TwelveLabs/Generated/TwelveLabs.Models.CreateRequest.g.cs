@@ -18,26 +18,26 @@ namespace TwelveLabs
 
         /// <summary>
         /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
-        /// Local video and audio files support up to 200 MB. Image files support up to 32 MB.
+        /// Local video, audio, and documents support up to 200 MB. Image files support up to 32 MB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         public byte[]? File { get; set; }
 
         /// <summary>
         /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
-        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB.
+        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB. Document URLs support up to 512 MB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         public string? Url { get; set; }
 
         /// <summary>
-        /// The optional filename of the asset. If not provided, the platform will determine the filename from the file or URL.
+        /// The filename of the asset. If you provide a filename, the platform preserves it. If you omit it, the platform determines one from the file or URL.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         public string? Filename { get; set; }
 
         /// <summary>
-        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
+        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only. The platform ignores this flag for other asset types.<br/>
         /// **Default**: `false`.<br/>
         /// Default Value: false
         /// </summary>
@@ -46,6 +46,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
+        /// For PDF files, the platform generates a representative thumbnail from the first page. Text and Markdown files do not produce thumbnails; the platform ignores this flag for them.<br/>
         /// **Default**: `false`.<br/>
         /// Default Value: false
         /// </summary>
@@ -72,22 +73,23 @@ namespace TwelveLabs
         /// </param>
         /// <param name="file">
         /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
-        /// Local video and audio files support up to 200 MB. Image files support up to 32 MB.
+        /// Local video, audio, and documents support up to 200 MB. Image files support up to 32 MB.
         /// </param>
         /// <param name="url">
         /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
-        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB.
+        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB. Document URLs support up to 512 MB.
         /// </param>
         /// <param name="filename">
-        /// The optional filename of the asset. If not provided, the platform will determine the filename from the file or URL.
+        /// The filename of the asset. If you provide a filename, the platform preserves it. If you omit it, the platform determines one from the file or URL.
         /// </param>
         /// <param name="enableHls">
-        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
+        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only. The platform ignores this flag for other asset types.<br/>
         /// **Default**: `false`.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="enableThumbnail">
         /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
+        /// For PDF files, the platform generates a representative thumbnail from the first page. Text and Markdown files do not produce thumbnails; the platform ignores this flag for them.<br/>
         /// **Default**: `false`.<br/>
         /// Default Value: false
         /// </param>

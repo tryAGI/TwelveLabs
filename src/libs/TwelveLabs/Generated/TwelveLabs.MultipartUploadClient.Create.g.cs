@@ -604,7 +604,7 @@ namespace TwelveLabs
         /// - **Images**: Up to 32 MB
         /// </param>
         /// <param name="enableHls">
-        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only.<br/>
+        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only. The platform ignores this flag for other asset types.<br/>
         /// **Default**: `false`.<br/>
         /// Default Value: false
         /// </param>

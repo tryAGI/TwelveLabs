@@ -15,6 +15,10 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
+        Document,
+        /// <summary>
+        ///
+        /// </summary>
         Image,
         /// <summary>
         ///
@@ -35,6 +39,7 @@ namespace TwelveLabs
             return value switch
             {
                 AssetsGetParametersAssetTypesSchemaItems.Audio => "audio",
+                AssetsGetParametersAssetTypesSchemaItems.Document => "document",
                 AssetsGetParametersAssetTypesSchemaItems.Image => "image",
                 AssetsGetParametersAssetTypesSchemaItems.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -48,6 +53,7 @@ namespace TwelveLabs
             return value switch
             {
                 "audio" => AssetsGetParametersAssetTypesSchemaItems.Audio,
+                "document" => AssetsGetParametersAssetTypesSchemaItems.Document,
                 "image" => AssetsGetParametersAssetTypesSchemaItems.Image,
                 "video" => AssetsGetParametersAssetTypesSchemaItems.Video,
                 _ => null,
