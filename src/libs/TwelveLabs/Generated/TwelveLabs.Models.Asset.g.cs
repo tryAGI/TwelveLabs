@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// A reference file (image, audio, or video) that you upload to the platform for use in downstream workflows such as indexing, analyzing video content, and creating entities.
+    /// A reusable file (image, audio, video, or document) that you upload to the platform for use in different workflows.
     /// </summary>
     public sealed partial class Asset
     {
@@ -28,7 +28,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// Indicates the current processing status of the asset.<br/>
-        /// A newly uploaded asset starts in the `processing` status and transitions asynchronously to `ready` on success or to `failed` on error, typically within a few seconds to a few minutes. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status is `ready` before you use the asset in downstream workflows.<br/>
+        /// A newly uploaded asset starts in the `processing` status and transitions asynchronously to `ready` on success or to `failed` on error, typically within a few seconds to a few minutes. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status is `ready` before you use the asset in different workflows.<br/>
         /// **Values**:<br/>
         /// - `processing`: The asset is not yet usable. This can mean the upload is still in progress (for example, the platform is still fetching the file from a URL, or a multipart upload has not completed), or the upload has finished and the platform is validating the file. The `technical_metadata` field is omitted from the response.<br/>
         /// - `ready`: The platform validated the asset successfully, and the asset is ready to use.<br/>
@@ -45,7 +45,7 @@ namespace TwelveLabs
         public string? Filename { get; set; }
 
         /// <summary>
-        /// The MIME type of the asset file.
+        /// The MIME type of the asset file. For documents, this is `application/pdf`, `text/plain`, or `text/markdown`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_type")]
         public string? FileType { get; set; }
@@ -90,7 +90,7 @@ namespace TwelveLabs
         /// </param>
         /// <param name="status">
         /// Indicates the current processing status of the asset.<br/>
-        /// A newly uploaded asset starts in the `processing` status and transitions asynchronously to `ready` on success or to `failed` on error, typically within a few seconds to a few minutes. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status is `ready` before you use the asset in downstream workflows.<br/>
+        /// A newly uploaded asset starts in the `processing` status and transitions asynchronously to `ready` on success or to `failed` on error, typically within a few seconds to a few minutes. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status is `ready` before you use the asset in different workflows.<br/>
         /// **Values**:<br/>
         /// - `processing`: The asset is not yet usable. This can mean the upload is still in progress (for example, the platform is still fetching the file from a URL, or a multipart upload has not completed), or the upload has finished and the platform is validating the file. The `technical_metadata` field is omitted from the response.<br/>
         /// - `ready`: The platform validated the asset successfully, and the asset is ready to use.<br/>
@@ -100,7 +100,7 @@ namespace TwelveLabs
         /// The name of the file used to create the asset.
         /// </param>
         /// <param name="fileType">
-        /// The MIME type of the asset file.
+        /// The MIME type of the asset file. For documents, this is `application/pdf`, `text/plain`, or `text/markdown`.
         /// </param>
         /// <param name="createdAt">
         /// The date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the asset was created.

@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// An object that describes why an asset failed processing.
+    /// An object that describes why the processing failed.
     /// </summary>
     public sealed partial class AssetError
     {

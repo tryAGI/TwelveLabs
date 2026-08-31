@@ -84,6 +84,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetDetail))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.RetrieveAssetRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.RetrieveAssetRequestNotFoundError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetsGetParametersAssetTypesSchemaItems), TypeInfoPropertyName = "AssetsGetParametersAssetTypesSchemaItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetsListResponse200))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AssetDetail>))]
@@ -513,7 +514,6 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbedTasksCreateResponse200))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateVideoEmbeddingTaskRequestBadRequestError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbedTasksGetResponsesContentApplicationJsonSchemaPageInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbedTasksListResponse200))]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -526,6 +526,7 @@ namespace TwelveLabs
         Converters = new global::System.Type[]
         {
         })]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbedTasksListResponse200))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ListVideoEmbeddingTasksRequestBadRequestError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbedTasksTaskIdStatusGetResponsesContentApplicationJsonSchemaVideoEmbedding))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbedTasksStatusResponse200))]

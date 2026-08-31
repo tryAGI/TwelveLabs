@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// HLS streaming details for the asset. Present only when HLS generation has been requested. Omitted otherwise.
+    /// HLS streaming details for video and audio assets. Present only when HLS generation has been requested.
     /// </summary>
     public sealed partial class AssetHLS
     {

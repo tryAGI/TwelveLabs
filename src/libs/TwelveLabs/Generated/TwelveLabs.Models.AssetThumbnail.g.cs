@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Thumbnail details for the asset. Present only when thumbnail generation has been requested. Omitted otherwise.
+    /// Thumbnail details for the asset. Present only when thumbnail generation has been requested. PDF files use the first page for the representative thumbnail; text and Markdown files do not produce thumbnails.
     /// </summary>
     public sealed partial class AssetThumbnail
     {
