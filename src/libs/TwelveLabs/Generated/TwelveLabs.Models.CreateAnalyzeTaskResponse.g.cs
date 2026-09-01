@@ -16,8 +16,7 @@ namespace TwelveLabs
         public required string TaskId { get; set; }
 
         /// <summary>
-        /// The current status of the analysis task.<br/>
-        /// `ready`, `failed`, and `canceled` are terminal.
+        /// The current status of the analysis task.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AnalyzeTaskStatusJsonConverter))]
@@ -37,8 +36,7 @@ namespace TwelveLabs
         /// The unique identifier of the analysis task.
         /// </param>
         /// <param name="status">
-        /// The current status of the analysis task.<br/>
-        /// `ready`, `failed`, and `canceled` are terminal.
+        /// The current status of the analysis task.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

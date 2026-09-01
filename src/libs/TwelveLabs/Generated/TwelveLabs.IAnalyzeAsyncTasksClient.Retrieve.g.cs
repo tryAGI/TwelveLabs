@@ -13,8 +13,7 @@ namespace TwelveLabs
         /// - `processing`: The platform is analyzing the video.<br/>
         /// - `ready`: Processing is complete. Results are available in the response.<br/>
         /// - `failed`: The task failed. No results were generated.<br/>
-        /// - `canceled`: The task was canceled. The task cannot become `ready`, and no result is available.<br/>
-        /// Poll this method until `status` is `ready`, `failed`, or `canceled`. When `status` is `ready`, use the results from the response. The platform does not emit an `analyze.task.canceled` webhook. For an individual task without a terminal task webhook, poll this method with exponential backoff and jitter until the task reaches a terminal status. For a batch-owned task, prefer the parent batch's `analyze.batch.canceled` or `analyze.batch.expired` webhook and retrieve the batch status and results instead of polling every item.
+        /// Poll this method until `status` is `ready` or `failed`. When `status` is `ready`, use the results from the response.
         /// </summary>
         /// <param name="taskId"></param>
         /// <param name="xApiKey"></param>
@@ -35,8 +34,7 @@ namespace TwelveLabs
         /// - `processing`: The platform is analyzing the video.<br/>
         /// - `ready`: Processing is complete. Results are available in the response.<br/>
         /// - `failed`: The task failed. No results were generated.<br/>
-        /// - `canceled`: The task was canceled. The task cannot become `ready`, and no result is available.<br/>
-        /// Poll this method until `status` is `ready`, `failed`, or `canceled`. When `status` is `ready`, use the results from the response. The platform does not emit an `analyze.task.canceled` webhook. For an individual task without a terminal task webhook, poll this method with exponential backoff and jitter until the task reaches a terminal status. For a batch-owned task, prefer the parent batch's `analyze.batch.canceled` or `analyze.batch.expired` webhook and retrieve the batch status and results instead of polling every item.
+        /// Poll this method until `status` is `ready` or `failed`. When `status` is `ready`, use the results from the response.
         /// </summary>
         /// <param name="taskId"></param>
         /// <param name="xApiKey"></param>

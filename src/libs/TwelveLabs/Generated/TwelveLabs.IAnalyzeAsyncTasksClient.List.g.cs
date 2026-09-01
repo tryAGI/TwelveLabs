@@ -15,7 +15,7 @@ namespace TwelveLabs
         /// Default Value: 10
         /// </param>
         /// <param name="status">
-        /// The status values accepted by the async analysis task list filter.
+        /// The current status of the analysis task.
         /// </param>
         /// <param name="videoUrl"></param>
         /// <param name="assetId"></param>
@@ -28,7 +28,7 @@ namespace TwelveLabs
             string xApiKey,
             int? page = default,
             int? pageLimit = default,
-            global::TwelveLabs.AnalyzeTaskFilterStatus? status = default,
+            global::TwelveLabs.AnalyzeTaskStatus? status = default,
             string? videoUrl = default,
             string? assetId = default,
             global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode = default,
@@ -45,7 +45,7 @@ namespace TwelveLabs
         /// Default Value: 10
         /// </param>
         /// <param name="status">
-        /// The status values accepted by the async analysis task list filter.
+        /// The current status of the analysis task.
         /// </param>
         /// <param name="videoUrl"></param>
         /// <param name="assetId"></param>
@@ -58,7 +58,7 @@ namespace TwelveLabs
             string xApiKey,
             int? page = default,
             int? pageLimit = default,
-            global::TwelveLabs.AnalyzeTaskFilterStatus? status = default,
+            global::TwelveLabs.AnalyzeTaskStatus? status = default,
             string? videoUrl = default,
             string? assetId = default,
             global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode = default,
