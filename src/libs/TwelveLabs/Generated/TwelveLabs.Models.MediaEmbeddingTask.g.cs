@@ -21,7 +21,7 @@ namespace TwelveLabs
         public string? ModelName { get; set; }
 
         /// <summary>
-        /// A string indicating the status of the emedding task. It can take one of the following values: `processing`, `ready` or `failed`.
+        /// A string indicating the status of the embedding task. It can take one of the following values: `processing`, `ready` or `failed`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         public string? Status { get; set; }
@@ -51,6 +51,18 @@ namespace TwelveLabs
         public global::TwelveLabs.MediaEmbeddingTaskAudioEmbedding? AudioEmbedding { get; set; }
 
         /// <summary>
+        /// An object containing the metadata associated with the embedding. Present only for `document` tasks created with Marengo 3.5.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("document_embedding")]
+        public global::TwelveLabs.MediaEmbeddingTaskDocumentEmbedding? DocumentEmbedding { get; set; }
+
+        /// <summary>
+        /// An object containing the metadata associated with the embedding. Present only for `image` tasks created with Marengo 3.5.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("image_embedding")]
+        public global::TwelveLabs.MediaEmbeddingTaskImageEmbedding? ImageEmbedding { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -66,7 +78,7 @@ namespace TwelveLabs
         /// The name of the video understanding model the platform used to create the embedding.
         /// </param>
         /// <param name="status">
-        /// A string indicating the status of the emedding task. It can take one of the following values: `processing`, `ready` or `failed`.
+        /// A string indicating the status of the embedding task. It can take one of the following values: `processing`, `ready` or `failed`.
         /// </param>
         /// <param name="createdAt">
         /// A string representing the date and time, in RFC 3339 format (“YYYY-MM-DDTHH:mm:ssZ”), when the resource was created.
@@ -80,6 +92,12 @@ namespace TwelveLabs
         /// <param name="audioEmbedding">
         /// An object containing the metadata associated with the embedding.
         /// </param>
+        /// <param name="documentEmbedding">
+        /// An object containing the metadata associated with the embedding. Present only for `document` tasks created with Marengo 3.5.
+        /// </param>
+        /// <param name="imageEmbedding">
+        /// An object containing the metadata associated with the embedding. Present only for `image` tasks created with Marengo 3.5.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -90,7 +108,9 @@ namespace TwelveLabs
             global::System.DateTime? createdAt,
             global::System.DateTime? updatedAt,
             global::TwelveLabs.MediaEmbeddingTaskVideoEmbedding? videoEmbedding,
-            global::TwelveLabs.MediaEmbeddingTaskAudioEmbedding? audioEmbedding)
+            global::TwelveLabs.MediaEmbeddingTaskAudioEmbedding? audioEmbedding,
+            global::TwelveLabs.MediaEmbeddingTaskDocumentEmbedding? documentEmbedding,
+            global::TwelveLabs.MediaEmbeddingTaskImageEmbedding? imageEmbedding)
         {
             this.Id = id;
             this.ModelName = modelName;
@@ -99,6 +119,8 @@ namespace TwelveLabs
             this.UpdatedAt = updatedAt;
             this.VideoEmbedding = videoEmbedding;
             this.AudioEmbedding = audioEmbedding;
+            this.DocumentEmbedding = documentEmbedding;
+            this.ImageEmbedding = imageEmbedding;
         }
 
         /// <summary>

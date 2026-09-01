@@ -18,8 +18,7 @@ namespace TwelveLabs
         /// <summary>
         /// The start time in seconds for processing the audio file.<br/>
         /// Use this parameter to process a portion of the audio file starting from a specific time.<br/>
-        /// **Default**: 0 (start from the beginning).<br/>
-        /// Default Value: 0
+        /// **Default**: 0 (start from the beginning).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_sec")]
         public double? StartSec { get; set; }
@@ -43,7 +42,8 @@ namespace TwelveLabs
         /// **Values**:<br/>
         /// - `audio`: Generates embeddings based on audio content (sounds, music, effects)<br/>
         /// - `transcription`: Generates embeddings based on transcribed speech<br/>
-        /// You can specify multiple values to generate different types of embeddings for the same audio.
+        /// You can specify multiple values to generate different types of embeddings for the same audio.<br/>
+        /// **Default**: `["audio", "transcription"]`
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding_option")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.AudioInputRequestEmbeddingOptionItems>? EmbeddingOption { get; set; }
@@ -53,7 +53,8 @@ namespace TwelveLabs
         /// **Values**:<br/>
         /// - `clip`: Generates one embedding for each segment<br/>
         /// - `asset`: Generates one embedding for the entire audio file<br/>
-        /// You can specify multiple scopes to generate embeddings at different levels.
+        /// You can specify multiple scopes to generate embeddings at different levels.<br/>
+        /// **Default**: `["clip", "asset"]`
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding_scope")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.AudioInputRequestEmbeddingScopeItems>? EmbeddingScope { get; set; }
@@ -84,8 +85,7 @@ namespace TwelveLabs
         /// <param name="startSec">
         /// The start time in seconds for processing the audio file.<br/>
         /// Use this parameter to process a portion of the audio file starting from a specific time.<br/>
-        /// **Default**: 0 (start from the beginning).<br/>
-        /// Default Value: 0
+        /// **Default**: 0 (start from the beginning).
         /// </param>
         /// <param name="endSec">
         /// The end time in seconds for processing the audio file.<br/>
@@ -100,14 +100,16 @@ namespace TwelveLabs
         /// **Values**:<br/>
         /// - `audio`: Generates embeddings based on audio content (sounds, music, effects)<br/>
         /// - `transcription`: Generates embeddings based on transcribed speech<br/>
-        /// You can specify multiple values to generate different types of embeddings for the same audio.
+        /// You can specify multiple values to generate different types of embeddings for the same audio.<br/>
+        /// **Default**: `["audio", "transcription"]`
         /// </param>
         /// <param name="embeddingScope">
         /// The scope for which you wish to generate embeddings.<br/>
         /// **Values**:<br/>
         /// - `clip`: Generates one embedding for each segment<br/>
         /// - `asset`: Generates one embedding for the entire audio file<br/>
-        /// You can specify multiple scopes to generate embeddings at different levels.
+        /// You can specify multiple scopes to generate embeddings at different levels.<br/>
+        /// **Default**: `["clip", "asset"]`
         /// </param>
         /// <param name="embeddingType">
         /// Specifies how to structure the embedding. Include this parameter only when the `embedding_option` parameter contains at least two values.<br/>

@@ -6,37 +6,37 @@ namespace TwelveLabs
     /// <summary>
     /// The type of content for the embeddings.<br/>
     /// **Values**:<br/>
-    /// - `audio`: Creates embeddings for an audio file<br/>
-    /// - `video`: Creates embeddings for a video file<br/>
-    /// - `image`: Creates embeddings for an image file<br/>
-    /// - `text`: Creates embeddings for text input<br/>
-    /// - `text_image`: Creates embeddings for text and an image<br/>
-    /// - `multi_input`: Creates a single embedding from up to 10 images. You can optionally include text to provide context. To reference specific images in your text, use placeholders in the following format: `&lt;@name&gt;`, where `name` matches the `name` field of a media source
+    /// - `multi_input`: Text and up to 10 media sources, combined into a single embedding. To reference a specific media source from your text, use a placeholder in the following format: `&lt;@name&gt;`, where `name` matches the `name` field of a media source. Marengo 3.5 accepts images, video, and audio as media sources. Marengo 3.0 accepts images.<br/>
+    /// - `audio`: An audio file. Requires Marengo 3.0.<br/>
+    /// - `video`: A video file. Requires Marengo 3.0.<br/>
+    /// - `image`: An image file. Requires Marengo 3.0.<br/>
+    /// - `text`: Text input. Requires Marengo 3.0.<br/>
+    /// - `text_image`: Text and an image. Requires Marengo 3.0.
     /// </summary>
     public enum CreateEmbeddingsRequestInputType
     {
         /// <summary>
-        /// Creates embeddings for an audio file
+        /// Text and up to 10 media sources, combined into a single embedding. To reference a specific media source from your text, use a placeholder in the following format: `&lt;@name&gt;`, where `name` matches the `name` field of a media source. Marengo 3.5 accepts images, video, and audio as media sources. Marengo 3.0 accepts images.
         /// </summary>
         Audio,
         /// <summary>
-        /// Creates embeddings for an image file
+        /// Text and up to 10 media sources, combined into a single embedding. To reference a specific media source from your text, use a placeholder in the following format: `&lt;@name&gt;`, where `name` matches the `name` field of a media source. Marengo 3.5 accepts images, video, and audio as media sources. Marengo 3.0 accepts images.
         /// </summary>
         Image,
         /// <summary>
-        /// Creates a single embedding from up to 10 images. You can optionally include text to provide context. To reference specific images in your text, use placeholders in the following format: `&lt;@name&gt;`, where `name` matches the `name` field of a media source
+        /// Text and up to 10 media sources, combined into a single embedding. To reference a specific media source from your text, use a placeholder in the following format: `&lt;@name&gt;`, where `name` matches the `name` field of a media source. Marengo 3.5 accepts images, video, and audio as media sources. Marengo 3.0 accepts images.
         /// </summary>
         MultiInput,
         /// <summary>
-        /// Creates embeddings for text input
+        /// Text and up to 10 media sources, combined into a single embedding. To reference a specific media source from your text, use a placeholder in the following format: `&lt;@name&gt;`, where `name` matches the `name` field of a media source. Marengo 3.5 accepts images, video, and audio as media sources. Marengo 3.0 accepts images.
         /// </summary>
         Text,
         /// <summary>
-        /// Creates embeddings for text and an image
+        /// Text and an image. Requires Marengo 3.0.
         /// </summary>
         TextImage,
         /// <summary>
-        /// Creates embeddings for a video file
+        /// Text and up to 10 media sources, combined into a single embedding. To reference a specific media source from your text, use a placeholder in the following format: `&lt;@name&gt;`, where `name` matches the `name` field of a media source. Marengo 3.5 accepts images, video, and audio as media sources. Marengo 3.0 accepts images.
         /// </summary>
         Video,
     }

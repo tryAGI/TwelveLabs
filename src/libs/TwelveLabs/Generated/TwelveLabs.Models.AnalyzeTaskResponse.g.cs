@@ -34,7 +34,8 @@ namespace TwelveLabs
         public global::TwelveLabs.AnalyzeTaskResponseRequestParams? RequestParams { get; set; }
 
         /// <summary>
-        /// The current status of the analysis task.
+        /// The current status of the analysis task.<br/>
+        /// `ready`, `failed`, and `canceled` are terminal.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AnalyzeTaskStatusJsonConverter))]
@@ -49,7 +50,7 @@ namespace TwelveLabs
         public required global::System.DateTime CreatedAt { get; set; }
 
         /// <summary>
-        /// A string representing the date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the analysis task was completed or failed. The platform returns this field only if `status` is `ready` or `failed`.
+        /// A string representing the date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the analysis task completed, failed, or was canceled. The platform returns this field only if `status` is `ready`, `failed`, or `canceled`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("completed_at")]
         public global::System.DateTime? CompletedAt { get; set; }
@@ -61,16 +62,16 @@ namespace TwelveLabs
         public global::TwelveLabs.AnalyzeTaskResult? Result { get; set; }
 
         /// <summary>
-        /// A message attached to the task response. The platform sets this field in two cases:<br/>
+        /// A condition attached to the task response. The platform sets this field in two cases:<br/>
         /// - **Task failure**: `status` is `failed`. The `message` field describes the failure reason.<br/>
         /// - **Truncation warning**: `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
-        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`. Set when `result.finish_reason` is `length`.
+        /// Check `status` before treating this field as a failure. This field is not set when `status` is `ready` and `result.finish_reason` is `stop`; it is set when `result.finish_reason` is `length`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public global::TwelveLabs.AnalyzeTaskError? Error { get; set; }
 
         /// <summary>
-        /// The delivery status of each webhook endpoint. The platform omits this field when no webhooks are configured. You can register webhooks through the Playground. See the [Webhooks](/v1.3/docs/advanced/webhooks) page for details.
+        /// The delivery status of each configured webhook endpoint. The platform omits this field when no webhooks are configured. See the [Webhooks](/v1.3/docs/advanced/webhooks) page for supported events, registration, and reconciliation guidance.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("webhooks")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskWebhookInfo>? Webhooks { get; set; }
@@ -88,7 +89,8 @@ namespace TwelveLabs
         /// The unique identifier of the analysis task.
         /// </param>
         /// <param name="status">
-        /// The current status of the analysis task.
+        /// The current status of the analysis task.<br/>
+        /// `ready`, `failed`, and `canceled` are terminal.
         /// </param>
         /// <param name="createdAt">
         /// A string representing the date and time, in RFC 3339 format (“YYYY-MM-DDTHH:mm:ssZ”), when the analysis task was created.
@@ -103,19 +105,19 @@ namespace TwelveLabs
         /// The request parameters for this task.
         /// </param>
         /// <param name="completedAt">
-        /// A string representing the date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the analysis task was completed or failed. The platform returns this field only if `status` is `ready` or `failed`.
+        /// A string representing the date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the analysis task completed, failed, or was canceled. The platform returns this field only if `status` is `ready`, `failed`, or `canceled`.
         /// </param>
         /// <param name="result">
         /// An object that contains the generated text and additional information. The platform returns this object only when `status` is `ready`.
         /// </param>
         /// <param name="error">
-        /// A message attached to the task response. The platform sets this field in two cases:<br/>
+        /// A condition attached to the task response. The platform sets this field in two cases:<br/>
         /// - **Task failure**: `status` is `failed`. The `message` field describes the failure reason.<br/>
         /// - **Truncation warning**: `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
-        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`. Set when `result.finish_reason` is `length`.
+        /// Check `status` before treating this field as a failure. This field is not set when `status` is `ready` and `result.finish_reason` is `stop`; it is set when `result.finish_reason` is `length`.
         /// </param>
         /// <param name="webhooks">
-        /// The delivery status of each webhook endpoint. The platform omits this field when no webhooks are configured. You can register webhooks through the Playground. See the [Webhooks](/v1.3/docs/advanced/webhooks) page for details.
+        /// The delivery status of each configured webhook endpoint. The platform omits this field when no webhooks are configured. See the [Webhooks](/v1.3/docs/advanced/webhooks) page for supported events, registration, and reconciliation guidance.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

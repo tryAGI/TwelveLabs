@@ -53,7 +53,7 @@ namespace TwelveLabs
         public required global::System.DateTime CreatedAt { get; set; }
 
         /// <summary>
-        /// The date and time, in the RFC 3339 format, when the batch expires (the `created_at` field value plus 24 hours). Unfinished items at expiration are canceled. Items that finished before then remain retrievable for 30 days after creation, when the batch and its results are deleted.
+        /// The date and time, in the RFC 3339 format, when the batch expires (the `created_at` field value plus 24 hours). Items still in the `queued` status at expiration are canceled. Items already in the `processing` status continue and may reach `ready`. Results remain retrievable for 30 days after creation, when the batch and its results are deleted.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expires_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -106,7 +106,7 @@ namespace TwelveLabs
         public required int FailedItems { get; set; }
 
         /// <summary>
-        /// The number of items that were canceled, either because the batch was canceled while the item was in the `queued` status, or because the batch expired before the item finished processing.
+        /// The number of items that were canceled because the batch was canceled or expired while the item was still in the `queued` status.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("canceled_items")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -146,7 +146,7 @@ namespace TwelveLabs
         /// The date and time, in the RFC 3339 format, when the batch was created.
         /// </param>
         /// <param name="expiresAt">
-        /// The date and time, in the RFC 3339 format, when the batch expires (the `created_at` field value plus 24 hours). Unfinished items at expiration are canceled. Items that finished before then remain retrievable for 30 days after creation, when the batch and its results are deleted.
+        /// The date and time, in the RFC 3339 format, when the batch expires (the `created_at` field value plus 24 hours). Items still in the `queued` status at expiration are canceled. Items already in the `processing` status continue and may reach `ready`. Results remain retrievable for 30 days after creation, when the batch and its results are deleted.
         /// </param>
         /// <param name="queuedItems">
         /// The number of items in the `queued` status.
@@ -161,7 +161,7 @@ namespace TwelveLabs
         /// The number of items that failed.
         /// </param>
         /// <param name="canceledItems">
-        /// The number of items that were canceled, either because the batch was canceled while the item was in the `queued` status, or because the batch expired before the item finished processing.
+        /// The number of items that were canceled because the batch was canceled or expired while the item was still in the `queued` status.
         /// </param>
         /// <param name="completedAt">
         /// The date and time, in the RFC 3339 format, when the batch status became `completed`. Present only when the status is `completed`.

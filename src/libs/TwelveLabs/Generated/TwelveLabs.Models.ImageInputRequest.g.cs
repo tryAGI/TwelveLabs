@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// This field is required if the  `input_type` parameter is `image`.
+    /// This field is required if the `input_type` parameter is `image`.
     /// </summary>
     public sealed partial class ImageInputRequest
     {

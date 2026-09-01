@@ -11,8 +11,9 @@ namespace TwelveLabs
     {
         /// <summary>
         /// The duration in seconds for each segment. The platform divides the audio into segments of this exact length. The final segment may be shorter if the audio duration is not evenly divisible.<br/>
-        ///  **Example**: With `duration_sec: 5`, a 12-second audio file produces segments: [0-5s], [5-10s], [10-12s].<br/>
-        /// Default Value: 6
+        /// **Min**: `2`.<br/>
+        /// **Max**: `10`.<br/>
+        ///  **Example**: With `duration_sec: 5`, a 12-second audio file produces segments: [0-5s], [5-10s], [10-12s].
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_sec")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -29,8 +30,9 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="durationSec">
         /// The duration in seconds for each segment. The platform divides the audio into segments of this exact length. The final segment may be shorter if the audio duration is not evenly divisible.<br/>
-        ///  **Example**: With `duration_sec: 5`, a 12-second audio file produces segments: [0-5s], [5-10s], [10-12s].<br/>
-        /// Default Value: 6
+        /// **Min**: `2`.<br/>
+        /// **Max**: `10`.<br/>
+        ///  **Example**: With `duration_sec: 5`, a 12-second audio file produces segments: [0-5s], [5-10s], [10-12s].
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

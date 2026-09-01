@@ -46,6 +46,12 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IList<global::TwelveLabs.EmbeddingData>? Data { get; set; }
 
         /// <summary>
+        /// Token counts for the request. Only Marengo 3.5 returns this field.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
+        public global::TwelveLabs.EmbeddingUsage? Usage { get; set; }
+
+        /// <summary>
         /// Metadata for the media input.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
@@ -86,6 +92,9 @@ namespace TwelveLabs
         /// <param name="data">
         /// An object containing the embedding results, or `null` otherwise.
         /// </param>
+        /// <param name="usage">
+        /// Token counts for the request. Only Marengo 3.5 returns this field.
+        /// </param>
         /// <param name="metadata">
         /// Metadata for the media input.
         /// </param>
@@ -101,6 +110,7 @@ namespace TwelveLabs
             global::System.DateTime? createdAt,
             global::System.DateTime? updatedAt,
             global::System.Collections.Generic.IList<global::TwelveLabs.EmbeddingData>? data,
+            global::TwelveLabs.EmbeddingUsage? usage,
             global::TwelveLabs.EmbeddingTaskMediaMetadata? metadata,
             global::TwelveLabs.EmbeddingTaskResponseError? error)
         {
@@ -109,6 +119,7 @@ namespace TwelveLabs
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
             this.Data = data;
+            this.Usage = usage;
             this.Metadata = metadata;
             this.Error = error;
         }

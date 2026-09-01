@@ -6,17 +6,27 @@ namespace TwelveLabs
     /// <summary>
     /// The type of content for the embeddings.<br/>
     /// **Values**:<br/>
-    /// - `audio`: Audio files<br/>
-    /// - `video`: Video content
+    /// - `audio`: An audio file.<br/>
+    /// - `video`: A video file.<br/>
+    /// - `document`: A PDF file. Requires Marengo 3.5.<br/>
+    /// - `image`: An image file. Requires Marengo 3.5.
     /// </summary>
     public enum CreateAsyncEmbeddingRequestInputType
     {
         /// <summary>
-        /// Audio files
+        /// An audio file.
         /// </summary>
         Audio,
         /// <summary>
-        /// Video content
+        /// A PDF file. Requires Marengo 3.5.
+        /// </summary>
+        Document,
+        /// <summary>
+        /// An image file. Requires Marengo 3.5.
+        /// </summary>
+        Image,
+        /// <summary>
+        /// A video file.
         /// </summary>
         Video,
     }
@@ -34,6 +44,8 @@ namespace TwelveLabs
             return value switch
             {
                 CreateAsyncEmbeddingRequestInputType.Audio => "audio",
+                CreateAsyncEmbeddingRequestInputType.Document => "document",
+                CreateAsyncEmbeddingRequestInputType.Image => "image",
                 CreateAsyncEmbeddingRequestInputType.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -46,6 +58,8 @@ namespace TwelveLabs
             return value switch
             {
                 "audio" => CreateAsyncEmbeddingRequestInputType.Audio,
+                "document" => CreateAsyncEmbeddingRequestInputType.Document,
+                "image" => CreateAsyncEmbeddingRequestInputType.Image,
                 "video" => CreateAsyncEmbeddingRequestInputType.Video,
                 _ => null,
             };

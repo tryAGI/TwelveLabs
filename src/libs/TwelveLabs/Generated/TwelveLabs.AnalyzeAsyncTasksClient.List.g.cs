@@ -29,7 +29,7 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             ref int? page,
             ref int? pageLimit,
-            ref global::TwelveLabs.AnalyzeTaskStatus? status,
+            ref global::TwelveLabs.AnalyzeTaskFilterStatus? status,
             ref string? videoUrl,
             ref string? assetId,
             ref global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode,
@@ -39,7 +39,7 @@ namespace TwelveLabs
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? page,
             int? pageLimit,
-            global::TwelveLabs.AnalyzeTaskStatus? status,
+            global::TwelveLabs.AnalyzeTaskFilterStatus? status,
             string? videoUrl,
             string? assetId,
             global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode,
@@ -64,7 +64,7 @@ namespace TwelveLabs
         /// Default Value: 10
         /// </param>
         /// <param name="status">
-        /// The current status of the analysis task.
+        /// The status values accepted by the async analysis task list filter.
         /// </param>
         /// <param name="videoUrl"></param>
         /// <param name="assetId"></param>
@@ -77,7 +77,7 @@ namespace TwelveLabs
             string xApiKey,
             int? page = default,
             int? pageLimit = default,
-            global::TwelveLabs.AnalyzeTaskStatus? status = default,
+            global::TwelveLabs.AnalyzeTaskFilterStatus? status = default,
             string? videoUrl = default,
             string? assetId = default,
             global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode = default,
@@ -109,7 +109,7 @@ namespace TwelveLabs
         /// Default Value: 10
         /// </param>
         /// <param name="status">
-        /// The current status of the analysis task.
+        /// The status values accepted by the async analysis task list filter.
         /// </param>
         /// <param name="videoUrl"></param>
         /// <param name="assetId"></param>
@@ -122,7 +122,7 @@ namespace TwelveLabs
             string xApiKey,
             int? page = default,
             int? pageLimit = default,
-            global::TwelveLabs.AnalyzeTaskStatus? status = default,
+            global::TwelveLabs.AnalyzeTaskFilterStatus? status = default,
             string? videoUrl = default,
             string? assetId = default,
             global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode = default,

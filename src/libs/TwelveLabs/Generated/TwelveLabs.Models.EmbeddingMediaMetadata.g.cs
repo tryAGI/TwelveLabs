@@ -5,12 +5,12 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Metadata for the media input. Available for image, text_image, audio, video, and multi_input inputs.
+    /// Metadata for the media input. Available for the `image`, `text_image`, `audio`, `video`, and `multi_input` input types.
     /// </summary>
     public readonly partial struct EmbeddingMediaMetadata : global::System.IEquatable<EmbeddingMediaMetadata>
     {
         /// <summary>
-        /// Metadata for image embeddings
+        /// Metadata for image embeddings.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::TwelveLabs.EmbeddingMediaMetadataVariant1? EmbeddingMediaMetadataVariant1 { get; init; }
@@ -47,7 +47,7 @@ namespace TwelveLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingMediaMetadataVariant1' but the value was {ToString()}.");
 
         /// <summary>
-        /// Metadata for text-image embeddings
+        /// Metadata for text-image embeddings.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::TwelveLabs.EmbeddingMediaMetadataVariant2? EmbeddingMediaMetadataVariant2 { get; init; }
@@ -84,7 +84,7 @@ namespace TwelveLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingMediaMetadataVariant2' but the value was {ToString()}.");
 
         /// <summary>
-        /// Metadata for audio embeddings
+        /// Metadata for audio embeddings.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::TwelveLabs.EmbeddingMediaMetadataVariant3? EmbeddingMediaMetadataVariant3 { get; init; }
@@ -121,7 +121,7 @@ namespace TwelveLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingMediaMetadataVariant3' but the value was {ToString()}.");
 
         /// <summary>
-        /// Metadata for video embeddings
+        /// Metadata for video embeddings.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::TwelveLabs.EmbeddingMediaMetadataVariant4? EmbeddingMediaMetadataVariant4 { get; init; }
@@ -158,7 +158,7 @@ namespace TwelveLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingMediaMetadataVariant4' but the value was {ToString()}.");
 
         /// <summary>
-        /// Metadata for multi-input embeddings
+        /// Metadata for multi-input embeddings.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::TwelveLabs.EmbeddingMediaMetadataVariant5? EmbeddingMediaMetadataVariant5 { get; init; }

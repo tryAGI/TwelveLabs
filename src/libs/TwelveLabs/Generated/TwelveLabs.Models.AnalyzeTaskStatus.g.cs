@@ -4,10 +4,15 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The current status of the analysis task.
+    /// The current status of the analysis task.<br/>
+    /// `ready`, `failed`, and `canceled` are terminal.
     /// </summary>
     public enum AnalyzeTaskStatus
     {
+        /// <summary>
+        ///
+        /// </summary>
+        Canceled,
         /// <summary>
         ///
         /// </summary>
@@ -42,6 +47,7 @@ namespace TwelveLabs
         {
             return value switch
             {
+                AnalyzeTaskStatus.Canceled => "canceled",
                 AnalyzeTaskStatus.Failed => "failed",
                 AnalyzeTaskStatus.Pending => "pending",
                 AnalyzeTaskStatus.Processing => "processing",
@@ -57,6 +63,7 @@ namespace TwelveLabs
         {
             return value switch
             {
+                "canceled" => AnalyzeTaskStatus.Canceled,
                 "failed" => AnalyzeTaskStatus.Failed,
                 "pending" => AnalyzeTaskStatus.Pending,
                 "processing" => AnalyzeTaskStatus.Processing,

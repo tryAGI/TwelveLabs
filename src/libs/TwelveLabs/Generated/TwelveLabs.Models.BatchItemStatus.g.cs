@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The status of a result entry. This field is different from the batch status. For the meaning of each value, see the [Item statuses](/v1.3/api-reference/analyze-videos/batch-analysis/the-batch-object#item-statuses) section on the **The batch object** page.
+    /// The status of a result entry. This field is different from the batch status. Batch items never report `pending`; they enter `queued` directly, whether you read them here or through `GET /analyze/tasks/{task_id}`. For the meaning of each value, see the [Item statuses](/v1.3/api-reference/analyze-videos/batch-analysis/the-batch-object#item-statuses) section on the **The batch object** page.
     /// </summary>
     public enum BatchItemStatus
     {
