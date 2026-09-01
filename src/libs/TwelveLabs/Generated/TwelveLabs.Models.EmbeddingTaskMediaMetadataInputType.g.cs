@@ -15,6 +15,14 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
+        Document,
+        /// <summary>
+        ///
+        /// </summary>
+        Image,
+        /// <summary>
+        ///
+        /// </summary>
         Video,
     }
 
@@ -31,6 +39,8 @@ namespace TwelveLabs
             return value switch
             {
                 EmbeddingTaskMediaMetadataInputType.Audio => "audio",
+                EmbeddingTaskMediaMetadataInputType.Document => "document",
+                EmbeddingTaskMediaMetadataInputType.Image => "image",
                 EmbeddingTaskMediaMetadataInputType.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -43,6 +53,8 @@ namespace TwelveLabs
             return value switch
             {
                 "audio" => EmbeddingTaskMediaMetadataInputType.Audio,
+                "document" => EmbeddingTaskMediaMetadataInputType.Document,
+                "image" => EmbeddingTaskMediaMetadataInputType.Image,
                 "video" => EmbeddingTaskMediaMetadataInputType.Video,
                 _ => null,
             };

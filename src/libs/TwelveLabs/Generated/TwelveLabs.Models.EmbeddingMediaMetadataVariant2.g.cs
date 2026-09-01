@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Metadata for text-image embeddings
+    /// Metadata for text-image embeddings.
     /// </summary>
     public sealed partial class EmbeddingMediaMetadataVariant2
     {
@@ -17,13 +17,13 @@ namespace TwelveLabs
         public required global::TwelveLabs.EmbeddingMediaMetadataInputType InputType { get; set; }
 
         /// <summary>
-        /// The publicly accessible URL for the image
+        /// The publicly accessible URL for the image file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_url")]
         public string? InputUrl { get; set; }
 
         /// <summary>
-        /// The name of the image file
+        /// The name of the image file.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_filename")]
         public string? InputFilename { get; set; }
@@ -39,10 +39,10 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="inputType"></param>
         /// <param name="inputUrl">
-        /// The publicly accessible URL for the image
+        /// The publicly accessible URL for the image file.
         /// </param>
         /// <param name="inputFilename">
-        /// The name of the image file
+        /// The name of the image file.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

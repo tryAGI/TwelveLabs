@@ -368,7 +368,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Cannot delete task while it is being processed
+                            // The task is still being processed and cannot be deleted. Wait until it reaches a terminal status, then retry. The response uses `task_cannot_be_deleted`.
                             if ((int)__response.StatusCode == 409)
                             {
                                 string? __content_409 = null;

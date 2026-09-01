@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class VideoVector
     {
         /// <summary>
-        /// A string representing the unique identifier of a video. The platform creates a new `video_vector` object and assigns it a unique identifier when the video has successfully been indexed. Note that video IDs are different from task IDs.
+        /// A string representing the unique identifier of a video. The platform creates a new `video_vector` object and assigns it a unique identifier when the video has successfully been indexed. Note that video identifiers are different from task identifiers.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("_id")]
         public string? Id { get; set; }
@@ -54,7 +54,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="VideoVector" /> class.
         /// </summary>
         /// <param name="id">
-        /// A string representing the unique identifier of a video. The platform creates a new `video_vector` object and assigns it a unique identifier when the video has successfully been indexed. Note that video IDs are different from task IDs.
+        /// A string representing the unique identifier of a video. The platform creates a new `video_vector` object and assigns it a unique identifier when the video has successfully been indexed. Note that video identifiers are different from task identifiers.
         /// </param>
         /// <param name="assetId">
         /// The unique identifier of the associated asset.

@@ -11,8 +11,8 @@ namespace TwelveLabs
         /// &lt;/Note&gt;<br/>
         /// This method creates embeddings for text, image, and audio content.<br/>
         /// Ensure your media files meet the following requirements:<br/>
-        /// - [Audio files](/v1.3/docs/concepts/models/marengo#audio-requirements).<br/>
-        /// - [Image files](/v1.3/docs/concepts/models/marengo#image-requirements).<br/>
+        /// - [Audio files](/v1.3/docs/concepts/models/marengo/marengo-3-0#audio-file-requirements).<br/>
+        /// - [Image files](/v1.3/docs/concepts/models/marengo/marengo-3-0#image-file-requirements).<br/>
         /// Parameters for embeddings:<br/>
         /// - **Common parameters**:<br/>
         ///   - `model_name`: The video understanding model you want to use. Example: "marengo3.0".<br/>
@@ -51,8 +51,8 @@ namespace TwelveLabs
         /// &lt;/Note&gt;<br/>
         /// This method creates embeddings for text, image, and audio content.<br/>
         /// Ensure your media files meet the following requirements:<br/>
-        /// - [Audio files](/v1.3/docs/concepts/models/marengo#audio-requirements).<br/>
-        /// - [Image files](/v1.3/docs/concepts/models/marengo#image-requirements).<br/>
+        /// - [Audio files](/v1.3/docs/concepts/models/marengo/marengo-3-0#audio-file-requirements).<br/>
+        /// - [Image files](/v1.3/docs/concepts/models/marengo/marengo-3-0#image-file-requirements).<br/>
         /// Parameters for embeddings:<br/>
         /// - **Common parameters**:<br/>
         ///   - `model_name`: The video understanding model you want to use. Example: "marengo3.0".<br/>
@@ -91,8 +91,8 @@ namespace TwelveLabs
         /// &lt;/Note&gt;<br/>
         /// This method creates embeddings for text, image, and audio content.<br/>
         /// Ensure your media files meet the following requirements:<br/>
-        /// - [Audio files](/v1.3/docs/concepts/models/marengo#audio-requirements).<br/>
-        /// - [Image files](/v1.3/docs/concepts/models/marengo#image-requirements).<br/>
+        /// - [Audio files](/v1.3/docs/concepts/models/marengo/marengo-3-0#audio-file-requirements).<br/>
+        /// - [Image files](/v1.3/docs/concepts/models/marengo/marengo-3-0#image-file-requirements).<br/>
         /// Parameters for embeddings:<br/>
         /// - **Common parameters**:<br/>
         ///   - `model_name`: The video understanding model you want to use. Example: "marengo3.0".<br/>

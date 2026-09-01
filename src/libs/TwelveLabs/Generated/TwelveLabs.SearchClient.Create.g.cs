@@ -60,7 +60,7 @@ namespace TwelveLabs
         /// **Entity search** (beta):<br/>
         /// - To find a specific person in your videos, enclose the unique identifier of the entity you want to find in the `query_text` parameter.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
-        /// - When using images in your search queries (either as media queries or in composed searches), ensure your image files meet the [requirements](/v1.3/docs/concepts/models/marengo#image-file-requirements).<br/>
+        /// - When using images in your search queries (either as media queries or in composed searches), ensure your image files meet the [requirements](/v1.3/docs/concepts/models/marengo/marengo-3-0#image-file-requirements).<br/>
         /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
@@ -103,7 +103,7 @@ namespace TwelveLabs
         /// **Entity search** (beta):<br/>
         /// - To find a specific person in your videos, enclose the unique identifier of the entity you want to find in the `query_text` parameter.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
-        /// - When using images in your search queries (either as media queries or in composed searches), ensure your image files meet the [requirements](/v1.3/docs/concepts/models/marengo#image-file-requirements).<br/>
+        /// - When using images in your search queries (either as media queries or in composed searches), ensure your image files meet the [requirements](/v1.3/docs/concepts/models/marengo/marengo-3-0#image-file-requirements).<br/>
         /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
@@ -607,7 +607,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // If the rate limit is reached, the platform returns an `HTTP 429 - Too many requests` error response. The response body is empty.
+                            // If the rate limit is reached, the platform returns an `HTTP 429 - Too Many Requests` error response. The response body is empty.
                             if ((int)__response.StatusCode == 429)
                             {
                                 string? __content_429 = null;
@@ -757,7 +757,7 @@ namespace TwelveLabs
         /// **Entity search** (beta):<br/>
         /// - To find a specific person in your videos, enclose the unique identifier of the entity you want to find in the `query_text` parameter.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
-        /// - When using images in your search queries (either as media queries or in composed searches), ensure your image files meet the [requirements](/v1.3/docs/concepts/models/marengo#image-file-requirements).<br/>
+        /// - When using images in your search queries (either as media queries or in composed searches), ensure your image files meet the [requirements](/v1.3/docs/concepts/models/marengo/marengo-3-0#image-file-requirements).<br/>
         /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>

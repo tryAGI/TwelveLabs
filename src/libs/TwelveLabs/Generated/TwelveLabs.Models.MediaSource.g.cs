@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class MediaSource
     {
         /// <summary>
-        /// The base64-encoded media data.
+        /// The base64-encoded media data. The decoded file can be up to 36 MB; encoded, it can be up to 48 MB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("base64_string")]
         public string? Base64String { get; set; }
@@ -37,7 +37,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="MediaSource" /> class.
         /// </summary>
         /// <param name="base64String">
-        /// The base64-encoded media data.
+        /// The base64-encoded media data. The decoded file can be up to 36 MB; encoded, it can be up to 48 MB.
         /// </param>
         /// <param name="url">
         /// The publicly accessible URL of the media file.<br/>

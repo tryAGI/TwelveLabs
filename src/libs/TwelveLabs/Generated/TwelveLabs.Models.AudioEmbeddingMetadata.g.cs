@@ -23,14 +23,14 @@ namespace TwelveLabs
         /// <summary>
         /// The type of the embedding. It can take one of the following values: ['audio'] or ['transcription'].
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("audio_embedding_options")]
-        public global::System.Collections.Generic.IList<string>? AudioEmbeddingOptions { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("audio_embedding_option")]
+        public global::System.Collections.Generic.IList<string>? AudioEmbeddingOption { get; set; }
 
         /// <summary>
         /// The scope you've specified in the request.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("audio_embedding_scopes")]
-        public global::System.Collections.Generic.IList<string>? AudioEmbeddingScopes { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("audio_embedding_scope")]
+        public global::System.Collections.Generic.IList<string>? AudioEmbeddingScope { get; set; }
 
         /// <summary>
         /// The total duration of the audio in seconds.
@@ -65,10 +65,10 @@ namespace TwelveLabs
         /// <param name="inputFilename">
         /// The name of the media file used to generate the embedding. Present if a file was provided in the request.
         /// </param>
-        /// <param name="audioEmbeddingOptions">
+        /// <param name="audioEmbeddingOption">
         /// The type of the embedding. It can take one of the following values: ['audio'] or ['transcription'].
         /// </param>
-        /// <param name="audioEmbeddingScopes">
+        /// <param name="audioEmbeddingScope">
         /// The scope you've specified in the request.
         /// </param>
         /// <param name="duration">
@@ -86,16 +86,16 @@ namespace TwelveLabs
         public AudioEmbeddingMetadata(
             string? inputUrl,
             string? inputFilename,
-            global::System.Collections.Generic.IList<string>? audioEmbeddingOptions,
-            global::System.Collections.Generic.IList<string>? audioEmbeddingScopes,
+            global::System.Collections.Generic.IList<string>? audioEmbeddingOption,
+            global::System.Collections.Generic.IList<string>? audioEmbeddingScope,
             double? duration,
             double? startOffsetSec,
             double? endOffsetSec)
         {
             this.InputUrl = inputUrl;
             this.InputFilename = inputFilename;
-            this.AudioEmbeddingOptions = audioEmbeddingOptions;
-            this.AudioEmbeddingScopes = audioEmbeddingScopes;
+            this.AudioEmbeddingOption = audioEmbeddingOption;
+            this.AudioEmbeddingScope = audioEmbeddingScope;
             this.Duration = duration;
             this.StartOffsetSec = startOffsetSec;
             this.EndOffsetSec = endOffsetSec;

@@ -16,7 +16,7 @@ namespace TwelveLabs
         public required global::TwelveLabs.MediaSource MediaSource { get; set; }
 
         /// <summary>
-        /// The text for which you wish to create an embedding. The maximul length is 500 tokens.
+        /// The text for which you wish to create an embedding. The maximum length is 500 tokens.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_text")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -35,7 +35,7 @@ namespace TwelveLabs
         /// An object specifying the source of the media file. You must provide exactly one of `url`, `base64_string`, or `asset_id`.
         /// </param>
         /// <param name="inputText">
-        /// The text for which you wish to create an embedding. The maximul length is 500 tokens.
+        /// The text for which you wish to create an embedding. The maximum length is 500 tokens.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

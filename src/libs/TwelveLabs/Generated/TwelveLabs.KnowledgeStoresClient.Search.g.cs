@@ -479,7 +479,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // If the rate limit is reached, the platform returns an `HTTP 429 - Too many requests` error response. The response body is empty.
+                            // If the rate limit is reached, the platform returns an `HTTP 429 - Too Many Requests` error response. The response body is empty.
                             if ((int)__response.StatusCode == 429)
                             {
                                 string? __content_429 = null;

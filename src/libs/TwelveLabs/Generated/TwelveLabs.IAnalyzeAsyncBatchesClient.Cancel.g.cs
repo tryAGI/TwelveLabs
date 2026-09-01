@@ -10,7 +10,7 @@ namespace TwelveLabs
         /// When you invoke this method, the platform performs the following steps:<br/>
         /// - Cancels the items in the `queued` status.<br/>
         /// - Finishes the analysis for the items in the `processing` status.<br/>
-        /// The batch status changes to `canceling` immediately, and to `canceled` after every item reaches `ready`, `failed`, or `canceled`. You are not billed for canceled or failed items.
+        /// The batch status changes to `canceling` immediately, and to `canceled` after every item reaches `ready`, `failed`, or `canceled`. Canceling a batch does not stop items that are already in the `processing` status. Those items continue and may reach `ready`. Items that reach `ready` are billed as completed analyses. You are not billed for queued items that become `canceled` or for failed items.
         /// </summary>
         /// <param name="batchId"></param>
         /// <param name="xApiKey"></param>
@@ -28,7 +28,7 @@ namespace TwelveLabs
         /// When you invoke this method, the platform performs the following steps:<br/>
         /// - Cancels the items in the `queued` status.<br/>
         /// - Finishes the analysis for the items in the `processing` status.<br/>
-        /// The batch status changes to `canceling` immediately, and to `canceled` after every item reaches `ready`, `failed`, or `canceled`. You are not billed for canceled or failed items.
+        /// The batch status changes to `canceling` immediately, and to `canceled` after every item reaches `ready`, `failed`, or `canceled`. Canceling a batch does not stop items that are already in the `processing` status. Those items continue and may reach `ready`. Items that reach `ready` are billed as completed analyses. You are not billed for queued items that become `canceled` or for failed items.
         /// </summary>
         /// <param name="batchId"></param>
         /// <param name="xApiKey"></param>

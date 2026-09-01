@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class TextInputRequest
     {
         /// <summary>
-        /// The text for which you wish to create an embedding. The maximul length is 500 tokens.
+        /// The text for which you wish to create an embedding. The maximum length is 500 tokens.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_text")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="TextInputRequest" /> class.
         /// </summary>
         /// <param name="inputText">
-        /// The text for which you wish to create an embedding. The maximul length is 500 tokens.
+        /// The text for which you wish to create an embedding. The maximum length is 500 tokens.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

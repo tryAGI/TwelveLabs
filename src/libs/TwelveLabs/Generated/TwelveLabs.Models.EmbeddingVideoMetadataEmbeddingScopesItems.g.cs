@@ -16,6 +16,10 @@ namespace TwelveLabs
         ///
         /// </summary>
         Clip,
+        /// <summary>
+        ///
+        /// </summary>
+        Local,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace TwelveLabs
             {
                 EmbeddingVideoMetadataEmbeddingScopesItems.Asset => "asset",
                 EmbeddingVideoMetadataEmbeddingScopesItems.Clip => "clip",
+                EmbeddingVideoMetadataEmbeddingScopesItems.Local => "local",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace TwelveLabs
             {
                 "asset" => EmbeddingVideoMetadataEmbeddingScopesItems.Asset,
                 "clip" => EmbeddingVideoMetadataEmbeddingScopesItems.Clip,
+                "local" => EmbeddingVideoMetadataEmbeddingScopesItems.Local,
                 _ => null,
             };
         }

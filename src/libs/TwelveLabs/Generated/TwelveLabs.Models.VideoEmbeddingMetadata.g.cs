@@ -33,6 +33,12 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IList<string>? VideoEmbeddingScope { get; set; }
 
         /// <summary>
+        /// The `embedding_option` values used to generate the embedding.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("video_embedding_option")]
+        public global::System.Collections.Generic.IList<string>? VideoEmbeddingOption { get; set; }
+
+        /// <summary>
         /// The total duration of the video in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration")]
@@ -59,6 +65,9 @@ namespace TwelveLabs
         /// <param name="videoEmbeddingScope">
         /// The scope you've specified in the request.
         /// </param>
+        /// <param name="videoEmbeddingOption">
+        /// The `embedding_option` values used to generate the embedding.
+        /// </param>
         /// <param name="duration">
         /// The total duration of the video in seconds.
         /// </param>
@@ -70,12 +79,14 @@ namespace TwelveLabs
             string? inputFilename,
             double? videoClipLength,
             global::System.Collections.Generic.IList<string>? videoEmbeddingScope,
+            global::System.Collections.Generic.IList<string>? videoEmbeddingOption,
             double? duration)
         {
             this.InputUrl = inputUrl;
             this.InputFilename = inputFilename;
             this.VideoClipLength = videoClipLength;
             this.VideoEmbeddingScope = videoEmbeddingScope;
+            this.VideoEmbeddingOption = videoEmbeddingOption;
             this.Duration = duration;
         }
 

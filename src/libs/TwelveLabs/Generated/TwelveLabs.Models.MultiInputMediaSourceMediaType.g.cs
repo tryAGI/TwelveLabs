@@ -5,14 +5,25 @@ namespace TwelveLabs
 {
     /// <summary>
     /// The type of media.<br/>
-    /// **Value**: `image`
+    /// **Values**:<br/>
+    /// - `image`: An image file. Works with both Marengo 3.0 and Marengo 3.5.<br/>
+    /// - `video`: A video file. Requires Marengo 3.5.<br/>
+    /// - `audio`: An audio file. Requires Marengo 3.5.
     /// </summary>
     public enum MultiInputMediaSourceMediaType
     {
         /// <summary>
-        /// `image`
+        /// An audio file. Requires Marengo 3.5.
+        /// </summary>
+        Audio,
+        /// <summary>
+        /// An image file. Works with both Marengo 3.0 and Marengo 3.5.
         /// </summary>
         Image,
+        /// <summary>
+        /// A video file. Requires Marengo 3.5.
+        /// </summary>
+        Video,
     }
 
     /// <summary>
@@ -27,7 +38,9 @@ namespace TwelveLabs
         {
             return value switch
             {
+                MultiInputMediaSourceMediaType.Audio => "audio",
                 MultiInputMediaSourceMediaType.Image => "image",
+                MultiInputMediaSourceMediaType.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -38,7 +51,9 @@ namespace TwelveLabs
         {
             return value switch
             {
+                "audio" => MultiInputMediaSourceMediaType.Audio,
                 "image" => MultiInputMediaSourceMediaType.Image,
+                "video" => MultiInputMediaSourceMediaType.Video,
                 _ => null,
             };
         }

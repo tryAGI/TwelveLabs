@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Metadata for multi-input embeddings
+    /// Metadata for multi-input embeddings.
     /// </summary>
     public sealed partial class EmbeddingMediaMetadataVariant5
     {

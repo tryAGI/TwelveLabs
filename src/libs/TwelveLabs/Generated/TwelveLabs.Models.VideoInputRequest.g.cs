@@ -18,8 +18,7 @@ namespace TwelveLabs
         /// <summary>
         /// The start time in seconds for processing the video file.<br/>
         /// Use this parameter to process a portion of the video file starting from a specific time.<br/>
-        /// **Default**: 0 (start from the beginning)<br/>
-        /// Default Value: 0
+        /// **Default**: 0 (start from the beginning)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_sec")]
         public double? StartSec { get; set; }
@@ -43,7 +42,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// The types of embeddings to generate for the video.<br/>
-        /// **Values:**<br/>
+        /// **Values**:<br/>
         /// - `visual`: Generates embeddings based on visual content (scenes, objects, actions)<br/>
         /// - `audio`: Generates embeddings based on audio content (sounds, music, effects)<br/>
         /// - `transcription`: Generates embeddings based on transcribed speech<br/>
@@ -90,8 +89,7 @@ namespace TwelveLabs
         /// <param name="startSec">
         /// The start time in seconds for processing the video file.<br/>
         /// Use this parameter to process a portion of the video file starting from a specific time.<br/>
-        /// **Default**: 0 (start from the beginning)<br/>
-        /// Default Value: 0
+        /// **Default**: 0 (start from the beginning)
         /// </param>
         /// <param name="endSec">
         /// The end time in seconds for processing the video file.<br/>
@@ -105,7 +103,7 @@ namespace TwelveLabs
         /// </param>
         /// <param name="embeddingOption">
         /// The types of embeddings to generate for the video.<br/>
-        /// **Values:**<br/>
+        /// **Values**:<br/>
         /// - `visual`: Generates embeddings based on visual content (scenes, objects, actions)<br/>
         /// - `audio`: Generates embeddings based on audio content (sounds, music, effects)<br/>
         /// - `transcription`: Generates embeddings based on transcribed speech<br/>
