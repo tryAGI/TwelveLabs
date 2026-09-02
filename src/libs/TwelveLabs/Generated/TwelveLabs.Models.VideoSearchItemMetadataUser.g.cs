@@ -4,9 +4,9 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Custom metadata for the item collection. Keys are strings; each value is a string, a number, a boolean, or an array of strings.
+    /// Caller-supplied key-value pairs attached to the item.
     /// </summary>
-    public sealed partial class KnowledgeStoreItemCollectionMetadata
+    public sealed partial class VideoSearchItemMetadataUser
     {
 
         /// <summary>

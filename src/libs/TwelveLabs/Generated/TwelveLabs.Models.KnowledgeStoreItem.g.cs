@@ -46,10 +46,10 @@ namespace TwelveLabs
         public global::TwelveLabs.KnowledgeStoreItemSystemMetadata? SystemMetadata { get; set; }
 
         /// <summary>
-        /// Custom metadata for the item.
+        /// Custom metadata for the item. Keys are strings; each value is a string, a number, a boolean, or an array of strings.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public global::System.Collections.Generic.Dictionary<string, string>? Metadata { get; set; }
+        public object? Metadata { get; set; }
 
         /// <summary>
         /// The date and time when the item was created, in the RFC 3339 format.
@@ -91,7 +91,7 @@ namespace TwelveLabs
         /// always matches the item's top-level `asset_type` field.
         /// </param>
         /// <param name="metadata">
-        /// Custom metadata for the item.
+        /// Custom metadata for the item. Keys are strings; each value is a string, a number, a boolean, or an array of strings.
         /// </param>
         /// <param name="createdAt">
         /// The date and time when the item was created, in the RFC 3339 format.
@@ -108,7 +108,7 @@ namespace TwelveLabs
             string? assetId,
             global::TwelveLabs.KnowledgeStoreItemStatus? status,
             global::TwelveLabs.KnowledgeStoreItemSystemMetadata? systemMetadata,
-            global::System.Collections.Generic.Dictionary<string, string>? metadata,
+            object? metadata,
             global::System.DateTime? createdAt,
             global::System.DateTime? updatedAt)
         {
