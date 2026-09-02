@@ -18,7 +18,7 @@ namespace TwelveLabs
         /// Caller-supplied key-value pairs attached to the item.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user")]
-        public global::TwelveLabs.UserMetadata? User { get; set; }
+        public object? User { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,7 +40,7 @@ namespace TwelveLabs
 #endif
         public VideoSearchItemMetadata(
             global::TwelveLabs.VideoSearchSystemMetadata? system,
-            global::TwelveLabs.UserMetadata? user)
+            object? user)
         {
             this.System = system;
             this.User = user;

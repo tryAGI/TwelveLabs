@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Custom metadata for the item.
+    /// Custom metadata for the item. Keys are strings; each value is a string, a number, a boolean, or an array of strings.
     /// </summary>
     public sealed partial class KnowledgeStoreItemMetadata
     {

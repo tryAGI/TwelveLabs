@@ -23,10 +23,10 @@ namespace TwelveLabs
         public required string AssetId { get; set; }
 
         /// <summary>
-        /// Custom metadata for the item. Both keys and values must be strings.
+        /// Custom metadata for the item, as user-defined key-value pairs. Up to 50 pairs, keys up to 128 characters, string values up to 8192 characters. Keys are strings. Each value is a string, a number, a boolean, or an array of strings; a nested object, an array holding anything but strings, and a null value are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991); send a wider value, and any identifier you want preserved verbatim, as a string.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public global::System.Collections.Generic.Dictionary<string, string>? Metadata { get; set; }
+        public object? Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -44,7 +44,7 @@ namespace TwelveLabs
         /// The type of item to create.
         /// </param>
         /// <param name="metadata">
-        /// Custom metadata for the item. Both keys and values must be strings.
+        /// Custom metadata for the item, as user-defined key-value pairs. Up to 50 pairs, keys up to 128 characters, string values up to 8192 characters. Keys are strings. Each value is a string, a number, a boolean, or an array of strings; a nested object, an array holding anything but strings, and a null value are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991); send a wider value, and any identifier you want preserved verbatim, as a string.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -52,7 +52,7 @@ namespace TwelveLabs
         public CreateRequest5(
             string assetId,
             global::TwelveLabs.KnowledgeStoreItemAssetType? assetType,
-            global::System.Collections.Generic.Dictionary<string, string>? metadata)
+            object? metadata)
         {
             this.AssetType = assetType;
             this.AssetId = assetId ?? throw new global::System.ArgumentNullException(nameof(assetId));

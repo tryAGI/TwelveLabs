@@ -51,10 +51,10 @@ namespace TwelveLabs
         public global::System.DateTime? UpdatedAt { get; set; }
 
         /// <summary>
-        /// Custom metadata for the knowledge store.
+        /// Custom metadata for the knowledge store. Keys are strings; each value is a string, a number, a boolean, or an array of strings.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public global::System.Collections.Generic.Dictionary<string, string>? Metadata { get; set; }
+        public object? Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -87,7 +87,7 @@ namespace TwelveLabs
         /// The date and time when the knowledge store was last updated, in the RFC 3339 format.
         /// </param>
         /// <param name="metadata">
-        /// Custom metadata for the knowledge store.
+        /// Custom metadata for the knowledge store. Keys are strings; each value is a string, a number, a boolean, or an array of strings.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -100,7 +100,7 @@ namespace TwelveLabs
             int? itemCount,
             global::System.DateTime? createdAt,
             global::System.DateTime? updatedAt,
-            global::System.Collections.Generic.Dictionary<string, string>? metadata)
+            object? metadata)
         {
             this.Id = id;
             this.Name = name;

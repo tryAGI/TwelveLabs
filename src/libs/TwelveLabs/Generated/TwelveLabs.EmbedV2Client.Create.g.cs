@@ -623,8 +623,7 @@ namespace TwelveLabs
         /// <param name="multiInput">
         /// This field is required if the `input_type` parameter is `multi_input`. It combines text and up to 10 media sources into a single embedding. Provide the `input_text` field, the `media_sources` field, or both.<br/>
         /// Marengo 3.5 accepts images, video, and audio as media sources. Marengo 3.0 accepts images.<br/>
-        /// Include text in the `input_text` field when you combine media sources of different types. For example, a request that combines an image and a video returns a `400` error without text. Media sources of the same type do not require text.<br/>
-        /// With Marengo 3.5, the text cannot exceed 2,000 tokens. Media sources do not count toward this limit. Use the `auto_truncate` parameter to control the behavior of the platform when your text exceeds it.
+        /// Include text in the `input_text` field when you combine media sources of different types. For example, a request that combines an image and a video returns a `400` error without text. Media sources of the same type do not require text.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
