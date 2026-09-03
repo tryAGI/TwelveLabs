@@ -4,13 +4,10 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The object type, always `response`. Carries the same value as `type`, which<br/>
-    /// predates it and which the Open Responses specification does not name.<br/>
-    /// Both fields are permanent; neither will be removed. Read whichever your client<br/>
-    /// already uses.<br/>
-    /// This is the only object with an `object` field. Output items, annotations and<br/>
-    /// stream events are keyed on `type` alone, so do not expect `object` one level<br/>
-    /// down.
+    /// The object type, always `response`. It has the same value as the `type`<br/>
+    /// field.<br/>
+    /// Only the response itself has an `object` field. Output items, annotations,<br/>
+    /// and stream events are identified by `type` alone and have no `object` field.
     /// </summary>
     public enum ResponseObjectObject
     {

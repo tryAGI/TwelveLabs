@@ -41,20 +41,18 @@ namespace TwelveLabs
         public global::TwelveLabs.ResponseOutputItemRole? Role { get; set; }
 
         /// <summary>
-        /// Which part of the answer this message holds. Present when `type` is `message`.<br/>
-        /// A turn can produce several messages: the model narrating what it is about to<br/>
-        /// do, then the answer itself. `commentary` marks the narration and `final_answer`<br/>
-        /// marks the answer, so picking the answer out of a turn does not mean guessing<br/>
-        /// from item order.<br/>
-        /// **`commentary` reaches you only when `include` is set to<br/>
-        /// `["intermediate_outputs"]`.** That applies to streamed responses as well as<br/>
-        /// non-streamed ones — the default keeps the final answer alone on both. When you<br/>
-        /// do request it, a streamed message carries its `phase` on the<br/>
-        /// `response.output_item.added` event, so a client can route the message before any<br/>
-        /// of its text arrives.<br/>
-        /// Treat a message with no `phase` as `final_answer`.<br/>
-        /// Treat an unrecognized `phase` as narration rather than as the answer, so a<br/>
-        /// phase this client does not know is never mistaken for it.
+        /// Which part of the turn this message contains: intermediate output or the<br/>
+        /// answer. Present when the `type` field is `message`.<br/>
+        /// A turn can produce intermediate messages before the answer, such as a<br/>
+        /// message that describes the steps Jockey is taking. The `commentary` value<br/>
+        /// identifies an intermediate message, and the `final_answer` value<br/>
+        /// identifies the answer.<br/>
+        /// The output contains intermediate output only when the request sets the<br/>
+        /// `include` parameter to `["intermediate_outputs"]`. By default, the output<br/>
+        /// contains the answer only.<br/>
+        /// Treat a message without the `phase` field as the final answer.<br/>
+        /// Treat an unrecognized `phase` value as intermediate output, not as the<br/>
+        /// answer.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phase")]
         public string? Phase { get; set; }
@@ -113,20 +111,18 @@ namespace TwelveLabs
         /// The role of the message author. Present when `type` is `message`.
         /// </param>
         /// <param name="phase">
-        /// Which part of the answer this message holds. Present when `type` is `message`.<br/>
-        /// A turn can produce several messages: the model narrating what it is about to<br/>
-        /// do, then the answer itself. `commentary` marks the narration and `final_answer`<br/>
-        /// marks the answer, so picking the answer out of a turn does not mean guessing<br/>
-        /// from item order.<br/>
-        /// **`commentary` reaches you only when `include` is set to<br/>
-        /// `["intermediate_outputs"]`.** That applies to streamed responses as well as<br/>
-        /// non-streamed ones — the default keeps the final answer alone on both. When you<br/>
-        /// do request it, a streamed message carries its `phase` on the<br/>
-        /// `response.output_item.added` event, so a client can route the message before any<br/>
-        /// of its text arrives.<br/>
-        /// Treat a message with no `phase` as `final_answer`.<br/>
-        /// Treat an unrecognized `phase` as narration rather than as the answer, so a<br/>
-        /// phase this client does not know is never mistaken for it.
+        /// Which part of the turn this message contains: intermediate output or the<br/>
+        /// answer. Present when the `type` field is `message`.<br/>
+        /// A turn can produce intermediate messages before the answer, such as a<br/>
+        /// message that describes the steps Jockey is taking. The `commentary` value<br/>
+        /// identifies an intermediate message, and the `final_answer` value<br/>
+        /// identifies the answer.<br/>
+        /// The output contains intermediate output only when the request sets the<br/>
+        /// `include` parameter to `["intermediate_outputs"]`. By default, the output<br/>
+        /// contains the answer only.<br/>
+        /// Treat a message without the `phase` field as the final answer.<br/>
+        /// Treat an unrecognized `phase` value as intermediate output, not as the<br/>
+        /// answer.
         /// </param>
         /// <param name="content">
         /// The content parts of the message. Present when `type` is `message`.

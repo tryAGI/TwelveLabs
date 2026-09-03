@@ -35,13 +35,10 @@ namespace TwelveLabs
         public global::TwelveLabs.ResponseObjectType? Type { get; set; }
 
         /// <summary>
-        /// The object type, always `response`. Carries the same value as `type`, which<br/>
-        /// predates it and which the Open Responses specification does not name.<br/>
-        /// Both fields are permanent; neither will be removed. Read whichever your client<br/>
-        /// already uses.<br/>
-        /// This is the only object with an `object` field. Output items, annotations and<br/>
-        /// stream events are keyed on `type` alone, so do not expect `object` one level<br/>
-        /// down.
+        /// The object type, always `response`. It has the same value as the `type`<br/>
+        /// field.<br/>
+        /// Only the response itself has an `object` field. Output items, annotations,<br/>
+        /// and stream events are identified by `type` alone and have no `object` field.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("object")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.ResponseObjectObjectJsonConverter))]
@@ -57,15 +54,12 @@ namespace TwelveLabs
         public global::TwelveLabs.ResponseStatus? Status { get; set; }
 
         /// <summary>
-        /// Why the response stopped before the answer was whole. Always sent. Non-null only<br/>
-        /// when `status` is `incomplete`; `null` on every other status, including<br/>
-        /// `in_progress` and `failed` — so `null` means "this answer was not truncated",<br/>
-        /// not "this platform does not report the reason".<br/>
-        /// A `null` on `status: failed` is not a claim that nothing went wrong. This field<br/>
-        /// reports truncation only; a failure is reported by the status itself.<br/>
-        /// Values may be added to `reason` as new ways of truncating an answer are<br/>
-        /// reported. Treat an unrecognized `reason` as "truncated for a reason this client<br/>
-        /// does not know" rather than as an error.
+        /// The reason the response was truncated before the answer was complete. Always<br/>
+        /// present. Contains a value only when the `status` field is `incomplete`; the<br/>
+        /// value is `null` on every other status, including `in_progress` and `failed`.<br/>
+        /// A `null` value means the answer was not truncated.<br/>
+        /// If the `reason` field contains a value you do not recognize, treat the<br/>
+        /// response as truncated for an unknown reason, not as an error.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("incomplete_details")]
         public global::TwelveLabs.ResponseIncompleteDetails? IncompleteDetails { get; set; }
@@ -112,13 +106,10 @@ namespace TwelveLabs
         /// The object type. Always `response`.
         /// </param>
         /// <param name="object">
-        /// The object type, always `response`. Carries the same value as `type`, which<br/>
-        /// predates it and which the Open Responses specification does not name.<br/>
-        /// Both fields are permanent; neither will be removed. Read whichever your client<br/>
-        /// already uses.<br/>
-        /// This is the only object with an `object` field. Output items, annotations and<br/>
-        /// stream events are keyed on `type` alone, so do not expect `object` one level<br/>
-        /// down.
+        /// The object type, always `response`. It has the same value as the `type`<br/>
+        /// field.<br/>
+        /// Only the response itself has an `object` field. Output items, annotations,<br/>
+        /// and stream events are identified by `type` alone and have no `object` field.
         /// </param>
         /// <param name="status">
         /// The status. For the meaning of each value, see the<br/>
@@ -126,15 +117,12 @@ namespace TwelveLabs
         /// section on **The response object** page.
         /// </param>
         /// <param name="incompleteDetails">
-        /// Why the response stopped before the answer was whole. Always sent. Non-null only<br/>
-        /// when `status` is `incomplete`; `null` on every other status, including<br/>
-        /// `in_progress` and `failed` — so `null` means "this answer was not truncated",<br/>
-        /// not "this platform does not report the reason".<br/>
-        /// A `null` on `status: failed` is not a claim that nothing went wrong. This field<br/>
-        /// reports truncation only; a failure is reported by the status itself.<br/>
-        /// Values may be added to `reason` as new ways of truncating an answer are<br/>
-        /// reported. Treat an unrecognized `reason` as "truncated for a reason this client<br/>
-        /// does not know" rather than as an error.
+        /// The reason the response was truncated before the answer was complete. Always<br/>
+        /// present. Contains a value only when the `status` field is `incomplete`; the<br/>
+        /// value is `null` on every other status, including `in_progress` and `failed`.<br/>
+        /// A `null` value means the answer was not truncated.<br/>
+        /// If the `reason` field contains a value you do not recognize, treat the<br/>
+        /// response as truncated for an unknown reason, not as an error.
         /// </param>
         /// <param name="output">
         /// The response output items. By default, only the final message is included.<br/>
