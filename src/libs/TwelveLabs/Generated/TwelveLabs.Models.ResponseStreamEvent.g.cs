@@ -19,7 +19,9 @@ namespace TwelveLabs
     /// - `response.output_item.done` — An output item is finalized.<br/>
     /// - `response.completed` — The response is complete.<br/>
     /// - `response.failed` — The response has failed.<br/>
-    /// The stream ends with a `data: [DONE]` message.
+    /// The stream ends with a `data: [DONE]` message.<br/>
+    /// Events are identified by `type` alone and have no `object` field, unlike the<br/>
+    /// response object.
     /// </summary>
     public readonly partial struct ResponseStreamEvent : global::System.IEquatable<ResponseStreamEvent>
     {

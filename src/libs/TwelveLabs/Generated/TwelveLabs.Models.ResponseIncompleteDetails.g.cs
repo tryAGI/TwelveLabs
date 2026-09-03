@@ -4,16 +4,16 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Why a response is incomplete. Accompanies `status: incomplete`.
+    /// Details about why a response is incomplete. Present when the `status` field is<br/>
+    /// `incomplete`.
     /// </summary>
     public sealed partial class ResponseIncompleteDetails
     {
         /// <summary>
-        /// What stopped the answer. `max_output_tokens` means the answer reached the<br/>
-        /// output limit before it was finished; the text received is a valid prefix of<br/>
-        /// the answer, not a whole one.<br/>
-        /// Treat a reason you do not recognize as "not a whole answer, for a reason this<br/>
-        /// client does not know" rather than as an error.
+        /// The reason the answer is incomplete. The `max_output_tokens` value means<br/>
+        /// the answer reached the output token limit. The text in the response is an<br/>
+        /// incomplete answer, not the full one; treat an unrecognized value as an<br/>
+        /// incomplete answer for an unknown reason, not as an error.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reason")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -29,11 +29,10 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="ResponseIncompleteDetails" /> class.
         /// </summary>
         /// <param name="reason">
-        /// What stopped the answer. `max_output_tokens` means the answer reached the<br/>
-        /// output limit before it was finished; the text received is a valid prefix of<br/>
-        /// the answer, not a whole one.<br/>
-        /// Treat a reason you do not recognize as "not a whole answer, for a reason this<br/>
-        /// client does not know" rather than as an error.
+        /// The reason the answer is incomplete. The `max_output_tokens` value means<br/>
+        /// the answer reached the output token limit. The text in the response is an<br/>
+        /// incomplete answer, not the full one; treat an unrecognized value as an<br/>
+        /// incomplete answer for an unknown reason, not as an error.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

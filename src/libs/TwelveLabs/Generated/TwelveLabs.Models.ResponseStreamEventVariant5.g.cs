@@ -29,7 +29,9 @@ namespace TwelveLabs
         public int? OutputIndex { get; set; }
 
         /// <summary>
-        /// An item in the response output. Items are polymorphic and discriminated by the `type` field.
+        /// The output item when it starts. For a message, the `phase` field is<br/>
+        /// already set, so you can identify intermediate output or the answer<br/>
+        /// before any of its text streams in.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("item")]
         public global::TwelveLabs.ResponseOutputItem? Item { get; set; }
@@ -53,7 +55,9 @@ namespace TwelveLabs
         /// The index of the output item.
         /// </param>
         /// <param name="item">
-        /// An item in the response output. Items are polymorphic and discriminated by the `type` field.
+        /// The output item when it starts. For a message, the `phase` field is<br/>
+        /// already set, so you can identify intermediate output or the answer<br/>
+        /// before any of its text streams in.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
