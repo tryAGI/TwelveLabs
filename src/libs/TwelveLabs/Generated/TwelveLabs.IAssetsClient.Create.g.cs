@@ -9,7 +9,7 @@ namespace TwelveLabs
         /// This method creates an asset by uploading a file to the platform. Assets are reusable files that you can use in different workflows.<br/>
         /// The platform processes uploads asynchronously. This method returns immediately with the asset in the `processing` status, which then transitions to the `ready` status on success or to the `failed` status when the file is invalid, corrupt, or unreadable. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status of the asset is `ready` before you use it. This applies to every upload, including small files.<br/>
         /// **Supported content**:<br/>
-        /// - Video, audio, and image files.<br/>
+        /// - Video, audio, and images.<br/>
         /// - PDF, text, and Markdown files.<br/>
         /// Filename extension matching is case-insensitive; for example, `notes.MD` and `notes.md` are treated the same. The platform rejects unsupported formats. For documents, it also rejects files whose extensions don't match the detected content.<br/>
         /// **Upload methods**:<br/>
@@ -47,7 +47,7 @@ namespace TwelveLabs
         /// This method creates an asset by uploading a file to the platform. Assets are reusable files that you can use in different workflows.<br/>
         /// The platform processes uploads asynchronously. This method returns immediately with the asset in the `processing` status, which then transitions to the `ready` status on success or to the `failed` status when the file is invalid, corrupt, or unreadable. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status of the asset is `ready` before you use it. This applies to every upload, including small files.<br/>
         /// **Supported content**:<br/>
-        /// - Video, audio, and image files.<br/>
+        /// - Video, audio, and images.<br/>
         /// - PDF, text, and Markdown files.<br/>
         /// Filename extension matching is case-insensitive; for example, `notes.MD` and `notes.md` are treated the same. The platform rejects unsupported formats. For documents, it also rejects files whose extensions don't match the detected content.<br/>
         /// **Upload methods**:<br/>
@@ -85,7 +85,7 @@ namespace TwelveLabs
         /// This method creates an asset by uploading a file to the platform. Assets are reusable files that you can use in different workflows.<br/>
         /// The platform processes uploads asynchronously. This method returns immediately with the asset in the `processing` status, which then transitions to the `ready` status on success or to the `failed` status when the file is invalid, corrupt, or unreadable. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status of the asset is `ready` before you use it. This applies to every upload, including small files.<br/>
         /// **Supported content**:<br/>
-        /// - Video, audio, and image files.<br/>
+        /// - Video, audio, and images.<br/>
         /// - PDF, text, and Markdown files.<br/>
         /// Filename extension matching is case-insensitive; for example, `notes.MD` and `notes.md` are treated the same. The platform rejects unsupported formats. For documents, it also rejects files whose extensions don't match the detected content.<br/>
         /// **Upload methods**:<br/>
@@ -113,7 +113,7 @@ namespace TwelveLabs
         /// </param>
         /// <param name="file">
         /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
-        /// Local video, audio, and documents support up to 200 MB. Image files support up to 32 MB.
+        /// Local video, audio, and documents support up to 200 MB. Images support up to 32 MB.
         /// </param>
         /// <param name="url">
         /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>

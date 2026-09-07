@@ -18,7 +18,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
-        /// Local video, audio, and documents support up to 200 MB. Image files support up to 32 MB.
+        /// Local video, audio, and documents support up to 200 MB. Images support up to 32 MB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         public byte[]? File { get; set; }
@@ -73,7 +73,7 @@ namespace TwelveLabs
         /// </param>
         /// <param name="file">
         /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
-        /// Local video, audio, and documents support up to 200 MB. Image files support up to 32 MB.
+        /// Local video, audio, and documents support up to 200 MB. Images support up to 32 MB.
         /// </param>
         /// <param name="url">
         /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>

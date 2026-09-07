@@ -53,7 +53,7 @@ namespace TwelveLabs
         /// Upload options:<br/>
         /// - **Local file**: Use the `video_file` parameter.<br/>
         /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
-        /// Your video files must meet requirements based on your workflow:<br/>
+        /// Your videos must meet requirements based on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo/marengo-3-0#video-file-requirements).<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#video-file-requirements).<br/>
         /// - If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
@@ -95,7 +95,7 @@ namespace TwelveLabs
         /// Upload options:<br/>
         /// - **Local file**: Use the `video_file` parameter.<br/>
         /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
-        /// Your video files must meet requirements based on your workflow:<br/>
+        /// Your videos must meet requirements based on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo/marengo-3-0#video-file-requirements).<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#video-file-requirements).<br/>
         /// - If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
@@ -593,7 +593,7 @@ namespace TwelveLabs
         /// Upload options:<br/>
         /// - **Local file**: Use the `video_file` parameter.<br/>
         /// - **Publicly accessible URL**: Use the `video_url` parameter.<br/>
-        /// Your video files must meet requirements based on your workflow:<br/>
+        /// Your videos must meet requirements based on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo/marengo-3-0#video-file-requirements).<br/>
         /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#video-file-requirements).<br/>
         /// - If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
