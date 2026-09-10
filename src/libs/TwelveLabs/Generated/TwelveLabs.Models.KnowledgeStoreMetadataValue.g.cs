@@ -5,7 +5,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// A single custom-metadata value: a string, a number, a boolean, or an array of strings. The value keeps the JSON type you send; a nested object, an array holding anything but strings, and a null value are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991); send a wider value, and any identifier you want preserved verbatim, as a string.
+    /// A single custom-metadata value: a string, a number, a boolean, or an array of strings. The value keeps the JSON type sent; a nested object, an array containing anything other than strings, and a null value are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). A wider integer, or an identifier that must be preserved verbatim, must be sent as a string.
     /// </summary>
     public readonly partial struct KnowledgeStoreMetadataValue : global::System.IEquatable<KnowledgeStoreMetadataValue>
     {
