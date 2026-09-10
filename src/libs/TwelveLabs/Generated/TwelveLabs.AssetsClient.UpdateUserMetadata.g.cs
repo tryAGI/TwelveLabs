@@ -45,7 +45,7 @@ namespace TwelveLabs
         /// This method updates the user-defined metadata of the specified asset. The platform merges your changes with the existing metadata:<br/>
         /// - A key with a value creates or replaces that key.<br/>
         /// - A key set to `null` deletes that key.<br/>
-        /// - A key set to an empty string (`""`) is ignored.<br/>
+        /// - A key set to an empty string (`""`) or an empty array (`[]`) is ignored.<br/>
         /// - A key you omit from the request keeps its current value.<br/>
         /// To replace all metadata in a single call, use the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint instead.
         /// </summary>
@@ -77,7 +77,7 @@ namespace TwelveLabs
         /// This method updates the user-defined metadata of the specified asset. The platform merges your changes with the existing metadata:<br/>
         /// - A key with a value creates or replaces that key.<br/>
         /// - A key set to `null` deletes that key.<br/>
-        /// - A key set to an empty string (`""`) is ignored.<br/>
+        /// - A key set to an empty string (`""`) or an empty array (`[]`) is ignored.<br/>
         /// - A key you omit from the request keeps its current value.<br/>
         /// To replace all metadata in a single call, use the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint instead.
         /// </summary>
@@ -520,26 +520,24 @@ namespace TwelveLabs
         /// This method updates the user-defined metadata of the specified asset. The platform merges your changes with the existing metadata:<br/>
         /// - A key with a value creates or replaces that key.<br/>
         /// - A key set to `null` deletes that key.<br/>
-        /// - A key set to an empty string (`""`) is ignored.<br/>
+        /// - A key set to an empty string (`""`) or an empty array (`[]`) is ignored.<br/>
         /// - A key you omit from the request keeps its current value.<br/>
         /// To replace all metadata in a single call, use the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint instead.
         /// </summary>
         /// <param name="assetId"></param>
         /// <param name="xApiKey"></param>
         /// <param name="userMetadata">
-        /// Metadata that helps you categorize your assets. The object contains user-defined keys and values, where keys are strings and values are one of `string`, `integer`, `float`, or `boolean`.<br/>
+        /// Metadata that helps you categorize your assets. The object contains user-defined keys and values, where keys are strings. Each value is a string, a number, a boolean, or an array of strings. Send an integer wider than 53 bits (-9007199254740991 to 9007199254740991), and any identifier you want preserved verbatim, as a string.<br/>
         /// **Example**:<br/>
         /// ```JSON<br/>
         /// "user_metadata": {<br/>
         ///   "category": "recentlyAdded",<br/>
         ///   "batchNumber": 5,<br/>
         ///   "rating": 9.3,<br/>
-        ///   "needsReview": true<br/>
+        ///   "needsReview": true,<br/>
+        ///   "hashtags": ["summer", "vlog"]<br/>
         /// }<br/>
-        /// ```<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// To store other types of data, such as objects or arrays, convert your data into string values before sending it.<br/>
-        /// &lt;/Note&gt;
+        /// ```
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
