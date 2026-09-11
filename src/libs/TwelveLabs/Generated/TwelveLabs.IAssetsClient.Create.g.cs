@@ -123,15 +123,15 @@ namespace TwelveLabs
         /// The filename of the asset. If you provide a filename, the platform preserves it. If you omit it, the platform determines one from the file or URL.
         /// </param>
         /// <param name="enableHls">
-        /// When set to `true`, the platform generates an HLS playlist and segments for streaming. Applicable to video and audio assets only. The platform ignores this flag for other asset types.<br/>
-        /// **Default**: `false`.<br/>
-        /// Default Value: false
+        /// The platform generates an HLS playlist and segments for streaming. Set to `false` to disable HLS generation. Applicable to video and audio assets only. The platform ignores this flag for other asset types.<br/>
+        /// **Default**: `true`.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="enableThumbnail">
-        /// When set to `true`, the platform generates thumbnail images from the uploaded content.<br/>
+        /// The platform generates thumbnail images from the uploaded content. Set to `false` to disable thumbnail generation.<br/>
         /// For PDF files, the platform generates a representative thumbnail from the first page. Text and Markdown files do not produce thumbnails; the platform ignores this flag for them.<br/>
-        /// **Default**: `false`.<br/>
-        /// Default Value: false
+        /// **Default**: `true`.<br/>
+        /// Default Value: true
         /// </param>
         /// <param name="userMetadata">
         /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys are strings, and values can be a string, a number, a boolean, or an array of strings. Send an integer wider than 53 bits (-9007199254740991 to 9007199254740991), and any identifier you want preserved verbatim, as a string. Send this value as a JSON-encoded string.

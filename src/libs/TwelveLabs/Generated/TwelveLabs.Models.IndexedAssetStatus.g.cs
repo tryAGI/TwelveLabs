@@ -28,6 +28,10 @@ namespace TwelveLabs
         ///
         /// </summary>
         Ready,
+        /// <summary>
+        ///
+        /// </summary>
+        Validating,
     }
 
     /// <summary>
@@ -47,6 +51,7 @@ namespace TwelveLabs
                 IndexedAssetStatus.Pending => "pending",
                 IndexedAssetStatus.Queued => "queued",
                 IndexedAssetStatus.Ready => "ready",
+                IndexedAssetStatus.Validating => "validating",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,6 +67,7 @@ namespace TwelveLabs
                 "pending" => IndexedAssetStatus.Pending,
                 "queued" => IndexedAssetStatus.Queued,
                 "ready" => IndexedAssetStatus.Ready,
+                "validating" => IndexedAssetStatus.Validating,
                 _ => null,
             };
         }
