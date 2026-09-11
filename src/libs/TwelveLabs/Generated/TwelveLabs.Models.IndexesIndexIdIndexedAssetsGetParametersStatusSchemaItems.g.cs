@@ -28,6 +28,10 @@ namespace TwelveLabs
         ///
         /// </summary>
         Ready,
+        /// <summary>
+        ///
+        /// </summary>
+        Validating,
     }
 
     /// <summary>
@@ -47,6 +51,7 @@ namespace TwelveLabs
                 IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems.Pending => "pending",
                 IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems.Queued => "queued",
                 IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems.Ready => "ready",
+                IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems.Validating => "validating",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -62,6 +67,7 @@ namespace TwelveLabs
                 "pending" => IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems.Pending,
                 "queued" => IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems.Queued,
                 "ready" => IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems.Ready,
+                "validating" => IndexesIndexIdIndexedAssetsGetParametersStatusSchemaItems.Validating,
                 _ => null,
             };
         }
