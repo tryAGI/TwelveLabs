@@ -29,13 +29,13 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string connectionId,
             ref string xApiKey,
-            global::TwelveLabs.ImportsImportFilesRequest request);
+            global::TwelveLabs.ImportFilesRequest request);
         partial void PrepareImportFilesRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string connectionId,
             string xApiKey,
-            global::TwelveLabs.ImportsImportFilesRequest request);
+            global::TwelveLabs.ImportFilesRequest request);
         partial void ProcessImportFilesResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -59,7 +59,7 @@ namespace TwelveLabs
             string connectionId,
             string xApiKey,
 
-            global::TwelveLabs.ImportsImportFilesRequest request,
+            global::TwelveLabs.ImportFilesRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -88,7 +88,7 @@ namespace TwelveLabs
             string connectionId,
             string xApiKey,
 
-            global::TwelveLabs.ImportsImportFilesRequest request,
+            global::TwelveLabs.ImportFilesRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -584,7 +584,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.ImportsImportFilesRequest
+            var __request = new global::TwelveLabs.ImportFilesRequest
             {
                 Items = items,
             };

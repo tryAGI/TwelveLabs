@@ -29,13 +29,13 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string knowledgeStoreId,
             ref string xApiKey,
-            global::TwelveLabs.KnowledgeStoresUpdateRequest request);
+            global::TwelveLabs.UpdateRequest3 request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string knowledgeStoreId,
             string xApiKey,
-            global::TwelveLabs.KnowledgeStoresUpdateRequest request);
+            global::TwelveLabs.UpdateRequest3 request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -59,7 +59,7 @@ namespace TwelveLabs
             string knowledgeStoreId,
             string xApiKey,
 
-            global::TwelveLabs.KnowledgeStoresUpdateRequest request,
+            global::TwelveLabs.UpdateRequest3 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -88,7 +88,7 @@ namespace TwelveLabs
             string knowledgeStoreId,
             string xApiKey,
 
-            global::TwelveLabs.KnowledgeStoresUpdateRequest request,
+            global::TwelveLabs.UpdateRequest3 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -518,7 +518,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.KnowledgeStoresUpdateRequest
+            var __request = new global::TwelveLabs.UpdateRequest3
             {
                 Name = name,
                 Description = description,

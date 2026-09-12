@@ -29,13 +29,13 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string entityCollectionId,
             ref string xApiKey,
-            global::TwelveLabs.EntityCollectionsEntitiesCreateBulkRequest request);
+            global::TwelveLabs.CreateBulkRequest request);
         partial void PrepareCreateBulkRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string entityCollectionId,
             string xApiKey,
-            global::TwelveLabs.EntityCollectionsEntitiesCreateBulkRequest request);
+            global::TwelveLabs.CreateBulkRequest request);
         partial void ProcessCreateBulkResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -59,7 +59,7 @@ namespace TwelveLabs
             string entityCollectionId,
             string xApiKey,
 
-            global::TwelveLabs.EntityCollectionsEntitiesCreateBulkRequest request,
+            global::TwelveLabs.CreateBulkRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -88,7 +88,7 @@ namespace TwelveLabs
             string entityCollectionId,
             string xApiKey,
 
-            global::TwelveLabs.EntityCollectionsEntitiesCreateBulkRequest request,
+            global::TwelveLabs.CreateBulkRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -508,7 +508,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.EntityCollectionsEntitiesCreateBulkRequest
+            var __request = new global::TwelveLabs.CreateBulkRequest
             {
                 Entities = entities,
             };

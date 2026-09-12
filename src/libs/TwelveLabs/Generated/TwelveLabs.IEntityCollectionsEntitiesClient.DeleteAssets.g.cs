@@ -25,7 +25,7 @@ namespace TwelveLabs
             string entityId,
             string xApiKey,
 
-            global::TwelveLabs.EntityCollectionsEntitiesDeleteAssetsRequest request,
+            global::TwelveLabs.DeleteAssetsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -49,7 +49,7 @@ namespace TwelveLabs
             string entityId,
             string xApiKey,
 
-            global::TwelveLabs.EntityCollectionsEntitiesDeleteAssetsRequest request,
+            global::TwelveLabs.DeleteAssetsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
