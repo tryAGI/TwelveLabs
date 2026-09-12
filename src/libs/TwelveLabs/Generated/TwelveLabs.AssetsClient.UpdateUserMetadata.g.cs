@@ -29,13 +29,13 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string assetId,
             ref string xApiKey,
-            global::TwelveLabs.UpdateUserMetadataRequest request);
+            global::TwelveLabs.AssetsUpdateUserMetadataRequest request);
         partial void PrepareUpdateUserMetadataRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string assetId,
             string xApiKey,
-            global::TwelveLabs.UpdateUserMetadataRequest request);
+            global::TwelveLabs.AssetsUpdateUserMetadataRequest request);
         partial void ProcessUpdateUserMetadataResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -59,7 +59,7 @@ namespace TwelveLabs
             string assetId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateUserMetadataRequest request,
+            global::TwelveLabs.AssetsUpdateUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -91,7 +91,7 @@ namespace TwelveLabs
             string assetId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateUserMetadataRequest request,
+            global::TwelveLabs.AssetsUpdateUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -549,7 +549,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.UpdateUserMetadataRequest
+            var __request = new global::TwelveLabs.AssetsUpdateUserMetadataRequest
             {
                 UserMetadata = userMetadata,
             };

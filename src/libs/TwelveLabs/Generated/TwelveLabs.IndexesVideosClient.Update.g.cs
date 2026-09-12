@@ -30,14 +30,14 @@ namespace TwelveLabs
             ref string indexId,
             ref string videoId,
             ref string xApiKey,
-            global::TwelveLabs.UpdateRequest7 request);
+            global::TwelveLabs.IndexesVideosUpdateRequest request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string indexId,
             string videoId,
             string xApiKey,
-            global::TwelveLabs.UpdateRequest7 request);
+            global::TwelveLabs.IndexesVideosUpdateRequest request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -59,7 +59,7 @@ namespace TwelveLabs
             string videoId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest7 request,
+            global::TwelveLabs.IndexesVideosUpdateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -90,7 +90,7 @@ namespace TwelveLabs
             string videoId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest7 request,
+            global::TwelveLabs.IndexesVideosUpdateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -511,7 +511,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.UpdateRequest7
+            var __request = new global::TwelveLabs.IndexesVideosUpdateRequest
             {
                 UserMetadata = userMetadata,
             };

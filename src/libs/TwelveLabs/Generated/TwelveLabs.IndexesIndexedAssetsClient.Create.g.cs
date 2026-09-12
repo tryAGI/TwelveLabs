@@ -29,13 +29,13 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string indexId,
             ref string xApiKey,
-            global::TwelveLabs.CreateRequest8 request);
+            global::TwelveLabs.IndexesIndexedAssetsCreateRequest request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string indexId,
             string xApiKey,
-            global::TwelveLabs.CreateRequest8 request);
+            global::TwelveLabs.IndexesIndexedAssetsCreateRequest request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -71,7 +71,7 @@ namespace TwelveLabs
             string indexId,
             string xApiKey,
 
-            global::TwelveLabs.CreateRequest8 request,
+            global::TwelveLabs.IndexesIndexedAssetsCreateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -112,7 +112,7 @@ namespace TwelveLabs
             string indexId,
             string xApiKey,
 
-            global::TwelveLabs.CreateRequest8 request,
+            global::TwelveLabs.IndexesIndexedAssetsCreateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -629,7 +629,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.CreateRequest8
+            var __request = new global::TwelveLabs.IndexesIndexedAssetsCreateRequest
             {
                 AssetId = assetId,
                 EnableVideoStream = enableVideoStream,

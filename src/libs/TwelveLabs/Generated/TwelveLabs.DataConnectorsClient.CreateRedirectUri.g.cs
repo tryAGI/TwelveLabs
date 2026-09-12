@@ -28,12 +28,12 @@ namespace TwelveLabs
         partial void PrepareCreateRedirectUriArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string xApiKey,
-            global::TwelveLabs.CreateRedirectUriRequest request);
+            global::TwelveLabs.DataConnectorsCreateRedirectUriRequest request);
         partial void PrepareCreateRedirectUriRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string xApiKey,
-            global::TwelveLabs.CreateRedirectUriRequest request);
+            global::TwelveLabs.DataConnectorsCreateRedirectUriRequest request);
         partial void ProcessCreateRedirectUriResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -55,7 +55,7 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.RedirectUri> CreateRedirectUriAsync(
             string xApiKey,
 
-            global::TwelveLabs.CreateRedirectUriRequest request,
+            global::TwelveLabs.DataConnectorsCreateRedirectUriRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -81,7 +81,7 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.RedirectUri>> CreateRedirectUriAsResponseAsync(
             string xApiKey,
 
-            global::TwelveLabs.CreateRedirectUriRequest request,
+            global::TwelveLabs.DataConnectorsCreateRedirectUriRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -573,7 +573,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.CreateRedirectUriRequest
+            var __request = new global::TwelveLabs.DataConnectorsCreateRedirectUriRequest
             {
                 RedirectUri = redirectUri,
             };

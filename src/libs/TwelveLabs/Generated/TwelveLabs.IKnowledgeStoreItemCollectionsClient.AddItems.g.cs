@@ -20,7 +20,7 @@ namespace TwelveLabs
             string collectionId,
             string xApiKey,
 
-            global::TwelveLabs.AddItemsRequest request,
+            global::TwelveLabs.KnowledgeStoreItemCollectionsAddItemsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -39,7 +39,7 @@ namespace TwelveLabs
             string collectionId,
             string xApiKey,
 
-            global::TwelveLabs.AddItemsRequest request,
+            global::TwelveLabs.KnowledgeStoreItemCollectionsAddItemsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
