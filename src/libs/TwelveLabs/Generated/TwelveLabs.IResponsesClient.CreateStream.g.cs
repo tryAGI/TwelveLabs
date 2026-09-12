@@ -87,7 +87,7 @@ namespace TwelveLabs
         global::System.Collections.Generic.IAsyncEnumerable<global::TwelveLabs.ResponseStreamEvent> CreateStreamAsync(
             string xApiKey,
 
-            global::TwelveLabs.ResponsesCreateStreamRequest request,
+            global::TwelveLabs.CreateStreamRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

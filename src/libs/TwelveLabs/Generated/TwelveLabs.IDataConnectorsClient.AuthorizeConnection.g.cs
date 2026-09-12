@@ -21,7 +21,7 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.DataConnectorsAuthorizeConnectionResponse200> AuthorizeConnectionAsync(
             string xApiKey,
 
-            global::TwelveLabs.DataConnectorsAuthorizeConnectionRequest request,
+            global::TwelveLabs.AuthorizeConnectionRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -41,7 +41,7 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.DataConnectorsAuthorizeConnectionResponse200>> AuthorizeConnectionAsResponseAsync(
             string xApiKey,
 
-            global::TwelveLabs.DataConnectorsAuthorizeConnectionRequest request,
+            global::TwelveLabs.AuthorizeConnectionRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

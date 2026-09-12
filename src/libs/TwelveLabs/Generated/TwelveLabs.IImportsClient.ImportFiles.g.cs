@@ -18,7 +18,7 @@ namespace TwelveLabs
             string connectionId,
             string xApiKey,
 
-            global::TwelveLabs.ImportsImportFilesRequest request,
+            global::TwelveLabs.ImportFilesRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -35,7 +35,7 @@ namespace TwelveLabs
             string connectionId,
             string xApiKey,
 
-            global::TwelveLabs.ImportsImportFilesRequest request,
+            global::TwelveLabs.ImportFilesRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

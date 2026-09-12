@@ -30,14 +30,14 @@ namespace TwelveLabs
             ref string knowledgeStoreId,
             ref string collectionId,
             ref string xApiKey,
-            global::TwelveLabs.KnowledgeStoreItemCollectionsAddItemsRequest request);
+            global::TwelveLabs.AddItemsRequest request);
         partial void PrepareAddItemsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string knowledgeStoreId,
             string collectionId,
             string xApiKey,
-            global::TwelveLabs.KnowledgeStoreItemCollectionsAddItemsRequest request);
+            global::TwelveLabs.AddItemsRequest request);
         partial void ProcessAddItemsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -63,7 +63,7 @@ namespace TwelveLabs
             string collectionId,
             string xApiKey,
 
-            global::TwelveLabs.KnowledgeStoreItemCollectionsAddItemsRequest request,
+            global::TwelveLabs.AddItemsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -95,7 +95,7 @@ namespace TwelveLabs
             string collectionId,
             string xApiKey,
 
-            global::TwelveLabs.KnowledgeStoreItemCollectionsAddItemsRequest request,
+            global::TwelveLabs.AddItemsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -521,7 +521,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.KnowledgeStoreItemCollectionsAddItemsRequest
+            var __request = new global::TwelveLabs.AddItemsRequest
             {
                 ItemIds = itemIds,
             };
