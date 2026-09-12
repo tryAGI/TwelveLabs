@@ -28,12 +28,12 @@ namespace TwelveLabs
         partial void PrepareCreateStreamArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string xApiKey,
-            global::TwelveLabs.CreateStreamRequest request);
+            global::TwelveLabs.ResponsesCreateStreamRequest request);
         partial void PrepareCreateStreamRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string xApiKey,
-            global::TwelveLabs.CreateStreamRequest request);
+            global::TwelveLabs.ResponsesCreateStreamRequest request);
         partial void ProcessCreateStreamResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -121,7 +121,7 @@ namespace TwelveLabs
         public async global::System.Collections.Generic.IAsyncEnumerable<global::TwelveLabs.ResponseStreamEvent> CreateStreamAsync(
             string xApiKey,
 
-            global::TwelveLabs.CreateStreamRequest request,
+            global::TwelveLabs.ResponsesCreateStreamRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             [global::System.Runtime.CompilerServices.EnumeratorCancellation] global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -579,7 +579,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             [global::System.Runtime.CompilerServices.EnumeratorCancellation] global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.CreateStreamRequest
+            var __request = new global::TwelveLabs.ResponsesCreateStreamRequest
             {
                 KnowledgeStoreId = knowledgeStoreId,
                 Input = input,

@@ -23,7 +23,7 @@ namespace TwelveLabs
             string assetId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateUserMetadataRequest request,
+            global::TwelveLabs.AssetsUpdateUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -45,7 +45,7 @@ namespace TwelveLabs
             string assetId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateUserMetadataRequest request,
+            global::TwelveLabs.AssetsUpdateUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

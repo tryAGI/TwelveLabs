@@ -16,7 +16,7 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.RedirectUri> CreateRedirectUriAsync(
             string xApiKey,
 
-            global::TwelveLabs.CreateRedirectUriRequest request,
+            global::TwelveLabs.DataConnectorsCreateRedirectUriRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -31,7 +31,7 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.RedirectUri>> CreateRedirectUriAsResponseAsync(
             string xApiKey,
 
-            global::TwelveLabs.CreateRedirectUriRequest request,
+            global::TwelveLabs.DataConnectorsCreateRedirectUriRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

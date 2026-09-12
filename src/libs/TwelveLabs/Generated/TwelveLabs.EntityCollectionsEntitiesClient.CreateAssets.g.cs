@@ -30,14 +30,14 @@ namespace TwelveLabs
             ref string entityCollectionId,
             ref string entityId,
             ref string xApiKey,
-            global::TwelveLabs.CreateAssetsRequest request);
+            global::TwelveLabs.EntityCollectionsEntitiesCreateAssetsRequest request);
         partial void PrepareCreateAssetsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string entityCollectionId,
             string entityId,
             string xApiKey,
-            global::TwelveLabs.CreateAssetsRequest request);
+            global::TwelveLabs.EntityCollectionsEntitiesCreateAssetsRequest request);
         partial void ProcessCreateAssetsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -64,7 +64,7 @@ namespace TwelveLabs
             string entityId,
             string xApiKey,
 
-            global::TwelveLabs.CreateAssetsRequest request,
+            global::TwelveLabs.EntityCollectionsEntitiesCreateAssetsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -97,7 +97,7 @@ namespace TwelveLabs
             string entityId,
             string xApiKey,
 
-            global::TwelveLabs.CreateAssetsRequest request,
+            global::TwelveLabs.EntityCollectionsEntitiesCreateAssetsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -524,7 +524,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.CreateAssetsRequest
+            var __request = new global::TwelveLabs.EntityCollectionsEntitiesCreateAssetsRequest
             {
                 AssetIds = assetIds,
             };

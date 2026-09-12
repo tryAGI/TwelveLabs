@@ -21,7 +21,7 @@ namespace TwelveLabs
             string videoId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest7 request,
+            global::TwelveLabs.IndexesVideosUpdateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -41,7 +41,7 @@ namespace TwelveLabs
             string videoId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest7 request,
+            global::TwelveLabs.IndexesVideosUpdateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

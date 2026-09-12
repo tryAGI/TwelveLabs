@@ -20,7 +20,7 @@ namespace TwelveLabs
             string indexedAssetId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest6 request,
+            global::TwelveLabs.IndexesIndexedAssetsUpdateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -39,7 +39,7 @@ namespace TwelveLabs
             string indexedAssetId,
             string xApiKey,
 
-            global::TwelveLabs.UpdateRequest6 request,
+            global::TwelveLabs.IndexesIndexedAssetsUpdateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

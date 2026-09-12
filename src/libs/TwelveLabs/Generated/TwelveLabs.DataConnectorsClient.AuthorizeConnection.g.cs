@@ -28,12 +28,12 @@ namespace TwelveLabs
         partial void PrepareAuthorizeConnectionArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string xApiKey,
-            global::TwelveLabs.AuthorizeConnectionRequest request);
+            global::TwelveLabs.DataConnectorsAuthorizeConnectionRequest request);
         partial void PrepareAuthorizeConnectionRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string xApiKey,
-            global::TwelveLabs.AuthorizeConnectionRequest request);
+            global::TwelveLabs.DataConnectorsAuthorizeConnectionRequest request);
         partial void ProcessAuthorizeConnectionResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -60,7 +60,7 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.DataConnectorsAuthorizeConnectionResponse200> AuthorizeConnectionAsync(
             string xApiKey,
 
-            global::TwelveLabs.AuthorizeConnectionRequest request,
+            global::TwelveLabs.DataConnectorsAuthorizeConnectionRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -91,7 +91,7 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.DataConnectorsAuthorizeConnectionResponse200>> AuthorizeConnectionAsResponseAsync(
             string xApiKey,
 
-            global::TwelveLabs.AuthorizeConnectionRequest request,
+            global::TwelveLabs.DataConnectorsAuthorizeConnectionRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -522,7 +522,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.AuthorizeConnectionRequest
+            var __request = new global::TwelveLabs.DataConnectorsAuthorizeConnectionRequest
             {
                 Provider = provider,
                 RedirectUri = redirectUri,
