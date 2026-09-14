@@ -96,9 +96,9 @@ namespace TwelveLabs
         /// - `null`<br/>
         /// All other property names in your schema remain unconstrained by these rules. For other field names, use the `timestamp` type described above.<br/>
         /// **Response validation**<br/>
-        /// Check the `FinishReason` field to verify your JSON response is complete:<br/>
-        /// - When `FinishReason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
-        /// - When `FinishReason` is `length`, the platform truncates the response at the maximum response length or the context window. This may result in truncated, invalid JSON that fails to parse.
+        /// Check the `finish_reason` field to verify your JSON response is complete:<br/>
+        /// - When `finish_reason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
+        /// - When `finish_reason` is `length`, the generation reached the maximum response length or the context window. The output may be truncated and fail to parse.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("json_schema")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -194,9 +194,9 @@ namespace TwelveLabs
         /// - `null`<br/>
         /// All other property names in your schema remain unconstrained by these rules. For other field names, use the `timestamp` type described above.<br/>
         /// **Response validation**<br/>
-        /// Check the `FinishReason` field to verify your JSON response is complete:<br/>
-        /// - When `FinishReason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
-        /// - When `FinishReason` is `length`, the platform truncates the response at the maximum response length or the context window. This may result in truncated, invalid JSON that fails to parse.
+        /// Check the `finish_reason` field to verify your JSON response is complete:<br/>
+        /// - When `finish_reason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
+        /// - When `finish_reason` is `length`, the generation reached the maximum response length or the context window. The output may be truncated and fail to parse.
         /// </param>
         /// <param name="type">
         /// Set this parameter to "json_schema" to receive structured JSON responses.

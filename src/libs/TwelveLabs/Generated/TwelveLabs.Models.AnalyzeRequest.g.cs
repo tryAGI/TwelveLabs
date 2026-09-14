@@ -72,7 +72,7 @@ namespace TwelveLabs
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to the internal start time of the video.<br/>
         /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
-        /// - Must be less than `end_time` and less than the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// - Must be less than `end_time` and the video duration. The window (`end_time - start_time`) must be at least 1 second.<br/>
         /// &lt;/Note&gt;
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time")]
@@ -83,7 +83,7 @@ namespace TwelveLabs
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to the internal start time of the video plus its duration.<br/>
         /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
-        /// - Must be greater than `start_time` and less than or equal to the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// - Must be greater than `start_time` and less than or equal to the video duration. The window (`end_time - start_time`) must be at least 1 second.<br/>
         /// &lt;/Note&gt;
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_time")]
@@ -136,7 +136,7 @@ namespace TwelveLabs
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to the internal start time of the video.<br/>
         /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
-        /// - Must be less than `end_time` and less than the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// - Must be less than `end_time` and the video duration. The window (`end_time - start_time`) must be at least 1 second.<br/>
         /// &lt;/Note&gt;
         /// </param>
         /// <param name="endTime">
@@ -144,7 +144,7 @@ namespace TwelveLabs
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to the internal start time of the video plus its duration.<br/>
         /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
-        /// - Must be greater than `start_time` and less than or equal to the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// - Must be greater than `start_time` and less than or equal to the video duration. The window (`end_time - start_time`) must be at least 1 second.<br/>
         /// &lt;/Note&gt;
         /// </param>
 #if NET7_0_OR_GREATER

@@ -55,16 +55,16 @@ namespace TwelveLabs
         public global::System.DateTime? CompletedAt { get; set; }
 
         /// <summary>
-        /// An object that contains the generated text and additional information. The platform returns this object only when `status` is `ready`.
+        /// An object that contains the generated text and additional information. The platform returns this object only when `status` is `ready`. When the task fails, the response contains no `result` object, so `generation_id` and `usage` are absent.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result")]
         public global::TwelveLabs.AnalyzeTaskResult? Result { get; set; }
 
         /// <summary>
-        /// A message attached to the task response. The platform sets this field in two cases:<br/>
-        /// - **Task failure**: `status` is `failed`. The `message` field describes the failure reason.<br/>
-        /// - **Truncation warning**: `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
-        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`. Set when `result.finish_reason` is `length`.
+        /// A message attached to the task response. The platform sets this field in the following cases:<br/>
+        /// - **Task failure**: `status` is `failed`. The `message` field describes the failure reason. With video segmentation, a task can fail because the analysis reached the maximum response length or the context window before it could complete. The response contains no `result` object.<br/>
+        /// - **Truncation warning** (general analysis): `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
+        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public global::TwelveLabs.AnalyzeTaskError? Error { get; set; }
@@ -106,13 +106,13 @@ namespace TwelveLabs
         /// A string representing the date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the analysis task was completed or failed. The platform returns this field only if `status` is `ready` or `failed`.
         /// </param>
         /// <param name="result">
-        /// An object that contains the generated text and additional information. The platform returns this object only when `status` is `ready`.
+        /// An object that contains the generated text and additional information. The platform returns this object only when `status` is `ready`. When the task fails, the response contains no `result` object, so `generation_id` and `usage` are absent.
         /// </param>
         /// <param name="error">
-        /// A message attached to the task response. The platform sets this field in two cases:<br/>
-        /// - **Task failure**: `status` is `failed`. The `message` field describes the failure reason.<br/>
-        /// - **Truncation warning**: `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
-        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`. Set when `result.finish_reason` is `length`.
+        /// A message attached to the task response. The platform sets this field in the following cases:<br/>
+        /// - **Task failure**: `status` is `failed`. The `message` field describes the failure reason. With video segmentation, a task can fail because the analysis reached the maximum response length or the context window before it could complete. The response contains no `result` object.<br/>
+        /// - **Truncation warning** (general analysis): `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
+        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`.
         /// </param>
         /// <param name="webhooks">
         /// The delivery status of each webhook endpoint. The platform omits this field when no webhooks are configured. You can register webhooks through the Playground. See the [Webhooks](/v1.3/docs/advanced/webhooks) page for details.

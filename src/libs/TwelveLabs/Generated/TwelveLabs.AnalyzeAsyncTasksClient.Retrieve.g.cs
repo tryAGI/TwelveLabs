@@ -51,7 +51,7 @@ namespace TwelveLabs
         /// - `pending`: The task is queued and waiting to start.<br/>
         /// - `processing`: The platform is analyzing the video.<br/>
         /// - `ready`: Processing is complete. Results are available in the response.<br/>
-        /// - `failed`: The task failed. No results were generated.<br/>
+        /// - `failed`: The task failed. No results are available. The `error` field describes the failure.<br/>
         /// Poll this method until `status` is `ready` or `failed`. When `status` is `ready`, use the results from the response.
         /// </summary>
         /// <param name="taskId"></param>
@@ -82,7 +82,7 @@ namespace TwelveLabs
         /// - `pending`: The task is queued and waiting to start.<br/>
         /// - `processing`: The platform is analyzing the video.<br/>
         /// - `ready`: Processing is complete. Results are available in the response.<br/>
-        /// - `failed`: The task failed. No results were generated.<br/>
+        /// - `failed`: The task failed. No results are available. The `error` field describes the failure.<br/>
         /// Poll this method until `status` is `ready` or `failed`. When `status` is `ready`, use the results from the response.
         /// </summary>
         /// <param name="taskId"></param>

@@ -16,8 +16,9 @@ namespace TwelveLabs
         public global::TwelveLabs.VideoContextVariant1Type Type { get; set; }
 
         /// <summary>
-        /// The publicly accessible URL of the video file.<br/>
-        /// Use direct links to raw media files. Video hosting platforms and cloud storage sharing links are not supported.
+        /// The publicly accessible URL of the video file or HLS manifest.<br/>
+        /// Use direct links to raw media files, or the URL of a VOD HLS manifest. Live video streams are rejected with a `400` error. Video hosting platforms and cloud storage sharing links are not supported.<br/>
+        /// For HLS sources, if the duration cannot be determined from the media, the platform calculates it from the manifest and the duration limits apply to that value.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -33,8 +34,9 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="VideoContextVariant1" /> class.
         /// </summary>
         /// <param name="url">
-        /// The publicly accessible URL of the video file.<br/>
-        /// Use direct links to raw media files. Video hosting platforms and cloud storage sharing links are not supported.
+        /// The publicly accessible URL of the video file or HLS manifest.<br/>
+        /// Use direct links to raw media files, or the URL of a VOD HLS manifest. Live video streams are rejected with a `400` error. Video hosting platforms and cloud storage sharing links are not supported.<br/>
+        /// For HLS sources, if the duration cannot be determined from the media, the platform calculates it from the manifest and the duration limits apply to that value.
         /// </param>
         /// <param name="type">
         /// Discriminator value: url

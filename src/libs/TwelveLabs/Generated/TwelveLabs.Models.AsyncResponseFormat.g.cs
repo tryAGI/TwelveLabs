@@ -101,9 +101,9 @@ namespace TwelveLabs
         /// - `null`<br/>
         /// All other property names in your schema remain unconstrained by these rules. For other field names, use the `timestamp` type described above.<br/>
         /// **Response validation**<br/>
-        /// Check the `FinishReason` field to verify your JSON response is complete:<br/>
-        /// - When `FinishReason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
-        /// - When `FinishReason` is `length`, the platform truncates the response at the maximum response length or the context window. This may result in truncated, invalid JSON that fails to parse.
+        /// Check the `finish_reason` field to verify your JSON response is complete:<br/>
+        /// - When `finish_reason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
+        /// - When `finish_reason` is `length`, the generation reached the maximum response length or the context window. The output may be truncated and fail to parse.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("json_schema")]
         public global::TwelveLabs.AsyncResponseFormatJsonSchema? JsonSchema { get; set; }
@@ -223,9 +223,9 @@ namespace TwelveLabs
         /// - `null`<br/>
         /// All other property names in your schema remain unconstrained by these rules. For other field names, use the `timestamp` type described above.<br/>
         /// **Response validation**<br/>
-        /// Check the `FinishReason` field to verify your JSON response is complete:<br/>
-        /// - When `FinishReason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
-        /// - When `FinishReason` is `length`, the platform truncates the response at the maximum response length or the context window. This may result in truncated, invalid JSON that fails to parse.
+        /// Check the `finish_reason` field to verify your JSON response is complete:<br/>
+        /// - When `finish_reason` is `stop`, the generation completed normally, and the JSON is valid and complete.<br/>
+        /// - When `finish_reason` is `length`, the generation reached the maximum response length or the context window. The output may be truncated and fail to parse.
         /// </param>
         /// <param name="segmentDefinitions">
         /// Define the types of segments to extract from your video. Minimum 1, maximum 20 definitions. The number of segment definitions affects billing. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.

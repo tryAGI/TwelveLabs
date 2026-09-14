@@ -25,7 +25,8 @@ namespace TwelveLabs
 
         /// <summary>
         /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
-        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB. Document URLs support up to 512 MB.
+        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB. Document URLs support up to 512 MB.<br/>
+        /// The parameter also accepts the URL of an HLS manifest (`.m3u8`) in VOD format. Live video streams are rejected with a `400` error. If the duration cannot be determined from the media, the platform calculates it from the manifest.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         public string? Url { get; set; }
@@ -77,7 +78,8 @@ namespace TwelveLabs
         /// </param>
         /// <param name="url">
         /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
-        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB. Document URLs support up to 512 MB.
+        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB. Document URLs support up to 512 MB.<br/>
+        /// The parameter also accepts the URL of an HLS manifest (`.m3u8`) in VOD format. Live video streams are rejected with a `400` error. If the duration cannot be determined from the media, the platform calculates it from the manifest.
         /// </param>
         /// <param name="filename">
         /// The filename of the asset. If you provide a filename, the platform preserves it. If you omit it, the platform determines one from the file or URL.
