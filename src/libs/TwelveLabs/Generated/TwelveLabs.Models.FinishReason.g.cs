@@ -6,12 +6,12 @@ namespace TwelveLabs
     /// <summary>
     /// The reason the generation stopped.<br/>
     /// - `stop`: The generation reached the end of the output text.<br/>
-    /// - `length`: The response reached the maximum response length or the context window. For JSON responses, this may return truncated JSON that fails to parse.
+    /// - `length`: The generation reached the maximum response length or the context window. With a JSON response format, the output may be truncated and fail to parse.
     /// </summary>
     public enum FinishReason
     {
         /// <summary>
-        /// The response reached the maximum response length or the context window. For JSON responses, this may return truncated JSON that fails to parse.
+        /// The generation reached the maximum response length or the context window. With a JSON response format, the output may be truncated and fail to parse.
         /// </summary>
         Length,
         /// <summary>

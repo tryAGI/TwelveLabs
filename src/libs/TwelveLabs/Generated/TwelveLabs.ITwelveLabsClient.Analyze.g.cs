@@ -8,7 +8,7 @@ namespace TwelveLabs
         /// Sync analysis<br/>
         /// This method analyzes your videos and returns the results directly in the response. It supports general analysis (prompt-based text generation).<br/>
         /// &lt;Accordion title="Input requirements"&gt;<br/>
-        /// - Minimum duration: 4 seconds<br/>
+        /// - Minimum duration: 1 second<br/>
         /// - Maximum duration: 1 hour<br/>
         /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
         /// - Resolution: 360x360 to 5184x2160 pixels<br/>
@@ -41,7 +41,7 @@ namespace TwelveLabs
         /// Sync analysis<br/>
         /// This method analyzes your videos and returns the results directly in the response. It supports general analysis (prompt-based text generation).<br/>
         /// &lt;Accordion title="Input requirements"&gt;<br/>
-        /// - Minimum duration: 4 seconds<br/>
+        /// - Minimum duration: 1 second<br/>
         /// - Maximum duration: 1 hour<br/>
         /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
         /// - Resolution: 360x360 to 5184x2160 pixels<br/>
@@ -74,7 +74,7 @@ namespace TwelveLabs
         /// Sync analysis<br/>
         /// This method analyzes your videos and returns the results directly in the response. It supports general analysis (prompt-based text generation).<br/>
         /// &lt;Accordion title="Input requirements"&gt;<br/>
-        /// - Minimum duration: 4 seconds<br/>
+        /// - Minimum duration: 1 second<br/>
         /// - Maximum duration: 1 hour<br/>
         /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
         /// - Resolution: 360x360 to 5184x2160 pixels<br/>
@@ -131,7 +131,7 @@ namespace TwelveLabs
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to the internal start time of the video.<br/>
         /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
-        /// - Must be less than `end_time` and less than the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// - Must be less than `end_time` and the video duration. The window (`end_time - start_time`) must be at least 1 second.<br/>
         /// &lt;/Note&gt;
         /// </param>
         /// <param name="endTime">
@@ -139,7 +139,7 @@ namespace TwelveLabs
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to the internal start time of the video plus its duration.<br/>
         /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
-        /// - Must be greater than `start_time` and less than or equal to the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// - Must be greater than `start_time` and less than or equal to the video duration. The window (`end_time - start_time`) must be at least 1 second.<br/>
         /// &lt;/Note&gt;
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

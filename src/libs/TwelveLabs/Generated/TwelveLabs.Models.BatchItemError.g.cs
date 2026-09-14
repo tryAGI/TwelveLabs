@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class BatchItemError
     {
         /// <summary>
-        /// A machine-readable error code identifying the failure category. Omitted until the per-item error catalog is wired through; until then, only `message` is guaranteed.
+        /// A machine-readable error code identifying the failure category.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("code")]
         public string? Code { get; set; }
@@ -34,7 +34,7 @@ namespace TwelveLabs
         /// A human-readable explanation of the failure.
         /// </param>
         /// <param name="code">
-        /// A machine-readable error code identifying the failure category. Omitted until the per-item error catalog is wired through; until then, only `message` is guaranteed.
+        /// A machine-readable error code identifying the failure category.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

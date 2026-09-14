@@ -78,7 +78,8 @@ namespace TwelveLabs
         /// | Mode | Min | Max | Default |<br/>
         /// |------|-----|-----|---------|<br/>
         /// | `general` | 512 | 98,304 | 4,096 |<br/>
-        /// | `time_based_metadata` | 2,048 | 98,304 | 32,768 |
+        /// | `time_based_metadata` | 2,048 | 98,304 | 32,768 |<br/>
+        /// With video segmentation, if the response needs more tokens than `max_tokens` allows, the task fails and no partial output is returned.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
         public int? MaxTokens { get; set; }
@@ -110,7 +111,8 @@ namespace TwelveLabs
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to the internal start time of the video.<br/>
         /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
-        /// - Must be less than `end_time` and less than the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// - Must be less than `end_time` and the video duration.<br/>
+        /// - The window (`end_time - start_time`) must be at least 1 second and at most 2 hours. The video may be up to 4 hours as long as the window stays within that limit.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
         /// - Together with `end_time`, this parameter determines the billable video duration. If you omit both, billing uses the full video duration. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.<br/>
         /// &lt;/Note&gt;
@@ -123,7 +125,8 @@ namespace TwelveLabs
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to the internal start time of the video plus its duration.<br/>
         /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
-        /// - Must be greater than `start_time` and less than or equal to the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// - Must be greater than `start_time` and less than or equal to the video duration.<br/>
+        /// - The window (`end_time - start_time`) must be at least 1 second and at most 2 hours. The video may be up to 4 hours as long as the window stays within that limit.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
         /// - Together with `start_time`, this parameter determines the billable video duration. If you omit both, billing uses the full video duration. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.<br/>
         /// &lt;/Note&gt;
@@ -185,7 +188,8 @@ namespace TwelveLabs
         /// | Mode | Min | Max | Default |<br/>
         /// |------|-----|-----|---------|<br/>
         /// | `general` | 512 | 98,304 | 4,096 |<br/>
-        /// | `time_based_metadata` | 2,048 | 98,304 | 32,768 |
+        /// | `time_based_metadata` | 2,048 | 98,304 | 32,768 |<br/>
+        /// With video segmentation, if the response needs more tokens than `max_tokens` allows, the task fails and no partial output is returned.
         /// </param>
         /// <param name="responseFormat">
         /// Controls the response format. When you omit this parameter, you receive unstructured text.<br/>
@@ -205,7 +209,8 @@ namespace TwelveLabs
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to the internal start time of the video.<br/>
         /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
-        /// - Must be less than `end_time` and less than the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// - Must be less than `end_time` and the video duration.<br/>
+        /// - The window (`end_time - start_time`) must be at least 1 second and at most 2 hours. The video may be up to 4 hours as long as the window stays within that limit.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
         /// - Together with `end_time`, this parameter determines the billable video duration. If you omit both, billing uses the full video duration. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.<br/>
         /// &lt;/Note&gt;
@@ -215,7 +220,8 @@ namespace TwelveLabs
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to the internal start time of the video plus its duration.<br/>
         /// - Most videos start at 0, but some (for example, from cameras or broadcast recordings) may have a non-zero start time. To find the value, run `ffprobe -v error -show_entries format=start_time,duration -of default=noprint_wrappers=1 your_video.mp4`.<br/>
-        /// - Must be greater than `start_time` and less than or equal to the video duration. The clip (`end_time - start_time`) must be at least `4` seconds.<br/>
+        /// - Must be greater than `start_time` and less than or equal to the video duration.<br/>
+        /// - The window (`end_time - start_time`) must be at least 1 second and at most 2 hours. The video may be up to 4 hours as long as the window stays within that limit.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
         /// - Together with `start_time`, this parameter determines the billable video duration. If you omit both, billing uses the full video duration. For details, see the [Frequently asked questions](/v1.3/docs/resources/frequently-asked-questions#how-is-video-segmentation-priced) page.<br/>
         /// &lt;/Note&gt;

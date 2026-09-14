@@ -50,10 +50,11 @@ namespace TwelveLabs
         public double? MaxSegmentDuration { get; set; }
 
         /// <summary>
-        /// Start of the analysis window, in seconds, applied to every item. Use with `end_time` to analyze only the `[start_time, end_time)` portion of each video.<br/>
+        /// Start of the analysis window, in seconds, applied to every item. Use with `end_time` to analyze only a portion of each video.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to `0`.<br/>
         /// - Must be less than `end_time`.<br/>
+        /// - The window (`end_time - start_time`) must be at least 1 second and at most 2 hours for each item. Each video may be up to 4 hours as long as the window stays within that limit.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
         /// &lt;/Note&gt;
         /// </summary>
@@ -61,10 +62,11 @@ namespace TwelveLabs
         public double? StartTime { get; set; }
 
         /// <summary>
-        /// End of the analysis window, in seconds, applied to every item. Use with `start_time` to analyze only the `[start_time, end_time)` portion of each video.<br/>
+        /// End of the analysis window, in seconds, applied to every item. Use with `start_time` to analyze only a portion of each video.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to the video duration.<br/>
         /// - Must be greater than `start_time`.<br/>
+        /// - The window (`end_time - start_time`) must be at least 1 second and at most 2 hours for each item. Each video may be up to 4 hours as long as the window stays within that limit.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
         /// &lt;/Note&gt;
         /// </summary>
@@ -104,18 +106,20 @@ namespace TwelveLabs
         /// **Min:** 2
         /// </param>
         /// <param name="startTime">
-        /// Start of the analysis window, in seconds, applied to every item. Use with `end_time` to analyze only the `[start_time, end_time)` portion of each video.<br/>
+        /// Start of the analysis window, in seconds, applied to every item. Use with `end_time` to analyze only a portion of each video.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to `0`.<br/>
         /// - Must be less than `end_time`.<br/>
+        /// - The window (`end_time - start_time`) must be at least 1 second and at most 2 hours for each item. Each video may be up to 4 hours as long as the window stays within that limit.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
         /// &lt;/Note&gt;
         /// </param>
         /// <param name="endTime">
-        /// End of the analysis window, in seconds, applied to every item. Use with `start_time` to analyze only the `[start_time, end_time)` portion of each video.<br/>
+        /// End of the analysis window, in seconds, applied to every item. Use with `start_time` to analyze only a portion of each video.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
         /// - If omitted, defaults to the video duration.<br/>
         /// - Must be greater than `start_time`.<br/>
+        /// - The window (`end_time - start_time`) must be at least 1 second and at most 2 hours for each item. Each video may be up to 4 hours as long as the window stays within that limit.<br/>
         /// - Mutually exclusive with `response_format.segment_definitions[].time_ranges`.<br/>
         /// &lt;/Note&gt;
         /// </param>

@@ -23,7 +23,7 @@ namespace TwelveLabs
         /// <summary>
         /// The reason the generation stopped.<br/>
         /// - `stop`: The generation reached the end of the output text.<br/>
-        /// - `length`: The response reached the maximum response length or the context window. For JSON responses, this may return truncated JSON that fails to parse.
+        /// - `length`: The generation reached the maximum response length or the context window. With a JSON response format, the output may be truncated and fail to parse.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.FinishReasonJsonConverter))]
@@ -59,7 +59,7 @@ namespace TwelveLabs
         /// <param name="finishReason">
         /// The reason the generation stopped.<br/>
         /// - `stop`: The generation reached the end of the output text.<br/>
-        /// - `length`: The response reached the maximum response length or the context window. For JSON responses, this may return truncated JSON that fails to parse.
+        /// - `length`: The generation reached the maximum response length or the context window. With a JSON response format, the output may be truncated and fail to parse.
         /// </param>
         /// <param name="usage">
         /// The number of tokens used in the generation.

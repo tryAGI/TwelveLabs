@@ -16,10 +16,12 @@ namespace TwelveLabs
         /// **Retention and retry**:<br/>
         /// - Batches expire 24 hours after creation. You can retrieve results for 30 days after creation.<br/>
         /// - If processing does not finish for some items in time, resubmit them in a new batch.<br/>
+        /// - An item whose analysis window exceeds 2 hours fails on its own. The error code is `video_duration_too_long`. The rest of the batch is still submitted.<br/>
         /// **Limits**:<br/>
         /// - Up to 1,000 requests per batch.<br/>
         /// - Up to 2,000 total content hours per batch.<br/>
-        /// - Up to 5 active batches per account.
+        /// - Up to 5 active batches per account.<br/>
+        /// - The duration limits of the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint apply to each item.
         /// </summary>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
@@ -44,10 +46,12 @@ namespace TwelveLabs
         /// **Retention and retry**:<br/>
         /// - Batches expire 24 hours after creation. You can retrieve results for 30 days after creation.<br/>
         /// - If processing does not finish for some items in time, resubmit them in a new batch.<br/>
+        /// - An item whose analysis window exceeds 2 hours fails on its own. The error code is `video_duration_too_long`. The rest of the batch is still submitted.<br/>
         /// **Limits**:<br/>
         /// - Up to 1,000 requests per batch.<br/>
         /// - Up to 2,000 total content hours per batch.<br/>
-        /// - Up to 5 active batches per account.
+        /// - Up to 5 active batches per account.<br/>
+        /// - The duration limits of the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint apply to each item.
         /// </summary>
         /// <param name="xApiKey"></param>
         /// <param name="request"></param>
@@ -72,10 +76,12 @@ namespace TwelveLabs
         /// **Retention and retry**:<br/>
         /// - Batches expire 24 hours after creation. You can retrieve results for 30 days after creation.<br/>
         /// - If processing does not finish for some items in time, resubmit them in a new batch.<br/>
+        /// - An item whose analysis window exceeds 2 hours fails on its own. The error code is `video_duration_too_long`. The rest of the batch is still submitted.<br/>
         /// **Limits**:<br/>
         /// - Up to 1,000 requests per batch.<br/>
         /// - Up to 2,000 total content hours per batch.<br/>
-        /// - Up to 5 active batches per account.
+        /// - Up to 5 active batches per account.<br/>
+        /// - The duration limits of the [`POST`](/v1.3/api-reference/analyze-videos/create-async-analysis-task) method of the `/analyze/tasks` endpoint apply to each item.
         /// </summary>
         /// <param name="xApiKey"></param>
         /// <param name="modelName">

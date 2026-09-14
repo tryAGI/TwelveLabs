@@ -28,9 +28,8 @@ namespace TwelveLabs
         public required string Data { get; set; }
 
         /// <summary>
-        /// The reason the generation stopped.<br/>
-        /// - `stop`: The generation reached the end of the output text.<br/>
-        /// - `length`: The response reached the maximum response length or the context window. For JSON responses, this may return truncated JSON that fails to parse.
+        /// When the task uses general analysis, `length` means the response reached the maximum response length or the context window. The partial output is in `data`, and a warning is in the task's `error` field.<br/>
+        /// With video segmentation, if the analysis reaches either limit, the task fails and `length` never occurs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.FinishReasonJsonConverter))]
@@ -65,9 +64,8 @@ namespace TwelveLabs
         ///   - `metadata` (object): The custom fields you defined in the request's `segment_definitions[].fields`.
         /// </param>
         /// <param name="finishReason">
-        /// The reason the generation stopped.<br/>
-        /// - `stop`: The generation reached the end of the output text.<br/>
-        /// - `length`: The response reached the maximum response length or the context window. For JSON responses, this may return truncated JSON that fails to parse.
+        /// When the task uses general analysis, `length` means the response reached the maximum response length or the context window. The partial output is in `data`, and a warning is in the task's `error` field.<br/>
+        /// With video segmentation, if the analysis reaches either limit, the task fails and `length` never occurs.
         /// </param>
         /// <param name="usage">
         /// The number of tokens used in the generation.
