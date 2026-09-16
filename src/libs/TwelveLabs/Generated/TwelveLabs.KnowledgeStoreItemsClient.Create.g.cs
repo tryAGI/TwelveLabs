@@ -50,7 +50,9 @@ namespace TwelveLabs
         /// This method adds an asset to a knowledge store for processing.<br/>
         /// The operation is asynchronous. The item is created immediately with the `queued`<br/>
         /// status and processed in the background.<br/>
-        /// The asset must not exceed 5 GB.
+        /// **Asset size limits**:<br/>
+        /// - **Video**: Up to 10 GB<br/>
+        /// - **Images**: Up to 32 MB
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="xApiKey"></param>
@@ -82,7 +84,9 @@ namespace TwelveLabs
         /// This method adds an asset to a knowledge store for processing.<br/>
         /// The operation is asynchronous. The item is created immediately with the `queued`<br/>
         /// status and processed in the background.<br/>
-        /// The asset must not exceed 5 GB.
+        /// **Asset size limits**:<br/>
+        /// - **Video**: Up to 10 GB<br/>
+        /// - **Images**: Up to 32 MB
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="xApiKey"></param>
@@ -502,7 +506,9 @@ namespace TwelveLabs
         /// This method adds an asset to a knowledge store for processing.<br/>
         /// The operation is asynchronous. The item is created immediately with the `queued`<br/>
         /// status and processed in the background.<br/>
-        /// The asset must not exceed 5 GB.
+        /// **Asset size limits**:<br/>
+        /// - **Video**: Up to 10 GB<br/>
+        /// - **Images**: Up to 32 MB
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="xApiKey"></param>
