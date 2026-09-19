@@ -28,14 +28,12 @@ namespace TwelveLabs
         partial void PrepareRetrieveImportArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string connectionId,
-            ref string importId,
-            ref string xApiKey);
+            ref string importId);
         partial void PrepareRetrieveImportRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string connectionId,
-            string importId,
-            string xApiKey);
+            string importId);
         partial void ProcessRetrieveImportResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,21 +49,18 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="connectionId"></param>
         /// <param name="importId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.ImportDetail> RetrieveImportAsync(
             string connectionId,
             string importId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await RetrieveImportAsResponseAsync(
                 connectionId: connectionId,
                 importId: importId,
-                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -78,14 +73,12 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="connectionId"></param>
         /// <param name="importId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.ImportDetail>> RetrieveImportAsResponseAsync(
             string connectionId,
             string importId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -94,8 +87,7 @@ namespace TwelveLabs
             PrepareRetrieveImportArguments(
                 httpClient: HttpClient,
                 connectionId: ref connectionId,
-                importId: ref importId,
-                xApiKey: ref xApiKey);
+                importId: ref importId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -152,9 +144,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -167,8 +156,7 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     connectionId: connectionId!,
-                    importId: importId!,
-                    xApiKey: xApiKey!);
+                    importId: importId!);
 
                 return __httpRequest;
             }

@@ -27,12 +27,10 @@ namespace TwelveLabs
             };
         partial void PrepareCreateStreamArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string xApiKey,
             global::TwelveLabs.CreateStreamRequest request);
         partial void PrepareCreateStreamRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string xApiKey,
             global::TwelveLabs.CreateStreamRequest request);
         partial void ProcessCreateStreamResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -113,13 +111,11 @@ namespace TwelveLabs
         /// ```<br/>
         /// &lt;/Accordion&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Collections.Generic.IAsyncEnumerable<global::TwelveLabs.ResponseStreamEvent> CreateStreamAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateStreamRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -131,7 +127,6 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareCreateStreamArguments(
                 httpClient: HttpClient,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -189,9 +184,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -209,7 +201,6 @@ namespace TwelveLabs
                 PrepareCreateStreamRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -531,7 +522,6 @@ namespace TwelveLabs
         /// ```<br/>
         /// &lt;/Accordion&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="knowledgeStoreId">
         /// The unique identifier of the knowledge store to reason over.
         /// </param>
@@ -567,7 +557,6 @@ namespace TwelveLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Collections.Generic.IAsyncEnumerable<global::TwelveLabs.ResponseStreamEvent> CreateStreamAsync(
-            string xApiKey,
             string knowledgeStoreId,
             global::System.Collections.Generic.IList<global::TwelveLabs.ResponseInputItem> input,
             bool stream,
@@ -592,7 +581,6 @@ namespace TwelveLabs
             };
 
             var __enumerable = CreateStreamAsync(
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken);

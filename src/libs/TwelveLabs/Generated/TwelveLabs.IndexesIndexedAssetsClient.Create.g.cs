@@ -28,13 +28,11 @@ namespace TwelveLabs
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string indexId,
-            ref string xApiKey,
             global::TwelveLabs.CreateRequest8 request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string indexId,
-            string xApiKey,
             global::TwelveLabs.CreateRequest8 request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -62,14 +60,12 @@ namespace TwelveLabs
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="indexId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesIndexedAssetsCreateResponse202> CreateAsync(
             string indexId,
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest8 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -77,7 +73,6 @@ namespace TwelveLabs
         {
             var __response = await CreateAsResponseAsync(
                 indexId: indexId,
-                xApiKey: xApiKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -103,14 +98,12 @@ namespace TwelveLabs
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="indexId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesIndexedAssetsCreateResponse202>> CreateAsResponseAsync(
             string indexId,
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest8 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -123,7 +116,6 @@ namespace TwelveLabs
             PrepareCreateArguments(
                 httpClient: HttpClient,
                 indexId: ref indexId,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -181,9 +173,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -202,7 +191,6 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     indexId: indexId!,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -606,7 +594,6 @@ namespace TwelveLabs
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="indexId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="assetId">
         /// The unique identifier of the asset to index. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status.
         /// </param>
@@ -622,7 +609,6 @@ namespace TwelveLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesIndexedAssetsCreateResponse202> CreateAsync(
             string indexId,
-            string xApiKey,
             string assetId,
             bool? enableVideoStream = default,
             global::TwelveLabs.UserMetadata? userMetadata = default,
@@ -638,7 +624,6 @@ namespace TwelveLabs
 
             return await CreateAsync(
                 indexId: indexId,
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

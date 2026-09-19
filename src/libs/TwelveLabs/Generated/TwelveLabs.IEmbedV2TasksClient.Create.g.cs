@@ -19,13 +19,11 @@ namespace TwelveLabs
         /// - Embeddings are stored for seven days.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.EmbedV2TasksCreateResponse202> CreateAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateAsyncEmbeddingRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -45,13 +43,11 @@ namespace TwelveLabs
         /// - Embeddings are stored for seven days.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EmbedV2TasksCreateResponse202>> CreateAsResponseAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateAsyncEmbeddingRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -71,7 +67,6 @@ namespace TwelveLabs
         /// - Embeddings are stored for seven days.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="inputType">
         /// The type of content for the embeddings.<br/>
         /// **Values**:<br/>
@@ -109,7 +104,6 @@ namespace TwelveLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.EmbedV2TasksCreateResponse202> CreateAsync(
-            string xApiKey,
             global::TwelveLabs.CreateAsyncEmbeddingRequestInputType inputType,
             global::TwelveLabs.CreateAsyncEmbeddingRequestModelName modelName = global::TwelveLabs.CreateAsyncEmbeddingRequestModelName.Marengo30,
             bool? embeddingUncertainty = default,

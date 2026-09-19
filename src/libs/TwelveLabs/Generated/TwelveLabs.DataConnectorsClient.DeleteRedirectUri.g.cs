@@ -27,13 +27,11 @@ namespace TwelveLabs
             };
         partial void PrepareDeleteRedirectUriArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string redirectUriId,
-            ref string xApiKey);
+            ref string redirectUriId);
         partial void PrepareDeleteRedirectUriRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string redirectUriId,
-            string xApiKey);
+            string redirectUriId);
         partial void ProcessDeleteRedirectUriResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,19 +41,16 @@ namespace TwelveLabs
         /// This method removes a redirect URI from your authorized redirect URIs. After deletion, the [Authorize a connection](/v1.3/api-reference/data-connectors/authorize-a-connection) method no longer accepts it. This action cannot be undone.
         /// </summary>
         /// <param name="redirectUriId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task DeleteRedirectUriAsync(
             string redirectUriId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             await DeleteRedirectUriAsResponseAsync(
                 redirectUriId: redirectUriId,
-                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -65,13 +60,11 @@ namespace TwelveLabs
         /// This method removes a redirect URI from your authorized redirect URIs. After deletion, the [Authorize a connection](/v1.3/api-reference/data-connectors/authorize-a-connection) method no longer accepts it. This action cannot be undone.
         /// </summary>
         /// <param name="redirectUriId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> DeleteRedirectUriAsResponseAsync(
             string redirectUriId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -79,8 +72,7 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareDeleteRedirectUriArguments(
                 httpClient: HttpClient,
-                redirectUriId: ref redirectUriId,
-                xApiKey: ref xApiKey);
+                redirectUriId: ref redirectUriId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -137,9 +129,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -151,8 +140,7 @@ namespace TwelveLabs
                 PrepareDeleteRedirectUriRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    redirectUriId: redirectUriId!,
-                    xApiKey: xApiKey!);
+                    redirectUriId: redirectUriId!);
 
                 return __httpRequest;
             }

@@ -28,13 +28,11 @@ namespace TwelveLabs
         partial void PrepareReportChunkBatchArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string uploadId,
-            ref string xApiKey,
             global::TwelveLabs.ReportChunkBatchRequest request);
         partial void PrepareReportChunkBatchRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string uploadId,
-            string xApiKey,
             global::TwelveLabs.ReportChunkBatchRequest request);
         partial void ProcessReportChunkBatchResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -51,14 +49,12 @@ namespace TwelveLabs
         /// For optimal performance, report chunks in batches and in any order.
         /// </summary>
         /// <param name="uploadId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.ReportChunkBatchResponse> ReportChunkBatchAsync(
             string uploadId,
-            string xApiKey,
 
             global::TwelveLabs.ReportChunkBatchRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -66,7 +62,6 @@ namespace TwelveLabs
         {
             var __response = await ReportChunkBatchAsResponseAsync(
                 uploadId: uploadId,
-                xApiKey: xApiKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -81,14 +76,12 @@ namespace TwelveLabs
         /// For optimal performance, report chunks in batches and in any order.
         /// </summary>
         /// <param name="uploadId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.ReportChunkBatchResponse>> ReportChunkBatchAsResponseAsync(
             string uploadId,
-            string xApiKey,
 
             global::TwelveLabs.ReportChunkBatchRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -101,7 +94,6 @@ namespace TwelveLabs
             PrepareReportChunkBatchArguments(
                 httpClient: HttpClient,
                 uploadId: ref uploadId,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -159,9 +151,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -180,7 +169,6 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     uploadId: uploadId!,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -573,7 +561,6 @@ namespace TwelveLabs
         /// For optimal performance, report chunks in batches and in any order.
         /// </summary>
         /// <param name="uploadId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="completedChunks">
         /// The list of chunks successfully uploaded that you're reporting to the platform. Report only after receiving an ETag.
         /// </param>
@@ -582,7 +569,6 @@ namespace TwelveLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.ReportChunkBatchResponse> ReportChunkBatchAsync(
             string uploadId,
-            string xApiKey,
             global::System.Collections.Generic.IList<global::TwelveLabs.CompletedChunk> completedChunks,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -594,7 +580,6 @@ namespace TwelveLabs
 
             return await ReportChunkBatchAsync(
                 uploadId: uploadId,
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

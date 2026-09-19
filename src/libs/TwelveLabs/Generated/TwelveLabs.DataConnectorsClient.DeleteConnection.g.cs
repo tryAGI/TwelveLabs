@@ -27,13 +27,11 @@ namespace TwelveLabs
             };
         partial void PrepareDeleteConnectionArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string connectionId,
-            ref string xApiKey);
+            ref string connectionId);
         partial void PrepareDeleteConnectionRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string connectionId,
-            string xApiKey);
+            string connectionId);
         partial void ProcessDeleteConnectionResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,19 +41,16 @@ namespace TwelveLabs
         /// This method disconnects the specified connection. The platform revokes access at the provider and deletes the stored tokens. Assets imported through this connection are retained.
         /// </summary>
         /// <param name="connectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task DeleteConnectionAsync(
             string connectionId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             await DeleteConnectionAsResponseAsync(
                 connectionId: connectionId,
-                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -65,13 +60,11 @@ namespace TwelveLabs
         /// This method disconnects the specified connection. The platform revokes access at the provider and deletes the stored tokens. Assets imported through this connection are retained.
         /// </summary>
         /// <param name="connectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> DeleteConnectionAsResponseAsync(
             string connectionId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -79,8 +72,7 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareDeleteConnectionArguments(
                 httpClient: HttpClient,
-                connectionId: ref connectionId,
-                xApiKey: ref xApiKey);
+                connectionId: ref connectionId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -137,9 +129,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -151,8 +140,7 @@ namespace TwelveLabs
                 PrepareDeleteConnectionRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    connectionId: connectionId!,
-                    xApiKey: xApiKey!);
+                    connectionId: connectionId!);
 
                 return __httpRequest;
             }

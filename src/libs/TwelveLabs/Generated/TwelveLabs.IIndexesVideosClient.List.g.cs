@@ -31,13 +31,11 @@ namespace TwelveLabs
         /// <param name="createdAt"></param>
         /// <param name="updatedAt"></param>
         /// <param name="userMetadata"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesVideosListResponse200> ListAsync(
             string indexId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             string? sortBy = default,
@@ -80,13 +78,11 @@ namespace TwelveLabs
         /// <param name="createdAt"></param>
         /// <param name="updatedAt"></param>
         /// <param name="userMetadata"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesVideosListResponse200>> ListAsResponseAsync(
             string indexId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             string? sortBy = default,

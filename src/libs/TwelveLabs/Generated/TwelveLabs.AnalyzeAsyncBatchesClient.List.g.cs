@@ -30,16 +30,14 @@ namespace TwelveLabs
             ref int? page,
             ref int? pageLimit,
             global::System.Collections.Generic.IList<global::TwelveLabs.BatchStatus>? status,
-            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeBatchesGetParametersAnalysisModeSchemaItems>? analysisMode,
-            ref string xApiKey);
+            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeBatchesGetParametersAnalysisModeSchemaItems>? analysisMode);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? page,
             int? pageLimit,
             global::System.Collections.Generic.IList<global::TwelveLabs.BatchStatus>? status,
-            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeBatchesGetParametersAnalysisModeSchemaItems>? analysisMode,
-            string xApiKey);
+            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeBatchesGetParametersAnalysisModeSchemaItems>? analysisMode);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -61,12 +59,10 @@ namespace TwelveLabs
         /// </param>
         /// <param name="status"></param>
         /// <param name="analysisMode"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AnalyzeAsyncBatchesListResponse200> ListAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.BatchStatus>? status = default,
@@ -75,7 +71,6 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ListAsResponseAsync(
-                xApiKey: xApiKey,
                 page: page,
                 pageLimit: pageLimit,
                 status: status,
@@ -98,12 +93,10 @@ namespace TwelveLabs
         /// </param>
         /// <param name="status"></param>
         /// <param name="analysisMode"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AnalyzeAsyncBatchesListResponse200>> ListAsResponseAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.BatchStatus>? status = default,
@@ -118,8 +111,7 @@ namespace TwelveLabs
                 page: ref page,
                 pageLimit: ref pageLimit,
                 status: status,
-                analysisMode: analysisMode,
-                xApiKey: ref xApiKey);
+                analysisMode: analysisMode);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -182,9 +174,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -199,8 +188,7 @@ namespace TwelveLabs
                     page: page,
                     pageLimit: pageLimit,
                     status: status,
-                    analysisMode: analysisMode,
-                    xApiKey: xApiKey!);
+                    analysisMode: analysisMode);
 
                 return __httpRequest;
             }

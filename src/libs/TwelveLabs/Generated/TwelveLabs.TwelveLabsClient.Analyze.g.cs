@@ -27,12 +27,10 @@ namespace TwelveLabs
             };
         partial void PrepareAnalyzeArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string xApiKey,
             global::TwelveLabs.AnalyzeRequest request);
         partial void PrepareAnalyzeRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string xApiKey,
             global::TwelveLabs.AnalyzeRequest request);
         partial void ProcessAnalyzeResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -65,20 +63,17 @@ namespace TwelveLabs
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AnalyzeResponse200> AnalyzeAsync(
-            string xApiKey,
 
             global::TwelveLabs.AnalyzeRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await AnalyzeAsResponseAsync(
-                xApiKey: xApiKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -109,13 +104,11 @@ namespace TwelveLabs
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AnalyzeResponse200>> AnalyzeAsResponseAsync(
-            string xApiKey,
 
             global::TwelveLabs.AnalyzeRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -127,7 +120,6 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareAnalyzeArguments(
                 httpClient: HttpClient,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -185,9 +177,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -205,7 +194,6 @@ namespace TwelveLabs
                 PrepareAnalyzeRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -614,7 +602,6 @@ namespace TwelveLabs
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="modelName">
         /// The video understanding model to use for analysis.<br/>
         /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, and video segmentation (async only). See the [Pegasus](/v1.3/docs/concepts/models/pegasus#context-window) page for token limits.<br/>
@@ -668,7 +655,6 @@ namespace TwelveLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AnalyzeResponse200> AnalyzeAsync(
-            string xApiKey,
             global::TwelveLabs.AnalyzePostRequestBodyContentApplicationJsonSchemaModelName? modelName = default,
             global::TwelveLabs.VideoContext? video = default,
             string? prompt = default,
@@ -697,7 +683,6 @@ namespace TwelveLabs
             };
 
             return await AnalyzeAsync(
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

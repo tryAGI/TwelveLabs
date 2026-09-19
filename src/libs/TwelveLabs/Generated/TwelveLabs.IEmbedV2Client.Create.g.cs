@@ -13,13 +13,11 @@ namespace TwelveLabs
         /// This method is rate-limited. With Marengo 3.5, the platform counts input tokens for each type of content. A request can exceed a limit before you see an error. For details, see [Input token limits for embedding](/v1.3/docs/get-started/rate-limits#input-token-limits-for-embedding).<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.EmbeddingSuccessResponse> CreateAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateEmbeddingsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -33,13 +31,11 @@ namespace TwelveLabs
         /// This method is rate-limited. With Marengo 3.5, the platform counts input tokens for each type of content. A request can exceed a limit before you see an error. For details, see [Input token limits for embedding](/v1.3/docs/get-started/rate-limits#input-token-limits-for-embedding).<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EmbeddingSuccessResponse>> CreateAsResponseAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateEmbeddingsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -53,7 +49,6 @@ namespace TwelveLabs
         /// This method is rate-limited. With Marengo 3.5, the platform counts input tokens for each type of content. A request can exceed a limit before you see an error. For details, see [Input token limits for embedding](/v1.3/docs/get-started/rate-limits#input-token-limits-for-embedding).<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="inputType">
         /// The type of content for the embeddings.<br/>
         /// **Values**:<br/>
@@ -107,7 +102,6 @@ namespace TwelveLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.EmbeddingSuccessResponse> CreateAsync(
-            string xApiKey,
             global::TwelveLabs.CreateEmbeddingsRequestInputType inputType,
             global::TwelveLabs.CreateEmbeddingsRequestModelName modelName = global::TwelveLabs.CreateEmbeddingsRequestModelName.Marengo30,
             bool? autoTruncate = default,

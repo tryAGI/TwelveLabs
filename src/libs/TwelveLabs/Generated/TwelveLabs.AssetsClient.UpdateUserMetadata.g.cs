@@ -28,13 +28,11 @@ namespace TwelveLabs
         partial void PrepareUpdateUserMetadataArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string assetId,
-            ref string xApiKey,
             global::TwelveLabs.UpdateUserMetadataRequest request);
         partial void PrepareUpdateUserMetadataRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string assetId,
-            string xApiKey,
             global::TwelveLabs.UpdateUserMetadataRequest request);
         partial void ProcessUpdateUserMetadataResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -50,14 +48,12 @@ namespace TwelveLabs
         /// To replace all metadata in a single call, use the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint instead.
         /// </summary>
         /// <param name="assetId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task UpdateUserMetadataAsync(
             string assetId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -65,7 +61,6 @@ namespace TwelveLabs
         {
             await UpdateUserMetadataAsResponseAsync(
                 assetId: assetId,
-                xApiKey: xApiKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -82,14 +77,12 @@ namespace TwelveLabs
         /// To replace all metadata in a single call, use the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint instead.
         /// </summary>
         /// <param name="assetId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> UpdateUserMetadataAsResponseAsync(
             string assetId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateUserMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -102,7 +95,6 @@ namespace TwelveLabs
             PrepareUpdateUserMetadataArguments(
                 httpClient: HttpClient,
                 assetId: ref assetId,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -160,9 +152,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -181,7 +170,6 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     assetId: assetId!,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -525,7 +513,6 @@ namespace TwelveLabs
         /// To replace all metadata in a single call, use the [`PUT`](/v1.3/api-reference/upload-content/direct-uploads/replace-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint instead.
         /// </summary>
         /// <param name="assetId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="userMetadata">
         /// Metadata that helps you categorize your assets. The object contains user-defined keys and values, where keys are strings. Each value is a string, a number, a boolean, or an array of strings. Send an integer wider than 53 bits (-9007199254740991 to 9007199254740991), and any identifier you want preserved verbatim, as a string.<br/>
         /// **Example**:<br/>
@@ -544,7 +531,6 @@ namespace TwelveLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task UpdateUserMetadataAsync(
             string assetId,
-            string xApiKey,
             global::TwelveLabs.UserMetadata userMetadata,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -556,7 +542,6 @@ namespace TwelveLabs
 
             await UpdateUserMetadataAsync(
                 assetId: assetId,
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

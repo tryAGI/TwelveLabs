@@ -27,12 +27,10 @@ namespace TwelveLabs
             };
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string xApiKey,
             global::TwelveLabs.CreateRequest9 request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string xApiKey,
             global::TwelveLabs.CreateRequest9 request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -63,20 +61,17 @@ namespace TwelveLabs
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.TasksCreateResponse200> CreateAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest9 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await CreateAsResponseAsync(
-                xApiKey: xApiKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -105,13 +100,11 @@ namespace TwelveLabs
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.TasksCreateResponse200>> CreateAsResponseAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest9 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -123,7 +116,6 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareCreateArguments(
                 httpClient: HttpClient,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -181,9 +173,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
@@ -270,7 +259,6 @@ namespace TwelveLabs
                 PrepareCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -603,7 +591,6 @@ namespace TwelveLabs
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="indexId">
         /// The unique identifier of the index to which the video is being uploaded.
         /// </param>
@@ -627,7 +614,6 @@ namespace TwelveLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.TasksCreateResponse200> CreateAsync(
-            string xApiKey,
             string indexId,
             byte[]? videoFile = default,
             string? videoFilename = default,
@@ -648,7 +634,6 @@ namespace TwelveLabs
             };
 
             return await CreateAsync(
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

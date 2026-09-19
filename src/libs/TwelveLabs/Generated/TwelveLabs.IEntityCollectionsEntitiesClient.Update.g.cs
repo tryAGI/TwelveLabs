@@ -10,7 +10,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="entityCollectionId"></param>
         /// <param name="entityId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -18,7 +17,6 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.Entity> UpdateAsync(
             string entityCollectionId,
             string entityId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -29,7 +27,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="entityCollectionId"></param>
         /// <param name="entityId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -37,7 +34,6 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.Entity>> UpdateAsResponseAsync(
             string entityCollectionId,
             string entityId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -48,7 +44,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="entityCollectionId"></param>
         /// <param name="entityId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="name">
         /// The new name for the entity.
         /// </param>
@@ -64,7 +59,6 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.Entity> UpdateAsync(
             string entityCollectionId,
             string entityId,
-            string xApiKey,
             string? name = default,
             string? description = default,
             global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesEntityIdPatchRequestBodyContentApplicationJsonSchemaMetadata? metadata = default,

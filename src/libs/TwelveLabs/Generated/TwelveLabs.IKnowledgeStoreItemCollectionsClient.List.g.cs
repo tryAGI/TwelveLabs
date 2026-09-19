@@ -21,13 +21,11 @@ namespace TwelveLabs
         /// <param name="sortOption">
         /// Default Value: desc
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItemCollectionsListResponse200> ListAsync(
             string knowledgeStoreId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemCollectionsGetParametersSortBy? sortBy = default,
@@ -51,13 +49,11 @@ namespace TwelveLabs
         /// <param name="sortOption">
         /// Default Value: desc
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoreItemCollectionsListResponse200>> ListAsResponseAsync(
             string knowledgeStoreId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemCollectionsGetParametersSortBy? sortBy = default,

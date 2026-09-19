@@ -41,8 +41,7 @@ namespace TwelveLabs
             global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersSize? size,
             ref string? createdAt,
             ref string? updatedAt,
-            object? userMetadata,
-            ref string xApiKey);
+            object? userMetadata);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -60,8 +59,7 @@ namespace TwelveLabs
             global::TwelveLabs.IndexesIndexIdIndexedAssetsGetParametersSize? size,
             string? createdAt,
             string? updatedAt,
-            object? userMetadata,
-            string xApiKey);
+            object? userMetadata);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -98,13 +96,11 @@ namespace TwelveLabs
         /// <param name="createdAt"></param>
         /// <param name="updatedAt"></param>
         /// <param name="userMetadata"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesIndexedAssetsListResponse200> ListAsync(
             string indexId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             string? sortBy = default,
@@ -124,7 +120,6 @@ namespace TwelveLabs
         {
             var __response = await ListAsResponseAsync(
                 indexId: indexId,
-                xApiKey: xApiKey,
                 page: page,
                 pageLimit: pageLimit,
                 sortBy: sortBy,
@@ -172,13 +167,11 @@ namespace TwelveLabs
         /// <param name="createdAt"></param>
         /// <param name="updatedAt"></param>
         /// <param name="userMetadata"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesIndexedAssetsListResponse200>> ListAsResponseAsync(
             string indexId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             string? sortBy = default,
@@ -214,8 +207,7 @@ namespace TwelveLabs
                 size: size,
                 createdAt: ref createdAt,
                 updatedAt: ref updatedAt,
-                userMetadata: userMetadata,
-                xApiKey: ref xApiKey);
+                userMetadata: userMetadata);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -283,9 +275,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -311,8 +300,7 @@ namespace TwelveLabs
                     size: size,
                     createdAt: createdAt,
                     updatedAt: updatedAt,
-                    userMetadata: userMetadata,
-                    xApiKey: xApiKey!);
+                    userMetadata: userMetadata);
 
                 return __httpRequest;
             }

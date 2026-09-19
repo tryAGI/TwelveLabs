@@ -25,13 +25,11 @@ namespace TwelveLabs
         /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.SearchResults> CreateAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest10 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -57,13 +55,11 @@ namespace TwelveLabs
         /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.SearchResults>> CreateAsResponseAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest10 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -89,7 +85,6 @@ namespace TwelveLabs
         /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="queryMediaType">
         /// The type of media you wish to use. This parameter is required for media queries. For example, to perform an image-based search, set this parameter to `image`. Use `query_text` together with this parameter when you want to perform a composed image+text search.
         /// </param>
@@ -193,7 +188,6 @@ namespace TwelveLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.SearchResults> CreateAsync(
-            string xApiKey,
             string indexId,
             global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems> searchOptions,
             global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaType? queryMediaType = default,

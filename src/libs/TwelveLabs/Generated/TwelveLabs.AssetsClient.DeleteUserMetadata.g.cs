@@ -27,13 +27,11 @@ namespace TwelveLabs
             };
         partial void PrepareDeleteUserMetadataArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string assetId,
-            ref string xApiKey);
+            ref string assetId);
         partial void PrepareDeleteUserMetadataRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string assetId,
-            string xApiKey);
+            string assetId);
         partial void ProcessDeleteUserMetadataResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,19 +42,16 @@ namespace TwelveLabs
         /// This action cannot be undone.
         /// </summary>
         /// <param name="assetId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task DeleteUserMetadataAsync(
             string assetId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             await DeleteUserMetadataAsResponseAsync(
                 assetId: assetId,
-                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -67,13 +62,11 @@ namespace TwelveLabs
         /// This action cannot be undone.
         /// </summary>
         /// <param name="assetId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> DeleteUserMetadataAsResponseAsync(
             string assetId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -81,8 +74,7 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareDeleteUserMetadataArguments(
                 httpClient: HttpClient,
-                assetId: ref assetId,
-                xApiKey: ref xApiKey);
+                assetId: ref assetId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -139,9 +131,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -153,8 +142,7 @@ namespace TwelveLabs
                 PrepareDeleteUserMetadataRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    assetId: assetId!,
-                    xApiKey: xApiKey!);
+                    assetId: assetId!);
 
                 return __httpRequest;
             }

@@ -27,13 +27,11 @@ namespace TwelveLabs
             };
         partial void PrepareResultsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string batchId,
-            ref string xApiKey);
+            ref string batchId);
         partial void PrepareResultsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string batchId,
-            string xApiKey);
+            string batchId);
         partial void ProcessResultsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,19 +49,16 @@ namespace TwelveLabs
         /// You can retrieve results for 30 days after batch creation.
         /// </summary>
         /// <param name="batchId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.BatchResultItem> ResultsAsync(
             string batchId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ResultsAsResponseAsync(
                 batchId: batchId,
-                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -78,13 +73,11 @@ namespace TwelveLabs
         /// You can retrieve results for 30 days after batch creation.
         /// </summary>
         /// <param name="batchId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.BatchResultItem>> ResultsAsResponseAsync(
             string batchId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -92,8 +85,7 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareResultsArguments(
                 httpClient: HttpClient,
-                batchId: ref batchId,
-                xApiKey: ref xApiKey);
+                batchId: ref batchId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -150,9 +142,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -164,8 +153,7 @@ namespace TwelveLabs
                 PrepareResultsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    batchId: batchId!,
-                    xApiKey: xApiKey!);
+                    batchId: batchId!);
 
                 return __httpRequest;
             }
