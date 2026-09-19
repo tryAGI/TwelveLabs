@@ -29,14 +29,12 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string entityCollectionId,
             ref string entityId,
-            ref string xApiKey,
             global::TwelveLabs.DeleteAssetsRequest request);
         partial void PrepareDeleteAssetsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string entityCollectionId,
             string entityId,
-            string xApiKey,
             global::TwelveLabs.DeleteAssetsRequest request);
         partial void ProcessDeleteAssetsResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -58,7 +56,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="entityCollectionId"></param>
         /// <param name="entityId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -66,7 +63,6 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.Entity> DeleteAssetsAsync(
             string entityCollectionId,
             string entityId,
-            string xApiKey,
 
             global::TwelveLabs.DeleteAssetsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -75,7 +71,6 @@ namespace TwelveLabs
             var __response = await DeleteAssetsAsResponseAsync(
                 entityCollectionId: entityCollectionId,
                 entityId: entityId,
-                xApiKey: xApiKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -95,7 +90,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="entityCollectionId"></param>
         /// <param name="entityId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -103,7 +97,6 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.Entity>> DeleteAssetsAsResponseAsync(
             string entityCollectionId,
             string entityId,
-            string xApiKey,
 
             global::TwelveLabs.DeleteAssetsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -117,7 +110,6 @@ namespace TwelveLabs
                 httpClient: HttpClient,
                 entityCollectionId: ref entityCollectionId,
                 entityId: ref entityId,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -175,9 +167,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -197,7 +186,6 @@ namespace TwelveLabs
                     httpRequestMessage: __httpRequest,
                     entityCollectionId: entityCollectionId!,
                     entityId: entityId!,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -521,7 +509,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="entityCollectionId"></param>
         /// <param name="entityId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="assetIds">
         /// An array of asset IDs to remove from the entity.
         /// </param>
@@ -531,7 +518,6 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.Entity> DeleteAssetsAsync(
             string entityCollectionId,
             string entityId,
-            string xApiKey,
             global::System.Collections.Generic.IList<string> assetIds,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -544,7 +530,6 @@ namespace TwelveLabs
             return await DeleteAssetsAsync(
                 entityCollectionId: entityCollectionId,
                 entityId: entityId,
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

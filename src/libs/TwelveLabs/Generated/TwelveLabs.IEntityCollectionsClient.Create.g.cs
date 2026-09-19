@@ -8,13 +8,11 @@ namespace TwelveLabs
         /// Create an entity collection<br/>
         /// This method creates an entity collection.
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.EntityCollection> CreateAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -23,13 +21,11 @@ namespace TwelveLabs
         /// Create an entity collection<br/>
         /// This method creates an entity collection.
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EntityCollection>> CreateAsResponseAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -38,7 +34,6 @@ namespace TwelveLabs
         /// Create an entity collection<br/>
         /// This method creates an entity collection.
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="name">
         /// The name of the entity collection. Make sure you use a succinct and descriptive name.
         /// </param>
@@ -49,7 +44,6 @@ namespace TwelveLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.EntityCollection> CreateAsync(
-            string xApiKey,
             string name,
             string? description = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,

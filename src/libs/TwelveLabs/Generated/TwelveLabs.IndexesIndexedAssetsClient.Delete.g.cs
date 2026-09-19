@@ -28,14 +28,12 @@ namespace TwelveLabs
         partial void PrepareDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string indexId,
-            ref string indexedAssetId,
-            ref string xApiKey);
+            ref string indexedAssetId);
         partial void PrepareDeleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string indexId,
-            string indexedAssetId,
-            string xApiKey);
+            string indexedAssetId);
         partial void ProcessDeleteResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,21 +44,18 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="indexId"></param>
         /// <param name="indexedAssetId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task DeleteAsync(
             string indexId,
             string indexedAssetId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             await DeleteAsResponseAsync(
                 indexId: indexId,
                 indexedAssetId: indexedAssetId,
-                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -71,14 +66,12 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="indexId"></param>
         /// <param name="indexedAssetId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> DeleteAsResponseAsync(
             string indexId,
             string indexedAssetId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -87,8 +80,7 @@ namespace TwelveLabs
             PrepareDeleteArguments(
                 httpClient: HttpClient,
                 indexId: ref indexId,
-                indexedAssetId: ref indexedAssetId,
-                xApiKey: ref xApiKey);
+                indexedAssetId: ref indexedAssetId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -145,9 +137,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -160,8 +149,7 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     indexId: indexId!,
-                    indexedAssetId: indexedAssetId!,
-                    xApiKey: xApiKey!);
+                    indexedAssetId: indexedAssetId!);
 
                 return __httpRequest;
             }

@@ -28,13 +28,11 @@ namespace TwelveLabs
         partial void PrepareUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string indexId,
-            ref string xApiKey,
             global::TwelveLabs.UpdateRequest5 request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string indexId,
-            string xApiKey,
             global::TwelveLabs.UpdateRequest5 request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -45,14 +43,12 @@ namespace TwelveLabs
         /// This method updates the name of the specified index.
         /// </summary>
         /// <param name="indexId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task UpdateAsync(
             string indexId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateRequest5 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -60,7 +56,6 @@ namespace TwelveLabs
         {
             await UpdateAsResponseAsync(
                 indexId: indexId,
-                xApiKey: xApiKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -72,14 +67,12 @@ namespace TwelveLabs
         /// This method updates the name of the specified index.
         /// </summary>
         /// <param name="indexId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> UpdateAsResponseAsync(
             string indexId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateRequest5 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -92,7 +85,6 @@ namespace TwelveLabs
             PrepareUpdateArguments(
                 httpClient: HttpClient,
                 indexId: ref indexId,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -150,9 +142,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -171,7 +160,6 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     indexId: indexId!,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -473,7 +461,6 @@ namespace TwelveLabs
         /// This method updates the name of the specified index.
         /// </summary>
         /// <param name="indexId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="indexName">
         /// The name of the index.
         /// </param>
@@ -482,7 +469,6 @@ namespace TwelveLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task UpdateAsync(
             string indexId,
-            string xApiKey,
             string indexName,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -494,7 +480,6 @@ namespace TwelveLabs
 
             await UpdateAsync(
                 indexId: indexId,
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

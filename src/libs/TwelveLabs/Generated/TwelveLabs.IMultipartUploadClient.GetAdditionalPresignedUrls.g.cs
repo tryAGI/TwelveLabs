@@ -14,14 +14,12 @@ namespace TwelveLabs
         /// The response will provide new URLs, each with a fresh expiration time of one hour.
         /// </summary>
         /// <param name="uploadId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.RequestAdditionalPresignedURLsResponse> GetAdditionalPresignedUrlsAsync(
             string uploadId,
-            string xApiKey,
 
             global::TwelveLabs.RequestAdditionalPresignedURLsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -36,14 +34,12 @@ namespace TwelveLabs
         /// The response will provide new URLs, each with a fresh expiration time of one hour.
         /// </summary>
         /// <param name="uploadId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.RequestAdditionalPresignedURLsResponse>> GetAdditionalPresignedUrlsAsResponseAsync(
             string uploadId,
-            string xApiKey,
 
             global::TwelveLabs.RequestAdditionalPresignedURLsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -58,7 +54,6 @@ namespace TwelveLabs
         /// The response will provide new URLs, each with a fresh expiration time of one hour.
         /// </summary>
         /// <param name="uploadId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="start">
         /// The index of the first chunk number to generate URLs for. Chunks are numbered from 1.
         /// </param>
@@ -70,7 +65,6 @@ namespace TwelveLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.RequestAdditionalPresignedURLsResponse> GetAdditionalPresignedUrlsAsync(
             string uploadId,
-            string xApiKey,
             int start,
             int count,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,

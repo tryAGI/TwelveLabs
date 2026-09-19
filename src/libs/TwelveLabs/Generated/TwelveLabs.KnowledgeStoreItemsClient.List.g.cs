@@ -32,8 +32,7 @@ namespace TwelveLabs
             ref int? pageLimit,
             ref global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy,
             ref string? sortOption,
-            global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status,
-            ref string xApiKey);
+            global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -42,8 +41,7 @@ namespace TwelveLabs
             int? pageLimit,
             global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy,
             string? sortOption,
-            global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status,
-            string xApiKey);
+            global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -71,13 +69,11 @@ namespace TwelveLabs
         /// Default Value: desc
         /// </param>
         /// <param name="status"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItemsListResponse200> ListAsync(
             string knowledgeStoreId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy = default,
@@ -88,7 +84,6 @@ namespace TwelveLabs
         {
             var __response = await ListAsResponseAsync(
                 knowledgeStoreId: knowledgeStoreId,
-                xApiKey: xApiKey,
                 page: page,
                 pageLimit: pageLimit,
                 sortBy: sortBy,
@@ -118,13 +113,11 @@ namespace TwelveLabs
         /// Default Value: desc
         /// </param>
         /// <param name="status"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoreItemsListResponse200>> ListAsResponseAsync(
             string knowledgeStoreId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy = default,
@@ -142,8 +135,7 @@ namespace TwelveLabs
                 pageLimit: ref pageLimit,
                 sortBy: ref sortBy,
                 sortOption: ref sortOption,
-                status: status,
-                xApiKey: ref xApiKey);
+                status: status);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -207,9 +199,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -226,8 +215,7 @@ namespace TwelveLabs
                     pageLimit: pageLimit,
                     sortBy: sortBy,
                     sortOption: sortOption,
-                    status: status,
-                    xApiKey: xApiKey!);
+                    status: status);
 
                 return __httpRequest;
             }

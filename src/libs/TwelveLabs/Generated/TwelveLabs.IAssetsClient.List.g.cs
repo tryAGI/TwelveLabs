@@ -18,12 +18,10 @@ namespace TwelveLabs
         /// <param name="assetIds"></param>
         /// <param name="assetTypes"></param>
         /// <param name="filename"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsListResponse200> ListAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::System.Collections.Generic.IList<string>? assetIds = default,
@@ -45,12 +43,10 @@ namespace TwelveLabs
         /// <param name="assetIds"></param>
         /// <param name="assetTypes"></param>
         /// <param name="filename"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsListResponse200>> ListAsResponseAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::System.Collections.Generic.IList<string>? assetIds = default,

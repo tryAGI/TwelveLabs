@@ -13,13 +13,11 @@ namespace TwelveLabs
         /// - `custom_id`: The label you supplied, returned on success when you provided one.<br/>
         /// - `error`: An error code, returned instead of the other parameters when the user denies access or the flow fails.
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.DataConnectorsAuthorizeConnectionResponse200> AuthorizeConnectionAsync(
-            string xApiKey,
 
             global::TwelveLabs.AuthorizeConnectionRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -33,13 +31,11 @@ namespace TwelveLabs
         /// - `custom_id`: The label you supplied, returned on success when you provided one.<br/>
         /// - `error`: An error code, returned instead of the other parameters when the user denies access or the flow fails.
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.DataConnectorsAuthorizeConnectionResponse200>> AuthorizeConnectionAsResponseAsync(
-            string xApiKey,
 
             global::TwelveLabs.AuthorizeConnectionRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -53,7 +49,6 @@ namespace TwelveLabs
         /// - `custom_id`: The label you supplied, returned on success when you provided one.<br/>
         /// - `error`: An error code, returned instead of the other parameters when the user denies access or the flow fails.
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="provider">
         /// The data connector provider to authorize.
         /// </param>
@@ -67,7 +62,6 @@ namespace TwelveLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.DataConnectorsAuthorizeConnectionResponse200> AuthorizeConnectionAsync(
-            string xApiKey,
             string redirectUri,
             global::TwelveLabs.ConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProvider provider = default,
             string? customId = default,

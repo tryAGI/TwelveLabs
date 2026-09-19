@@ -28,13 +28,11 @@ namespace TwelveLabs
         partial void PrepareUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string knowledgeStoreId,
-            ref string xApiKey,
             global::TwelveLabs.UpdateRequest3 request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string knowledgeStoreId,
-            string xApiKey,
             global::TwelveLabs.UpdateRequest3 request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -50,14 +48,12 @@ namespace TwelveLabs
         /// This method updates the specified knowledge store. Only the `name`, `description`, and `metadata` fields can be updated.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStore> UpdateAsync(
             string knowledgeStoreId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateRequest3 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -65,7 +61,6 @@ namespace TwelveLabs
         {
             var __response = await UpdateAsResponseAsync(
                 knowledgeStoreId: knowledgeStoreId,
-                xApiKey: xApiKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -79,14 +74,12 @@ namespace TwelveLabs
         /// This method updates the specified knowledge store. Only the `name`, `description`, and `metadata` fields can be updated.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStore>> UpdateAsResponseAsync(
             string knowledgeStoreId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateRequest3 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -99,7 +92,6 @@ namespace TwelveLabs
             PrepareUpdateArguments(
                 httpClient: HttpClient,
                 knowledgeStoreId: ref knowledgeStoreId,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -157,9 +149,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -178,7 +167,6 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     knowledgeStoreId: knowledgeStoreId!,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -496,7 +484,6 @@ namespace TwelveLabs
         /// This method updates the specified knowledge store. Only the `name`, `description`, and `metadata` fields can be updated.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="name">
         /// The name of the knowledge store.
         /// </param>
@@ -511,7 +498,6 @@ namespace TwelveLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStore> UpdateAsync(
             string knowledgeStoreId,
-            string xApiKey,
             string? name = default,
             string? description = default,
             object? metadata = default,
@@ -527,7 +513,6 @@ namespace TwelveLabs
 
             return await UpdateAsync(
                 knowledgeStoreId: knowledgeStoreId,
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

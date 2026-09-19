@@ -14,14 +14,12 @@ namespace TwelveLabs
         /// - **Images**: Up to 32 MB
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItem> CreateAsync(
             string knowledgeStoreId,
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest5 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -36,14 +34,12 @@ namespace TwelveLabs
         /// - **Images**: Up to 32 MB
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoreItem>> CreateAsResponseAsync(
             string knowledgeStoreId,
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest5 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -58,7 +54,6 @@ namespace TwelveLabs
         /// - **Images**: Up to 32 MB
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="assetType">
         /// The type of item to create.
         /// </param>
@@ -73,7 +68,6 @@ namespace TwelveLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItem> CreateAsync(
             string knowledgeStoreId,
-            string xApiKey,
             string assetId,
             global::TwelveLabs.KnowledgeStoreItemAssetType? assetType = default,
             object? metadata = default,

@@ -79,13 +79,11 @@ namespace TwelveLabs
         /// ```<br/>
         /// &lt;/Accordion&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Collections.Generic.IAsyncEnumerable<global::TwelveLabs.ResponseStreamEvent> CreateStreamAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateStreamRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -165,7 +163,6 @@ namespace TwelveLabs
         /// ```<br/>
         /// &lt;/Accordion&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="knowledgeStoreId">
         /// The unique identifier of the knowledge store to reason over.
         /// </param>
@@ -201,7 +198,6 @@ namespace TwelveLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Collections.Generic.IAsyncEnumerable<global::TwelveLabs.ResponseStreamEvent> CreateStreamAsync(
-            string xApiKey,
             string knowledgeStoreId,
             global::System.Collections.Generic.IList<global::TwelveLabs.ResponseInputItem> input,
             bool stream,

@@ -31,8 +31,7 @@ namespace TwelveLabs
             ref string? endedAt,
             ref string? status,
             ref int? page,
-            ref int? pageLimit,
-            ref string xApiKey);
+            ref int? pageLimit);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -40,8 +39,7 @@ namespace TwelveLabs
             string? endedAt,
             string? status,
             int? page,
-            int? pageLimit,
-            string xApiKey);
+            int? pageLimit);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -68,12 +66,10 @@ namespace TwelveLabs
         /// <param name="pageLimit">
         /// Default Value: 10
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.EmbedV2TasksListResponse200> ListAsync(
-            string xApiKey,
             string? startedAt = default,
             string? endedAt = default,
             string? status = default,
@@ -83,7 +79,6 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ListAsResponseAsync(
-                xApiKey: xApiKey,
                 startedAt: startedAt,
                 endedAt: endedAt,
                 status: status,
@@ -112,12 +107,10 @@ namespace TwelveLabs
         /// <param name="pageLimit">
         /// Default Value: 10
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EmbedV2TasksListResponse200>> ListAsResponseAsync(
-            string xApiKey,
             string? startedAt = default,
             string? endedAt = default,
             string? status = default,
@@ -134,8 +127,7 @@ namespace TwelveLabs
                 endedAt: ref endedAt,
                 status: ref status,
                 page: ref page,
-                pageLimit: ref pageLimit,
-                xApiKey: ref xApiKey);
+                pageLimit: ref pageLimit);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -199,9 +191,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -217,8 +206,7 @@ namespace TwelveLabs
                     endedAt: endedAt,
                     status: status,
                     page: page,
-                    pageLimit: pageLimit,
-                    xApiKey: xApiKey!);
+                    pageLimit: pageLimit);
 
                 return __httpRequest;
             }

@@ -31,8 +31,7 @@ namespace TwelveLabs
             ref int? pageLimit,
             global::System.Collections.Generic.IList<string>? assetIds,
             global::System.Collections.Generic.IList<global::TwelveLabs.AssetsGetParametersAssetTypesSchemaItems>? assetTypes,
-            ref string? filename,
-            ref string xApiKey);
+            ref string? filename);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -40,8 +39,7 @@ namespace TwelveLabs
             int? pageLimit,
             global::System.Collections.Generic.IList<string>? assetIds,
             global::System.Collections.Generic.IList<global::TwelveLabs.AssetsGetParametersAssetTypesSchemaItems>? assetTypes,
-            string? filename,
-            string xApiKey);
+            string? filename);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -65,12 +63,10 @@ namespace TwelveLabs
         /// <param name="assetIds"></param>
         /// <param name="assetTypes"></param>
         /// <param name="filename"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AssetsListResponse200> ListAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::System.Collections.Generic.IList<string>? assetIds = default,
@@ -80,7 +76,6 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ListAsResponseAsync(
-                xApiKey: xApiKey,
                 page: page,
                 pageLimit: pageLimit,
                 assetIds: assetIds,
@@ -106,12 +101,10 @@ namespace TwelveLabs
         /// <param name="assetIds"></param>
         /// <param name="assetTypes"></param>
         /// <param name="filename"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetsListResponse200>> ListAsResponseAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::System.Collections.Generic.IList<string>? assetIds = default,
@@ -128,8 +121,7 @@ namespace TwelveLabs
                 pageLimit: ref pageLimit,
                 assetIds: assetIds,
                 assetTypes: assetTypes,
-                filename: ref filename,
-                xApiKey: ref xApiKey);
+                filename: ref filename);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -193,9 +185,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -211,8 +200,7 @@ namespace TwelveLabs
                     pageLimit: pageLimit,
                     assetIds: assetIds,
                     assetTypes: assetTypes,
-                    filename: filename,
-                    xApiKey: xApiKey!);
+                    filename: filename);
 
                 return __httpRequest;
             }

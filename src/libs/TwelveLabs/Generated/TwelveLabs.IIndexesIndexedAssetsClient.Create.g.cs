@@ -21,14 +21,12 @@ namespace TwelveLabs
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="indexId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesIndexedAssetsCreateResponse202> CreateAsync(
             string indexId,
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest8 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -50,14 +48,12 @@ namespace TwelveLabs
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="indexId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesIndexedAssetsCreateResponse202>> CreateAsResponseAsync(
             string indexId,
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest8 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -79,7 +75,6 @@ namespace TwelveLabs
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="indexId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="assetId">
         /// The unique identifier of the asset to index. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status.
         /// </param>
@@ -95,7 +90,6 @@ namespace TwelveLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesIndexedAssetsCreateResponse202> CreateAsync(
             string indexId,
-            string xApiKey,
             string assetId,
             bool? enableVideoStream = default,
             global::TwelveLabs.UserMetadata? userMetadata = default,

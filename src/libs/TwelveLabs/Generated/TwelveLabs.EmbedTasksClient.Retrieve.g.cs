@@ -28,14 +28,12 @@ namespace TwelveLabs
         partial void PrepareRetrieveArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string taskId,
-            global::System.Collections.Generic.IList<global::TwelveLabs.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems>? embeddingOption,
-            ref string xApiKey);
+            global::System.Collections.Generic.IList<global::TwelveLabs.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems>? embeddingOption);
         partial void PrepareRetrieveRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string taskId,
-            global::System.Collections.Generic.IList<global::TwelveLabs.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems>? embeddingOption,
-            string xApiKey);
+            global::System.Collections.Generic.IList<global::TwelveLabs.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems>? embeddingOption);
         partial void ProcessRetrieveResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,20 +49,17 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="taskId"></param>
         /// <param name="embeddingOption"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.EmbedTasksRetrieveResponse200> RetrieveAsync(
             string taskId,
-            string xApiKey,
             global::System.Collections.Generic.IList<global::TwelveLabs.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems>? embeddingOption = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await RetrieveAsResponseAsync(
                 taskId: taskId,
-                xApiKey: xApiKey,
                 embeddingOption: embeddingOption,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -78,13 +73,11 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="taskId"></param>
         /// <param name="embeddingOption"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EmbedTasksRetrieveResponse200>> RetrieveAsResponseAsync(
             string taskId,
-            string xApiKey,
             global::System.Collections.Generic.IList<global::TwelveLabs.EmbedTasksTaskIdGetParametersEmbeddingOptionSchemaItems>? embeddingOption = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -94,8 +87,7 @@ namespace TwelveLabs
             PrepareRetrieveArguments(
                 httpClient: HttpClient,
                 taskId: ref taskId,
-                embeddingOption: embeddingOption,
-                xApiKey: ref xApiKey);
+                embeddingOption: embeddingOption);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -155,9 +147,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -170,8 +159,7 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     taskId: taskId!,
-                    embeddingOption: embeddingOption,
-                    xApiKey: xApiKey!);
+                    embeddingOption: embeddingOption);
 
                 return __httpRequest;
             }
