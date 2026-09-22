@@ -27,12 +27,10 @@ namespace TwelveLabs
             };
         partial void PrepareAuthorizeConnectionArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string xApiKey,
             global::TwelveLabs.AuthorizeConnectionRequest request);
         partial void PrepareAuthorizeConnectionRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string xApiKey,
             global::TwelveLabs.AuthorizeConnectionRequest request);
         partial void ProcessAuthorizeConnectionResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -52,20 +50,17 @@ namespace TwelveLabs
         /// - `custom_id`: The label you supplied, returned on success when you provided one.<br/>
         /// - `error`: An error code, returned instead of the other parameters when the user denies access or the flow fails.
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.DataConnectorsAuthorizeConnectionResponse200> AuthorizeConnectionAsync(
-            string xApiKey,
 
             global::TwelveLabs.AuthorizeConnectionRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await AuthorizeConnectionAsResponseAsync(
-                xApiKey: xApiKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -83,13 +78,11 @@ namespace TwelveLabs
         /// - `custom_id`: The label you supplied, returned on success when you provided one.<br/>
         /// - `error`: An error code, returned instead of the other parameters when the user denies access or the flow fails.
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.DataConnectorsAuthorizeConnectionResponse200>> AuthorizeConnectionAsResponseAsync(
-            string xApiKey,
 
             global::TwelveLabs.AuthorizeConnectionRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -101,7 +94,6 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareAuthorizeConnectionArguments(
                 httpClient: HttpClient,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -159,9 +151,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -179,7 +168,6 @@ namespace TwelveLabs
                 PrepareAuthorizeConnectionRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -501,7 +489,6 @@ namespace TwelveLabs
         /// - `custom_id`: The label you supplied, returned on success when you provided one.<br/>
         /// - `error`: An error code, returned instead of the other parameters when the user denies access or the flow fails.
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="provider">
         /// The data connector provider to authorize.
         /// </param>
@@ -515,7 +502,6 @@ namespace TwelveLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.DataConnectorsAuthorizeConnectionResponse200> AuthorizeConnectionAsync(
-            string xApiKey,
             string redirectUri,
             global::TwelveLabs.ConnectionsAuthorizePostRequestBodyContentApplicationJsonSchemaProvider provider = default,
             string? customId = default,
@@ -530,7 +516,6 @@ namespace TwelveLabs
             };
 
             return await AuthorizeConnectionAsync(
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

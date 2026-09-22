@@ -28,14 +28,12 @@ namespace TwelveLabs
         partial void PrepareRetrieveTranscriptionArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string assetId,
-            global::System.Collections.Generic.IList<global::TwelveLabs.AssetsAssetIdTranscriptionGetParametersIncludeSchemaItems>? include,
-            ref string xApiKey);
+            global::System.Collections.Generic.IList<global::TwelveLabs.AssetsAssetIdTranscriptionGetParametersIncludeSchemaItems>? include);
         partial void PrepareRetrieveTranscriptionRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string assetId,
-            global::System.Collections.Generic.IList<global::TwelveLabs.AssetsAssetIdTranscriptionGetParametersIncludeSchemaItems>? include,
-            string xApiKey);
+            global::System.Collections.Generic.IList<global::TwelveLabs.AssetsAssetIdTranscriptionGetParametersIncludeSchemaItems>? include);
         partial void ProcessRetrieveTranscriptionResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -53,20 +51,17 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="assetId"></param>
         /// <param name="include"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AssetTranscriptionResponse> RetrieveTranscriptionAsync(
             string assetId,
-            string xApiKey,
             global::System.Collections.Generic.IList<global::TwelveLabs.AssetsAssetIdTranscriptionGetParametersIncludeSchemaItems>? include = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await RetrieveTranscriptionAsResponseAsync(
                 assetId: assetId,
-                xApiKey: xApiKey,
                 include: include,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -82,13 +77,11 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="assetId"></param>
         /// <param name="include"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetTranscriptionResponse>> RetrieveTranscriptionAsResponseAsync(
             string assetId,
-            string xApiKey,
             global::System.Collections.Generic.IList<global::TwelveLabs.AssetsAssetIdTranscriptionGetParametersIncludeSchemaItems>? include = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -98,8 +91,7 @@ namespace TwelveLabs
             PrepareRetrieveTranscriptionArguments(
                 httpClient: HttpClient,
                 assetId: ref assetId,
-                include: include,
-                xApiKey: ref xApiKey);
+                include: include);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -159,9 +151,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -174,8 +163,7 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     assetId: assetId!,
-                    include: include,
-                    xApiKey: xApiKey!);
+                    include: include);
 
                 return __httpRequest;
             }

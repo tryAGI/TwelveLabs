@@ -30,16 +30,14 @@ namespace TwelveLabs
             ref int? page,
             ref int? pageLimit,
             ref global::TwelveLabs.KnowledgeStoresGetParametersSortBy? sortBy,
-            ref string? sortOption,
-            ref string xApiKey);
+            ref string? sortOption);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? page,
             int? pageLimit,
             global::TwelveLabs.KnowledgeStoresGetParametersSortBy? sortBy,
-            string? sortOption,
-            string xApiKey);
+            string? sortOption);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -65,12 +63,10 @@ namespace TwelveLabs
         /// <param name="sortOption">
         /// Default Value: desc
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoresListResponse200> ListAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.KnowledgeStoresGetParametersSortBy? sortBy = default,
@@ -79,7 +75,6 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ListAsResponseAsync(
-                xApiKey: xApiKey,
                 page: page,
                 pageLimit: pageLimit,
                 sortBy: sortBy,
@@ -106,12 +101,10 @@ namespace TwelveLabs
         /// <param name="sortOption">
         /// Default Value: desc
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoresListResponse200>> ListAsResponseAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.KnowledgeStoresGetParametersSortBy? sortBy = default,
@@ -126,8 +119,7 @@ namespace TwelveLabs
                 page: ref page,
                 pageLimit: ref pageLimit,
                 sortBy: ref sortBy,
-                sortOption: ref sortOption,
-                xApiKey: ref xApiKey);
+                sortOption: ref sortOption);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -190,9 +182,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -207,8 +196,7 @@ namespace TwelveLabs
                     page: page,
                     pageLimit: pageLimit,
                     sortBy: sortBy,
-                    sortOption: sortOption,
-                    xApiKey: xApiKey!);
+                    sortOption: sortOption);
 
                 return __httpRequest;
             }

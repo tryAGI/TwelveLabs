@@ -10,7 +10,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="collectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -18,7 +17,6 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItemCollection> UpdateAsync(
             string knowledgeStoreId,
             string collectionId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateRequest4 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -29,7 +27,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="collectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -37,7 +34,6 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoreItemCollection>> UpdateAsResponseAsync(
             string knowledgeStoreId,
             string collectionId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateRequest4 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -48,7 +44,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="collectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="name">
         /// The name of the item collection. Must be unique within the knowledge store.
         /// </param>
@@ -64,10 +59,9 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItemCollection> UpdateAsync(
             string knowledgeStoreId,
             string collectionId,
-            string xApiKey,
             string? name = default,
             string? description = default,
-            object? metadata = default,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? metadata = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

@@ -11,7 +11,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="entityCollectionId"></param>
         /// <param name="entityId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -19,7 +18,6 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.Entity> CreateAssetsAsync(
             string entityCollectionId,
             string entityId,
-            string xApiKey,
 
             global::TwelveLabs.CreateAssetsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -31,7 +29,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="entityCollectionId"></param>
         /// <param name="entityId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -39,7 +36,6 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.Entity>> CreateAssetsAsResponseAsync(
             string entityCollectionId,
             string entityId,
-            string xApiKey,
 
             global::TwelveLabs.CreateAssetsRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -51,7 +47,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="entityCollectionId"></param>
         /// <param name="entityId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="assetIds">
         /// An array of asset IDs to add to the entity.
         /// </param>
@@ -61,7 +56,6 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.Entity> CreateAssetsAsync(
             string entityCollectionId,
             string entityId,
-            string xApiKey,
             global::System.Collections.Generic.IList<string> assetIds,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

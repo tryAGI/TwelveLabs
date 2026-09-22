@@ -29,14 +29,12 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string indexId,
             ref string indexedAssetId,
-            ref string xApiKey,
             global::TwelveLabs.UpdateRequest6 request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string indexId,
             string indexedAssetId,
-            string xApiKey,
             global::TwelveLabs.UpdateRequest6 request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -48,7 +46,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="indexId"></param>
         /// <param name="indexedAssetId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -56,7 +53,6 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task UpdateAsync(
             string indexId,
             string indexedAssetId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateRequest6 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -65,7 +61,6 @@ namespace TwelveLabs
             await UpdateAsResponseAsync(
                 indexId: indexId,
                 indexedAssetId: indexedAssetId,
-                xApiKey: xApiKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -78,7 +73,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="indexId"></param>
         /// <param name="indexedAssetId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -86,7 +80,6 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> UpdateAsResponseAsync(
             string indexId,
             string indexedAssetId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateRequest6 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -100,7 +93,6 @@ namespace TwelveLabs
                 httpClient: HttpClient,
                 indexId: ref indexId,
                 indexedAssetId: ref indexedAssetId,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -158,9 +150,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -180,7 +169,6 @@ namespace TwelveLabs
                     httpRequestMessage: __httpRequest,
                     indexId: indexId!,
                     indexedAssetId: indexedAssetId!,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -483,7 +471,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="indexId"></param>
         /// <param name="indexedAssetId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="userMetadata">
         /// Metadata that helps you categorize your assets. The object contains user-defined keys and values, where keys are strings. Each value is a string, a number, a boolean, or an array of strings. Send an integer wider than 53 bits (-9007199254740991 to 9007199254740991), and any identifier you want preserved verbatim, as a string.<br/>
         /// **Example**:<br/>
@@ -503,8 +490,7 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task UpdateAsync(
             string indexId,
             string indexedAssetId,
-            string xApiKey,
-            global::TwelveLabs.UserMetadata? userMetadata = default,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? userMetadata = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -516,7 +502,6 @@ namespace TwelveLabs
             await UpdateAsync(
                 indexId: indexId,
                 indexedAssetId: indexedAssetId,
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

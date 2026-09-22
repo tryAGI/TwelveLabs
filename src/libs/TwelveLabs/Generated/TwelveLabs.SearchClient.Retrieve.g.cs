@@ -28,14 +28,12 @@ namespace TwelveLabs
         partial void PrepareRetrieveArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string pageToken,
-            ref bool? includeUserMetadata,
-            ref string xApiKey);
+            ref bool? includeUserMetadata);
         partial void PrepareRetrieveRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string pageToken,
-            bool? includeUserMetadata,
-            string xApiKey);
+            bool? includeUserMetadata);
         partial void ProcessRetrieveResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -54,20 +52,17 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="pageToken"></param>
         /// <param name="includeUserMetadata"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.SearchRetrieveResponse200> RetrieveAsync(
             string pageToken,
-            string xApiKey,
             bool? includeUserMetadata = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await RetrieveAsResponseAsync(
                 pageToken: pageToken,
-                xApiKey: xApiKey,
                 includeUserMetadata: includeUserMetadata,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -84,13 +79,11 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="pageToken"></param>
         /// <param name="includeUserMetadata"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.SearchRetrieveResponse200>> RetrieveAsResponseAsync(
             string pageToken,
-            string xApiKey,
             bool? includeUserMetadata = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -100,8 +93,7 @@ namespace TwelveLabs
             PrepareRetrieveArguments(
                 httpClient: HttpClient,
                 pageToken: ref pageToken,
-                includeUserMetadata: ref includeUserMetadata,
-                xApiKey: ref xApiKey);
+                includeUserMetadata: ref includeUserMetadata);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -161,9 +153,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -176,8 +165,7 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     pageToken: pageToken!,
-                    includeUserMetadata: includeUserMetadata,
-                    xApiKey: xApiKey!);
+                    includeUserMetadata: includeUserMetadata);
 
                 return __httpRequest;
             }

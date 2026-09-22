@@ -32,8 +32,7 @@ namespace TwelveLabs
             ref global::TwelveLabs.AnalyzeTaskStatus? status,
             ref string? videoUrl,
             ref string? assetId,
-            ref global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode,
-            ref string xApiKey);
+            ref global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -42,8 +41,7 @@ namespace TwelveLabs
             global::TwelveLabs.AnalyzeTaskStatus? status,
             string? videoUrl,
             string? assetId,
-            global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode,
-            string xApiKey);
+            global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode? analysisMode);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -69,12 +67,10 @@ namespace TwelveLabs
         /// <param name="videoUrl"></param>
         /// <param name="assetId"></param>
         /// <param name="analysisMode"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AnalyzeAsyncTasksListResponse200> ListAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.AnalyzeTaskStatus? status = default,
@@ -85,7 +81,6 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ListAsResponseAsync(
-                xApiKey: xApiKey,
                 page: page,
                 pageLimit: pageLimit,
                 status: status,
@@ -114,12 +109,10 @@ namespace TwelveLabs
         /// <param name="videoUrl"></param>
         /// <param name="assetId"></param>
         /// <param name="analysisMode"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AnalyzeAsyncTasksListResponse200>> ListAsResponseAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.AnalyzeTaskStatus? status = default,
@@ -138,8 +131,7 @@ namespace TwelveLabs
                 status: ref status,
                 videoUrl: ref videoUrl,
                 assetId: ref assetId,
-                analysisMode: ref analysisMode,
-                xApiKey: ref xApiKey);
+                analysisMode: ref analysisMode);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -204,9 +196,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -223,8 +212,7 @@ namespace TwelveLabs
                     status: status,
                     videoUrl: videoUrl,
                     assetId: assetId,
-                    analysisMode: analysisMode,
-                    xApiKey: xApiKey!);
+                    analysisMode: analysisMode);
 
                 return __httpRequest;
             }

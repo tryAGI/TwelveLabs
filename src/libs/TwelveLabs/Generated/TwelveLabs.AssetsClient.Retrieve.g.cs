@@ -27,13 +27,11 @@ namespace TwelveLabs
             };
         partial void PrepareRetrieveArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string assetId,
-            ref string xApiKey);
+            ref string assetId);
         partial void PrepareRetrieveRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string assetId,
-            string xApiKey);
+            string assetId);
         partial void ProcessRetrieveResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -48,19 +46,16 @@ namespace TwelveLabs
         /// This method retrieves details about the specified asset.
         /// </summary>
         /// <param name="assetId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AssetDetail> RetrieveAsync(
             string assetId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await RetrieveAsResponseAsync(
                 assetId: assetId,
-                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -72,13 +67,11 @@ namespace TwelveLabs
         /// This method retrieves details about the specified asset.
         /// </summary>
         /// <param name="assetId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AssetDetail>> RetrieveAsResponseAsync(
             string assetId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -86,8 +79,7 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareRetrieveArguments(
                 httpClient: HttpClient,
-                assetId: ref assetId,
-                xApiKey: ref xApiKey);
+                assetId: ref assetId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -144,9 +136,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -158,8 +147,7 @@ namespace TwelveLabs
                 PrepareRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    assetId: assetId!,
-                    xApiKey: xApiKey!);
+                    assetId: assetId!);
 
                 return __httpRequest;
             }

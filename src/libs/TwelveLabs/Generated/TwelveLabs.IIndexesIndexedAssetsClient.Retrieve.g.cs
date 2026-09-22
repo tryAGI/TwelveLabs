@@ -25,14 +25,12 @@ namespace TwelveLabs
         /// <param name="indexedAssetId"></param>
         /// <param name="embeddingOption"></param>
         /// <param name="transcription"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.IndexedAssetDetailed> RetrieveAsync(
             string indexId,
             string indexedAssetId,
-            string xApiKey,
             global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItems>? embeddingOption = default,
             bool? transcription = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -58,14 +56,12 @@ namespace TwelveLabs
         /// <param name="indexedAssetId"></param>
         /// <param name="embeddingOption"></param>
         /// <param name="transcription"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexedAssetDetailed>> RetrieveAsResponseAsync(
             string indexId,
             string indexedAssetId,
-            string xApiKey,
             global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdIndexedAssetsIndexedAssetIdGetParametersEmbeddingOptionSchemaItems>? embeddingOption = default,
             bool? transcription = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,

@@ -9,14 +9,12 @@ namespace TwelveLabs
         /// This method creates an entity within a specified entity collection. Each entity must be associated with at least one asset.
         /// </summary>
         /// <param name="entityCollectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.Entity> CreateAsync(
             string entityCollectionId,
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest3 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -26,14 +24,12 @@ namespace TwelveLabs
         /// This method creates an entity within a specified entity collection. Each entity must be associated with at least one asset.
         /// </summary>
         /// <param name="entityCollectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.Entity>> CreateAsResponseAsync(
             string entityCollectionId,
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest3 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -43,7 +39,6 @@ namespace TwelveLabs
         /// This method creates an entity within a specified entity collection. Each entity must be associated with at least one asset.
         /// </summary>
         /// <param name="entityCollectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="name">
         /// The name of the entity. Make sure you use a succinct and descriptive name.
         /// </param>
@@ -73,7 +68,6 @@ namespace TwelveLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.Entity> CreateAsync(
             string entityCollectionId,
-            string xApiKey,
             string name,
             global::System.Collections.Generic.IList<string> assetIds,
             string? description = default,

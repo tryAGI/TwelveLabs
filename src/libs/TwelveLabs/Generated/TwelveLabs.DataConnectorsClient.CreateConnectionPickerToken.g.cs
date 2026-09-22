@@ -27,13 +27,11 @@ namespace TwelveLabs
             };
         partial void PrepareCreateConnectionPickerTokenArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string connectionId,
-            ref string xApiKey);
+            ref string connectionId);
         partial void PrepareCreateConnectionPickerTokenRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string connectionId,
-            string xApiKey);
+            string connectionId);
         partial void ProcessCreateConnectionPickerTokenResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -48,19 +46,16 @@ namespace TwelveLabs
         /// This method generates a short-lived, read-only access token that you use with the provider's file picker, such as the Google Drive Picker. The platform never returns the refresh token of the connection.
         /// </summary>
         /// <param name="connectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.DataConnectorsCreateConnectionPickerTokenResponse200> CreateConnectionPickerTokenAsync(
             string connectionId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await CreateConnectionPickerTokenAsResponseAsync(
                 connectionId: connectionId,
-                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -72,13 +67,11 @@ namespace TwelveLabs
         /// This method generates a short-lived, read-only access token that you use with the provider's file picker, such as the Google Drive Picker. The platform never returns the refresh token of the connection.
         /// </summary>
         /// <param name="connectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.DataConnectorsCreateConnectionPickerTokenResponse200>> CreateConnectionPickerTokenAsResponseAsync(
             string connectionId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -86,8 +79,7 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareCreateConnectionPickerTokenArguments(
                 httpClient: HttpClient,
-                connectionId: ref connectionId,
-                xApiKey: ref xApiKey);
+                connectionId: ref connectionId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -144,9 +136,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -158,8 +147,7 @@ namespace TwelveLabs
                 PrepareCreateConnectionPickerTokenRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    connectionId: connectionId!,
-                    xApiKey: xApiKey!);
+                    connectionId: connectionId!);
 
                 return __httpRequest;
             }

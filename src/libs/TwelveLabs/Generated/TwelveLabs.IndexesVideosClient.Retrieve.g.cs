@@ -30,16 +30,14 @@ namespace TwelveLabs
             ref string indexId,
             ref string videoId,
             global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItems>? embeddingOption,
-            ref bool? transcription,
-            ref string xApiKey);
+            ref bool? transcription);
         partial void PrepareRetrieveRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string indexId,
             string videoId,
             global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItems>? embeddingOption,
-            bool? transcription,
-            string xApiKey);
+            bool? transcription);
         partial void ProcessRetrieveResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -58,14 +56,12 @@ namespace TwelveLabs
         /// <param name="videoId"></param>
         /// <param name="embeddingOption"></param>
         /// <param name="transcription"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesVideosRetrieveResponse200> RetrieveAsync(
             string indexId,
             string videoId,
-            string xApiKey,
             global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItems>? embeddingOption = default,
             bool? transcription = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -74,7 +70,6 @@ namespace TwelveLabs
             var __response = await RetrieveAsResponseAsync(
                 indexId: indexId,
                 videoId: videoId,
-                xApiKey: xApiKey,
                 embeddingOption: embeddingOption,
                 transcription: transcription,
                 requestOptions: requestOptions,
@@ -92,14 +87,12 @@ namespace TwelveLabs
         /// <param name="videoId"></param>
         /// <param name="embeddingOption"></param>
         /// <param name="transcription"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesVideosRetrieveResponse200>> RetrieveAsResponseAsync(
             string indexId,
             string videoId,
-            string xApiKey,
             global::System.Collections.Generic.IList<global::TwelveLabs.IndexesIndexIdVideosVideoIdGetParametersEmbeddingOptionSchemaItems>? embeddingOption = default,
             bool? transcription = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -112,8 +105,7 @@ namespace TwelveLabs
                 indexId: ref indexId,
                 videoId: ref videoId,
                 embeddingOption: embeddingOption,
-                transcription: ref transcription,
-                xApiKey: ref xApiKey);
+                transcription: ref transcription);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -174,9 +166,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -191,8 +180,7 @@ namespace TwelveLabs
                     indexId: indexId!,
                     videoId: videoId!,
                     embeddingOption: embeddingOption,
-                    transcription: transcription,
-                    xApiKey: xApiKey!);
+                    transcription: transcription);
 
                 return __httpRequest;
             }

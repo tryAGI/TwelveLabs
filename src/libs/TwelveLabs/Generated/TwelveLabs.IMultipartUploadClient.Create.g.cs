@@ -17,13 +17,11 @@ namespace TwelveLabs
         /// - **Entity search**: [Marengo image requirements](/v1.3/docs/concepts/models/marengo/marengo-3-0#image-file-requirements)<br/>
         /// - **Create embeddings**: [Marengo requirements](/v1.3/docs/concepts/models/marengo/marengo-3-5#input-requirements)
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.CreateAssetUploadResponse> CreateAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateAssetUploadRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -41,13 +39,11 @@ namespace TwelveLabs
         /// - **Entity search**: [Marengo image requirements](/v1.3/docs/concepts/models/marengo/marengo-3-0#image-file-requirements)<br/>
         /// - **Create embeddings**: [Marengo requirements](/v1.3/docs/concepts/models/marengo/marengo-3-5#input-requirements)
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.CreateAssetUploadResponse>> CreateAsResponseAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateAssetUploadRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -65,7 +61,6 @@ namespace TwelveLabs
         /// - **Entity search**: [Marengo image requirements](/v1.3/docs/concepts/models/marengo/marengo-3-0#image-file-requirements)<br/>
         /// - **Create embeddings**: [Marengo requirements](/v1.3/docs/concepts/models/marengo/marengo-3-5#input-requirements)
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="filename">
         /// The original file name of the asset.
         /// </param>
@@ -98,13 +93,12 @@ namespace TwelveLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.CreateAssetUploadResponse> CreateAsync(
-            string xApiKey,
             string filename,
             global::TwelveLabs.CreateAssetUploadRequestType type,
             long totalSize,
             bool? enableHls = default,
             bool? enableThumbnail = default,
-            global::TwelveLabs.UserMetadata? userMetadata = default,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? userMetadata = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

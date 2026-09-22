@@ -13,24 +13,20 @@ public partial class Tests
     [TestMethod]
     public async Task AnalyzeVideo()
     {
-        var apiKey = GetApiKey();
         using var client = GetAuthenticatedClient();
 
         //// Retrieve an indexed video to analyze.
-        var indexes = await client.Indexes.ListAsync(
-            xApiKey: apiKey);
+        var indexes = await client.Indexes.ListAsync();
         var indexId = indexes.Data?.FirstOrDefault()?.Id
             ?? throw new AssertInconclusiveException("No indexes found. Create an index and upload videos first.");
 
         var assets = await client.IndexesIndexedAssets.ListAsync(
-            indexId: indexId,
-            xApiKey: apiKey);
+            indexId: indexId);
         var videoId = assets.Data?.FirstOrDefault()?.Id
             ?? throw new AssertInconclusiveException("No indexed assets found in the index.");
 
         //// Generate a summary of the video using open-ended analysis with streaming disabled.
         var response = await client.AnalyzeAsync(
-            xApiKey: apiKey,
             video: new VideoContext(new VideoContextVariant2(videoId, VideoContextVariant2Type.AssetId)),
             prompt: "Provide a brief summary of this video, including the main topic and key points.",
             stream: false);

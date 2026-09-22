@@ -58,7 +58,7 @@ namespace TwelveLabs
         /// ```
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
-        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? UserMetadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -110,7 +110,7 @@ namespace TwelveLabs
             string? thumbnailUrl,
             string? transcription,
             string? videoId,
-            global::TwelveLabs.UserMetadata? userMetadata)
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? userMetadata)
         {
             this.Start = start;
             this.End = end;

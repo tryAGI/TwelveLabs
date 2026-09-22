@@ -28,13 +28,11 @@ namespace TwelveLabs
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string knowledgeStoreId,
-            ref string xApiKey,
             global::TwelveLabs.CreateRequest6 request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string knowledgeStoreId,
-            string xApiKey,
             global::TwelveLabs.CreateRequest6 request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -50,14 +48,12 @@ namespace TwelveLabs
         /// Creates an item collection in the specified knowledge store. An item collection is a named collection of items. Use item collections to organize and reference subsets of items together.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItemCollection> CreateAsync(
             string knowledgeStoreId,
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest6 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -65,7 +61,6 @@ namespace TwelveLabs
         {
             var __response = await CreateAsResponseAsync(
                 knowledgeStoreId: knowledgeStoreId,
-                xApiKey: xApiKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -79,14 +74,12 @@ namespace TwelveLabs
         /// Creates an item collection in the specified knowledge store. An item collection is a named collection of items. Use item collections to organize and reference subsets of items together.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoreItemCollection>> CreateAsResponseAsync(
             string knowledgeStoreId,
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest6 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -99,7 +92,6 @@ namespace TwelveLabs
             PrepareCreateArguments(
                 httpClient: HttpClient,
                 knowledgeStoreId: ref knowledgeStoreId,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -157,9 +149,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -178,7 +167,6 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     knowledgeStoreId: knowledgeStoreId!,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -496,7 +484,6 @@ namespace TwelveLabs
         /// Creates an item collection in the specified knowledge store. An item collection is a named collection of items. Use item collections to organize and reference subsets of items together.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="name">
         /// The name of the item collection. Must be unique within the knowledge store.
         /// </param>
@@ -511,10 +498,9 @@ namespace TwelveLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItemCollection> CreateAsync(
             string knowledgeStoreId,
-            string xApiKey,
             string name,
             string? description = default,
-            object? metadata = default,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? metadata = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -527,7 +513,6 @@ namespace TwelveLabs
 
             return await CreateAsync(
                 knowledgeStoreId: knowledgeStoreId,
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

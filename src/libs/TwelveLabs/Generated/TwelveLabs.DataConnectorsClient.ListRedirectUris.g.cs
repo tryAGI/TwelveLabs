@@ -28,14 +28,12 @@ namespace TwelveLabs
         partial void PrepareListRedirectUrisArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? page,
-            ref int? pageLimit,
-            ref string xApiKey);
+            ref int? pageLimit);
         partial void PrepareListRedirectUrisRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? page,
-            int? pageLimit,
-            string xApiKey);
+            int? pageLimit);
         partial void ProcessListRedirectUrisResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -55,19 +53,16 @@ namespace TwelveLabs
         /// <param name="pageLimit">
         /// Default Value: 10
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.DataConnectorsListRedirectUrisResponse200> ListRedirectUrisAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ListRedirectUrisAsResponseAsync(
-                xApiKey: xApiKey,
                 page: page,
                 pageLimit: pageLimit,
                 requestOptions: requestOptions,
@@ -86,12 +81,10 @@ namespace TwelveLabs
         /// <param name="pageLimit">
         /// Default Value: 10
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.DataConnectorsListRedirectUrisResponse200>> ListRedirectUrisAsResponseAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -102,8 +95,7 @@ namespace TwelveLabs
             PrepareListRedirectUrisArguments(
                 httpClient: HttpClient,
                 page: ref page,
-                pageLimit: ref pageLimit,
-                xApiKey: ref xApiKey);
+                pageLimit: ref pageLimit);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -164,9 +156,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -179,8 +168,7 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     page: page,
-                    pageLimit: pageLimit,
-                    xApiKey: xApiKey!);
+                    pageLimit: pageLimit);
 
                 return __httpRequest;
             }

@@ -27,7 +27,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.UserMetadata))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetSourceType), TypeInfoPropertyName = "AssetSourceType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetSourceDetailsProvider), TypeInfoPropertyName = "AssetSourceDetailsProvider2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetSourceDetails))]

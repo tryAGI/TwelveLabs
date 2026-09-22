@@ -28,14 +28,12 @@ namespace TwelveLabs
         partial void PrepareRetrieveArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string knowledgeStoreId,
-            ref string itemId,
-            ref string xApiKey);
+            ref string itemId);
         partial void PrepareRetrieveRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string knowledgeStoreId,
-            string itemId,
-            string xApiKey);
+            string itemId);
         partial void ProcessRetrieveResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,21 +49,18 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="itemId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItem> RetrieveAsync(
             string knowledgeStoreId,
             string itemId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await RetrieveAsResponseAsync(
                 knowledgeStoreId: knowledgeStoreId,
                 itemId: itemId,
-                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -78,14 +73,12 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="itemId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoreItem>> RetrieveAsResponseAsync(
             string knowledgeStoreId,
             string itemId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -94,8 +87,7 @@ namespace TwelveLabs
             PrepareRetrieveArguments(
                 httpClient: HttpClient,
                 knowledgeStoreId: ref knowledgeStoreId,
-                itemId: ref itemId,
-                xApiKey: ref xApiKey);
+                itemId: ref itemId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -152,9 +144,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -167,8 +156,7 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     knowledgeStoreId: knowledgeStoreId!,
-                    itemId: itemId!,
-                    xApiKey: xApiKey!);
+                    itemId: itemId!);
 
                 return __httpRequest;
             }

@@ -26,7 +26,7 @@ namespace TwelveLabs
         /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys are strings, and values can be a string, a number, a boolean, or an array of strings. A key set to an empty string (`""`), an empty array (`[]`), or `null` is omitted. Send an integer wider than 53 bits (-9007199254740991 to 9007199254740991), and any identifier you want preserved verbatim, as a string.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
-        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? UserMetadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -53,7 +53,7 @@ namespace TwelveLabs
         public CreateRequest8(
             string assetId,
             bool? enableVideoStream,
-            global::TwelveLabs.UserMetadata? userMetadata)
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? userMetadata)
         {
             this.AssetId = assetId ?? throw new global::System.ArgumentNullException(nameof(assetId));
             this.EnableVideoStream = enableVideoStream;

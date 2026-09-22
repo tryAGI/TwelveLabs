@@ -20,12 +20,10 @@ namespace TwelveLabs
         /// <param name="videoUrl"></param>
         /// <param name="assetId"></param>
         /// <param name="analysisMode"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AnalyzeAsyncTasksListResponse200> ListAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.AnalyzeTaskStatus? status = default,
@@ -50,12 +48,10 @@ namespace TwelveLabs
         /// <param name="videoUrl"></param>
         /// <param name="assetId"></param>
         /// <param name="analysisMode"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.AnalyzeAsyncTasksListResponse200>> ListAsResponseAsync(
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.AnalyzeTaskStatus? status = default,
