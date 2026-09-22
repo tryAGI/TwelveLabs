@@ -13,7 +13,6 @@ public partial class Tests
     [TestMethod]
     public async Task ListIndexes()
     {
-        var apiKey = GetApiKey();
         using var client = GetAuthenticatedClient();
 
         //// List all video indexes in your account.
