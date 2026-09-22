@@ -64,7 +64,7 @@ namespace TwelveLabs
         /// ```
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
-        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? UserMetadata { get; set; }
 
         /// <summary>
         /// An array that contains detailed information about the clips that match your query. The platform returns this array only when the `group_by` parameter is set to `video` in the request.
@@ -129,7 +129,7 @@ namespace TwelveLabs
             string? thumbnailUrl,
             string? transcription,
             string? id,
-            global::TwelveLabs.UserMetadata? userMetadata,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? userMetadata,
             global::System.Collections.Generic.IList<global::TwelveLabs.SearchItemClipsItems>? clips)
         {
             this.Start = start;

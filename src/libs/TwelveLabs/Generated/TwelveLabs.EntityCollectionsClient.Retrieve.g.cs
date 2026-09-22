@@ -27,13 +27,11 @@ namespace TwelveLabs
             };
         partial void PrepareRetrieveArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string entityCollectionId,
-            ref string xApiKey);
+            ref string entityCollectionId);
         partial void PrepareRetrieveRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string entityCollectionId,
-            string xApiKey);
+            string entityCollectionId);
         partial void ProcessRetrieveResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -48,19 +46,16 @@ namespace TwelveLabs
         /// This method retrieves details about the specified entity collection.
         /// </summary>
         /// <param name="entityCollectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.EntityCollection> RetrieveAsync(
             string entityCollectionId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await RetrieveAsResponseAsync(
                 entityCollectionId: entityCollectionId,
-                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -72,13 +67,11 @@ namespace TwelveLabs
         /// This method retrieves details about the specified entity collection.
         /// </summary>
         /// <param name="entityCollectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EntityCollection>> RetrieveAsResponseAsync(
             string entityCollectionId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -86,8 +79,7 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareRetrieveArguments(
                 httpClient: HttpClient,
-                entityCollectionId: ref entityCollectionId,
-                xApiKey: ref xApiKey);
+                entityCollectionId: ref entityCollectionId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -144,9 +136,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -158,8 +147,7 @@ namespace TwelveLabs
                 PrepareRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    entityCollectionId: entityCollectionId!,
-                    xApiKey: xApiKey!);
+                    entityCollectionId: entityCollectionId!);
 
                 return __httpRequest;
             }

@@ -27,13 +27,11 @@ namespace TwelveLabs
             };
         partial void PrepareDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string knowledgeStoreId,
-            ref string xApiKey);
+            ref string knowledgeStoreId);
         partial void PrepareDeleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string knowledgeStoreId,
-            string xApiKey);
+            string knowledgeStoreId);
         partial void ProcessDeleteResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,19 +41,16 @@ namespace TwelveLabs
         /// This method deletes the specified knowledge store and all its items.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task DeleteAsync(
             string knowledgeStoreId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             await DeleteAsResponseAsync(
                 knowledgeStoreId: knowledgeStoreId,
-                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -65,13 +60,11 @@ namespace TwelveLabs
         /// This method deletes the specified knowledge store and all its items.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> DeleteAsResponseAsync(
             string knowledgeStoreId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -79,8 +72,7 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareDeleteArguments(
                 httpClient: HttpClient,
-                knowledgeStoreId: ref knowledgeStoreId,
-                xApiKey: ref xApiKey);
+                knowledgeStoreId: ref knowledgeStoreId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -137,9 +129,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -151,8 +140,7 @@ namespace TwelveLabs
                 PrepareDeleteRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    knowledgeStoreId: knowledgeStoreId!,
-                    xApiKey: xApiKey!);
+                    knowledgeStoreId: knowledgeStoreId!);
 
                 return __httpRequest;
             }

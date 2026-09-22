@@ -9,13 +9,11 @@ namespace TwelveLabs
         /// This method creates a knowledge store.<br/>
         /// Provide a name. Optionally include a description, a metadata map, and an `ingestion_config` object that controls how content added to the store is processed. The `ingestion_config` object is immutable after creation.
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStore> CreateAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest4 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -25,13 +23,11 @@ namespace TwelveLabs
         /// This method creates a knowledge store.<br/>
         /// Provide a name. Optionally include a description, a metadata map, and an `ingestion_config` object that controls how content added to the store is processed. The `ingestion_config` object is immutable after creation.
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStore>> CreateAsResponseAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest4 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -41,7 +37,6 @@ namespace TwelveLabs
         /// This method creates a knowledge store.<br/>
         /// Provide a name. Optionally include a description, a metadata map, and an `ingestion_config` object that controls how content added to the store is processed. The `ingestion_config` object is immutable after creation.
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="name">
         /// The name of the knowledge store.
         /// </param>
@@ -58,11 +53,10 @@ namespace TwelveLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStore> CreateAsync(
-            string xApiKey,
             string name,
             global::TwelveLabs.IngestionConfig? ingestionConfig = default,
             string? description = default,
-            object? metadata = default,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? metadata = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

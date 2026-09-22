@@ -27,13 +27,11 @@ namespace TwelveLabs
             };
         partial void PrepareStatusArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string taskId,
-            ref string xApiKey);
+            ref string taskId);
         partial void PrepareStatusRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string taskId,
-            string xApiKey);
+            string taskId);
         partial void ProcessStatusResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -55,19 +53,16 @@ namespace TwelveLabs
         /// - `failed`: The task could not be completed, and the embeddings haven't been created.
         /// </summary>
         /// <param name="taskId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.EmbedTasksStatusResponse200> StatusAsync(
             string taskId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await StatusAsResponseAsync(
                 taskId: taskId,
-                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -86,13 +81,11 @@ namespace TwelveLabs
         /// - `failed`: The task could not be completed, and the embeddings haven't been created.
         /// </summary>
         /// <param name="taskId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EmbedTasksStatusResponse200>> StatusAsResponseAsync(
             string taskId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -100,8 +93,7 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareStatusArguments(
                 httpClient: HttpClient,
-                taskId: ref taskId,
-                xApiKey: ref xApiKey);
+                taskId: ref taskId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -158,9 +150,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -172,8 +161,7 @@ namespace TwelveLabs
                 PrepareStatusRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    taskId: taskId!,
-                    xApiKey: xApiKey!);
+                    taskId: taskId!);
 
                 return __httpRequest;
             }

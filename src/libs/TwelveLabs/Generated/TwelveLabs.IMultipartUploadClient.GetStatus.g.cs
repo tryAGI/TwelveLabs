@@ -22,13 +22,11 @@ namespace TwelveLabs
         /// <param name="pageLimit">
         /// Default Value: 10
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.GetUploadStatusResponse> GetStatusAsync(
             string uploadId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -51,13 +49,11 @@ namespace TwelveLabs
         /// <param name="pageLimit">
         /// Default Value: 10
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.GetUploadStatusResponse>> GetStatusAsResponseAsync(
             string uploadId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,

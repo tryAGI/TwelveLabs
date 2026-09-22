@@ -49,7 +49,7 @@ namespace TwelveLabs
         /// Custom metadata for the item. Keys are strings; each value is a string, a number, a boolean, or an array of strings.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public object? Metadata { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? Metadata { get; set; }
 
         /// <summary>
         /// The date and time when the item was created, in the RFC 3339 format.
@@ -108,7 +108,7 @@ namespace TwelveLabs
             string? assetId,
             global::TwelveLabs.KnowledgeStoreItemStatus? status,
             global::TwelveLabs.KnowledgeStoreItemSystemMetadata? systemMetadata,
-            object? metadata,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? metadata,
             global::System.DateTime? createdAt,
             global::System.DateTime? updatedAt)
         {

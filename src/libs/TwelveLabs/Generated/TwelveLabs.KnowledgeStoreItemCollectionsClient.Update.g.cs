@@ -29,14 +29,12 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string knowledgeStoreId,
             ref string collectionId,
-            ref string xApiKey,
             global::TwelveLabs.UpdateRequest4 request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string knowledgeStoreId,
             string collectionId,
-            string xApiKey,
             global::TwelveLabs.UpdateRequest4 request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -53,7 +51,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="collectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -61,7 +58,6 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItemCollection> UpdateAsync(
             string knowledgeStoreId,
             string collectionId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateRequest4 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -70,7 +66,6 @@ namespace TwelveLabs
             var __response = await UpdateAsResponseAsync(
                 knowledgeStoreId: knowledgeStoreId,
                 collectionId: collectionId,
-                xApiKey: xApiKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -85,7 +80,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="collectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -93,7 +87,6 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoreItemCollection>> UpdateAsResponseAsync(
             string knowledgeStoreId,
             string collectionId,
-            string xApiKey,
 
             global::TwelveLabs.UpdateRequest4 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -107,7 +100,6 @@ namespace TwelveLabs
                 httpClient: HttpClient,
                 knowledgeStoreId: ref knowledgeStoreId,
                 collectionId: ref collectionId,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -165,9 +157,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -187,7 +176,6 @@ namespace TwelveLabs
                     httpRequestMessage: __httpRequest,
                     knowledgeStoreId: knowledgeStoreId!,
                     collectionId: collectionId!,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -506,7 +494,6 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="collectionId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="name">
         /// The name of the item collection. Must be unique within the knowledge store.
         /// </param>
@@ -522,10 +509,9 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItemCollection> UpdateAsync(
             string knowledgeStoreId,
             string collectionId,
-            string xApiKey,
             string? name = default,
             string? description = default,
-            object? metadata = default,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? metadata = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -539,7 +525,6 @@ namespace TwelveLabs
             return await UpdateAsync(
                 knowledgeStoreId: knowledgeStoreId,
                 collectionId: collectionId,
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

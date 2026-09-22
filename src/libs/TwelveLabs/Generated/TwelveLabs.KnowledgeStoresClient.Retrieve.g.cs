@@ -27,13 +27,11 @@ namespace TwelveLabs
             };
         partial void PrepareRetrieveArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string knowledgeStoreId,
-            ref string xApiKey);
+            ref string knowledgeStoreId);
         partial void PrepareRetrieveRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string knowledgeStoreId,
-            string xApiKey);
+            string knowledgeStoreId);
         partial void ProcessRetrieveResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -48,19 +46,16 @@ namespace TwelveLabs
         /// This method retrieves the details of a specific knowledge store.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStore> RetrieveAsync(
             string knowledgeStoreId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await RetrieveAsResponseAsync(
                 knowledgeStoreId: knowledgeStoreId,
-                xApiKey: xApiKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -72,13 +67,11 @@ namespace TwelveLabs
         /// This method retrieves the details of a specific knowledge store.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStore>> RetrieveAsResponseAsync(
             string knowledgeStoreId,
-            string xApiKey,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -86,8 +79,7 @@ namespace TwelveLabs
                 client: HttpClient);
             PrepareRetrieveArguments(
                 httpClient: HttpClient,
-                knowledgeStoreId: ref knowledgeStoreId,
-                xApiKey: ref xApiKey);
+                knowledgeStoreId: ref knowledgeStoreId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -144,9 +136,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -158,8 +147,7 @@ namespace TwelveLabs
                 PrepareRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    knowledgeStoreId: knowledgeStoreId!,
-                    xApiKey: xApiKey!);
+                    knowledgeStoreId: knowledgeStoreId!);
 
                 return __httpRequest;
             }

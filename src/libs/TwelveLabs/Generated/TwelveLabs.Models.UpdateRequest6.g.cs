@@ -22,7 +22,7 @@ namespace TwelveLabs
         /// ```
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
-        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? UserMetadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -50,7 +50,7 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UpdateRequest6(
-            global::TwelveLabs.UserMetadata? userMetadata)
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? userMetadata)
         {
             this.UserMetadata = userMetadata;
         }

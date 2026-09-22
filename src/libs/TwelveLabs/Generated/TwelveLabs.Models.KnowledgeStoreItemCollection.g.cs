@@ -36,7 +36,7 @@ namespace TwelveLabs
         /// Custom metadata for the item collection. Keys are strings; each value is a string, a number, a boolean, or an array of strings.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public object? Metadata { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? Metadata { get; set; }
 
         /// <summary>
         /// The number of items in the collection.
@@ -97,7 +97,7 @@ namespace TwelveLabs
             string? knowledgeStoreId,
             string? name,
             string? description,
-            object? metadata,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? metadata,
             int? memberCount,
             global::System.DateTime? createdAt,
             global::System.DateTime? updatedAt)

@@ -29,15 +29,13 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string assetId,
             ref int? page,
-            ref int? pageLimit,
-            ref string xApiKey);
+            ref int? pageLimit);
         partial void PrepareListByAssetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string assetId,
             int? page,
-            int? pageLimit,
-            string xApiKey);
+            int? pageLimit);
         partial void ProcessListByAssetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -58,13 +56,11 @@ namespace TwelveLabs
         /// <param name="pageLimit">
         /// Default Value: 10
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.EntityCollectionsEntitiesListByAssetResponse200> ListByAssetAsync(
             string assetId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -72,7 +68,6 @@ namespace TwelveLabs
         {
             var __response = await ListByAssetAsResponseAsync(
                 assetId: assetId,
-                xApiKey: xApiKey,
                 page: page,
                 pageLimit: pageLimit,
                 requestOptions: requestOptions,
@@ -92,13 +87,11 @@ namespace TwelveLabs
         /// <param name="pageLimit">
         /// Default Value: 10
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EntityCollectionsEntitiesListByAssetResponse200>> ListByAssetAsResponseAsync(
             string assetId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -110,8 +103,7 @@ namespace TwelveLabs
                 httpClient: HttpClient,
                 assetId: ref assetId,
                 page: ref page,
-                pageLimit: ref pageLimit,
-                xApiKey: ref xApiKey);
+                pageLimit: ref pageLimit);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -172,9 +164,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -188,8 +177,7 @@ namespace TwelveLabs
                     httpRequestMessage: __httpRequest,
                     assetId: assetId!,
                     page: page,
-                    pageLimit: pageLimit,
-                    xApiKey: xApiKey!);
+                    pageLimit: pageLimit);
 
                 return __httpRequest;
             }

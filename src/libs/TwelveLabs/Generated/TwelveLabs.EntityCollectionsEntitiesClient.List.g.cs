@@ -33,8 +33,7 @@ namespace TwelveLabs
             ref string? name,
             ref global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesGetParametersStatus? status,
             ref global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesGetParametersSortBy? sortBy,
-            ref string? sortOption,
-            ref string xApiKey);
+            ref string? sortOption);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -44,8 +43,7 @@ namespace TwelveLabs
             string? name,
             global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesGetParametersStatus? status,
             global::TwelveLabs.EntityCollectionsEntityCollectionIdEntitiesGetParametersSortBy? sortBy,
-            string? sortOption,
-            string xApiKey);
+            string? sortOption);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -74,13 +72,11 @@ namespace TwelveLabs
         /// <param name="sortOption">
         /// Default Value: desc
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.EntityCollectionsEntitiesListResponse200> ListAsync(
             string entityCollectionId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             string? name = default,
@@ -92,7 +88,6 @@ namespace TwelveLabs
         {
             var __response = await ListAsResponseAsync(
                 entityCollectionId: entityCollectionId,
-                xApiKey: xApiKey,
                 page: page,
                 pageLimit: pageLimit,
                 name: name,
@@ -124,13 +119,11 @@ namespace TwelveLabs
         /// <param name="sortOption">
         /// Default Value: desc
         /// </param>
-        /// <param name="xApiKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EntityCollectionsEntitiesListResponse200>> ListAsResponseAsync(
             string entityCollectionId,
-            string xApiKey,
             int? page = default,
             int? pageLimit = default,
             string? name = default,
@@ -150,8 +143,7 @@ namespace TwelveLabs
                 name: ref name,
                 status: ref status,
                 sortBy: ref sortBy,
-                sortOption: ref sortOption,
-                xApiKey: ref xApiKey);
+                sortOption: ref sortOption);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -216,9 +208,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::TwelveLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -236,8 +225,7 @@ namespace TwelveLabs
                     name: name,
                     status: status,
                     sortBy: sortBy,
-                    sortOption: sortOption,
-                    xApiKey: xApiKey!);
+                    sortOption: sortOption);
 
                 return __httpRequest;
             }

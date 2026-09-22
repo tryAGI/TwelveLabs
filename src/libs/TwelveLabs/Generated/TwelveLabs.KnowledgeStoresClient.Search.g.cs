@@ -28,13 +28,11 @@ namespace TwelveLabs
         partial void PrepareSearchArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string knowledgeStoreId,
-            ref string xApiKey,
             global::TwelveLabs.SearchKnowledgeStoreRequest request);
         partial void PrepareSearchRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string knowledgeStoreId,
-            string xApiKey,
             global::TwelveLabs.SearchKnowledgeStoreRequest request);
         partial void ProcessSearchResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -55,14 +53,12 @@ namespace TwelveLabs
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.SearchKnowledgeStoreResponse> SearchAsync(
             string knowledgeStoreId,
-            string xApiKey,
 
             global::TwelveLabs.SearchKnowledgeStoreRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -70,7 +66,6 @@ namespace TwelveLabs
         {
             var __response = await SearchAsResponseAsync(
                 knowledgeStoreId: knowledgeStoreId,
-                xApiKey: xApiKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -89,14 +84,12 @@ namespace TwelveLabs
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.SearchKnowledgeStoreResponse>> SearchAsResponseAsync(
             string knowledgeStoreId,
-            string xApiKey,
 
             global::TwelveLabs.SearchKnowledgeStoreRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -109,7 +102,6 @@ namespace TwelveLabs
             PrepareSearchArguments(
                 httpClient: HttpClient,
                 knowledgeStoreId: ref knowledgeStoreId,
-                xApiKey: ref xApiKey,
                 request: request);
 
 
@@ -167,9 +159,6 @@ namespace TwelveLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -188,7 +177,6 @@ namespace TwelveLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     knowledgeStoreId: knowledgeStoreId!,
-                    xApiKey: xApiKey!,
                     request: request);
 
                 return __httpRequest;
@@ -622,7 +610,6 @@ namespace TwelveLabs
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
-        /// <param name="xApiKey"></param>
         /// <param name="query">
         /// The search query.
         /// </param>
@@ -683,7 +670,6 @@ namespace TwelveLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.SearchKnowledgeStoreResponse> SearchAsync(
             string knowledgeStoreId,
-            string xApiKey,
             global::TwelveLabs.KnowledgeStoreSearchQuery query,
             global::TwelveLabs.SearchKnowledgeStoreFilter? filter = default,
             global::TwelveLabs.SearchKnowledgeStoreOptions? searchOptions = default,
@@ -707,7 +693,6 @@ namespace TwelveLabs
 
             return await SearchAsync(
                 knowledgeStoreId: knowledgeStoreId,
-                xApiKey: xApiKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

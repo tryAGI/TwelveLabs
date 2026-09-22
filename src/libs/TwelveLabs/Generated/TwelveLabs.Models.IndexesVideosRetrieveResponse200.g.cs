@@ -48,7 +48,7 @@ namespace TwelveLabs
         /// User-defined metadata for this video.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
-        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? UserMetadata { get; set; }
 
         /// <summary>
         /// The platform returns this object only for the videos that you uploaded with the `enable_video_stream` parameter set to `true`.
@@ -117,7 +117,7 @@ namespace TwelveLabs
             string? updatedAt,
             string? indexedAt,
             global::TwelveLabs.IndexesIndexIdVideosVideoIdGetResponsesContentApplicationJsonSchemaSystemMetadata? systemMetadata,
-            global::TwelveLabs.UserMetadata? userMetadata,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? userMetadata,
             global::TwelveLabs.HLSObject? hls,
             global::TwelveLabs.IndexesIndexIdVideosVideoIdGetResponsesContentApplicationJsonSchemaEmbedding? embedding,
             global::System.Collections.Generic.IList<global::TwelveLabs.TranscriptionDataItems>? transcription)

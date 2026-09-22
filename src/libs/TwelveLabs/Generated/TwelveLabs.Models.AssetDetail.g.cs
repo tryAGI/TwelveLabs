@@ -60,7 +60,7 @@ namespace TwelveLabs
         /// User-defined metadata for this asset. This field is absent when no metadata has been set.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
-        public global::TwelveLabs.UserMetadata? UserMetadata { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? UserMetadata { get; set; }
 
         /// <summary>
         /// Describes where the asset came from. Present only for assets imported through a connector; absent for assets uploaded directly to the `/assets` endpoint.
@@ -177,7 +177,7 @@ namespace TwelveLabs
             string? filename,
             string? fileType,
             global::System.DateTime? createdAt,
-            global::TwelveLabs.UserMetadata? userMetadata,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? userMetadata,
             global::TwelveLabs.AssetSource? source,
             global::TwelveLabs.AssetHLS? hls,
             global::TwelveLabs.AssetThumbnail? thumbnail,

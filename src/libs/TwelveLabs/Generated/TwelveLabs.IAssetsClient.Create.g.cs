@@ -31,13 +31,11 @@ namespace TwelveLabs
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.Asset> CreateAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -69,13 +67,11 @@ namespace TwelveLabs
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.Asset>> CreateAsResponseAsync(
-            string xApiKey,
 
             global::TwelveLabs.CreateRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
@@ -107,7 +103,6 @@ namespace TwelveLabs
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
         /// &lt;/Note&gt;
         /// </summary>
-        /// <param name="xApiKey"></param>
         /// <param name="method">
         /// Specifies the upload method for the asset. Use `direct` to upload a local file or `url` for a publicly accessible URL.
         /// </param>
@@ -141,7 +136,6 @@ namespace TwelveLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.Asset> CreateAsync(
-            string xApiKey,
             global::TwelveLabs.AssetsPostRequestBodyContentMultipartFormDataSchemaMethod method,
             byte[]? file = default,
             string? url = default,
