@@ -17,8 +17,7 @@ public partial class Tests
         using var client = GetAuthenticatedClient();
 
         //// List all video indexes in your account.
-        var response = await client.Indexes.ListAsync(
-            xApiKey: apiKey);
+        var response = await client.Indexes.ListAsync();
 
         //// The response contains a paginated list of indexes.
         response.Data.Should().NotBeNull();
