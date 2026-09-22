@@ -54,7 +54,6 @@ public partial class TwelveLabsClient : IEmbeddingGenerator<string, Embedding<fl
             };
 
             var response = await EmbedV2.CreateAsync(
-                xApiKey: apiKey,
                 request: request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
 
