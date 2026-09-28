@@ -47,8 +47,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.VideoContextVariant1 PickUrl() => IsUrl
-            ? Url!
+        public global::TwelveLabs.VideoContextVariant1 PickUrl() => Url is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Url' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.VideoContextVariant2 PickAssetId() => IsAssetId
-            ? AssetId!
+        public global::TwelveLabs.VideoContextVariant2 PickAssetId() => AssetId is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'AssetId' but the value was {ToString()}.");
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.VideoContextVariant3 PickBase64String() => IsBase64String
-            ? Base64String!
+        public global::TwelveLabs.VideoContextVariant3 PickBase64String() => Base64String is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Base64String' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -250,17 +250,17 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsUrl && url != null)
+            if (Url is { } __value0 && url != null)
             {
-                return url(Url!);
+                return url(__value0);
             }
-            else if (IsAssetId && assetId != null)
+            else if (AssetId is { } __value1 && assetId != null)
             {
-                return assetId(AssetId!);
+                return assetId(__value1);
             }
-            else if (IsBase64String && base64String != null)
+            else if (Base64String is { } __value2 && base64String != null)
             {
-                return base64String(Base64String!);
+                return base64String(__value2);
             }
 
             return default(TResult);
@@ -282,17 +282,17 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsUrl)
+            if (Url is { } __value0)
             {
-                url?.Invoke(Url!);
+                url?.Invoke(__value0);
             }
-            else if (IsAssetId)
+            else if (AssetId is { } __value1)
             {
-                assetId?.Invoke(AssetId!);
+                assetId?.Invoke(__value1);
             }
-            else if (IsBase64String)
+            else if (Base64String is { } __value2)
             {
-                base64String?.Invoke(Base64String!);
+                base64String?.Invoke(__value2);
             }
         }
 
@@ -310,17 +310,17 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsUrl)
+            if (Url is { } __value0)
             {
-                url?.Invoke(Url!);
+                url?.Invoke(__value0);
             }
-            else if (IsAssetId)
+            else if (AssetId is { } __value1)
             {
-                assetId?.Invoke(AssetId!);
+                assetId?.Invoke(__value1);
             }
-            else if (IsBase64String)
+            else if (Base64String is { } __value2)
             {
-                base64String?.Invoke(Base64String!);
+                base64String?.Invoke(__value2);
             }
         }
 

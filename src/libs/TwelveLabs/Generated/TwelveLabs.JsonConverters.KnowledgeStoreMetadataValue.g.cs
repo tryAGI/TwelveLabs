@@ -296,31 +296,31 @@ namespace TwelveLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(string), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<string?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(string).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeStoreMetadataValueVariant1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickKnowledgeStoreMetadataValueVariant1(), typeInfo);
             }
             else if (value.IsKnowledgeStoreMetadataValueVariant2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(int), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<int> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(int).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeStoreMetadataValueVariant2!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickKnowledgeStoreMetadataValueVariant2(), typeInfo);
             }
             else if (value.IsKnowledgeStoreMetadataValueVariant3)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(double), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<double> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(double).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeStoreMetadataValueVariant3!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickKnowledgeStoreMetadataValueVariant3(), typeInfo);
             }
             else if (value.IsKnowledgeStoreMetadataValueVariant4)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(bool), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<bool> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(bool).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeStoreMetadataValueVariant4!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickKnowledgeStoreMetadataValueVariant4(), typeInfo);
             }
             else if (value.IsKnowledgeStoreMetadataValueVariant5)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::System.Collections.Generic.IList<string>), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::System.Collections.Generic.IList<string>?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::System.Collections.Generic.IList<string>).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.KnowledgeStoreMetadataValueVariant5!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickKnowledgeStoreMetadataValueVariant5(), typeInfo);
             }
         }
     }

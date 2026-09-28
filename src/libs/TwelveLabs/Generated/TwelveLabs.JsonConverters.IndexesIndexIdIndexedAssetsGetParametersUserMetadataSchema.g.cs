@@ -198,19 +198,19 @@ namespace TwelveLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(string), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<string?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(string).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1(), typeInfo);
             }
             else if (value.IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(double), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<double> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(double).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2(), typeInfo);
             }
             else if (value.IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(bool), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<bool> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(bool).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3(), typeInfo);
             }
         }
     }

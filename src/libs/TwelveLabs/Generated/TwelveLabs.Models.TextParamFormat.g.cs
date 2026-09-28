@@ -48,8 +48,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.TextParamFormatVariant1 PickText() => IsText
-            ? Text!
+        public global::TwelveLabs.TextParamFormatVariant1 PickText() => Text is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Text' but the value was {ToString()}.");
 
         /// <summary>
@@ -85,8 +85,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.TextParamFormatVariant2 PickJsonSchema() => IsJsonSchema
-            ? JsonSchema!
+        public global::TwelveLabs.TextParamFormatVariant2 PickJsonSchema() => JsonSchema is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'JsonSchema' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -186,13 +186,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsText && text != null)
+            if (Text is { } __value0 && text != null)
             {
-                return text(Text!);
+                return text(__value0);
             }
-            else if (IsJsonSchema && jsonSchema != null)
+            else if (JsonSchema is { } __value1 && jsonSchema != null)
             {
-                return jsonSchema(JsonSchema!);
+                return jsonSchema(__value1);
             }
 
             return default(TResult);
@@ -212,13 +212,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsText)
+            if (Text is { } __value0)
             {
-                text?.Invoke(Text!);
+                text?.Invoke(__value0);
             }
-            else if (IsJsonSchema)
+            else if (JsonSchema is { } __value1)
             {
-                jsonSchema?.Invoke(JsonSchema!);
+                jsonSchema?.Invoke(__value1);
             }
         }
 
@@ -235,13 +235,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsText)
+            if (Text is { } __value0)
             {
-                text?.Invoke(Text!);
+                text?.Invoke(__value0);
             }
-            else if (IsJsonSchema)
+            else if (JsonSchema is { } __value1)
             {
-                jsonSchema?.Invoke(JsonSchema!);
+                jsonSchema?.Invoke(__value1);
             }
         }
 

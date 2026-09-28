@@ -42,8 +42,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public string PickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1() => IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1
-            ? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1!
+        public string PickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1() => IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public double PickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2() => IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2
-            ? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2!.Value
+        public double PickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2() => IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2' but the value was {ToString()}.");
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public bool PickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3() => IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3
-            ? IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3!.Value
+        public bool PickIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3() => IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -242,17 +242,17 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 && indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 != null)
+            if (IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 is { } __value0 && indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 != null)
             {
-                return indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1!);
+                return indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1(__value0);
             }
-            else if (IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 && indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 != null)
+            else if (IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 is { } __value1 && indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 != null)
             {
-                return indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2!);
+                return indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2(__value1);
             }
-            else if (IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 && indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 != null)
+            else if (IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 is { } __value2 && indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 != null)
             {
-                return indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3!);
+                return indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3(__value2);
             }
 
             return default(TResult);
@@ -274,17 +274,17 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1)
+            if (IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 is { } __value0)
             {
-                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1?.Invoke(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1!);
+                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1?.Invoke(__value0);
             }
-            else if (IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2)
+            else if (IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 is { } __value1)
             {
-                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2?.Invoke(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2!);
+                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2?.Invoke(__value1);
             }
-            else if (IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3)
+            else if (IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 is { } __value2)
             {
-                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3?.Invoke(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3!);
+                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3?.Invoke(__value2);
             }
         }
 
@@ -302,17 +302,17 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1)
+            if (IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1 is { } __value0)
             {
-                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1?.Invoke(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant1!);
+                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant1?.Invoke(__value0);
             }
-            else if (IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2)
+            else if (IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2 is { } __value1)
             {
-                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2?.Invoke(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant2!);
+                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant2?.Invoke(__value1);
             }
-            else if (IsIndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3)
+            else if (IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3 is { } __value2)
             {
-                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3?.Invoke(IndexesIndexIdVideosGetParametersUserMetadataSchemaVariant3!);
+                indexesIndexIdVideosGetParametersUserMetadataSchemaVariant3?.Invoke(__value2);
             }
         }
 

@@ -155,7 +155,7 @@ namespace TwelveLabs
                 PrepareRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    taskId: taskId!);
+                    taskId: taskId);
 
                 return __httpRequest;
             }
@@ -177,7 +177,7 @@ namespace TwelveLabs
                                 pathTemplate: "$\"/embed-v2/tasks/{taskId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -211,7 +211,7 @@ namespace TwelveLabs
                                 pathTemplate: "$\"/embed-v2/tasks/{taskId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -252,7 +252,7 @@ namespace TwelveLabs
                                 pathTemplate: "$\"/embed-v2/tasks/{taskId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -300,7 +300,7 @@ namespace TwelveLabs
                                 pathTemplate: "$\"/embed-v2/tasks/{taskId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -322,7 +322,7 @@ namespace TwelveLabs
                                 pathTemplate: "$\"/embed-v2/tasks/{taskId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

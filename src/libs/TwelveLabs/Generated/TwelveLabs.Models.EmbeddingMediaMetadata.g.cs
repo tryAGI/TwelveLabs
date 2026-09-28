@@ -42,8 +42,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.EmbeddingMediaMetadataVariant1 PickEmbeddingMediaMetadataVariant1() => IsEmbeddingMediaMetadataVariant1
-            ? EmbeddingMediaMetadataVariant1!
+        public global::TwelveLabs.EmbeddingMediaMetadataVariant1 PickEmbeddingMediaMetadataVariant1() => EmbeddingMediaMetadataVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingMediaMetadataVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.EmbeddingMediaMetadataVariant2 PickEmbeddingMediaMetadataVariant2() => IsEmbeddingMediaMetadataVariant2
-            ? EmbeddingMediaMetadataVariant2!
+        public global::TwelveLabs.EmbeddingMediaMetadataVariant2 PickEmbeddingMediaMetadataVariant2() => EmbeddingMediaMetadataVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingMediaMetadataVariant2' but the value was {ToString()}.");
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.EmbeddingMediaMetadataVariant3 PickEmbeddingMediaMetadataVariant3() => IsEmbeddingMediaMetadataVariant3
-            ? EmbeddingMediaMetadataVariant3!
+        public global::TwelveLabs.EmbeddingMediaMetadataVariant3 PickEmbeddingMediaMetadataVariant3() => EmbeddingMediaMetadataVariant3 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingMediaMetadataVariant3' but the value was {ToString()}.");
 
         /// <summary>
@@ -153,8 +153,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.EmbeddingMediaMetadataVariant4 PickEmbeddingMediaMetadataVariant4() => IsEmbeddingMediaMetadataVariant4
-            ? EmbeddingMediaMetadataVariant4!
+        public global::TwelveLabs.EmbeddingMediaMetadataVariant4 PickEmbeddingMediaMetadataVariant4() => EmbeddingMediaMetadataVariant4 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingMediaMetadataVariant4' but the value was {ToString()}.");
 
         /// <summary>
@@ -190,8 +190,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.EmbeddingMediaMetadataVariant5 PickEmbeddingMediaMetadataVariant5() => IsEmbeddingMediaMetadataVariant5
-            ? EmbeddingMediaMetadataVariant5!
+        public global::TwelveLabs.EmbeddingMediaMetadataVariant5 PickEmbeddingMediaMetadataVariant5() => EmbeddingMediaMetadataVariant5 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'EmbeddingMediaMetadataVariant5' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -372,25 +372,25 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsEmbeddingMediaMetadataVariant1 && embeddingMediaMetadataVariant1 != null)
+            if (EmbeddingMediaMetadataVariant1 is { } __value0 && embeddingMediaMetadataVariant1 != null)
             {
-                return embeddingMediaMetadataVariant1(EmbeddingMediaMetadataVariant1!);
+                return embeddingMediaMetadataVariant1(__value0);
             }
-            else if (IsEmbeddingMediaMetadataVariant2 && embeddingMediaMetadataVariant2 != null)
+            else if (EmbeddingMediaMetadataVariant2 is { } __value1 && embeddingMediaMetadataVariant2 != null)
             {
-                return embeddingMediaMetadataVariant2(EmbeddingMediaMetadataVariant2!);
+                return embeddingMediaMetadataVariant2(__value1);
             }
-            else if (IsEmbeddingMediaMetadataVariant3 && embeddingMediaMetadataVariant3 != null)
+            else if (EmbeddingMediaMetadataVariant3 is { } __value2 && embeddingMediaMetadataVariant3 != null)
             {
-                return embeddingMediaMetadataVariant3(EmbeddingMediaMetadataVariant3!);
+                return embeddingMediaMetadataVariant3(__value2);
             }
-            else if (IsEmbeddingMediaMetadataVariant4 && embeddingMediaMetadataVariant4 != null)
+            else if (EmbeddingMediaMetadataVariant4 is { } __value3 && embeddingMediaMetadataVariant4 != null)
             {
-                return embeddingMediaMetadataVariant4(EmbeddingMediaMetadataVariant4!);
+                return embeddingMediaMetadataVariant4(__value3);
             }
-            else if (IsEmbeddingMediaMetadataVariant5 && embeddingMediaMetadataVariant5 != null)
+            else if (EmbeddingMediaMetadataVariant5 is { } __value4 && embeddingMediaMetadataVariant5 != null)
             {
-                return embeddingMediaMetadataVariant5(EmbeddingMediaMetadataVariant5!);
+                return embeddingMediaMetadataVariant5(__value4);
             }
 
             return default(TResult);
@@ -416,25 +416,25 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsEmbeddingMediaMetadataVariant1)
+            if (EmbeddingMediaMetadataVariant1 is { } __value0)
             {
-                embeddingMediaMetadataVariant1?.Invoke(EmbeddingMediaMetadataVariant1!);
+                embeddingMediaMetadataVariant1?.Invoke(__value0);
             }
-            else if (IsEmbeddingMediaMetadataVariant2)
+            else if (EmbeddingMediaMetadataVariant2 is { } __value1)
             {
-                embeddingMediaMetadataVariant2?.Invoke(EmbeddingMediaMetadataVariant2!);
+                embeddingMediaMetadataVariant2?.Invoke(__value1);
             }
-            else if (IsEmbeddingMediaMetadataVariant3)
+            else if (EmbeddingMediaMetadataVariant3 is { } __value2)
             {
-                embeddingMediaMetadataVariant3?.Invoke(EmbeddingMediaMetadataVariant3!);
+                embeddingMediaMetadataVariant3?.Invoke(__value2);
             }
-            else if (IsEmbeddingMediaMetadataVariant4)
+            else if (EmbeddingMediaMetadataVariant4 is { } __value3)
             {
-                embeddingMediaMetadataVariant4?.Invoke(EmbeddingMediaMetadataVariant4!);
+                embeddingMediaMetadataVariant4?.Invoke(__value3);
             }
-            else if (IsEmbeddingMediaMetadataVariant5)
+            else if (EmbeddingMediaMetadataVariant5 is { } __value4)
             {
-                embeddingMediaMetadataVariant5?.Invoke(EmbeddingMediaMetadataVariant5!);
+                embeddingMediaMetadataVariant5?.Invoke(__value4);
             }
         }
 
@@ -454,25 +454,25 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsEmbeddingMediaMetadataVariant1)
+            if (EmbeddingMediaMetadataVariant1 is { } __value0)
             {
-                embeddingMediaMetadataVariant1?.Invoke(EmbeddingMediaMetadataVariant1!);
+                embeddingMediaMetadataVariant1?.Invoke(__value0);
             }
-            else if (IsEmbeddingMediaMetadataVariant2)
+            else if (EmbeddingMediaMetadataVariant2 is { } __value1)
             {
-                embeddingMediaMetadataVariant2?.Invoke(EmbeddingMediaMetadataVariant2!);
+                embeddingMediaMetadataVariant2?.Invoke(__value1);
             }
-            else if (IsEmbeddingMediaMetadataVariant3)
+            else if (EmbeddingMediaMetadataVariant3 is { } __value2)
             {
-                embeddingMediaMetadataVariant3?.Invoke(EmbeddingMediaMetadataVariant3!);
+                embeddingMediaMetadataVariant3?.Invoke(__value2);
             }
-            else if (IsEmbeddingMediaMetadataVariant4)
+            else if (EmbeddingMediaMetadataVariant4 is { } __value3)
             {
-                embeddingMediaMetadataVariant4?.Invoke(EmbeddingMediaMetadataVariant4!);
+                embeddingMediaMetadataVariant4?.Invoke(__value3);
             }
-            else if (IsEmbeddingMediaMetadataVariant5)
+            else if (EmbeddingMediaMetadataVariant5 is { } __value4)
             {
-                embeddingMediaMetadataVariant5?.Invoke(EmbeddingMediaMetadataVariant5!);
+                embeddingMediaMetadataVariant5?.Invoke(__value4);
             }
         }
 

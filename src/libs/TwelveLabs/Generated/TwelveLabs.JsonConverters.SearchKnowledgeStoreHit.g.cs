@@ -59,13 +59,13 @@ namespace TwelveLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.SearchKnowledgeStoreHitVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.SearchKnowledgeStoreHitVariant1?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.SearchKnowledgeStoreHitVariant1).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Video!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickVideo(), typeInfo);
             }
             else if (value.IsImage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.SearchKnowledgeStoreHitVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.SearchKnowledgeStoreHitVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.SearchKnowledgeStoreHitVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Image!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickImage(), typeInfo);
             }
         }
     }

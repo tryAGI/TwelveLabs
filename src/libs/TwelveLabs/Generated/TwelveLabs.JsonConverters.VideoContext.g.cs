@@ -68,19 +68,19 @@ namespace TwelveLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.VideoContextVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.VideoContextVariant1?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.VideoContextVariant1).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Url!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickUrl(), typeInfo);
             }
             else if (value.IsAssetId)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.VideoContextVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.VideoContextVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.VideoContextVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AssetId!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAssetId(), typeInfo);
             }
             else if (value.IsBase64String)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.VideoContextVariant3), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.VideoContextVariant3?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.VideoContextVariant3).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Base64String!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickBase64String(), typeInfo);
             }
         }
     }

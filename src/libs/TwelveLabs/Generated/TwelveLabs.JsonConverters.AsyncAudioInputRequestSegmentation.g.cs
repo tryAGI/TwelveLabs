@@ -137,13 +137,13 @@ namespace TwelveLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.AudioSegmentation), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.AudioSegmentation?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.AudioSegmentation).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AudioSegmentation!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAudioSegmentation(), typeInfo);
             }
             else if (value.IsAsyncTemporalSegmentation)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.AsyncTemporalSegmentation), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.AsyncTemporalSegmentation?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.AsyncTemporalSegmentation).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AsyncTemporalSegmentation!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAsyncTemporalSegmentation(), typeInfo);
             }
         }
     }
