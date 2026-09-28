@@ -49,8 +49,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.EnrichmentConfigVariant1 PickJsonSchema() => IsJsonSchema
-            ? JsonSchema!
+        public global::TwelveLabs.EnrichmentConfigVariant1 PickJsonSchema() => JsonSchema is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'JsonSchema' but the value was {ToString()}.");
 
         /// <summary>
@@ -86,8 +86,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.EnrichmentConfigVariant2 PickDescription() => IsDescription
-            ? Description!
+        public global::TwelveLabs.EnrichmentConfigVariant2 PickDescription() => Description is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Description' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -187,13 +187,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsJsonSchema && jsonSchema != null)
+            if (JsonSchema is { } __value0 && jsonSchema != null)
             {
-                return jsonSchema(JsonSchema!);
+                return jsonSchema(__value0);
             }
-            else if (IsDescription && description != null)
+            else if (Description is { } __value1 && description != null)
             {
-                return description(Description!);
+                return description(__value1);
             }
 
             return default(TResult);
@@ -213,13 +213,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsJsonSchema)
+            if (JsonSchema is { } __value0)
             {
-                jsonSchema?.Invoke(JsonSchema!);
+                jsonSchema?.Invoke(__value0);
             }
-            else if (IsDescription)
+            else if (Description is { } __value1)
             {
-                description?.Invoke(Description!);
+                description?.Invoke(__value1);
             }
         }
 
@@ -236,13 +236,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsJsonSchema)
+            if (JsonSchema is { } __value0)
             {
-                jsonSchema?.Invoke(JsonSchema!);
+                jsonSchema?.Invoke(__value0);
             }
-            else if (IsDescription)
+            else if (Description is { } __value1)
             {
-                description?.Invoke(Description!);
+                description?.Invoke(__value1);
             }
         }
 

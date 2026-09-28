@@ -47,8 +47,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.SearchKnowledgeStoreHitVariant1 PickVideo() => IsVideo
-            ? Video!
+        public global::TwelveLabs.SearchKnowledgeStoreHitVariant1 PickVideo() => Video is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Video' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.SearchKnowledgeStoreHitVariant2 PickImage() => IsImage
-            ? Image!
+        public global::TwelveLabs.SearchKnowledgeStoreHitVariant2 PickImage() => Image is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Image' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsVideo && video != null)
+            if (Video is { } __value0 && video != null)
             {
-                return video(Video!);
+                return video(__value0);
             }
-            else if (IsImage && image != null)
+            else if (Image is { } __value1 && image != null)
             {
-                return image(Image!);
+                return image(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsVideo)
+            if (Video is { } __value0)
             {
-                video?.Invoke(Video!);
+                video?.Invoke(__value0);
             }
-            else if (IsImage)
+            else if (Image is { } __value1)
             {
-                image?.Invoke(Image!);
+                image?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsVideo)
+            if (Video is { } __value0)
             {
-                video?.Invoke(Video!);
+                video?.Invoke(__value0);
             }
-            else if (IsImage)
+            else if (Image is { } __value1)
             {
-                image?.Invoke(Image!);
+                image?.Invoke(__value1);
             }
         }
 

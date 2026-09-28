@@ -42,8 +42,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public string PickKnowledgeStoreMetadataValueVariant1() => IsKnowledgeStoreMetadataValueVariant1
-            ? KnowledgeStoreMetadataValueVariant1!
+        public string PickKnowledgeStoreMetadataValueVariant1() => KnowledgeStoreMetadataValueVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeStoreMetadataValueVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public int PickKnowledgeStoreMetadataValueVariant2() => IsKnowledgeStoreMetadataValueVariant2
-            ? KnowledgeStoreMetadataValueVariant2!.Value
+        public int PickKnowledgeStoreMetadataValueVariant2() => KnowledgeStoreMetadataValueVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeStoreMetadataValueVariant2' but the value was {ToString()}.");
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public double PickKnowledgeStoreMetadataValueVariant3() => IsKnowledgeStoreMetadataValueVariant3
-            ? KnowledgeStoreMetadataValueVariant3!.Value
+        public double PickKnowledgeStoreMetadataValueVariant3() => KnowledgeStoreMetadataValueVariant3 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeStoreMetadataValueVariant3' but the value was {ToString()}.");
 
         /// <summary>
@@ -153,8 +153,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public bool PickKnowledgeStoreMetadataValueVariant4() => IsKnowledgeStoreMetadataValueVariant4
-            ? KnowledgeStoreMetadataValueVariant4!.Value
+        public bool PickKnowledgeStoreMetadataValueVariant4() => KnowledgeStoreMetadataValueVariant4 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeStoreMetadataValueVariant4' but the value was {ToString()}.");
 
         /// <summary>
@@ -190,8 +190,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<string> PickKnowledgeStoreMetadataValueVariant5() => IsKnowledgeStoreMetadataValueVariant5
-            ? KnowledgeStoreMetadataValueVariant5!
+        public global::System.Collections.Generic.IList<string> PickKnowledgeStoreMetadataValueVariant5() => KnowledgeStoreMetadataValueVariant5 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'KnowledgeStoreMetadataValueVariant5' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -349,25 +349,25 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsKnowledgeStoreMetadataValueVariant1 && knowledgeStoreMetadataValueVariant1 != null)
+            if (KnowledgeStoreMetadataValueVariant1 is { } __value0 && knowledgeStoreMetadataValueVariant1 != null)
             {
-                return knowledgeStoreMetadataValueVariant1(KnowledgeStoreMetadataValueVariant1!);
+                return knowledgeStoreMetadataValueVariant1(__value0);
             }
-            else if (IsKnowledgeStoreMetadataValueVariant2 && knowledgeStoreMetadataValueVariant2 != null)
+            else if (KnowledgeStoreMetadataValueVariant2 is { } __value1 && knowledgeStoreMetadataValueVariant2 != null)
             {
-                return knowledgeStoreMetadataValueVariant2(KnowledgeStoreMetadataValueVariant2!);
+                return knowledgeStoreMetadataValueVariant2(__value1);
             }
-            else if (IsKnowledgeStoreMetadataValueVariant3 && knowledgeStoreMetadataValueVariant3 != null)
+            else if (KnowledgeStoreMetadataValueVariant3 is { } __value2 && knowledgeStoreMetadataValueVariant3 != null)
             {
-                return knowledgeStoreMetadataValueVariant3(KnowledgeStoreMetadataValueVariant3!);
+                return knowledgeStoreMetadataValueVariant3(__value2);
             }
-            else if (IsKnowledgeStoreMetadataValueVariant4 && knowledgeStoreMetadataValueVariant4 != null)
+            else if (KnowledgeStoreMetadataValueVariant4 is { } __value3 && knowledgeStoreMetadataValueVariant4 != null)
             {
-                return knowledgeStoreMetadataValueVariant4(KnowledgeStoreMetadataValueVariant4!);
+                return knowledgeStoreMetadataValueVariant4(__value3);
             }
-            else if (IsKnowledgeStoreMetadataValueVariant5 && knowledgeStoreMetadataValueVariant5 != null)
+            else if (KnowledgeStoreMetadataValueVariant5 is { } __value4 && knowledgeStoreMetadataValueVariant5 != null)
             {
-                return knowledgeStoreMetadataValueVariant5(KnowledgeStoreMetadataValueVariant5!);
+                return knowledgeStoreMetadataValueVariant5(__value4);
             }
 
             return default(TResult);
@@ -393,25 +393,25 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsKnowledgeStoreMetadataValueVariant1)
+            if (KnowledgeStoreMetadataValueVariant1 is { } __value0)
             {
-                knowledgeStoreMetadataValueVariant1?.Invoke(KnowledgeStoreMetadataValueVariant1!);
+                knowledgeStoreMetadataValueVariant1?.Invoke(__value0);
             }
-            else if (IsKnowledgeStoreMetadataValueVariant2)
+            else if (KnowledgeStoreMetadataValueVariant2 is { } __value1)
             {
-                knowledgeStoreMetadataValueVariant2?.Invoke(KnowledgeStoreMetadataValueVariant2!);
+                knowledgeStoreMetadataValueVariant2?.Invoke(__value1);
             }
-            else if (IsKnowledgeStoreMetadataValueVariant3)
+            else if (KnowledgeStoreMetadataValueVariant3 is { } __value2)
             {
-                knowledgeStoreMetadataValueVariant3?.Invoke(KnowledgeStoreMetadataValueVariant3!);
+                knowledgeStoreMetadataValueVariant3?.Invoke(__value2);
             }
-            else if (IsKnowledgeStoreMetadataValueVariant4)
+            else if (KnowledgeStoreMetadataValueVariant4 is { } __value3)
             {
-                knowledgeStoreMetadataValueVariant4?.Invoke(KnowledgeStoreMetadataValueVariant4!);
+                knowledgeStoreMetadataValueVariant4?.Invoke(__value3);
             }
-            else if (IsKnowledgeStoreMetadataValueVariant5)
+            else if (KnowledgeStoreMetadataValueVariant5 is { } __value4)
             {
-                knowledgeStoreMetadataValueVariant5?.Invoke(KnowledgeStoreMetadataValueVariant5!);
+                knowledgeStoreMetadataValueVariant5?.Invoke(__value4);
             }
         }
 
@@ -431,25 +431,25 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsKnowledgeStoreMetadataValueVariant1)
+            if (KnowledgeStoreMetadataValueVariant1 is { } __value0)
             {
-                knowledgeStoreMetadataValueVariant1?.Invoke(KnowledgeStoreMetadataValueVariant1!);
+                knowledgeStoreMetadataValueVariant1?.Invoke(__value0);
             }
-            else if (IsKnowledgeStoreMetadataValueVariant2)
+            else if (KnowledgeStoreMetadataValueVariant2 is { } __value1)
             {
-                knowledgeStoreMetadataValueVariant2?.Invoke(KnowledgeStoreMetadataValueVariant2!);
+                knowledgeStoreMetadataValueVariant2?.Invoke(__value1);
             }
-            else if (IsKnowledgeStoreMetadataValueVariant3)
+            else if (KnowledgeStoreMetadataValueVariant3 is { } __value2)
             {
-                knowledgeStoreMetadataValueVariant3?.Invoke(KnowledgeStoreMetadataValueVariant3!);
+                knowledgeStoreMetadataValueVariant3?.Invoke(__value2);
             }
-            else if (IsKnowledgeStoreMetadataValueVariant4)
+            else if (KnowledgeStoreMetadataValueVariant4 is { } __value3)
             {
-                knowledgeStoreMetadataValueVariant4?.Invoke(KnowledgeStoreMetadataValueVariant4!);
+                knowledgeStoreMetadataValueVariant4?.Invoke(__value3);
             }
-            else if (IsKnowledgeStoreMetadataValueVariant5)
+            else if (KnowledgeStoreMetadataValueVariant5 is { } __value4)
             {
-                knowledgeStoreMetadataValueVariant5?.Invoke(KnowledgeStoreMetadataValueVariant5!);
+                knowledgeStoreMetadataValueVariant5?.Invoke(__value4);
             }
         }
 

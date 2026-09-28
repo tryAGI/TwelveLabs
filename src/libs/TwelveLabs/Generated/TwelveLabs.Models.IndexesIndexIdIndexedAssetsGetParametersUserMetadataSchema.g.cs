@@ -42,8 +42,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public string PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1() => IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1
-            ? IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1!
+        public string PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1() => IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public double PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2() => IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2
-            ? IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2!.Value
+        public double PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2() => IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2' but the value was {ToString()}.");
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public bool PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3() => IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3
-            ? IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3!.Value
+        public bool PickIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3() => IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -242,17 +242,17 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 && indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 != null)
+            if (IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 is { } __value0 && indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 != null)
             {
-                return indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1(IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1!);
+                return indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1(__value0);
             }
-            else if (IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2 && indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2 != null)
+            else if (IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2 is { } __value1 && indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2 != null)
             {
-                return indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2(IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2!);
+                return indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2(__value1);
             }
-            else if (IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 && indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 != null)
+            else if (IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 is { } __value2 && indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 != null)
             {
-                return indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3(IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3!);
+                return indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3(__value2);
             }
 
             return default(TResult);
@@ -274,17 +274,17 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1)
+            if (IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 is { } __value0)
             {
-                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1?.Invoke(IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1!);
+                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1?.Invoke(__value0);
             }
-            else if (IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2)
+            else if (IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2 is { } __value1)
             {
-                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2?.Invoke(IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2!);
+                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2?.Invoke(__value1);
             }
-            else if (IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3)
+            else if (IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 is { } __value2)
             {
-                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3?.Invoke(IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3!);
+                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3?.Invoke(__value2);
             }
         }
 
@@ -302,17 +302,17 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1)
+            if (IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1 is { } __value0)
             {
-                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1?.Invoke(IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1!);
+                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant1?.Invoke(__value0);
             }
-            else if (IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2)
+            else if (IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2 is { } __value1)
             {
-                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2?.Invoke(IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2!);
+                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant2?.Invoke(__value1);
             }
-            else if (IsIndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3)
+            else if (IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3 is { } __value2)
             {
-                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3?.Invoke(IndexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3!);
+                indexesIndexIdIndexedAssetsGetParametersUserMetadataSchemaVariant3?.Invoke(__value2);
             }
         }
 

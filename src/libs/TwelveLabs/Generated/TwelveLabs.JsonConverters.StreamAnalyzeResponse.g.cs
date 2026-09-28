@@ -68,19 +68,19 @@ namespace TwelveLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamAnalyzeResponseVariant1?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamAnalyzeResponseVariant1).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamStart!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickStreamStart(), typeInfo);
             }
             else if (value.IsTextGeneration)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamAnalyzeResponseVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamAnalyzeResponseVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.TextGeneration!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTextGeneration(), typeInfo);
             }
             else if (value.IsStreamEnd)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.StreamAnalyzeResponseVariant3), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.StreamAnalyzeResponseVariant3?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.StreamAnalyzeResponseVariant3).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.StreamEnd!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickStreamEnd(), typeInfo);
             }
         }
     }

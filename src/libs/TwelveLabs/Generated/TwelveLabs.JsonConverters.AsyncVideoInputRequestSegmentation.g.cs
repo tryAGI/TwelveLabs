@@ -127,13 +127,13 @@ namespace TwelveLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.VideoSegmentation), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.VideoSegmentation> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.VideoSegmentation).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VideoSegmentation!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickVideoSegmentation(), typeInfo);
             }
             else if (value.IsAsyncTemporalSegmentation)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.AsyncTemporalSegmentation), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.AsyncTemporalSegmentation?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.AsyncTemporalSegmentation).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AsyncTemporalSegmentation!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAsyncTemporalSegmentation(), typeInfo);
             }
         }
     }

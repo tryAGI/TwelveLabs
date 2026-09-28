@@ -42,8 +42,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public string PickUserMetadataValueVariant1() => IsUserMetadataValueVariant1
-            ? UserMetadataValueVariant1!
+        public string PickUserMetadataValueVariant1() => UserMetadataValueVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UserMetadataValueVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public int PickUserMetadataValueVariant2() => IsUserMetadataValueVariant2
-            ? UserMetadataValueVariant2!.Value
+        public int PickUserMetadataValueVariant2() => UserMetadataValueVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UserMetadataValueVariant2' but the value was {ToString()}.");
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public double PickUserMetadataValueVariant3() => IsUserMetadataValueVariant3
-            ? UserMetadataValueVariant3!.Value
+        public double PickUserMetadataValueVariant3() => UserMetadataValueVariant3 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UserMetadataValueVariant3' but the value was {ToString()}.");
 
         /// <summary>
@@ -153,8 +153,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public bool PickUserMetadataValueVariant4() => IsUserMetadataValueVariant4
-            ? UserMetadataValueVariant4!.Value
+        public bool PickUserMetadataValueVariant4() => UserMetadataValueVariant4 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UserMetadataValueVariant4' but the value was {ToString()}.");
 
         /// <summary>
@@ -190,8 +190,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<string> PickUserMetadataValueVariant5() => IsUserMetadataValueVariant5
-            ? UserMetadataValueVariant5!
+        public global::System.Collections.Generic.IList<string> PickUserMetadataValueVariant5() => UserMetadataValueVariant5 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UserMetadataValueVariant5' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -349,25 +349,25 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsUserMetadataValueVariant1 && userMetadataValueVariant1 != null)
+            if (UserMetadataValueVariant1 is { } __value0 && userMetadataValueVariant1 != null)
             {
-                return userMetadataValueVariant1(UserMetadataValueVariant1!);
+                return userMetadataValueVariant1(__value0);
             }
-            else if (IsUserMetadataValueVariant2 && userMetadataValueVariant2 != null)
+            else if (UserMetadataValueVariant2 is { } __value1 && userMetadataValueVariant2 != null)
             {
-                return userMetadataValueVariant2(UserMetadataValueVariant2!);
+                return userMetadataValueVariant2(__value1);
             }
-            else if (IsUserMetadataValueVariant3 && userMetadataValueVariant3 != null)
+            else if (UserMetadataValueVariant3 is { } __value2 && userMetadataValueVariant3 != null)
             {
-                return userMetadataValueVariant3(UserMetadataValueVariant3!);
+                return userMetadataValueVariant3(__value2);
             }
-            else if (IsUserMetadataValueVariant4 && userMetadataValueVariant4 != null)
+            else if (UserMetadataValueVariant4 is { } __value3 && userMetadataValueVariant4 != null)
             {
-                return userMetadataValueVariant4(UserMetadataValueVariant4!);
+                return userMetadataValueVariant4(__value3);
             }
-            else if (IsUserMetadataValueVariant5 && userMetadataValueVariant5 != null)
+            else if (UserMetadataValueVariant5 is { } __value4 && userMetadataValueVariant5 != null)
             {
-                return userMetadataValueVariant5(UserMetadataValueVariant5!);
+                return userMetadataValueVariant5(__value4);
             }
 
             return default(TResult);
@@ -393,25 +393,25 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsUserMetadataValueVariant1)
+            if (UserMetadataValueVariant1 is { } __value0)
             {
-                userMetadataValueVariant1?.Invoke(UserMetadataValueVariant1!);
+                userMetadataValueVariant1?.Invoke(__value0);
             }
-            else if (IsUserMetadataValueVariant2)
+            else if (UserMetadataValueVariant2 is { } __value1)
             {
-                userMetadataValueVariant2?.Invoke(UserMetadataValueVariant2!);
+                userMetadataValueVariant2?.Invoke(__value1);
             }
-            else if (IsUserMetadataValueVariant3)
+            else if (UserMetadataValueVariant3 is { } __value2)
             {
-                userMetadataValueVariant3?.Invoke(UserMetadataValueVariant3!);
+                userMetadataValueVariant3?.Invoke(__value2);
             }
-            else if (IsUserMetadataValueVariant4)
+            else if (UserMetadataValueVariant4 is { } __value3)
             {
-                userMetadataValueVariant4?.Invoke(UserMetadataValueVariant4!);
+                userMetadataValueVariant4?.Invoke(__value3);
             }
-            else if (IsUserMetadataValueVariant5)
+            else if (UserMetadataValueVariant5 is { } __value4)
             {
-                userMetadataValueVariant5?.Invoke(UserMetadataValueVariant5!);
+                userMetadataValueVariant5?.Invoke(__value4);
             }
         }
 
@@ -431,25 +431,25 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsUserMetadataValueVariant1)
+            if (UserMetadataValueVariant1 is { } __value0)
             {
-                userMetadataValueVariant1?.Invoke(UserMetadataValueVariant1!);
+                userMetadataValueVariant1?.Invoke(__value0);
             }
-            else if (IsUserMetadataValueVariant2)
+            else if (UserMetadataValueVariant2 is { } __value1)
             {
-                userMetadataValueVariant2?.Invoke(UserMetadataValueVariant2!);
+                userMetadataValueVariant2?.Invoke(__value1);
             }
-            else if (IsUserMetadataValueVariant3)
+            else if (UserMetadataValueVariant3 is { } __value2)
             {
-                userMetadataValueVariant3?.Invoke(UserMetadataValueVariant3!);
+                userMetadataValueVariant3?.Invoke(__value2);
             }
-            else if (IsUserMetadataValueVariant4)
+            else if (UserMetadataValueVariant4 is { } __value3)
             {
-                userMetadataValueVariant4?.Invoke(UserMetadataValueVariant4!);
+                userMetadataValueVariant4?.Invoke(__value3);
             }
-            else if (IsUserMetadataValueVariant5)
+            else if (UserMetadataValueVariant5 is { } __value4)
             {
-                userMetadataValueVariant5?.Invoke(UserMetadataValueVariant5!);
+                userMetadataValueVariant5?.Invoke(__value4);
             }
         }
 

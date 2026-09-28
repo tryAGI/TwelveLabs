@@ -56,8 +56,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.StreamAnalyzeResponseVariant1 PickStreamStart() => IsStreamStart
-            ? StreamStart!
+        public global::TwelveLabs.StreamAnalyzeResponseVariant1 PickStreamStart() => StreamStart is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'StreamStart' but the value was {ToString()}.");
 
         /// <summary>
@@ -93,8 +93,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.StreamAnalyzeResponseVariant2 PickTextGeneration() => IsTextGeneration
-            ? TextGeneration!
+        public global::TwelveLabs.StreamAnalyzeResponseVariant2 PickTextGeneration() => TextGeneration is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'TextGeneration' but the value was {ToString()}.");
 
         /// <summary>
@@ -130,8 +130,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.StreamAnalyzeResponseVariant3 PickStreamEnd() => IsStreamEnd
-            ? StreamEnd!
+        public global::TwelveLabs.StreamAnalyzeResponseVariant3 PickStreamEnd() => StreamEnd is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'StreamEnd' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -259,17 +259,17 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsStreamStart && streamStart != null)
+            if (StreamStart is { } __value0 && streamStart != null)
             {
-                return streamStart(StreamStart!);
+                return streamStart(__value0);
             }
-            else if (IsTextGeneration && textGeneration != null)
+            else if (TextGeneration is { } __value1 && textGeneration != null)
             {
-                return textGeneration(TextGeneration!);
+                return textGeneration(__value1);
             }
-            else if (IsStreamEnd && streamEnd != null)
+            else if (StreamEnd is { } __value2 && streamEnd != null)
             {
-                return streamEnd(StreamEnd!);
+                return streamEnd(__value2);
             }
 
             return default(TResult);
@@ -291,17 +291,17 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsStreamStart)
+            if (StreamStart is { } __value0)
             {
-                streamStart?.Invoke(StreamStart!);
+                streamStart?.Invoke(__value0);
             }
-            else if (IsTextGeneration)
+            else if (TextGeneration is { } __value1)
             {
-                textGeneration?.Invoke(TextGeneration!);
+                textGeneration?.Invoke(__value1);
             }
-            else if (IsStreamEnd)
+            else if (StreamEnd is { } __value2)
             {
-                streamEnd?.Invoke(StreamEnd!);
+                streamEnd?.Invoke(__value2);
             }
         }
 
@@ -319,17 +319,17 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsStreamStart)
+            if (StreamStart is { } __value0)
             {
-                streamStart?.Invoke(StreamStart!);
+                streamStart?.Invoke(__value0);
             }
-            else if (IsTextGeneration)
+            else if (TextGeneration is { } __value1)
             {
-                textGeneration?.Invoke(TextGeneration!);
+                textGeneration?.Invoke(__value1);
             }
-            else if (IsStreamEnd)
+            else if (StreamEnd is { } __value2)
             {
-                streamEnd?.Invoke(StreamEnd!);
+                streamEnd?.Invoke(__value2);
             }
         }
 

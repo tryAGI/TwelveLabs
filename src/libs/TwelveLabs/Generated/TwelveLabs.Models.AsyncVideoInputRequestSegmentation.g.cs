@@ -48,8 +48,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.VideoSegmentation PickVideoSegmentation() => IsVideoSegmentation
-            ? VideoSegmentation!.Value
+        public global::TwelveLabs.VideoSegmentation PickVideoSegmentation() => VideoSegmentation is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoSegmentation' but the value was {ToString()}.");
 
         /// <summary>
@@ -85,8 +85,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.AsyncTemporalSegmentation PickAsyncTemporalSegmentation() => IsAsyncTemporalSegmentation
-            ? AsyncTemporalSegmentation!
+        public global::TwelveLabs.AsyncTemporalSegmentation PickAsyncTemporalSegmentation() => AsyncTemporalSegmentation is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'AsyncTemporalSegmentation' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -183,13 +183,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsVideoSegmentation && videoSegmentation != null)
+            if (VideoSegmentation is { } __value0 && videoSegmentation != null)
             {
-                return videoSegmentation(VideoSegmentation!);
+                return videoSegmentation(__value0);
             }
-            else if (IsAsyncTemporalSegmentation && asyncTemporalSegmentation != null)
+            else if (AsyncTemporalSegmentation is { } __value1 && asyncTemporalSegmentation != null)
             {
-                return asyncTemporalSegmentation(AsyncTemporalSegmentation!);
+                return asyncTemporalSegmentation(__value1);
             }
 
             return default(TResult);
@@ -209,13 +209,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsVideoSegmentation)
+            if (VideoSegmentation is { } __value0)
             {
-                videoSegmentation?.Invoke(VideoSegmentation!);
+                videoSegmentation?.Invoke(__value0);
             }
-            else if (IsAsyncTemporalSegmentation)
+            else if (AsyncTemporalSegmentation is { } __value1)
             {
-                asyncTemporalSegmentation?.Invoke(AsyncTemporalSegmentation!);
+                asyncTemporalSegmentation?.Invoke(__value1);
             }
         }
 
@@ -232,13 +232,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsVideoSegmentation)
+            if (VideoSegmentation is { } __value0)
             {
-                videoSegmentation?.Invoke(VideoSegmentation!);
+                videoSegmentation?.Invoke(__value0);
             }
-            else if (IsAsyncTemporalSegmentation)
+            else if (AsyncTemporalSegmentation is { } __value1)
             {
-                asyncTemporalSegmentation?.Invoke(AsyncTemporalSegmentation!);
+                asyncTemporalSegmentation?.Invoke(__value1);
             }
         }
 

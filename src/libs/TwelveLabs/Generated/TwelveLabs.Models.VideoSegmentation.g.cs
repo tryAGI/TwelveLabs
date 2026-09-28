@@ -49,8 +49,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.VideoSegmentationVariant1 PickDynamic() => IsDynamic
-            ? Dynamic!
+        public global::TwelveLabs.VideoSegmentationVariant1 PickDynamic() => Dynamic is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Dynamic' but the value was {ToString()}.");
 
         /// <summary>
@@ -86,8 +86,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.VideoSegmentationVariant2 PickFixed() => IsFixed
-            ? Fixed!
+        public global::TwelveLabs.VideoSegmentationVariant2 PickFixed() => Fixed is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Fixed' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -187,13 +187,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsDynamic && dynamic != null)
+            if (Dynamic is { } __value0 && dynamic != null)
             {
-                return dynamic(Dynamic!);
+                return dynamic(__value0);
             }
-            else if (IsFixed && @fixed != null)
+            else if (Fixed is { } __value1 && @fixed != null)
             {
-                return @fixed(Fixed!);
+                return @fixed(__value1);
             }
 
             return default(TResult);
@@ -213,13 +213,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsDynamic)
+            if (Dynamic is { } __value0)
             {
-                dynamic?.Invoke(Dynamic!);
+                dynamic?.Invoke(__value0);
             }
-            else if (IsFixed)
+            else if (Fixed is { } __value1)
             {
-                @fixed?.Invoke(Fixed!);
+                @fixed?.Invoke(__value1);
             }
         }
 
@@ -236,13 +236,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsDynamic)
+            if (Dynamic is { } __value0)
             {
-                dynamic?.Invoke(Dynamic!);
+                dynamic?.Invoke(__value0);
             }
-            else if (IsFixed)
+            else if (Fixed is { } __value1)
             {
-                @fixed?.Invoke(Fixed!);
+                @fixed?.Invoke(__value1);
             }
         }
 

@@ -261,31 +261,31 @@ namespace TwelveLabs.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.EmbeddingMediaMetadataVariant1), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.EmbeddingMediaMetadataVariant1?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.EmbeddingMediaMetadataVariant1).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EmbeddingMediaMetadataVariant1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickEmbeddingMediaMetadataVariant1(), typeInfo);
             }
             else if (value.IsEmbeddingMediaMetadataVariant2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.EmbeddingMediaMetadataVariant2), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.EmbeddingMediaMetadataVariant2?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.EmbeddingMediaMetadataVariant2).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EmbeddingMediaMetadataVariant2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickEmbeddingMediaMetadataVariant2(), typeInfo);
             }
             else if (value.IsEmbeddingMediaMetadataVariant3)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.EmbeddingMediaMetadataVariant3), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.EmbeddingMediaMetadataVariant3?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.EmbeddingMediaMetadataVariant3).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EmbeddingMediaMetadataVariant3!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickEmbeddingMediaMetadataVariant3(), typeInfo);
             }
             else if (value.IsEmbeddingMediaMetadataVariant4)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.EmbeddingMediaMetadataVariant4), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.EmbeddingMediaMetadataVariant4?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.EmbeddingMediaMetadataVariant4).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EmbeddingMediaMetadataVariant4!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickEmbeddingMediaMetadataVariant4(), typeInfo);
             }
             else if (value.IsEmbeddingMediaMetadataVariant5)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.EmbeddingMediaMetadataVariant5), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.EmbeddingMediaMetadataVariant5?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.EmbeddingMediaMetadataVariant5).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.EmbeddingMediaMetadataVariant5!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickEmbeddingMediaMetadataVariant5(), typeInfo);
             }
         }
     }

@@ -59,8 +59,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.ResponseStreamEventVariant1 PickResponseStreamEventVariant1() => IsResponseStreamEventVariant1
-            ? ResponseStreamEventVariant1!
+        public global::TwelveLabs.ResponseStreamEventVariant1 PickResponseStreamEventVariant1() => ResponseStreamEventVariant1 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseStreamEventVariant1' but the value was {ToString()}.");
 
         /// <summary>
@@ -97,8 +97,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.ResponseStreamEventVariant2 PickResponseStreamEventVariant2() => IsResponseStreamEventVariant2
-            ? ResponseStreamEventVariant2!
+        public global::TwelveLabs.ResponseStreamEventVariant2 PickResponseStreamEventVariant2() => ResponseStreamEventVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseStreamEventVariant2' but the value was {ToString()}.");
 
         /// <summary>
@@ -135,8 +135,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.ResponseStreamEventVariant3 PickResponseStreamEventVariant3() => IsResponseStreamEventVariant3
-            ? ResponseStreamEventVariant3!
+        public global::TwelveLabs.ResponseStreamEventVariant3 PickResponseStreamEventVariant3() => ResponseStreamEventVariant3 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseStreamEventVariant3' but the value was {ToString()}.");
 
         /// <summary>
@@ -173,8 +173,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.ResponseStreamEventVariant4 PickResponseStreamEventVariant4() => IsResponseStreamEventVariant4
-            ? ResponseStreamEventVariant4!
+        public global::TwelveLabs.ResponseStreamEventVariant4 PickResponseStreamEventVariant4() => ResponseStreamEventVariant4 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseStreamEventVariant4' but the value was {ToString()}.");
 
         /// <summary>
@@ -210,8 +210,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.ResponseStreamEventVariant5 PickResponseOutputItemAdded() => IsResponseOutputItemAdded
-            ? ResponseOutputItemAdded!
+        public global::TwelveLabs.ResponseStreamEventVariant5 PickResponseOutputItemAdded() => ResponseOutputItemAdded is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseOutputItemAdded' but the value was {ToString()}.");
 
         /// <summary>
@@ -247,8 +247,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.ResponseStreamEventVariant6 PickResponseContentPartAdded() => IsResponseContentPartAdded
-            ? ResponseContentPartAdded!
+        public global::TwelveLabs.ResponseStreamEventVariant6 PickResponseContentPartAdded() => ResponseContentPartAdded is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseContentPartAdded' but the value was {ToString()}.");
 
         /// <summary>
@@ -284,8 +284,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.ResponseStreamEventVariant7 PickResponseOutputTextDelta() => IsResponseOutputTextDelta
-            ? ResponseOutputTextDelta!
+        public global::TwelveLabs.ResponseStreamEventVariant7 PickResponseOutputTextDelta() => ResponseOutputTextDelta is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseOutputTextDelta' but the value was {ToString()}.");
 
         /// <summary>
@@ -321,8 +321,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.ResponseStreamEventVariant8 PickResponseOutputTextDone() => IsResponseOutputTextDone
-            ? ResponseOutputTextDone!
+        public global::TwelveLabs.ResponseStreamEventVariant8 PickResponseOutputTextDone() => ResponseOutputTextDone is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseOutputTextDone' but the value was {ToString()}.");
 
         /// <summary>
@@ -358,8 +358,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.ResponseStreamEventVariant9 PickResponseContentPartDone() => IsResponseContentPartDone
-            ? ResponseContentPartDone!
+        public global::TwelveLabs.ResponseStreamEventVariant9 PickResponseContentPartDone() => ResponseContentPartDone is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseContentPartDone' but the value was {ToString()}.");
 
         /// <summary>
@@ -395,8 +395,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.ResponseStreamEventVariant10 PickResponseOutputItemDone() => IsResponseOutputItemDone
-            ? ResponseOutputItemDone!
+        public global::TwelveLabs.ResponseStreamEventVariant10 PickResponseOutputItemDone() => ResponseOutputItemDone is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseOutputItemDone' but the value was {ToString()}.");
 
         /// <summary>
@@ -432,8 +432,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.ResponseStreamEventVariant11 PickResponseFunctionCallArgumentsDone() => IsResponseFunctionCallArgumentsDone
-            ? ResponseFunctionCallArgumentsDone!
+        public global::TwelveLabs.ResponseStreamEventVariant11 PickResponseFunctionCallArgumentsDone() => ResponseFunctionCallArgumentsDone is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseFunctionCallArgumentsDone' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -782,49 +782,49 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsResponseStreamEventVariant1 && responseStreamEventVariant1 != null)
+            if (ResponseStreamEventVariant1 is { } __value0 && responseStreamEventVariant1 != null)
             {
-                return responseStreamEventVariant1(ResponseStreamEventVariant1!);
+                return responseStreamEventVariant1(__value0);
             }
-            else if (IsResponseStreamEventVariant2 && responseStreamEventVariant2 != null)
+            else if (ResponseStreamEventVariant2 is { } __value1 && responseStreamEventVariant2 != null)
             {
-                return responseStreamEventVariant2(ResponseStreamEventVariant2!);
+                return responseStreamEventVariant2(__value1);
             }
-            else if (IsResponseStreamEventVariant3 && responseStreamEventVariant3 != null)
+            else if (ResponseStreamEventVariant3 is { } __value2 && responseStreamEventVariant3 != null)
             {
-                return responseStreamEventVariant3(ResponseStreamEventVariant3!);
+                return responseStreamEventVariant3(__value2);
             }
-            else if (IsResponseStreamEventVariant4 && responseStreamEventVariant4 != null)
+            else if (ResponseStreamEventVariant4 is { } __value3 && responseStreamEventVariant4 != null)
             {
-                return responseStreamEventVariant4(ResponseStreamEventVariant4!);
+                return responseStreamEventVariant4(__value3);
             }
-            else if (IsResponseOutputItemAdded && responseOutputItemAdded != null)
+            else if (ResponseOutputItemAdded is { } __value4 && responseOutputItemAdded != null)
             {
-                return responseOutputItemAdded(ResponseOutputItemAdded!);
+                return responseOutputItemAdded(__value4);
             }
-            else if (IsResponseContentPartAdded && responseContentPartAdded != null)
+            else if (ResponseContentPartAdded is { } __value5 && responseContentPartAdded != null)
             {
-                return responseContentPartAdded(ResponseContentPartAdded!);
+                return responseContentPartAdded(__value5);
             }
-            else if (IsResponseOutputTextDelta && responseOutputTextDelta != null)
+            else if (ResponseOutputTextDelta is { } __value6 && responseOutputTextDelta != null)
             {
-                return responseOutputTextDelta(ResponseOutputTextDelta!);
+                return responseOutputTextDelta(__value6);
             }
-            else if (IsResponseOutputTextDone && responseOutputTextDone != null)
+            else if (ResponseOutputTextDone is { } __value7 && responseOutputTextDone != null)
             {
-                return responseOutputTextDone(ResponseOutputTextDone!);
+                return responseOutputTextDone(__value7);
             }
-            else if (IsResponseContentPartDone && responseContentPartDone != null)
+            else if (ResponseContentPartDone is { } __value8 && responseContentPartDone != null)
             {
-                return responseContentPartDone(ResponseContentPartDone!);
+                return responseContentPartDone(__value8);
             }
-            else if (IsResponseOutputItemDone && responseOutputItemDone != null)
+            else if (ResponseOutputItemDone is { } __value9 && responseOutputItemDone != null)
             {
-                return responseOutputItemDone(ResponseOutputItemDone!);
+                return responseOutputItemDone(__value9);
             }
-            else if (IsResponseFunctionCallArgumentsDone && responseFunctionCallArgumentsDone != null)
+            else if (ResponseFunctionCallArgumentsDone is { } __value10 && responseFunctionCallArgumentsDone != null)
             {
-                return responseFunctionCallArgumentsDone(ResponseFunctionCallArgumentsDone!);
+                return responseFunctionCallArgumentsDone(__value10);
             }
 
             return default(TResult);
@@ -862,49 +862,49 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsResponseStreamEventVariant1)
+            if (ResponseStreamEventVariant1 is { } __value0)
             {
-                responseStreamEventVariant1?.Invoke(ResponseStreamEventVariant1!);
+                responseStreamEventVariant1?.Invoke(__value0);
             }
-            else if (IsResponseStreamEventVariant2)
+            else if (ResponseStreamEventVariant2 is { } __value1)
             {
-                responseStreamEventVariant2?.Invoke(ResponseStreamEventVariant2!);
+                responseStreamEventVariant2?.Invoke(__value1);
             }
-            else if (IsResponseStreamEventVariant3)
+            else if (ResponseStreamEventVariant3 is { } __value2)
             {
-                responseStreamEventVariant3?.Invoke(ResponseStreamEventVariant3!);
+                responseStreamEventVariant3?.Invoke(__value2);
             }
-            else if (IsResponseStreamEventVariant4)
+            else if (ResponseStreamEventVariant4 is { } __value3)
             {
-                responseStreamEventVariant4?.Invoke(ResponseStreamEventVariant4!);
+                responseStreamEventVariant4?.Invoke(__value3);
             }
-            else if (IsResponseOutputItemAdded)
+            else if (ResponseOutputItemAdded is { } __value4)
             {
-                responseOutputItemAdded?.Invoke(ResponseOutputItemAdded!);
+                responseOutputItemAdded?.Invoke(__value4);
             }
-            else if (IsResponseContentPartAdded)
+            else if (ResponseContentPartAdded is { } __value5)
             {
-                responseContentPartAdded?.Invoke(ResponseContentPartAdded!);
+                responseContentPartAdded?.Invoke(__value5);
             }
-            else if (IsResponseOutputTextDelta)
+            else if (ResponseOutputTextDelta is { } __value6)
             {
-                responseOutputTextDelta?.Invoke(ResponseOutputTextDelta!);
+                responseOutputTextDelta?.Invoke(__value6);
             }
-            else if (IsResponseOutputTextDone)
+            else if (ResponseOutputTextDone is { } __value7)
             {
-                responseOutputTextDone?.Invoke(ResponseOutputTextDone!);
+                responseOutputTextDone?.Invoke(__value7);
             }
-            else if (IsResponseContentPartDone)
+            else if (ResponseContentPartDone is { } __value8)
             {
-                responseContentPartDone?.Invoke(ResponseContentPartDone!);
+                responseContentPartDone?.Invoke(__value8);
             }
-            else if (IsResponseOutputItemDone)
+            else if (ResponseOutputItemDone is { } __value9)
             {
-                responseOutputItemDone?.Invoke(ResponseOutputItemDone!);
+                responseOutputItemDone?.Invoke(__value9);
             }
-            else if (IsResponseFunctionCallArgumentsDone)
+            else if (ResponseFunctionCallArgumentsDone is { } __value10)
             {
-                responseFunctionCallArgumentsDone?.Invoke(ResponseFunctionCallArgumentsDone!);
+                responseFunctionCallArgumentsDone?.Invoke(__value10);
             }
         }
 
@@ -930,49 +930,49 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsResponseStreamEventVariant1)
+            if (ResponseStreamEventVariant1 is { } __value0)
             {
-                responseStreamEventVariant1?.Invoke(ResponseStreamEventVariant1!);
+                responseStreamEventVariant1?.Invoke(__value0);
             }
-            else if (IsResponseStreamEventVariant2)
+            else if (ResponseStreamEventVariant2 is { } __value1)
             {
-                responseStreamEventVariant2?.Invoke(ResponseStreamEventVariant2!);
+                responseStreamEventVariant2?.Invoke(__value1);
             }
-            else if (IsResponseStreamEventVariant3)
+            else if (ResponseStreamEventVariant3 is { } __value2)
             {
-                responseStreamEventVariant3?.Invoke(ResponseStreamEventVariant3!);
+                responseStreamEventVariant3?.Invoke(__value2);
             }
-            else if (IsResponseStreamEventVariant4)
+            else if (ResponseStreamEventVariant4 is { } __value3)
             {
-                responseStreamEventVariant4?.Invoke(ResponseStreamEventVariant4!);
+                responseStreamEventVariant4?.Invoke(__value3);
             }
-            else if (IsResponseOutputItemAdded)
+            else if (ResponseOutputItemAdded is { } __value4)
             {
-                responseOutputItemAdded?.Invoke(ResponseOutputItemAdded!);
+                responseOutputItemAdded?.Invoke(__value4);
             }
-            else if (IsResponseContentPartAdded)
+            else if (ResponseContentPartAdded is { } __value5)
             {
-                responseContentPartAdded?.Invoke(ResponseContentPartAdded!);
+                responseContentPartAdded?.Invoke(__value5);
             }
-            else if (IsResponseOutputTextDelta)
+            else if (ResponseOutputTextDelta is { } __value6)
             {
-                responseOutputTextDelta?.Invoke(ResponseOutputTextDelta!);
+                responseOutputTextDelta?.Invoke(__value6);
             }
-            else if (IsResponseOutputTextDone)
+            else if (ResponseOutputTextDone is { } __value7)
             {
-                responseOutputTextDone?.Invoke(ResponseOutputTextDone!);
+                responseOutputTextDone?.Invoke(__value7);
             }
-            else if (IsResponseContentPartDone)
+            else if (ResponseContentPartDone is { } __value8)
             {
-                responseContentPartDone?.Invoke(ResponseContentPartDone!);
+                responseContentPartDone?.Invoke(__value8);
             }
-            else if (IsResponseOutputItemDone)
+            else if (ResponseOutputItemDone is { } __value9)
             {
-                responseOutputItemDone?.Invoke(ResponseOutputItemDone!);
+                responseOutputItemDone?.Invoke(__value9);
             }
-            else if (IsResponseFunctionCallArgumentsDone)
+            else if (ResponseFunctionCallArgumentsDone is { } __value10)
             {
-                responseFunctionCallArgumentsDone?.Invoke(ResponseFunctionCallArgumentsDone!);
+                responseFunctionCallArgumentsDone?.Invoke(__value10);
             }
         }
 

@@ -51,8 +51,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.StreamAnalyzeResponse PickStreamAnalyzeResponse() => IsStreamAnalyzeResponse
-            ? StreamAnalyzeResponse!.Value
+        public global::TwelveLabs.StreamAnalyzeResponse PickStreamAnalyzeResponse() => StreamAnalyzeResponse is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'StreamAnalyzeResponse' but the value was {ToString()}.");
 
         /// <summary>
@@ -88,8 +88,8 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.NonStreamAnalyzeResponse PickNonStreamAnalyzeResponse() => IsNonStreamAnalyzeResponse
-            ? NonStreamAnalyzeResponse!
+        public global::TwelveLabs.NonStreamAnalyzeResponse PickNonStreamAnalyzeResponse() => NonStreamAnalyzeResponse is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'NonStreamAnalyzeResponse' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -186,13 +186,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsStreamAnalyzeResponse && streamAnalyzeResponse != null)
+            if (StreamAnalyzeResponse is { } __value0 && streamAnalyzeResponse != null)
             {
-                return streamAnalyzeResponse(StreamAnalyzeResponse!);
+                return streamAnalyzeResponse(__value0);
             }
-            else if (IsNonStreamAnalyzeResponse && nonStreamAnalyzeResponse != null)
+            else if (NonStreamAnalyzeResponse is { } __value1 && nonStreamAnalyzeResponse != null)
             {
-                return nonStreamAnalyzeResponse(NonStreamAnalyzeResponse!);
+                return nonStreamAnalyzeResponse(__value1);
             }
 
             return default(TResult);
@@ -212,13 +212,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsStreamAnalyzeResponse)
+            if (StreamAnalyzeResponse is { } __value0)
             {
-                streamAnalyzeResponse?.Invoke(StreamAnalyzeResponse!);
+                streamAnalyzeResponse?.Invoke(__value0);
             }
-            else if (IsNonStreamAnalyzeResponse)
+            else if (NonStreamAnalyzeResponse is { } __value1)
             {
-                nonStreamAnalyzeResponse?.Invoke(NonStreamAnalyzeResponse!);
+                nonStreamAnalyzeResponse?.Invoke(__value1);
             }
         }
 
@@ -235,13 +235,13 @@ namespace TwelveLabs
                 Validate();
             }
 
-            if (IsStreamAnalyzeResponse)
+            if (StreamAnalyzeResponse is { } __value0)
             {
-                streamAnalyzeResponse?.Invoke(StreamAnalyzeResponse!);
+                streamAnalyzeResponse?.Invoke(__value0);
             }
-            else if (IsNonStreamAnalyzeResponse)
+            else if (NonStreamAnalyzeResponse is { } __value1)
             {
-                nonStreamAnalyzeResponse?.Invoke(NonStreamAnalyzeResponse!);
+                nonStreamAnalyzeResponse?.Invoke(__value1);
             }
         }
 
