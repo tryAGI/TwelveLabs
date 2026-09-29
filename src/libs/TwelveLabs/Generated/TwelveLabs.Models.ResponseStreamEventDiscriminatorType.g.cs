@@ -11,6 +11,10 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
+        Keepalive,
+        /// <summary>
+        ///
+        /// </summary>
         ResponseContentPartAdded,
         /// <summary>
         ///
@@ -50,6 +54,7 @@ namespace TwelveLabs
         {
             return value switch
             {
+                ResponseStreamEventDiscriminatorType.Keepalive => "keepalive",
                 ResponseStreamEventDiscriminatorType.ResponseContentPartAdded => "response.content_part.added",
                 ResponseStreamEventDiscriminatorType.ResponseContentPartDone => "response.content_part.done",
                 ResponseStreamEventDiscriminatorType.ResponseFunctionCallArgumentsDone => "response.function_call_arguments.done",
@@ -67,6 +72,7 @@ namespace TwelveLabs
         {
             return value switch
             {
+                "keepalive" => ResponseStreamEventDiscriminatorType.Keepalive,
                 "response.content_part.added" => ResponseStreamEventDiscriminatorType.ResponseContentPartAdded,
                 "response.content_part.done" => ResponseStreamEventDiscriminatorType.ResponseContentPartDone,
                 "response.function_call_arguments.done" => ResponseStreamEventDiscriminatorType.ResponseFunctionCallArgumentsDone,

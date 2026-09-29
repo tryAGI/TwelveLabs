@@ -16,7 +16,7 @@ namespace TwelveLabs
         public global::TwelveLabs.ResponseStreamOutputTextDoneEventType Type { get; set; }
 
         /// <summary>
-        /// A monotonically increasing sequence number for ordering events.
+        /// The event's position in the stream's single monotonic sequence, used to order events.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sequence_number")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -56,7 +56,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="ResponseStreamEventVariant8" /> class.
         /// </summary>
         /// <param name="sequenceNumber">
-        /// A monotonically increasing sequence number for ordering events.
+        /// The event's position in the stream's single monotonic sequence, used to order events.
         /// </param>
         /// <param name="type">
         /// The event type.
