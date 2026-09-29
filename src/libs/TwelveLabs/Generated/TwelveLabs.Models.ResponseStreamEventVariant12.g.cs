@@ -4,18 +4,22 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Wraps a response object. Emitted for `response.created`, `response.in_progress`,<br/>
-    /// `response.completed`, and `response.failed` events.
+    /// A heartbeat frame the server sends about every 10 seconds when no other<br/>
+    /// event has been emitted, for example while a tool call is still running.<br/>
+    /// It carries no response data. Use it to keep the connection alive and to<br/>
+    /// detect stalled streams; otherwise you can ignore it.<br/>
+    /// `sequence_number` uses the same counter as all other event types. If you<br/>
+    /// skip keepalive frames, the numbers you see will have gaps; these gaps do<br/>
+    /// not mean events were dropped.
     /// </summary>
-    public sealed partial class ResponseStreamEventVariant2
+    public sealed partial class ResponseStreamEventVariant12
     {
         /// <summary>
-        /// The event type.
+        /// Always `keepalive`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.ResponseStreamResponseEventTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::TwelveLabs.ResponseStreamResponseEventType Type { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.ResponseStreamKeepAliveEventTypeJsonConverter))]
+        public global::TwelveLabs.ResponseStreamKeepAliveEventType Type { get; set; }
 
         /// <summary>
         /// The event's position in the stream's single monotonic sequence, used to order events.
@@ -25,46 +29,35 @@ namespace TwelveLabs
         public required int SequenceNumber { get; set; }
 
         /// <summary>
-        /// The response object.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("response")]
-        public global::TwelveLabs.ResponseObject? Response { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResponseStreamEventVariant2" /> class.
+        /// Initializes a new instance of the <see cref="ResponseStreamEventVariant12" /> class.
         /// </summary>
-        /// <param name="type">
-        /// The event type.
-        /// </param>
         /// <param name="sequenceNumber">
         /// The event's position in the stream's single monotonic sequence, used to order events.
         /// </param>
-        /// <param name="response">
-        /// The response object.
+        /// <param name="type">
+        /// Always `keepalive`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public ResponseStreamEventVariant2(
-            global::TwelveLabs.ResponseStreamResponseEventType type,
+        public ResponseStreamEventVariant12(
             int sequenceNumber,
-            global::TwelveLabs.ResponseObject? response)
+            global::TwelveLabs.ResponseStreamKeepAliveEventType type)
         {
             this.Type = type;
             this.SequenceNumber = sequenceNumber;
-            this.Response = response;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResponseStreamEventVariant2" /> class.
+        /// Initializes a new instance of the <see cref="ResponseStreamEventVariant12" /> class.
         /// </summary>
-        public ResponseStreamEventVariant2()
+        public ResponseStreamEventVariant12()
         {
         }
 
