@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// System-extracted video metadata. Present on a best-effort basis once the video has been processed.
+    /// Video metadata that the platform extracted during processing, such as its duration. Present on a best-effort basis once the video has been processed.
     /// </summary>
     public sealed partial class AnalyzeTaskResponseVideoSourceSystemMetadata
     {

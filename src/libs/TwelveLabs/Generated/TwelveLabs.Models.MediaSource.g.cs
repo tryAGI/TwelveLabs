@@ -9,7 +9,8 @@ namespace TwelveLabs
     public sealed partial class MediaSource
     {
         /// <summary>
-        /// The base64-encoded media data. The decoded file can be up to 36 MB; encoded, it can be up to 48 MB.
+        /// The base64-encoded media data. Encoding grows the payload by about a third, so the string you send is larger than the original file.<br/>
+        /// The maximum size depends on the input type and the model. The description of the field that contains this media source states the limit where it differs; for the formats and sizes each model accepts, see the input requirements for [Marengo 3.5](/v1.3/docs/concepts/models/marengo/marengo-3-5#input-requirements) or [Marengo 3.0](/v1.3/docs/concepts/models/marengo/marengo-3-0#input-requirements).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("base64_string")]
         public string? Base64String { get; set; }
@@ -37,7 +38,8 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="MediaSource" /> class.
         /// </summary>
         /// <param name="base64String">
-        /// The base64-encoded media data. The decoded file can be up to 36 MB; encoded, it can be up to 48 MB.
+        /// The base64-encoded media data. Encoding grows the payload by about a third, so the string you send is larger than the original file.<br/>
+        /// The maximum size depends on the input type and the model. The description of the field that contains this media source states the limit where it differs; for the formats and sizes each model accepts, see the input requirements for [Marengo 3.5](/v1.3/docs/concepts/models/marengo/marengo-3-5#input-requirements) or [Marengo 3.0](/v1.3/docs/concepts/models/marengo/marengo-3-0#input-requirements).
         /// </param>
         /// <param name="url">
         /// The publicly accessible URL of the media file.<br/>

@@ -1,10 +1,12 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace TwelveLabs
 {
     /// <summary>
-    /// The video source you provided.
+    /// The public video source associated with the task. When the video was uploaded using the [`POST`](/v1.3/api-reference/index-content/create) method of the `/tasks` endpoint, the source type is `video_id`. Otherwise, the source type is `url`, `base64_string`, or `asset_id`.
     /// </summary>
     public sealed partial class AnalyzeTaskResponseVideoSource
     {
@@ -28,7 +30,21 @@ namespace TwelveLabs
         public string? AssetId { get; set; }
 
         /// <summary>
-        /// System-extracted video metadata. Present on a best-effort basis once the video has been processed.
+        /// The video identifier. Present when `type` is `video_id`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("video_id")]
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public string? VideoId { get; set; }
+
+        /// <summary>
+        /// The identifier of the index associated with the video. Present on a best-effort basis when `type` is `video_id`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("index_id")]
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public string? IndexId { get; set; }
+
+        /// <summary>
+        /// Video metadata that the platform extracted during processing, such as its duration. Present on a best-effort basis once the video has been processed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system_metadata")]
         public global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata? SystemMetadata { get; set; }
@@ -52,7 +68,7 @@ namespace TwelveLabs
         /// The asset ID. Present when `type` is `asset_id`.
         /// </param>
         /// <param name="systemMetadata">
-        /// System-extracted video metadata. Present on a best-effort basis once the video has been processed.
+        /// Video metadata that the platform extracted during processing, such as its duration. Present on a best-effort basis once the video has been processed.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

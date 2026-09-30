@@ -15,7 +15,7 @@ namespace TwelveLabs
         /// Default Value: 10
         /// </param>
         /// <param name="status">
-        /// The current status of the analysis task.
+        /// The current status of the analysis task. The `ready`, `failed`, and `canceled` statuses are final.
         /// </param>
         /// <param name="videoUrl"></param>
         /// <param name="assetId"></param>
@@ -43,7 +43,7 @@ namespace TwelveLabs
         /// Default Value: 10
         /// </param>
         /// <param name="status">
-        /// The current status of the analysis task.
+        /// The current status of the analysis task. The `ready`, `failed`, and `canceled` statuses are final.
         /// </param>
         /// <param name="videoUrl"></param>
         /// <param name="assetId"></param>

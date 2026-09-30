@@ -9,7 +9,7 @@ namespace TwelveLabs
     /// The structure of this object depends on the model version:<br/>
     /// - **With Marengo 3.5**: Place your settings in the `temporal` object. Both strategies are available: `dynamic` divides the video into variable-length segments that follow scene changes, and `fixed` divides it into equal-length segments. Default: `temporal.dynamic`, `min_duration_sec: 2`.<br/>
     /// - **With Marengo 3.0**: Provide the settings directly in this object. Default: `dynamic`, `min_duration_sec: 4`.<br/>
-    /// Using a structure that does not match your model version returns a `400` error.
+    /// If you use a structure that does not match your model version, the platform returns a `400` error.
     /// </summary>
     public readonly partial struct AsyncVideoInputRequestSegmentation : global::System.IEquatable<AsyncVideoInputRequestSegmentation>
     {

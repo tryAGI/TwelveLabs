@@ -62,6 +62,12 @@ namespace TwelveLabs
         public double? EndOffsetSec { get; set; }
 
         /// <summary>
+        /// The number of dimensions for each embedding in this response. Only Marengo 3.5 returns this field.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("embedding_dimension")]
+        public int? EmbeddingDimension { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -92,6 +98,9 @@ namespace TwelveLabs
         /// <param name="endOffsetSec">
         /// The end offset in seconds.
         /// </param>
+        /// <param name="embeddingDimension">
+        /// The number of dimensions for each embedding in this response. Only Marengo 3.5 returns this field.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -103,7 +112,8 @@ namespace TwelveLabs
             string? inputUrl,
             string? inputFilename,
             double? startOffsetSec,
-            double? endOffsetSec)
+            double? endOffsetSec,
+            int? embeddingDimension)
         {
             this.InputType = inputType;
             this.InputUrl = inputUrl;
@@ -113,6 +123,7 @@ namespace TwelveLabs
             this.Duration = duration;
             this.StartOffsetSec = startOffsetSec;
             this.EndOffsetSec = endOffsetSec;
+            this.EmbeddingDimension = embeddingDimension;
         }
 
         /// <summary>

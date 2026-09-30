@@ -41,6 +41,12 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IList<global::TwelveLabs.AsyncImageMetadataEmbeddingScopesItems>? EmbeddingScopes { get; set; }
 
         /// <summary>
+        /// The number of dimensions for each embedding in this response. Only Marengo 3.5 returns this field.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("embedding_dimension")]
+        public int? EmbeddingDimension { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -62,6 +68,9 @@ namespace TwelveLabs
         /// <param name="embeddingScopes">
         /// The `embedding_scope` values used to generate the embedding. Always `["asset"]`.
         /// </param>
+        /// <param name="embeddingDimension">
+        /// The number of dimensions for each embedding in this response. Only Marengo 3.5 returns this field.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -70,13 +79,15 @@ namespace TwelveLabs
             string? inputUrl,
             string? inputFilename,
             global::System.Collections.Generic.IList<string>? embeddingOptions,
-            global::System.Collections.Generic.IList<global::TwelveLabs.AsyncImageMetadataEmbeddingScopesItems>? embeddingScopes)
+            global::System.Collections.Generic.IList<global::TwelveLabs.AsyncImageMetadataEmbeddingScopesItems>? embeddingScopes,
+            int? embeddingDimension)
         {
             this.InputType = inputType;
             this.InputUrl = inputUrl;
             this.InputFilename = inputFilename;
             this.EmbeddingOptions = embeddingOptions;
             this.EmbeddingScopes = embeddingScopes;
+            this.EmbeddingDimension = embeddingDimension;
         }
 
         /// <summary>

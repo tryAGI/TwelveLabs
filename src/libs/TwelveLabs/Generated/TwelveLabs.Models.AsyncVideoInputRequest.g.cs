@@ -4,7 +4,8 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// This field is required if the `input_type` parameter is `video`.
+    /// This field is required if the `input_type` parameter is `video`.<br/>
+    /// Base64-encoded video can be up to 36 MB decoded. For a larger file, provide a URL or an asset identifier.
     /// </summary>
     public sealed partial class AsyncVideoInputRequest
     {
@@ -36,7 +37,7 @@ namespace TwelveLabs
         /// The structure of this object depends on the model version:<br/>
         /// - **With Marengo 3.5**: Place your settings in the `temporal` object. Both strategies are available: `dynamic` divides the video into variable-length segments that follow scene changes, and `fixed` divides it into equal-length segments. Default: `temporal.dynamic`, `min_duration_sec: 2`.<br/>
         /// - **With Marengo 3.0**: Provide the settings directly in this object. Default: `dynamic`, `min_duration_sec: 4`.<br/>
-        /// Using a structure that does not match your model version returns a `400` error.
+        /// If you use a structure that does not match your model version, the platform returns a `400` error.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segmentation")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AsyncVideoInputRequestSegmentationJsonConverter))]
@@ -70,7 +71,7 @@ namespace TwelveLabs
         /// Specifies how to structure the embedding. Include this parameter only when the `embedding_option` parameter contains at least two values.<br/>
         /// **Values**:<br/>
         /// - `separate_embedding`: Returns separate embeddings for each modality specified in the `embedding_option` parameter.<br/>
-        /// - `fused_embedding`: Returns a single embedding that combines all modalities into one vector. With Marengo 3.5, this value requires the `time_based_metadata` field.<br/>
+        /// - `fused_embedding`: Returns a single combined embedding that integrates all modalities into one vector. With Marengo 3.5, this value requires the `time_based_metadata` field.<br/>
         /// Specify both values to receive separate and fused embeddings in the same response.<br/>
         /// **Default**: `separate_embedding`.
         /// </summary>
@@ -110,7 +111,7 @@ namespace TwelveLabs
         /// The structure of this object depends on the model version:<br/>
         /// - **With Marengo 3.5**: Place your settings in the `temporal` object. Both strategies are available: `dynamic` divides the video into variable-length segments that follow scene changes, and `fixed` divides it into equal-length segments. Default: `temporal.dynamic`, `min_duration_sec: 2`.<br/>
         /// - **With Marengo 3.0**: Provide the settings directly in this object. Default: `dynamic`, `min_duration_sec: 4`.<br/>
-        /// Using a structure that does not match your model version returns a `400` error.
+        /// If you use a structure that does not match your model version, the platform returns a `400` error.
         /// </param>
         /// <param name="embeddingOption">
         /// The types of embeddings to generate for the video.<br/>
@@ -134,7 +135,7 @@ namespace TwelveLabs
         /// Specifies how to structure the embedding. Include this parameter only when the `embedding_option` parameter contains at least two values.<br/>
         /// **Values**:<br/>
         /// - `separate_embedding`: Returns separate embeddings for each modality specified in the `embedding_option` parameter.<br/>
-        /// - `fused_embedding`: Returns a single embedding that combines all modalities into one vector. With Marengo 3.5, this value requires the `time_based_metadata` field.<br/>
+        /// - `fused_embedding`: Returns a single combined embedding that integrates all modalities into one vector. With Marengo 3.5, this value requires the `time_based_metadata` field.<br/>
         /// Specify both values to receive separate and fused embeddings in the same response.<br/>
         /// **Default**: `separate_embedding`.
         /// </param>

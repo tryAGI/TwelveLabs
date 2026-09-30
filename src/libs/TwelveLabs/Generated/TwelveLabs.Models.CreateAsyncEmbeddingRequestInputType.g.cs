@@ -8,7 +8,7 @@ namespace TwelveLabs
     /// **Values**:<br/>
     /// - `audio`: An audio file.<br/>
     /// - `video`: A video file.<br/>
-    /// - `document`: A PDF file. Requires Marengo 3.5.<br/>
+    /// - `document`: A PDF, plain text, or Markdown file. Requires Marengo 3.5.<br/>
     /// - `image`: An image file. Requires Marengo 3.5.
     /// </summary>
     public enum CreateAsyncEmbeddingRequestInputType
@@ -18,7 +18,7 @@ namespace TwelveLabs
         /// </summary>
         Audio,
         /// <summary>
-        /// A PDF file. Requires Marengo 3.5.
+        /// A PDF, plain text, or Markdown file. Requires Marengo 3.5.
         /// </summary>
         Document,
         /// <summary>

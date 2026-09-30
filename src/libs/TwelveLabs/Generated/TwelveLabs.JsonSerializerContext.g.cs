@@ -429,6 +429,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnyToVideoRetrieveSpecificPageRequestBadRequestError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateEmbeddingsRequestInputType), TypeInfoPropertyName = "CreateEmbeddingsRequestInputType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateEmbeddingsRequestModelName), TypeInfoPropertyName = "CreateEmbeddingsRequestModelName2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateEmbeddingsRequestEmbeddingDimension), TypeInfoPropertyName = "CreateEmbeddingsRequestEmbeddingDimension2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TextInputRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.MediaSource))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImageInputRequest))]
@@ -466,7 +467,9 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateEmbeddingsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingDataEmbeddingOption), TypeInfoPropertyName = "EmbeddingDataEmbeddingOption2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingDataEmbeddingScope), TypeInfoPropertyName = "EmbeddingDataEmbeddingScope2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingDataQuadrant), TypeInfoPropertyName = "EmbeddingDataQuadrant2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingData))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingUsageTruncationReason), TypeInfoPropertyName = "EmbeddingUsageTruncationReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingUsage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingImageMetadataInputType), TypeInfoPropertyName = "EmbeddingImageMetadataInputType2")]
@@ -492,6 +495,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ErrorResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncEmbeddingRequestInputType), TypeInfoPropertyName = "CreateAsyncEmbeddingRequestInputType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncEmbeddingRequestModelName), TypeInfoPropertyName = "CreateAsyncEmbeddingRequestModelName2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncEmbeddingRequestEmbeddingDimension), TypeInfoPropertyName = "CreateAsyncEmbeddingRequestEmbeddingDimension2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TemporalSegmentationDiscriminatorMappingDynamicDynamic))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TemporalSegmentationDiscriminatorMappingFixedFixed))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TemporalSegmentation), TypeInfoPropertyName = "TemporalSegmentation2")]
@@ -505,10 +509,6 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncAudioInputRequestSegmentation), TypeInfoPropertyName = "AsyncAudioInputRequestSegmentation2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncAudioInputRequestEmbeddingOptionItems), TypeInfoPropertyName = "AsyncAudioInputRequestEmbeddingOptionItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncAudioInputRequestEmbeddingScopeItems), TypeInfoPropertyName = "AsyncAudioInputRequestEmbeddingScopeItems2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncAudioInputRequestEmbeddingTypeItems), TypeInfoPropertyName = "AsyncAudioInputRequestEmbeddingTypeItems2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TimeBasedMetadataEntry))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncAudioInputRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AsyncAudioInputRequestEmbeddingOptionItems>))]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -519,6 +519,10 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
         DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
     )]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncAudioInputRequestEmbeddingTypeItems), TypeInfoPropertyName = "AsyncAudioInputRequestEmbeddingTypeItems2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TimeBasedMetadataEntry))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncAudioInputRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AsyncAudioInputRequestEmbeddingOptionItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AsyncAudioInputRequestEmbeddingScopeItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AsyncAudioInputRequestEmbeddingTypeItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.TimeBasedMetadataEntry>))]
@@ -530,6 +534,11 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AsyncVideoInputRequestEmbeddingOptionItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AsyncVideoInputRequestEmbeddingScopeItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AsyncVideoInputRequestEmbeddingTypeItems>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DocumentSpatialSegmentationStrategy), TypeInfoPropertyName = "DocumentSpatialSegmentationStrategy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DocumentSpatialSegmentation))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DocumentSequentialSegmentationStrategy), TypeInfoPropertyName = "DocumentSequentialSegmentationStrategy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DocumentSequentialSegmentation))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DocumentSegmentation))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncDocumentInputRequestEmbeddingOptionItems), TypeInfoPropertyName = "AsyncDocumentInputRequestEmbeddingOptionItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncDocumentInputRequestEmbeddingTypeItems), TypeInfoPropertyName = "AsyncDocumentInputRequestEmbeddingTypeItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncDocumentInputRequestEmbeddingScopeItems), TypeInfoPropertyName = "AsyncDocumentInputRequestEmbeddingScopeItems2")]
@@ -546,6 +555,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AsyncImageInputRequestEmbeddingScopeItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncEmbeddingRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbedV2TasksPostResponsesContentApplicationJsonSchemaStatus), TypeInfoPropertyName = "EmbedV2TasksPostResponsesContentApplicationJsonSchemaStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbedV2TasksPostResponsesContentApplicationJsonSchemaMetadata))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbedV2TasksCreateResponse202))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoEmbeddingMetadata))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.MediaEmbeddingTaskVideoEmbedding))]
@@ -680,6 +690,9 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeAsyncTasksListResponse200))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ListAsyncAnalysisTasksRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus), TypeInfoPropertyName = "CancelAnalyzeTaskResponseStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CancelAnalyzeTaskResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.FlatErrorResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAnalyzeBatchRequestModelName), TypeInfoPropertyName = "CreateAnalyzeBatchRequestModelName2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAnalyzeBatchRequestAnalysisMode), TypeInfoPropertyName = "CreateAnalyzeBatchRequestAnalysisMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.BatchPrompt))]
@@ -853,6 +866,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaOperator?), TypeInfoPropertyName = "NullableSearchPostRequestBodyContentMultipartFormDataSchemaOperator2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateEmbeddingsRequestInputType?), TypeInfoPropertyName = "NullableCreateEmbeddingsRequestInputType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateEmbeddingsRequestModelName?), TypeInfoPropertyName = "NullableCreateEmbeddingsRequestModelName2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateEmbeddingsRequestEmbeddingDimension?), TypeInfoPropertyName = "NullableCreateEmbeddingsRequestEmbeddingDimension2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AudioSegmentationStrategy?), TypeInfoPropertyName = "NullableAudioSegmentationStrategy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AudioInputRequestEmbeddingOptionItems?), TypeInfoPropertyName = "NullableAudioInputRequestEmbeddingOptionItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AudioInputRequestEmbeddingScopeItems?), TypeInfoPropertyName = "NullableAudioInputRequestEmbeddingScopeItems2")]
@@ -867,6 +881,8 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.MultiInputMediaSourceMediaType?), TypeInfoPropertyName = "NullableMultiInputMediaSourceMediaType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingDataEmbeddingOption?), TypeInfoPropertyName = "NullableEmbeddingDataEmbeddingOption2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingDataEmbeddingScope?), TypeInfoPropertyName = "NullableEmbeddingDataEmbeddingScope2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingDataQuadrant?), TypeInfoPropertyName = "NullableEmbeddingDataQuadrant2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingUsageTruncationReason?), TypeInfoPropertyName = "NullableEmbeddingUsageTruncationReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingImageMetadataInputType?), TypeInfoPropertyName = "NullableEmbeddingImageMetadataInputType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingMediaMetadataInputType?), TypeInfoPropertyName = "NullableEmbeddingMediaMetadataInputType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingTextImageMetadataInputType?), TypeInfoPropertyName = "NullableEmbeddingTextImageMetadataInputType2")]
@@ -878,6 +894,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.EmbeddingMediaMetadata?), TypeInfoPropertyName = "NullableEmbeddingMediaMetadata2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncEmbeddingRequestInputType?), TypeInfoPropertyName = "NullableCreateAsyncEmbeddingRequestInputType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncEmbeddingRequestModelName?), TypeInfoPropertyName = "NullableCreateAsyncEmbeddingRequestModelName2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncEmbeddingRequestEmbeddingDimension?), TypeInfoPropertyName = "NullableCreateAsyncEmbeddingRequestEmbeddingDimension2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TemporalSegmentation?), TypeInfoPropertyName = "NullableTemporalSegmentation2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TemporalSegmentationVariant1Strategy?), TypeInfoPropertyName = "NullableTemporalSegmentationVariant1Strategy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TemporalSegmentationVariant2Strategy?), TypeInfoPropertyName = "NullableTemporalSegmentationVariant2Strategy2")]
@@ -890,6 +907,8 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncVideoInputRequestEmbeddingOptionItems?), TypeInfoPropertyName = "NullableAsyncVideoInputRequestEmbeddingOptionItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncVideoInputRequestEmbeddingScopeItems?), TypeInfoPropertyName = "NullableAsyncVideoInputRequestEmbeddingScopeItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncVideoInputRequestEmbeddingTypeItems?), TypeInfoPropertyName = "NullableAsyncVideoInputRequestEmbeddingTypeItems2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DocumentSpatialSegmentationStrategy?), TypeInfoPropertyName = "NullableDocumentSpatialSegmentationStrategy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DocumentSequentialSegmentationStrategy?), TypeInfoPropertyName = "NullableDocumentSequentialSegmentationStrategy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncDocumentInputRequestEmbeddingOptionItems?), TypeInfoPropertyName = "NullableAsyncDocumentInputRequestEmbeddingOptionItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncDocumentInputRequestEmbeddingTypeItems?), TypeInfoPropertyName = "NullableAsyncDocumentInputRequestEmbeddingTypeItems2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncDocumentInputRequestEmbeddingScopeItems?), TypeInfoPropertyName = "NullableAsyncDocumentInputRequestEmbeddingScopeItems2")]
@@ -933,6 +952,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseVideoSourceType?), TypeInfoPropertyName = "NullableAnalyzeTaskResponseVideoSourceType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisMode?), TypeInfoPropertyName = "NullableAnalyzeTaskResponseRequestParamsAnalysisMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType?), TypeInfoPropertyName = "NullableAnalyzeTaskResponseRequestParamsResponseFormatType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus?), TypeInfoPropertyName = "NullableCancelAnalyzeTaskResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAnalyzeBatchRequestModelName?), TypeInfoPropertyName = "NullableCreateAnalyzeBatchRequestModelName2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAnalyzeBatchRequestAnalysisMode?), TypeInfoPropertyName = "NullableCreateAnalyzeBatchRequestAnalysisMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.BatchVideoContextType?), TypeInfoPropertyName = "NullableBatchVideoContextType2")]
@@ -999,6 +1019,16 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AsyncVideoInputRequestEmbeddingTypeItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AsyncDocumentInputRequestEmbeddingOptionItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AsyncDocumentInputRequestEmbeddingTypeItems>))]
+    internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
+    {
+    }
+
+    /// <summary>
+    ///
+    /// </summary>
+    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
+        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+    )]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AsyncDocumentInputRequestEmbeddingScopeItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AsyncImageInputRequestEmbeddingOptionItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AsyncImageInputRequestEmbeddingTypeItems>))]
@@ -1019,16 +1049,6 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskWebhookInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.BatchItemRequest>))]
-    internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.CreatedBatchItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeBatchStatusResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.ConnectionsConnectionIdImportsPostRequestBodyContentApplicationJsonSchemaItemsItems>))]
@@ -1465,6 +1485,10 @@ namespace TwelveLabs
 
                     || typeToConvert == typeof(global::TwelveLabs.CreateEmbeddingsRequestModelName?)
 
+                    || typeToConvert == typeof(global::TwelveLabs.CreateEmbeddingsRequestEmbeddingDimension)
+
+                    || typeToConvert == typeof(global::TwelveLabs.CreateEmbeddingsRequestEmbeddingDimension?)
+
                     || typeToConvert == typeof(global::TwelveLabs.AudioSegmentationStrategy)
 
                     || typeToConvert == typeof(global::TwelveLabs.AudioSegmentationStrategy?)
@@ -1517,6 +1541,14 @@ namespace TwelveLabs
 
                     || typeToConvert == typeof(global::TwelveLabs.EmbeddingDataEmbeddingScope?)
 
+                    || typeToConvert == typeof(global::TwelveLabs.EmbeddingDataQuadrant)
+
+                    || typeToConvert == typeof(global::TwelveLabs.EmbeddingDataQuadrant?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.EmbeddingUsageTruncationReason)
+
+                    || typeToConvert == typeof(global::TwelveLabs.EmbeddingUsageTruncationReason?)
+
                     || typeToConvert == typeof(global::TwelveLabs.EmbeddingImageMetadataInputType)
 
                     || typeToConvert == typeof(global::TwelveLabs.EmbeddingImageMetadataInputType?)
@@ -1557,6 +1589,10 @@ namespace TwelveLabs
 
                     || typeToConvert == typeof(global::TwelveLabs.CreateAsyncEmbeddingRequestModelName?)
 
+                    || typeToConvert == typeof(global::TwelveLabs.CreateAsyncEmbeddingRequestEmbeddingDimension)
+
+                    || typeToConvert == typeof(global::TwelveLabs.CreateAsyncEmbeddingRequestEmbeddingDimension?)
+
                     || typeToConvert == typeof(global::TwelveLabs.TemporalSegmentationVariant1Strategy)
 
                     || typeToConvert == typeof(global::TwelveLabs.TemporalSegmentationVariant1Strategy?)
@@ -1592,6 +1628,14 @@ namespace TwelveLabs
                     || typeToConvert == typeof(global::TwelveLabs.AsyncVideoInputRequestEmbeddingTypeItems)
 
                     || typeToConvert == typeof(global::TwelveLabs.AsyncVideoInputRequestEmbeddingTypeItems?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.DocumentSpatialSegmentationStrategy)
+
+                    || typeToConvert == typeof(global::TwelveLabs.DocumentSpatialSegmentationStrategy?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.DocumentSequentialSegmentationStrategy)
+
+                    || typeToConvert == typeof(global::TwelveLabs.DocumentSequentialSegmentationStrategy?)
 
                     || typeToConvert == typeof(global::TwelveLabs.AsyncDocumentInputRequestEmbeddingOptionItems)
 
@@ -1748,6 +1792,10 @@ namespace TwelveLabs
                     || typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType)
 
                     || typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus)
+
+                    || typeToConvert == typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus?)
 
                     || typeToConvert == typeof(global::TwelveLabs.CreateAnalyzeBatchRequestModelName)
 
@@ -2622,6 +2670,16 @@ namespace TwelveLabs
                     return new global::TwelveLabs.JsonConverters.CreateEmbeddingsRequestModelNameNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::TwelveLabs.CreateEmbeddingsRequestEmbeddingDimension))
+                {
+                    return new global::TwelveLabs.JsonConverters.CreateEmbeddingsRequestEmbeddingDimensionJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.CreateEmbeddingsRequestEmbeddingDimension?))
+                {
+                    return new global::TwelveLabs.JsonConverters.CreateEmbeddingsRequestEmbeddingDimensionNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::TwelveLabs.AudioSegmentationStrategy))
                 {
                     return new global::TwelveLabs.JsonConverters.AudioSegmentationStrategyJsonConverter();
@@ -2752,6 +2810,26 @@ namespace TwelveLabs
                     return new global::TwelveLabs.JsonConverters.EmbeddingDataEmbeddingScopeNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::TwelveLabs.EmbeddingDataQuadrant))
+                {
+                    return new global::TwelveLabs.JsonConverters.EmbeddingDataQuadrantJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.EmbeddingDataQuadrant?))
+                {
+                    return new global::TwelveLabs.JsonConverters.EmbeddingDataQuadrantNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.EmbeddingUsageTruncationReason))
+                {
+                    return new global::TwelveLabs.JsonConverters.EmbeddingUsageTruncationReasonJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.EmbeddingUsageTruncationReason?))
+                {
+                    return new global::TwelveLabs.JsonConverters.EmbeddingUsageTruncationReasonNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::TwelveLabs.EmbeddingImageMetadataInputType))
                 {
                     return new global::TwelveLabs.JsonConverters.EmbeddingImageMetadataInputTypeJsonConverter();
@@ -2852,6 +2930,16 @@ namespace TwelveLabs
                     return new global::TwelveLabs.JsonConverters.CreateAsyncEmbeddingRequestModelNameNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::TwelveLabs.CreateAsyncEmbeddingRequestEmbeddingDimension))
+                {
+                    return new global::TwelveLabs.JsonConverters.CreateAsyncEmbeddingRequestEmbeddingDimensionJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.CreateAsyncEmbeddingRequestEmbeddingDimension?))
+                {
+                    return new global::TwelveLabs.JsonConverters.CreateAsyncEmbeddingRequestEmbeddingDimensionNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::TwelveLabs.TemporalSegmentationVariant1Strategy))
                 {
                     return new global::TwelveLabs.JsonConverters.TemporalSegmentationVariant1StrategyJsonConverter();
@@ -2940,6 +3028,26 @@ namespace TwelveLabs
                 if (typeToConvert == typeof(global::TwelveLabs.AsyncVideoInputRequestEmbeddingTypeItems?))
                 {
                     return new global::TwelveLabs.JsonConverters.AsyncVideoInputRequestEmbeddingTypeItemsNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.DocumentSpatialSegmentationStrategy))
+                {
+                    return new global::TwelveLabs.JsonConverters.DocumentSpatialSegmentationStrategyJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.DocumentSpatialSegmentationStrategy?))
+                {
+                    return new global::TwelveLabs.JsonConverters.DocumentSpatialSegmentationStrategyNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.DocumentSequentialSegmentationStrategy))
+                {
+                    return new global::TwelveLabs.JsonConverters.DocumentSequentialSegmentationStrategyJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.DocumentSequentialSegmentationStrategy?))
+                {
+                    return new global::TwelveLabs.JsonConverters.DocumentSequentialSegmentationStrategyNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::TwelveLabs.AsyncDocumentInputRequestEmbeddingOptionItems))
@@ -3330,6 +3438,16 @@ namespace TwelveLabs
                 if (typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType?))
                 {
                     return new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsResponseFormatTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus))
+                {
+                    return new global::TwelveLabs.JsonConverters.CancelAnalyzeTaskResponseStatusJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus?))
+                {
+                    return new global::TwelveLabs.JsonConverters.CancelAnalyzeTaskResponseStatusNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::TwelveLabs.CreateAnalyzeBatchRequestModelName))

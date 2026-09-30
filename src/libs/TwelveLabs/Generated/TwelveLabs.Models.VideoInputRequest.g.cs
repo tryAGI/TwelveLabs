@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// This field is required if the `input_type` parameter is `video`.
+    /// This field is required if the `input_type` parameter is `video`. Requires Marengo 3.0. The decoded file can be up to 36 MB.
     /// </summary>
     public sealed partial class VideoInputRequest
     {
@@ -64,10 +64,10 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IList<global::TwelveLabs.VideoInputRequestEmbeddingScopeItems>? EmbeddingScope { get; set; }
 
         /// <summary>
-        /// Specifies how to structure the embedding. Include this parameter only when `embedding_option` contains at least two values.<br/>
+        /// Specifies how to structure the embedding. Include this parameter only when the `embedding_option` parameter contains at least two values.<br/>
         /// **Values**:<br/>
-        /// - `separate_embedding`: Returns separate embeddings per modality specified in `embedding_option`<br/>
-        /// - `fused_embedding`: Returns a single embedding that combines all modalities into one vector<br/>
+        /// - `separate_embedding`: Returns separate embeddings for each modality specified in the `embedding_option` parameter.<br/>
+        /// - `fused_embedding`: Returns a single combined embedding that integrates all modalities into one vector.<br/>
         /// Specify both values to receive separate and fused embeddings in the same response.<br/>
         /// **Default**: `separate_embedding`.
         /// </summary>
@@ -119,10 +119,10 @@ namespace TwelveLabs
         /// **Default**: `["clip", "asset"]`
         /// </param>
         /// <param name="embeddingType">
-        /// Specifies how to structure the embedding. Include this parameter only when `embedding_option` contains at least two values.<br/>
+        /// Specifies how to structure the embedding. Include this parameter only when the `embedding_option` parameter contains at least two values.<br/>
         /// **Values**:<br/>
-        /// - `separate_embedding`: Returns separate embeddings per modality specified in `embedding_option`<br/>
-        /// - `fused_embedding`: Returns a single embedding that combines all modalities into one vector<br/>
+        /// - `separate_embedding`: Returns separate embeddings for each modality specified in the `embedding_option` parameter.<br/>
+        /// - `fused_embedding`: Returns a single combined embedding that integrates all modalities into one vector.<br/>
         /// Specify both values to receive separate and fused embeddings in the same response.<br/>
         /// **Default**: `separate_embedding`.
         /// </param>

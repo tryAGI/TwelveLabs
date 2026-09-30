@@ -4,7 +4,8 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The number of tokens the request used. Each key names a type of content the request processed, and each value is the token count for that content.
+    /// The number of tokens the request used. Each key names a type of content the request processed, and each value is the token count for that content.<br/>
+    /// The platform reports the content types your request actually used. Each key is one of the following: `video`, `audio`, `image`, `document`, or `text`. Read the keys the response returns rather than assuming a fixed set.
     /// </summary>
     public sealed partial class EmbeddingUsageInputTokens
     {

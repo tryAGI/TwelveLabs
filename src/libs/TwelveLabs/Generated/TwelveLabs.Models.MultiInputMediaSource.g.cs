@@ -5,7 +5,8 @@ namespace TwelveLabs
 {
     /// <summary>
     /// An object specifying a media source for multi-input embeddings. You must provide exactly one of `url`, `base64_string`, or `asset_id`.<br/>
-    /// With Marengo 3.5, each media source can be up to 32 MB, whichever of the three fields you use. Audio and video can be up to 30 seconds. Content above either limit returns a `400` error.
+    /// With Marengo 3.5, each media source can be up to 32 MB, whichever of the three fields you use. Audio and video can be up to 30 seconds. If your content exceeds either limit, the platform returns either a `400` or a `413` error.<br/>
+    /// A PDF file also has a page allowance: 16 pages for each MB of file size. A 0.5 MB file is allowed 16 pages, and a 4 MB file is allowed 64 pages. The platform checks the page count of the file against the allowance before processing the file. If the file exceeds the allowance, the platform returns a `413` error. The error message includes the page count and the allowance. Plain text and Markdown files have no page allowance.
     /// </summary>
     public sealed partial class MultiInputMediaSource
     {
@@ -21,7 +22,8 @@ namespace TwelveLabs
         /// **Values**:<br/>
         /// - `image`: An image file. Works with both Marengo 3.0 and Marengo 3.5.<br/>
         /// - `video`: A video file. Requires Marengo 3.5.<br/>
-        /// - `audio`: An audio file. Requires Marengo 3.5.
+        /// - `audio`: An audio file. Requires Marengo 3.5.<br/>
+        /// - `document`: A PDF (`.pdf`), plain text (`.txt`), or Markdown (`.md`) file. Requires Marengo 3.5. For the rules on combining a document with other sources, see the [`multi_input`](/v1.3/api-reference/create-embeddings-v2/create-embeddings#request.body.multi-input) field.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.MultiInputMediaSourceMediaTypeJsonConverter))]
@@ -60,7 +62,8 @@ namespace TwelveLabs
         /// **Values**:<br/>
         /// - `image`: An image file. Works with both Marengo 3.0 and Marengo 3.5.<br/>
         /// - `video`: A video file. Requires Marengo 3.5.<br/>
-        /// - `audio`: An audio file. Requires Marengo 3.5.
+        /// - `audio`: An audio file. Requires Marengo 3.5.<br/>
+        /// - `document`: A PDF (`.pdf`), plain text (`.txt`), or Markdown (`.md`) file. Requires Marengo 3.5. For the rules on combining a document with other sources, see the [`multi_input`](/v1.3/api-reference/create-embeddings-v2/create-embeddings#request.body.multi-input) field.
         /// </param>
         /// <param name="name">
         /// The unique identifier for this media source.<br/>

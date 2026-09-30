@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// This field is required if the `input_type` parameter is `audio`.
+    /// This field is required if the `input_type` parameter is `audio`. Requires Marengo 3.0. The decoded file can be up to 36 MB.
     /// </summary>
     public sealed partial class AudioInputRequest
     {
