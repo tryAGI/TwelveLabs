@@ -37,6 +37,7 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("input_url")) __score1++;
             var __score2 = 0;
             if (__jsonProps.Contains("duration")) __score2++;
+            if (__jsonProps.Contains("embedding_dimension")) __score2++;
             if (__jsonProps.Contains("embedding_options")) __score2++;
             if (__jsonProps.Contains("embedding_scopes")) __score2++;
             if (__jsonProps.Contains("end_offset_sec")) __score2++;
@@ -47,6 +48,7 @@ namespace TwelveLabs.JsonConverters
             var __score3 = 0;
             if (__jsonProps.Contains("clip_length")) __score3++;
             if (__jsonProps.Contains("duration")) __score3++;
+            if (__jsonProps.Contains("embedding_dimension")) __score3++;
             if (__jsonProps.Contains("embedding_options")) __score3++;
             if (__jsonProps.Contains("embedding_scopes")) __score3++;
             if (__jsonProps.Contains("end_offset_sec")) __score3++;
@@ -55,6 +57,7 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("input_url")) __score3++;
             if (__jsonProps.Contains("start_offset_sec")) __score3++;
             var __score4 = 0;
+            if (__jsonProps.Contains("embedding_dimension")) __score4++;
             if (__jsonProps.Contains("input_type")) __score4++;
             var __bestScore = 0;
             var __bestIndex = -1;

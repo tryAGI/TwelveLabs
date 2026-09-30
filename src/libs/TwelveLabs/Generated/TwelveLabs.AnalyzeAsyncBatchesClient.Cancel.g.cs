@@ -371,7 +371,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // The batch already reached a terminal state and cannot be canceled. The error code indicates which terminal state: `batch_completed` (status `completed`), `batch_canceled` (status `canceled`), or `batch_expired` (status `expired`).
+                            // The batch already reached a final status and cannot be canceled. The error code indicates which final status: `batch_completed` (status `completed`), `batch_canceled` (status `canceled`), or `batch_expired` (status `expired`).
                             if ((int)__response.StatusCode == 409)
                             {
                                 string? __content_409 = null;

@@ -24,7 +24,7 @@ namespace TwelveLabs
         public string? Prompt { get; set; }
 
         /// <summary>
-        /// The structured prompt for this task. Present only when `analysis_mode` is `general` and the task was created with `prompt_v2`. When present, the response excludes the flat `prompt` field.<br/>
+        /// The structured prompt for this task. Present only when `analysis_mode` is `general` and the task was created with `prompt_v2`. When present, the response excludes the `prompt` field.<br/>
         /// - [List](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks): `input_text` is truncated to the first 30 characters.<br/>
         /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results): Returns the full text.
         /// </summary>
@@ -91,7 +91,7 @@ namespace TwelveLabs
         /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results): Returns the full text.
         /// </param>
         /// <param name="promptV2">
-        /// The structured prompt for this task. Present only when `analysis_mode` is `general` and the task was created with `prompt_v2`. When present, the response excludes the flat `prompt` field.<br/>
+        /// The structured prompt for this task. Present only when `analysis_mode` is `general` and the task was created with `prompt_v2`. When present, the response excludes the `prompt` field.<br/>
         /// - [List](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks): `input_text` is truncated to the first 30 characters.<br/>
         /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results): Returns the full text.
         /// </param>

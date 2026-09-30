@@ -23,7 +23,7 @@ namespace TwelveLabs
         /// The platform stores this value unchanged and returns it in the following responses:<br/>
         /// - The [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint<br/>
         /// - The [`GET`](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks) method of the `/analyze/tasks` endpoint<br/>
-        /// - The `analyze.task.ready` and `analyze.task.failed` webhook payloads<br/>
+        /// - The `analyze.task.ready`, `analyze.task.failed`, and `analyze.task.canceled` webhook payloads<br/>
         /// **Format**: 1–64 characters. Alphanumeric, hyphens (`-`), and underscores (`_`) only. An empty string is rejected with a `400 Bad Request`.<br/>
         /// This field does not enforce uniqueness. You can submit multiple tasks with the same `custom_id`. To prevent duplicate task creation, use an `Idempotency-Key` header instead.
         /// </summary>
@@ -157,7 +157,7 @@ namespace TwelveLabs
         /// The platform stores this value unchanged and returns it in the following responses:<br/>
         /// - The [`GET`](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results) method of the `/analyze/tasks/{task_id}` endpoint<br/>
         /// - The [`GET`](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks) method of the `/analyze/tasks` endpoint<br/>
-        /// - The `analyze.task.ready` and `analyze.task.failed` webhook payloads<br/>
+        /// - The `analyze.task.ready`, `analyze.task.failed`, and `analyze.task.canceled` webhook payloads<br/>
         /// **Format**: 1–64 characters. Alphanumeric, hyphens (`-`), and underscores (`_`) only. An empty string is rejected with a `400 Bad Request`.<br/>
         /// This field does not enforce uniqueness. You can submit multiple tasks with the same `custom_id`. To prevent duplicate task creation, use an `Idempotency-Key` header instead.
         /// </param>

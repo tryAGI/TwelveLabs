@@ -8,7 +8,8 @@ namespace TwelveLabs
     /// **Values**:<br/>
     /// - `image`: An image file. Works with both Marengo 3.0 and Marengo 3.5.<br/>
     /// - `video`: A video file. Requires Marengo 3.5.<br/>
-    /// - `audio`: An audio file. Requires Marengo 3.5.
+    /// - `audio`: An audio file. Requires Marengo 3.5.<br/>
+    /// - `document`: A PDF (`.pdf`), plain text (`.txt`), or Markdown (`.md`) file. Requires Marengo 3.5. For the rules on combining a document with other sources, see the [`multi_input`](/v1.3/api-reference/create-embeddings-v2/create-embeddings#request.body.multi-input) field.
     /// </summary>
     public enum MultiInputMediaSourceMediaType
     {
@@ -16,6 +17,10 @@ namespace TwelveLabs
         /// An audio file. Requires Marengo 3.5.
         /// </summary>
         Audio,
+        /// <summary>
+        /// A PDF (`.pdf`), plain text (`.txt`), or Markdown (`.md`) file. Requires Marengo 3.5. For the rules on combining a document with other sources, see the [`multi_input`](/v1.3/api-reference/create-embeddings-v2/create-embeddings#request.body.multi-input) field.
+        /// </summary>
+        Document,
         /// <summary>
         /// An image file. Works with both Marengo 3.0 and Marengo 3.5.
         /// </summary>
@@ -39,6 +44,7 @@ namespace TwelveLabs
             return value switch
             {
                 MultiInputMediaSourceMediaType.Audio => "audio",
+                MultiInputMediaSourceMediaType.Document => "document",
                 MultiInputMediaSourceMediaType.Image => "image",
                 MultiInputMediaSourceMediaType.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -52,6 +58,7 @@ namespace TwelveLabs
             return value switch
             {
                 "audio" => MultiInputMediaSourceMediaType.Audio,
+                "document" => MultiInputMediaSourceMediaType.Document,
                 "image" => MultiInputMediaSourceMediaType.Image,
                 "video" => MultiInputMediaSourceMediaType.Video,
                 _ => null,

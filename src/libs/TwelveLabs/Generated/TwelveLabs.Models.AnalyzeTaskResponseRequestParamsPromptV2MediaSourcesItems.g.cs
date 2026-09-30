@@ -29,7 +29,7 @@ namespace TwelveLabs
         public string? Url { get; set; }
 
         /// <summary>
-        /// Present when the source was provided as an asset ID.
+        /// Present when the source was provided as an asset identifier.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
         public string? AssetId { get; set; }
@@ -49,7 +49,7 @@ namespace TwelveLabs
         /// Present when the source was provided as a URL.
         /// </param>
         /// <param name="assetId">
-        /// Present when the source was provided as an asset ID.
+        /// Present when the source was provided as an asset identifier.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

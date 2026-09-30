@@ -17,6 +17,12 @@ namespace TwelveLabs
         public required global::TwelveLabs.EmbeddingMediaMetadataInputType InputType { get; set; }
 
         /// <summary>
+        /// The number of dimensions for each embedding in this response. Only Marengo 3.5 returns this field.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("embedding_dimension")]
+        public int? EmbeddingDimension { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -26,13 +32,18 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="EmbeddingMediaMetadataVariant5" /> class.
         /// </summary>
         /// <param name="inputType"></param>
+        /// <param name="embeddingDimension">
+        /// The number of dimensions for each embedding in this response. Only Marengo 3.5 returns this field.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public EmbeddingMediaMetadataVariant5(
-            global::TwelveLabs.EmbeddingMediaMetadataInputType inputType)
+            global::TwelveLabs.EmbeddingMediaMetadataInputType inputType,
+            int? embeddingDimension)
         {
             this.InputType = inputType;
+            this.EmbeddingDimension = embeddingDimension;
         }
 
         /// <summary>

@@ -12,8 +12,9 @@ namespace TwelveLabs
         /// - `pending`: The task is queued and waiting to start.<br/>
         /// - `processing`: The platform is analyzing the video.<br/>
         /// - `ready`: Processing is complete. Results are available in the response.<br/>
-        /// - `failed`: The task failed. No results are available. The `error` field describes the failure.<br/>
-        /// Poll this method until `status` is `ready` or `failed`. When `status` is `ready`, use the results from the response.
+        /// - `failed`: The task failed. No result is available. The `error` field describes the failure.<br/>
+        /// - `canceled`: The task was canceled. No result is available. The `error` field describes the cancellation reason, if available.<br/>
+        /// Poll this method until `status` is `ready`, `failed`, or `canceled`. When `status` is `ready`, use the results from the response.
         /// </summary>
         /// <param name="taskId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -31,8 +32,9 @@ namespace TwelveLabs
         /// - `pending`: The task is queued and waiting to start.<br/>
         /// - `processing`: The platform is analyzing the video.<br/>
         /// - `ready`: Processing is complete. Results are available in the response.<br/>
-        /// - `failed`: The task failed. No results are available. The `error` field describes the failure.<br/>
-        /// Poll this method until `status` is `ready` or `failed`. When `status` is `ready`, use the results from the response.
+        /// - `failed`: The task failed. No result is available. The `error` field describes the failure.<br/>
+        /// - `canceled`: The task was canceled. No result is available. The `error` field describes the cancellation reason, if available.<br/>
+        /// Poll this method until `status` is `ready`, `failed`, or `canceled`. When `status` is `ready`, use the results from the response.
         /// </summary>
         /// <param name="taskId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

@@ -84,6 +84,9 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeAsyncTasksListResponse200))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ListAsyncAnalysisTasksRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus), TypeInfoPropertyName = "CancelAnalyzeTaskResponseStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CancelAnalyzeTaskResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.FlatErrorResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
@@ -107,6 +110,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseVideoSourceType?), TypeInfoPropertyName = "NullableAnalyzeTaskResponseVideoSourceType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisMode?), TypeInfoPropertyName = "NullableAnalyzeTaskResponseRequestParamsAnalysisMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType?), TypeInfoPropertyName = "NullableAnalyzeTaskResponseRequestParamsResponseFormatType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus?), TypeInfoPropertyName = "NullableCancelAnalyzeTaskResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.SMEMediaSource>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.SegmentField>))]
@@ -258,7 +262,11 @@ namespace TwelveLabs
 
                     || typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType)
 
-                    || typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType?);
+                    || typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus)
+
+                    || typeToConvert == typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
@@ -443,6 +451,16 @@ namespace TwelveLabs
                 if (typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType?))
                 {
                     return new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsResponseFormatTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus))
+                {
+                    return new global::TwelveLabs.JsonConverters.CancelAnalyzeTaskResponseStatusJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus?))
+                {
+                    return new global::TwelveLabs.JsonConverters.CancelAnalyzeTaskResponseStatusNullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }
