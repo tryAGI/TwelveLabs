@@ -5,7 +5,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// An object specifying the source of the video content. Include exactly one source.
+    /// An object specifying the source of the video content. Include exactly one source. Mutually exclusive with the `image` parameter.
     /// </summary>
     public readonly partial struct VideoContext : global::System.IEquatable<VideoContext>
     {

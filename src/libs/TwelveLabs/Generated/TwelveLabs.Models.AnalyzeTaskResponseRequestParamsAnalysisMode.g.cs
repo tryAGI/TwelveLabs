@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The analysis approach for this task.
+    /// The analysis mode for this task. For a task created with the `image` parameter, the value is `general`.
     /// </summary>
     public enum AnalyzeTaskResponseRequestParamsAnalysisMode
     {

@@ -35,7 +35,7 @@ namespace TwelveLabs
         public string? AssetId { get; set; }
 
         /// <summary>
-        /// Base64-encoded image data. The maximum size is 30MB.
+        /// Base64-encoded image data. The maximum decoded size is 32 MB.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("base64_string")]
         public string? Base64String { get; set; }
@@ -62,7 +62,7 @@ namespace TwelveLabs
         /// The unique identifier of an uploaded asset.
         /// </param>
         /// <param name="base64String">
-        /// Base64-encoded image data. The maximum size is 30MB.
+        /// Base64-encoded image data. The maximum decoded size is 32 MB.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -32,6 +32,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextVariant3Type), TypeInfoPropertyName = "VideoContextVariant3Type2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoContextDiscriminatorType), TypeInfoPropertyName = "VideoContextDiscriminatorType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeImageInput))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SmeMediaSourceMediaType), TypeInfoPropertyName = "SmeMediaSourceMediaType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SMEMediaSource))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzePromptV2))]
@@ -40,12 +41,19 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestModelName), TypeInfoPropertyName = "CreateAsyncAnalyzeRequestModelName2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestAnalysisMode), TypeInfoPropertyName = "CreateAsyncAnalyzeRequestAnalysisMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestMaxTokens1), TypeInfoPropertyName = "CreateAsyncAnalyzeRequestMaxTokens12")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestMaxTokens), TypeInfoPropertyName = "CreateAsyncAnalyzeRequestMaxTokens2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncResponseFormatType), TypeInfoPropertyName = "AsyncResponseFormatType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncResponseFormatJsonSchema))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldType), TypeInfoPropertyName = "SegmentFieldType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldFormat), TypeInfoPropertyName = "SegmentFieldFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldItemsType), TypeInfoPropertyName = "SegmentFieldItemsType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TimeArrayItemFieldType), TypeInfoPropertyName = "TimeArrayItemFieldType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TimeArrayItemFieldItemsType), TypeInfoPropertyName = "TimeArrayItemFieldItemsType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TimeArrayItemFieldItems))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TimeArrayItemField))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldItems))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.TimeArrayItemField>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentField))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTimeRange))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentDefinition))]
@@ -55,6 +63,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncResponseFormat))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.SegmentDefinition>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeImageInput>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskStatus), TypeInfoPropertyName = "AnalyzeTaskStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAnalyzeTaskResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode), TypeInfoPropertyName = "AnalyzeTasksGetParametersAnalysisMode2")]
@@ -62,19 +71,24 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseVideoSourceSystemMetadata))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseVideoSource))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisMode), TypeInfoPropertyName = "AnalyzeTaskResponseRequestParamsAnalysisMode2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2MediaSourcesItems))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskMediaSource))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2MediaSourcesItems>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskMediaSource>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType), TypeInfoPropertyName = "AnalyzeTaskResponseRequestParamsResponseFormatType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatJsonSchema))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItemsItems))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentTimeFormat), TypeInfoPropertyName = "AnalyzeTaskResponseRequestParamsResponseFormatSegmentTimeFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskSegmentFieldFormat), TypeInfoPropertyName = "AnalyzeTaskSegmentFieldFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskTimeArrayItemFieldItems))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskTimeArrayItemField))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskSegmentFieldItems))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskTimeArrayItemField>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskSegmentField))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItems))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskSegmentField>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormat))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItems>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsMaxTokens1), TypeInfoPropertyName = "AnalyzeTaskResponseRequestParamsMaxTokens12")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsMaxTokens), TypeInfoPropertyName = "AnalyzeTaskResponseRequestParamsMaxTokens2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResultUsage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResult))]
@@ -100,25 +114,35 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.FinishReason?), TypeInfoPropertyName = "NullableFinishReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestModelName?), TypeInfoPropertyName = "NullableCreateAsyncAnalyzeRequestModelName2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestAnalysisMode?), TypeInfoPropertyName = "NullableCreateAsyncAnalyzeRequestAnalysisMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestMaxTokens1?), TypeInfoPropertyName = "NullableCreateAsyncAnalyzeRequestMaxTokens12")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestMaxTokens?), TypeInfoPropertyName = "NullableCreateAsyncAnalyzeRequestMaxTokens2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncResponseFormatType?), TypeInfoPropertyName = "NullableAsyncResponseFormatType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldType?), TypeInfoPropertyName = "NullableSegmentFieldType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldFormat?), TypeInfoPropertyName = "NullableSegmentFieldFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SegmentFieldItemsType?), TypeInfoPropertyName = "NullableSegmentFieldItemsType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TimeArrayItemFieldType?), TypeInfoPropertyName = "NullableTimeArrayItemFieldType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TimeArrayItemFieldItemsType?), TypeInfoPropertyName = "NullableTimeArrayItemFieldItemsType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncResponseFormatSegmentTimeFormat?), TypeInfoPropertyName = "NullableAsyncResponseFormatSegmentTimeFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskStatus?), TypeInfoPropertyName = "NullableAnalyzeTaskStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTasksGetParametersAnalysisMode?), TypeInfoPropertyName = "NullableAnalyzeTasksGetParametersAnalysisMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseVideoSourceType?), TypeInfoPropertyName = "NullableAnalyzeTaskResponseVideoSourceType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisMode?), TypeInfoPropertyName = "NullableAnalyzeTaskResponseRequestParamsAnalysisMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType?), TypeInfoPropertyName = "NullableAnalyzeTaskResponseRequestParamsResponseFormatType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentTimeFormat?), TypeInfoPropertyName = "NullableAnalyzeTaskResponseRequestParamsResponseFormatSegmentTimeFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskSegmentFieldFormat?), TypeInfoPropertyName = "NullableAnalyzeTaskSegmentFieldFormat2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsMaxTokens1?), TypeInfoPropertyName = "NullableAnalyzeTaskResponseRequestParamsMaxTokens12")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsMaxTokens?), TypeInfoPropertyName = "NullableAnalyzeTaskResponseRequestParamsMaxTokens2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus?), TypeInfoPropertyName = "NullableCancelAnalyzeTaskResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.SMEMediaSource>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.TimeArrayItemField>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.SegmentField>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTimeRange>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.SegmentDefinition>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2MediaSourcesItems>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeImageInput>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskMediaSource>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskTimeArrayItemField>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskSegmentField>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskWebhookInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.AnalyzeTaskResponse>))]
@@ -170,6 +194,8 @@ namespace TwelveLabs
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
         {
             options.Converters.Add(new global::TwelveLabs.JsonConverters.VideoContextJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestMaxTokensJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsMaxTokensJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.UnixTimestampJsonConverter());
             options.Converters.Add(new LazyEnumJsonConverterFactory());
         }
@@ -224,6 +250,10 @@ namespace TwelveLabs
 
                     || typeToConvert == typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestAnalysisMode?)
 
+                    || typeToConvert == typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestMaxTokens1)
+
+                    || typeToConvert == typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestMaxTokens1?)
+
                     || typeToConvert == typeof(global::TwelveLabs.AsyncResponseFormatType)
 
                     || typeToConvert == typeof(global::TwelveLabs.AsyncResponseFormatType?)
@@ -239,6 +269,14 @@ namespace TwelveLabs
                     || typeToConvert == typeof(global::TwelveLabs.SegmentFieldItemsType)
 
                     || typeToConvert == typeof(global::TwelveLabs.SegmentFieldItemsType?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.TimeArrayItemFieldType)
+
+                    || typeToConvert == typeof(global::TwelveLabs.TimeArrayItemFieldType?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.TimeArrayItemFieldItemsType)
+
+                    || typeToConvert == typeof(global::TwelveLabs.TimeArrayItemFieldItemsType?)
 
                     || typeToConvert == typeof(global::TwelveLabs.AsyncResponseFormatSegmentTimeFormat)
 
@@ -263,6 +301,18 @@ namespace TwelveLabs
                     || typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType)
 
                     || typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentTimeFormat)
+
+                    || typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentTimeFormat?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskSegmentFieldFormat)
+
+                    || typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskSegmentFieldFormat?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsMaxTokens1)
+
+                    || typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsMaxTokens1?)
 
                     || typeToConvert == typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus)
 
@@ -353,6 +403,16 @@ namespace TwelveLabs
                     return new global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestAnalysisModeNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestMaxTokens1))
+                {
+                    return new global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestMaxTokens1JsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.CreateAsyncAnalyzeRequestMaxTokens1?))
+                {
+                    return new global::TwelveLabs.JsonConverters.CreateAsyncAnalyzeRequestMaxTokens1NullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::TwelveLabs.AsyncResponseFormatType))
                 {
                     return new global::TwelveLabs.JsonConverters.AsyncResponseFormatTypeJsonConverter();
@@ -391,6 +451,26 @@ namespace TwelveLabs
                 if (typeToConvert == typeof(global::TwelveLabs.SegmentFieldItemsType?))
                 {
                     return new global::TwelveLabs.JsonConverters.SegmentFieldItemsTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.TimeArrayItemFieldType))
+                {
+                    return new global::TwelveLabs.JsonConverters.TimeArrayItemFieldTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.TimeArrayItemFieldType?))
+                {
+                    return new global::TwelveLabs.JsonConverters.TimeArrayItemFieldTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.TimeArrayItemFieldItemsType))
+                {
+                    return new global::TwelveLabs.JsonConverters.TimeArrayItemFieldItemsTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.TimeArrayItemFieldItemsType?))
+                {
+                    return new global::TwelveLabs.JsonConverters.TimeArrayItemFieldItemsTypeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::TwelveLabs.AsyncResponseFormatSegmentTimeFormat))
@@ -451,6 +531,36 @@ namespace TwelveLabs
                 if (typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType?))
                 {
                     return new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsResponseFormatTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentTimeFormat))
+                {
+                    return new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsResponseFormatSegmentTimeFormatJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentTimeFormat?))
+                {
+                    return new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsResponseFormatSegmentTimeFormatNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskSegmentFieldFormat))
+                {
+                    return new global::TwelveLabs.JsonConverters.AnalyzeTaskSegmentFieldFormatJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskSegmentFieldFormat?))
+                {
+                    return new global::TwelveLabs.JsonConverters.AnalyzeTaskSegmentFieldFormatNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsMaxTokens1))
+                {
+                    return new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsMaxTokens1JsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsMaxTokens1?))
+                {
+                    return new global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsMaxTokens1NullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::TwelveLabs.CancelAnalyzeTaskResponseStatus))

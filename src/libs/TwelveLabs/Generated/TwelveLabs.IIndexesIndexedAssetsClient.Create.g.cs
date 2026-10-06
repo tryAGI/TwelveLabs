@@ -13,7 +13,7 @@ namespace TwelveLabs
         /// &lt;/Note&gt;<br/>
         /// Your asset must meet the requirements based on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo/marengo-3-0#video-file-requirements)<br/>
-        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements).<br/>
+        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus/pegasus-1-6#input-requirements).<br/>
         /// If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
         /// Indexes have limits on video hours and video count. For details, see the [Video hours and video count limits](/v1.3/docs/concepts/indexes#video-hours-and-video-count-limits) section.<br/>
         /// &lt;Note title="Note"&gt;<br/>
@@ -40,7 +40,7 @@ namespace TwelveLabs
         /// &lt;/Note&gt;<br/>
         /// Your asset must meet the requirements based on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo/marengo-3-0#video-file-requirements)<br/>
-        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements).<br/>
+        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus/pegasus-1-6#input-requirements).<br/>
         /// If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
         /// Indexes have limits on video hours and video count. For details, see the [Video hours and video count limits](/v1.3/docs/concepts/indexes#video-hours-and-video-count-limits) section.<br/>
         /// &lt;Note title="Note"&gt;<br/>
@@ -67,7 +67,7 @@ namespace TwelveLabs
         /// &lt;/Note&gt;<br/>
         /// Your asset must meet the requirements based on your workflow:<br/>
         /// - **Search**: [Marengo requirements](/v1.3/docs/concepts/models/marengo/marengo-3-0#video-file-requirements)<br/>
-        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus#input-requirements).<br/>
+        /// - **Video analysis**: [Pegasus requirements](/v1.3/docs/concepts/models/pegasus/pegasus-1-6#input-requirements).<br/>
         /// If you want to both search and analyze your videos, the most restrictive requirements apply.<br/>
         /// Indexes have limits on video hours and video count. For details, see the [Video hours and video count limits](/v1.3/docs/concepts/indexes#video-hours-and-video-count-limits) section.<br/>
         /// &lt;Note title="Note"&gt;<br/>

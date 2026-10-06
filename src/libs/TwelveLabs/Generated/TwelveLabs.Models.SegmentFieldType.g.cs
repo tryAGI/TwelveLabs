@@ -5,7 +5,8 @@ namespace TwelveLabs
 {
     /// <summary>
     /// The data type of the field.<br/>
-    /// When set to `timestamp`, the `format` property is required and controls the format of the returned value.
+    /// When set to `timestamp`, the `format` property is required and controls the format of the returned value.<br/>
+    /// When set to the `time_array` value, the field extracts a list of events inside each segment. Requires the `items.type` field to be `object` and a non-empty `items.fields` list. Requires Pegasus 1.6. Any other model rejects `time_array` as an invalid type and lists only the types it accepts. The `/analyze/batches` endpoint does not accept Pegasus 1.6, so it does not accept `time_array` either.
     /// </summary>
     public enum SegmentFieldType
     {
@@ -32,6 +33,10 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
+        TimeArray,
+        /// <summary>
+        ///
+        /// </summary>
         Timestamp,
     }
 
@@ -52,6 +57,7 @@ namespace TwelveLabs
                 SegmentFieldType.Integer => "integer",
                 SegmentFieldType.Number => "number",
                 SegmentFieldType.String => "string",
+                SegmentFieldType.TimeArray => "time_array",
                 SegmentFieldType.Timestamp => "timestamp",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -68,6 +74,7 @@ namespace TwelveLabs
                 "integer" => SegmentFieldType.Integer,
                 "number" => SegmentFieldType.Number,
                 "string" => SegmentFieldType.String,
+                "time_array" => SegmentFieldType.TimeArray,
                 "timestamp" => SegmentFieldType.Timestamp,
                 _ => null,
             };

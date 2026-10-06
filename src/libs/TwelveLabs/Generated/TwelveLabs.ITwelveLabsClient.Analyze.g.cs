@@ -6,16 +6,22 @@ namespace TwelveLabs
     {
         /// <summary>
         /// Sync analysis<br/>
-        /// This method analyzes your videos and returns the results directly in the response. It supports general analysis (prompt-based text generation).<br/>
+        /// This method analyzes a video or one or more images and returns the results directly in the response. Each request must contain a video or one or more images, but not both. You can use general analysis (prompt-based text generation) with either media type.<br/>
         /// &lt;Accordion title="Input requirements"&gt;<br/>
+        /// **Videos**<br/>
         /// - Minimum duration: 1 second<br/>
         /// - Maximum duration: 1 hour<br/>
         /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
         /// - Resolution: 360x360 to 5184x2160 pixels<br/>
         /// - Aspect ratio: Between 1:1 and 1:2.4, or between 2.4:1 and 1:1.<br/>
+        /// **Images**<br/>
+        /// - You can provide one to twenty images per request.<br/>
+        /// - Formats: JPEG, PNG, WebP, GIF, and BMP.<br/>
+        /// - Maximum size: 20 MB per image.<br/>
+        /// - Maximum pixel count: 16,777,216 pixels per image (width × height).<br/>
         /// &lt;/Accordion&gt;<br/>
         /// **When to use this method**:<br/>
-        /// - Analyze videos up to 1 hour<br/>
+        /// - Analyze videos up to 1 hour, or analyze images<br/>
         /// - Retrieve immediate results without polling for task completion<br/>
         /// - Stream text fragments in real time for immediate processing and feedback<br/>
         /// **Do not use this method for**:<br/>
@@ -37,16 +43,22 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Sync analysis<br/>
-        /// This method analyzes your videos and returns the results directly in the response. It supports general analysis (prompt-based text generation).<br/>
+        /// This method analyzes a video or one or more images and returns the results directly in the response. Each request must contain a video or one or more images, but not both. You can use general analysis (prompt-based text generation) with either media type.<br/>
         /// &lt;Accordion title="Input requirements"&gt;<br/>
+        /// **Videos**<br/>
         /// - Minimum duration: 1 second<br/>
         /// - Maximum duration: 1 hour<br/>
         /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
         /// - Resolution: 360x360 to 5184x2160 pixels<br/>
         /// - Aspect ratio: Between 1:1 and 1:2.4, or between 2.4:1 and 1:1.<br/>
+        /// **Images**<br/>
+        /// - You can provide one to twenty images per request.<br/>
+        /// - Formats: JPEG, PNG, WebP, GIF, and BMP.<br/>
+        /// - Maximum size: 20 MB per image.<br/>
+        /// - Maximum pixel count: 16,777,216 pixels per image (width × height).<br/>
         /// &lt;/Accordion&gt;<br/>
         /// **When to use this method**:<br/>
-        /// - Analyze videos up to 1 hour<br/>
+        /// - Analyze videos up to 1 hour, or analyze images<br/>
         /// - Retrieve immediate results without polling for task completion<br/>
         /// - Stream text fragments in real time for immediate processing and feedback<br/>
         /// **Do not use this method for**:<br/>
@@ -68,16 +80,22 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Sync analysis<br/>
-        /// This method analyzes your videos and returns the results directly in the response. It supports general analysis (prompt-based text generation).<br/>
+        /// This method analyzes a video or one or more images and returns the results directly in the response. Each request must contain a video or one or more images, but not both. You can use general analysis (prompt-based text generation) with either media type.<br/>
         /// &lt;Accordion title="Input requirements"&gt;<br/>
+        /// **Videos**<br/>
         /// - Minimum duration: 1 second<br/>
         /// - Maximum duration: 1 hour<br/>
         /// - Formats: [FFmpeg supported formats](https://ffmpeg.org/ffmpeg-formats.html)<br/>
         /// - Resolution: 360x360 to 5184x2160 pixels<br/>
         /// - Aspect ratio: Between 1:1 and 1:2.4, or between 2.4:1 and 1:1.<br/>
+        /// **Images**<br/>
+        /// - You can provide one to twenty images per request.<br/>
+        /// - Formats: JPEG, PNG, WebP, GIF, and BMP.<br/>
+        /// - Maximum size: 20 MB per image.<br/>
+        /// - Maximum pixel count: 16,777,216 pixels per image (width × height).<br/>
         /// &lt;/Accordion&gt;<br/>
         /// **When to use this method**:<br/>
-        /// - Analyze videos up to 1 hour<br/>
+        /// - Analyze videos up to 1 hour, or analyze images<br/>
         /// - Retrieve immediate results without polling for task completion<br/>
         /// - Stream text fragments in real time for immediate processing and feedback<br/>
         /// **Do not use this method for**:<br/>
@@ -90,20 +108,25 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="modelName">
         /// The video understanding model to use for analysis.<br/>
-        /// - `pegasus1.5`: General analysis (prompt-based text generation) with video clipping, structured prompts with reference images, and video segmentation (async only). See the [Pegasus](/v1.3/docs/concepts/models/pegasus#context-window) page for token limits.<br/>
+        /// - `pegasus1.6`: For details about this version, see the [Pegasus 1.6](/v1.3/docs/concepts/models/pegasus/pegasus-1-6) page.<br/>
+        /// - `pegasus1.5`: For details about this version, see the [Pegasus 1.5](/v1.3/docs/concepts/models/pegasus/pegasus-1-5) page.<br/>
         /// **Default:** `pegasus1.5`<br/>
         /// Default Value: pegasus1.5
         /// </param>
         /// <param name="video">
-        /// An object specifying the source of the video content. Include exactly one source.
+        /// An object specifying the source of the video content. Include exactly one source. Mutually exclusive with the `image` parameter.
+        /// </param>
+        /// <param name="image">
+        /// A list of up to twenty objects containing the images to analyze. For each image, include exactly one source. Requires Pegasus 1.6. Using any other model returns a `parameter_invalid` error.<br/>
+        /// Mutually exclusive with the `video` and `prompt_v2` parameters. The `prompt` parameter is required when you provide images.
         /// </param>
         /// <param name="prompt">
         /// A text prompt that guides the model on the desired format or content. To include reference images in your prompt, use the `prompt_v2` parameter instead. Mutually exclusive with the `prompt_v2` parameter.<br/>
-        /// Your prompts can be instructive or descriptive, or you can phrase them as questions. This text counts toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).
+        /// Your prompts can be instructive or descriptive, or you can phrase them as questions. This text counts toward the [context window](/v1.3/docs/concepts/models/pegasus/pegasus-1-6#context-window).
         /// </param>
         /// <param name="promptV2">
-        /// A structured prompt with `&lt;@name&gt;` placeholders for referencing images. Mutually exclusive with the `prompt` parameter.<br/>
-        /// The prompt text and reference images count toward the [context window](/v1.3/docs/concepts/models/pegasus#context-window).
+        /// A structured prompt that uses `&lt;@name&gt;` placeholders to reference images. Mutually exclusive with the `prompt` and `image` parameters.<br/>
+        /// The prompt text and reference images count toward the [context window](/v1.3/docs/concepts/models/pegasus/pegasus-1-6#context-window).
         /// </param>
         /// <param name="temperature">
         /// Controls the randomness of the text output.<br/>
@@ -143,6 +166,7 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.AnalyzeResponse200> AnalyzeAsync(
             global::TwelveLabs.AnalyzePostRequestBodyContentApplicationJsonSchemaModelName? modelName = default,
             global::TwelveLabs.VideoContext? video = default,
+            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeImageInput>? image = default,
             string? prompt = default,
             global::TwelveLabs.AnalyzePromptV2? promptV2 = default,
             double? temperature = default,

@@ -23,7 +23,7 @@ namespace TwelveLabs
         public required string Description { get; set; }
 
         /// <summary>
-        /// Custom fields to extract for each segment instance.
+        /// Custom fields to extract for each segment instance. Set the `type` field of an item to the `time_array` value to extract a list of events inside each segment.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fields")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.SegmentField>? Fields { get; set; }
@@ -63,7 +63,7 @@ namespace TwelveLabs
         /// Describe what this type of segment looks like in the video. The model uses this text to identify matching segments.
         /// </param>
         /// <param name="fields">
-        /// Custom fields to extract for each segment instance.
+        /// Custom fields to extract for each segment instance. Set the `type` field of an item to the `time_array` value to extract a list of events inside each segment.
         /// </param>
         /// <param name="mediaSources">
         /// Reference images that help the model identify segments. Maximum 4 sources.

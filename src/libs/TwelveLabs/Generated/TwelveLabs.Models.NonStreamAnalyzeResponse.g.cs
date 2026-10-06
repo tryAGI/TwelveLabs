@@ -36,7 +36,7 @@ namespace TwelveLabs
         public global::TwelveLabs.TokenUsage? Usage { get; set; }
 
         /// <summary>
-        /// A warning. Present when `finish_reason` is `length`, which means the response reached the maximum response length or the [context window](/v1.3/docs/concepts/models/pegasus#context-window). The partial output is returned in `data`.
+        /// A warning. Present when `finish_reason` is `length`, which means the response reached the maximum response length or the [context window](/v1.3/docs/concepts/models/pegasus/pegasus-1-6#context-window). The partial output is returned in `data`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public global::TwelveLabs.AnalyzeTaskError? Error { get; set; }
@@ -65,7 +65,7 @@ namespace TwelveLabs
         /// The number of tokens used in the generation.
         /// </param>
         /// <param name="error">
-        /// A warning. Present when `finish_reason` is `length`, which means the response reached the maximum response length or the [context window](/v1.3/docs/concepts/models/pegasus#context-window). The partial output is returned in `data`.
+        /// A warning. Present when `finish_reason` is `length`, which means the response reached the maximum response length or the [context window](/v1.3/docs/concepts/models/pegasus/pegasus-1-6#context-window). The partial output is returned in `data`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

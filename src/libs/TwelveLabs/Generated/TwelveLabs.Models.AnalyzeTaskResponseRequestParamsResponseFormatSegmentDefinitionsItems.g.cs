@@ -26,13 +26,13 @@ namespace TwelveLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fields")]
-        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems>? Fields { get; set; }
+        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskSegmentField>? Fields { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_sources")]
-        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems>? MediaSources { get; set; }
+        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskMediaSource>? MediaSources { get; set; }
 
         /// <summary>
         /// The time ranges for this segment definition. Present only when the task was created with `time_ranges`.
@@ -62,8 +62,8 @@ namespace TwelveLabs
         public AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItems(
             string id,
             string description,
-            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems>? fields,
-            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems>? mediaSources,
+            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskSegmentField>? fields,
+            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskMediaSource>? mediaSources,
             global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTimeRange>? timeRanges)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
