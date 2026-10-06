@@ -70,8 +70,9 @@ namespace TwelveLabs
         /// A message attached to the task response. The platform sets this field in the following cases:<br/>
         /// - **Task failure**: `status` is `failed`. The `message` field describes the failure reason. With video segmentation, a task can fail because the analysis reached the maximum response length or the context window before it could complete. The response contains no `result` object.<br/>
         /// - **Task cancellation**: `status` is `canceled` and a cancellation reason is available. A task newly canceled through the task cancellation endpoint has `code` set to `user_canceled`; canceling the task again does not change the reason.<br/>
+        /// - **Incomplete results warning** (video segmentation): `status` is `ready` and the output for some segments could not be recovered. The `message` field contains the warning that the results may be incomplete. The segments the platform extracted are in `result.data`.<br/>
         /// - **Truncation warning** (general analysis): `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
-        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`. A canceled task can omit this field when no cancellation reason is available.
+        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`, except for the incomplete results warning. A canceled task can omit this field when no cancellation reason is available.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         public global::TwelveLabs.AnalyzeTaskError? Error { get; set; }
@@ -122,8 +123,9 @@ namespace TwelveLabs
         /// A message attached to the task response. The platform sets this field in the following cases:<br/>
         /// - **Task failure**: `status` is `failed`. The `message` field describes the failure reason. With video segmentation, a task can fail because the analysis reached the maximum response length or the context window before it could complete. The response contains no `result` object.<br/>
         /// - **Task cancellation**: `status` is `canceled` and a cancellation reason is available. A task newly canceled through the task cancellation endpoint has `code` set to `user_canceled`; canceling the task again does not change the reason.<br/>
+        /// - **Incomplete results warning** (video segmentation): `status` is `ready` and the output for some segments could not be recovered. The `message` field contains the warning that the results may be incomplete. The segments the platform extracted are in `result.data`.<br/>
         /// - **Truncation warning** (general analysis): `status` is `ready` and `result.finish_reason` is `length`. The `message` field describes the truncation cause (either the maximum response length was reached or the context window was reached). The partial output is in `result.data`.<br/>
-        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`. A canceled task can omit this field when no cancellation reason is available.
+        /// Not set when `status` is `ready` and `result.finish_reason` is `stop`, except for the incomplete results warning. A canceled task can omit this field when no cancellation reason is available.
         /// </param>
         /// <param name="webhooks">
         /// The delivery status of each webhook endpoint. The platform omits this field when no webhooks are configured. You can register webhooks through the Playground. See the [Webhooks](/v1.3/docs/advanced/webhooks) page for details.

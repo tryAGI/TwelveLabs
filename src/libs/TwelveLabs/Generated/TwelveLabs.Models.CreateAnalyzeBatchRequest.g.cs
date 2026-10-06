@@ -16,7 +16,7 @@ namespace TwelveLabs
         public global::TwelveLabs.CreateAnalyzeBatchRequestModelName ModelName { get; set; }
 
         /// <summary>
-        /// The analysis approach for every item in this batch.<br/>
+        /// The analysis mode for every item in this batch.<br/>
         /// - `general`: Generate text from each video based on the prompt (the `prompt` field of the item if set, otherwise `defaults.prompt`). Supports structured JSON output by using `json_schema` in the `response_format.type` field.<br/>
         /// - `time_based_metadata`: Extract timestamped metadata by using `segment_definitions` in the `response_format.type` field.<br/>
         /// Batches with mixed modes are not supported.
@@ -49,7 +49,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="CreateAnalyzeBatchRequest" /> class.
         /// </summary>
         /// <param name="analysisMode">
-        /// The analysis approach for every item in this batch.<br/>
+        /// The analysis mode for every item in this batch.<br/>
         /// - `general`: Generate text from each video based on the prompt (the `prompt` field of the item if set, otherwise `defaults.prompt`). Supports structured JSON output by using `json_schema` in the `response_format.type` field.<br/>
         /// - `time_based_metadata`: Extract timestamped metadata by using `segment_definitions` in the `response_format.type` field.<br/>
         /// Batches with mixed modes are not supported.

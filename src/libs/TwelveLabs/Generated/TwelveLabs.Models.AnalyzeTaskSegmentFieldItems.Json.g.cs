@@ -2,7 +2,7 @@
 
 namespace TwelveLabs
 {
-    public sealed partial class AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems
+    public sealed partial class AnalyzeTaskSegmentFieldItems
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -47,20 +47,20 @@ namespace TwelveLabs
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems? FromJson(
+        public static global::TwelveLabs.AnalyzeTaskSegmentFieldItems? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems),
-                jsonSerializerContext) as global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems;
+                typeof(global::TwelveLabs.AnalyzeTaskSegmentFieldItems),
+                jsonSerializerContext) as global::TwelveLabs.AnalyzeTaskSegmentFieldItems;
         }
 
         /// <summary>
         /// Deserializes a JSON string using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems? FromJson(
+        public static global::TwelveLabs.AnalyzeTaskSegmentFieldItems? FromJson(
             string json)
         {
             return FromJson(
@@ -75,7 +75,7 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems? FromJson(
+        public static global::TwelveLabs.AnalyzeTaskSegmentFieldItems? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -86,7 +86,7 @@ namespace TwelveLabs
                     global::TwelveLabs.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::TwelveLabs.AnalyzeTaskSegmentFieldItems>(
                 json,
                 jsonSerializerOptions);
         }
@@ -94,20 +94,20 @@ namespace TwelveLabs
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::TwelveLabs.AnalyzeTaskSegmentFieldItems?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems),
-                jsonSerializerContext).ConfigureAwait(false)) as global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems;
+                typeof(global::TwelveLabs.AnalyzeTaskSegmentFieldItems),
+                jsonSerializerContext).ConfigureAwait(false)) as global::TwelveLabs.AnalyzeTaskSegmentFieldItems;
         }
 
         /// <summary>
         /// Deserializes a JSON stream using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.AnalyzeTaskSegmentFieldItems?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream)
         {
             return FromJsonStreamAsync(
@@ -122,7 +122,7 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.AnalyzeTaskSegmentFieldItems?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -133,7 +133,7 @@ namespace TwelveLabs
                     global::TwelveLabs.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsMediaSourcesItems?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::TwelveLabs.AnalyzeTaskSegmentFieldItems?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

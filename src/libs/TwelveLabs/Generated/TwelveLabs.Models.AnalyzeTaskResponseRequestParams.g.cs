@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class AnalyzeTaskResponseRequestParams
     {
         /// <summary>
-        /// The analysis approach for this task.
+        /// The analysis mode for this task. For a task created with the `image` parameter, the value is `general`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("analysis_mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsAnalysisModeJsonConverter))]
@@ -32,6 +32,12 @@ namespace TwelveLabs
         public global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2? PromptV2 { get; set; }
 
         /// <summary>
+        /// The image input you provided. Present only when the task was created with the `image` parameter. When present, the response omits `video_source` instead of returning it as `null`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("image")]
+        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskMediaSource>? Image { get; set; }
+
+        /// <summary>
         /// The response format for this task. Present only when the request included a response format.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response_format")]
@@ -44,10 +50,10 @@ namespace TwelveLabs
         public double? Temperature { get; set; }
 
         /// <summary>
-        /// The maximum response length you set, in tokens.
+        /// The maximum response length you set. The value is an integer in tokens or the string `unlimited`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_tokens")]
-        public int? MaxTokens { get; set; }
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParamsMaxTokens? MaxTokens { get; set; }
 
         /// <summary>
         /// The minimum segment duration you set, in seconds. Present when `analysis_mode` is `time_based_metadata`.
@@ -83,7 +89,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="AnalyzeTaskResponseRequestParams" /> class.
         /// </summary>
         /// <param name="analysisMode">
-        /// The analysis approach for this task.
+        /// The analysis mode for this task. For a task created with the `image` parameter, the value is `general`.
         /// </param>
         /// <param name="prompt">
         /// The natural-language prompt for this task. Present only when `analysis_mode` is `general` and the task was created with `prompt` (not `prompt_v2`).<br/>
@@ -95,6 +101,9 @@ namespace TwelveLabs
         /// - [List](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks): `input_text` is truncated to the first 30 characters.<br/>
         /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results): Returns the full text.
         /// </param>
+        /// <param name="image">
+        /// The image input you provided. Present only when the task was created with the `image` parameter. When present, the response omits `video_source` instead of returning it as `null`.
+        /// </param>
         /// <param name="responseFormat">
         /// The response format for this task. Present only when the request included a response format.
         /// </param>
@@ -102,7 +111,7 @@ namespace TwelveLabs
         /// The temperature value for this analysis.
         /// </param>
         /// <param name="maxTokens">
-        /// The maximum response length you set, in tokens.
+        /// The maximum response length you set. The value is an integer in tokens or the string `unlimited`.
         /// </param>
         /// <param name="minSegmentDuration">
         /// The minimum segment duration you set, in seconds. Present when `analysis_mode` is `time_based_metadata`.
@@ -123,9 +132,10 @@ namespace TwelveLabs
             global::TwelveLabs.AnalyzeTaskResponseRequestParamsAnalysisMode? analysisMode,
             string? prompt,
             global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2? promptV2,
+            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskMediaSource>? image,
             global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormat? responseFormat,
             double? temperature,
-            int? maxTokens,
+            global::TwelveLabs.AnalyzeTaskResponseRequestParamsMaxTokens? maxTokens,
             double? minSegmentDuration,
             double? maxSegmentDuration,
             double? startTime,
@@ -134,6 +144,7 @@ namespace TwelveLabs
             this.AnalysisMode = analysisMode;
             this.Prompt = prompt;
             this.PromptV2 = promptV2;
+            this.Image = image;
             this.ResponseFormat = responseFormat;
             this.Temperature = temperature;
             this.MaxTokens = maxTokens;

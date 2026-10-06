@@ -4,19 +4,19 @@
 namespace TwelveLabs
 {
     /// <summary>
-    ///
+    /// A field inside a `time_array` item, returned as you provided it.
     /// </summary>
-    public sealed partial class AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems
+    public sealed partial class AnalyzeTaskTimeArrayItemField
     {
         /// <summary>
-        ///
+        /// The name of the field.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        ///
+        /// The data type of the field.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -29,16 +29,16 @@ namespace TwelveLabs
         public string? Description { get; set; }
 
         /// <summary>
-        ///
+        /// The allowed values for this field.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enum")]
         public global::System.Collections.Generic.IList<string>? Enum { get; set; }
 
         /// <summary>
-        ///
+        /// The element type for an `array` field.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("items")]
-        public global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItemsItems? Items { get; set; }
+        public global::TwelveLabs.AnalyzeTaskTimeArrayItemFieldItems? Items { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -47,22 +47,30 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems" /> class.
+        /// Initializes a new instance of the <see cref="AnalyzeTaskTimeArrayItemField" /> class.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="type"></param>
+        /// <param name="name">
+        /// The name of the field.
+        /// </param>
+        /// <param name="type">
+        /// The data type of the field.
+        /// </param>
         /// <param name="description"></param>
-        /// <param name="enum"></param>
-        /// <param name="items"></param>
+        /// <param name="enum">
+        /// The allowed values for this field.
+        /// </param>
+        /// <param name="items">
+        /// The element type for an `array` field.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems(
+        public AnalyzeTaskTimeArrayItemField(
             string name,
             string type,
             string? description,
             global::System.Collections.Generic.IList<string>? @enum,
-            global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItemsItems? items)
+            global::TwelveLabs.AnalyzeTaskTimeArrayItemFieldItems? items)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
@@ -72,9 +80,9 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems" /> class.
+        /// Initializes a new instance of the <see cref="AnalyzeTaskTimeArrayItemField" /> class.
         /// </summary>
-        public AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItemsFieldsItems()
+        public AnalyzeTaskTimeArrayItemField()
         {
         }
 

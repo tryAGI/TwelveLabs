@@ -21,7 +21,10 @@ namespace TwelveLabs
         /// - **When `analysis_mode` is `time_based_metadata`**: A JSON-encoded string containing an object keyed by segment definition (the `id` field). Each key maps to an array of segment objects with the following fields:<br/>
         ///   - `start_time` (number): The start time of the segment in seconds.<br/>
         ///   - `end_time` (number): The end time of the segment in seconds.<br/>
-        ///   - `metadata` (object): The custom fields you defined in the request's `segment_definitions[].fields`.
+        ///   - `metadata` (object): The custom fields you defined in `segment_definitions[].fields`. The value of a `time_array` field is an array of event objects, one for each event inside the segment. Each event object contains `start_time` and `end_time`, which the platform adds automatically, plus the fields you declared in the `items.fields` array.<br/>
+        ///     - Segments are within the duration of the video, and events are within the duration of their segment.<br/>
+        ///     - The `min_segment_duration` and `max_segment_duration` values limit segments only, not the events inside them.<br/>
+        ///     - Event boundaries use the same format as segment boundaries, set by the `segment_time_format` value.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -29,7 +32,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// When the task uses general analysis, `length` means the response reached the maximum response length or the context window. The partial output is in `data`, and a warning is in the task's `error` field.<br/>
-        /// With video segmentation, if the analysis reaches either limit, the task fails and `length` never occurs.
+        /// With video segmentation and a numeric `max_tokens`, the task fails when the analysis reaches either limit. This field is never `length` for a segmentation task. With `max_tokens` set to `unlimited`, this field is `stop` even when the output is incomplete.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finish_reason")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.FinishReasonJsonConverter))]
@@ -61,11 +64,14 @@ namespace TwelveLabs
         /// - **When `analysis_mode` is `time_based_metadata`**: A JSON-encoded string containing an object keyed by segment definition (the `id` field). Each key maps to an array of segment objects with the following fields:<br/>
         ///   - `start_time` (number): The start time of the segment in seconds.<br/>
         ///   - `end_time` (number): The end time of the segment in seconds.<br/>
-        ///   - `metadata` (object): The custom fields you defined in the request's `segment_definitions[].fields`.
+        ///   - `metadata` (object): The custom fields you defined in `segment_definitions[].fields`. The value of a `time_array` field is an array of event objects, one for each event inside the segment. Each event object contains `start_time` and `end_time`, which the platform adds automatically, plus the fields you declared in the `items.fields` array.<br/>
+        ///     - Segments are within the duration of the video, and events are within the duration of their segment.<br/>
+        ///     - The `min_segment_duration` and `max_segment_duration` values limit segments only, not the events inside them.<br/>
+        ///     - Event boundaries use the same format as segment boundaries, set by the `segment_time_format` value.
         /// </param>
         /// <param name="finishReason">
         /// When the task uses general analysis, `length` means the response reached the maximum response length or the context window. The partial output is in `data`, and a warning is in the task's `error` field.<br/>
-        /// With video segmentation, if the analysis reaches either limit, the task fails and `length` never occurs.
+        /// With video segmentation and a numeric `max_tokens`, the task fails when the analysis reaches either limit. This field is never `length` for a segmentation task. With `max_tokens` set to `unlimited`, this field is `stop` even when the output is incomplete.
         /// </param>
         /// <param name="usage">
         /// The number of tokens used in the generation.

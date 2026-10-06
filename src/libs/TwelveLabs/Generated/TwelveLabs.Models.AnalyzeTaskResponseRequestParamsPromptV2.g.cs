@@ -20,7 +20,7 @@ namespace TwelveLabs
         /// Reference images linked to `&lt;@name&gt;` placeholders in the prompt.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_sources")]
-        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2MediaSourcesItems>? MediaSources { get; set; }
+        public global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskMediaSource>? MediaSources { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -42,7 +42,7 @@ namespace TwelveLabs
 #endif
         public AnalyzeTaskResponseRequestParamsPromptV2(
             string? inputText,
-            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsPromptV2MediaSourcesItems>? mediaSources)
+            global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskMediaSource>? mediaSources)
         {
             this.InputText = inputText;
             this.MediaSources = mediaSources;

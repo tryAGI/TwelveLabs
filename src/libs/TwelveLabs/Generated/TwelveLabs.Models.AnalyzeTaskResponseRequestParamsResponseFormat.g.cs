@@ -24,6 +24,13 @@ namespace TwelveLabs
         public global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatJsonSchema? JsonSchema { get; set; }
 
         /// <summary>
+        /// The `segment_time_format` value you set. Omitted when you did not set it. Automatic boundaries are then returned as JSON numbers in seconds.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("segment_time_format")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AnalyzeTaskResponseRequestParamsResponseFormatSegmentTimeFormatJsonConverter))]
+        public global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentTimeFormat? SegmentTimeFormat { get; set; }
+
+        /// <summary>
         /// The segment definitions for this task. Present only when `type` is `segment_definitions`.<br/>
         /// - [List](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks): Returns only the first element.<br/>
         /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results): Returns the full array.
@@ -46,6 +53,9 @@ namespace TwelveLabs
         /// - [List](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks): Omitted.<br/>
         /// - [Retrieve](/v1.3/api-reference/analyze-videos/retrieve-analysis-task-status-results): Returns the full schema.
         /// </param>
+        /// <param name="segmentTimeFormat">
+        /// The `segment_time_format` value you set. Omitted when you did not set it. Automatic boundaries are then returned as JSON numbers in seconds.
+        /// </param>
         /// <param name="segmentDefinitions">
         /// The segment definitions for this task. Present only when `type` is `segment_definitions`.<br/>
         /// - [List](/v1.3/api-reference/analyze-videos/list-async-analysis-tasks): Returns only the first element.<br/>
@@ -57,10 +67,12 @@ namespace TwelveLabs
         public AnalyzeTaskResponseRequestParamsResponseFormat(
             global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatType? type,
             global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatJsonSchema? jsonSchema,
+            global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentTimeFormat? segmentTimeFormat,
             global::System.Collections.Generic.IList<global::TwelveLabs.AnalyzeTaskResponseRequestParamsResponseFormatSegmentDefinitionsItems>? segmentDefinitions)
         {
             this.Type = type;
             this.JsonSchema = jsonSchema;
+            this.SegmentTimeFormat = segmentTimeFormat;
             this.SegmentDefinitions = segmentDefinitions;
         }
 
