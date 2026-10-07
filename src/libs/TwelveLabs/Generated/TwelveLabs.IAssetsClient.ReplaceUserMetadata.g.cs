@@ -8,8 +8,7 @@ namespace TwelveLabs
         /// Replace the user-defined metadata of an asset<br/>
         /// This method replaces the entire user-defined metadata of the specified asset. Unlike the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method, which merges your changes with the existing metadata, this method overwrites the stored value in full:<br/>
         /// - A key with a value creates or replaces that key.<br/>
-        /// - A key set to an empty string (`""`), an empty array (`[]`), or `null` is ignored.<br/>
-        /// - A key you omit from the request body is removed.<br/>
+        /// - A key you omit, or set to an empty string (`""`), an empty array (`[]`), or `null`, is removed.<br/>
         /// To clear all metadata, send an empty object (`{}`) in the `user_metadata` field. This produces the same result as the [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-user-metadata) method.
         /// </summary>
         /// <param name="assetId"></param>
@@ -27,8 +26,7 @@ namespace TwelveLabs
         /// Replace the user-defined metadata of an asset<br/>
         /// This method replaces the entire user-defined metadata of the specified asset. Unlike the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method, which merges your changes with the existing metadata, this method overwrites the stored value in full:<br/>
         /// - A key with a value creates or replaces that key.<br/>
-        /// - A key set to an empty string (`""`), an empty array (`[]`), or `null` is ignored.<br/>
-        /// - A key you omit from the request body is removed.<br/>
+        /// - A key you omit, or set to an empty string (`""`), an empty array (`[]`), or `null`, is removed.<br/>
         /// To clear all metadata, send an empty object (`{}`) in the `user_metadata` field. This produces the same result as the [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-user-metadata) method.
         /// </summary>
         /// <param name="assetId"></param>
@@ -46,8 +44,7 @@ namespace TwelveLabs
         /// Replace the user-defined metadata of an asset<br/>
         /// This method replaces the entire user-defined metadata of the specified asset. Unlike the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method, which merges your changes with the existing metadata, this method overwrites the stored value in full:<br/>
         /// - A key with a value creates or replaces that key.<br/>
-        /// - A key set to an empty string (`""`), an empty array (`[]`), or `null` is ignored.<br/>
-        /// - A key you omit from the request body is removed.<br/>
+        /// - A key you omit, or set to an empty string (`""`), an empty array (`[]`), or `null`, is removed.<br/>
         /// To clear all metadata, send an empty object (`{}`) in the `user_metadata` field. This produces the same result as the [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-user-metadata) method.
         /// </summary>
         /// <param name="assetId"></param>

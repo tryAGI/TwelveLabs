@@ -3,11 +3,11 @@
 
 namespace TwelveLabs
 {
-    public partial class AssetsClient
+    public partial class KnowledgeStoreItemsClient
     {
 
 
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_ReplaceUserMetadataSecurityRequirement0 =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement s_UpdateKnowledgeStoreItemMetadataSecurityRequirement0 =
             new global::TwelveLabs.EndPointSecurityRequirement
             {
                 Authorizations = new global::TwelveLabs.EndPointAuthorizationRequirement[]
@@ -21,66 +21,86 @@ namespace TwelveLabs
                     },
                 },
             };
-        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_ReplaceUserMetadataSecurityRequirements =
+        private static readonly global::TwelveLabs.EndPointSecurityRequirement[] s_UpdateKnowledgeStoreItemMetadataSecurityRequirements =
             new global::TwelveLabs.EndPointSecurityRequirement[]
-            {                s_ReplaceUserMetadataSecurityRequirement0,
+            {                s_UpdateKnowledgeStoreItemMetadataSecurityRequirement0,
             };
-        partial void PrepareReplaceUserMetadataArguments(
+        partial void PrepareUpdateKnowledgeStoreItemMetadataArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string assetId,
-            global::TwelveLabs.ReplaceUserMetadataRequest request);
-        partial void PrepareReplaceUserMetadataRequest(
+            ref string knowledgeStoreId,
+            ref string itemId,
+            global::TwelveLabs.UpdateKnowledgeStoreItemMetadataRequest request);
+        partial void PrepareUpdateKnowledgeStoreItemMetadataRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string assetId,
-            global::TwelveLabs.ReplaceUserMetadataRequest request);
-        partial void ProcessReplaceUserMetadataResponse(
+            string knowledgeStoreId,
+            string itemId,
+            global::TwelveLabs.UpdateKnowledgeStoreItemMetadataRequest request);
+        partial void ProcessUpdateKnowledgeStoreItemMetadataResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessUpdateKnowledgeStoreItemMetadataResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
-        /// Replace the user-defined metadata of an asset<br/>
-        /// This method replaces the entire user-defined metadata of the specified asset. Unlike the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method, which merges your changes with the existing metadata, this method overwrites the stored value in full:<br/>
+        /// Update the item metadata<br/>
+        /// This method updates the `item_metadata` of the specified knowledge store item and returns the item. The platform merges your changes with the existing metadata:<br/>
         /// - A key with a value creates or replaces that key.<br/>
-        /// - A key you omit, or set to an empty string (`""`), an empty array (`[]`), or `null`, is removed.<br/>
-        /// To clear all metadata, send an empty object (`{}`) in the `user_metadata` field. This produces the same result as the [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-user-metadata) method.
+        /// - A key set to `null` deletes that key.<br/>
+        /// - A key set to an empty string (`""`) or an empty array (`[]`) is ignored.<br/>
+        /// - A key you omit from the request keeps its current value.<br/>
+        /// The `metadata` field of the item does not change. If the merged result contains more than 50 pairs, the request fails.<br/>
+        /// To replace all item metadata in a single call, use the [`PUT`](/v1.3/api-reference/knowledge-store-items/replace-item-metadata) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}/item-metadata` endpoint instead.
         /// </summary>
-        /// <param name="assetId"></param>
+        /// <param name="knowledgeStoreId"></param>
+        /// <param name="itemId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task ReplaceUserMetadataAsync(
-            string assetId,
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItem> UpdateKnowledgeStoreItemMetadataAsync(
+            string knowledgeStoreId,
+            string itemId,
 
-            global::TwelveLabs.ReplaceUserMetadataRequest request,
+            global::TwelveLabs.UpdateKnowledgeStoreItemMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await ReplaceUserMetadataAsResponseAsync(
-                assetId: assetId,
+            var __response = await UpdateKnowledgeStoreItemMetadataAsResponseAsync(
+                knowledgeStoreId: knowledgeStoreId,
+                itemId: itemId,
 
                 request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
+
+            return __response.Body;
         }
         /// <summary>
-        /// Replace the user-defined metadata of an asset<br/>
-        /// This method replaces the entire user-defined metadata of the specified asset. Unlike the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method, which merges your changes with the existing metadata, this method overwrites the stored value in full:<br/>
+        /// Update the item metadata<br/>
+        /// This method updates the `item_metadata` of the specified knowledge store item and returns the item. The platform merges your changes with the existing metadata:<br/>
         /// - A key with a value creates or replaces that key.<br/>
-        /// - A key you omit, or set to an empty string (`""`), an empty array (`[]`), or `null`, is removed.<br/>
-        /// To clear all metadata, send an empty object (`{}`) in the `user_metadata` field. This produces the same result as the [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-user-metadata) method.
+        /// - A key set to `null` deletes that key.<br/>
+        /// - A key set to an empty string (`""`) or an empty array (`[]`) is ignored.<br/>
+        /// - A key you omit from the request keeps its current value.<br/>
+        /// The `metadata` field of the item does not change. If the merged result contains more than 50 pairs, the request fails.<br/>
+        /// To replace all item metadata in a single call, use the [`PUT`](/v1.3/api-reference/knowledge-store-items/replace-item-metadata) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}/item-metadata` endpoint instead.
         /// </summary>
-        /// <param name="assetId"></param>
+        /// <param name="knowledgeStoreId"></param>
+        /// <param name="itemId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> ReplaceUserMetadataAsResponseAsync(
-            string assetId,
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoreItem>> UpdateKnowledgeStoreItemMetadataAsResponseAsync(
+            string knowledgeStoreId,
+            string itemId,
 
-            global::TwelveLabs.ReplaceUserMetadataRequest request,
+            global::TwelveLabs.UpdateKnowledgeStoreItemMetadataRequest request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -88,16 +108,17 @@ namespace TwelveLabs
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareReplaceUserMetadataArguments(
+            PrepareUpdateKnowledgeStoreItemMetadataArguments(
                 httpClient: HttpClient,
-                assetId: ref assetId,
+                knowledgeStoreId: ref knowledgeStoreId,
+                itemId: ref itemId,
                 request: request);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ReplaceUserMetadataSecurityRequirements,
-                operationName: "ReplaceUserMetadataAsync");
+                securityRequirements: s_UpdateKnowledgeStoreItemMetadataSecurityRequirements,
+                operationName: "UpdateKnowledgeStoreItemMetadataAsync");
 
             using var __timeoutCancellationTokenSource = global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -117,7 +138,7 @@ namespace TwelveLabs
             {
 
                             var __pathBuilder = new global::TwelveLabs.PathBuilder(
-                                path: $"/assets/{assetId}/user-metadata",
+                                path: $"/knowledge-stores/{knowledgeStoreId}/items/{itemId}/item-metadata",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::TwelveLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -125,7 +146,7 @@ namespace TwelveLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Put,
+                    method: new global::System.Net.Http.HttpMethod("PATCH"),
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -162,10 +183,11 @@ namespace TwelveLabs
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareReplaceUserMetadataRequest(
+                PrepareUpdateKnowledgeStoreItemMetadataRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    assetId: assetId,
+                    knowledgeStoreId: knowledgeStoreId,
+                    itemId: itemId,
                     request: request);
 
                 return __httpRequest;
@@ -183,10 +205,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ReplaceUserMetadata",
-                                methodName: "ReplaceUserMetadataAsync",
-                                pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
-                                httpMethod: "PUT",
+                                operationId: "UpdateKnowledgeStoreItemMetadata",
+                                methodName: "UpdateKnowledgeStoreItemMetadataAsync",
+                                pathTemplate: "$\"/knowledge-stores/{knowledgeStoreId}/items/{itemId}/item-metadata\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -217,10 +239,10 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ReplaceUserMetadata",
-                                methodName: "ReplaceUserMetadataAsync",
-                                pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
-                                httpMethod: "PUT",
+                                operationId: "UpdateKnowledgeStoreItemMetadata",
+                                methodName: "UpdateKnowledgeStoreItemMetadataAsync",
+                                pathTemplate: "$\"/knowledge-stores/{knowledgeStoreId}/items/{itemId}/item-metadata\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -258,10 +280,10 @@ namespace TwelveLabs
                         await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ReplaceUserMetadata",
-                                methodName: "ReplaceUserMetadataAsync",
-                                pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
-                                httpMethod: "PUT",
+                                operationId: "UpdateKnowledgeStoreItemMetadata",
+                                methodName: "UpdateKnowledgeStoreItemMetadataAsync",
+                                pathTemplate: "$\"/knowledge-stores/{knowledgeStoreId}/items/{itemId}/item-metadata\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -298,7 +320,7 @@ namespace TwelveLabs
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessReplaceUserMetadataResponse(
+                ProcessUpdateKnowledgeStoreItemMetadataResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -306,10 +328,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ReplaceUserMetadata",
-                                methodName: "ReplaceUserMetadataAsync",
-                                pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
-                                httpMethod: "PUT",
+                                operationId: "UpdateKnowledgeStoreItemMetadata",
+                                methodName: "UpdateKnowledgeStoreItemMetadataAsync",
+                                pathTemplate: "$\"/knowledge-stores/{knowledgeStoreId}/items/{itemId}/item-metadata\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -328,10 +350,10 @@ namespace TwelveLabs
                     await global::TwelveLabs.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::TwelveLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ReplaceUserMetadata",
-                                methodName: "ReplaceUserMetadataAsync",
-                                pathTemplate: "$\"/assets/{assetId}/user-metadata\"",
-                                httpMethod: "PUT",
+                                operationId: "UpdateKnowledgeStoreItemMetadata",
+                                methodName: "UpdateKnowledgeStoreItemMetadataAsync",
+                                pathTemplate: "$\"/knowledge-stores/{knowledgeStoreId}/items/{itemId}/item-metadata\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -350,19 +372,19 @@ namespace TwelveLabs
                             {
                                 string? __content_400 = null;
                                 global::System.Exception? __exception_400 = null;
-                                global::TwelveLabs.ReplaceAssetUserMetadataRequestBadRequestError? __value_400 = null;
+                                global::TwelveLabs.UpdateKnowledgeStoreItemMetadataRequestBadRequestError? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = global::TwelveLabs.ReplaceAssetUserMetadataRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.UpdateKnowledgeStoreItemMetadataRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = global::TwelveLabs.ReplaceAssetUserMetadataRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.UpdateKnowledgeStoreItemMetadataRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -371,7 +393,7 @@ namespace TwelveLabs
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ReplaceAssetUserMetadataRequestBadRequestError>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.UpdateKnowledgeStoreItemMetadataRequestBadRequestError>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
@@ -387,19 +409,19 @@ namespace TwelveLabs
                             {
                                 string? __content_404 = null;
                                 global::System.Exception? __exception_404 = null;
-                                global::TwelveLabs.ReplaceAssetUserMetadataRequestNotFoundError? __value_404 = null;
+                                global::TwelveLabs.UpdateKnowledgeStoreItemMetadataRequestNotFoundError? __value_404 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_404 = global::TwelveLabs.ReplaceAssetUserMetadataRequestNotFoundError.FromJson(__content_404, JsonSerializerContext);
+                                        __value_404 = global::TwelveLabs.UpdateKnowledgeStoreItemMetadataRequestNotFoundError.FromJson(__content_404, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_404 = global::TwelveLabs.ReplaceAssetUserMetadataRequestNotFoundError.FromJson(__content_404, JsonSerializerContext);
+                                        __value_404 = global::TwelveLabs.UpdateKnowledgeStoreItemMetadataRequestNotFoundError.FromJson(__content_404, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -408,7 +430,7 @@ namespace TwelveLabs
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ReplaceAssetUserMetadataRequestNotFoundError>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.UpdateKnowledgeStoreItemMetadataRequestNotFoundError>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_404,
@@ -432,15 +454,22 @@ namespace TwelveLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessUpdateKnowledgeStoreItemMetadataResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                return new global::TwelveLabs.AutoSDKHttpResponse(
+                                    var __value = global::TwelveLabs.KnowledgeStoreItem.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoreItem>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -460,10 +489,19 @@ namespace TwelveLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    return new global::TwelveLabs.AutoSDKHttpResponse(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::TwelveLabs.KnowledgeStoreItem.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoreItem>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -500,42 +538,38 @@ namespace TwelveLabs
             }
         }
         /// <summary>
-        /// Replace the user-defined metadata of an asset<br/>
-        /// This method replaces the entire user-defined metadata of the specified asset. Unlike the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method, which merges your changes with the existing metadata, this method overwrites the stored value in full:<br/>
+        /// Update the item metadata<br/>
+        /// This method updates the `item_metadata` of the specified knowledge store item and returns the item. The platform merges your changes with the existing metadata:<br/>
         /// - A key with a value creates or replaces that key.<br/>
-        /// - A key you omit, or set to an empty string (`""`), an empty array (`[]`), or `null`, is removed.<br/>
-        /// To clear all metadata, send an empty object (`{}`) in the `user_metadata` field. This produces the same result as the [`DELETE`](/v1.3/api-reference/upload-content/direct-uploads/delete-user-metadata) method.
+        /// - A key set to `null` deletes that key.<br/>
+        /// - A key set to an empty string (`""`) or an empty array (`[]`) is ignored.<br/>
+        /// - A key you omit from the request keeps its current value.<br/>
+        /// The `metadata` field of the item does not change. If the merged result contains more than 50 pairs, the request fails.<br/>
+        /// To replace all item metadata in a single call, use the [`PUT`](/v1.3/api-reference/knowledge-store-items/replace-item-metadata) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}/item-metadata` endpoint instead.
         /// </summary>
-        /// <param name="assetId"></param>
-        /// <param name="userMetadata">
-        /// Metadata that helps you categorize your assets. The object contains user-defined keys and values, where keys are strings. Each value is a string, a number, a boolean, or an array of strings. Send an integer wider than 53 bits (-9007199254740991 to 9007199254740991), and any identifier you want preserved verbatim, as a string.<br/>
-        /// **Example**:<br/>
-        /// ```JSON<br/>
-        /// "user_metadata": {<br/>
-        ///   "category": "recentlyAdded",<br/>
-        ///   "batchNumber": 5,<br/>
-        ///   "rating": 9.3,<br/>
-        ///   "needsReview": true,<br/>
-        ///   "hashtags": ["summer", "vlog"]<br/>
-        /// }<br/>
-        /// ```
+        /// <param name="knowledgeStoreId"></param>
+        /// <param name="itemId"></param>
+        /// <param name="itemMetadata">
+        /// The keys to change. Send at least one key. Keys are strings of up to 128 characters. String values can have up to 8192 characters. Values can be a string, a number, a boolean, an array of strings, or `null` to delete the key. A nested object and an array containing anything other than strings are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task ReplaceUserMetadataAsync(
-            string assetId,
-            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue> userMetadata,
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItem> UpdateKnowledgeStoreItemMetadataAsync(
+            string knowledgeStoreId,
+            string itemId,
+            object itemMetadata,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.ReplaceUserMetadataRequest
+            var __request = new global::TwelveLabs.UpdateKnowledgeStoreItemMetadataRequest
             {
-                UserMetadata = userMetadata,
+                ItemMetadata = itemMetadata,
             };
 
-            await ReplaceUserMetadataAsync(
-                assetId: assetId,
+            return await UpdateKnowledgeStoreItemMetadataAsync(
+                knowledgeStoreId: knowledgeStoreId,
+                itemId: itemId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
