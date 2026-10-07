@@ -46,10 +46,16 @@ namespace TwelveLabs
         public global::TwelveLabs.KnowledgeStoreItemSystemMetadata? SystemMetadata { get; set; }
 
         /// <summary>
-        /// Custom metadata for the item. Keys are strings; each value is a string, a number, a boolean, or an array of strings.
+        /// Custom metadata from the source asset. Keys are strings; each value is a string, a number, a boolean, or an array of strings. The platform updates it when the user-defined metadata of the asset changes. To change it, use the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint. To store metadata on the item alone, use `item_metadata`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? Metadata { get; set; }
+
+        /// <summary>
+        /// Custom metadata stored on this item alone. Keys are strings; each value is a string, a number, a boolean, or an array of strings. The source asset never changes it, so the same key can have a different value in `metadata` and in `item_metadata`. You set it when you create the item or change it with the [`PATCH`](/v1.3/api-reference/knowledge-store-items/update-item-metadata) or [`PUT`](/v1.3/api-reference/knowledge-store-items/replace-item-metadata) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}/item-metadata` endpoint. The field is absent when the item has no item metadata.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("item_metadata")]
+        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? ItemMetadata { get; set; }
 
         /// <summary>
         /// The date and time when the item was created, in the RFC 3339 format.
@@ -91,7 +97,10 @@ namespace TwelveLabs
         /// always matches the item's top-level `asset_type` field.
         /// </param>
         /// <param name="metadata">
-        /// Custom metadata for the item. Keys are strings; each value is a string, a number, a boolean, or an array of strings.
+        /// Custom metadata from the source asset. Keys are strings; each value is a string, a number, a boolean, or an array of strings. The platform updates it when the user-defined metadata of the asset changes. To change it, use the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint. To store metadata on the item alone, use `item_metadata`.
+        /// </param>
+        /// <param name="itemMetadata">
+        /// Custom metadata stored on this item alone. Keys are strings; each value is a string, a number, a boolean, or an array of strings. The source asset never changes it, so the same key can have a different value in `metadata` and in `item_metadata`. You set it when you create the item or change it with the [`PATCH`](/v1.3/api-reference/knowledge-store-items/update-item-metadata) or [`PUT`](/v1.3/api-reference/knowledge-store-items/replace-item-metadata) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}/item-metadata` endpoint. The field is absent when the item has no item metadata.
         /// </param>
         /// <param name="createdAt">
         /// The date and time when the item was created, in the RFC 3339 format.
@@ -109,6 +118,7 @@ namespace TwelveLabs
             global::TwelveLabs.KnowledgeStoreItemStatus? status,
             global::TwelveLabs.KnowledgeStoreItemSystemMetadata? systemMetadata,
             global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? metadata,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? itemMetadata,
             global::System.DateTime? createdAt,
             global::System.DateTime? updatedAt)
         {
@@ -118,6 +128,7 @@ namespace TwelveLabs
             this.Status = status;
             this.SystemMetadata = systemMetadata;
             this.Metadata = metadata;
+            this.ItemMetadata = itemMetadata;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
         }
