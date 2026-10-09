@@ -7,7 +7,7 @@ namespace TwelveLabs
         /// <summary>
         /// Search a knowledge store<br/>
         /// This method searches a knowledge store using natural language and returns matching video clips and images ranked by relevance.<br/>
-        /// Provide your natural-language query in the `query.text` field. Use the `filter` parameter to choose which items to search: by type of item (the `asset_type` field) or by specific items (the `item_id` field). Use the optional `search_options` parameter to control how videos are matched (by visual content, audio, or both). If you omit it, videos are matched on their visual content. Images are always matched on their visual content.<br/>
+        /// Provide your natural-language query in the `query.text` field. Use the `filter` parameter to choose which items to search: by type of item (the `asset_type` field), by specific items (the `item_id` field), or by capture location (the `location` field). Use the optional `search_options` parameter to control how videos are matched (by visual content, audio, or both). If you omit it, videos are matched on their visual content. Images are always matched on their visual content.<br/>
         /// By default, each result is an individual match: a video clip or an image. Set the `group_by` parameter to `item` to group clips under their parent item.<br/>
         /// &lt;Note title="Note"&gt;<br/>
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
@@ -27,7 +27,7 @@ namespace TwelveLabs
         /// <summary>
         /// Search a knowledge store<br/>
         /// This method searches a knowledge store using natural language and returns matching video clips and images ranked by relevance.<br/>
-        /// Provide your natural-language query in the `query.text` field. Use the `filter` parameter to choose which items to search: by type of item (the `asset_type` field) or by specific items (the `item_id` field). Use the optional `search_options` parameter to control how videos are matched (by visual content, audio, or both). If you omit it, videos are matched on their visual content. Images are always matched on their visual content.<br/>
+        /// Provide your natural-language query in the `query.text` field. Use the `filter` parameter to choose which items to search: by type of item (the `asset_type` field), by specific items (the `item_id` field), or by capture location (the `location` field). Use the optional `search_options` parameter to control how videos are matched (by visual content, audio, or both). If you omit it, videos are matched on their visual content. Images are always matched on their visual content.<br/>
         /// By default, each result is an individual match: a video clip or an image. Set the `group_by` parameter to `item` to group clips under their parent item.<br/>
         /// &lt;Note title="Note"&gt;<br/>
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
@@ -47,7 +47,7 @@ namespace TwelveLabs
         /// <summary>
         /// Search a knowledge store<br/>
         /// This method searches a knowledge store using natural language and returns matching video clips and images ranked by relevance.<br/>
-        /// Provide your natural-language query in the `query.text` field. Use the `filter` parameter to choose which items to search: by type of item (the `asset_type` field) or by specific items (the `item_id` field). Use the optional `search_options` parameter to control how videos are matched (by visual content, audio, or both). If you omit it, videos are matched on their visual content. Images are always matched on their visual content.<br/>
+        /// Provide your natural-language query in the `query.text` field. Use the `filter` parameter to choose which items to search: by type of item (the `asset_type` field), by specific items (the `item_id` field), or by capture location (the `location` field). Use the optional `search_options` parameter to control how videos are matched (by visual content, audio, or both). If you omit it, videos are matched on their visual content. Images are always matched on their visual content.<br/>
         /// By default, each result is an individual match: a video clip or an image. Set the `group_by` parameter to `item` to group clips under their parent item.<br/>
         /// &lt;Note title="Note"&gt;<br/>
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
@@ -59,7 +59,7 @@ namespace TwelveLabs
         /// </param>
         /// <param name="filter">
         /// Narrows results to specific items in the knowledge store.<br/>
-        /// Filter by type of item (the `asset_type` field) or by specific identifiers (the `item_id` field). Use `eq` to match a single value or `in` to match any value in a list. When you specify multiple fields, the platform applies all conditions together.<br/>
+        /// Filter by type of item (the `asset_type` field), by specific items (the `item_id` field), or by capture location (the `location` field). For `asset_type` and `item_id`, use `eq` to match a single value or `in` to match any value in a list. For `location`, provide the center and radius of a circle. When you specify multiple fields, the platform applies all conditions together.<br/>
         /// Examples:<br/>
         /// ```json<br/>
         /// {<br/>
@@ -79,6 +79,15 @@ namespace TwelveLabs
         ///         "in": [<br/>
         ///             "ksi_069e9870-3c4d-7abc-9012-3456789abcde"<br/>
         ///         ]<br/>
+        ///     }<br/>
+        /// }<br/>
+        /// ```<br/>
+        /// ```json<br/>
+        /// {<br/>
+        ///     "location": {<br/>
+        ///         "latitude": 37.5665,<br/>
+        ///         "longitude": 126.978,<br/>
+        ///         "radius_meters": 5000<br/>
         ///     }<br/>
         /// }<br/>
         /// ```<br/>

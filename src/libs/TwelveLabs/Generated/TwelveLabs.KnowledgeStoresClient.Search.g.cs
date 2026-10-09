@@ -46,7 +46,7 @@ namespace TwelveLabs
         /// <summary>
         /// Search a knowledge store<br/>
         /// This method searches a knowledge store using natural language and returns matching video clips and images ranked by relevance.<br/>
-        /// Provide your natural-language query in the `query.text` field. Use the `filter` parameter to choose which items to search: by type of item (the `asset_type` field) or by specific items (the `item_id` field). Use the optional `search_options` parameter to control how videos are matched (by visual content, audio, or both). If you omit it, videos are matched on their visual content. Images are always matched on their visual content.<br/>
+        /// Provide your natural-language query in the `query.text` field. Use the `filter` parameter to choose which items to search: by type of item (the `asset_type` field), by specific items (the `item_id` field), or by capture location (the `location` field). Use the optional `search_options` parameter to control how videos are matched (by visual content, audio, or both). If you omit it, videos are matched on their visual content. Images are always matched on their visual content.<br/>
         /// By default, each result is an individual match: a video clip or an image. Set the `group_by` parameter to `item` to group clips under their parent item.<br/>
         /// &lt;Note title="Note"&gt;<br/>
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
@@ -77,7 +77,7 @@ namespace TwelveLabs
         /// <summary>
         /// Search a knowledge store<br/>
         /// This method searches a knowledge store using natural language and returns matching video clips and images ranked by relevance.<br/>
-        /// Provide your natural-language query in the `query.text` field. Use the `filter` parameter to choose which items to search: by type of item (the `asset_type` field) or by specific items (the `item_id` field). Use the optional `search_options` parameter to control how videos are matched (by visual content, audio, or both). If you omit it, videos are matched on their visual content. Images are always matched on their visual content.<br/>
+        /// Provide your natural-language query in the `query.text` field. Use the `filter` parameter to choose which items to search: by type of item (the `asset_type` field), by specific items (the `item_id` field), or by capture location (the `location` field). Use the optional `search_options` parameter to control how videos are matched (by visual content, audio, or both). If you omit it, videos are matched on their visual content. Images are always matched on their visual content.<br/>
         /// By default, each result is an individual match: a video clip or an image. Set the `group_by` parameter to `item` to group clips under their parent item.<br/>
         /// &lt;Note title="Note"&gt;<br/>
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
@@ -467,6 +467,43 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
+                            // A filter field matches more than 10,000 items. Narrow the field that the message names, then try again.
+                            if ((int)__response.StatusCode == 422)
+                            {
+                                string? __content_422 = null;
+                                global::System.Exception? __exception_422 = null;
+                                global::TwelveLabs.SearchKnowledgeStoreRequestUnprocessableEntityError? __value_422 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_422 = global::TwelveLabs.SearchKnowledgeStoreRequestUnprocessableEntityError.FromJson(__content_422, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_422 = global::TwelveLabs.SearchKnowledgeStoreRequestUnprocessableEntityError.FromJson(__content_422, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_422 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.SearchKnowledgeStoreRequestUnprocessableEntityError>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_422,
+                                    responseBody: __content_422,
+                                    responseObject: __value_422,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
                             // If the rate limit is reached, the platform returns an `HTTP 429 - Too Many Requests` error response. The response body is empty.
                             if ((int)__response.StatusCode == 429)
                             {
@@ -603,7 +640,7 @@ namespace TwelveLabs
         /// <summary>
         /// Search a knowledge store<br/>
         /// This method searches a knowledge store using natural language and returns matching video clips and images ranked by relevance.<br/>
-        /// Provide your natural-language query in the `query.text` field. Use the `filter` parameter to choose which items to search: by type of item (the `asset_type` field) or by specific items (the `item_id` field). Use the optional `search_options` parameter to control how videos are matched (by visual content, audio, or both). If you omit it, videos are matched on their visual content. Images are always matched on their visual content.<br/>
+        /// Provide your natural-language query in the `query.text` field. Use the `filter` parameter to choose which items to search: by type of item (the `asset_type` field), by specific items (the `item_id` field), or by capture location (the `location` field). Use the optional `search_options` parameter to control how videos are matched (by visual content, audio, or both). If you omit it, videos are matched on their visual content. Images are always matched on their visual content.<br/>
         /// By default, each result is an individual match: a video clip or an image. Set the `group_by` parameter to `item` to group clips under their parent item.<br/>
         /// &lt;Note title="Note"&gt;<br/>
         /// This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
@@ -615,7 +652,7 @@ namespace TwelveLabs
         /// </param>
         /// <param name="filter">
         /// Narrows results to specific items in the knowledge store.<br/>
-        /// Filter by type of item (the `asset_type` field) or by specific identifiers (the `item_id` field). Use `eq` to match a single value or `in` to match any value in a list. When you specify multiple fields, the platform applies all conditions together.<br/>
+        /// Filter by type of item (the `asset_type` field), by specific items (the `item_id` field), or by capture location (the `location` field). For `asset_type` and `item_id`, use `eq` to match a single value or `in` to match any value in a list. For `location`, provide the center and radius of a circle. When you specify multiple fields, the platform applies all conditions together.<br/>
         /// Examples:<br/>
         /// ```json<br/>
         /// {<br/>
@@ -635,6 +672,15 @@ namespace TwelveLabs
         ///         "in": [<br/>
         ///             "ksi_069e9870-3c4d-7abc-9012-3456789abcde"<br/>
         ///         ]<br/>
+        ///     }<br/>
+        /// }<br/>
+        /// ```<br/>
+        /// ```json<br/>
+        /// {<br/>
+        ///     "location": {<br/>
+        ///         "latitude": 37.5665,<br/>
+        ///         "longitude": 126.978,<br/>
+        ///         "radius_meters": 5000<br/>
         ///     }<br/>
         /// }<br/>
         /// ```<br/>
