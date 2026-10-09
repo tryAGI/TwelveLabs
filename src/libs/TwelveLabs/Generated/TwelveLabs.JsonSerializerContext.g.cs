@@ -212,6 +212,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AssetTypeFilter))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoreItemAssetType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ItemIdFilter))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.GeoCircleFilter))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchKnowledgeStoreFilter))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSearchModality), TypeInfoPropertyName = "VideoSearchModality2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSearchOptions))]
@@ -237,6 +238,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchKnowledgeStoreRequestBadRequestError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchKnowledgeStoreRequestNotFoundError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchKnowledgeStoreRequestGoneError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchKnowledgeStoreRequestUnprocessableEntityError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItemStatus), TypeInfoPropertyName = "KnowledgeStoreItemStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoMetadataAssetType), TypeInfoPropertyName = "VideoMetadataAssetType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ImageMetadataAssetType), TypeInfoPropertyName = "ImageMetadataAssetType2")]
@@ -507,8 +509,6 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TemporalSegmentationVariant1Strategy), TypeInfoPropertyName = "TemporalSegmentationVariant1Strategy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TemporalSegmentationVariant2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TemporalSegmentationVariant2Strategy), TypeInfoPropertyName = "TemporalSegmentationVariant2Strategy2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TemporalSegmentationDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TemporalSegmentationDiscriminatorStrategy), TypeInfoPropertyName = "TemporalSegmentationDiscriminatorStrategy2")]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -519,6 +519,8 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
         DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
     )]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TemporalSegmentationDiscriminator))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.TemporalSegmentationDiscriminatorStrategy), TypeInfoPropertyName = "TemporalSegmentationDiscriminatorStrategy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncTemporalSegmentation))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncAudioInputRequestSegmentation), TypeInfoPropertyName = "AsyncAudioInputRequestSegmentation2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AsyncAudioInputRequestEmbeddingOptionItems), TypeInfoPropertyName = "AsyncAudioInputRequestEmbeddingOptionItems2")]
@@ -1017,8 +1019,6 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.ResponseOutputContentPart>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.ResponseOutputItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.IndexModelsItems>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.Index>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<double>))]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1029,6 +1029,8 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
         DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
     )]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.Index>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.VideoSegment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.TranscriptionDataItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.IndexedAsset>))]

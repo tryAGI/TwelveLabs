@@ -4,8 +4,8 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// A JSON Schema (draft 2020-12) that defines the structure of metadata to<br/>
-    /// extract from each video shot. The platform accepts only the JSON Schema keywords<br/>
+    /// A JSON Schema (&lt;a href="https://json-schema.org/draft/2020-12" target="_blank"&gt;draft 2020-12&lt;/a&gt;) that defines the structure of metadata to<br/>
+    /// extract. The platform accepts only the JSON Schema keywords<br/>
     /// listed below; unknown keywords return a `422` error. Keep schemas<br/>
     /// focused — deeply nested or overly complex schemas may degrade extraction quality.<br/>
     /// **Supported keywords**<br/>
@@ -16,11 +16,13 @@ namespace TwelveLabs
     /// | Array | `items`, `prefixItems`, `minItems`, `maxItems` |<br/>
     /// | Number | `minimum`, `maximum` |<br/>
     /// | String | `format` |<br/>
+    /// | Extraction | `granularity` |<br/>
     /// Notes:<br/>
     /// - The root `type` keyword must be `"object"`.<br/>
+    /// - The `granularity` keyword sets how often the platform extracts a top-level property. Use `shot` to extract a value for each shot of a video, `video` to extract one value for each video, or `image` to extract one value for each image. The default is `shot`. The platform extracts `shot` and `video` properties only from videos, and `image` properties only from images. It returns `video` and `image` values in the [`enriched_metadata`](/v1.3/api-reference/knowledge-store-items/retrieve#response.body.enriched_metadata) field of the item. A `granularity` keyword on a nested property returns a `422` error.<br/>
     /// - Every entry under the `properties` keyword (including nested ones) must include a<br/>
     ///   `description` field. This text guides extraction quality.<br/>
-    /// - The `required` keyword behaves as in standard JSON Schema.<br/>
+    /// - The `required` keyword behaves as in standard JSON Schema, at the granularity of each property: a required `shot` property has a value for each shot, and a required `video` property has one for each video.<br/>
     /// - The `additionalProperties` keyword accepts a boolean value (`true` or `false`). Use<br/>
     ///   `false` to enforce strict shapes. The platform does not support schema-valued forms.<br/>
     /// - **Unknown keywords return `422` — they are not silently ignored.** If you<br/>

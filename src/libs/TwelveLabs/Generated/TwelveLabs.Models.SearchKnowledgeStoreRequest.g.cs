@@ -18,7 +18,7 @@ namespace TwelveLabs
 
         /// <summary>
         /// Narrows results to specific items in the knowledge store.<br/>
-        /// Filter by type of item (the `asset_type` field) or by specific identifiers (the `item_id` field). Use `eq` to match a single value or `in` to match any value in a list. When you specify multiple fields, the platform applies all conditions together.<br/>
+        /// Filter by type of item (the `asset_type` field), by specific items (the `item_id` field), or by capture location (the `location` field). For `asset_type` and `item_id`, use `eq` to match a single value or `in` to match any value in a list. For `location`, provide the center and radius of a circle. When you specify multiple fields, the platform applies all conditions together.<br/>
         /// Examples:<br/>
         /// ```json<br/>
         /// {<br/>
@@ -38,6 +38,15 @@ namespace TwelveLabs
         ///         "in": [<br/>
         ///             "ksi_069e9870-3c4d-7abc-9012-3456789abcde"<br/>
         ///         ]<br/>
+        ///     }<br/>
+        /// }<br/>
+        /// ```<br/>
+        /// ```json<br/>
+        /// {<br/>
+        ///     "location": {<br/>
+        ///         "latitude": 37.5665,<br/>
+        ///         "longitude": 126.978,<br/>
+        ///         "radius_meters": 5000<br/>
         ///     }<br/>
         /// }<br/>
         /// ```<br/>
@@ -101,7 +110,7 @@ namespace TwelveLabs
         /// </param>
         /// <param name="filter">
         /// Narrows results to specific items in the knowledge store.<br/>
-        /// Filter by type of item (the `asset_type` field) or by specific identifiers (the `item_id` field). Use `eq` to match a single value or `in` to match any value in a list. When you specify multiple fields, the platform applies all conditions together.<br/>
+        /// Filter by type of item (the `asset_type` field), by specific items (the `item_id` field), or by capture location (the `location` field). For `asset_type` and `item_id`, use `eq` to match a single value or `in` to match any value in a list. For `location`, provide the center and radius of a circle. When you specify multiple fields, the platform applies all conditions together.<br/>
         /// Examples:<br/>
         /// ```json<br/>
         /// {<br/>
@@ -121,6 +130,15 @@ namespace TwelveLabs
         ///         "in": [<br/>
         ///             "ksi_069e9870-3c4d-7abc-9012-3456789abcde"<br/>
         ///         ]<br/>
+        ///     }<br/>
+        /// }<br/>
+        /// ```<br/>
+        /// ```json<br/>
+        /// {<br/>
+        ///     "location": {<br/>
+        ///         "latitude": 37.5665,<br/>
+        ///         "longitude": 126.978,<br/>
+        ///         "radius_meters": 5000<br/>
         ///     }<br/>
         /// }<br/>
         /// ```<br/>
