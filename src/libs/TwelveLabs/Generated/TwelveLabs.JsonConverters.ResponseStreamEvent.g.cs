@@ -92,16 +92,6 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("type")) __score3++;
             var __score4 = 0;
             if (__jsonProps.Contains("item")) __score4++;
-            if (__jsonProps.Contains("item.arguments")) __score4++;
-            if (__jsonProps.Contains("item.call_id")) __score4++;
-            if (__jsonProps.Contains("item.content")) __score4++;
-            if (__jsonProps.Contains("item.id")) __score4++;
-            if (__jsonProps.Contains("item.name")) __score4++;
-            if (__jsonProps.Contains("item.output")) __score4++;
-            if (__jsonProps.Contains("item.phase")) __score4++;
-            if (__jsonProps.Contains("item.role")) __score4++;
-            if (__jsonProps.Contains("item.status")) __score4++;
-            if (__jsonProps.Contains("item.type")) __score4++;
             if (__jsonProps.Contains("output_index")) __score4++;
             if (__jsonProps.Contains("sequence_number")) __score4++;
             if (__jsonProps.Contains("type")) __score4++;
@@ -141,16 +131,6 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("type")) __score8++;
             var __score9 = 0;
             if (__jsonProps.Contains("item")) __score9++;
-            if (__jsonProps.Contains("item.arguments")) __score9++;
-            if (__jsonProps.Contains("item.call_id")) __score9++;
-            if (__jsonProps.Contains("item.content")) __score9++;
-            if (__jsonProps.Contains("item.id")) __score9++;
-            if (__jsonProps.Contains("item.name")) __score9++;
-            if (__jsonProps.Contains("item.output")) __score9++;
-            if (__jsonProps.Contains("item.phase")) __score9++;
-            if (__jsonProps.Contains("item.role")) __score9++;
-            if (__jsonProps.Contains("item.status")) __score9++;
-            if (__jsonProps.Contains("item.type")) __score9++;
             if (__jsonProps.Contains("output_index")) __score9++;
             if (__jsonProps.Contains("sequence_number")) __score9++;
             if (__jsonProps.Contains("type")) __score9++;
@@ -161,8 +141,23 @@ namespace TwelveLabs.JsonConverters
             if (__jsonProps.Contains("sequence_number")) __score10++;
             if (__jsonProps.Contains("type")) __score10++;
             var __score11 = 0;
+            if (__jsonProps.Contains("item_id")) __score11++;
+            if (__jsonProps.Contains("output_index")) __score11++;
             if (__jsonProps.Contains("sequence_number")) __score11++;
             if (__jsonProps.Contains("type")) __score11++;
+            var __score12 = 0;
+            if (__jsonProps.Contains("item_id")) __score12++;
+            if (__jsonProps.Contains("output_index")) __score12++;
+            if (__jsonProps.Contains("sequence_number")) __score12++;
+            if (__jsonProps.Contains("type")) __score12++;
+            var __score13 = 0;
+            if (__jsonProps.Contains("item_id")) __score13++;
+            if (__jsonProps.Contains("output_index")) __score13++;
+            if (__jsonProps.Contains("sequence_number")) __score13++;
+            if (__jsonProps.Contains("type")) __score13++;
+            var __score14 = 0;
+            if (__jsonProps.Contains("sequence_number")) __score14++;
+            if (__jsonProps.Contains("type")) __score14++;
             var __bestScore = 0;
             var __bestIndex = -1;
             if (__score0 > __bestScore) { __bestScore = __score0; __bestIndex = 0; }
@@ -177,6 +172,9 @@ namespace TwelveLabs.JsonConverters
             if (__score9 > __bestScore) { __bestScore = __score9; __bestIndex = 9; }
             if (__score10 > __bestScore) { __bestScore = __score10; __bestIndex = 10; }
             if (__score11 > __bestScore) { __bestScore = __score11; __bestIndex = 11; }
+            if (__score12 > __bestScore) { __bestScore = __score12; __bestIndex = 12; }
+            if (__score13 > __bestScore) { __bestScore = __score13; __bestIndex = 13; }
+            if (__score14 > __bestScore) { __bestScore = __score14; __bestIndex = 14; }
 
             global::TwelveLabs.ResponseStreamEventVariant1? responseStreamEventVariant1 = default;
             global::TwelveLabs.ResponseStreamEventVariant2? responseStreamEventVariant2 = default;
@@ -189,7 +187,10 @@ namespace TwelveLabs.JsonConverters
             global::TwelveLabs.ResponseStreamEventVariant9? responseContentPartDone = default;
             global::TwelveLabs.ResponseStreamEventVariant10? responseOutputItemDone = default;
             global::TwelveLabs.ResponseStreamEventVariant11? responseFunctionCallArgumentsDone = default;
-            global::TwelveLabs.ResponseStreamEventVariant12? keepalive = default;
+            global::TwelveLabs.ResponseStreamEventVariant12? responseStreamEventVariant12 = default;
+            global::TwelveLabs.ResponseStreamEventVariant13? responseStreamEventVariant13 = default;
+            global::TwelveLabs.ResponseStreamEventVariant14? responseStreamEventVariant14 = default;
+            global::TwelveLabs.ResponseStreamEventVariant15? keepalive = default;
             if (__bestIndex >= 0)
             {
                 if (__bestIndex == 0)
@@ -363,6 +364,51 @@ namespace TwelveLabs.JsonConverters
                     {
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.ResponseStreamEventVariant12), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.ResponseStreamEventVariant12> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.ResponseStreamEventVariant12).Name}");
+                        responseStreamEventVariant12 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+                else if (__bestIndex == 12)
+                {
+                    try
+                    {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.ResponseStreamEventVariant13), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.ResponseStreamEventVariant13> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.ResponseStreamEventVariant13).Name}");
+                        responseStreamEventVariant13 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+                else if (__bestIndex == 13)
+                {
+                    try
+                    {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.ResponseStreamEventVariant14), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.ResponseStreamEventVariant14> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.ResponseStreamEventVariant14).Name}");
+                        responseStreamEventVariant14 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    }
+                    catch (global::System.Text.Json.JsonException)
+                    {
+                    }
+                    catch (global::System.InvalidOperationException)
+                    {
+                    }
+                }
+                else if (__bestIndex == 14)
+                {
+                    try
+                    {
+                        var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.ResponseStreamEventVariant15), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.ResponseStreamEventVariant15> ??
+                                       throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.ResponseStreamEventVariant15).Name}");
                         keepalive = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
@@ -374,7 +420,7 @@ namespace TwelveLabs.JsonConverters
                 }
             }
 
-            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && keepalive == null)
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
             {
                 try
                 {
@@ -391,7 +437,7 @@ namespace TwelveLabs.JsonConverters
                 }
             }
 
-            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && keepalive == null)
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
             {
                 try
                 {
@@ -408,7 +454,7 @@ namespace TwelveLabs.JsonConverters
                 }
             }
 
-            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && keepalive == null)
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
             {
                 try
                 {
@@ -425,7 +471,7 @@ namespace TwelveLabs.JsonConverters
                 }
             }
 
-            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && keepalive == null)
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
             {
                 try
                 {
@@ -442,7 +488,7 @@ namespace TwelveLabs.JsonConverters
                 }
             }
 
-            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && keepalive == null)
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
             {
                 try
                 {
@@ -459,7 +505,7 @@ namespace TwelveLabs.JsonConverters
                 }
             }
 
-            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && keepalive == null)
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
             {
                 try
                 {
@@ -476,7 +522,7 @@ namespace TwelveLabs.JsonConverters
                 }
             }
 
-            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && keepalive == null)
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
             {
                 try
                 {
@@ -493,7 +539,7 @@ namespace TwelveLabs.JsonConverters
                 }
             }
 
-            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && keepalive == null)
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
             {
                 try
                 {
@@ -510,7 +556,7 @@ namespace TwelveLabs.JsonConverters
                 }
             }
 
-            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && keepalive == null)
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
             {
                 try
                 {
@@ -527,7 +573,7 @@ namespace TwelveLabs.JsonConverters
                 }
             }
 
-            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && keepalive == null)
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
             {
                 try
                 {
@@ -544,7 +590,7 @@ namespace TwelveLabs.JsonConverters
                 }
             }
 
-            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && keepalive == null)
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
             {
                 try
                 {
@@ -561,13 +607,64 @@ namespace TwelveLabs.JsonConverters
                 }
             }
 
-            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && keepalive == null)
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
             {
                 try
                 {
 
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.ResponseStreamEventVariant12), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.ResponseStreamEventVariant12> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.ResponseStreamEventVariant12).Name}");
+                    responseStreamEventVariant12 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+            }
+
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
+            {
+                try
+                {
+
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.ResponseStreamEventVariant13), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.ResponseStreamEventVariant13> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.ResponseStreamEventVariant13).Name}");
+                    responseStreamEventVariant13 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+            }
+
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
+            {
+                try
+                {
+
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.ResponseStreamEventVariant14), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.ResponseStreamEventVariant14> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.ResponseStreamEventVariant14).Name}");
+                    responseStreamEventVariant14 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                }
+                catch (global::System.Text.Json.JsonException)
+                {
+                }
+                catch (global::System.InvalidOperationException)
+                {
+                }
+            }
+
+            if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null && keepalive == null)
+            {
+                try
+                {
+
+                    var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.ResponseStreamEventVariant15), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.ResponseStreamEventVariant15> ??
+                                   throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.ResponseStreamEventVariant15).Name}");
                     keepalive = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
@@ -600,6 +697,12 @@ namespace TwelveLabs.JsonConverters
                 responseOutputItemDone,
 
                 responseFunctionCallArgumentsDone,
+
+                responseStreamEventVariant12,
+
+                responseStreamEventVariant13,
+
+                responseStreamEventVariant14,
 
                 keepalive
                 );
@@ -682,10 +785,28 @@ namespace TwelveLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.ResponseStreamEventVariant11).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickResponseFunctionCallArgumentsDone(), typeInfo);
             }
-            else if (value.IsKeepalive)
+            else if (value.IsResponseStreamEventVariant12)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.ResponseStreamEventVariant12), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.ResponseStreamEventVariant12?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.ResponseStreamEventVariant12).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickResponseStreamEventVariant12(), typeInfo);
+            }
+            else if (value.IsResponseStreamEventVariant13)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.ResponseStreamEventVariant13), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.ResponseStreamEventVariant13?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.ResponseStreamEventVariant13).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickResponseStreamEventVariant13(), typeInfo);
+            }
+            else if (value.IsResponseStreamEventVariant14)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.ResponseStreamEventVariant14), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.ResponseStreamEventVariant14?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.ResponseStreamEventVariant14).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickResponseStreamEventVariant14(), typeInfo);
+            }
+            else if (value.IsKeepalive)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::TwelveLabs.ResponseStreamEventVariant15), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::TwelveLabs.ResponseStreamEventVariant15?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::TwelveLabs.ResponseStreamEventVariant15).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickKeepalive(), typeInfo);
             }
         }

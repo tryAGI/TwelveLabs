@@ -29,9 +29,12 @@ namespace TwelveLabs
         public int? OutputIndex { get; set; }
 
         /// <summary>
-        /// An item in the response output. Items are polymorphic and discriminated by the `type` field.
+        /// An item in the response output. Use `type` to distinguish messages,<br/>
+        /// function calls, function results, and hosted web-search calls.<br/>
+        /// An item has the same `id` in streaming events and the final response.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("item")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.ResponseOutputItemJsonConverter))]
         public global::TwelveLabs.ResponseOutputItem? Item { get; set; }
 
         /// <summary>
@@ -53,7 +56,9 @@ namespace TwelveLabs
         /// The index of the output item.
         /// </param>
         /// <param name="item">
-        /// An item in the response output. Items are polymorphic and discriminated by the `type` field.
+        /// An item in the response output. Use `type` to distinguish messages,<br/>
+        /// function calls, function results, and hosted web-search calls.<br/>
+        /// An item has the same `id` in streaming events and the final response.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

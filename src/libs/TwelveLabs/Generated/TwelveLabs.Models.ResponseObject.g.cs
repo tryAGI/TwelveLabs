@@ -66,7 +66,8 @@ namespace TwelveLabs
 
         /// <summary>
         /// The response output items. By default, only the final message is included.<br/>
-        /// Set `include` to `["intermediate_outputs"]` in the request to receive function call items.
+        /// Set `include` to `["intermediate_outputs"]` to also receive intermediate<br/>
+        /// messages, function calls and results, and `jockey:web_search` items.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.ResponseOutputItem>? Output { get; set; }
@@ -126,7 +127,8 @@ namespace TwelveLabs
         /// </param>
         /// <param name="output">
         /// The response output items. By default, only the final message is included.<br/>
-        /// Set `include` to `["intermediate_outputs"]` in the request to receive function call items.
+        /// Set `include` to `["intermediate_outputs"]` to also receive intermediate<br/>
+        /// messages, function calls and results, and `jockey:web_search` items.
         /// </param>
         /// <param name="usage">
         /// Token usage statistics.

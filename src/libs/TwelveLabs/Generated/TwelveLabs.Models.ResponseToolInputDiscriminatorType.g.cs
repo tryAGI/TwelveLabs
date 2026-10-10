@@ -4,40 +4,40 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The role of the message author. Present when `type` is `message`.
+    ///
     /// </summary>
-    public enum ResponseOutputItemRole
+    public enum ResponseToolInputDiscriminatorType
     {
         /// <summary>
         ///
         /// </summary>
-        Assistant,
+        Jockey_webSearch,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class ResponseOutputItemRoleExtensions
+    public static class ResponseToolInputDiscriminatorTypeExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this ResponseOutputItemRole value)
+        public static string ToValueString(this ResponseToolInputDiscriminatorType value)
         {
             return value switch
             {
-                ResponseOutputItemRole.Assistant => "assistant",
+                ResponseToolInputDiscriminatorType.Jockey_webSearch => "jockey:web_search",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static ResponseOutputItemRole? ToEnum(string value)
+        public static ResponseToolInputDiscriminatorType? ToEnum(string value)
         {
             return value switch
             {
-                "assistant" => ResponseOutputItemRole.Assistant,
+                "jockey:web_search" => ResponseToolInputDiscriminatorType.Jockey_webSearch,
                 _ => null,
             };
         }

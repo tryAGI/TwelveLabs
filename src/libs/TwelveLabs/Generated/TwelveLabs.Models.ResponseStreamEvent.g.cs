@@ -17,9 +17,18 @@ namespace TwelveLabs
     /// - `response.content_part.done` — A content part is finalized.<br/>
     /// - `response.function_call_arguments.done` — Function call arguments are complete.<br/>
     /// - `response.output_item.done` — An output item is finalized.<br/>
+    /// - `jockey:web_search.in_progress` — A hosted search call is in progress.<br/>
+    /// - `jockey:web_search.searching` — A hosted search call is searching.<br/>
+    /// - `jockey:web_search.completed` — A hosted search call reports completion.<br/>
     /// - `response.completed` — The response is complete.<br/>
     /// - `response.failed` — The response has failed.<br/>
     /// - `keepalive` — Heartbeat sent periodically while no other events are being emitted (for example, during a long tool call). It contains no response data and can be ignored.<br/>
+    /// Hosted-search progress events are included only when the request sets<br/>
+    /// `include: ["intermediate_outputs"]`. Match `item_id` to the corresponding<br/>
+    /// `jockey:web_search` output item and read query text from that item's `action.queries`.<br/>
+    /// Not every search emits every phase. Some searches emit only item events.<br/>
+    /// Do not require a `searching` or `completed` progress event to process the response.<br/>
+    /// You can ignore progress events and reconstruct the output from standard item events and the final response.<br/>
     /// The stream ends with a `data: [DONE]` message.<br/>
     /// Events are identified by `type` alone and have no `object` field, unlike the<br/>
     /// response object. Consumers must ignore frames whose `type` doesn't match one<br/>
@@ -439,6 +448,120 @@ namespace TwelveLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseFunctionCallArgumentsDone' but the value was {ToString()}.");
 
         /// <summary>
+        /// Progress for a web-search call. Included only when the request sets `include: ["intermediate_outputs"]`.<br/>
+        /// The `item_id` links to the corresponding `jockey:web_search` output item.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::TwelveLabs.ResponseStreamEventVariant12? ResponseStreamEventVariant12 { get; init; }
+#else
+        public global::TwelveLabs.ResponseStreamEventVariant12? ResponseStreamEventVariant12 { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseStreamEventVariant12))]
+#endif
+        public bool IsResponseStreamEventVariant12 => ResponseStreamEventVariant12 != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickResponseStreamEventVariant12(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.ResponseStreamEventVariant12? value)
+        {
+            value = ResponseStreamEventVariant12;
+            return IsResponseStreamEventVariant12;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::TwelveLabs.ResponseStreamEventVariant12 PickResponseStreamEventVariant12() => ResponseStreamEventVariant12 is { } value
+            ? value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseStreamEventVariant12' but the value was {ToString()}.");
+
+        /// <summary>
+        /// Progress for a web-search call. Included only when the request sets `include: ["intermediate_outputs"]`.<br/>
+        /// The `item_id` links to the corresponding `jockey:web_search` output item.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::TwelveLabs.ResponseStreamEventVariant13? ResponseStreamEventVariant13 { get; init; }
+#else
+        public global::TwelveLabs.ResponseStreamEventVariant13? ResponseStreamEventVariant13 { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseStreamEventVariant13))]
+#endif
+        public bool IsResponseStreamEventVariant13 => ResponseStreamEventVariant13 != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickResponseStreamEventVariant13(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.ResponseStreamEventVariant13? value)
+        {
+            value = ResponseStreamEventVariant13;
+            return IsResponseStreamEventVariant13;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::TwelveLabs.ResponseStreamEventVariant13 PickResponseStreamEventVariant13() => ResponseStreamEventVariant13 is { } value
+            ? value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseStreamEventVariant13' but the value was {ToString()}.");
+
+        /// <summary>
+        /// Progress for a web-search call. Included only when the request sets `include: ["intermediate_outputs"]`.<br/>
+        /// The `item_id` links to the corresponding `jockey:web_search` output item.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::TwelveLabs.ResponseStreamEventVariant14? ResponseStreamEventVariant14 { get; init; }
+#else
+        public global::TwelveLabs.ResponseStreamEventVariant14? ResponseStreamEventVariant14 { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ResponseStreamEventVariant14))]
+#endif
+        public bool IsResponseStreamEventVariant14 => ResponseStreamEventVariant14 != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickResponseStreamEventVariant14(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::TwelveLabs.ResponseStreamEventVariant14? value)
+        {
+            value = ResponseStreamEventVariant14;
+            return IsResponseStreamEventVariant14;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::TwelveLabs.ResponseStreamEventVariant14 PickResponseStreamEventVariant14() => ResponseStreamEventVariant14 is { } value
+            ? value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'ResponseStreamEventVariant14' but the value was {ToString()}.");
+
+        /// <summary>
         /// A heartbeat frame the server sends about every 10 seconds when no other<br/>
         /// event has been emitted, for example while a tool call is still running.<br/>
         /// It carries no response data. Use it to keep the connection alive and to<br/>
@@ -448,9 +571,9 @@ namespace TwelveLabs
         /// not mean events were dropped.
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::TwelveLabs.ResponseStreamEventVariant12? Keepalive { get; init; }
+        public global::TwelveLabs.ResponseStreamEventVariant15? Keepalive { get; init; }
 #else
-        public global::TwelveLabs.ResponseStreamEventVariant12? Keepalive { get; }
+        public global::TwelveLabs.ResponseStreamEventVariant15? Keepalive { get; }
 #endif
 
         /// <summary>
@@ -468,7 +591,7 @@ namespace TwelveLabs
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::TwelveLabs.ResponseStreamEventVariant12? value)
+            out global::TwelveLabs.ResponseStreamEventVariant15? value)
         {
             value = Keepalive;
             return IsKeepalive;
@@ -477,7 +600,7 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.ResponseStreamEventVariant12 PickKeepalive() => Keepalive is { } value
+        public global::TwelveLabs.ResponseStreamEventVariant15 PickKeepalive() => Keepalive is { } value
             ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Keepalive' but the value was {ToString()}.");
         /// <summary>
@@ -741,12 +864,81 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::TwelveLabs.ResponseStreamEventVariant12?(ResponseStreamEvent @this) => @this.Keepalive;
+        public static implicit operator global::TwelveLabs.ResponseStreamEventVariant12?(ResponseStreamEvent @this) => @this.ResponseStreamEventVariant12;
 
         /// <summary>
         ///
         /// </summary>
         public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant12? value)
+        {
+            ResponseStreamEventVariant12 = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static ResponseStreamEvent FromResponseStreamEventVariant12(global::TwelveLabs.ResponseStreamEventVariant12? value) => new ResponseStreamEvent(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant13 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant13?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::TwelveLabs.ResponseStreamEventVariant13?(ResponseStreamEvent @this) => @this.ResponseStreamEventVariant13;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant13? value)
+        {
+            ResponseStreamEventVariant13 = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static ResponseStreamEvent FromResponseStreamEventVariant13(global::TwelveLabs.ResponseStreamEventVariant13? value) => new ResponseStreamEvent(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant14 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant14?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::TwelveLabs.ResponseStreamEventVariant14?(ResponseStreamEvent @this) => @this.ResponseStreamEventVariant14;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant14? value)
+        {
+            ResponseStreamEventVariant14 = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static ResponseStreamEvent FromResponseStreamEventVariant14(global::TwelveLabs.ResponseStreamEventVariant14? value) => new ResponseStreamEvent(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant15 value) => new ResponseStreamEvent((global::TwelveLabs.ResponseStreamEventVariant15?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::TwelveLabs.ResponseStreamEventVariant15?(ResponseStreamEvent @this) => @this.Keepalive;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ResponseStreamEvent(global::TwelveLabs.ResponseStreamEventVariant15? value)
         {
             Keepalive = value;
         }
@@ -754,7 +946,7 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public static ResponseStreamEvent FromKeepalive(global::TwelveLabs.ResponseStreamEventVariant12? value) => new ResponseStreamEvent(value);
+        public static ResponseStreamEvent FromKeepalive(global::TwelveLabs.ResponseStreamEventVariant15? value) => new ResponseStreamEvent(value);
 
         /// <summary>
         ///
@@ -771,7 +963,10 @@ namespace TwelveLabs
             global::TwelveLabs.ResponseStreamEventVariant9? responseContentPartDone,
             global::TwelveLabs.ResponseStreamEventVariant10? responseOutputItemDone,
             global::TwelveLabs.ResponseStreamEventVariant11? responseFunctionCallArgumentsDone,
-            global::TwelveLabs.ResponseStreamEventVariant12? keepalive
+            global::TwelveLabs.ResponseStreamEventVariant12? responseStreamEventVariant12,
+            global::TwelveLabs.ResponseStreamEventVariant13? responseStreamEventVariant13,
+            global::TwelveLabs.ResponseStreamEventVariant14? responseStreamEventVariant14,
+            global::TwelveLabs.ResponseStreamEventVariant15? keepalive
             )
         {
             ResponseStreamEventVariant1 = responseStreamEventVariant1;
@@ -785,6 +980,9 @@ namespace TwelveLabs
             ResponseContentPartDone = responseContentPartDone;
             ResponseOutputItemDone = responseOutputItemDone;
             ResponseFunctionCallArgumentsDone = responseFunctionCallArgumentsDone;
+            ResponseStreamEventVariant12 = responseStreamEventVariant12;
+            ResponseStreamEventVariant13 = responseStreamEventVariant13;
+            ResponseStreamEventVariant14 = responseStreamEventVariant14;
             Keepalive = keepalive;
         }
 
@@ -793,6 +991,9 @@ namespace TwelveLabs
         /// </summary>
         public object? Object =>
             Keepalive as object ??
+            ResponseStreamEventVariant14 as object ??
+            ResponseStreamEventVariant13 as object ??
+            ResponseStreamEventVariant12 as object ??
             ResponseFunctionCallArgumentsDone as object ??
             ResponseOutputItemDone as object ??
             ResponseContentPartDone as object ??
@@ -821,6 +1022,9 @@ namespace TwelveLabs
             ResponseContentPartDone?.ToString() ??
             ResponseOutputItemDone?.ToString() ??
             ResponseFunctionCallArgumentsDone?.ToString() ??
+            ResponseStreamEventVariant12?.ToString() ??
+            ResponseStreamEventVariant13?.ToString() ??
+            ResponseStreamEventVariant14?.ToString() ??
             Keepalive?.ToString()
             ;
 
@@ -829,7 +1033,7 @@ namespace TwelveLabs
         /// </summary>
         public bool Validate()
         {
-            return IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsKeepalive || !IsResponseStreamEventVariant1 && IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && IsResponseFunctionCallArgumentsDone && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && IsKeepalive;
+            return IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && IsResponseStreamEventVariant14 && !IsKeepalive || !IsResponseStreamEventVariant1 && !IsResponseStreamEventVariant2 && !IsResponseStreamEventVariant3 && !IsResponseStreamEventVariant4 && !IsResponseOutputItemAdded && !IsResponseContentPartAdded && !IsResponseOutputTextDelta && !IsResponseOutputTextDone && !IsResponseContentPartDone && !IsResponseOutputItemDone && !IsResponseFunctionCallArgumentsDone && !IsResponseStreamEventVariant12 && !IsResponseStreamEventVariant13 && !IsResponseStreamEventVariant14 && IsKeepalive;
         }
 
         /// <summary>
@@ -847,7 +1051,10 @@ namespace TwelveLabs
             global::System.Func<global::TwelveLabs.ResponseStreamEventVariant9, TResult>? responseContentPartDone = null,
             global::System.Func<global::TwelveLabs.ResponseStreamEventVariant10, TResult>? responseOutputItemDone = null,
             global::System.Func<global::TwelveLabs.ResponseStreamEventVariant11, TResult>? responseFunctionCallArgumentsDone = null,
-            global::System.Func<global::TwelveLabs.ResponseStreamEventVariant12, TResult>? keepalive = null,
+            global::System.Func<global::TwelveLabs.ResponseStreamEventVariant12, TResult>? responseStreamEventVariant12 = null,
+            global::System.Func<global::TwelveLabs.ResponseStreamEventVariant13, TResult>? responseStreamEventVariant13 = null,
+            global::System.Func<global::TwelveLabs.ResponseStreamEventVariant14, TResult>? responseStreamEventVariant14 = null,
+            global::System.Func<global::TwelveLabs.ResponseStreamEventVariant15, TResult>? keepalive = null,
             bool validate = true)
         {
             if (validate)
@@ -899,9 +1106,21 @@ namespace TwelveLabs
             {
                 return responseFunctionCallArgumentsDone(__value10);
             }
-            else if (Keepalive is { } __value11 && keepalive != null)
+            else if (ResponseStreamEventVariant12 is { } __value11 && responseStreamEventVariant12 != null)
             {
-                return keepalive(__value11);
+                return responseStreamEventVariant12(__value11);
+            }
+            else if (ResponseStreamEventVariant13 is { } __value12 && responseStreamEventVariant13 != null)
+            {
+                return responseStreamEventVariant13(__value12);
+            }
+            else if (ResponseStreamEventVariant14 is { } __value13 && responseStreamEventVariant14 != null)
+            {
+                return responseStreamEventVariant14(__value13);
+            }
+            else if (Keepalive is { } __value14 && keepalive != null)
+            {
+                return keepalive(__value14);
             }
 
             return default(TResult);
@@ -933,7 +1152,13 @@ namespace TwelveLabs
 
             global::System.Action<global::TwelveLabs.ResponseStreamEventVariant11>? responseFunctionCallArgumentsDone = null,
 
-            global::System.Action<global::TwelveLabs.ResponseStreamEventVariant12>? keepalive = null,
+            global::System.Action<global::TwelveLabs.ResponseStreamEventVariant12>? responseStreamEventVariant12 = null,
+
+            global::System.Action<global::TwelveLabs.ResponseStreamEventVariant13>? responseStreamEventVariant13 = null,
+
+            global::System.Action<global::TwelveLabs.ResponseStreamEventVariant14>? responseStreamEventVariant14 = null,
+
+            global::System.Action<global::TwelveLabs.ResponseStreamEventVariant15>? keepalive = null,
             bool validate = true)
         {
             if (validate)
@@ -985,9 +1210,21 @@ namespace TwelveLabs
             {
                 responseFunctionCallArgumentsDone?.Invoke(__value10);
             }
-            else if (Keepalive is { } __value11)
+            else if (ResponseStreamEventVariant12 is { } __value11)
             {
-                keepalive?.Invoke(__value11);
+                responseStreamEventVariant12?.Invoke(__value11);
+            }
+            else if (ResponseStreamEventVariant13 is { } __value12)
+            {
+                responseStreamEventVariant13?.Invoke(__value12);
+            }
+            else if (ResponseStreamEventVariant14 is { } __value13)
+            {
+                responseStreamEventVariant14?.Invoke(__value13);
+            }
+            else if (Keepalive is { } __value14)
+            {
+                keepalive?.Invoke(__value14);
             }
         }
 
@@ -1006,7 +1243,10 @@ namespace TwelveLabs
             global::System.Action<global::TwelveLabs.ResponseStreamEventVariant9>? responseContentPartDone = null,
             global::System.Action<global::TwelveLabs.ResponseStreamEventVariant10>? responseOutputItemDone = null,
             global::System.Action<global::TwelveLabs.ResponseStreamEventVariant11>? responseFunctionCallArgumentsDone = null,
-            global::System.Action<global::TwelveLabs.ResponseStreamEventVariant12>? keepalive = null,
+            global::System.Action<global::TwelveLabs.ResponseStreamEventVariant12>? responseStreamEventVariant12 = null,
+            global::System.Action<global::TwelveLabs.ResponseStreamEventVariant13>? responseStreamEventVariant13 = null,
+            global::System.Action<global::TwelveLabs.ResponseStreamEventVariant14>? responseStreamEventVariant14 = null,
+            global::System.Action<global::TwelveLabs.ResponseStreamEventVariant15>? keepalive = null,
             bool validate = true)
         {
             if (validate)
@@ -1058,9 +1298,21 @@ namespace TwelveLabs
             {
                 responseFunctionCallArgumentsDone?.Invoke(__value10);
             }
-            else if (Keepalive is { } __value11)
+            else if (ResponseStreamEventVariant12 is { } __value11)
             {
-                keepalive?.Invoke(__value11);
+                responseStreamEventVariant12?.Invoke(__value11);
+            }
+            else if (ResponseStreamEventVariant13 is { } __value12)
+            {
+                responseStreamEventVariant13?.Invoke(__value12);
+            }
+            else if (ResponseStreamEventVariant14 is { } __value13)
+            {
+                responseStreamEventVariant14?.Invoke(__value13);
+            }
+            else if (Keepalive is { } __value14)
+            {
+                keepalive?.Invoke(__value14);
             }
         }
 
@@ -1093,8 +1345,14 @@ namespace TwelveLabs
                 typeof(global::TwelveLabs.ResponseStreamEventVariant10),
                 ResponseFunctionCallArgumentsDone,
                 typeof(global::TwelveLabs.ResponseStreamEventVariant11),
-                Keepalive,
+                ResponseStreamEventVariant12,
                 typeof(global::TwelveLabs.ResponseStreamEventVariant12),
+                ResponseStreamEventVariant13,
+                typeof(global::TwelveLabs.ResponseStreamEventVariant13),
+                ResponseStreamEventVariant14,
+                typeof(global::TwelveLabs.ResponseStreamEventVariant14),
+                Keepalive,
+                typeof(global::TwelveLabs.ResponseStreamEventVariant15),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -1122,7 +1380,10 @@ namespace TwelveLabs
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.ResponseStreamEventVariant9?>.Default.Equals(ResponseContentPartDone, other.ResponseContentPartDone) &&
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.ResponseStreamEventVariant10?>.Default.Equals(ResponseOutputItemDone, other.ResponseOutputItemDone) &&
                 global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.ResponseStreamEventVariant11?>.Default.Equals(ResponseFunctionCallArgumentsDone, other.ResponseFunctionCallArgumentsDone) &&
-                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.ResponseStreamEventVariant12?>.Default.Equals(Keepalive, other.Keepalive)
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.ResponseStreamEventVariant12?>.Default.Equals(ResponseStreamEventVariant12, other.ResponseStreamEventVariant12) &&
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.ResponseStreamEventVariant13?>.Default.Equals(ResponseStreamEventVariant13, other.ResponseStreamEventVariant13) &&
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.ResponseStreamEventVariant14?>.Default.Equals(ResponseStreamEventVariant14, other.ResponseStreamEventVariant14) &&
+                global::System.Collections.Generic.EqualityComparer<global::TwelveLabs.ResponseStreamEventVariant15?>.Default.Equals(Keepalive, other.Keepalive)
                 ;
         }
 
