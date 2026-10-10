@@ -34,6 +34,7 @@ namespace TwelveLabs
         /// before any of its text streams in.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("item")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.ResponseOutputItemJsonConverter))]
         public global::TwelveLabs.ResponseOutputItem? Item { get; set; }
 
         /// <summary>

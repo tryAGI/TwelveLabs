@@ -3,10 +3,10 @@
 namespace TwelveLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class ResponseOutputItemRoleJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::TwelveLabs.ResponseOutputItemRole>
+    public sealed class ResponseStreamWebSearchProgressEventTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::TwelveLabs.ResponseStreamWebSearchProgressEventType>
     {
         /// <inheritdoc />
-        public override global::TwelveLabs.ResponseOutputItemRole Read(
+        public override global::TwelveLabs.ResponseStreamWebSearchProgressEventType Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace TwelveLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::TwelveLabs.ResponseOutputItemRoleExtensions.ToEnum(stringValue) ?? default;
+                        return global::TwelveLabs.ResponseStreamWebSearchProgressEventTypeExtensions.ToEnum(stringValue) ?? default;
                     }
 
                     break;
@@ -26,11 +26,11 @@ namespace TwelveLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::TwelveLabs.ResponseOutputItemRole)numValue;
+                    return (global::TwelveLabs.ResponseStreamWebSearchProgressEventType)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::TwelveLabs.ResponseOutputItemRole);
+                    return default(global::TwelveLabs.ResponseStreamWebSearchProgressEventType);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,12 @@ namespace TwelveLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::TwelveLabs.ResponseOutputItemRole value,
+            global::TwelveLabs.ResponseStreamWebSearchProgressEventType value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::TwelveLabs.ResponseOutputItemRoleExtensions.ToValueString(value));
+            writer.WriteStringValue(global::TwelveLabs.ResponseStreamWebSearchProgressEventTypeExtensions.ToValueString(value));
         }
     }
 }

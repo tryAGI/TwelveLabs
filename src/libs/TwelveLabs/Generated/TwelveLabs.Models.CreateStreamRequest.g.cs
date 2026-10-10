@@ -16,7 +16,8 @@ namespace TwelveLabs
         public required string KnowledgeStoreId { get; set; }
 
         /// <summary>
-        /// Provides context to Jockey for this request. Uses [Open Responses input item](https://www.openresponses.org/reference#input-items) conventions.
+        /// User messages that provide context to Jockey for this request. Uses [Open Responses input item](https://www.openresponses.org/reference#input-items) conventions.<br/>
+        /// Output items cannot be submitted as input. Use `session_id` to continue a conversation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -54,6 +55,25 @@ namespace TwelveLabs
         public required bool Stream { get; set; }
 
         /// <summary>
+        /// Tools that Jockey can use while it generates the response.<br/>
+        /// Include `{ "type": "jockey:web_search" }` to allow web search. Jockey decides<br/>
+        /// whether to use an available tool, so enabling web search does not guarantee<br/>
+        /// a search. To make a search more likely, explicitly tell Jockey what<br/>
+        /// information to look up in `input` or `instructions`.<br/>
+        /// A prompt that asks Jockey to search the web does not enable web search by<br/>
+        /// itself. If you omit `tools` or pass `null` or `[]`, Jockey cannot search<br/>
+        /// public web sources, even when the prompt requests it. The `tools` setting<br/>
+        /// applies to each request on its own, including requests that continue a<br/>
+        /// session.<br/>
+        /// This list does not control Jockey's built-in knowledge store operations.<br/>
+        /// If a requested tool is unavailable for the request, the request fails<br/>
+        /// with HTTP `422` and code `parameter_invalid`. Remove the unavailable<br/>
+        /// tool from the `tools` array and retry.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
+        public global::System.Collections.Generic.IList<global::TwelveLabs.ResponseToolInput>? Tools { get; set; }
+
+        /// <summary>
         /// Restricts the request to specific knowledge store items or item collections. The restriction is applied at the prompt level; the knowledge store does not block access to other items. Treat it as a strong preference, not a hard access boundary. Omit to run against every item.<br/>
         /// Selections persist in the session context, and selections sent on later turns are added to that context. You can reference selections from earlier turns in natural language without repeating their `{{sel:N}}` tokens.
         /// </summary>
@@ -79,7 +99,8 @@ namespace TwelveLabs
         /// The unique identifier of the knowledge store to reason over.
         /// </param>
         /// <param name="input">
-        /// Provides context to Jockey for this request. Uses [Open Responses input item](https://www.openresponses.org/reference#input-items) conventions.
+        /// User messages that provide context to Jockey for this request. Uses [Open Responses input item](https://www.openresponses.org/reference#input-items) conventions.<br/>
+        /// Output items cannot be submitted as input. Use `session_id` to continue a conversation.
         /// </param>
         /// <param name="stream">
         /// When `true`, the response is returned as [Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) (SSE).
@@ -99,6 +120,22 @@ namespace TwelveLabs
         /// **Values**:<br/>
         /// - `intermediate_outputs`: Also includes the steps Jockey took to produce the reply.
         /// </param>
+        /// <param name="tools">
+        /// Tools that Jockey can use while it generates the response.<br/>
+        /// Include `{ "type": "jockey:web_search" }` to allow web search. Jockey decides<br/>
+        /// whether to use an available tool, so enabling web search does not guarantee<br/>
+        /// a search. To make a search more likely, explicitly tell Jockey what<br/>
+        /// information to look up in `input` or `instructions`.<br/>
+        /// A prompt that asks Jockey to search the web does not enable web search by<br/>
+        /// itself. If you omit `tools` or pass `null` or `[]`, Jockey cannot search<br/>
+        /// public web sources, even when the prompt requests it. The `tools` setting<br/>
+        /// applies to each request on its own, including requests that continue a<br/>
+        /// session.<br/>
+        /// This list does not control Jockey's built-in knowledge store operations.<br/>
+        /// If a requested tool is unavailable for the request, the request fails<br/>
+        /// with HTTP `422` and code `parameter_invalid`. Remove the unavailable<br/>
+        /// tool from the `tools` array and retry.
+        /// </param>
         /// <param name="selections">
         /// Restricts the request to specific knowledge store items or item collections. The restriction is applied at the prompt level; the knowledge store does not block access to other items. Treat it as a strong preference, not a hard access boundary. Omit to run against every item.<br/>
         /// Selections persist in the session context, and selections sent on later turns are added to that context. You can reference selections from earlier turns in natural language without repeating their `{{sel:N}}` tokens.
@@ -116,6 +153,7 @@ namespace TwelveLabs
             string? sessionId,
             string? instructions,
             global::System.Collections.Generic.IList<global::TwelveLabs.ResponsesPostRequestBodyContentApplicationJsonSchemaIncludeItems>? include,
+            global::System.Collections.Generic.IList<global::TwelveLabs.ResponseToolInput>? tools,
             global::System.Collections.Generic.IList<global::TwelveLabs.ResponseSelection>? selections,
             global::TwelveLabs.TextParam? text)
         {
@@ -125,6 +163,7 @@ namespace TwelveLabs
             this.Instructions = instructions;
             this.Include = include;
             this.Stream = stream;
+            this.Tools = tools;
             this.Selections = selections;
             this.Text = text;
         }

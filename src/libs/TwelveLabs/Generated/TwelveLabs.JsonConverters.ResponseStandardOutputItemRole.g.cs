@@ -3,10 +3,10 @@
 namespace TwelveLabs.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class ResponseOutputItemTypeJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::TwelveLabs.ResponseOutputItemType>
+    public sealed class ResponseStandardOutputItemRoleJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::TwelveLabs.ResponseStandardOutputItemRole>
     {
         /// <inheritdoc />
-        public override global::TwelveLabs.ResponseOutputItemType Read(
+        public override global::TwelveLabs.ResponseStandardOutputItemRole Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace TwelveLabs.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::TwelveLabs.ResponseOutputItemTypeExtensions.ToEnum(stringValue) ?? default;
+                        return global::TwelveLabs.ResponseStandardOutputItemRoleExtensions.ToEnum(stringValue) ?? default;
                     }
 
                     break;
@@ -26,11 +26,11 @@ namespace TwelveLabs.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::TwelveLabs.ResponseOutputItemType)numValue;
+                    return (global::TwelveLabs.ResponseStandardOutputItemRole)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::TwelveLabs.ResponseOutputItemType);
+                    return default(global::TwelveLabs.ResponseStandardOutputItemRole);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,12 @@ namespace TwelveLabs.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::TwelveLabs.ResponseOutputItemType value,
+            global::TwelveLabs.ResponseStandardOutputItemRole value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::TwelveLabs.ResponseOutputItemTypeExtensions.ToValueString(value));
+            writer.WriteStringValue(global::TwelveLabs.ResponseStandardOutputItemRoleExtensions.ToValueString(value));
         }
     }
 }

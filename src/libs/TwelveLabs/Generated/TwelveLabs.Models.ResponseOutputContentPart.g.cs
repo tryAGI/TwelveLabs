@@ -16,23 +16,29 @@ namespace TwelveLabs
         public global::TwelveLabs.ResponseOutputContentPartType Type { get; set; }
 
         /// <summary>
-        /// The text content. It may contain citation markers, each a number in square<br/>
-        /// brackets such as `[1]`. The `start_index` and `end_index` fields of a citation<br/>
-        /// indicate the location of its marker. To resolve a marker, find the citation at<br/>
-        /// that location. Not every marker has a matching citation; when a marker has<br/>
-        /// none, treat it as a citation you cannot display, not as an error.
+        /// The text content. Media citations use numbered markers such as `[1]`.<br/>
+        /// A web citation can cover text that is not a marker. Its span can also<br/>
+        /// cover a provider marker, such as `\ue200cite\ue202turn0search1\ue201`<br/>
+        /// (shown with Unicode escapes). Use the `start_index` and `end_index`<br/>
+        /// fields of an annotation to locate the text that it covers, and its<br/>
+        /// `url` to render a web source link. The annotation identifies the<br/>
+        /// source; the marker text does not. Treat a marker without a matching<br/>
+        /// annotation as a citation you cannot display, not as a response error.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Text { get; set; }
 
         /// <summary>
-        /// Citations that tie spans of the `text` field to what they cite, in order of<br/>
-        /// appearance. Always present, and may be empty.<br/>
-        /// The `start_index` and `end_index` fields locate the marker within the<br/>
-        /// `text` field of this content part, not within the whole response.<br/>
-        /// Different citations can cover the same or overlapping video ranges. Each<br/>
-        /// marker in the `text` field still resolves to at most one citation.
+        /// Contains the citations. Each citation identifies a span of the `text`<br/>
+        /// field and the source it cites. Always present, and may be empty.<br/>
+        /// The `start_index` and `end_index` fields locate the cited span within the<br/>
+        /// `text` field of this content part, not within the whole response. Both<br/>
+        /// bounds are inclusive and count Unicode code points.<br/>
+        /// Text spans can overlap or be identical, including across citation types.<br/>
+        /// A web citation can cover a numbered media marker. Resolve each annotation<br/>
+        /// independently; do not assume disjoint spans or array order by offset.<br/>
+        /// Different video citations can also cover overlapping video time ranges.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotations")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -48,19 +54,25 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="ResponseOutputContentPart" /> class.
         /// </summary>
         /// <param name="text">
-        /// The text content. It may contain citation markers, each a number in square<br/>
-        /// brackets such as `[1]`. The `start_index` and `end_index` fields of a citation<br/>
-        /// indicate the location of its marker. To resolve a marker, find the citation at<br/>
-        /// that location. Not every marker has a matching citation; when a marker has<br/>
-        /// none, treat it as a citation you cannot display, not as an error.
+        /// The text content. Media citations use numbered markers such as `[1]`.<br/>
+        /// A web citation can cover text that is not a marker. Its span can also<br/>
+        /// cover a provider marker, such as `\ue200cite\ue202turn0search1\ue201`<br/>
+        /// (shown with Unicode escapes). Use the `start_index` and `end_index`<br/>
+        /// fields of an annotation to locate the text that it covers, and its<br/>
+        /// `url` to render a web source link. The annotation identifies the<br/>
+        /// source; the marker text does not. Treat a marker without a matching<br/>
+        /// annotation as a citation you cannot display, not as a response error.
         /// </param>
         /// <param name="annotations">
-        /// Citations that tie spans of the `text` field to what they cite, in order of<br/>
-        /// appearance. Always present, and may be empty.<br/>
-        /// The `start_index` and `end_index` fields locate the marker within the<br/>
-        /// `text` field of this content part, not within the whole response.<br/>
-        /// Different citations can cover the same or overlapping video ranges. Each<br/>
-        /// marker in the `text` field still resolves to at most one citation.
+        /// Contains the citations. Each citation identifies a span of the `text`<br/>
+        /// field and the source it cites. Always present, and may be empty.<br/>
+        /// The `start_index` and `end_index` fields locate the cited span within the<br/>
+        /// `text` field of this content part, not within the whole response. Both<br/>
+        /// bounds are inclusive and count Unicode code points.<br/>
+        /// Text spans can overlap or be identical, including across citation types.<br/>
+        /// A web citation can cover a numbered media marker. Resolve each annotation<br/>
+        /// independently; do not assume disjoint spans or array order by offset.<br/>
+        /// Different video citations can also cover overlapping video time ranges.
         /// </param>
         /// <param name="type">
         /// The type of content part.

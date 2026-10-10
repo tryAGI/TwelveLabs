@@ -7,7 +7,7 @@ namespace TwelveLabs
     /// Progress for a web-search call. Included only when the request sets `include: ["intermediate_outputs"]`.<br/>
     /// The `item_id` links to the corresponding `jockey:web_search` output item.
     /// </summary>
-    public sealed partial class ResponseStreamEventVariant12
+    public sealed partial class ResponseStreamEventVariant13
     {
         /// <summary>
         /// The event type.
@@ -45,7 +45,7 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResponseStreamEventVariant12" /> class.
+        /// Initializes a new instance of the <see cref="ResponseStreamEventVariant13" /> class.
         /// </summary>
         /// <param name="type">
         /// The event type.
@@ -62,7 +62,7 @@ namespace TwelveLabs
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public ResponseStreamEventVariant12(
+        public ResponseStreamEventVariant13(
             global::TwelveLabs.ResponseStreamWebSearchProgressEventType type,
             int sequenceNumber,
             string itemId,
@@ -75,9 +75,9 @@ namespace TwelveLabs
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResponseStreamEventVariant12" /> class.
+        /// Initializes a new instance of the <see cref="ResponseStreamEventVariant13" /> class.
         /// </summary>
-        public ResponseStreamEventVariant12()
+        public ResponseStreamEventVariant13()
         {
         }
 
