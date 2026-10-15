@@ -12,8 +12,9 @@ namespace TwelveLabs
     /// - `enrichment`: Enrichment values that the platform extracts. Map each key to the `eq` operator to match one value, or to the `in` operator to match any value in a list.<br/>
     /// - `created_at`: Creation time. Use `gte` to set the earliest time and `lte` to set the latest time. You can use one or both.<br/>
     /// - `location`: Capture location. Provide the center and the radius of a circle.<br/>
-    /// An item must match all of the fields that you specify.<br/>
-    /// When you use any of the `user_metadata`, `enrichment`, `created_at`, or `location` fields, the platform counts the items that match those conditions together. If more than 10,000 items match, the platform returns a `422` error with the `metadata_filter_too_broad` code. To reduce the count, add conditions or use the `item_id` field. The `asset_type` field does not reduce the count.<br/>
+    /// - `tags`: Item tags. Map each key under `tags.metadata` to the `eq` operator to match one value, or to the `in` operator to match any value in a list.<br/>
+    /// An item must match all of the fields that you specify. The `tags` field also limits which clips of an item the search returns.<br/>
+    /// When you use any of the `user_metadata`, `enrichment`, `created_at`, or `location` fields, the platform counts the items that match those conditions together. If more than 10,000 items match, the platform returns a `422` error with the `metadata_filter_too_broad` code. To reduce the count, add conditions or use the `item_id` field. The `asset_type` field does not reduce the count. When you use the `tags` field, the platform does not count items, and this limit does not apply. It counts the matching tags instead, as the `tags` field describes.<br/>
     /// Examples:<br/>
     /// ```json<br/>
     /// {<br/>
@@ -54,6 +55,17 @@ namespace TwelveLabs
     ///         "latitude": 37.5665,<br/>
     ///         "longitude": 126.978,<br/>
     ///         "radius_meters": 5000<br/>
+    ///     }<br/>
+    /// }<br/>
+    /// ```<br/>
+    /// ```json<br/>
+    /// {<br/>
+    ///     "tags": {<br/>
+    ///         "metadata": {<br/>
+    ///             "event": {<br/>
+    ///                 "eq": "goal"<br/>
+    ///             }<br/>
+    ///         }<br/>
     ///     }<br/>
     /// }<br/>
     /// ```
@@ -106,6 +118,17 @@ namespace TwelveLabs
         public global::TwelveLabs.GeoCircleFilter? Location { get; set; }
 
         /// <summary>
+        /// Narrows results to the moments and ranges that matching tags mark on video items. A tag matches when its `tag_metadata` field matches the `metadata` field. Only video items have tags, so images do not appear in the results.<br/>
+        /// The search returns only the clips within a matching tag:<br/>
+        /// - For a tag on a range, a clip matches when it lies entirely within the range. A clip that extends past either end of the range does not appear in the results.<br/>
+        /// - For a tag on a single moment, a clip matches when it contains that moment.<br/>
+        /// A clip within more than one matching tag appears once. With the `group_by` parameter set to `item`, each item groups only its clips within matching tags. When you specify other fields of the filter, a tag counts only when its item matches every other field. The `asset_type` field does not reduce the count. If more than 100 tags match, the platform returns a `422` error with the `metadata_filter_too_broad` code.<br/>
+        /// To tag a moment or a range of a video item, use the [`POST`](/v1.3/api-reference/knowledge-store-items/item-tags/create) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}/tags` endpoint.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
+        public global::TwelveLabs.TagFilter? Tags { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -141,6 +164,14 @@ namespace TwelveLabs
         /// <param name="location">
         /// Narrows results to items captured within a circle. An item matches when the GPS coordinates embedded in its source media are within `radius_meters` of the center, measured as &lt;a href="https://en.wikipedia.org/wiki/Great-circle_distance" target="_blank"&gt;great-circle distance&lt;/a&gt;. Items with no coordinates never match. To read the GPS coordinates of the source media, use the [`GET`](/v1.3/api-reference/manage-assets/retrieve) method of the `/assets/{asset_id}` endpoint. The coordinates are the `geospatial_latitude` and `geospatial_longitude` fields of the `technical_metadata` object.
         /// </param>
+        /// <param name="tags">
+        /// Narrows results to the moments and ranges that matching tags mark on video items. A tag matches when its `tag_metadata` field matches the `metadata` field. Only video items have tags, so images do not appear in the results.<br/>
+        /// The search returns only the clips within a matching tag:<br/>
+        /// - For a tag on a range, a clip matches when it lies entirely within the range. A clip that extends past either end of the range does not appear in the results.<br/>
+        /// - For a tag on a single moment, a clip matches when it contains that moment.<br/>
+        /// A clip within more than one matching tag appears once. With the `group_by` parameter set to `item`, each item groups only its clips within matching tags. When you specify other fields of the filter, a tag counts only when its item matches every other field. The `asset_type` field does not reduce the count. If more than 100 tags match, the platform returns a `422` error with the `metadata_filter_too_broad` code.<br/>
+        /// To tag a moment or a range of a video item, use the [`POST`](/v1.3/api-reference/knowledge-store-items/item-tags/create) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}/tags` endpoint.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -150,7 +181,8 @@ namespace TwelveLabs
             global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.MetadataValueFilter>? userMetadata,
             global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.MetadataValueFilter>? enrichment,
             global::TwelveLabs.CreatedAtFilter? createdAt,
-            global::TwelveLabs.GeoCircleFilter? location)
+            global::TwelveLabs.GeoCircleFilter? location,
+            global::TwelveLabs.TagFilter? tags)
         {
             this.AssetType = assetType;
             this.ItemId = itemId;
@@ -158,6 +190,7 @@ namespace TwelveLabs
             this.Enrichment = enrichment;
             this.CreatedAt = createdAt;
             this.Location = location;
+            this.Tags = tags;
         }
 
         /// <summary>

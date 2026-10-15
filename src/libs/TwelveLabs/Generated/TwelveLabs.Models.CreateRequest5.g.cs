@@ -18,7 +18,7 @@ namespace TwelveLabs
         public global::TwelveLabs.KnowledgeStoreItemAssetType? AssetType { get; set; }
 
         /// <summary>
-        /// The unique identifier of the asset to add to the knowledge store.
+        /// The unique identifier of the asset to add to the knowledge store. If you uploaded the asset before your plan moved to the new billing, enable storage accounting for it before you add it to a knowledge store. Use the [Enable storage accounting for an asset](/v1.3/api-reference/manage-assets/enable-storage-accounting) method.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -47,7 +47,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="CreateRequest5" /> class.
         /// </summary>
         /// <param name="assetId">
-        /// The unique identifier of the asset to add to the knowledge store.
+        /// The unique identifier of the asset to add to the knowledge store. If you uploaded the asset before your plan moved to the new billing, enable storage accounting for it before you add it to a knowledge store. Use the [Enable storage accounting for an asset](/v1.3/api-reference/manage-assets/enable-storage-accounting) method.
         /// </param>
         /// <param name="assetType">
         /// The type of item to create.
