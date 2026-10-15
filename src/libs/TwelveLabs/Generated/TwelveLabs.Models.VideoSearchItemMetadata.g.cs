@@ -9,16 +9,22 @@ namespace TwelveLabs
     public sealed partial class VideoSearchItemMetadata
     {
         /// <summary>
-        /// System-generated media metadata for the source video.
+        /// System-generated metadata for the source video.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("system")]
         public global::TwelveLabs.VideoSearchSystemMetadata? System { get; set; }
 
         /// <summary>
-        /// Caller-supplied key-value pairs attached to the item.
+        /// The custom metadata of the source asset. The `metadata` field of the knowledge store item contains the same metadata.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user")]
         public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? User { get; set; }
+
+        /// <summary>
+        /// The custom metadata of the knowledge store item. It is separate from the custom metadata of the source asset. A change to the custom metadata of the source asset does not change this field. The same key can have different values in the `user` field and in the `item` field. The `item_metadata` field of the knowledge store item contains the same metadata. This field is absent when no item metadata has been set.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("item")]
+        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? Item { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -30,20 +36,25 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="VideoSearchItemMetadata" /> class.
         /// </summary>
         /// <param name="system">
-        /// System-generated media metadata for the source video.
+        /// System-generated metadata for the source video.
         /// </param>
         /// <param name="user">
-        /// Caller-supplied key-value pairs attached to the item.
+        /// The custom metadata of the source asset. The `metadata` field of the knowledge store item contains the same metadata.
+        /// </param>
+        /// <param name="item">
+        /// The custom metadata of the knowledge store item. It is separate from the custom metadata of the source asset. A change to the custom metadata of the source asset does not change this field. The same key can have different values in the `user` field and in the `item` field. The `item_metadata` field of the knowledge store item contains the same metadata. This field is absent when no item metadata has been set.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public VideoSearchItemMetadata(
             global::TwelveLabs.VideoSearchSystemMetadata? system,
-            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? user)
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? user,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? item)
         {
             this.System = system;
             this.User = user;
+            this.Item = item;
         }
 
         /// <summary>

@@ -5,7 +5,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// System-generated media metadata for the source asset. Its `asset_type` field<br/>
+    /// System-generated metadata for the source asset. Its `asset_type` field<br/>
     /// always matches the item's top-level `asset_type` field.
     /// </summary>
     public readonly partial struct KnowledgeStoreItemSystemMetadata : global::System.IEquatable<KnowledgeStoreItemSystemMetadata>
@@ -16,7 +16,7 @@ namespace TwelveLabs
         public global::TwelveLabs.KnowledgeStoreItemSystemMetadataDiscriminatorAssetType? AssetType { get; }
 
         /// <summary>
-        /// System-generated media metadata for a video item.
+        /// System-generated metadata for a video item.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant1? Video { get; init; }
@@ -53,7 +53,7 @@ namespace TwelveLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'Video' but the value was {ToString()}.");
 
         /// <summary>
-        /// System-generated media metadata for an image item.
+        /// System-generated metadata for an image item.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::TwelveLabs.KnowledgeStoreItemSystemMetadataVariant2? Image { get; init; }

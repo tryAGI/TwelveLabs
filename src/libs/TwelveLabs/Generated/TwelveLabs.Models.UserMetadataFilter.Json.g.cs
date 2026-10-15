@@ -2,7 +2,7 @@
 
 namespace TwelveLabs
 {
-    public sealed partial class ResponseStreamEventVariant15
+    public sealed partial class UserMetadataFilter
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -47,20 +47,20 @@ namespace TwelveLabs
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::TwelveLabs.ResponseStreamEventVariant15? FromJson(
+        public static global::TwelveLabs.UserMetadataFilter? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::TwelveLabs.ResponseStreamEventVariant15),
-                jsonSerializerContext) as global::TwelveLabs.ResponseStreamEventVariant15;
+                typeof(global::TwelveLabs.UserMetadataFilter),
+                jsonSerializerContext) as global::TwelveLabs.UserMetadataFilter;
         }
 
         /// <summary>
         /// Deserializes a JSON string using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::TwelveLabs.ResponseStreamEventVariant15? FromJson(
+        public static global::TwelveLabs.UserMetadataFilter? FromJson(
             string json)
         {
             return FromJson(
@@ -75,7 +75,7 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::TwelveLabs.ResponseStreamEventVariant15? FromJson(
+        public static global::TwelveLabs.UserMetadataFilter? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -86,7 +86,7 @@ namespace TwelveLabs
                     global::TwelveLabs.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::TwelveLabs.ResponseStreamEventVariant15>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::TwelveLabs.UserMetadataFilter>(
                 json,
                 jsonSerializerOptions);
         }
@@ -94,20 +94,20 @@ namespace TwelveLabs
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::TwelveLabs.ResponseStreamEventVariant15?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::TwelveLabs.UserMetadataFilter?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::TwelveLabs.ResponseStreamEventVariant15),
-                jsonSerializerContext).ConfigureAwait(false)) as global::TwelveLabs.ResponseStreamEventVariant15;
+                typeof(global::TwelveLabs.UserMetadataFilter),
+                jsonSerializerContext).ConfigureAwait(false)) as global::TwelveLabs.UserMetadataFilter;
         }
 
         /// <summary>
         /// Deserializes a JSON stream using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.ResponseStreamEventVariant15?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.UserMetadataFilter?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream)
         {
             return FromJsonStreamAsync(
@@ -122,7 +122,7 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.ResponseStreamEventVariant15?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.UserMetadataFilter?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -133,7 +133,7 @@ namespace TwelveLabs
                     global::TwelveLabs.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::TwelveLabs.ResponseStreamEventVariant15?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::TwelveLabs.UserMetadataFilter?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

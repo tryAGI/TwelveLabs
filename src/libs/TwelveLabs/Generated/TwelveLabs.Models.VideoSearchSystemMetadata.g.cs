@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// System-generated media metadata for a video item in search results.
+    /// System-generated metadata for a video item in search results.
     /// </summary>
     public sealed partial class VideoSearchSystemMetadata
     {
