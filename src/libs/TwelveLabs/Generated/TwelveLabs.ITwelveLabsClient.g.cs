@@ -122,6 +122,11 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
+        public KnowledgeStoreItemTagsClient KnowledgeStoreItemTags { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
         public KnowledgeStoreItemsClient KnowledgeStoreItems { get; }
 
         /// <summary>

@@ -184,6 +184,15 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
+        public KnowledgeStoreItemTagsClient KnowledgeStoreItemTags => new KnowledgeStoreItemTagsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+        };
+
+        /// <summary>
+        ///
+        /// </summary>
         public KnowledgeStoreItemsClient KnowledgeStoreItems => new KnowledgeStoreItemsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
