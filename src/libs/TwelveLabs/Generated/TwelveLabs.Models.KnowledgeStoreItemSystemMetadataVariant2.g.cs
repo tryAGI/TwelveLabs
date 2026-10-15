@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// System-generated media metadata for an image item.
+    /// System-generated metadata for an image item.
     /// </summary>
     public sealed partial class KnowledgeStoreItemSystemMetadataVariant2
     {

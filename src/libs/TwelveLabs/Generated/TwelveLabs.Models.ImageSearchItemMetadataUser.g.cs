@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Caller-supplied key-value pairs attached to the item.
+    /// The custom metadata of the source asset. The `metadata` field of the knowledge store item contains the same metadata.
     /// </summary>
     public sealed partial class ImageSearchItemMetadataUser
     {

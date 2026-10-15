@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// System-generated media metadata for an image item in search results.
+    /// System-generated metadata for an image item in search results.
     /// </summary>
     public sealed partial class ImageSearchSystemMetadata
     {

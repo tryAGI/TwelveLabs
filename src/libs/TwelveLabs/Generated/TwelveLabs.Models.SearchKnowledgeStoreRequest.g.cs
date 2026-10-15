@@ -17,8 +17,16 @@ namespace TwelveLabs
         public required global::TwelveLabs.KnowledgeStoreSearchQuery Query { get; set; }
 
         /// <summary>
-        /// Narrows results to specific items in the knowledge store.<br/>
-        /// Filter by type of item (the `asset_type` field), by specific items (the `item_id` field), or by capture location (the `location` field). For `asset_type` and `item_id`, use `eq` to match a single value or `in` to match any value in a list. For `location`, provide the center and radius of a circle. When you specify multiple fields, the platform applies all conditions together.<br/>
+        /// Narrows results to specific items in the knowledge store. Omit the filter to search all items.<br/>
+        /// You can filter with these fields:<br/>
+        /// - `asset_type`: The type of item. Use `eq` to match one type. Use `in` to match any type in a list.<br/>
+        /// - `item_id`: Specific items. Use `eq` to match one item. Use `in` to match any item in a list.<br/>
+        /// - `user_metadata`: Custom metadata. Map each key to the `eq` operator to match one value, or to the `in` operator to match any value in a list.<br/>
+        /// - `enrichment`: Enrichment values that the platform extracts. Map each key to the `eq` operator to match one value, or to the `in` operator to match any value in a list.<br/>
+        /// - `created_at`: Creation time. Use `gte` to set the earliest time and `lte` to set the latest time. You can use one or both.<br/>
+        /// - `location`: Capture location. Provide the center and the radius of a circle.<br/>
+        /// An item must match all of the fields that you specify.<br/>
+        /// When you use any of the `user_metadata`, `enrichment`, `created_at`, or `location` fields, the platform counts the items that match those conditions together. If more than 10,000 items match, the platform returns a `422` error with the `metadata_filter_too_broad` code. To reduce the count, add conditions or use the `item_id` field. The `asset_type` field does not reduce the count.<br/>
         /// Examples:<br/>
         /// ```json<br/>
         /// {<br/>
@@ -43,14 +51,25 @@ namespace TwelveLabs
         /// ```<br/>
         /// ```json<br/>
         /// {<br/>
+        ///     "user_metadata": {<br/>
+        ///         "category": {<br/>
+        ///             "eq": "tutorial"<br/>
+        ///         }<br/>
+        ///     },<br/>
+        ///     "created_at": {<br/>
+        ///         "gte": "2026-09-01T00:00:00Z"<br/>
+        ///     }<br/>
+        /// }<br/>
+        /// ```<br/>
+        /// ```json<br/>
+        /// {<br/>
         ///     "location": {<br/>
         ///         "latitude": 37.5665,<br/>
         ///         "longitude": 126.978,<br/>
         ///         "radius_meters": 5000<br/>
         ///     }<br/>
         /// }<br/>
-        /// ```<br/>
-        /// Omit the filter to search all items.
+        /// ```
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filter")]
         public global::TwelveLabs.SearchKnowledgeStoreFilter? Filter { get; set; }
@@ -90,7 +109,10 @@ namespace TwelveLabs
         public string? PageToken { get; set; }
 
         /// <summary>
-        /// Set to `true` to include metadata in each result. Each result includes a `metadata` object with a `system` field (platform-derived file properties such as duration and resolution) and a `user` field (metadata you attached to the item).<br/>
+        /// Set to `true` to include metadata in each result. Each result includes a `metadata` object with these fields:<br/>
+        /// - `system`: System-generated metadata, such as duration and resolution.<br/>
+        /// - `user`: The custom metadata of the source asset.<br/>
+        /// - `item`: The custom metadata of the knowledge store item.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("include_metadata")]
@@ -109,8 +131,16 @@ namespace TwelveLabs
         /// The search query.
         /// </param>
         /// <param name="filter">
-        /// Narrows results to specific items in the knowledge store.<br/>
-        /// Filter by type of item (the `asset_type` field), by specific items (the `item_id` field), or by capture location (the `location` field). For `asset_type` and `item_id`, use `eq` to match a single value or `in` to match any value in a list. For `location`, provide the center and radius of a circle. When you specify multiple fields, the platform applies all conditions together.<br/>
+        /// Narrows results to specific items in the knowledge store. Omit the filter to search all items.<br/>
+        /// You can filter with these fields:<br/>
+        /// - `asset_type`: The type of item. Use `eq` to match one type. Use `in` to match any type in a list.<br/>
+        /// - `item_id`: Specific items. Use `eq` to match one item. Use `in` to match any item in a list.<br/>
+        /// - `user_metadata`: Custom metadata. Map each key to the `eq` operator to match one value, or to the `in` operator to match any value in a list.<br/>
+        /// - `enrichment`: Enrichment values that the platform extracts. Map each key to the `eq` operator to match one value, or to the `in` operator to match any value in a list.<br/>
+        /// - `created_at`: Creation time. Use `gte` to set the earliest time and `lte` to set the latest time. You can use one or both.<br/>
+        /// - `location`: Capture location. Provide the center and the radius of a circle.<br/>
+        /// An item must match all of the fields that you specify.<br/>
+        /// When you use any of the `user_metadata`, `enrichment`, `created_at`, or `location` fields, the platform counts the items that match those conditions together. If more than 10,000 items match, the platform returns a `422` error with the `metadata_filter_too_broad` code. To reduce the count, add conditions or use the `item_id` field. The `asset_type` field does not reduce the count.<br/>
         /// Examples:<br/>
         /// ```json<br/>
         /// {<br/>
@@ -135,14 +165,25 @@ namespace TwelveLabs
         /// ```<br/>
         /// ```json<br/>
         /// {<br/>
+        ///     "user_metadata": {<br/>
+        ///         "category": {<br/>
+        ///             "eq": "tutorial"<br/>
+        ///         }<br/>
+        ///     },<br/>
+        ///     "created_at": {<br/>
+        ///         "gte": "2026-09-01T00:00:00Z"<br/>
+        ///     }<br/>
+        /// }<br/>
+        /// ```<br/>
+        /// ```json<br/>
+        /// {<br/>
         ///     "location": {<br/>
         ///         "latitude": 37.5665,<br/>
         ///         "longitude": 126.978,<br/>
         ///         "radius_meters": 5000<br/>
         ///     }<br/>
         /// }<br/>
-        /// ```<br/>
-        /// Omit the filter to search all items.
+        /// ```
         /// </param>
         /// <param name="searchOptions">
         /// Specifies how videos are matched. Videos are the only type of item with configurable options, set in the `search_options.video` field. Images are always matched on their visual content and have no options to configure.<br/>
@@ -166,7 +207,10 @@ namespace TwelveLabs
         /// If a token is malformed or unrecognized, the platform returns a `400` error. If a token has expired, the platform returns a `410` error (make a new search request to obtain a fresh page token).
         /// </param>
         /// <param name="includeMetadata">
-        /// Set to `true` to include metadata in each result. Each result includes a `metadata` object with a `system` field (platform-derived file properties such as duration and resolution) and a `user` field (metadata you attached to the item).<br/>
+        /// Set to `true` to include metadata in each result. Each result includes a `metadata` object with these fields:<br/>
+        /// - `system`: System-generated metadata, such as duration and resolution.<br/>
+        /// - `user`: The custom metadata of the source asset.<br/>
+        /// - `item`: The custom metadata of the knowledge store item.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER

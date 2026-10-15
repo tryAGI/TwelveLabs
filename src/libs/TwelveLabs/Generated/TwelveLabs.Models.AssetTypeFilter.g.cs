@@ -9,14 +9,14 @@ namespace TwelveLabs
     public sealed partial class AssetTypeFilter
     {
         /// <summary>
-        /// Match items whose `asset_type` equals this value.
+        /// Match items that have this value for `asset_type`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("eq")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.KnowledgeStoreItemAssetTypeJsonConverter))]
         public global::TwelveLabs.KnowledgeStoreItemAssetType? Eq { get; set; }
 
         /// <summary>
-        /// Match items whose `asset_type` is one of these values.
+        /// Match items that have any of these values for `asset_type`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("in")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoreItemAssetType>? In { get; set; }
@@ -31,10 +31,10 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="AssetTypeFilter" /> class.
         /// </summary>
         /// <param name="eq">
-        /// Match items whose `asset_type` equals this value.
+        /// Match items that have this value for `asset_type`.
         /// </param>
         /// <param name="in">
-        /// Match items whose `asset_type` is one of these values.
+        /// Match items that have any of these values for `asset_type`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

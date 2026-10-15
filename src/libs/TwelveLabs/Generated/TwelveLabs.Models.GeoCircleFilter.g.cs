@@ -4,8 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Narrows results to items captured within a circle. An item matches when the GPS coordinates embedded in its source media are within `radius_meters` of the center, measured as &lt;a href="https://en.wikipedia.org/wiki/Great-circle_distance" target="_blank"&gt;great-circle distance&lt;/a&gt;. Items with no coordinates never match. To read the GPS coordinates of the source media, use the [`GET`](/v1.3/api-reference/manage-assets/retrieve) method of the `/assets/{asset_id}` endpoint. The coordinates are the `geospatial_latitude` and `geospatial_longitude` fields of the `technical_metadata` object.<br/>
-    /// If the circle matches more than 10,000 items, the platform returns a `422` error with the `metadata_filter_too_broad` code.
+    /// Narrows results to items captured within a circle. An item matches when the GPS coordinates embedded in its source media are within `radius_meters` of the center, measured as &lt;a href="https://en.wikipedia.org/wiki/Great-circle_distance" target="_blank"&gt;great-circle distance&lt;/a&gt;. Items with no coordinates never match. To read the GPS coordinates of the source media, use the [`GET`](/v1.3/api-reference/manage-assets/retrieve) method of the `/assets/{asset_id}` endpoint. The coordinates are the `geospatial_latitude` and `geospatial_longitude` fields of the `technical_metadata` object.
     /// </summary>
     public sealed partial class GeoCircleFilter
     {

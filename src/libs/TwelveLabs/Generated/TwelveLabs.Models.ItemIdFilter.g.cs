@@ -15,7 +15,7 @@ namespace TwelveLabs
         public string? Eq { get; set; }
 
         /// <summary>
-        /// Match any item whose identifier is in this list.
+        /// Match any item with an identifier in this list.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("in")]
         public global::System.Collections.Generic.IList<string>? In { get; set; }
@@ -33,7 +33,7 @@ namespace TwelveLabs
         /// Match the item with this identifier.
         /// </param>
         /// <param name="in">
-        /// Match any item whose identifier is in this list.
+        /// Match any item with an identifier in this list.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

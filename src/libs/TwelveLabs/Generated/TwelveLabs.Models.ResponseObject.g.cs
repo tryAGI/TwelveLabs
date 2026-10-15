@@ -73,10 +73,14 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IList<global::TwelveLabs.ResponseOutputItem>? Output { get; set; }
 
         /// <summary>
-        /// Token usage statistics.
+        /// The billing information for this response. Only a finished response carries this object:<br/>
+        /// the last event of a stream (`response.completed` or `response.failed`) and the<br/>
+        /// non-streamed response. Earlier stream events do not carry it. This amount is<br/>
+        /// informational: it is the list price, before your plan and any discount on your account.<br/>
+        /// Your invoice is the authoritative record of charges.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("usage")]
-        public global::TwelveLabs.ResponseUsage? Usage { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("billing")]
+        public global::TwelveLabs.ResponseBilling? Billing { get; set; }
 
         /// <summary>
         /// The timestamp when the response was created.
@@ -130,8 +134,12 @@ namespace TwelveLabs
         /// Set `include` to `["intermediate_outputs"]` to also receive intermediate<br/>
         /// messages, function calls and results, and `jockey:web_search` items.
         /// </param>
-        /// <param name="usage">
-        /// Token usage statistics.
+        /// <param name="billing">
+        /// The billing information for this response. Only a finished response carries this object:<br/>
+        /// the last event of a stream (`response.completed` or `response.failed`) and the<br/>
+        /// non-streamed response. Earlier stream events do not carry it. This amount is<br/>
+        /// informational: it is the list price, before your plan and any discount on your account.<br/>
+        /// Your invoice is the authoritative record of charges.
         /// </param>
         /// <param name="createdAt">
         /// The timestamp when the response was created.
@@ -148,7 +156,7 @@ namespace TwelveLabs
             global::TwelveLabs.ResponseStatus? status,
             global::TwelveLabs.ResponseIncompleteDetails? incompleteDetails,
             global::System.Collections.Generic.IList<global::TwelveLabs.ResponseOutputItem>? output,
-            global::TwelveLabs.ResponseUsage? usage,
+            global::TwelveLabs.ResponseBilling? billing,
             global::System.DateTime? createdAt)
         {
             this.Id = id;
@@ -159,7 +167,7 @@ namespace TwelveLabs
             this.Status = status;
             this.IncompleteDetails = incompleteDetails;
             this.Output = output;
-            this.Usage = usage;
+            this.Billing = billing;
             this.CreatedAt = createdAt;
         }
 
