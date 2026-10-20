@@ -202,6 +202,10 @@ namespace TwelveLabs.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 1)
                 {
@@ -216,6 +220,10 @@ namespace TwelveLabs.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
                 else if (__bestIndex == 2)
@@ -232,6 +240,10 @@ namespace TwelveLabs.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 3)
                 {
@@ -246,6 +258,10 @@ namespace TwelveLabs.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
                 else if (__bestIndex == 4)
@@ -262,6 +278,10 @@ namespace TwelveLabs.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 5)
                 {
@@ -276,6 +296,10 @@ namespace TwelveLabs.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
                 else if (__bestIndex == 6)
@@ -292,6 +316,10 @@ namespace TwelveLabs.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 7)
                 {
@@ -306,6 +334,10 @@ namespace TwelveLabs.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
                 else if (__bestIndex == 8)
@@ -322,6 +354,10 @@ namespace TwelveLabs.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 9)
                 {
@@ -336,6 +372,10 @@ namespace TwelveLabs.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
                 else if (__bestIndex == 10)
@@ -352,6 +392,10 @@ namespace TwelveLabs.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 11)
                 {
@@ -366,6 +410,10 @@ namespace TwelveLabs.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
                 else if (__bestIndex == 12)
@@ -382,6 +430,10 @@ namespace TwelveLabs.JsonConverters
                     catch (global::System.InvalidOperationException)
                     {
                     }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
+                    }
                 }
                 else if (__bestIndex == 13)
                 {
@@ -396,6 +448,10 @@ namespace TwelveLabs.JsonConverters
                     }
                     catch (global::System.InvalidOperationException)
                     {
+                    }
+                    catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                    {
+                        // Legacy enum converters signal an incompatible JSON token with this exception.
                     }
                 }
             }
@@ -415,6 +471,10 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null)
@@ -431,6 +491,10 @@ namespace TwelveLabs.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 
@@ -449,6 +513,10 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null)
@@ -465,6 +533,10 @@ namespace TwelveLabs.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 
@@ -483,6 +555,10 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null)
@@ -499,6 +575,10 @@ namespace TwelveLabs.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 
@@ -517,6 +597,10 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null)
@@ -533,6 +617,10 @@ namespace TwelveLabs.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 
@@ -551,6 +639,10 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null)
@@ -567,6 +659,10 @@ namespace TwelveLabs.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 
@@ -585,6 +681,10 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null)
@@ -601,6 +701,10 @@ namespace TwelveLabs.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 
@@ -619,6 +723,10 @@ namespace TwelveLabs.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
+                }
             }
 
             if (responseStreamEventVariant1 == null && responseStreamEventVariant2 == null && responseStreamEventVariant3 == null && responseStreamEventVariant4 == null && responseOutputItemAdded == null && responseContentPartAdded == null && responseOutputTextDelta == null && responseOutputTextDone == null && responseContentPartDone == null && responseOutputItemDone == null && responseFunctionCallArgumentsDone == null && responseStreamEventVariant12 == null && responseStreamEventVariant13 == null && responseStreamEventVariant14 == null)
@@ -635,6 +743,10 @@ namespace TwelveLabs.JsonConverters
                 }
                 catch (global::System.InvalidOperationException)
                 {
+                }
+                catch (global::System.ArgumentOutOfRangeException __enumTokenException) when (__enumTokenException.ParamName == "reader")
+                {
+                    // Legacy enum converters signal an incompatible JSON token with this exception.
                 }
             }
 

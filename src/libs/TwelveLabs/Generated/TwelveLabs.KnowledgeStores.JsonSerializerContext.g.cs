@@ -51,8 +51,11 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoreItemAssetType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ItemIdFilter))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.MetadataScalarValue), TypeInfoPropertyName = "MetadataScalarValue2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.MetadataValueFilter))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.MetadataRangeBound), TypeInfoPropertyName = "MetadataRangeBound2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.UserMetadataValueFilter))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.MetadataScalarValue>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValueFilter>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.MetadataValueFilter))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.MetadataValueFilter>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreatedAtFilter))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.GeoCircleFilter))]
@@ -99,6 +102,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoresGetParametersSortBy?), TypeInfoPropertyName = "NullableKnowledgeStoresGetParametersSortBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItemAssetType?), TypeInfoPropertyName = "NullableKnowledgeStoreItemAssetType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.MetadataScalarValue?), TypeInfoPropertyName = "NullableMetadataScalarValue2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.MetadataRangeBound?), TypeInfoPropertyName = "NullableMetadataRangeBound2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.VideoSearchModality?), TypeInfoPropertyName = "NullableVideoSearchModality2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchKnowledgeStoreRequestGroupBy?), TypeInfoPropertyName = "NullableSearchKnowledgeStoreRequestGroupBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchKnowledgeStoreHit?), TypeInfoPropertyName = "NullableSearchKnowledgeStoreHit2")]
@@ -162,6 +166,7 @@ namespace TwelveLabs
             options.Converters.Add(new global::TwelveLabs.JsonConverters.EnrichmentConfigJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.KnowledgeStoreMetadataValueJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.MetadataScalarValueJsonConverter());
+            options.Converters.Add(new global::TwelveLabs.JsonConverters.MetadataRangeBoundJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.SearchKnowledgeStoreHitJsonConverter());
             options.Converters.Add(new global::TwelveLabs.JsonConverters.UnixTimestampJsonConverter());
             options.Converters.Add(new LazyEnumJsonConverterFactory());
