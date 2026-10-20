@@ -4,7 +4,9 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Narrows results by custom metadata. Map each key to an object with exactly one of the `eq` or `in` operators. You can specify 1 to 50 keys. An item must match all of the keys that you specify.<br/>
+    /// Narrows results by custom metadata. Map each key to `eq`, `in`, or an inclusive `gte`/`lte` range. You can specify 1 to 50 keys. An item must match every key.<br/>
+    /// For each key, use exactly one of `eq` or `in`, or a range with `gte`, `lte`, or both. Do not combine `eq` or `in` with range bounds. Both range bounds must be numbers or both must be RFC 3339 timestamps with a timezone, and `gte` must not exceed `lte`. If you set both bounds, a single value must satisfy both.<br/>
+    /// Numeric ranges match numeric scalars, excluding numeric strings and booleans. Date ranges compare times with their timezone offsets. A timestamp must include a time and a timezone: use `Z` or an offset such as `+09:00`. For example, `2026-09-29T00:00:00Z` and `2026-09-29T09:00:00+09:00` represent the same time. A date without a time, such as `2026-09-29`, or a timestamp without a timezone returns a `400` error. Missing keys, malformed date values, nulls, and arrays in stored metadata do not match a range. A publication date you stored in custom metadata can be filtered here; `created_at` filters creation time.<br/>
     /// A key matches the custom metadata of the source asset (the `metadata` field of the knowledge store item) and the custom metadata of the knowledge store item (the `item_metadata` field). An item matches a key when the value matches in either field. For the names of these fields in search results, see the [Custom metadata field names](/v1.3/api-reference/knowledge-store-items/the-knowledge-store-item-object#custom-metadata-field-names) section on **The knowledge store item object** page.
     /// </summary>
     public sealed partial class UserMetadataFilter
