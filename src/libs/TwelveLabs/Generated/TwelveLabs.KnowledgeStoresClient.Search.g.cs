@@ -393,7 +393,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // The specified resource does not exist.
+                            // The knowledge store does not exist, or the `filter.item_collection_id` field specifies an item collection that is not in the knowledge store.
                             if ((int)__response.StatusCode == 404)
                             {
                                 string? __content_404 = null;
@@ -655,13 +655,14 @@ namespace TwelveLabs
         /// You can filter with these fields:<br/>
         /// - `asset_type`: The type of item. Use `eq` to match one type. Use `in` to match any type in a list.<br/>
         /// - `item_id`: Specific items. Use `eq` to match one item or `in` to match any item in a list. Use `nin` to exclude any item in a list. You cannot use `eq` and `in` together. You can use `nin` on its own or with either `eq` or `in`. If an item is listed in `nin` and selected by `eq` or `in`, the platform excludes it.<br/>
+        /// - `item_collection_id`: Specific item collections. Use `eq` to match the items in one item collection. Use `in` with a list of item collections to match the items in any of them. If an item collection is not in the knowledge store, the platform returns a `404` error with the `resource_not_exists` code. If the identifier of an item collection is not valid, the platform returns a `400` error with the `parameter_invalid` code.<br/>
         /// - `user_metadata`: Custom metadata. Map each key to `eq`, `in`, or inclusive numeric or date bounds with `gte` and `lte`.<br/>
         /// - `enrichment`: Enrichment values that the platform extracts. Map each key to the `eq` operator to match one value, or to the `in` operator to match any value in a list.<br/>
         /// - `created_at`: Creation time. Use `gte` to set the earliest time and `lte` to set the latest time. You can use one or both.<br/>
         /// - `location`: Capture location. Provide the center and the radius of a circle.<br/>
         /// - `tags`: Item tags. Map each key under `tags.metadata` to the `eq` operator to match one value, or to the `in` operator to match any value in a list.<br/>
         /// An item must match all of the fields and metadata keys that you specify. The `tags` field also limits which clips of an item the search returns.<br/>
-        /// When you use any of the `user_metadata`, `enrichment`, `created_at`, or `location` fields, the platform counts the items that match those conditions together, including metadata ranges and the items that you include or exclude with the `item_id` field. If more than 10,000 items match, the platform returns a `422` error with the `metadata_filter_too_broad` code. To reduce the count, add conditions or use the `item_id` field. The `asset_type` field does not reduce the count. When you use the `tags` field, the platform does not count items, and this limit does not apply. It counts the matching tags instead, as the `tags` field describes.<br/>
+        /// When you use any of the `item_collection_id`, `user_metadata`, `enrichment`, `created_at`, or `location` fields, the platform counts the items that match those conditions together, including metadata ranges and the items that you include or exclude with the `item_id` field. If more than 10,000 items match, the platform returns a `422` error with the `metadata_filter_too_broad` code. To reduce the count, add conditions or use the `item_id` field. The `asset_type` field does not reduce the count. When you use the `tags` field, the platform does not count items, and this limit does not apply. It counts the matching tags instead, as the `tags` field describes.<br/>
         /// Examples:<br/>
         /// ```json<br/>
         /// {<br/>

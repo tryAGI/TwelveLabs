@@ -8,13 +8,14 @@ namespace TwelveLabs
     /// You can filter with these fields:<br/>
     /// - `asset_type`: The type of item. Use `eq` to match one type. Use `in` to match any type in a list.<br/>
     /// - `item_id`: Specific items. Use `eq` to match one item or `in` to match any item in a list. Use `nin` to exclude any item in a list. You cannot use `eq` and `in` together. You can use `nin` on its own or with either `eq` or `in`. If an item is listed in `nin` and selected by `eq` or `in`, the platform excludes it.<br/>
+    /// - `item_collection_id`: Specific item collections. Use `eq` to match the items in one item collection. Use `in` with a list of item collections to match the items in any of them. If an item collection is not in the knowledge store, the platform returns a `404` error with the `resource_not_exists` code. If the identifier of an item collection is not valid, the platform returns a `400` error with the `parameter_invalid` code.<br/>
     /// - `user_metadata`: Custom metadata. Map each key to `eq`, `in`, or inclusive numeric or date bounds with `gte` and `lte`.<br/>
     /// - `enrichment`: Enrichment values that the platform extracts. Map each key to the `eq` operator to match one value, or to the `in` operator to match any value in a list.<br/>
     /// - `created_at`: Creation time. Use `gte` to set the earliest time and `lte` to set the latest time. You can use one or both.<br/>
     /// - `location`: Capture location. Provide the center and the radius of a circle.<br/>
     /// - `tags`: Item tags. Map each key under `tags.metadata` to the `eq` operator to match one value, or to the `in` operator to match any value in a list.<br/>
     /// An item must match all of the fields and metadata keys that you specify. The `tags` field also limits which clips of an item the search returns.<br/>
-    /// When you use any of the `user_metadata`, `enrichment`, `created_at`, or `location` fields, the platform counts the items that match those conditions together, including metadata ranges and the items that you include or exclude with the `item_id` field. If more than 10,000 items match, the platform returns a `422` error with the `metadata_filter_too_broad` code. To reduce the count, add conditions or use the `item_id` field. The `asset_type` field does not reduce the count. When you use the `tags` field, the platform does not count items, and this limit does not apply. It counts the matching tags instead, as the `tags` field describes.<br/>
+    /// When you use any of the `item_collection_id`, `user_metadata`, `enrichment`, `created_at`, or `location` fields, the platform counts the items that match those conditions together, including metadata ranges and the items that you include or exclude with the `item_id` field. If more than 10,000 items match, the platform returns a `422` error with the `metadata_filter_too_broad` code. To reduce the count, add conditions or use the `item_id` field. The `asset_type` field does not reduce the count. When you use the `tags` field, the platform does not count items, and this limit does not apply. It counts the matching tags instead, as the `tags` field describes.<br/>
     /// Examples:<br/>
     /// ```json<br/>
     /// {<br/>
@@ -86,6 +87,12 @@ namespace TwelveLabs
         public global::TwelveLabs.ItemIdFilter? ItemId { get; set; }
 
         /// <summary>
+        /// Narrows results to the items in item collections. Provide exactly one operator: `eq` to match the items in one item collection, or `in` with a list of item collections to match the items in any of them. If an item collection has no items, the search returns no results. The search also returns no results when no item matches the other fields in the `filter` object.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("item_collection_id")]
+        public global::TwelveLabs.ItemCollectionIdFilter? ItemCollectionId { get; set; }
+
+        /// <summary>
         /// Narrows results by custom metadata. Map each key to `eq`, `in`, or an inclusive `gte`/`lte` range. You can specify 1 to 50 keys. An item must match every key.<br/>
         /// For each key, use exactly one of `eq` or `in`, or a range with `gte`, `lte`, or both. Do not combine `eq` or `in` with range bounds. Both range bounds must be numbers or both must be RFC 3339 timestamps with a timezone, and `gte` must not exceed `lte`. If you set both bounds, a single value must satisfy both.<br/>
         /// Numeric ranges match numeric scalars, excluding numeric strings and booleans. Date ranges compare times with their timezone offsets. A timestamp must include a time and a timezone: use `Z` or an offset such as `+09:00`. For example, `2026-09-29T00:00:00Z` and `2026-09-29T09:00:00+09:00` represent the same time. A date without a time, such as `2026-09-29`, or a timestamp without a timezone returns a `400` error. Missing keys, malformed date values, nulls, and arrays in stored metadata do not match a range. A publication date you stored in custom metadata can be filtered here; `created_at` filters creation time.<br/>
@@ -147,6 +154,9 @@ namespace TwelveLabs
         /// Narrows results to specific items. Use `eq` to match one item or `in` to match any item in a list. Use `nin` to exclude any item in a list.<br/>
         /// You cannot use `eq` and `in` together. You can use `nin` on its own or with either `eq` or `in`. If an item is listed in `nin` and selected by `eq` or `in`, the platform excludes it.
         /// </param>
+        /// <param name="itemCollectionId">
+        /// Narrows results to the items in item collections. Provide exactly one operator: `eq` to match the items in one item collection, or `in` with a list of item collections to match the items in any of them. If an item collection has no items, the search returns no results. The search also returns no results when no item matches the other fields in the `filter` object.
+        /// </param>
         /// <param name="userMetadata">
         /// Narrows results by custom metadata. Map each key to `eq`, `in`, or an inclusive `gte`/`lte` range. You can specify 1 to 50 keys. An item must match every key.<br/>
         /// For each key, use exactly one of `eq` or `in`, or a range with `gte`, `lte`, or both. Do not combine `eq` or `in` with range bounds. Both range bounds must be numbers or both must be RFC 3339 timestamps with a timezone, and `gte` must not exceed `lte`. If you set both bounds, a single value must satisfy both.<br/>
@@ -184,6 +194,7 @@ namespace TwelveLabs
         public SearchKnowledgeStoreFilter(
             global::TwelveLabs.AssetTypeFilter? assetType,
             global::TwelveLabs.ItemIdFilter? itemId,
+            global::TwelveLabs.ItemCollectionIdFilter? itemCollectionId,
             global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValueFilter>? userMetadata,
             global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.MetadataValueFilter>? enrichment,
             global::TwelveLabs.CreatedAtFilter? createdAt,
@@ -192,6 +203,7 @@ namespace TwelveLabs
         {
             this.AssetType = assetType;
             this.ItemId = itemId;
+            this.ItemCollectionId = itemCollectionId;
             this.UserMetadata = userMetadata;
             this.Enrichment = enrichment;
             this.CreatedAt = createdAt;
