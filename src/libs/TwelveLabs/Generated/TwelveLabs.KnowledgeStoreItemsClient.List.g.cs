@@ -32,7 +32,11 @@ namespace TwelveLabs
             ref int? pageLimit,
             ref global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy,
             ref string? sortOption,
-            global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status);
+            global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status,
+            ref string? metadata,
+            ref string? enrichment,
+            ref global::System.DateTime? createdAtGte,
+            ref global::System.DateTime? createdAtLte);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -41,7 +45,11 @@ namespace TwelveLabs
             int? pageLimit,
             global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy,
             string? sortOption,
-            global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status);
+            global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status,
+            string? metadata,
+            string? enrichment,
+            global::System.DateTime? createdAtGte,
+            global::System.DateTime? createdAtLte);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -53,7 +61,8 @@ namespace TwelveLabs
 
         /// <summary>
         /// List knowledge store items<br/>
-        /// This method returns a list of items in the specified knowledge store.
+        /// This method returns a list of items in the specified knowledge store.<br/>
+        /// Use the `status`, `metadata`, `enrichment`, `created_at_gte`, and `created_at_lte` parameters to choose which items to list. An item must match all of the parameters that you specify.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="page">
@@ -69,6 +78,10 @@ namespace TwelveLabs
         /// Default Value: desc
         /// </param>
         /// <param name="status"></param>
+        /// <param name="metadata"></param>
+        /// <param name="enrichment"></param>
+        /// <param name="createdAtGte"></param>
+        /// <param name="createdAtLte"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
@@ -79,6 +92,10 @@ namespace TwelveLabs
             global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy = default,
             string? sortOption = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status = default,
+            string? metadata = default,
+            string? enrichment = default,
+            global::System.DateTime? createdAtGte = default,
+            global::System.DateTime? createdAtLte = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -89,6 +106,10 @@ namespace TwelveLabs
                 sortBy: sortBy,
                 sortOption: sortOption,
                 status: status,
+                metadata: metadata,
+                enrichment: enrichment,
+                createdAtGte: createdAtGte,
+                createdAtLte: createdAtLte,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -97,7 +118,8 @@ namespace TwelveLabs
         }
         /// <summary>
         /// List knowledge store items<br/>
-        /// This method returns a list of items in the specified knowledge store.
+        /// This method returns a list of items in the specified knowledge store.<br/>
+        /// Use the `status`, `metadata`, `enrichment`, `created_at_gte`, and `created_at_lte` parameters to choose which items to list. An item must match all of the parameters that you specify.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="page">
@@ -113,6 +135,10 @@ namespace TwelveLabs
         /// Default Value: desc
         /// </param>
         /// <param name="status"></param>
+        /// <param name="metadata"></param>
+        /// <param name="enrichment"></param>
+        /// <param name="createdAtGte"></param>
+        /// <param name="createdAtLte"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
@@ -123,6 +149,10 @@ namespace TwelveLabs
             global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy = default,
             string? sortOption = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status = default,
+            string? metadata = default,
+            string? enrichment = default,
+            global::System.DateTime? createdAtGte = default,
+            global::System.DateTime? createdAtLte = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -135,7 +165,11 @@ namespace TwelveLabs
                 pageLimit: ref pageLimit,
                 sortBy: ref sortBy,
                 sortOption: ref sortOption,
-                status: status);
+                status: status,
+                metadata: ref metadata,
+                enrichment: ref enrichment,
+                createdAtGte: ref createdAtGte,
+                createdAtLte: ref createdAtLte);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -169,6 +203,10 @@ namespace TwelveLabs
                                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
                                 .AddOptionalParameter("sort_option", sortOption)
                                 .AddOptionalParameter("status", status, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
+                                .AddOptionalParameter("metadata", metadata)
+                                .AddOptionalParameter("enrichment", enrichment)
+                                .AddOptionalParameter("created_at_gte", createdAtGte?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
+                                .AddOptionalParameter("created_at_lte", createdAtLte?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::TwelveLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -215,7 +253,11 @@ namespace TwelveLabs
                     pageLimit: pageLimit,
                     sortBy: sortBy,
                     sortOption: sortOption,
-                    status: status);
+                    status: status,
+                    metadata: metadata,
+                    enrichment: enrichment,
+                    createdAtGte: createdAtGte,
+                    createdAtLte: createdAtLte);
 
                 return __httpRequest;
             }
@@ -426,6 +468,43 @@ namespace TwelveLabs
                                     innerException: __exception_400,
                                     responseBody: __content_400,
                                     responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // The request is well-formed, but the platform cannot apply the filter. For example, the `metadata` parameter is not a valid JSON object, the `enrichment` parameter specifies a key that the enrichment configuration does not define, or the `created_at_gte` time is later than the `created_at_lte` time.
+                            if ((int)__response.StatusCode == 422)
+                            {
+                                string? __content_422 = null;
+                                global::System.Exception? __exception_422 = null;
+                                global::TwelveLabs.FlatErrorResponse? __value_422 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_422 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_422, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_422 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_422, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_422 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.FlatErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_422,
+                                    responseBody: __content_422,
+                                    responseObject: __value_422,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
