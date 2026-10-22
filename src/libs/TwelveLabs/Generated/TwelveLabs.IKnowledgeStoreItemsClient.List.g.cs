@@ -6,7 +6,8 @@ namespace TwelveLabs
     {
         /// <summary>
         /// List knowledge store items<br/>
-        /// This method returns a list of items in the specified knowledge store.
+        /// This method returns a list of items in the specified knowledge store.<br/>
+        /// Use the `status`, `metadata`, `enrichment`, `created_at_gte`, and `created_at_lte` parameters to choose which items to list. An item must match all of the parameters that you specify.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="page">
@@ -22,6 +23,10 @@ namespace TwelveLabs
         /// Default Value: desc
         /// </param>
         /// <param name="status"></param>
+        /// <param name="metadata"></param>
+        /// <param name="enrichment"></param>
+        /// <param name="createdAtGte"></param>
+        /// <param name="createdAtLte"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
@@ -32,11 +37,16 @@ namespace TwelveLabs
             global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy = default,
             string? sortOption = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status = default,
+            string? metadata = default,
+            string? enrichment = default,
+            global::System.DateTime? createdAtGte = default,
+            global::System.DateTime? createdAtLte = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List knowledge store items<br/>
-        /// This method returns a list of items in the specified knowledge store.
+        /// This method returns a list of items in the specified knowledge store.<br/>
+        /// Use the `status`, `metadata`, `enrichment`, `created_at_gte`, and `created_at_lte` parameters to choose which items to list. An item must match all of the parameters that you specify.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="page">
@@ -52,6 +62,10 @@ namespace TwelveLabs
         /// Default Value: desc
         /// </param>
         /// <param name="status"></param>
+        /// <param name="metadata"></param>
+        /// <param name="enrichment"></param>
+        /// <param name="createdAtGte"></param>
+        /// <param name="createdAtLte"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
@@ -62,6 +76,10 @@ namespace TwelveLabs
             global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy = default,
             string? sortOption = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status = default,
+            string? metadata = default,
+            string? enrichment = default,
+            global::System.DateTime? createdAtGte = default,
+            global::System.DateTime? createdAtLte = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
