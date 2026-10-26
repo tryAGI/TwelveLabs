@@ -41,10 +41,11 @@ namespace TwelveLabs
         /// <summary>
         /// Delete an asset<br/>
         /// This method deletes the specified asset. This action cannot be undone.<br/>
-        /// By default, the platform checks whether any indexed assets reference the asset. If references exist, the platform rejects the request with a `409 Conflict` error. To skip this check and delete the asset anyway, set the `force` query parameter to `true`. The platform unlinks any entity associations.<br/>
-        /// Before deleting, you can inspect existing references:<br/>
-        /// - [`GET`](/v1.3/api-reference/index-content/list-indexed-assets-by-asset) `/assets/{asset_id}/indexed-assets` returns a list of the indexed assets that will block deletion unless the `force` query parameter is set to `true`.<br/>
-        /// - [`GET`](/v1.3/api-reference/entities/list-entities-by-asset) `/assets/{asset_id}/entities` returns a list of the entities whose associations the platform will unlink.
+        /// The delete fails with a `409 Conflict` error if other resources depend on the asset.<br/>
+        /// - **If knowledge store items use the asset**, in any status: the error code is `asset_has_knowledge_store_items`. The request fails even when you set the `force` query parameter to `true`. First delete the items with the [`DELETE`](/v1.3/api-reference/knowledge-store-items/delete) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}` endpoint. Then delete the asset.<br/>
+        /// - **If indexed assets reference the asset**: the error code is `asset_has_linked_resources`. To delete the asset and these indexed assets together, set the `force` query parameter to `true`. To list the indexed assets first, use the [`GET`](/v1.3/api-reference/index-content/list-indexed-assets-by-asset) method of the `/assets/{asset_id}/indexed-assets` endpoint.<br/>
+        /// - **If both apply**: the error code is `asset_has_knowledge_store_items`.<br/>
+        /// **If entities use the asset**, a successful delete removes the asset from the `asset_ids` array of each entity. To list these entities, use the [`GET`](/v1.3/api-reference/entities/list-entities-by-asset) method of the `/assets/{asset_id}/entities` endpoint.
         /// </summary>
         /// <param name="assetId"></param>
         /// <param name="force">
@@ -69,10 +70,11 @@ namespace TwelveLabs
         /// <summary>
         /// Delete an asset<br/>
         /// This method deletes the specified asset. This action cannot be undone.<br/>
-        /// By default, the platform checks whether any indexed assets reference the asset. If references exist, the platform rejects the request with a `409 Conflict` error. To skip this check and delete the asset anyway, set the `force` query parameter to `true`. The platform unlinks any entity associations.<br/>
-        /// Before deleting, you can inspect existing references:<br/>
-        /// - [`GET`](/v1.3/api-reference/index-content/list-indexed-assets-by-asset) `/assets/{asset_id}/indexed-assets` returns a list of the indexed assets that will block deletion unless the `force` query parameter is set to `true`.<br/>
-        /// - [`GET`](/v1.3/api-reference/entities/list-entities-by-asset) `/assets/{asset_id}/entities` returns a list of the entities whose associations the platform will unlink.
+        /// The delete fails with a `409 Conflict` error if other resources depend on the asset.<br/>
+        /// - **If knowledge store items use the asset**, in any status: the error code is `asset_has_knowledge_store_items`. The request fails even when you set the `force` query parameter to `true`. First delete the items with the [`DELETE`](/v1.3/api-reference/knowledge-store-items/delete) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}` endpoint. Then delete the asset.<br/>
+        /// - **If indexed assets reference the asset**: the error code is `asset_has_linked_resources`. To delete the asset and these indexed assets together, set the `force` query parameter to `true`. To list the indexed assets first, use the [`GET`](/v1.3/api-reference/index-content/list-indexed-assets-by-asset) method of the `/assets/{asset_id}/indexed-assets` endpoint.<br/>
+        /// - **If both apply**: the error code is `asset_has_knowledge_store_items`.<br/>
+        /// **If entities use the asset**, a successful delete removes the asset from the `asset_ids` array of each entity. To list these entities, use the [`GET`](/v1.3/api-reference/entities/list-entities-by-asset) method of the `/assets/{asset_id}/entities` endpoint.
         /// </summary>
         /// <param name="assetId"></param>
         /// <param name="force">
@@ -380,24 +382,24 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // The platform cannot delete this asset because one or more indexed assets are referencing it. Set the `force` query parameter to `true` to override.
+                            // The delete fails because other resources depend on the asset. Knowledge store items use the asset, or indexed assets reference it and the `force` query parameter is not `true`.
                             if ((int)__response.StatusCode == 409)
                             {
                                 string? __content_409 = null;
                                 global::System.Exception? __exception_409 = null;
-                                global::TwelveLabs.DeleteAssetRequestConflictError? __value_409 = null;
+                                global::TwelveLabs.FlatErrorResponse? __value_409 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_409 = global::TwelveLabs.DeleteAssetRequestConflictError.FromJson(__content_409, JsonSerializerContext);
+                                        __value_409 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_409, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_409 = global::TwelveLabs.DeleteAssetRequestConflictError.FromJson(__content_409, JsonSerializerContext);
+                                        __value_409 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_409, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -406,7 +408,7 @@ namespace TwelveLabs
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.DeleteAssetRequestConflictError>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.FlatErrorResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_409 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_409,
