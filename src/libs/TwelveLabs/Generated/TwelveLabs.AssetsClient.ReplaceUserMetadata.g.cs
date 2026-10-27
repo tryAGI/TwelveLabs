@@ -382,24 +382,24 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // The specified resource does not exist.
+                            // The specified asset does not exist.
                             if ((int)__response.StatusCode == 404)
                             {
                                 string? __content_404 = null;
                                 global::System.Exception? __exception_404 = null;
-                                global::TwelveLabs.ReplaceAssetUserMetadataRequestNotFoundError? __value_404 = null;
+                                global::TwelveLabs.FlatErrorResponse? __value_404 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_404 = global::TwelveLabs.ReplaceAssetUserMetadataRequestNotFoundError.FromJson(__content_404, JsonSerializerContext);
+                                        __value_404 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_404, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_404 = global::TwelveLabs.ReplaceAssetUserMetadataRequestNotFoundError.FromJson(__content_404, JsonSerializerContext);
+                                        __value_404 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_404, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -408,7 +408,7 @@ namespace TwelveLabs
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ReplaceAssetUserMetadataRequestNotFoundError>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.FlatErrorResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_404,

@@ -347,7 +347,7 @@ namespace TwelveLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Validation failure or inaccessible asset
+                            // Validation failure. Possible causes include: - A missing required parameter, or a parameter with an invalid value. - A malformed value in an `asset_id` field. - An asset that has not reached the `ready` status. - An image or video URL that the platform cannot read.
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
@@ -379,6 +379,43 @@ namespace TwelveLabs
                                     innerException: __exception_400,
                                     responseBody: __content_400,
                                     responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // The specified asset does not exist.
+                            if ((int)__response.StatusCode == 404)
+                            {
+                                string? __content_404 = null;
+                                global::System.Exception? __exception_404 = null;
+                                global::TwelveLabs.FlatErrorResponse? __value_404 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_404 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_404, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_404 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_404, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_404 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.FlatErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_404,
+                                    responseBody: __content_404,
+                                    responseObject: __value_404,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,

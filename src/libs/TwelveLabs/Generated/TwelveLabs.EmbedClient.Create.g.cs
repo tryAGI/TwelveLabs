@@ -67,7 +67,7 @@ namespace TwelveLabs
         /// - The Marengo video understanding model generates embeddings for all modalities in the same latent space. This shared space enables any-to-any searches across different types of content.<br/>
         /// - You can create multiple types of embeddings in a single API call.<br/>
         /// - Audio embeddings combine generic sound and human speech in a single embedding. For videos with transcriptions, you can retrieve transcriptions and then [create text embeddings](/v1.3/api-reference/create-embeddings-v1/text-image-audio-embeddings/create-text-image-audio-embeddings) from these<br/>
-        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page. When a request exceeds the limit for one type of content, the platform can return `200` instead of `429`. The result for that type then contains the rate limit message in `error_message` and no embedding.<br/>
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="request"></param>
@@ -115,7 +115,7 @@ namespace TwelveLabs
         /// - The Marengo video understanding model generates embeddings for all modalities in the same latent space. This shared space enables any-to-any searches across different types of content.<br/>
         /// - You can create multiple types of embeddings in a single API call.<br/>
         /// - Audio embeddings combine generic sound and human speech in a single embedding. For videos with transcriptions, you can retrieve transcriptions and then [create text embeddings](/v1.3/api-reference/create-embeddings-v1/text-image-audio-embeddings/create-text-image-audio-embeddings) from these<br/>
-        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page. When a request exceeds the limit for one type of content, the platform can return `200` instead of `429`. The result for that type then contains the rate limit message in `error_message` and no embedding.<br/>
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="request"></param>
@@ -543,6 +543,43 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
+                            // You have exceeded a rate limit, and the platform has not processed the request. The `Retry-After` header contains the number of seconds to wait.  The `X-Ratelimit-Dimensions` header lists the limits the request was checked against. Some accounts receive the legacy `X-Ratelimit-Limit`, `X-Ratelimit-Remaining`, `X-Ratelimit-Used`, and `X-Ratelimit-Reset` headers instead.
+                            if ((int)__response.StatusCode == 429)
+                            {
+                                string? __content_429 = null;
+                                global::System.Exception? __exception_429 = null;
+                                global::TwelveLabs.FlatErrorResponse? __value_429 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_429 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_429, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_429 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_429, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_429 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.FlatErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_429 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_429,
+                                    responseBody: __content_429,
+                                    responseObject: __value_429,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
 
                             if (__effectiveReadResponseAsString)
                             {
@@ -665,7 +702,7 @@ namespace TwelveLabs
         /// - The Marengo video understanding model generates embeddings for all modalities in the same latent space. This shared space enables any-to-any searches across different types of content.<br/>
         /// - You can create multiple types of embeddings in a single API call.<br/>
         /// - Audio embeddings combine generic sound and human speech in a single embedding. For videos with transcriptions, you can retrieve transcriptions and then [create text embeddings](/v1.3/api-reference/create-embeddings-v1/text-image-audio-embeddings/create-text-image-audio-embeddings) from these<br/>
-        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page.<br/>
+        /// - This endpoint is rate-limited. For details, see the [Rate limits](/v1.3/docs/get-started/rate-limits) page. When a request exceeds the limit for one type of content, the platform can return `200` instead of `429`. The result for that type then contains the rate limit message in `error_message` and no embedding.<br/>
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="modelName">
