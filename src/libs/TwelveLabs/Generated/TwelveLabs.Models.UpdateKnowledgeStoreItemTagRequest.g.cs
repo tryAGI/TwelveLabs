@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class UpdateKnowledgeStoreItemTagRequest
     {
         /// <summary>
-        /// The new start of the tag, in seconds from the start of the video. It must be less than the duration of the video. The tag must still end after it starts.
+        /// The new start of the tag, in seconds from the start of the video. It must be less than the duration of the video. The tag must still end after it starts. If you send `null`, the platform returns a `400` error with the `parameter_invalid` code. Omit the field to keep the current start.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_sec")]
         public double? StartSec { get; set; }
@@ -36,7 +36,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="UpdateKnowledgeStoreItemTagRequest" /> class.
         /// </summary>
         /// <param name="startSec">
-        /// The new start of the tag, in seconds from the start of the video. It must be less than the duration of the video. The tag must still end after it starts.
+        /// The new start of the tag, in seconds from the start of the video. It must be less than the duration of the video. The tag must still end after it starts. If you send `null`, the platform returns a `400` error with the `parameter_invalid` code. Omit the field to keep the current start.
         /// </param>
         /// <param name="endSec">
         /// The new end of the range, in seconds from the start of the video. It must be greater than `start_sec`. It must not exceed the duration of the video. Send `null` to clear the end, which turns a range into a single moment. Omit the field to keep the current end.

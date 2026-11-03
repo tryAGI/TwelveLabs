@@ -5,10 +5,10 @@ namespace TwelveLabs
 {
     /// <summary>
     /// Narrows results to the moments and ranges that matching tags mark on video items. A tag matches when its `tag_metadata` field matches the `metadata` field. Only video items have tags, so images do not appear in the results.<br/>
-    /// The search returns only the clips within a matching tag:<br/>
-    /// - For a tag on a range, a clip matches when it lies entirely within the range. A clip that extends past either end of the range does not appear in the results.<br/>
-    /// - For a tag on a single moment, a clip matches when it contains that moment.<br/>
-    /// A clip within more than one matching tag appears once. With the `group_by` parameter set to `item`, each item groups only its clips within matching tags. When you specify other fields of the filter, a tag counts only when its item matches every other field. The `asset_type` field does not reduce the count. If more than 100 tags match, the platform returns a `422` error with the `metadata_filter_too_broad` code.<br/>
+    /// A clip includes its start time and excludes its end time. The search returns only the clips that overlap a matching tag:<br/>
+    /// - For a tag on a range, a clip matches when it overlaps the range. A clip can start before the range or end after it. Each result includes the start and end of the clip. These values are not the start and end of the range. A clip that ends when the range starts, or starts when the range ends, does not match.<br/>
+    /// - For a tag on a single moment, a clip matches when it contains that moment. A clip that ends at that moment does not match.<br/>
+    /// A clip that overlaps more than one matching tag appears once. With the `group_by` parameter set to `item`, each item groups only its clips that overlap matching tags. When you specify other fields of the filter, a tag counts only when its item matches every other field. The `asset_type` field does not reduce the count. If more than 100 tags match, the platform returns a `422` error with the `metadata_filter_too_broad` code.<br/>
     /// To tag a moment or a range of a video item, use the [`POST`](/v1.3/api-reference/knowledge-store-items/item-tags/create) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}/tags` endpoint.
     /// </summary>
     public sealed partial class TagFilter
