@@ -24,7 +24,7 @@ namespace TwelveLabs
         /// The current status of the entity creation process.<br/>
         /// **Values**:<br/>
         /// - `processing`: The entity is being processed and is not yet ready for use in searches.<br/>
-        /// - `ready``: The entity is fully processed and can be used in search queries.
+        /// - `ready`: The entity is fully processed and can be used in search queries.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         public string? Status { get; set; }
@@ -48,7 +48,7 @@ namespace TwelveLabs
         /// The current status of the entity creation process.<br/>
         /// **Values**:<br/>
         /// - `processing`: The entity is being processed and is not yet ready for use in searches.<br/>
-        /// - `ready``: The entity is fully processed and can be used in search queries.
+        /// - `ready`: The entity is fully processed and can be used in search queries.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

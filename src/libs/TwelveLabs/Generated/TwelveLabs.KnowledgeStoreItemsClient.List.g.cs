@@ -30,7 +30,7 @@ namespace TwelveLabs
             ref string knowledgeStoreId,
             ref int? page,
             ref int? pageLimit,
-            ref global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy,
+            ref string? sortBy,
             ref string? sortOption,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status,
             ref string? metadata,
@@ -43,7 +43,7 @@ namespace TwelveLabs
             string knowledgeStoreId,
             int? page,
             int? pageLimit,
-            global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy,
+            string? sortBy,
             string? sortOption,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status,
             string? metadata,
@@ -89,7 +89,7 @@ namespace TwelveLabs
             string knowledgeStoreId,
             int? page = default,
             int? pageLimit = default,
-            global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy = default,
+            string? sortBy = default,
             string? sortOption = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status = default,
             string? metadata = default,
@@ -146,7 +146,7 @@ namespace TwelveLabs
             string knowledgeStoreId,
             int? page = default,
             int? pageLimit = default,
-            global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersSortBy? sortBy = default,
+            string? sortBy = default,
             string? sortOption = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status = default,
             string? metadata = default,
@@ -200,7 +200,7 @@ namespace TwelveLabs
                             __pathBuilder
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_limit", pageLimit?.ToString())
-                                .AddOptionalParameter("sort_by", sortBy?.ToValueString())
+                                .AddOptionalParameter("sort_by", sortBy)
                                 .AddOptionalParameter("sort_option", sortOption)
                                 .AddOptionalParameter("status", status, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 .AddOptionalParameter("metadata", metadata)
@@ -436,24 +436,24 @@ namespace TwelveLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // The request has failed.
+                            // The request has failed. For example, the `sort_by` parameter is not `created_at`, `updated_at`, or a value that starts with `metadata.`.
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
                                 global::System.Exception? __exception_400 = null;
-                                global::TwelveLabs.ListKnowledgeStoreItemsRequestBadRequestError? __value_400 = null;
+                                global::TwelveLabs.FlatErrorResponse? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = global::TwelveLabs.ListKnowledgeStoreItemsRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = global::TwelveLabs.ListKnowledgeStoreItemsRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -462,7 +462,7 @@ namespace TwelveLabs
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ListKnowledgeStoreItemsRequestBadRequestError>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.FlatErrorResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
@@ -473,7 +473,7 @@ namespace TwelveLabs
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // The request is well-formed, but the platform cannot apply the filter. For example, the `metadata` parameter is not a valid JSON object, the `enrichment` parameter specifies a key that the enrichment configuration does not define, or the `created_at_gte` time is later than the `created_at_lte` time.
+                            // The request is well-formed, but the platform cannot apply the filter or the sort. For example, the `metadata` parameter is not a valid JSON object, the `enrichment` parameter specifies a key that the enrichment configuration does not define, or the `created_at_gte` time is later than the `created_at_lte` time. The platform also returns this error when the key in the `sort_by` parameter is empty, longer than 128 characters, or contains a NUL character.
                             if ((int)__response.StatusCode == 422)
                             {
                                 string? __content_422 = null;
