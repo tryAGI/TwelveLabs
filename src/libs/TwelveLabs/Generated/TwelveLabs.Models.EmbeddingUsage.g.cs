@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Token counts for the request. Only Marengo 3.5 returns this object.
+    /// Token counts for the request. Only Marengo 3.5 returns this field.
     /// </summary>
     public sealed partial class EmbeddingUsage
     {

@@ -16,11 +16,10 @@ namespace TwelveLabs
         public global::TwelveLabs.TemporalSegmentationVariant1Strategy Strategy { get; set; }
 
         /// <summary>
-        /// Configuration for dynamic segmentation. This object is required when `strategy` is `dynamic`.
+        /// Configuration for dynamic segmentation. If you omit this object or the `min_duration_sec` field, the minimum duration defaults to 2 seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::TwelveLabs.TemporalSegmentationDiscriminatorMappingDynamicDynamic Dynamic { get; set; }
+        public global::TwelveLabs.TemporalSegmentationDiscriminatorMappingDynamicDynamic? Dynamic { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,21 +30,21 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="TemporalSegmentationVariant1" /> class.
         /// </summary>
-        /// <param name="dynamic">
-        /// Configuration for dynamic segmentation. This object is required when `strategy` is `dynamic`.
-        /// </param>
         /// <param name="strategy">
         /// Discriminator value: dynamic
+        /// </param>
+        /// <param name="dynamic">
+        /// Configuration for dynamic segmentation. If you omit this object or the `min_duration_sec` field, the minimum duration defaults to 2 seconds.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public TemporalSegmentationVariant1(
-            global::TwelveLabs.TemporalSegmentationDiscriminatorMappingDynamicDynamic dynamic,
-            global::TwelveLabs.TemporalSegmentationVariant1Strategy strategy)
+            global::TwelveLabs.TemporalSegmentationVariant1Strategy strategy,
+            global::TwelveLabs.TemporalSegmentationDiscriminatorMappingDynamicDynamic? dynamic)
         {
             this.Strategy = strategy;
-            this.Dynamic = dynamic ?? throw new global::System.ArgumentNullException(nameof(dynamic));
+            this.Dynamic = dynamic;
         }
 
         /// <summary>

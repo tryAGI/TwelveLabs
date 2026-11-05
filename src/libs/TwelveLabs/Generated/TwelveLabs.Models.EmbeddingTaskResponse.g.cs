@@ -40,7 +40,7 @@ namespace TwelveLabs
         public global::System.DateTime? UpdatedAt { get; set; }
 
         /// <summary>
-        /// An object containing the embedding results, or `null` otherwise.
+        /// An array of embedding results when `status` is `ready`, or `null` when `status` is `processing` or `failed`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.EmbeddingData>? Data { get; set; }
@@ -90,7 +90,7 @@ namespace TwelveLabs
         /// A string representing the date and time, in RFC 3339 format (“YYYY-MM-DDTHH:mm:ssZ”), when the resource was last updated.
         /// </param>
         /// <param name="data">
-        /// An object containing the embedding results, or `null` otherwise.
+        /// An array of embedding results when `status` is `ready`, or `null` when `status` is `processing` or `failed`.
         /// </param>
         /// <param name="usage">
         /// Token counts for the request. Only Marengo 3.5 returns this field.

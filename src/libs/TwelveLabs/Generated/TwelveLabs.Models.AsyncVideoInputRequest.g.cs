@@ -10,7 +10,7 @@ namespace TwelveLabs
     public sealed partial class AsyncVideoInputRequest
     {
         /// <summary>
-        /// An object specifying the source of the media file. You must provide exactly one of `url`, `base64_string`, or `asset_id`.
+        /// An object specifying the source of the media file. Provide exactly one of the `url`, `base64_string`, or `asset_id` fields. Omit the other fields or set them to `null`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_source")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -59,7 +59,7 @@ namespace TwelveLabs
         /// The scope for which you wish to generate embeddings.<br/>
         /// **Values**:<br/>
         /// - `clip`: Generates one embedding for each segment. Works with both Marengo 3.0 and Marengo 3.5.<br/>
-        /// - `local`: Generates one embedding for each segment. Equivalent to `clip` when using Marengo 3.5.<br/>
+        /// - `local`: Generates one embedding for each segment, the same as `clip`. Requires Marengo 3.5.<br/>
         /// - `asset`: Generates one embedding for the entire video file. Use this scope for videos up to 10-30 seconds to maintain optimal performance.<br/>
         /// You can specify multiple scopes to generate embeddings at different levels.<br/>
         /// **Default**: `["clip", "asset"]`
@@ -68,10 +68,10 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IList<global::TwelveLabs.AsyncVideoInputRequestEmbeddingScopeItems>? EmbeddingScope { get; set; }
 
         /// <summary>
-        /// Specifies how to structure the embedding. Include this parameter only when the `embedding_option` parameter contains at least two values.<br/>
+        /// Specifies how to structure the embeddings. `separate_embedding` accepts one or more embedding options and returns them separately; it does not require multiple options.<br/>
         /// **Values**:<br/>
         /// - `separate_embedding`: Returns separate embeddings for each modality specified in the `embedding_option` parameter.<br/>
-        /// - `fused_embedding`: Returns a single combined embedding that integrates all modalities into one vector. With Marengo 3.5, this value requires the `time_based_metadata` field.<br/>
+        /// - `fused_embedding`: Returns a single combined embedding that integrates all modalities into one vector. Requires at least two distinct `embedding_option` values. With Marengo 3.5, one `embedding_option` value is enough when the request also sets the `time_based_metadata` field.<br/>
         /// Specify both values to receive separate and fused embeddings in the same response.<br/>
         /// **Default**: `separate_embedding`.
         /// </summary>
@@ -94,7 +94,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="AsyncVideoInputRequest" /> class.
         /// </summary>
         /// <param name="mediaSource">
-        /// An object specifying the source of the media file. You must provide exactly one of `url`, `base64_string`, or `asset_id`.
+        /// An object specifying the source of the media file. Provide exactly one of the `url`, `base64_string`, or `asset_id` fields. Omit the other fields or set them to `null`.
         /// </param>
         /// <param name="startSec">
         /// The start time in seconds for processing the video file.<br/>
@@ -126,16 +126,16 @@ namespace TwelveLabs
         /// The scope for which you wish to generate embeddings.<br/>
         /// **Values**:<br/>
         /// - `clip`: Generates one embedding for each segment. Works with both Marengo 3.0 and Marengo 3.5.<br/>
-        /// - `local`: Generates one embedding for each segment. Equivalent to `clip` when using Marengo 3.5.<br/>
+        /// - `local`: Generates one embedding for each segment, the same as `clip`. Requires Marengo 3.5.<br/>
         /// - `asset`: Generates one embedding for the entire video file. Use this scope for videos up to 10-30 seconds to maintain optimal performance.<br/>
         /// You can specify multiple scopes to generate embeddings at different levels.<br/>
         /// **Default**: `["clip", "asset"]`
         /// </param>
         /// <param name="embeddingType">
-        /// Specifies how to structure the embedding. Include this parameter only when the `embedding_option` parameter contains at least two values.<br/>
+        /// Specifies how to structure the embeddings. `separate_embedding` accepts one or more embedding options and returns them separately; it does not require multiple options.<br/>
         /// **Values**:<br/>
         /// - `separate_embedding`: Returns separate embeddings for each modality specified in the `embedding_option` parameter.<br/>
-        /// - `fused_embedding`: Returns a single combined embedding that integrates all modalities into one vector. With Marengo 3.5, this value requires the `time_based_metadata` field.<br/>
+        /// - `fused_embedding`: Returns a single combined embedding that integrates all modalities into one vector. Requires at least two distinct `embedding_option` values. With Marengo 3.5, one `embedding_option` value is enough when the request also sets the `time_based_metadata` field.<br/>
         /// Specify both values to receive separate and fused embeddings in the same response.<br/>
         /// **Default**: `separate_embedding`.
         /// </param>

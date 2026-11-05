@@ -4,19 +4,19 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Configuration for dynamic segmentation. This object is required when `strategy` is `dynamic`.
+    /// Configuration for dynamic segmentation. If you omit this object or the `min_duration_sec` field, the minimum duration defaults to 2 seconds.
     /// </summary>
     public sealed partial class TemporalSegmentationDiscriminatorMappingDynamicDynamic
     {
         /// <summary>
         /// The minimum duration in seconds for each segment.<br/>
         /// The platform divides the file into segments that are at least this long. Segments adapt to scene changes and content boundaries and may be longer than the minimum.<br/>
+        /// **Default**: `2`.<br/>
         /// **Min**: `2`.<br/>
         /// **Max**: `5`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("min_duration_sec")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int MinDurationSec { get; set; }
+        public double? MinDurationSec { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -30,6 +30,7 @@ namespace TwelveLabs
         /// <param name="minDurationSec">
         /// The minimum duration in seconds for each segment.<br/>
         /// The platform divides the file into segments that are at least this long. Segments adapt to scene changes and content boundaries and may be longer than the minimum.<br/>
+        /// **Default**: `2`.<br/>
         /// **Min**: `2`.<br/>
         /// **Max**: `5`.
         /// </param>
@@ -37,7 +38,7 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public TemporalSegmentationDiscriminatorMappingDynamicDynamic(
-            int minDurationSec)
+            double? minDurationSec)
         {
             this.MinDurationSec = minDurationSec;
         }

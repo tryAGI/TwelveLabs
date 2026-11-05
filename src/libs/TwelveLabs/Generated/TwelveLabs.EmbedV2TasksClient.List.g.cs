@@ -51,10 +51,10 @@ namespace TwelveLabs
 
         /// <summary>
         /// List async embedding tasks<br/>
-        /// This method returns a list of the async embedding tasks in your account. The platform returns your async embedding tasks sorted by creation date, with the newest at the top of the list.<br/>
+        /// This method returns a list of the async embedding tasks in your account. The platform returns tasks sorted by creation date, with the newest at the top of the list.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
         /// - Embeddings are stored for seven days.<br/>
-        /// - When you invoke this method without specifying the `started_at` and `ended_at` parameters, the platform returns all the async embedding tasks created within the last seven days.<br/>
+        /// - Without the `started_at` or `ended_at` query parameters, this method lists tasks created in the last seven days.<br/>
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="startedAt"></param>
@@ -92,10 +92,10 @@ namespace TwelveLabs
         }
         /// <summary>
         /// List async embedding tasks<br/>
-        /// This method returns a list of the async embedding tasks in your account. The platform returns your async embedding tasks sorted by creation date, with the newest at the top of the list.<br/>
+        /// This method returns a list of the async embedding tasks in your account. The platform returns tasks sorted by creation date, with the newest at the top of the list.<br/>
         /// &lt;Note title="Notes"&gt;<br/>
         /// - Embeddings are stored for seven days.<br/>
-        /// - When you invoke this method without specifying the `started_at` and `ended_at` parameters, the platform returns all the async embedding tasks created within the last seven days.<br/>
+        /// - Without the `started_at` or `ended_at` query parameters, this method lists tasks created in the last seven days.<br/>
         /// &lt;/Note&gt;
         /// </summary>
         /// <param name="startedAt"></param>
@@ -385,24 +385,24 @@ namespace TwelveLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // The request has failed.
+                            // Invalid query parameters.
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
                                 global::System.Exception? __exception_400 = null;
-                                global::TwelveLabs.ListAsyncEmbeddingTasksRequestBadRequestError? __value_400 = null;
+                                global::TwelveLabs.FlatErrorResponse? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = global::TwelveLabs.ListAsyncEmbeddingTasksRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = global::TwelveLabs.ListAsyncEmbeddingTasksRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -411,12 +411,86 @@ namespace TwelveLabs
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.ListAsyncEmbeddingTasksRequestBadRequestError>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.FlatErrorResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
                                     responseBody: __content_400,
                                     responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // The API key is missing, invalid, or expired.
+                            if ((int)__response.StatusCode == 401)
+                            {
+                                string? __content_401 = null;
+                                global::System.Exception? __exception_401 = null;
+                                global::TwelveLabs.FlatErrorResponse? __value_401 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_401 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_401, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_401 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_401, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_401 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.FlatErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_401 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_401,
+                                    responseBody: __content_401,
+                                    responseObject: __value_401,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // An internal error prevented the operation from completing.
+                            if ((int)__response.StatusCode == 500)
+                            {
+                                string? __content_500 = null;
+                                global::System.Exception? __exception_500 = null;
+                                global::TwelveLabs.FlatErrorResponse? __value_500 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_500 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_500, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_500 = global::TwelveLabs.FlatErrorResponse.FromJson(__content_500, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_500 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.FlatErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_500,
+                                    responseBody: __content_500,
+                                    responseObject: __value_500,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,

@@ -20,14 +20,14 @@ namespace TwelveLabs
     public sealed partial class AsyncDocumentInputRequest
     {
         /// <summary>
-        /// An object specifying the source of the media file. You must provide exactly one of `url`, `base64_string`, or `asset_id`.
+        /// An object specifying the source of the media file. Provide exactly one of the `url`, `base64_string`, or `asset_id` fields. Omit the other fields or set them to `null`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_source")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::TwelveLabs.MediaSource MediaSource { get; set; }
 
         /// <summary>
-        /// Specifies how the platform divides your document before it generates embeddings. Requires Marengo 3.5.<br/>
+        /// Specifies how the platform divides the document before it generates embeddings.<br/>
         /// Use the `spatial` field to divide each rendered page of a PDF file. Use the `sequential` field to divide a plain text or Markdown file into chunks.<br/>
         /// Provide the field that matches your file. If you provide neither field, the platform returns a `400` error.
         /// </summary>
@@ -76,10 +76,10 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="AsyncDocumentInputRequest" /> class.
         /// </summary>
         /// <param name="mediaSource">
-        /// An object specifying the source of the media file. You must provide exactly one of `url`, `base64_string`, or `asset_id`.
+        /// An object specifying the source of the media file. Provide exactly one of the `url`, `base64_string`, or `asset_id` fields. Omit the other fields or set them to `null`.
         /// </param>
         /// <param name="segmentation">
-        /// Specifies how the platform divides your document before it generates embeddings. Requires Marengo 3.5.<br/>
+        /// Specifies how the platform divides the document before it generates embeddings.<br/>
         /// Use the `spatial` field to divide each rendered page of a PDF file. Use the `sequential` field to divide a plain text or Markdown file into chunks.<br/>
         /// Provide the field that matches your file. If you provide neither field, the platform returns a `400` error.
         /// </param>

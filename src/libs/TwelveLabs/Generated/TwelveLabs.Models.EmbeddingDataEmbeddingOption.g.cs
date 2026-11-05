@@ -9,9 +9,9 @@ namespace TwelveLabs
     /// - `visual`: Embedding based on visual content (a video, a page of a PDF file, or an image embedded asynchronously).<br/>
     /// - `audio`: Embedding based on audio content.<br/>
     /// - `text`: Embedding based on the text content of a PDF, plain text, or Markdown file embedded asynchronously.<br/>
-    /// - `transcription`: Embedding based on transcribed speech. Returned only for content embedded with Marengo 3.0.<br/>
+    /// - `transcription`: Embedding based on transcribed speech. Only Marengo 3.0 returns this value.<br/>
     /// - `fused`: Embedding based on a combination of the modalities specified in the request. The platform returns this embedding only for video and audio input, and only when the `embedding_type` parameter includes the `fused_embedding` value.<br/>
-    /// - `null`: For text embeddings and images embedded synchronously.
+    /// This field is omitted for synchronous text and image inputs.
     /// </summary>
     public enum EmbeddingDataEmbeddingOption
     {
@@ -28,7 +28,7 @@ namespace TwelveLabs
         /// </summary>
         Text,
         /// <summary>
-        /// Embedding based on transcribed speech. Returned only for content embedded with Marengo 3.0.
+        /// Embedding based on transcribed speech. Only Marengo 3.0 returns this value.
         /// </summary>
         Transcription,
         /// <summary>

@@ -76,7 +76,7 @@ namespace TwelveLabs
         /// <param name="embeddingUncertainty">
         /// Set this parameter to `true` to include a per-dimension uncertainty vector in the [`data[].embedding_uncertainty`](/v1.3/api-reference/create-embeddings-v2/create-embeddings#response.body.data.embedding-uncertainty) field of the response. The vector has the same length as the `embedding` array. A higher value indicates lower confidence in that dimension. Requires Marengo 3.5.<br/>
         /// **Requirements**:<br/>
-        /// - Set this parameter to `true` only for a text-only or media-only request. If you combine text with media sources, the platform returns a `400` error.<br/>
+        /// - Uncertainty vectors are supported for text-only input or a single image. When the `input_type` parameter is `multi_input`, provide the `input_text` field without the `media_sources` field, or provide one image source without the `input_text` field. The platform returns a `400` error if you combine text with media, provide more than one media source, or provide an audio or video source.<br/>
         /// - The platform returns a `400` error if your request includes a document, whether PDF, plain text, or Markdown.<br/>
         /// Default Value: false
         /// </param>
