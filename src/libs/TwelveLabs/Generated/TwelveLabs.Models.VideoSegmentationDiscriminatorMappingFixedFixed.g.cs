@@ -11,13 +11,14 @@ namespace TwelveLabs
         /// <summary>
         /// The duration in seconds for each segment.<br/>
         /// The platform divides the video into segments of this exact length. The final segment may be shorter if the video duration is not evenly divisible.<br/>
+        /// Marengo 3.0 ignores the fractional part of this value. For example, it treats `2.5` as `2`.<br/>
         /// **Min**: `2`.<br/>
         /// **Max**: `10`.<br/>
         /// **Example**: With `duration_sec: 5`, a 12-second video produces segments: [0-5s], [5-10s], [10-12s].
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_sec")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int DurationSec { get; set; }
+        public required double DurationSec { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,6 +32,7 @@ namespace TwelveLabs
         /// <param name="durationSec">
         /// The duration in seconds for each segment.<br/>
         /// The platform divides the video into segments of this exact length. The final segment may be shorter if the video duration is not evenly divisible.<br/>
+        /// Marengo 3.0 ignores the fractional part of this value. For example, it treats `2.5` as `2`.<br/>
         /// **Min**: `2`.<br/>
         /// **Max**: `10`.<br/>
         /// **Example**: With `duration_sec: 5`, a 12-second video produces segments: [0-5s], [5-10s], [10-12s].
@@ -39,7 +41,7 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public VideoSegmentationDiscriminatorMappingFixedFixed(
-            int durationSec)
+            double durationSec)
         {
             this.DurationSec = durationSec;
         }

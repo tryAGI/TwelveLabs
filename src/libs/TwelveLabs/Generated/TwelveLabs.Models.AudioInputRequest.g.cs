@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class AudioInputRequest
     {
         /// <summary>
-        /// An object specifying the source of the media file. You must provide exactly one of `url`, `base64_string`, or `asset_id`.
+        /// An object specifying the source of the media file. Provide exactly one of the `url`, `base64_string`, or `asset_id` fields. Omit the other fields or set them to `null`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_source")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -60,10 +60,10 @@ namespace TwelveLabs
         public global::System.Collections.Generic.IList<global::TwelveLabs.AudioInputRequestEmbeddingScopeItems>? EmbeddingScope { get; set; }
 
         /// <summary>
-        /// Specifies how to structure the embedding. Include this parameter only when the `embedding_option` parameter contains at least two values.<br/>
+        /// Specifies how to structure the embeddings. `separate_embedding` accepts one or more embedding options and returns them separately; it does not require multiple options.<br/>
         /// **Values**:<br/>
         /// - `separate_embedding`: Returns separate embeddings for each modality specified in the `embedding_option` parameter.<br/>
-        /// - `fused_embedding`: Returns a single combined embedding that integrates all modalities into one vector.<br/>
+        /// - `fused_embedding`: Returns a single combined embedding that integrates audio and transcription. Include both the `audio` and `transcription` values in the `embedding_option` field.<br/>
         /// Specify both values to receive separate and fused embeddings in the same response.<br/>
         /// **Default**: `separate_embedding`.
         /// </summary>
@@ -80,7 +80,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="AudioInputRequest" /> class.
         /// </summary>
         /// <param name="mediaSource">
-        /// An object specifying the source of the media file. You must provide exactly one of `url`, `base64_string`, or `asset_id`.
+        /// An object specifying the source of the media file. Provide exactly one of the `url`, `base64_string`, or `asset_id` fields. Omit the other fields or set them to `null`.
         /// </param>
         /// <param name="startSec">
         /// The start time in seconds for processing the audio file.<br/>
@@ -112,10 +112,10 @@ namespace TwelveLabs
         /// **Default**: `["clip", "asset"]`
         /// </param>
         /// <param name="embeddingType">
-        /// Specifies how to structure the embedding. Include this parameter only when the `embedding_option` parameter contains at least two values.<br/>
+        /// Specifies how to structure the embeddings. `separate_embedding` accepts one or more embedding options and returns them separately; it does not require multiple options.<br/>
         /// **Values**:<br/>
         /// - `separate_embedding`: Returns separate embeddings for each modality specified in the `embedding_option` parameter.<br/>
-        /// - `fused_embedding`: Returns a single combined embedding that integrates all modalities into one vector.<br/>
+        /// - `fused_embedding`: Returns a single combined embedding that integrates audio and transcription. Include both the `audio` and `transcription` values in the `embedding_option` field.<br/>
         /// Specify both values to receive separate and fused embeddings in the same response.<br/>
         /// **Default**: `separate_embedding`.
         /// </param>

@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class ImageInputRequest
     {
         /// <summary>
-        /// An object specifying the source of the media file. You must provide exactly one of `url`, `base64_string`, or `asset_id`.
+        /// An object specifying the source of the media file. Provide exactly one of the `url`, `base64_string`, or `asset_id` fields. Omit the other fields or set them to `null`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media_source")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="ImageInputRequest" /> class.
         /// </summary>
         /// <param name="mediaSource">
-        /// An object specifying the source of the media file. You must provide exactly one of `url`, `base64_string`, or `asset_id`.
+        /// An object specifying the source of the media file. Provide exactly one of the `url`, `base64_string`, or `asset_id` fields. Omit the other fields or set them to `null`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

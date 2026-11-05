@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// An embedding with its metadata.
+    /// An embedding with its metadata. The platform omits an optional field that has no value.
     /// </summary>
     public sealed partial class EmbeddingData
     {
@@ -27,11 +27,12 @@ namespace TwelveLabs
         /// - `visual`: Embedding based on visual content (a video, a page of a PDF file, or an image embedded asynchronously).<br/>
         /// - `audio`: Embedding based on audio content.<br/>
         /// - `text`: Embedding based on the text content of a PDF, plain text, or Markdown file embedded asynchronously.<br/>
-        /// - `transcription`: Embedding based on transcribed speech. Returned only for content embedded with Marengo 3.0.<br/>
+        /// - `transcription`: Embedding based on transcribed speech. Only Marengo 3.0 returns this value.<br/>
         /// - `fused`: Embedding based on a combination of the modalities specified in the request. The platform returns this embedding only for video and audio input, and only when the `embedding_type` parameter includes the `fused_embedding` value.<br/>
-        /// - `null`: For text embeddings and images embedded synchronously.
+        /// This field is omitted for synchronous text and image inputs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding_option")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.EmbeddingDataEmbeddingOptionJsonConverter))]
         public global::TwelveLabs.EmbeddingDataEmbeddingOption? EmbeddingOption { get; set; }
 
         /// <summary>
@@ -41,45 +42,47 @@ namespace TwelveLabs
         /// - `page`: Embedding for one page of a PDF file embedded asynchronously, or for one quadrant of a page when the request sets [`document.segmentation.spatial.strategy`](/v1.3/api-reference/create-embeddings-v2/create-async-embedding-task#request.body.document.segmentation.spatial.strategy) to `quadrants`. With that strategy, five entries share the same scope and page numbers, so read the `quadrant` field to tell them apart: the whole-page entry has no `quadrant` value.<br/>
         /// - `chunk`: Embedding for one chunk of whole sentences from a plain text or Markdown file embedded asynchronously. Read the `chunk_index` field for the position of the chunk in the file.<br/>
         /// - `asset`: Embedding for the entire file. For video and audio input, use this scope for content up to 10-30 seconds to maintain optimal performance.<br/>
-        /// - `null`: For text embeddings and images embedded synchronously.<br/>
+        /// This field is omitted for synchronous text and image inputs.<br/>
         /// When you request the `local` scope, the platform returns `clip` for audio and video, `page` for PDF files, and `chunk` for plain text and Markdown files. For audio, video, and document input, the `metadata.embedding_scopes` field contains the scopes you requested.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embedding_scope")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.EmbeddingDataEmbeddingScopeJsonConverter))]
         public global::TwelveLabs.EmbeddingDataEmbeddingScope? EmbeddingScope { get; set; }
 
         /// <summary>
-        /// The start time in seconds for this segment. This field is `null` for text and image embeddings.
+        /// The start time in seconds for this segment. The platform omits this field when no temporal span applies.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_sec")]
         public double? StartSec { get; set; }
 
         /// <summary>
-        /// The end time in seconds for this segment. This field is `null` for text and image embeddings.
+        /// The end time in seconds for this segment. The platform omits this field when no temporal span applies.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_sec")]
         public double? EndSec { get; set; }
 
         /// <summary>
-        /// The first page this embedding covers, counting from 1. The platform returns this field only for page-level embeddings of a PDF file, and `null` in every other case.
+        /// The first page this embedding covers, counting from 1. The platform returns this field only for page-level embeddings of a PDF file, and omits it in every other case.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_page_number")]
         public int? StartPageNumber { get; set; }
 
         /// <summary>
-        /// The last page this embedding covers, counting from 1 and including that page. This field matches the `start_page_number` field when the embedding covers a single page. The platform returns this field only for page-level embeddings of a PDF file, and `null` in every other case.
+        /// The last page this embedding covers, counting from 1 and including that page. This field matches the `start_page_number` field when the embedding covers a single page. The platform returns this field only for page-level embeddings of a PDF file, and omits it in every other case.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_page_number")]
         public int? EndPageNumber { get; set; }
 
         /// <summary>
-        /// The quarter of the page this embedding covers. The platform returns this field only when the request sets [`document.segmentation.spatial.strategy`](/v1.3/api-reference/create-embeddings-v2/create-async-embedding-task#request.body.document.segmentation.spatial.strategy) to `quadrants`, and only on the four quadrant embeddings of a page. This field is `null` on the whole-page embedding and in every other case.
+        /// The quarter of the page this embedding covers. The platform returns this field only when the request sets [`document.segmentation.spatial.strategy`](/v1.3/api-reference/create-embeddings-v2/create-async-embedding-task#request.body.document.segmentation.spatial.strategy) to the `quadrants` value, and only on the four quadrant embeddings of a page. This field is omitted on the whole-page embedding and whenever no quadrant applies.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quadrant")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.EmbeddingDataQuadrantJsonConverter))]
         public global::TwelveLabs.EmbeddingDataQuadrant? Quadrant { get; set; }
 
         /// <summary>
-        /// The position of this chunk in the file, counting from 0. The platform returns this field only on `chunk`-scope embeddings of a plain text or Markdown file, and `null` in every other case.<br/>
-        /// Read this field rather than the position of the entry in the `data` array, which provides no ordering guarantee.
+        /// The position of this chunk in the file, counting from 0. The platform returns this field only for embeddings of a plain text or Markdown file when the `embedding_scope` field is `chunk`, and omits it in every other case.<br/>
+        /// Read this field rather than the position of the element in the `data` array, which provides no ordering guarantee.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("chunk_index")]
         public int? ChunkIndex { get; set; }
@@ -105,9 +108,9 @@ namespace TwelveLabs
         /// - `visual`: Embedding based on visual content (a video, a page of a PDF file, or an image embedded asynchronously).<br/>
         /// - `audio`: Embedding based on audio content.<br/>
         /// - `text`: Embedding based on the text content of a PDF, plain text, or Markdown file embedded asynchronously.<br/>
-        /// - `transcription`: Embedding based on transcribed speech. Returned only for content embedded with Marengo 3.0.<br/>
+        /// - `transcription`: Embedding based on transcribed speech. Only Marengo 3.0 returns this value.<br/>
         /// - `fused`: Embedding based on a combination of the modalities specified in the request. The platform returns this embedding only for video and audio input, and only when the `embedding_type` parameter includes the `fused_embedding` value.<br/>
-        /// - `null`: For text embeddings and images embedded synchronously.
+        /// This field is omitted for synchronous text and image inputs.
         /// </param>
         /// <param name="embeddingScope">
         /// The scope for which the embedding was generated.<br/>
@@ -116,27 +119,27 @@ namespace TwelveLabs
         /// - `page`: Embedding for one page of a PDF file embedded asynchronously, or for one quadrant of a page when the request sets [`document.segmentation.spatial.strategy`](/v1.3/api-reference/create-embeddings-v2/create-async-embedding-task#request.body.document.segmentation.spatial.strategy) to `quadrants`. With that strategy, five entries share the same scope and page numbers, so read the `quadrant` field to tell them apart: the whole-page entry has no `quadrant` value.<br/>
         /// - `chunk`: Embedding for one chunk of whole sentences from a plain text or Markdown file embedded asynchronously. Read the `chunk_index` field for the position of the chunk in the file.<br/>
         /// - `asset`: Embedding for the entire file. For video and audio input, use this scope for content up to 10-30 seconds to maintain optimal performance.<br/>
-        /// - `null`: For text embeddings and images embedded synchronously.<br/>
+        /// This field is omitted for synchronous text and image inputs.<br/>
         /// When you request the `local` scope, the platform returns `clip` for audio and video, `page` for PDF files, and `chunk` for plain text and Markdown files. For audio, video, and document input, the `metadata.embedding_scopes` field contains the scopes you requested.
         /// </param>
         /// <param name="startSec">
-        /// The start time in seconds for this segment. This field is `null` for text and image embeddings.
+        /// The start time in seconds for this segment. The platform omits this field when no temporal span applies.
         /// </param>
         /// <param name="endSec">
-        /// The end time in seconds for this segment. This field is `null` for text and image embeddings.
+        /// The end time in seconds for this segment. The platform omits this field when no temporal span applies.
         /// </param>
         /// <param name="startPageNumber">
-        /// The first page this embedding covers, counting from 1. The platform returns this field only for page-level embeddings of a PDF file, and `null` in every other case.
+        /// The first page this embedding covers, counting from 1. The platform returns this field only for page-level embeddings of a PDF file, and omits it in every other case.
         /// </param>
         /// <param name="endPageNumber">
-        /// The last page this embedding covers, counting from 1 and including that page. This field matches the `start_page_number` field when the embedding covers a single page. The platform returns this field only for page-level embeddings of a PDF file, and `null` in every other case.
+        /// The last page this embedding covers, counting from 1 and including that page. This field matches the `start_page_number` field when the embedding covers a single page. The platform returns this field only for page-level embeddings of a PDF file, and omits it in every other case.
         /// </param>
         /// <param name="quadrant">
-        /// The quarter of the page this embedding covers. The platform returns this field only when the request sets [`document.segmentation.spatial.strategy`](/v1.3/api-reference/create-embeddings-v2/create-async-embedding-task#request.body.document.segmentation.spatial.strategy) to `quadrants`, and only on the four quadrant embeddings of a page. This field is `null` on the whole-page embedding and in every other case.
+        /// The quarter of the page this embedding covers. The platform returns this field only when the request sets [`document.segmentation.spatial.strategy`](/v1.3/api-reference/create-embeddings-v2/create-async-embedding-task#request.body.document.segmentation.spatial.strategy) to the `quadrants` value, and only on the four quadrant embeddings of a page. This field is omitted on the whole-page embedding and whenever no quadrant applies.
         /// </param>
         /// <param name="chunkIndex">
-        /// The position of this chunk in the file, counting from 0. The platform returns this field only on `chunk`-scope embeddings of a plain text or Markdown file, and `null` in every other case.<br/>
-        /// Read this field rather than the position of the entry in the `data` array, which provides no ordering guarantee.
+        /// The position of this chunk in the file, counting from 0. The platform returns this field only for embeddings of a plain text or Markdown file when the `embedding_scope` field is `chunk`, and omits it in every other case.<br/>
+        /// Read this field rather than the position of the element in the `data` array, which provides no ordering guarantee.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -4,18 +4,18 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Configuration for fixed segmentation. This object is required when `strategy` is `fixed`.
+    /// Configuration for fixed segmentation. If you omit this object or the `duration_sec` field, the duration defaults to 6 seconds.
     /// </summary>
     public sealed partial class TemporalSegmentationDiscriminatorMappingFixedFixed
     {
         /// <summary>
-        /// The duration in seconds for each segment. The platform divides the file into segments of this exact length. The final segment may be shorter if the duration is not evenly divisible.<br/>
+        /// The duration in seconds for each segment. The platform divides the file into segments of this exact length. The final segment may be shorter if the file duration is not evenly divisible.<br/>
+        /// **Default**: `6`.<br/>
         /// **Min**: `2`.<br/>
         /// **Max**: `10`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duration_sec")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int DurationSec { get; set; }
+        public double? DurationSec { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -27,7 +27,8 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="TemporalSegmentationDiscriminatorMappingFixedFixed" /> class.
         /// </summary>
         /// <param name="durationSec">
-        /// The duration in seconds for each segment. The platform divides the file into segments of this exact length. The final segment may be shorter if the duration is not evenly divisible.<br/>
+        /// The duration in seconds for each segment. The platform divides the file into segments of this exact length. The final segment may be shorter if the file duration is not evenly divisible.<br/>
+        /// **Default**: `6`.<br/>
         /// **Min**: `2`.<br/>
         /// **Max**: `10`.
         /// </param>
@@ -35,7 +36,7 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public TemporalSegmentationDiscriminatorMappingFixedFixed(
-            int durationSec)
+            double? durationSec)
         {
             this.DurationSec = durationSec;
         }

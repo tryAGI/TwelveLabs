@@ -21,7 +21,7 @@ namespace TwelveLabs
         public string? InputFilename { get; set; }
 
         /// <summary>
-        /// The type of the embedding. It can take one of the following values: ['audio'] or ['transcription'].
+        /// The types of embeddings generated for the audio. The array can contain `audio`, `transcription`, or both.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_embedding_option")]
         public global::System.Collections.Generic.IList<string>? AudioEmbeddingOption { get; set; }
@@ -66,7 +66,7 @@ namespace TwelveLabs
         /// The name of the media file used to generate the embedding. Present if a file was provided in the request.
         /// </param>
         /// <param name="audioEmbeddingOption">
-        /// The type of the embedding. It can take one of the following values: ['audio'] or ['transcription'].
+        /// The types of embeddings generated for the audio. The array can contain `audio`, `transcription`, or both.
         /// </param>
         /// <param name="audioEmbeddingScope">
         /// The scope you've specified in the request.

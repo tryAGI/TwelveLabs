@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The quarter of the page this embedding covers. The platform returns this field only when the request sets [`document.segmentation.spatial.strategy`](/v1.3/api-reference/create-embeddings-v2/create-async-embedding-task#request.body.document.segmentation.spatial.strategy) to `quadrants`, and only on the four quadrant embeddings of a page. This field is `null` on the whole-page embedding and in every other case.
+    /// The quarter of the page this embedding covers. The platform returns this field only when the request sets [`document.segmentation.spatial.strategy`](/v1.3/api-reference/create-embeddings-v2/create-async-embedding-task#request.body.document.segmentation.spatial.strategy) to the `quadrants` value, and only on the four quadrant embeddings of a page. This field is omitted on the whole-page embedding and whenever no quadrant applies.
     /// </summary>
     public enum EmbeddingDataQuadrant
     {
