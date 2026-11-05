@@ -33,6 +33,7 @@ namespace TwelveLabs
             ref string? sortBy,
             ref string? sortOption,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status,
+            global::System.Collections.Generic.IList<string>? assetId,
             ref string? metadata,
             ref string? enrichment,
             ref global::System.DateTime? createdAtGte,
@@ -46,6 +47,7 @@ namespace TwelveLabs
             string? sortBy,
             string? sortOption,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status,
+            global::System.Collections.Generic.IList<string>? assetId,
             string? metadata,
             string? enrichment,
             global::System.DateTime? createdAtGte,
@@ -62,7 +64,7 @@ namespace TwelveLabs
         /// <summary>
         /// List knowledge store items<br/>
         /// This method returns a list of items in the specified knowledge store.<br/>
-        /// Use the `status`, `metadata`, `enrichment`, `created_at_gte`, and `created_at_lte` parameters to choose which items to list. An item must match all of the parameters that you specify.
+        /// Use the `status`, `asset_id`, `metadata`, `enrichment`, `created_at_gte`, and `created_at_lte` parameters to choose which items to list. An item must match every parameter that you specify. You can repeat the `status` and `asset_id` parameters. For a repeated parameter, an item matches when it matches any of its values.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="page">
@@ -78,6 +80,7 @@ namespace TwelveLabs
         /// Default Value: desc
         /// </param>
         /// <param name="status"></param>
+        /// <param name="assetId"></param>
         /// <param name="metadata"></param>
         /// <param name="enrichment"></param>
         /// <param name="createdAtGte"></param>
@@ -92,6 +95,7 @@ namespace TwelveLabs
             string? sortBy = default,
             string? sortOption = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status = default,
+            global::System.Collections.Generic.IList<string>? assetId = default,
             string? metadata = default,
             string? enrichment = default,
             global::System.DateTime? createdAtGte = default,
@@ -106,6 +110,7 @@ namespace TwelveLabs
                 sortBy: sortBy,
                 sortOption: sortOption,
                 status: status,
+                assetId: assetId,
                 metadata: metadata,
                 enrichment: enrichment,
                 createdAtGte: createdAtGte,
@@ -119,7 +124,7 @@ namespace TwelveLabs
         /// <summary>
         /// List knowledge store items<br/>
         /// This method returns a list of items in the specified knowledge store.<br/>
-        /// Use the `status`, `metadata`, `enrichment`, `created_at_gte`, and `created_at_lte` parameters to choose which items to list. An item must match all of the parameters that you specify.
+        /// Use the `status`, `asset_id`, `metadata`, `enrichment`, `created_at_gte`, and `created_at_lte` parameters to choose which items to list. An item must match every parameter that you specify. You can repeat the `status` and `asset_id` parameters. For a repeated parameter, an item matches when it matches any of its values.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="page">
@@ -135,6 +140,7 @@ namespace TwelveLabs
         /// Default Value: desc
         /// </param>
         /// <param name="status"></param>
+        /// <param name="assetId"></param>
         /// <param name="metadata"></param>
         /// <param name="enrichment"></param>
         /// <param name="createdAtGte"></param>
@@ -149,6 +155,7 @@ namespace TwelveLabs
             string? sortBy = default,
             string? sortOption = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status = default,
+            global::System.Collections.Generic.IList<string>? assetId = default,
             string? metadata = default,
             string? enrichment = default,
             global::System.DateTime? createdAtGte = default,
@@ -166,6 +173,7 @@ namespace TwelveLabs
                 sortBy: ref sortBy,
                 sortOption: ref sortOption,
                 status: status,
+                assetId: assetId,
                 metadata: ref metadata,
                 enrichment: ref enrichment,
                 createdAtGte: ref createdAtGte,
@@ -203,6 +211,7 @@ namespace TwelveLabs
                                 .AddOptionalParameter("sort_by", sortBy)
                                 .AddOptionalParameter("sort_option", sortOption)
                                 .AddOptionalParameter("status", status, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
+                                .AddOptionalParameter("asset_id", assetId, delimiter: ",", explode: true)
                                 .AddOptionalParameter("metadata", metadata)
                                 .AddOptionalParameter("enrichment", enrichment)
                                 .AddOptionalParameter("created_at_gte", createdAtGte?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
@@ -254,6 +263,7 @@ namespace TwelveLabs
                     sortBy: sortBy,
                     sortOption: sortOption,
                     status: status,
+                    assetId: assetId,
                     metadata: metadata,
                     enrichment: enrichment,
                     createdAtGte: createdAtGte,
@@ -436,7 +446,7 @@ namespace TwelveLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // The request has failed. For example, the `sort_by` parameter is not `created_at`, `updated_at`, or a value that starts with `metadata.`.
+                            // The request has failed. For example, the `sort_by` parameter is not `created_at`, `updated_at`, or a value that starts with `metadata.`. The platform also returns this error when the `asset_id` parameter has more than 50 values, has an empty value, or has a value that is not a valid asset identifier.
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
