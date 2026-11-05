@@ -7,7 +7,7 @@ namespace TwelveLabs
         /// <summary>
         /// List knowledge store items<br/>
         /// This method returns a list of items in the specified knowledge store.<br/>
-        /// Use the `status`, `metadata`, `enrichment`, `created_at_gte`, and `created_at_lte` parameters to choose which items to list. An item must match all of the parameters that you specify.
+        /// Use the `status`, `asset_id`, `metadata`, `enrichment`, `created_at_gte`, and `created_at_lte` parameters to choose which items to list. An item must match every parameter that you specify. You can repeat the `status` and `asset_id` parameters. For a repeated parameter, an item matches when it matches any of its values.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="page">
@@ -23,6 +23,7 @@ namespace TwelveLabs
         /// Default Value: desc
         /// </param>
         /// <param name="status"></param>
+        /// <param name="assetId"></param>
         /// <param name="metadata"></param>
         /// <param name="enrichment"></param>
         /// <param name="createdAtGte"></param>
@@ -37,6 +38,7 @@ namespace TwelveLabs
             string? sortBy = default,
             string? sortOption = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status = default,
+            global::System.Collections.Generic.IList<string>? assetId = default,
             string? metadata = default,
             string? enrichment = default,
             global::System.DateTime? createdAtGte = default,
@@ -46,7 +48,7 @@ namespace TwelveLabs
         /// <summary>
         /// List knowledge store items<br/>
         /// This method returns a list of items in the specified knowledge store.<br/>
-        /// Use the `status`, `metadata`, `enrichment`, `created_at_gte`, and `created_at_lte` parameters to choose which items to list. An item must match all of the parameters that you specify.
+        /// Use the `status`, `asset_id`, `metadata`, `enrichment`, `created_at_gte`, and `created_at_lte` parameters to choose which items to list. An item must match every parameter that you specify. You can repeat the `status` and `asset_id` parameters. For a repeated parameter, an item matches when it matches any of its values.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="page">
@@ -62,6 +64,7 @@ namespace TwelveLabs
         /// Default Value: desc
         /// </param>
         /// <param name="status"></param>
+        /// <param name="assetId"></param>
         /// <param name="metadata"></param>
         /// <param name="enrichment"></param>
         /// <param name="createdAtGte"></param>
@@ -76,6 +79,7 @@ namespace TwelveLabs
             string? sortBy = default,
             string? sortOption = default,
             global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemsGetParametersStatusSchemaItems>? status = default,
+            global::System.Collections.Generic.IList<string>? assetId = default,
             string? metadata = default,
             string? enrichment = default,
             global::System.DateTime? createdAtGte = default,

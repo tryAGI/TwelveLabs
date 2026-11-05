@@ -30,14 +30,16 @@ namespace TwelveLabs
             ref int? page,
             ref int? pageLimit,
             ref global::TwelveLabs.KnowledgeStoresGetParametersSortBy? sortBy,
-            ref string? sortOption);
+            ref string? sortOption,
+            ref string? assetId);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? page,
             int? pageLimit,
             global::TwelveLabs.KnowledgeStoresGetParametersSortBy? sortBy,
-            string? sortOption);
+            string? sortOption,
+            string? assetId);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -63,6 +65,7 @@ namespace TwelveLabs
         /// <param name="sortOption">
         /// Default Value: desc
         /// </param>
+        /// <param name="assetId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
@@ -71,6 +74,7 @@ namespace TwelveLabs
             int? pageLimit = default,
             global::TwelveLabs.KnowledgeStoresGetParametersSortBy? sortBy = default,
             string? sortOption = default,
+            string? assetId = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -79,6 +83,7 @@ namespace TwelveLabs
                 pageLimit: pageLimit,
                 sortBy: sortBy,
                 sortOption: sortOption,
+                assetId: assetId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -101,6 +106,7 @@ namespace TwelveLabs
         /// <param name="sortOption">
         /// Default Value: desc
         /// </param>
+        /// <param name="assetId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
@@ -109,6 +115,7 @@ namespace TwelveLabs
             int? pageLimit = default,
             global::TwelveLabs.KnowledgeStoresGetParametersSortBy? sortBy = default,
             string? sortOption = default,
+            string? assetId = default,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -119,7 +126,8 @@ namespace TwelveLabs
                 page: ref page,
                 pageLimit: ref pageLimit,
                 sortBy: ref sortBy,
-                sortOption: ref sortOption);
+                sortOption: ref sortOption,
+                assetId: ref assetId);
 
 
             var __authorizations = global::TwelveLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -152,6 +160,7 @@ namespace TwelveLabs
                                 .AddOptionalParameter("page_limit", pageLimit?.ToString())
                                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
                                 .AddOptionalParameter("sort_option", sortOption)
+                                .AddOptionalParameter("asset_id", assetId)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::TwelveLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -196,7 +205,8 @@ namespace TwelveLabs
                     page: page,
                     pageLimit: pageLimit,
                     sortBy: sortBy,
-                    sortOption: sortOption);
+                    sortOption: sortOption,
+                    assetId: assetId);
 
                 return __httpRequest;
             }
