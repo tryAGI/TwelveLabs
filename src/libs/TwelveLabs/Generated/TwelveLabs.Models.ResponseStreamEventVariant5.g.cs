@@ -29,9 +29,7 @@ namespace TwelveLabs
         public int? OutputIndex { get; set; }
 
         /// <summary>
-        /// The output item when it starts. For a message, the `phase` field is<br/>
-        /// already set, so you can identify intermediate output or the answer<br/>
-        /// before any of its text streams in.
+        /// The output item when it starts. Use its `type` to identify the item kind.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("item")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.ResponseOutputItemJsonConverter))]
@@ -56,9 +54,7 @@ namespace TwelveLabs
         /// The index of the output item.
         /// </param>
         /// <param name="item">
-        /// The output item when it starts. For a message, the `phase` field is<br/>
-        /// already set, so you can identify intermediate output or the answer<br/>
-        /// before any of its text streams in.
+        /// The output item when it starts. Use its `type` to identify the item kind.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

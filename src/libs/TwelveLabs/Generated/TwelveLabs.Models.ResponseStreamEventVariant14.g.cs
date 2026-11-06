@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Progress for a web-search call. Included only when the request sets `include: ["intermediate_outputs"]`.<br/>
+    /// Progress for a web-search call, when emitted during response generation.<br/>
     /// The `item_id` links to the corresponding `jockey:web_search` output item.
     /// </summary>
     public sealed partial class ResponseStreamEventVariant14

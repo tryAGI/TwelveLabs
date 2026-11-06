@@ -11,6 +11,10 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
+        ActivitySummaries,
+        /// <summary>
+        ///
+        /// </summary>
         IntermediateOutputs,
     }
 
@@ -26,6 +30,7 @@ namespace TwelveLabs
         {
             return value switch
             {
+                ResponsesPostRequestBodyContentApplicationJsonSchemaIncludeItems.ActivitySummaries => "activity_summaries",
                 ResponsesPostRequestBodyContentApplicationJsonSchemaIncludeItems.IntermediateOutputs => "intermediate_outputs",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -37,6 +42,7 @@ namespace TwelveLabs
         {
             return value switch
             {
+                "activity_summaries" => ResponsesPostRequestBodyContentApplicationJsonSchemaIncludeItems.ActivitySummaries,
                 "intermediate_outputs" => ResponsesPostRequestBodyContentApplicationJsonSchemaIncludeItems.IntermediateOutputs,
                 _ => null,
             };

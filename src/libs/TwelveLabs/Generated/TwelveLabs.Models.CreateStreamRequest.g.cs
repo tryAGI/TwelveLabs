@@ -40,9 +40,11 @@ namespace TwelveLabs
         public string? Instructions { get; set; }
 
         /// <summary>
-        /// Additional items to include in the response's `output` array. By default, the `output` array contains only Jockey's final reply.<br/>
+        /// Optional progress information to include in the response.<br/>
         /// **Values**:<br/>
-        /// - `intermediate_outputs`: Also includes the steps Jockey took to produce the reply.
+        /// - `activity_summaries`: Emit activity progress summaries as `jockey:activity` events. Requires `stream: true`; summaries are not included in the response's `output` array.<br/>
+        /// - `intermediate_outputs` (deprecated): Include sanitized intermediate messages, function calls, and function-call results in the response output. Supported with or without streaming. Use `activity_summaries` with streaming for progress summaries.<br/>
+        /// `activity_summaries` and `intermediate_outputs` cannot be combined.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("include")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.ResponsesPostRequestBodyContentApplicationJsonSchemaIncludeItems>? Include { get; set; }
@@ -116,9 +118,11 @@ namespace TwelveLabs
         /// Additional guidance for Jockey, acting as a per-request system prompt.
         /// </param>
         /// <param name="include">
-        /// Additional items to include in the response's `output` array. By default, the `output` array contains only Jockey's final reply.<br/>
+        /// Optional progress information to include in the response.<br/>
         /// **Values**:<br/>
-        /// - `intermediate_outputs`: Also includes the steps Jockey took to produce the reply.
+        /// - `activity_summaries`: Emit activity progress summaries as `jockey:activity` events. Requires `stream: true`; summaries are not included in the response's `output` array.<br/>
+        /// - `intermediate_outputs` (deprecated): Include sanitized intermediate messages, function calls, and function-call results in the response output. Supported with or without streaming. Use `activity_summaries` with streaming for progress summaries.<br/>
+        /// `activity_summaries` and `intermediate_outputs` cannot be combined.
         /// </param>
         /// <param name="tools">
         /// Tools that Jockey can use while it generates the response.<br/>

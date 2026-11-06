@@ -5,7 +5,6 @@ namespace TwelveLabs
 {
     /// <summary>
     /// A web-search call that Jockey ran, with its status and available action details.<br/>
-    /// These items appear only with `include: ["intermediate_outputs"]` in the request.<br/>
     /// The `jockey:web_search` type follows the [Open Responses extension naming convention](https://www.openresponses.org/specification#extending-tools).<br/>
     /// Use this type in request `tools` to enable search. In response `output`, it identifies one call.<br/>
     /// If the response fails, the call keeps its last reported status. Response failure does not imply call completion.<br/>

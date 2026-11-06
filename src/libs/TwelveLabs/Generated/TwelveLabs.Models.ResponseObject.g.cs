@@ -65,9 +65,12 @@ namespace TwelveLabs
         public global::TwelveLabs.ResponseIncompleteDetails? IncompleteDetails { get; set; }
 
         /// <summary>
-        /// The response output items. By default, only the final message is included.<br/>
-        /// Set `include` to `["intermediate_outputs"]` to also receive intermediate<br/>
-        /// messages, function calls and results, and `jockey:web_search` items.
+        /// The response output items: answer messages and, when emitted, hosted<br/>
+        /// `jockey:web_search` calls. With `include: ["activity_summaries"]`,<br/>
+        /// activity summaries arrive separately as `jockey:activity` stream events<br/>
+        /// and are not included in this array. The deprecated<br/>
+        /// `intermediate_outputs` option includes intermediate messages, function<br/>
+        /// calls, and function-call results in this array, with or without streaming.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output")]
         public global::System.Collections.Generic.IList<global::TwelveLabs.ResponseOutputItem>? Output { get; set; }
@@ -130,9 +133,12 @@ namespace TwelveLabs
         /// response as truncated for an unknown reason, not as an error.
         /// </param>
         /// <param name="output">
-        /// The response output items. By default, only the final message is included.<br/>
-        /// Set `include` to `["intermediate_outputs"]` to also receive intermediate<br/>
-        /// messages, function calls and results, and `jockey:web_search` items.
+        /// The response output items: answer messages and, when emitted, hosted<br/>
+        /// `jockey:web_search` calls. With `include: ["activity_summaries"]`,<br/>
+        /// activity summaries arrive separately as `jockey:activity` stream events<br/>
+        /// and are not included in this array. The deprecated<br/>
+        /// `intermediate_outputs` option includes intermediate messages, function<br/>
+        /// calls, and function-call results in this array, with or without streaming.
         /// </param>
         /// <param name="billing">
         /// The billing information for this response. Only a finished response carries this object:<br/>
