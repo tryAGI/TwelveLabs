@@ -41,18 +41,16 @@ namespace TwelveLabs
         public global::TwelveLabs.ResponseStandardOutputItemRole? Role { get; set; }
 
         /// <summary>
-        /// Which part of the turn this message contains: intermediate output or the<br/>
-        /// answer. Present when the `type` field is `message`.<br/>
-        /// A turn can produce intermediate messages before the answer, such as a<br/>
-        /// message that describes the steps Jockey is taking. The `commentary` value<br/>
-        /// identifies an intermediate message, and the `final_answer` value<br/>
-        /// identifies the answer.<br/>
-        /// The output contains intermediate output only when the request sets the<br/>
-        /// `include` parameter to `["intermediate_outputs"]`. By default, the output<br/>
-        /// contains the answer only.<br/>
-        /// Treat a message without the `phase` field as the final answer.<br/>
-        /// Treat an unrecognized `phase` value as intermediate output, not as the<br/>
-        /// answer.
+        /// Which part of the turn this message contains. Present when `type` is<br/>
+        /// `message`. The `commentary` value identifies an intermediate message,<br/>
+        /// and `final_answer` identifies the answer.<br/>
+        /// Treat a message without `phase` as the final answer. Treat an<br/>
+        /// unrecognized value as intermediate output, not as the answer.<br/>
+        /// Intermediate messages are included only with the deprecated<br/>
+        /// `include: ["intermediate_outputs"]` option. By default, output contains<br/>
+        /// the answer only.<br/>
+        /// Activity summaries use the separate `jockey:activity` stream event type and<br/>
+        /// do not have a message phase.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phase")]
         public string? Phase { get; set; }
@@ -111,18 +109,16 @@ namespace TwelveLabs
         /// The role of the message author. Present when `type` is `message`.
         /// </param>
         /// <param name="phase">
-        /// Which part of the turn this message contains: intermediate output or the<br/>
-        /// answer. Present when the `type` field is `message`.<br/>
-        /// A turn can produce intermediate messages before the answer, such as a<br/>
-        /// message that describes the steps Jockey is taking. The `commentary` value<br/>
-        /// identifies an intermediate message, and the `final_answer` value<br/>
-        /// identifies the answer.<br/>
-        /// The output contains intermediate output only when the request sets the<br/>
-        /// `include` parameter to `["intermediate_outputs"]`. By default, the output<br/>
-        /// contains the answer only.<br/>
-        /// Treat a message without the `phase` field as the final answer.<br/>
-        /// Treat an unrecognized `phase` value as intermediate output, not as the<br/>
-        /// answer.
+        /// Which part of the turn this message contains. Present when `type` is<br/>
+        /// `message`. The `commentary` value identifies an intermediate message,<br/>
+        /// and `final_answer` identifies the answer.<br/>
+        /// Treat a message without `phase` as the final answer. Treat an<br/>
+        /// unrecognized value as intermediate output, not as the answer.<br/>
+        /// Intermediate messages are included only with the deprecated<br/>
+        /// `include: ["intermediate_outputs"]` option. By default, output contains<br/>
+        /// the answer only.<br/>
+        /// Activity summaries use the separate `jockey:activity` stream event type and<br/>
+        /// do not have a message phase.
         /// </param>
         /// <param name="content">
         /// The content parts of the message. Present when `type` is `message`.

@@ -76,6 +76,9 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamOutputItemDoneEventType), TypeInfoPropertyName = "ResponseStreamOutputItemDoneEventType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamFuncCallArgsDoneEventType), TypeInfoPropertyName = "ResponseStreamFuncCallArgsDoneEventType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamWebSearchProgressEventType), TypeInfoPropertyName = "ResponseStreamWebSearchProgressEventType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamActivityEventType), TypeInfoPropertyName = "ResponseStreamActivityEventType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamActivityEventActivityStatus), TypeInfoPropertyName = "ResponseStreamActivityEventActivityStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamActivityEventActivity))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEvent), TypeInfoPropertyName = "ResponseStreamEvent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEventVariant1))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEventVariant2))]
@@ -91,6 +94,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEventVariant12))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEventVariant13))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEventVariant14))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEventVariant15))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEventDiscriminator))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEventDiscriminatorType), TypeInfoPropertyName = "ResponseStreamEventDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateStreamRequest))]
@@ -133,6 +137,8 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamOutputItemDoneEventType?), TypeInfoPropertyName = "NullableResponseStreamOutputItemDoneEventType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamFuncCallArgsDoneEventType?), TypeInfoPropertyName = "NullableResponseStreamFuncCallArgsDoneEventType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamWebSearchProgressEventType?), TypeInfoPropertyName = "NullableResponseStreamWebSearchProgressEventType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamActivityEventType?), TypeInfoPropertyName = "NullableResponseStreamActivityEventType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamActivityEventActivityStatus?), TypeInfoPropertyName = "NullableResponseStreamActivityEventActivityStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEvent?), TypeInfoPropertyName = "NullableResponseStreamEvent2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ResponseStreamEventDiscriminatorType?), TypeInfoPropertyName = "NullableResponseStreamEventDiscriminatorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
@@ -323,6 +329,14 @@ namespace TwelveLabs
                     || typeToConvert == typeof(global::TwelveLabs.ResponseStreamWebSearchProgressEventType)
 
                     || typeToConvert == typeof(global::TwelveLabs.ResponseStreamWebSearchProgressEventType?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.ResponseStreamActivityEventType)
+
+                    || typeToConvert == typeof(global::TwelveLabs.ResponseStreamActivityEventType?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.ResponseStreamActivityEventActivityStatus)
+
+                    || typeToConvert == typeof(global::TwelveLabs.ResponseStreamActivityEventActivityStatus?)
 
                     || typeToConvert == typeof(global::TwelveLabs.ResponseStreamEventDiscriminatorType)
 
@@ -601,6 +615,26 @@ namespace TwelveLabs
                 if (typeToConvert == typeof(global::TwelveLabs.ResponseStreamWebSearchProgressEventType?))
                 {
                     return new global::TwelveLabs.JsonConverters.ResponseStreamWebSearchProgressEventTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.ResponseStreamActivityEventType))
+                {
+                    return new global::TwelveLabs.JsonConverters.ResponseStreamActivityEventTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.ResponseStreamActivityEventType?))
+                {
+                    return new global::TwelveLabs.JsonConverters.ResponseStreamActivityEventTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.ResponseStreamActivityEventActivityStatus))
+                {
+                    return new global::TwelveLabs.JsonConverters.ResponseStreamActivityEventActivityStatusJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.ResponseStreamActivityEventActivityStatus?))
+                {
+                    return new global::TwelveLabs.JsonConverters.ResponseStreamActivityEventActivityStatusNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::TwelveLabs.ResponseStreamEventDiscriminatorType))
