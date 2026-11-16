@@ -9,17 +9,29 @@ namespace TwelveLabs
     public sealed partial class CreateRequest2
     {
         /// <summary>
-        /// The name of the entity collection. Make sure you use a succinct and descriptive name.
+        /// The name of the knowledge store.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// Optional description of the entity collection.
+        /// Configuration that controls how content added to the knowledge store is processed.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ingestion_config")]
+        public global::TwelveLabs.IngestionConfig? IngestionConfig { get; set; }
+
+        /// <summary>
+        /// An optional description of the knowledge store.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
+
+        /// <summary>
+        /// Custom metadata for the knowledge store, as user-defined key-value pairs. Up to 10 pairs, keys up to 128 characters, string values up to 2048 characters. Keys are strings; values can be a string, a number, a boolean, or an array of strings. A nested object, an array containing anything other than strings, and a null value are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -31,20 +43,30 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="CreateRequest2" /> class.
         /// </summary>
         /// <param name="name">
-        /// The name of the entity collection. Make sure you use a succinct and descriptive name.
+        /// The name of the knowledge store.
+        /// </param>
+        /// <param name="ingestionConfig">
+        /// Configuration that controls how content added to the knowledge store is processed.
         /// </param>
         /// <param name="description">
-        /// Optional description of the entity collection.
+        /// An optional description of the knowledge store.
+        /// </param>
+        /// <param name="metadata">
+        /// Custom metadata for the knowledge store, as user-defined key-value pairs. Up to 10 pairs, keys up to 128 characters, string values up to 2048 characters. Keys are strings; values can be a string, a number, a boolean, or an array of strings. A nested object, an array containing anything other than strings, and a null value are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateRequest2(
             string name,
-            string? description)
+            global::TwelveLabs.IngestionConfig? ingestionConfig,
+            string? description,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? metadata)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.IngestionConfig = ingestionConfig;
             this.Description = description;
+            this.Metadata = metadata;
         }
 
         /// <summary>

@@ -9,146 +9,56 @@ namespace TwelveLabs
     public sealed partial class CreateRequest10
     {
         /// <summary>
-        /// The type of media you wish to use. This parameter is required for media queries. For example, to perform an image-based search, set this parameter to `image`. Use `query_text` together with this parameter when you want to perform a composed image+text search.
+        /// Specifies the upload method for the asset. Use `direct` to upload a local file or `url` for a publicly accessible URL.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("query_media_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaTypeJsonConverter))]
-        public global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaType? QueryMediaType { get; set; }
-
-        /// <summary>
-        /// The publicly accessible URL of a media file to use as a query. This parameter is required for media queries if `query_media_file` is not provided.<br/>
-        /// You can provide up to 10 images by specifying this parameter multiple times:<br/>
-        /// ```<br/>
-        /// --form query_media_url=https://example.com/image1.jpg \<br/>
-        /// --form query_media_url=https://example.com/image2.jpg<br/>
-        /// ```
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("query_media_url")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrlJsonConverter))]
-        public global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl? QueryMediaUrl { get; set; }
-
-        /// <summary>
-        /// A local media file to use as a query. This parameter is required for media queries if `query_media_url` is not provided.<br/>
-        /// You can provide up to 10 images by specifying this parameter multiple times:<br/>
-        /// ```<br/>
-        /// --form query_media_file=@/path/to/image1.jpg \<br/>
-        /// --form query_media_file=@/path/to/image2.jpg<br/>
-        /// ```
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("query_media_file")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFileJsonConverter))]
-        public global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFile? QueryMediaFile { get; set; }
-
-        /// <summary>
-        /// The text query to search for. This parameter is required for text queries. Note that the platform supports full natural language-based search. You can use this parameter together with `query_media_type` and `query_media_url` or `query_media_file` to perform a composed image+text search.<br/>
-        /// If you're using the Entity Search feature to search for specific persons in your video content, you must enclose the unique identifier of your entity between the `&lt;@` and `&gt;` markers. For example, to search for an entity with the ID `entity123`, use `&lt;@entity123&gt; is walking` as your query.<br/>
-        /// Marengo supports up to 500 tokens per query.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("query_text")]
-        public string? QueryText { get; set; }
-
-        /// <summary>
-        /// The unique identifier of the index to search.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("index_id")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("method")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.AssetsPostRequestBodyContentMultipartFormDataSchemaMethodJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string IndexId { get; set; }
+        public required global::TwelveLabs.AssetsPostRequestBodyContentMultipartFormDataSchemaMethod Method { get; set; }
 
         /// <summary>
-        /// Specifies the modalities the video understanding model uses to find relevant information.<br/>
-        /// Available options:<br/>
-        /// - `visual`: Searches visual content.<br/>
-        /// - `audio`: Searches non-speech audio.<br/>
-        /// - `transcription`: Spoken words<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// - You can specify multiple search options in conjunction with the [`operator`](/v1.3/api-reference/any-to-video-search/make-search-request#request.body.operator.operator) parameter described below to broaden or narrow your search. For example, to search using both visual and non-speech audio content, include this parameter two times in the request as shown below:<br/>
-        ///   ```JSON<br/>
-        ///   --form search_options=visual \<br/>
-        ///   --form search_options=audio \<br/>
-        ///   --form search_options=transcription \<br/>
-        ///   ```<br/>
-        /// &lt;/Note&gt;<br/>
-        /// For guidance, see the [Search options](/v1.3/docs/concepts/modalities#search-options) section.
+        /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
+        /// Local video, audio, and documents support up to 200 MB. Images support up to 32 MB.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("search_options")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems> SearchOptions { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("file")]
+        public byte[]? File { get; set; }
 
         /// <summary>
-        /// Specifies how the platform matches your text query with the words spoken in the video. This parameter applies only when the `search_options` parameter contains the `transcription` value.<br/>
-        /// Available options:<br/>
-        /// - `lexical`: Exact word matching<br/>
-        /// - `semantic`: Meaning-based matching<br/>
-        /// For details on when to use each option, see the [Transcription options](/v1.3/docs/concepts/modalities#transcription-options) section.<br/>
-        /// **Default**: `["lexical", "semantic"]`.
+        /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
+        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB. Document URLs support up to 512 MB.<br/>
+        /// The parameter also accepts the URL of an HLS manifest (`.m3u8`) in VOD format. Live video streams are rejected with a `400` error. If the duration cannot be determined from the media, the platform calculates it from the manifest.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("transcription_options")]
-        public global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItems>? TranscriptionOptions { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("url")]
+        public string? Url { get; set; }
 
         /// <summary>
-        /// Use this parameter to group or ungroup items in a response. It can take one of the following values:<br/>
-        /// - `video`:  The platform will group the matching video clips in the response by video.<br/>
-        /// - `clip`: The matching video clips in the response will not be grouped.<br/>
-        /// **Default:** `clip`<br/>
-        /// Default Value: clip
+        /// The filename of the asset. If you provide a filename, the platform preserves it. If you omit it, the platform determines one from the file or URL.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("group_by")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaGroupByJsonConverter))]
-        public global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaGroupBy? GroupBy { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
+        public string? Filename { get; set; }
 
         /// <summary>
-        /// Combines multiple search options using `or` or `and`. Use `and` to find segments matching all search options. Use `or` to find segments matching any search option. For detailed guidance on using this parameter, see the [Combine multiple modalities](/v1.3/docs/concepts/modalities#combine-multiple-modalities) section.<br/>
-        /// **Default**: `or`.<br/>
-        /// Default Value: or
+        /// The platform generates an HLS playlist and segments for streaming. Set to `false` to disable HLS generation. Applicable to video and audio assets only. The platform ignores this flag for other asset types.<br/>
+        /// **Default**: `true`.<br/>
+        /// Default Value: true
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("operator")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.SearchPostRequestBodyContentMultipartFormDataSchemaOperatorJsonConverter))]
-        public global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaOperator? Operator { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_hls")]
+        public bool? EnableHls { get; set; }
 
         /// <summary>
-        /// The number of items to return on each page. When grouping by video, this parameter represents the number of videos per page. Otherwise, it represents the maximum number of video clips per page.<br/>
-        /// **Max**: `50`.<br/>
-        /// Default Value: 10
+        /// The platform generates thumbnail images from the uploaded content. Set to `false` to disable thumbnail generation.<br/>
+        /// For PDF files, the platform generates a representative thumbnail from the first page. Text and Markdown files do not produce thumbnails; the platform ignores this flag for them.<br/>
+        /// **Default**: `true`.<br/>
+        /// Default Value: true
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("page_limit")]
-        public int? PageLimit { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_thumbnail")]
+        public bool? EnableThumbnail { get; set; }
 
         /// <summary>
-        /// Specifies a stringified JSON object to filter your search results. Supports both system-generated metadata (example: video ID, duration) and user-defined metadata.<br/>
-        /// **Syntax for filtering**<br/>
-        /// The following table describes the supported data types, operators, and filter syntax:<br/>
-        /// | Data type | Operator | Description | Syntax |<br/>
-        /// |:----------|:---------|:------------|:-------|<br/>
-        /// | String | `=` | Matches results equal to the specified value. | `{"field": "value"}`<br/>
-        /// | Array of strings | `=` | Matches results with any value in the specified array. Supported only for `id`. | `{"id": ["value1", "value2"]}` |<br/>
-        /// | Numeric (integer, float) | `=`, `lte`, `gte` | Matches results equal to or within a range of the specified value. | `{"field": number}` or `{"field": { "gte": number, "lte": number }}` |<br/>
-        /// | Boolean | `=` | Matches results equal to the specified boolean value. | `{"field": true}` or `{"field": false}`. |<br/>
-        /// &lt;br/&gt;<br/>
-        /// **System-generated metadata**<br/>
-        /// The table below describes the system-generated metadata available for filtering your  search results:<br/>
-        /// | Field name | Description | Type | Example |<br/>
-        /// |:-----------|:------------|:-----|:--------|<br/>
-        /// | `id` | Filters by specific video IDs. | Array of strings | `{"id": ["67cec9caf45d9b64a58340fc", "67cec9baf45d9b64a58340fa"]}`. |<br/>
-        /// | `duration` | Filters based on the duration of the video containing the segment that matches your query. | Number or object with `gte` and `lte` | `{"duration": 600}` or `{"duration": { "gte": 600, "lte": 800 }}` |<br/>
-        /// | `width` | Filters by video width (in pixels). | Number or object with `gte` and `lte` | `{"width": 1920}` or `{"width": { "gte": 1280, "lte": 1920}}` |<br/>
-        /// | `height` | Filters by video height (in pixels). | Number or object with `gte` and `lte`. | `{"height": 1080}` or `{"height": { "gte": 720, "lte": 1080 }}`. |<br/>
-        /// | `size` | Filters by video size (in bytes) | Number or object with `gte` and `lte`. | `{"size": 1048576}` or `{"size": { "gte": 1048576, "lte": 5242880}}` |<br/>
-        /// | `filename` | Filters by the exact file name. | String | `{"filename": "Animal Encounters part 1"}` |<br/>
-        /// &lt;br/&gt;<br/>
-        /// **User-defined metadata**<br/>
-        /// To filter by user-defined metadata:<br/>
-        /// 1. Add metadata to your video by calling the [`PATCH`](/v1.3/api-reference/videos/update) method of the `/indexes/{index_id}/videos/{video_id}` endpoint<br/>
-        /// 2. Reference the custom field in your filter object. For example, to filter videos where a custom field named `needsReview` of type boolean is `true`, use `{"needs_review": true}`.<br/>
-        /// For more details and examples, see the [Filter search results](/v1.3/docs/guides/search/filtering) page.
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys are strings, and values can be a string, a number, a boolean, or an array of strings. Send an integer wider than 53 bits (-9007199254740991 to 9007199254740991), and any identifier you want preserved verbatim, as a string. Send this value as a JSON-encoded string.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("filter")]
-        public string? Filter { get; set; }
-
-        /// <summary>
-        /// Specifies whether to include user-defined metadata in the search results.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("include_user_metadata")]
-        public bool? IncludeUserMetadata { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
+        public string? UserMetadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -159,134 +69,54 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateRequest10" /> class.
         /// </summary>
-        /// <param name="indexId">
-        /// The unique identifier of the index to search.
+        /// <param name="method">
+        /// Specifies the upload method for the asset. Use `direct` to upload a local file or `url` for a publicly accessible URL.
         /// </param>
-        /// <param name="searchOptions">
-        /// Specifies the modalities the video understanding model uses to find relevant information.<br/>
-        /// Available options:<br/>
-        /// - `visual`: Searches visual content.<br/>
-        /// - `audio`: Searches non-speech audio.<br/>
-        /// - `transcription`: Spoken words<br/>
-        /// &lt;Note title="Note"&gt;<br/>
-        /// - You can specify multiple search options in conjunction with the [`operator`](/v1.3/api-reference/any-to-video-search/make-search-request#request.body.operator.operator) parameter described below to broaden or narrow your search. For example, to search using both visual and non-speech audio content, include this parameter two times in the request as shown below:<br/>
-        ///   ```JSON<br/>
-        ///   --form search_options=visual \<br/>
-        ///   --form search_options=audio \<br/>
-        ///   --form search_options=transcription \<br/>
-        ///   ```<br/>
-        /// &lt;/Note&gt;<br/>
-        /// For guidance, see the [Search options](/v1.3/docs/concepts/modalities#search-options) section.
+        /// <param name="file">
+        /// Specify this parameter to upload a file from your local file system. This parameter is required when `method` is set to `direct`.<br/>
+        /// Local video, audio, and documents support up to 200 MB. Images support up to 32 MB.
         /// </param>
-        /// <param name="queryMediaType">
-        /// The type of media you wish to use. This parameter is required for media queries. For example, to perform an image-based search, set this parameter to `image`. Use `query_text` together with this parameter when you want to perform a composed image+text search.
+        /// <param name="url">
+        /// Specify this parameter to upload a file from a publicly accessible URL. This parameter is required when `method` is set to `url`.<br/>
+        /// Public video and audio URLs support up to 4 GB. Image URLs support up to 32 MB. Document URLs support up to 512 MB.<br/>
+        /// The parameter also accepts the URL of an HLS manifest (`.m3u8`) in VOD format. Live video streams are rejected with a `400` error. If the duration cannot be determined from the media, the platform calculates it from the manifest.
         /// </param>
-        /// <param name="queryMediaUrl">
-        /// The publicly accessible URL of a media file to use as a query. This parameter is required for media queries if `query_media_file` is not provided.<br/>
-        /// You can provide up to 10 images by specifying this parameter multiple times:<br/>
-        /// ```<br/>
-        /// --form query_media_url=https://example.com/image1.jpg \<br/>
-        /// --form query_media_url=https://example.com/image2.jpg<br/>
-        /// ```
+        /// <param name="filename">
+        /// The filename of the asset. If you provide a filename, the platform preserves it. If you omit it, the platform determines one from the file or URL.
         /// </param>
-        /// <param name="queryMediaFile">
-        /// A local media file to use as a query. This parameter is required for media queries if `query_media_url` is not provided.<br/>
-        /// You can provide up to 10 images by specifying this parameter multiple times:<br/>
-        /// ```<br/>
-        /// --form query_media_file=@/path/to/image1.jpg \<br/>
-        /// --form query_media_file=@/path/to/image2.jpg<br/>
-        /// ```
+        /// <param name="enableHls">
+        /// The platform generates an HLS playlist and segments for streaming. Set to `false` to disable HLS generation. Applicable to video and audio assets only. The platform ignores this flag for other asset types.<br/>
+        /// **Default**: `true`.<br/>
+        /// Default Value: true
         /// </param>
-        /// <param name="queryText">
-        /// The text query to search for. This parameter is required for text queries. Note that the platform supports full natural language-based search. You can use this parameter together with `query_media_type` and `query_media_url` or `query_media_file` to perform a composed image+text search.<br/>
-        /// If you're using the Entity Search feature to search for specific persons in your video content, you must enclose the unique identifier of your entity between the `&lt;@` and `&gt;` markers. For example, to search for an entity with the ID `entity123`, use `&lt;@entity123&gt; is walking` as your query.<br/>
-        /// Marengo supports up to 500 tokens per query.
+        /// <param name="enableThumbnail">
+        /// The platform generates thumbnail images from the uploaded content. Set to `false` to disable thumbnail generation.<br/>
+        /// For PDF files, the platform generates a representative thumbnail from the first page. Text and Markdown files do not produce thumbnails; the platform ignores this flag for them.<br/>
+        /// **Default**: `true`.<br/>
+        /// Default Value: true
         /// </param>
-        /// <param name="transcriptionOptions">
-        /// Specifies how the platform matches your text query with the words spoken in the video. This parameter applies only when the `search_options` parameter contains the `transcription` value.<br/>
-        /// Available options:<br/>
-        /// - `lexical`: Exact word matching<br/>
-        /// - `semantic`: Meaning-based matching<br/>
-        /// For details on when to use each option, see the [Transcription options](/v1.3/docs/concepts/modalities#transcription-options) section.<br/>
-        /// **Default**: `["lexical", "semantic"]`.
-        /// </param>
-        /// <param name="groupBy">
-        /// Use this parameter to group or ungroup items in a response. It can take one of the following values:<br/>
-        /// - `video`:  The platform will group the matching video clips in the response by video.<br/>
-        /// - `clip`: The matching video clips in the response will not be grouped.<br/>
-        /// **Default:** `clip`<br/>
-        /// Default Value: clip
-        /// </param>
-        /// <param name="operator">
-        /// Combines multiple search options using `or` or `and`. Use `and` to find segments matching all search options. Use `or` to find segments matching any search option. For detailed guidance on using this parameter, see the [Combine multiple modalities](/v1.3/docs/concepts/modalities#combine-multiple-modalities) section.<br/>
-        /// **Default**: `or`.<br/>
-        /// Default Value: or
-        /// </param>
-        /// <param name="pageLimit">
-        /// The number of items to return on each page. When grouping by video, this parameter represents the number of videos per page. Otherwise, it represents the maximum number of video clips per page.<br/>
-        /// **Max**: `50`.<br/>
-        /// Default Value: 10
-        /// </param>
-        /// <param name="filter">
-        /// Specifies a stringified JSON object to filter your search results. Supports both system-generated metadata (example: video ID, duration) and user-defined metadata.<br/>
-        /// **Syntax for filtering**<br/>
-        /// The following table describes the supported data types, operators, and filter syntax:<br/>
-        /// | Data type | Operator | Description | Syntax |<br/>
-        /// |:----------|:---------|:------------|:-------|<br/>
-        /// | String | `=` | Matches results equal to the specified value. | `{"field": "value"}`<br/>
-        /// | Array of strings | `=` | Matches results with any value in the specified array. Supported only for `id`. | `{"id": ["value1", "value2"]}` |<br/>
-        /// | Numeric (integer, float) | `=`, `lte`, `gte` | Matches results equal to or within a range of the specified value. | `{"field": number}` or `{"field": { "gte": number, "lte": number }}` |<br/>
-        /// | Boolean | `=` | Matches results equal to the specified boolean value. | `{"field": true}` or `{"field": false}`. |<br/>
-        /// &lt;br/&gt;<br/>
-        /// **System-generated metadata**<br/>
-        /// The table below describes the system-generated metadata available for filtering your  search results:<br/>
-        /// | Field name | Description | Type | Example |<br/>
-        /// |:-----------|:------------|:-----|:--------|<br/>
-        /// | `id` | Filters by specific video IDs. | Array of strings | `{"id": ["67cec9caf45d9b64a58340fc", "67cec9baf45d9b64a58340fa"]}`. |<br/>
-        /// | `duration` | Filters based on the duration of the video containing the segment that matches your query. | Number or object with `gte` and `lte` | `{"duration": 600}` or `{"duration": { "gte": 600, "lte": 800 }}` |<br/>
-        /// | `width` | Filters by video width (in pixels). | Number or object with `gte` and `lte` | `{"width": 1920}` or `{"width": { "gte": 1280, "lte": 1920}}` |<br/>
-        /// | `height` | Filters by video height (in pixels). | Number or object with `gte` and `lte`. | `{"height": 1080}` or `{"height": { "gte": 720, "lte": 1080 }}`. |<br/>
-        /// | `size` | Filters by video size (in bytes) | Number or object with `gte` and `lte`. | `{"size": 1048576}` or `{"size": { "gte": 1048576, "lte": 5242880}}` |<br/>
-        /// | `filename` | Filters by the exact file name. | String | `{"filename": "Animal Encounters part 1"}` |<br/>
-        /// &lt;br/&gt;<br/>
-        /// **User-defined metadata**<br/>
-        /// To filter by user-defined metadata:<br/>
-        /// 1. Add metadata to your video by calling the [`PATCH`](/v1.3/api-reference/videos/update) method of the `/indexes/{index_id}/videos/{video_id}` endpoint<br/>
-        /// 2. Reference the custom field in your filter object. For example, to filter videos where a custom field named `needsReview` of type boolean is `true`, use `{"needs_review": true}`.<br/>
-        /// For more details and examples, see the [Filter search results](/v1.3/docs/guides/search/filtering) page.
-        /// </param>
-        /// <param name="includeUserMetadata">
-        /// Specifies whether to include user-defined metadata in the search results.
+        /// <param name="userMetadata">
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys are strings, and values can be a string, a number, a boolean, or an array of strings. Send an integer wider than 53 bits (-9007199254740991 to 9007199254740991), and any identifier you want preserved verbatim, as a string. Send this value as a JSON-encoded string.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateRequest10(
-            string indexId,
-            global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems> searchOptions,
-            global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaType? queryMediaType,
-            global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaUrl? queryMediaUrl,
-            global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaQueryMediaFile? queryMediaFile,
-            string? queryText,
-            global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItems>? transcriptionOptions,
-            global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaGroupBy? groupBy,
-            global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaOperator? @operator,
-            int? pageLimit,
-            string? filter,
-            bool? includeUserMetadata)
+            global::TwelveLabs.AssetsPostRequestBodyContentMultipartFormDataSchemaMethod method,
+            byte[]? file,
+            string? url,
+            string? filename,
+            bool? enableHls,
+            bool? enableThumbnail,
+            string? userMetadata)
         {
-            this.QueryMediaType = queryMediaType;
-            this.QueryMediaUrl = queryMediaUrl;
-            this.QueryMediaFile = queryMediaFile;
-            this.QueryText = queryText;
-            this.IndexId = indexId ?? throw new global::System.ArgumentNullException(nameof(indexId));
-            this.SearchOptions = searchOptions ?? throw new global::System.ArgumentNullException(nameof(searchOptions));
-            this.TranscriptionOptions = transcriptionOptions;
-            this.GroupBy = groupBy;
-            this.Operator = @operator;
-            this.PageLimit = pageLimit;
-            this.Filter = filter;
-            this.IncludeUserMetadata = includeUserMetadata;
+            this.Method = method;
+            this.File = file;
+            this.Url = url;
+            this.Filename = filename;
+            this.EnableHls = enableHls;
+            this.EnableThumbnail = enableThumbnail;
+            this.UserMetadata = userMetadata;
         }
 
         /// <summary>

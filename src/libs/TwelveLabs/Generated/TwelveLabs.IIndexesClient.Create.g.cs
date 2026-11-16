@@ -14,7 +14,7 @@ namespace TwelveLabs
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.IndexesCreateResponse201> CreateAsync(
 
-            global::TwelveLabs.CreateRequest7 request,
+            global::TwelveLabs.CreateRequest12 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -27,7 +27,7 @@ namespace TwelveLabs
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.IndexesCreateResponse201>> CreateAsResponseAsync(
 
-            global::TwelveLabs.CreateRequest7 request,
+            global::TwelveLabs.CreateRequest12 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

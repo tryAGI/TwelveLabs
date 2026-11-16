@@ -3066,7 +3066,7 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.CreateRequest? Type757 { get; set; }
+        public global::TwelveLabs.CreateRequest10? Type757 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -3098,15 +3098,15 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.CreateRequest2? Type765 { get; set; }
+        public global::TwelveLabs.CreateRequest3? Type765 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.UpdateRequest? Type766 { get; set; }
+        public global::TwelveLabs.UpdateRequest4? Type766 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.CreateRequest3? Type767 { get; set; }
+        public global::TwelveLabs.CreateRequest6? Type767 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -3118,7 +3118,7 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.UpdateRequest2? Type770 { get; set; }
+        public global::TwelveLabs.UpdateRequest6? Type770 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -3130,7 +3130,7 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.CreateRequest4? Type773 { get; set; }
+        public global::TwelveLabs.CreateRequest2? Type773 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -3150,11 +3150,11 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.CreateRequest6? Type778 { get; set; }
+        public global::TwelveLabs.CreateRequest7? Type778 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.UpdateRequest4? Type779 { get; set; }
+        public global::TwelveLabs.UpdateRequest7? Type779 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -3186,7 +3186,7 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.CreateRequest7? Type787 { get; set; }
+        public global::TwelveLabs.CreateRequest12? Type787 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -3194,19 +3194,19 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.UpdateRequest5? Type789 { get; set; }
+        public global::TwelveLabs.UpdateRequest? Type789 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.CreateRequest8? Type790 { get; set; }
+        public global::TwelveLabs.CreateRequest4? Type790 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.UpdateRequest6? Type791 { get; set; }
+        public global::TwelveLabs.UpdateRequest5? Type791 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.UpdateRequest7? Type792 { get; set; }
+        public global::TwelveLabs.UpdateRequest2? Type792 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -3214,7 +3214,7 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.CreateRequest10? Type794 { get; set; }
+        public global::TwelveLabs.CreateRequest11? Type794 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -3226,7 +3226,7 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.CreateRequest11? Type797 { get; set; }
+        public global::TwelveLabs.CreateRequest? Type797 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -3234,7 +3234,7 @@ namespace TwelveLabs
         /// <summary>
         ///
         /// </summary>
-        public global::TwelveLabs.CreateRequest12? Type799 { get; set; }
+        public global::TwelveLabs.CreateRequest8? Type799 { get; set; }
         /// <summary>
         ///
         /// </summary>

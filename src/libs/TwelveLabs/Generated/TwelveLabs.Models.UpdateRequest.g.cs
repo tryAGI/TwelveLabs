@@ -9,16 +9,11 @@ namespace TwelveLabs
     public sealed partial class UpdateRequest
     {
         /// <summary>
-        /// The updated name of the entity collection.
+        /// The name of the index.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
-        public string? Name { get; set; }
-
-        /// <summary>
-        /// The updated description of the entity collection.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
-        public string? Description { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("index_name")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string IndexName { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -29,21 +24,16 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateRequest" /> class.
         /// </summary>
-        /// <param name="name">
-        /// The updated name of the entity collection.
-        /// </param>
-        /// <param name="description">
-        /// The updated description of the entity collection.
+        /// <param name="indexName">
+        /// The name of the index.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UpdateRequest(
-            string? name,
-            string? description)
+            string indexName)
         {
-            this.Name = name;
-            this.Description = description;
+            this.IndexName = indexName ?? throw new global::System.ArgumentNullException(nameof(indexName));
         }
 
         /// <summary>

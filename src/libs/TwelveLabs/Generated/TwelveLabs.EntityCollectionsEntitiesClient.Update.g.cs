@@ -29,13 +29,13 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string entityCollectionId,
             ref string entityId,
-            global::TwelveLabs.UpdateRequest2 request);
+            global::TwelveLabs.UpdateRequest6 request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string entityCollectionId,
             string entityId,
-            global::TwelveLabs.UpdateRequest2 request);
+            global::TwelveLabs.UpdateRequest6 request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -59,7 +59,7 @@ namespace TwelveLabs
             string entityCollectionId,
             string entityId,
 
-            global::TwelveLabs.UpdateRequest2 request,
+            global::TwelveLabs.UpdateRequest6 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -88,7 +88,7 @@ namespace TwelveLabs
             string entityCollectionId,
             string entityId,
 
-            global::TwelveLabs.UpdateRequest2 request,
+            global::TwelveLabs.UpdateRequest6 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -515,7 +515,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.UpdateRequest2
+            var __request = new global::TwelveLabs.UpdateRequest6
             {
                 Name = name,
                 Description = description,

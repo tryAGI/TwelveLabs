@@ -19,7 +19,7 @@ namespace TwelveLabs
             string indexId,
             string videoId,
 
-            global::TwelveLabs.UpdateRequest7 request,
+            global::TwelveLabs.UpdateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -37,7 +37,7 @@ namespace TwelveLabs
             string indexId,
             string videoId,
 
-            global::TwelveLabs.UpdateRequest7 request,
+            global::TwelveLabs.UpdateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

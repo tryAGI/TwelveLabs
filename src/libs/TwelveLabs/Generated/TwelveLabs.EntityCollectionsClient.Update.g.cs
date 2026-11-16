@@ -28,12 +28,12 @@ namespace TwelveLabs
         partial void PrepareUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string entityCollectionId,
-            global::TwelveLabs.UpdateRequest request);
+            global::TwelveLabs.UpdateRequest4 request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string entityCollectionId,
-            global::TwelveLabs.UpdateRequest request);
+            global::TwelveLabs.UpdateRequest4 request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -55,7 +55,7 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.EntityCollection> UpdateAsync(
             string entityCollectionId,
 
-            global::TwelveLabs.UpdateRequest request,
+            global::TwelveLabs.UpdateRequest4 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -81,7 +81,7 @@ namespace TwelveLabs
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.EntityCollection>> UpdateAsResponseAsync(
             string entityCollectionId,
 
-            global::TwelveLabs.UpdateRequest request,
+            global::TwelveLabs.UpdateRequest4 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -500,7 +500,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.UpdateRequest
+            var __request = new global::TwelveLabs.UpdateRequest4
             {
                 Name = name,
                 Description = description,

@@ -16,7 +16,7 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.Entity> CreateAsync(
             string entityCollectionId,
 
-            global::TwelveLabs.CreateRequest3 request,
+            global::TwelveLabs.CreateRequest6 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -31,7 +31,7 @@ namespace TwelveLabs
         global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.Entity>> CreateAsResponseAsync(
             string entityCollectionId,
 
-            global::TwelveLabs.CreateRequest3 request,
+            global::TwelveLabs.CreateRequest6 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
