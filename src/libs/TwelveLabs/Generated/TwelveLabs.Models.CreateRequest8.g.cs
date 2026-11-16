@@ -9,24 +9,63 @@ namespace TwelveLabs
     public sealed partial class CreateRequest8
     {
         /// <summary>
-        /// The unique identifier of the asset to index. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status. If you uploaded the asset before your plan moved to the new billing, enable storage accounting for it before you index it in an index for which Marengo is enabled. Use the [Enable storage accounting for an asset](/v1.3/api-reference/manage-assets/enable-storage-accounting) method.
+        /// The name of the model you want to use. The following models are available:<br/>
+        ///   - `marengo3.0`: Enhanced model with sports intelligence and extended content support.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AssetId { get; set; }
+        public required string ModelName { get; set; }
 
         /// <summary>
-        /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index_id}/indexed-assets/{indexed_asset_id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>
-        /// Default Value: false
+        /// The text for which you wish to create an embedding.<br/>
+        /// **Example**: "Man with a dog crossing the street"
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("enable_video_stream")]
-        public bool? EnableVideoStream { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("text")]
+        public string? Text { get; set; }
 
         /// <summary>
-        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys are strings, and values can be a string, a number, a boolean, or an array of strings. A key set to an empty string (`""`), an empty array (`[]`), or `null` is omitted. Send an integer wider than 53 bits (-9007199254740991 to 9007199254740991), and any identifier you want preserved verbatim, as a string.
+        /// The publicly accessible URL of the image for which you wish to create an embedding. This parameter is required for image embeddings if `image_file` is not provided.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
-        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? UserMetadata { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("image_url")]
+        public string? ImageUrl { get; set; }
+
+        /// <summary>
+        /// The image file for which you wish to create an embedding as a local file. This parameter is required for image embeddings if `image_url` is not provided.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("image_file")]
+        public byte[]? ImageFile { get; set; }
+
+        /// <summary>
+        /// The image file for which you wish to create an embedding as a local file. This parameter is required for image embeddings if `image_url` is not provided.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("image_filename")]
+        public string? ImageFilename { get; set; }
+
+        /// <summary>
+        /// The publicly accessible URL of the audio file for which you wish to creae an embedding. This parameter is required for audio embeddings if `audio_file` is not provided.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("audio_url")]
+        public string? AudioUrl { get; set; }
+
+        /// <summary>
+        /// The audio file for which you wish to create an embedding as a local file. This parameter is required for audio embeddings if `audio_url` is not provided.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("audio_file")]
+        public byte[]? AudioFile { get; set; }
+
+        /// <summary>
+        /// The audio file for which you wish to create an embedding as a local file. This parameter is required for audio embeddings if `audio_url` is not provided.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("audio_filename")]
+        public string? AudioFilename { get; set; }
+
+        /// <summary>
+        /// Specifies the start time, in seconds, from which the platform generates the audio embeddings. This parameter allows you to skip the initial portion of the audio during processing.<br/>
+        /// **Default**: `0`.<br/>
+        /// Default Value: 0
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("audio_start_offset_sec")]
+        public double? AudioStartOffsetSec { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -37,27 +76,60 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateRequest8" /> class.
         /// </summary>
-        /// <param name="assetId">
-        /// The unique identifier of the asset to index. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status. If you uploaded the asset before your plan moved to the new billing, enable storage accounting for it before you index it in an index for which Marengo is enabled. Use the [Enable storage accounting for an asset](/v1.3/api-reference/manage-assets/enable-storage-accounting) method.
+        /// <param name="modelName">
+        /// The name of the model you want to use. The following models are available:<br/>
+        ///   - `marengo3.0`: Enhanced model with sports intelligence and extended content support.
         /// </param>
-        /// <param name="enableVideoStream">
-        /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index_id}/indexed-assets/{indexed_asset_id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>
-        /// Default Value: false
+        /// <param name="text">
+        /// The text for which you wish to create an embedding.<br/>
+        /// **Example**: "Man with a dog crossing the street"
         /// </param>
-        /// <param name="userMetadata">
-        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys are strings, and values can be a string, a number, a boolean, or an array of strings. A key set to an empty string (`""`), an empty array (`[]`), or `null` is omitted. Send an integer wider than 53 bits (-9007199254740991 to 9007199254740991), and any identifier you want preserved verbatim, as a string.
+        /// <param name="imageUrl">
+        /// The publicly accessible URL of the image for which you wish to create an embedding. This parameter is required for image embeddings if `image_file` is not provided.
+        /// </param>
+        /// <param name="imageFile">
+        /// The image file for which you wish to create an embedding as a local file. This parameter is required for image embeddings if `image_url` is not provided.
+        /// </param>
+        /// <param name="imageFilename">
+        /// The image file for which you wish to create an embedding as a local file. This parameter is required for image embeddings if `image_url` is not provided.
+        /// </param>
+        /// <param name="audioUrl">
+        /// The publicly accessible URL of the audio file for which you wish to creae an embedding. This parameter is required for audio embeddings if `audio_file` is not provided.
+        /// </param>
+        /// <param name="audioFile">
+        /// The audio file for which you wish to create an embedding as a local file. This parameter is required for audio embeddings if `audio_url` is not provided.
+        /// </param>
+        /// <param name="audioFilename">
+        /// The audio file for which you wish to create an embedding as a local file. This parameter is required for audio embeddings if `audio_url` is not provided.
+        /// </param>
+        /// <param name="audioStartOffsetSec">
+        /// Specifies the start time, in seconds, from which the platform generates the audio embeddings. This parameter allows you to skip the initial portion of the audio during processing.<br/>
+        /// **Default**: `0`.<br/>
+        /// Default Value: 0
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateRequest8(
-            string assetId,
-            bool? enableVideoStream,
-            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? userMetadata)
+            string modelName,
+            string? text,
+            string? imageUrl,
+            byte[]? imageFile,
+            string? imageFilename,
+            string? audioUrl,
+            byte[]? audioFile,
+            string? audioFilename,
+            double? audioStartOffsetSec)
         {
-            this.AssetId = assetId ?? throw new global::System.ArgumentNullException(nameof(assetId));
-            this.EnableVideoStream = enableVideoStream;
-            this.UserMetadata = userMetadata;
+            this.ModelName = modelName ?? throw new global::System.ArgumentNullException(nameof(modelName));
+            this.Text = text;
+            this.ImageUrl = imageUrl;
+            this.ImageFile = imageFile;
+            this.ImageFilename = imageFilename;
+            this.AudioUrl = audioUrl;
+            this.AudioFile = audioFile;
+            this.AudioFilename = audioFilename;
+            this.AudioStartOffsetSec = audioStartOffsetSec;
         }
 
         /// <summary>

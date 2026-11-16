@@ -42,7 +42,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchPageTokenGetResponsesContentApplicationJsonSchemaPageInfo))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.SearchRetrieveResponse200))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AnyToVideoRetrieveSpecificPageRequestBadRequestError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateRequest10))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateRequest11))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaSearchOptionsItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.SearchPostRequestBodyContentMultipartFormDataSchemaTranscriptionOptionsItems>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.UserMetadataValue?), TypeInfoPropertyName = "NullableUserMetadataValue2")]

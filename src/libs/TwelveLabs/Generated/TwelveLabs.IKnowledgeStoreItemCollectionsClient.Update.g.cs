@@ -18,7 +18,7 @@ namespace TwelveLabs
             string knowledgeStoreId,
             string collectionId,
 
-            global::TwelveLabs.UpdateRequest4 request,
+            global::TwelveLabs.UpdateRequest7 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -35,7 +35,7 @@ namespace TwelveLabs
             string knowledgeStoreId,
             string collectionId,
 
-            global::TwelveLabs.UpdateRequest4 request,
+            global::TwelveLabs.UpdateRequest7 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

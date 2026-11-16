@@ -27,11 +27,11 @@ namespace TwelveLabs
             };
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::TwelveLabs.CreateRequest4 request);
+            global::TwelveLabs.CreateRequest2 request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::TwelveLabs.CreateRequest4 request);
+            global::TwelveLabs.CreateRequest2 request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -52,7 +52,7 @@ namespace TwelveLabs
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStore> CreateAsync(
 
-            global::TwelveLabs.CreateRequest4 request,
+            global::TwelveLabs.CreateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -76,7 +76,7 @@ namespace TwelveLabs
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStore>> CreateAsResponseAsync(
 
-            global::TwelveLabs.CreateRequest4 request,
+            global::TwelveLabs.CreateRequest2 request,
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -537,7 +537,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::TwelveLabs.CreateRequest4
+            var __request = new global::TwelveLabs.CreateRequest2
             {
                 Name = name,
                 IngestionConfig = ingestionConfig,

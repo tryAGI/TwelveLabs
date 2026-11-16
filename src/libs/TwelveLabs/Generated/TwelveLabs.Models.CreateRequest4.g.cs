@@ -9,29 +9,24 @@ namespace TwelveLabs
     public sealed partial class CreateRequest4
     {
         /// <summary>
-        /// The name of the knowledge store.
+        /// The unique identifier of the asset to index. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status. If you uploaded the asset before your plan moved to the new billing, enable storage accounting for it before you index it in an index for which Marengo is enabled. Use the [Enable storage accounting for an asset](/v1.3/api-reference/manage-assets/enable-storage-accounting) method.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Name { get; set; }
+        public required string AssetId { get; set; }
 
         /// <summary>
-        /// Configuration that controls how content added to the knowledge store is processed.
+        /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index_id}/indexed-assets/{indexed_asset_id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>
+        /// Default Value: false
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("ingestion_config")]
-        public global::TwelveLabs.IngestionConfig? IngestionConfig { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_video_stream")]
+        public bool? EnableVideoStream { get; set; }
 
         /// <summary>
-        /// An optional description of the knowledge store.
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys are strings, and values can be a string, a number, a boolean, or an array of strings. A key set to an empty string (`""`), an empty array (`[]`), or `null` is omitted. Send an integer wider than 53 bits (-9007199254740991 to 9007199254740991), and any identifier you want preserved verbatim, as a string.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("description")]
-        public string? Description { get; set; }
-
-        /// <summary>
-        /// Custom metadata for the knowledge store, as user-defined key-value pairs. Up to 10 pairs, keys up to 128 characters, string values up to 2048 characters. Keys are strings; values can be a string, a number, a boolean, or an array of strings. A nested object, an array containing anything other than strings, and a null value are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
-        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? Metadata { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_metadata")]
+        public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? UserMetadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -42,31 +37,27 @@ namespace TwelveLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateRequest4" /> class.
         /// </summary>
-        /// <param name="name">
-        /// The name of the knowledge store.
+        /// <param name="assetId">
+        /// The unique identifier of the asset to index. The asset status must be `ready`. Use the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method to check the status. If you uploaded the asset before your plan moved to the new billing, enable storage accounting for it before you index it in an index for which Marengo is enabled. Use the [Enable storage accounting for an asset](/v1.3/api-reference/manage-assets/enable-storage-accounting) method.
         /// </param>
-        /// <param name="ingestionConfig">
-        /// Configuration that controls how content added to the knowledge store is processed.
+        /// <param name="enableVideoStream">
+        /// This parameter indicates if the platform stores the video for streaming. When set to `true`, the platform stores the video, and you can retrieve its URL by calling the [`GET`](/v1.3/api-reference/videos/retrieve) method of the `/indexes/{index_id}/indexed-assets/{indexed_asset_id}` endpoint. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.<br/>
+        /// Default Value: false
         /// </param>
-        /// <param name="description">
-        /// An optional description of the knowledge store.
-        /// </param>
-        /// <param name="metadata">
-        /// Custom metadata for the knowledge store, as user-defined key-value pairs. Up to 10 pairs, keys up to 128 characters, string values up to 2048 characters. Keys are strings; values can be a string, a number, a boolean, or an array of strings. A nested object, an array containing anything other than strings, and a null value are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
+        /// <param name="userMetadata">
+        /// Metadata that helps you categorize your assets. You can specify a list of keys and values. Keys are strings, and values can be a string, a number, a boolean, or an array of strings. A key set to an empty string (`""`), an empty array (`[]`), or `null` is omitted. Send an integer wider than 53 bits (-9007199254740991 to 9007199254740991), and any identifier you want preserved verbatim, as a string.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreateRequest4(
-            string name,
-            global::TwelveLabs.IngestionConfig? ingestionConfig,
-            string? description,
-            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? metadata)
+            string assetId,
+            bool? enableVideoStream,
+            global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.UserMetadataValue>? userMetadata)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.IngestionConfig = ingestionConfig;
-            this.Description = description;
-            this.Metadata = metadata;
+            this.AssetId = assetId ?? throw new global::System.ArgumentNullException(nameof(assetId));
+            this.EnableVideoStream = enableVideoStream;
+            this.UserMetadata = userMetadata;
         }
 
         /// <summary>
