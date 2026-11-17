@@ -7,7 +7,7 @@ namespace TwelveLabs
     /// <summary>
     /// Metadata enrichment configuration. The `type` field selects one variant:<br/>
     /// - `type: json_schema` - Structured extraction conforming to a provided JSON Schema.<br/>
-    /// - `type: description` - Natural-language instructions that the platform converts into a schema internally.
+    /// - `type: description` - Natural-language instructions that the platform converts into a JSON Schema. In a retrieved knowledge store, the `enrichment_config` object has the `type` field set to the `json_schema` value. Its `json_schema` field contains the JSON Schema.
     /// </summary>
     public readonly partial struct EnrichmentConfig : global::System.IEquatable<EnrichmentConfig>
     {
@@ -54,7 +54,7 @@ namespace TwelveLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'JsonSchema' but the value was {ToString()}.");
 
         /// <summary>
-        /// Natural-language instructions that the platform converts into a JSON Schema internally.
+        /// Natural-language instructions that the platform converts into a JSON Schema. In a retrieved knowledge store, the `enrichment_config` object has the `type` field set to the `json_schema` value. Its `json_schema` field contains the JSON Schema.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::TwelveLabs.EnrichmentConfigVariant2? Description { get; init; }

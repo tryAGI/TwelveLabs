@@ -20,6 +20,7 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.FlatErrorResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(long))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.PageInfo))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
@@ -37,20 +38,17 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoreItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItemCollection))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateKnowledgeStoreItemCollectionRequestBadRequestError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateKnowledgeStoreItemCollectionRequestUnprocessableEntityError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemCollectionsGetParametersSortBy), TypeInfoPropertyName = "KnowledgeStoresKnowledgeStoreIdItemCollectionsGetParametersSortBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItemCollectionsListResponse200))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoreItemCollection>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ListKnowledgeStoreItemCollectionsRequestBadRequestError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.RetrieveKnowledgeStoreItemCollectionRequestBadRequestError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.UpdateKnowledgeStoreItemCollectionRequestBadRequestError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.UpdateKnowledgeStoreItemCollectionRequestUnprocessableEntityError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.DeleteKnowledgeStoreItemCollectionRequestBadRequestError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItemCollectionsListItemsResponse200))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.ListKnowledgeStoreItemCollectionItemsRequestBadRequestError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AddItemsToKnowledgeStoreItemCollectionRequestBadRequestError))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.RemoveItemsFromKnowledgeStoreItemCollectionRequestBadRequestError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResultStatus), TypeInfoPropertyName = "KnowledgeStoreItemCollectionMembershipResultStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResultReason), TypeInfoPropertyName = "KnowledgeStoreItemCollectionMembershipResultReason2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResult))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResult>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.CreateRequest7))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.UpdateRequest7))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.AddItemsRequest))]
@@ -68,9 +66,12 @@ namespace TwelveLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItemSystemMetadata?), TypeInfoPropertyName = "NullableKnowledgeStoreItemSystemMetadata2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItemSystemMetadataDiscriminatorAssetType?), TypeInfoPropertyName = "NullableKnowledgeStoreItemSystemMetadataDiscriminatorAssetType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemCollectionsGetParametersSortBy?), TypeInfoPropertyName = "NullableKnowledgeStoresKnowledgeStoreIdItemCollectionsGetParametersSortBy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResultStatus?), TypeInfoPropertyName = "NullableKnowledgeStoreItemCollectionMembershipResultStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResultReason?), TypeInfoPropertyName = "NullableKnowledgeStoreItemCollectionMembershipResultReason2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.KnowledgeStoreItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.KnowledgeStoreItemCollection>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResult>))]
     internal sealed partial class KnowledgeStoreItemCollectionsSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -164,7 +165,15 @@ namespace TwelveLabs
 
                     || typeToConvert == typeof(global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemCollectionsGetParametersSortBy)
 
-                    || typeToConvert == typeof(global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemCollectionsGetParametersSortBy?);
+                    || typeToConvert == typeof(global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemCollectionsGetParametersSortBy?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResultStatus)
+
+                    || typeToConvert == typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResultStatus?)
+
+                    || typeToConvert == typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResultReason)
+
+                    || typeToConvert == typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResultReason?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
@@ -229,6 +238,26 @@ namespace TwelveLabs
                 if (typeToConvert == typeof(global::TwelveLabs.KnowledgeStoresKnowledgeStoreIdItemCollectionsGetParametersSortBy?))
                 {
                     return new global::TwelveLabs.JsonConverters.KnowledgeStoresKnowledgeStoreIdItemCollectionsGetParametersSortByNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResultStatus))
+                {
+                    return new global::TwelveLabs.JsonConverters.KnowledgeStoreItemCollectionMembershipResultStatusJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResultStatus?))
+                {
+                    return new global::TwelveLabs.JsonConverters.KnowledgeStoreItemCollectionMembershipResultStatusNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResultReason))
+                {
+                    return new global::TwelveLabs.JsonConverters.KnowledgeStoreItemCollectionMembershipResultReasonJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResultReason?))
+                {
+                    return new global::TwelveLabs.JsonConverters.KnowledgeStoreItemCollectionMembershipResultReasonNullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }

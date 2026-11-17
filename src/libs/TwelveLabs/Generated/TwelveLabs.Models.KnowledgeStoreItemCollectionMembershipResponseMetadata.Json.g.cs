@@ -2,7 +2,7 @@
 
 namespace TwelveLabs
 {
-    public sealed partial class UpdateKnowledgeStoreRequestBadRequestError
+    public sealed partial class KnowledgeStoreItemCollectionMembershipResponseMetadata
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -47,20 +47,20 @@ namespace TwelveLabs
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::TwelveLabs.UpdateKnowledgeStoreRequestBadRequestError? FromJson(
+        public static global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponseMetadata? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::TwelveLabs.UpdateKnowledgeStoreRequestBadRequestError),
-                jsonSerializerContext) as global::TwelveLabs.UpdateKnowledgeStoreRequestBadRequestError;
+                typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponseMetadata),
+                jsonSerializerContext) as global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponseMetadata;
         }
 
         /// <summary>
         /// Deserializes a JSON string using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::TwelveLabs.UpdateKnowledgeStoreRequestBadRequestError? FromJson(
+        public static global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponseMetadata? FromJson(
             string json)
         {
             return FromJson(
@@ -75,7 +75,7 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::TwelveLabs.UpdateKnowledgeStoreRequestBadRequestError? FromJson(
+        public static global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponseMetadata? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -86,7 +86,7 @@ namespace TwelveLabs
                     global::TwelveLabs.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::TwelveLabs.UpdateKnowledgeStoreRequestBadRequestError>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponseMetadata>(
                 json,
                 jsonSerializerOptions);
         }
@@ -94,20 +94,20 @@ namespace TwelveLabs
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::TwelveLabs.UpdateKnowledgeStoreRequestBadRequestError?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponseMetadata?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::TwelveLabs.UpdateKnowledgeStoreRequestBadRequestError),
-                jsonSerializerContext).ConfigureAwait(false)) as global::TwelveLabs.UpdateKnowledgeStoreRequestBadRequestError;
+                typeof(global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponseMetadata),
+                jsonSerializerContext).ConfigureAwait(false)) as global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponseMetadata;
         }
 
         /// <summary>
         /// Deserializes a JSON stream using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.UpdateKnowledgeStoreRequestBadRequestError?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponseMetadata?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream)
         {
             return FromJsonStreamAsync(
@@ -122,7 +122,7 @@ namespace TwelveLabs
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.UpdateKnowledgeStoreRequestBadRequestError?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponseMetadata?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -133,7 +133,7 @@ namespace TwelveLabs
                     global::TwelveLabs.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::TwelveLabs.UpdateKnowledgeStoreRequestBadRequestError?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponseMetadata?>(
                 jsonStream,
                 jsonSerializerOptions);
         }
