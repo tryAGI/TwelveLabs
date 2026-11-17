@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class UpdateRequest3
     {
         /// <summary>
-        /// The name of the knowledge store.
+        /// The name of the knowledge store. Must be unique among the knowledge stores in your account.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         public string? Name { get; set; }
@@ -36,7 +36,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="UpdateRequest3" /> class.
         /// </summary>
         /// <param name="name">
-        /// The name of the knowledge store.
+        /// The name of the knowledge store. Must be unique among the knowledge stores in your account.
         /// </param>
         /// <param name="description">
         /// An optional description of the knowledge store.

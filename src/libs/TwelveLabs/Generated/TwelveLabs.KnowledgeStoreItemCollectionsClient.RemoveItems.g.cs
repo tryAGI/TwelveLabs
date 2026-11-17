@@ -40,9 +40,14 @@ namespace TwelveLabs
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessRemoveItemsResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
         /// Remove items from a knowledge store item collection<br/>
-        /// Removes one or more items from the specified item collection. This operation is idempotent — identifiers that do not match a member of the collection are ignored. The items themselves remain in the knowledge store.
+        /// Removes one or more items from the specified item collection. This operation is idempotent: the platform skips the identifiers that do not match an item in the collection. The response lists the result for each identifier of an item in the `results` array. The items themselves remain in the knowledge store.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="collectionId"></param>
@@ -50,7 +55,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task RemoveItemsAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponse> RemoveItemsAsync(
             string knowledgeStoreId,
             string collectionId,
 
@@ -58,7 +63,7 @@ namespace TwelveLabs
             global::TwelveLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await RemoveItemsAsResponseAsync(
+            var __response = await RemoveItemsAsResponseAsync(
                 knowledgeStoreId: knowledgeStoreId,
                 collectionId: collectionId,
 
@@ -66,10 +71,12 @@ namespace TwelveLabs
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
+
+            return __response.Body;
         }
         /// <summary>
         /// Remove items from a knowledge store item collection<br/>
-        /// Removes one or more items from the specified item collection. This operation is idempotent — identifiers that do not match a member of the collection are ignored. The items themselves remain in the knowledge store.
+        /// Removes one or more items from the specified item collection. This operation is idempotent: the platform skips the identifiers that do not match an item in the collection. The response lists the result for each identifier of an item in the `results` array. The items themselves remain in the knowledge store.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="collectionId"></param>
@@ -77,7 +84,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::TwelveLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse> RemoveItemsAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponse>> RemoveItemsAsResponseAsync(
             string knowledgeStoreId,
             string collectionId,
 
@@ -348,24 +355,24 @@ namespace TwelveLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // The request has failed.
+                            // The request is malformed. For example, a required parameter is missing, a parameter has the wrong type or an unsupported value, or a string is longer than its maximum length.
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
                                 global::System.Exception? __exception_400 = null;
-                                global::TwelveLabs.RemoveItemsFromKnowledgeStoreItemCollectionRequestBadRequestError? __value_400 = null;
+                                global::TwelveLabs.FlatErrorResponse? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = global::TwelveLabs.RemoveItemsFromKnowledgeStoreItemCollectionRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = __content_400 is not { Length: > 0 } ? null : global::TwelveLabs.FlatErrorResponse.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = global::TwelveLabs.RemoveItemsFromKnowledgeStoreItemCollectionRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = __content_400 is not { Length: > 0 } ? null : global::TwelveLabs.FlatErrorResponse.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -374,12 +381,86 @@ namespace TwelveLabs
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.RemoveItemsFromKnowledgeStoreItemCollectionRequestBadRequestError>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.FlatErrorResponse>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_400 is { Length: > 0 } ? __content_400 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
                                     responseBody: __content_400,
                                     responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // The request has no API key, or the API key is invalid or expired.
+                            if ((int)__response.StatusCode == 401)
+                            {
+                                string? __content_401 = null;
+                                global::System.Exception? __exception_401 = null;
+                                global::TwelveLabs.FlatErrorResponse? __value_401 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_401 = __content_401 is not { Length: > 0 } ? null : global::TwelveLabs.FlatErrorResponse.FromJson(__content_401, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_401 = __content_401 is not { Length: > 0 } ? null : global::TwelveLabs.FlatErrorResponse.FromJson(__content_401, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_401 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.FlatErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_401 is { Length: > 0 } ? __content_401 : __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_401,
+                                    responseBody: __content_401,
+                                    responseObject: __value_401,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // The specified resource does not exist.
+                            if ((int)__response.StatusCode == 404)
+                            {
+                                string? __content_404 = null;
+                                global::System.Exception? __exception_404 = null;
+                                global::TwelveLabs.FlatErrorResponse? __value_404 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_404 = __content_404 is not { Length: > 0 } ? null : global::TwelveLabs.FlatErrorResponse.FromJson(__content_404, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_404 = __content_404 is not { Length: > 0 } ? null : global::TwelveLabs.FlatErrorResponse.FromJson(__content_404, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_404 = __ex;
+                                }
+
+
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.FlatErrorResponse>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_404 is { Length: > 0 } ? __content_404 : __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_404,
+                                    responseBody: __content_404,
+                                    responseObject: __value_404,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
@@ -398,21 +479,28 @@ namespace TwelveLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessRemoveItemsResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                return new global::TwelveLabs.AutoSDKHttpResponse(
+                                    var __value = global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
                                     throw global::TwelveLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -426,10 +514,19 @@ namespace TwelveLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    return new global::TwelveLabs.AutoSDKHttpResponse(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::TwelveLabs.AutoSDKHttpResponse<global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::TwelveLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -448,7 +545,7 @@ namespace TwelveLabs
 
                                     throw global::TwelveLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -467,7 +564,7 @@ namespace TwelveLabs
         }
         /// <summary>
         /// Remove items from a knowledge store item collection<br/>
-        /// Removes one or more items from the specified item collection. This operation is idempotent — identifiers that do not match a member of the collection are ignored. The items themselves remain in the knowledge store.
+        /// Removes one or more items from the specified item collection. This operation is idempotent: the platform skips the identifiers that do not match an item in the collection. The response lists the result for each identifier of an item in the `results` array. The items themselves remain in the knowledge store.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="collectionId"></param>
@@ -477,7 +574,7 @@ namespace TwelveLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task RemoveItemsAsync(
+        public async global::System.Threading.Tasks.Task<global::TwelveLabs.KnowledgeStoreItemCollectionMembershipResponse> RemoveItemsAsync(
             string knowledgeStoreId,
             string collectionId,
             global::System.Collections.Generic.IList<string> itemIds,
@@ -489,7 +586,7 @@ namespace TwelveLabs
                 ItemIds = itemIds,
             };
 
-            await RemoveItemsAsync(
+            return await RemoveItemsAsync(
                 knowledgeStoreId: knowledgeStoreId,
                 collectionId: collectionId,
                 request: __request,

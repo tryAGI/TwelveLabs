@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class AddItemsRequest
     {
         /// <summary>
-        /// The unique identifiers of the items to add to the collection. Include up to 500 identifiers per request.
+        /// The unique identifiers of the items to add to the collection. Include up to 500 identifiers per request. An item collection can contain up to 5,000 items.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("item_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="AddItemsRequest" /> class.
         /// </summary>
         /// <param name="itemIds">
-        /// The unique identifiers of the items to add to the collection. Include up to 500 identifiers per request.
+        /// The unique identifiers of the items to add to the collection. Include up to 500 identifiers per request. An item collection can contain up to 5,000 items.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class CreateRequest2
     {
         /// <summary>
-        /// The name of the knowledge store.
+        /// The name of the knowledge store. Must be unique among the knowledge stores in your account.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -43,7 +43,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="CreateRequest2" /> class.
         /// </summary>
         /// <param name="name">
-        /// The name of the knowledge store.
+        /// The name of the knowledge store. Must be unique among the knowledge stores in your account.
         /// </param>
         /// <param name="ingestionConfig">
         /// Configuration that controls how content added to the knowledge store is processed.

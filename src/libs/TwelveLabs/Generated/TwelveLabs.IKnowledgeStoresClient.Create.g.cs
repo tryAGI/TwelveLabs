@@ -38,7 +38,7 @@ namespace TwelveLabs
         /// Provide a name. Optionally include a description, a metadata map, and an `ingestion_config` object that controls how content added to the store is processed. The `ingestion_config` object is immutable after creation.
         /// </summary>
         /// <param name="name">
-        /// The name of the knowledge store.
+        /// The name of the knowledge store. Must be unique among the knowledge stores in your account.
         /// </param>
         /// <param name="ingestionConfig">
         /// Configuration that controls how content added to the knowledge store is processed.

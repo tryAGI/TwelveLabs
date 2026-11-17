@@ -4,7 +4,7 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Natural-language instructions that the platform converts into a JSON Schema internally.
+    /// Natural-language instructions that the platform converts into a JSON Schema. In a retrieved knowledge store, the `enrichment_config` object has the `type` field set to the `json_schema` value. Its `json_schema` field contains the JSON Schema.
     /// </summary>
     public sealed partial class EnrichmentConfigVariant2
     {
@@ -17,7 +17,9 @@ namespace TwelveLabs
 
         /// <summary>
         /// A natural-language description of what knowledge should be extracted from the videos.<br/>
-        /// The platform converts this into a JSON Schema internally.
+        /// The platform converts this description into a JSON Schema. In a retrieved knowledge store,<br/>
+        /// the `enrichment_config` object has the `type` field set to the `json_schema` value.<br/>
+        /// Its `json_schema` field contains the JSON Schema.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -34,7 +36,9 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="description">
         /// A natural-language description of what knowledge should be extracted from the videos.<br/>
-        /// The platform converts this into a JSON Schema internally.
+        /// The platform converts this description into a JSON Schema. In a retrieved knowledge store,<br/>
+        /// the `enrichment_config` object has the `type` field set to the `json_schema` value.<br/>
+        /// Its `json_schema` field contains the JSON Schema.
         /// </param>
         /// <param name="type">
         /// Must be `"description"`. Identifies this as the natural-language variant.

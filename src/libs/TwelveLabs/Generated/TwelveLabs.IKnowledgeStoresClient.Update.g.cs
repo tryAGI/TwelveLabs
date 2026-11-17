@@ -40,7 +40,7 @@ namespace TwelveLabs
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="name">
-        /// The name of the knowledge store.
+        /// The name of the knowledge store. Must be unique among the knowledge stores in your account.
         /// </param>
         /// <param name="description">
         /// An optional description of the knowledge store.

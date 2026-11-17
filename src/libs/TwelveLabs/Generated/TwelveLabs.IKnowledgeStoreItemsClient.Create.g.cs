@@ -13,7 +13,8 @@ namespace TwelveLabs
         /// status and processed in the background.<br/>
         /// **Asset size limits**:<br/>
         /// - **Video**: Up to 10 GB<br/>
-        /// - **Images**: Up to 32 MB
+        /// - **Images**: Up to 32 MB<br/>
+        /// **Video duration**: From 1.1 seconds to 24 hours.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="request"></param>
@@ -33,7 +34,8 @@ namespace TwelveLabs
         /// status and processed in the background.<br/>
         /// **Asset size limits**:<br/>
         /// - **Video**: Up to 10 GB<br/>
-        /// - **Images**: Up to 32 MB
+        /// - **Images**: Up to 32 MB<br/>
+        /// **Video duration**: From 1.1 seconds to 24 hours.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="request"></param>
@@ -53,7 +55,8 @@ namespace TwelveLabs
         /// status and processed in the background.<br/>
         /// **Asset size limits**:<br/>
         /// - **Video**: Up to 10 GB<br/>
-        /// - **Images**: Up to 32 MB
+        /// - **Images**: Up to 32 MB<br/>
+        /// **Video duration**: From 1.1 seconds to 24 hours.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="assetType">

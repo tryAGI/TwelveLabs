@@ -27,7 +27,7 @@ namespace TwelveLabs
         public string? Description { get; set; }
 
         /// <summary>
-        /// The ingestion configuration set when this knowledge store was created. Immutable.
+        /// The ingestion configuration set when this knowledge store was created. Immutable. If you created the knowledge store with a natural-language description, the platform converted it into a JSON Schema. The `enrichment_config` object in this field has the `type` field set to the `json_schema` value. Its `json_schema` field contains that JSON Schema. The property names and descriptions in that JSON Schema depend on the natural-language description, so read them from this field.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ingestion_config")]
         public global::TwelveLabs.IngestionConfig? IngestionConfig { get; set; }
@@ -75,7 +75,7 @@ namespace TwelveLabs
         /// An optional description of the knowledge store.
         /// </param>
         /// <param name="ingestionConfig">
-        /// The ingestion configuration set when this knowledge store was created. Immutable.
+        /// The ingestion configuration set when this knowledge store was created. Immutable. If you created the knowledge store with a natural-language description, the platform converted it into a JSON Schema. The `enrichment_config` object in this field has the `type` field set to the `json_schema` value. Its `json_schema` field contains that JSON Schema. The property names and descriptions in that JSON Schema depend on the natural-language description, so read them from this field.
         /// </param>
         /// <param name="itemCount">
         /// The number of items in the knowledge store.
