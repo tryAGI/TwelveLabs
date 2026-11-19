@@ -100,7 +100,10 @@ namespace TwelveLabs
         /// which have no preview.<br/>
         /// What it shows depends on the value of the `type` field:<br/>
         /// - `video_citation`: a still image from the video.<br/>
-        /// - `image_citation`: a smaller version of the image.
+        /// - `image_citation`: a smaller version of the image.<br/>
+        /// The URL is valid for at least 1 hour and up to 2 hours from the time the<br/>
+        /// platform generates the response. A request for the thumbnail after the URL<br/>
+        /// expires returns a `403` error. Do not store the URL.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("thumbnail_url")]
         public string? ThumbnailUrl { get; set; }
@@ -108,7 +111,10 @@ namespace TwelveLabs
         /// <summary>
         /// A signed URL for video playback, in HLS format (`.m3u8`). Omitted when<br/>
         /// the video cannot be resolved, and on every kind except<br/>
-        /// `video_citation`.
+        /// `video_citation`. The URL can expire. A signed URL is valid for 1 hour from<br/>
+        /// the time the platform generates the response. Playback that has started<br/>
+        /// continues after the URL expires. A request for the manifest or the encryption<br/>
+        /// key after the URL expires returns a `403` error. Do not store the URL.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hls_url")]
         public string? HlsUrl { get; set; }
@@ -173,12 +179,18 @@ namespace TwelveLabs
         /// which have no preview.<br/>
         /// What it shows depends on the value of the `type` field:<br/>
         /// - `video_citation`: a still image from the video.<br/>
-        /// - `image_citation`: a smaller version of the image.
+        /// - `image_citation`: a smaller version of the image.<br/>
+        /// The URL is valid for at least 1 hour and up to 2 hours from the time the<br/>
+        /// platform generates the response. A request for the thumbnail after the URL<br/>
+        /// expires returns a `403` error. Do not store the URL.
         /// </param>
         /// <param name="hlsUrl">
         /// A signed URL for video playback, in HLS format (`.m3u8`). Omitted when<br/>
         /// the video cannot be resolved, and on every kind except<br/>
-        /// `video_citation`.
+        /// `video_citation`. The URL can expire. A signed URL is valid for 1 hour from<br/>
+        /// the time the platform generates the response. Playback that has started<br/>
+        /// continues after the URL expires. A request for the manifest or the encryption<br/>
+        /// key after the URL expires returns a `403` error. Do not store the URL.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

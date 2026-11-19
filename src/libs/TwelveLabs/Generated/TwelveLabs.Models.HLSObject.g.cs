@@ -9,13 +9,13 @@ namespace TwelveLabs
     public sealed partial class HLSObject
     {
         /// <summary>
-        /// A string representing the URL of the video. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.
+        /// A string representing the URL of the video. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol. The URL can expire. A signed URL is valid for 1 hour. Playback that has started continues after the URL expires. A request for the manifest or the encryption key after the URL expires returns a `403` error. Call the method that returned the URL again for a new URL instead of storing it.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video_url")]
         public string? VideoUrl { get; set; }
 
         /// <summary>
-        /// An array containing the URL of the thumbnail.
+        /// An array of thumbnail URLs. The signed URLs are valid for at least 1 hour and up to 2 hours. A request for a thumbnail after its URL expires returns a `403` error. Call the method that returned the URLs again for new URLs instead of storing them.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("thumbnail_urls")]
         public global::System.Collections.Generic.IList<string>? ThumbnailUrls { get; set; }
@@ -48,10 +48,10 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="HLSObject" /> class.
         /// </summary>
         /// <param name="videoUrl">
-        /// A string representing the URL of the video. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol.
+        /// A string representing the URL of the video. You can then use this URL to access the stream over the &lt;a href="https://en.wikipedia.org/wiki/HTTP_Live_Streaming" target="_blank"&gt;HLS&lt;/a&gt; protocol. The URL can expire. A signed URL is valid for 1 hour. Playback that has started continues after the URL expires. A request for the manifest or the encryption key after the URL expires returns a `403` error. Call the method that returned the URL again for a new URL instead of storing it.
         /// </param>
         /// <param name="thumbnailUrls">
-        /// An array containing the URL of the thumbnail.
+        /// An array of thumbnail URLs. The signed URLs are valid for at least 1 hour and up to 2 hours. A request for a thumbnail after its URL expires returns a `403` error. Call the method that returned the URLs again for new URLs instead of storing them.
         /// </param>
         /// <param name="status">
         /// A string representing the encoding status of the video file from its original format to a streamable format.<br/>

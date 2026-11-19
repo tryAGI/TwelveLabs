@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class AssetThumbnail
     {
         /// <summary>
-        /// The URL of the representative thumbnail image. Only present when the status of the thumbnail is `ready`.
+        /// The URL of the representative thumbnail image. Only present when the status of the thumbnail is `ready`. The signed URL is valid for at least 1 hour and up to 2 hours. A request for the thumbnail after the URL expires returns a `403` error. Call the method that returned the URL again for a new URL instead of storing it.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("representative_url")]
         public string? RepresentativeUrl { get; set; }
@@ -36,7 +36,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="AssetThumbnail" /> class.
         /// </summary>
         /// <param name="representativeUrl">
-        /// The URL of the representative thumbnail image. Only present when the status of the thumbnail is `ready`.
+        /// The URL of the representative thumbnail image. Only present when the status of the thumbnail is `ready`. The signed URL is valid for at least 1 hour and up to 2 hours. A request for the thumbnail after the URL expires returns a `403` error. Call the method that returned the URL again for a new URL instead of storing it.
         /// </param>
         /// <param name="status">
         /// The status of the thumbnail.<br/>
