@@ -9,7 +9,7 @@ namespace TwelveLabs
     public sealed partial class AssetHLS
     {
         /// <summary>
-        /// The URL of the HLS manifest file for streaming. Only present when the status of the HLS stream is `ready`.
+        /// The URL of the HLS manifest file for streaming. Only present when the status of the HLS stream is `ready`. The URL can expire. A signed URL is valid for 1 hour. Playback that has started continues after the URL expires. A request for the manifest or the encryption key after the URL expires returns a `403` error. Call the method that returned the URL again for a new URL instead of storing it.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("manifest_url")]
         public string? ManifestUrl { get; set; }
@@ -36,7 +36,7 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="AssetHLS" /> class.
         /// </summary>
         /// <param name="manifestUrl">
-        /// The URL of the HLS manifest file for streaming. Only present when the status of the HLS stream is `ready`.
+        /// The URL of the HLS manifest file for streaming. Only present when the status of the HLS stream is `ready`. The URL can expire. A signed URL is valid for 1 hour. Playback that has started continues after the URL expires. A request for the manifest or the encryption key after the URL expires returns a `403` error. Call the method that returned the URL again for a new URL instead of storing it.
         /// </param>
         /// <param name="status">
         /// The status of the HLS stream.<br/>
