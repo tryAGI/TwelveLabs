@@ -624,7 +624,13 @@ namespace TwelveLabs
         /// <param name="knowledgeStoreId"></param>
         /// <param name="itemId"></param>
         /// <param name="itemMetadata">
-        /// The keys to change. Send at least one key. Keys are strings of up to 128 characters. String values can have up to 8192 characters. Values can be a string, a number, a boolean, an array of strings, or `null` to delete the key. A nested object and an array containing anything other than strings are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
+        /// The keys to change. Send at least one key.<br/>
+        /// The metadata has the following limits:<br/>
+        /// - Keys are strings of up to 128 characters.<br/>
+        /// - String values can have up to 8192 characters.<br/>
+        /// - The strings in an array can have up to 8192 characters in total.<br/>
+        /// Values can be a string, a number, a boolean, an array of strings, or `null` to delete the key. A nested object and an array containing anything other than strings are rejected.<br/>
+        /// An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

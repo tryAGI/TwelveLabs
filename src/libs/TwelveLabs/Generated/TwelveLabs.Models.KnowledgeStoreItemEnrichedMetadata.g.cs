@@ -4,7 +4,10 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// Metadata that the platform extracts from the whole item, as defined by the enrichment configuration of the knowledge store. It contains the properties that have the `granularity` keyword set to `video` for a video, or to `image` for an image. Properties that have the `granularity` keyword set to `shot` do not appear in this field. Keys are the property names; each value matches its property definition. A property with no value is omitted. The field is present only when the item is `ready` and contains at least one value.
+    /// Metadata that the platform extracts from the whole item, as defined by the enrichment configuration of the knowledge store.<br/>
+    /// It contains the properties that have the `granularity` keyword set to `video` for a video, or to `image` for an image. Properties that have the `granularity` keyword set to `shot` do not appear in this field.<br/>
+    /// Keys are the property names; each value matches its property definition. A property with no value is omitted.<br/>
+    /// The field is present only when the item is `ready` and contains at least one value.
     /// </summary>
     public sealed partial class KnowledgeStoreItemEnrichedMetadata
     {

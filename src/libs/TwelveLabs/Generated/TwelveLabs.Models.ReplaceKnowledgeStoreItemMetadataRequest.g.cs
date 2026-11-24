@@ -9,7 +9,13 @@ namespace TwelveLabs
     public sealed partial class ReplaceKnowledgeStoreItemMetadataRequest
     {
         /// <summary>
-        /// The complete `item_metadata` of the item after the request. Up to 50 pairs. Keys are strings of up to 128 characters. String values can have up to 8192 characters. Values can be a string, a number, a boolean, or an array of strings. A nested object and an array containing anything other than strings are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
+        /// The complete `item_metadata` of the item after the request. It has the following limits:<br/>
+        /// - Up to 50 pairs.<br/>
+        /// - Keys are strings of up to 128 characters.<br/>
+        /// - String values can have up to 8192 characters.<br/>
+        /// - The strings in an array can have up to 8192 characters in total.<br/>
+        /// Values can be a string, a number, a boolean, or an array of strings. A nested object and an array containing anything other than strings are rejected.<br/>
+        /// An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("item_metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +31,13 @@ namespace TwelveLabs
         /// Initializes a new instance of the <see cref="ReplaceKnowledgeStoreItemMetadataRequest" /> class.
         /// </summary>
         /// <param name="itemMetadata">
-        /// The complete `item_metadata` of the item after the request. Up to 50 pairs. Keys are strings of up to 128 characters. String values can have up to 8192 characters. Values can be a string, a number, a boolean, or an array of strings. A nested object and an array containing anything other than strings are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
+        /// The complete `item_metadata` of the item after the request. It has the following limits:<br/>
+        /// - Up to 50 pairs.<br/>
+        /// - Keys are strings of up to 128 characters.<br/>
+        /// - String values can have up to 8192 characters.<br/>
+        /// - The strings in an array can have up to 8192 characters in total.<br/>
+        /// Values can be a string, a number, a boolean, or an array of strings. A nested object and an array containing anything other than strings are rejected.<br/>
+        /// An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

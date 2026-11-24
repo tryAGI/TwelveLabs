@@ -4,7 +4,14 @@
 namespace TwelveLabs
 {
     /// <summary>
-    /// The keys to change. Send at least one key. Keys are strings of up to 128 characters. String values can have up to 8192 characters. Values can be a string, a number, a boolean, an array of strings, or `null` to delete the key. A key you omit keeps its current value. A nested object and an array containing anything other than strings are rejected. The tag holds up to 50 pairs after the merge. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
+    /// The keys to change. Send at least one key.<br/>
+    /// The metadata has the following limits:<br/>
+    /// - Keys are strings of up to 128 characters.<br/>
+    /// - String values can have up to 8192 characters.<br/>
+    /// - The strings in an array can have up to 8192 characters in total.<br/>
+    /// - The tag can have up to 50 pairs after the merge.<br/>
+    /// Values can be a string, a number, a boolean, an array of strings, or `null` to delete the key. A key you omit keeps its current value. A nested object and an array containing anything other than strings are rejected.<br/>
+    /// An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
     /// </summary>
     public sealed partial class UpdateKnowledgeStoreItemTagRequestTagMetadata
     {

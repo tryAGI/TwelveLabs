@@ -46,19 +46,38 @@ namespace TwelveLabs
         public global::TwelveLabs.KnowledgeStoreItemSystemMetadata? SystemMetadata { get; set; }
 
         /// <summary>
-        /// The custom metadata of the source asset. Keys are strings; each value is a string, a number, a boolean, or an array of strings. The platform updates it when the user-defined metadata of the asset changes. To change it, use the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint. To set custom metadata for the knowledge store item only, use `item_metadata`.
+        /// The custom metadata of the source asset. Keys are strings; each value is a string, a number, a boolean, or an array of strings.<br/>
+        /// The platform copies the custom metadata of the asset into this field. The copy has the following limits:<br/>
+        /// - Up to 50 key-value pairs. If the asset has more, the platform sorts the keys by Unicode code point and copies the first 50.<br/>
+        /// - Keys are strings of up to 128 characters.<br/>
+        /// - String values can have up to 8192 characters.<br/>
+        /// - The strings in an array can have up to 8192 characters in total.<br/>
+        /// The platform does not copy a key or a value over these limits. The asset keeps all its custom metadata.<br/>
+        /// The platform updates this field when the custom metadata of the asset changes. If you change a value on the asset to one over a limit, this field contains the earlier value. This field then differs from the asset.<br/>
+        /// To work with the custom metadata of the asset:<br/>
+        /// - To retrieve it, use the [`GET`](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method of the `/assets/{asset_id}` endpoint and read the `user_metadata` field of the response.<br/>
+        /// - To change it, use the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint.<br/>
+        /// To set custom metadata for the knowledge store item only, use `item_metadata`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? Metadata { get; set; }
 
         /// <summary>
-        /// The custom metadata of the knowledge store item. Keys are strings; each value is a string, a number, a boolean, or an array of strings. It is separate from the custom metadata of the source asset. A change to the custom metadata of the source asset does not change this field. The same key can have different values in the `metadata` field and in the `item_metadata` field. You set it when you create the item or change it with the [`PATCH`](/v1.3/api-reference/knowledge-store-items/update-item-metadata) or [`PUT`](/v1.3/api-reference/knowledge-store-items/replace-item-metadata) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}/item-metadata` endpoint. This field is absent when no item metadata has been set.
+        /// The custom metadata of the knowledge store item. Keys are strings; each value is a string, a number, a boolean, or an array of strings.<br/>
+        /// This field is separate from the custom metadata of the source asset:<br/>
+        /// - A change to the custom metadata of the source asset does not change this field.<br/>
+        /// - The same key can have different values in the `metadata` field and in the `item_metadata` field.<br/>
+        /// You set it when you create the item or change it with the [`PATCH`](/v1.3/api-reference/knowledge-store-items/update-item-metadata) or [`PUT`](/v1.3/api-reference/knowledge-store-items/replace-item-metadata) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}/item-metadata` endpoint.<br/>
+        /// This field is absent when no item metadata has been set.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("item_metadata")]
         public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? ItemMetadata { get; set; }
 
         /// <summary>
-        /// Metadata that the platform extracts from the whole item, as defined by the enrichment configuration of the knowledge store. It contains the properties that have the `granularity` keyword set to `video` for a video, or to `image` for an image. Properties that have the `granularity` keyword set to `shot` do not appear in this field. Keys are the property names; each value matches its property definition. A property with no value is omitted. The field is present only when the item is `ready` and contains at least one value.
+        /// Metadata that the platform extracts from the whole item, as defined by the enrichment configuration of the knowledge store.<br/>
+        /// It contains the properties that have the `granularity` keyword set to `video` for a video, or to `image` for an image. Properties that have the `granularity` keyword set to `shot` do not appear in this field.<br/>
+        /// Keys are the property names; each value matches its property definition. A property with no value is omitted.<br/>
+        /// The field is present only when the item is `ready` and contains at least one value.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enriched_metadata")]
         public object? EnrichedMetadata { get; set; }
@@ -103,13 +122,32 @@ namespace TwelveLabs
         /// always matches the item's top-level `asset_type` field.
         /// </param>
         /// <param name="metadata">
-        /// The custom metadata of the source asset. Keys are strings; each value is a string, a number, a boolean, or an array of strings. The platform updates it when the user-defined metadata of the asset changes. To change it, use the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint. To set custom metadata for the knowledge store item only, use `item_metadata`.
+        /// The custom metadata of the source asset. Keys are strings; each value is a string, a number, a boolean, or an array of strings.<br/>
+        /// The platform copies the custom metadata of the asset into this field. The copy has the following limits:<br/>
+        /// - Up to 50 key-value pairs. If the asset has more, the platform sorts the keys by Unicode code point and copies the first 50.<br/>
+        /// - Keys are strings of up to 128 characters.<br/>
+        /// - String values can have up to 8192 characters.<br/>
+        /// - The strings in an array can have up to 8192 characters in total.<br/>
+        /// The platform does not copy a key or a value over these limits. The asset keeps all its custom metadata.<br/>
+        /// The platform updates this field when the custom metadata of the asset changes. If you change a value on the asset to one over a limit, this field contains the earlier value. This field then differs from the asset.<br/>
+        /// To work with the custom metadata of the asset:<br/>
+        /// - To retrieve it, use the [`GET`](/v1.3/api-reference/upload-content/direct-uploads/retrieve) method of the `/assets/{asset_id}` endpoint and read the `user_metadata` field of the response.<br/>
+        /// - To change it, use the [`PATCH`](/v1.3/api-reference/upload-content/direct-uploads/update-user-metadata) method of the `/assets/{asset_id}/user-metadata` endpoint.<br/>
+        /// To set custom metadata for the knowledge store item only, use `item_metadata`.
         /// </param>
         /// <param name="itemMetadata">
-        /// The custom metadata of the knowledge store item. Keys are strings; each value is a string, a number, a boolean, or an array of strings. It is separate from the custom metadata of the source asset. A change to the custom metadata of the source asset does not change this field. The same key can have different values in the `metadata` field and in the `item_metadata` field. You set it when you create the item or change it with the [`PATCH`](/v1.3/api-reference/knowledge-store-items/update-item-metadata) or [`PUT`](/v1.3/api-reference/knowledge-store-items/replace-item-metadata) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}/item-metadata` endpoint. This field is absent when no item metadata has been set.
+        /// The custom metadata of the knowledge store item. Keys are strings; each value is a string, a number, a boolean, or an array of strings.<br/>
+        /// This field is separate from the custom metadata of the source asset:<br/>
+        /// - A change to the custom metadata of the source asset does not change this field.<br/>
+        /// - The same key can have different values in the `metadata` field and in the `item_metadata` field.<br/>
+        /// You set it when you create the item or change it with the [`PATCH`](/v1.3/api-reference/knowledge-store-items/update-item-metadata) or [`PUT`](/v1.3/api-reference/knowledge-store-items/replace-item-metadata) method of the `/knowledge-stores/{knowledge_store_id}/items/{item_id}/item-metadata` endpoint.<br/>
+        /// This field is absent when no item metadata has been set.
         /// </param>
         /// <param name="enrichedMetadata">
-        /// Metadata that the platform extracts from the whole item, as defined by the enrichment configuration of the knowledge store. It contains the properties that have the `granularity` keyword set to `video` for a video, or to `image` for an image. Properties that have the `granularity` keyword set to `shot` do not appear in this field. Keys are the property names; each value matches its property definition. A property with no value is omitted. The field is present only when the item is `ready` and contains at least one value.
+        /// Metadata that the platform extracts from the whole item, as defined by the enrichment configuration of the knowledge store.<br/>
+        /// It contains the properties that have the `granularity` keyword set to `video` for a video, or to `image` for an image. Properties that have the `granularity` keyword set to `shot` do not appear in this field.<br/>
+        /// Keys are the property names; each value matches its property definition. A property with no value is omitted.<br/>
+        /// The field is present only when the item is `ready` and contains at least one value.
         /// </param>
         /// <param name="createdAt">
         /// The date and time when the item was created, in the RFC 3339 format.

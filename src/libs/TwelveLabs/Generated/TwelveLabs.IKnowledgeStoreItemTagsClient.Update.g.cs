@@ -11,7 +11,7 @@ namespace TwelveLabs
         /// - A key set to `null` deletes that key.<br/>
         /// - A key set to an empty string (`""`) or an empty array (`[]`) is ignored.<br/>
         /// - A key you omit from the request keeps its current value.<br/>
-        /// The tag must keep at least one key in `tag_metadata`, and it holds up to 50 pairs. If the merged result breaks either limit, the request fails.
+        /// The tag must keep at least one key in the `tag_metadata` field, and it can have up to 50 pairs. If the merged result breaks either limit, the request fails.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="itemId"></param>
@@ -35,7 +35,7 @@ namespace TwelveLabs
         /// - A key set to `null` deletes that key.<br/>
         /// - A key set to an empty string (`""`) or an empty array (`[]`) is ignored.<br/>
         /// - A key you omit from the request keeps its current value.<br/>
-        /// The tag must keep at least one key in `tag_metadata`, and it holds up to 50 pairs. If the merged result breaks either limit, the request fails.
+        /// The tag must keep at least one key in the `tag_metadata` field, and it can have up to 50 pairs. If the merged result breaks either limit, the request fails.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="itemId"></param>
@@ -59,7 +59,7 @@ namespace TwelveLabs
         /// - A key set to `null` deletes that key.<br/>
         /// - A key set to an empty string (`""`) or an empty array (`[]`) is ignored.<br/>
         /// - A key you omit from the request keeps its current value.<br/>
-        /// The tag must keep at least one key in `tag_metadata`, and it holds up to 50 pairs. If the merged result breaks either limit, the request fails.
+        /// The tag must keep at least one key in the `tag_metadata` field, and it can have up to 50 pairs. If the merged result breaks either limit, the request fails.
         /// </summary>
         /// <param name="knowledgeStoreId"></param>
         /// <param name="itemId"></param>
@@ -71,7 +71,14 @@ namespace TwelveLabs
         /// The new end of the range, in seconds from the start of the video. It must be greater than `start_sec`. It must not exceed the duration of the video. Send `null` to clear the end, which turns a range into a single moment. Omit the field to keep the current end.
         /// </param>
         /// <param name="tagMetadata">
-        /// The keys to change. Send at least one key. Keys are strings of up to 128 characters. String values can have up to 8192 characters. Values can be a string, a number, a boolean, an array of strings, or `null` to delete the key. A key you omit keeps its current value. A nested object and an array containing anything other than strings are rejected. The tag holds up to 50 pairs after the merge. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
+        /// The keys to change. Send at least one key.<br/>
+        /// The metadata has the following limits:<br/>
+        /// - Keys are strings of up to 128 characters.<br/>
+        /// - String values can have up to 8192 characters.<br/>
+        /// - The strings in an array can have up to 8192 characters in total.<br/>
+        /// - The tag can have up to 50 pairs after the merge.<br/>
+        /// Values can be a string, a number, a boolean, an array of strings, or `null` to delete the key. A key you omit keeps its current value. A nested object and an array containing anything other than strings are rejected.<br/>
+        /// An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

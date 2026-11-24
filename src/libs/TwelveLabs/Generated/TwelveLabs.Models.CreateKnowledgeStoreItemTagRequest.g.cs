@@ -22,7 +22,14 @@ namespace TwelveLabs
         public double? EndSec { get; set; }
 
         /// <summary>
-        /// The custom metadata of the tag, as key-value pairs. Send at least one key. Up to 50 pairs. Keys are strings of up to 128 characters. String values can have up to 8192 characters. Values can be a string, a number, a boolean, or an array of strings. A nested object, an array containing anything other than strings, and a null value are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
+        /// The custom metadata of the tag, as key-value pairs. Send at least one key.<br/>
+        /// The metadata has the following limits:<br/>
+        /// - Up to 50 pairs.<br/>
+        /// - Keys are strings of up to 128 characters.<br/>
+        /// - String values can have up to 8192 characters.<br/>
+        /// - The strings in an array can have up to 8192 characters in total.<br/>
+        /// Values can be a string, a number, a boolean, or an array of strings. A nested object, an array containing anything other than strings, and a null value are rejected.<br/>
+        /// An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tag_metadata")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -41,7 +48,14 @@ namespace TwelveLabs
         /// The start of the tag, in seconds from the start of the video. It must be less than the duration of the video.
         /// </param>
         /// <param name="tagMetadata">
-        /// The custom metadata of the tag, as key-value pairs. Send at least one key. Up to 50 pairs. Keys are strings of up to 128 characters. String values can have up to 8192 characters. Values can be a string, a number, a boolean, or an array of strings. A nested object, an array containing anything other than strings, and a null value are rejected. An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
+        /// The custom metadata of the tag, as key-value pairs. Send at least one key.<br/>
+        /// The metadata has the following limits:<br/>
+        /// - Up to 50 pairs.<br/>
+        /// - Keys are strings of up to 128 characters.<br/>
+        /// - String values can have up to 8192 characters.<br/>
+        /// - The strings in an array can have up to 8192 characters in total.<br/>
+        /// Values can be a string, a number, a boolean, or an array of strings. A nested object, an array containing anything other than strings, and a null value are rejected.<br/>
+        /// An integer must fit in 53 bits (-9007199254740991 to 9007199254740991). Send a wider integer, or an identifier that must be preserved verbatim, as a string.
         /// </param>
         /// <param name="endSec">
         /// The end of the range, in seconds from the start of the video. It must be greater than `start_sec`. It must not exceed the duration of the video. Omit it, or send `null`, to tag a single moment.
