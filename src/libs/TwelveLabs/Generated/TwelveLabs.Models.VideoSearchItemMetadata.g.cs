@@ -15,7 +15,7 @@ namespace TwelveLabs
         public global::TwelveLabs.VideoSearchSystemMetadata? System { get; set; }
 
         /// <summary>
-        /// The custom metadata of the source asset. The `metadata` field of the knowledge store item contains the same metadata.
+        /// The custom metadata of the source asset. The platform copies the metadata into this field with limits on the number of pairs and on the length of keys and values. The `metadata` field of the knowledge store item contains the same metadata. For the limits, see the [`metadata`](/v1.3/api-reference/knowledge-store-items/retrieve#response.body.metadata) field on the **Retrieve a knowledge store item** page.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user")]
         public global::System.Collections.Generic.Dictionary<string, global::TwelveLabs.KnowledgeStoreMetadataValue>? User { get; set; }
@@ -39,7 +39,7 @@ namespace TwelveLabs
         /// System-generated metadata for the source video.
         /// </param>
         /// <param name="user">
-        /// The custom metadata of the source asset. The `metadata` field of the knowledge store item contains the same metadata.
+        /// The custom metadata of the source asset. The platform copies the metadata into this field with limits on the number of pairs and on the length of keys and values. The `metadata` field of the knowledge store item contains the same metadata. For the limits, see the [`metadata`](/v1.3/api-reference/knowledge-store-items/retrieve#response.body.metadata) field on the **Retrieve a knowledge store item** page.
         /// </param>
         /// <param name="item">
         /// The custom metadata of the knowledge store item. It is separate from the custom metadata of the source asset. A change to the custom metadata of the source asset does not change this field. The same key can have different values in the `user` field and in the `item` field. The `item_metadata` field of the knowledge store item contains the same metadata. This field is absent when no item metadata has been set.
