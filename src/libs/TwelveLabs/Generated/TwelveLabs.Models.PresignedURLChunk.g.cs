@@ -15,7 +15,7 @@ namespace TwelveLabs
         public int? ChunkIndex { get; set; }
 
         /// <summary>
-        /// The presigned URL for uploading this chunk. Each URL can only be used once and expires after 1 hour.
+        /// The presigned URL for uploading this chunk. Each URL can only be used once and expires at the time specified in its `expires_at` field.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         public string? Url { get; set; }
@@ -39,7 +39,7 @@ namespace TwelveLabs
         /// The index of this chunk.
         /// </param>
         /// <param name="url">
-        /// The presigned URL for uploading this chunk. Each URL can only be used once and expires after 1 hour.
+        /// The presigned URL for uploading this chunk. Each URL can only be used once and expires at the time specified in its `expires_at` field.
         /// </param>
         /// <param name="expiresAt">
         /// A string representing the date and time, in RFC 3339 format ("YYYY-MM-DDTHH:mm:ssZ"), when the resource will expire.

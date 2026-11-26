@@ -13,13 +13,13 @@ namespace TwelveLabs
         /// - Reporting completed chunks<br/>
         /// - Requesting additional presigned URLs<br/>
         /// - Retrieving the status of this upload session<br/>
-        /// This identifier remains valid for 24 hours from the time of creation.
+        /// The upload session expires at the time specified in the `expires_at` field. After expiration, you can no longer upload chunks, report chunks, or request presigned URLs for this session, and you must create a new upload session.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("upload_id")]
         public string? UploadId { get; set; }
 
         /// <summary>
-        /// The unique identifier for the asset being created. Store this value, as you'll need it to reference the asset in other API calls. Note that this identifier is reserved immediately, but the asset becomes available for other operations only after the upload is completed successfully.
+        /// The unique identifier for the asset being created. Store this value, as you'll need it to reference the asset in other API calls. Note that this identifier is reserved immediately, but the asset becomes available for other operations only after the upload is completed successfully. If the upload does not complete before the session expires, the platform sets the status of the asset to `failed`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("asset_id")]
         public string? AssetId { get; set; }
@@ -52,7 +52,7 @@ namespace TwelveLabs
         public int? TotalChunks { get; set; }
 
         /// <summary>
-        /// A string representing the date and time, in RFC 3339 format (“YYYY-MM-DDTHH:mm:ssZ”), when the upload URL will expire. Upload URLs expire 24 hours from their creation. After expiration, you cannot resume the upload, and you must create a new upload session.
+        /// A string representing the date and time, in RFC 3339 format (“YYYY-MM-DDTHH:mm:ssZ”), when the upload session expires. Upload sessions expire 12 hours after their creation. After expiration, you cannot resume the upload, and you must create a new upload session.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expires_at")]
         public global::System.DateTime? ExpiresAt { get; set; }
@@ -71,10 +71,10 @@ namespace TwelveLabs
         /// - Reporting completed chunks<br/>
         /// - Requesting additional presigned URLs<br/>
         /// - Retrieving the status of this upload session<br/>
-        /// This identifier remains valid for 24 hours from the time of creation.
+        /// The upload session expires at the time specified in the `expires_at` field. After expiration, you can no longer upload chunks, report chunks, or request presigned URLs for this session, and you must create a new upload session.
         /// </param>
         /// <param name="assetId">
-        /// The unique identifier for the asset being created. Store this value, as you'll need it to reference the asset in other API calls. Note that this identifier is reserved immediately, but the asset becomes available for other operations only after the upload is completed successfully.
+        /// The unique identifier for the asset being created. Store this value, as you'll need it to reference the asset in other API calls. Note that this identifier is reserved immediately, but the asset becomes available for other operations only after the upload is completed successfully. If the upload does not complete before the session expires, the platform sets the status of the asset to `failed`.
         /// </param>
         /// <param name="uploadUrls">
         /// An array containing the initial set of presigned URLs for uploading chunks. Each URL corresponds to a specific chunk.<br/>
@@ -90,7 +90,7 @@ namespace TwelveLabs
         /// The total number of chunks into which your file must be split. Calculated as: ceiling(`total_size` / `chunk_size`).
         /// </param>
         /// <param name="expiresAt">
-        /// A string representing the date and time, in RFC 3339 format (“YYYY-MM-DDTHH:mm:ssZ”), when the upload URL will expire. Upload URLs expire 24 hours from their creation. After expiration, you cannot resume the upload, and you must create a new upload session.
+        /// A string representing the date and time, in RFC 3339 format (“YYYY-MM-DDTHH:mm:ssZ”), when the upload session expires. Upload sessions expire 12 hours after their creation. After expiration, you cannot resume the upload, and you must create a new upload session.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

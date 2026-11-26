@@ -6,7 +6,7 @@ namespace TwelveLabs
     {
         /// <summary>
         /// List incomplete uploads<br/>
-        /// This method returns a list of all incomplete multipart upload sessions in your account.
+        /// This method returns a list of the incomplete multipart upload sessions in your account. The list includes sessions in the `active` and `expired` statuses and omits sessions in the `completed` and `failed` statuses. The platform periodically deletes expired sessions, after which they no longer appear in this list.
         /// </summary>
         /// <param name="page">
         /// Default Value: 1
@@ -24,7 +24,7 @@ namespace TwelveLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List incomplete uploads<br/>
-        /// This method returns a list of all incomplete multipart upload sessions in your account.
+        /// This method returns a list of the incomplete multipart upload sessions in your account. The list includes sessions in the `active` and `expired` statuses and omits sessions in the `completed` and `failed` statuses. The platform periodically deletes expired sessions, after which they no longer appear in this list.
         /// </summary>
         /// <param name="page">
         /// Default Value: 1

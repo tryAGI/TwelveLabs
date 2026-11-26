@@ -16,11 +16,9 @@ namespace TwelveLabs
         public required string UploadId { get; set; }
 
         /// <summary>
-        /// The status of your upload session. This field can take one of the following values:<br/>
-        /// - `active`: The upload session is currently in progress. Continue uploading and reporting the completion of each chunk.<br/>
-        /// - `completed`: The platform received the file. The asset is created in the `processing` status and is not yet ready to use. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status of the asset is `ready` before you use it.<br/>
-        /// - `failed`: The upload session failed. You must restart with a new session.<br/>
-        /// - `expired`: The upload session expired after 24 hours. You must create a new session.
+        /// The status of your upload session. This method does not return sessions in the `completed` or `failed` statuses, so this field takes one of the following values:<br/>
+        /// - `active`: The upload session is in progress. Continue uploading and reporting the completion of each chunk.<br/>
+        /// - `expired`: The upload session passed the time specified in its `expires_at` field. You must create a new session.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::TwelveLabs.JsonConverters.MultipartUploadStatusTypeJsonConverter))]
@@ -73,11 +71,9 @@ namespace TwelveLabs
         /// The unique identifier of your upload session.
         /// </param>
         /// <param name="status">
-        /// The status of your upload session. This field can take one of the following values:<br/>
-        /// - `active`: The upload session is currently in progress. Continue uploading and reporting the completion of each chunk.<br/>
-        /// - `completed`: The platform received the file. The asset is created in the `processing` status and is not yet ready to use. Poll the [Retrieve an asset](/v1.3/api-reference/upload-content/direct-uploads/retrieve) endpoint until the status of the asset is `ready` before you use it.<br/>
-        /// - `failed`: The upload session failed. You must restart with a new session.<br/>
-        /// - `expired`: The upload session expired after 24 hours. You must create a new session.
+        /// The status of your upload session. This method does not return sessions in the `completed` or `failed` statuses, so this field takes one of the following values:<br/>
+        /// - `active`: The upload session is in progress. Continue uploading and reporting the completion of each chunk.<br/>
+        /// - `expired`: The upload session passed the time specified in its `expires_at` field. You must create a new session.
         /// </param>
         /// <param name="totalSize">
         /// Total size of the file in bytes.
