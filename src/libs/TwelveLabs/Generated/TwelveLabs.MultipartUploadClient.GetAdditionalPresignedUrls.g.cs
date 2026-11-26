@@ -50,7 +50,7 @@ namespace TwelveLabs
         /// - The initial set of presigned URLs does not include URLs for all chunks.<br/>
         /// - You need to retry failed chunk uploads with new URLs.<br/>
         /// To specify which chunks need URLs, use the `start` and `count` parameters. For example, to generate URLs for chunks 21 to 30, use `start=21` and `count=10`.<br/>
-        /// The response will provide new URLs, each with a fresh expiration time of one hour.
+        /// The response contains a URL for each requested chunk. If a URL generated earlier for a chunk has more than one minute left, the platform returns that URL again. The URL keeps its original expiration time. Otherwise, the platform generates a new URL that expires one hour after the request. The `expires_at` field of each URL gives its expiration time.
         /// </summary>
         /// <param name="uploadId"></param>
         /// <param name="request"></param>
@@ -81,7 +81,7 @@ namespace TwelveLabs
         /// - The initial set of presigned URLs does not include URLs for all chunks.<br/>
         /// - You need to retry failed chunk uploads with new URLs.<br/>
         /// To specify which chunks need URLs, use the `start` and `count` parameters. For example, to generate URLs for chunks 21 to 30, use `start=21` and `count=10`.<br/>
-        /// The response will provide new URLs, each with a fresh expiration time of one hour.
+        /// The response contains a URL for each requested chunk. If a URL generated earlier for a chunk has more than one minute left, the platform returns that URL again. The URL keeps its original expiration time. Otherwise, the platform generates a new URL that expires one hour after the request. The `expires_at` field of each URL gives its expiration time.
         /// </summary>
         /// <param name="uploadId"></param>
         /// <param name="request"></param>
@@ -356,24 +356,24 @@ namespace TwelveLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // The request has failed.
+                            // The request is invalid.  - `parameter_invalid`: A parameter is invalid. For example:   - The upload session expired. A request made after expiration returns this error, even for a session that completed before it expired.   - The upload session completed or failed.   - The `start` or `count` parameter is out of range.
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
                                 global::System.Exception? __exception_400 = null;
-                                global::TwelveLabs.RequestAdditionalPresignedUrlsRequestBadRequestError? __value_400 = null;
+                                global::TwelveLabs.FlatErrorResponse? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = __content_400 is not { Length: > 0 } ? null : global::TwelveLabs.RequestAdditionalPresignedUrlsRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = __content_400 is not { Length: > 0 } ? null : global::TwelveLabs.FlatErrorResponse.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = __content_400 is not { Length: > 0 } ? null : global::TwelveLabs.RequestAdditionalPresignedUrlsRequestBadRequestError.FromJson(__content_400, JsonSerializerContext);
+                                        __value_400 = __content_400 is not { Length: > 0 } ? null : global::TwelveLabs.FlatErrorResponse.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -382,7 +382,7 @@ namespace TwelveLabs
                                 }
 
 
-                                throw global::TwelveLabs.ApiException<global::TwelveLabs.RequestAdditionalPresignedUrlsRequestBadRequestError>.Create(
+                                throw global::TwelveLabs.ApiException<global::TwelveLabs.FlatErrorResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_400 is { Length: > 0 } ? __content_400 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
@@ -607,7 +607,7 @@ namespace TwelveLabs
         /// - The initial set of presigned URLs does not include URLs for all chunks.<br/>
         /// - You need to retry failed chunk uploads with new URLs.<br/>
         /// To specify which chunks need URLs, use the `start` and `count` parameters. For example, to generate URLs for chunks 21 to 30, use `start=21` and `count=10`.<br/>
-        /// The response will provide new URLs, each with a fresh expiration time of one hour.
+        /// The response contains a URL for each requested chunk. If a URL generated earlier for a chunk has more than one minute left, the platform returns that URL again. The URL keeps its original expiration time. Otherwise, the platform generates a new URL that expires one hour after the request. The `expires_at` field of each URL gives its expiration time.
         /// </summary>
         /// <param name="uploadId"></param>
         /// <param name="start">

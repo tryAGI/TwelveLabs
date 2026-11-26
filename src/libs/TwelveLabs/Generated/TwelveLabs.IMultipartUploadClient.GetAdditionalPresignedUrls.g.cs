@@ -11,7 +11,7 @@ namespace TwelveLabs
         /// - The initial set of presigned URLs does not include URLs for all chunks.<br/>
         /// - You need to retry failed chunk uploads with new URLs.<br/>
         /// To specify which chunks need URLs, use the `start` and `count` parameters. For example, to generate URLs for chunks 21 to 30, use `start=21` and `count=10`.<br/>
-        /// The response will provide new URLs, each with a fresh expiration time of one hour.
+        /// The response contains a URL for each requested chunk. If a URL generated earlier for a chunk has more than one minute left, the platform returns that URL again. The URL keeps its original expiration time. Otherwise, the platform generates a new URL that expires one hour after the request. The `expires_at` field of each URL gives its expiration time.
         /// </summary>
         /// <param name="uploadId"></param>
         /// <param name="request"></param>
@@ -31,7 +31,7 @@ namespace TwelveLabs
         /// - The initial set of presigned URLs does not include URLs for all chunks.<br/>
         /// - You need to retry failed chunk uploads with new URLs.<br/>
         /// To specify which chunks need URLs, use the `start` and `count` parameters. For example, to generate URLs for chunks 21 to 30, use `start=21` and `count=10`.<br/>
-        /// The response will provide new URLs, each with a fresh expiration time of one hour.
+        /// The response contains a URL for each requested chunk. If a URL generated earlier for a chunk has more than one minute left, the platform returns that URL again. The URL keeps its original expiration time. Otherwise, the platform generates a new URL that expires one hour after the request. The `expires_at` field of each URL gives its expiration time.
         /// </summary>
         /// <param name="uploadId"></param>
         /// <param name="request"></param>
@@ -51,7 +51,7 @@ namespace TwelveLabs
         /// - The initial set of presigned URLs does not include URLs for all chunks.<br/>
         /// - You need to retry failed chunk uploads with new URLs.<br/>
         /// To specify which chunks need URLs, use the `start` and `count` parameters. For example, to generate URLs for chunks 21 to 30, use `start=21` and `count=10`.<br/>
-        /// The response will provide new URLs, each with a fresh expiration time of one hour.
+        /// The response contains a URL for each requested chunk. If a URL generated earlier for a chunk has more than one minute left, the platform returns that URL again. The URL keeps its original expiration time. Otherwise, the platform generates a new URL that expires one hour after the request. The `expires_at` field of each URL gives its expiration time.
         /// </summary>
         /// <param name="uploadId"></param>
         /// <param name="start">
